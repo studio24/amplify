@@ -1,0 +1,19 @@
+{
+  "name": "amplify",
+  "version": "1.0.0",
+  "description": "Front-end starter kit for Studio 24",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/studio24/amplify.git"
+  },
+  "author": "Studio 24",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/studio24/amplify/issues"
+  },
+  "homepage": "https://github.com/studio24/amplify#readme"
+}
