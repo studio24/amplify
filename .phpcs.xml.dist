@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+    <!-- see https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-Ruleset -->
+    <ruleset name="Studio 24">
+
+    <!-- One or more files and/or directories to check -->
+    <file>src</file>
+    <file>tests</file>
+
+    <!-- Ignore files that match this pattern -->
+    <!-- <exclude-pattern>path/to/*</exclude-pattern> -->
+
+    <!-- Command line options -->
+    <!-- see https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage -->
+    <arg name="basepath" value="."/>
+    <arg name="colors"/>
+    <arg name="parallel" value="75"/>
+    <arg value="np"/>
+
+    <!-- Coding standards rules to test for -->
+    <rule ref="PSR12" />
+
+    <!-- Require strict types declare statement at top of PHP files -->
+    <!-- Exclude tests from this rule -->
+    <!-- see https://www.php.net/language.types.declarations#language.types.declarations.strict -->
+    <rule ref="Generic.PHP.RequireStrictTypes">
+        <exclude-pattern>tests/*</exclude-pattern>
+    </rule>
+
+    <!-- Namespaces and classes MUST follow PSR-0.
+         This means each class is in a file by itself, and is in a namespace of at least one level: a top-level vendor name. -->
+    <!-- Exclude tests from this rule -->
+    <rule ref="PSR1.Classes.ClassDeclaration">
+        <exclude-pattern>tests/*</exclude-pattern>
+    </rule>
+
+</ruleset>

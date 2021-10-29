@@ -1,0 +1,9 @@
+{
+    "type": "project",
+    "require-dev": {
+        "overtrue/phplint": "^2.3",
+        "studio24/deployer-recipes": "^1.0",
+        "squizlabs/php_codesniffer": "^3.5",
+        "phpunit/phpunit": "^9.5"
+    }
+}

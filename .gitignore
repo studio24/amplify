@@ -1,0 +1,18 @@
+##
+# Add any project-specific ignore rules here
+# e.g. cache, package, build and file upload folders
+##
+
+# Composer
+/vendor
+
+# NPM
+node_modules
+npm-debug.log
+
+# CI
+.phpunit.result.cache
+.phplint-cache
+
+# SASS
+.sass_cache
