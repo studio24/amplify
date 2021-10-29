@@ -1,6 +1,6 @@
-# Client Site name
+# Amplify
 
-WordPress website for Site name. Hosted on AWS Single Cloud 1. 
+Work in progress
 
 ## Getting started
 
