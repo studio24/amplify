@@ -1,0 +1,55 @@
+/*------------------------------------*\
+    #Images
+\*------------------------------------*/
+
+img {
+
+	height: auto;
+	width: 100%;
+
+}
+
+.avatar {
+
+	border: solid 1px $w3c-blue;
+	border-radius: 50%;
+	height: rem(100);
+	overflow: hidden;
+	position: relative;
+	width: rem(100);
+
+	img {
+
+		height: auto;
+		margin-top: rem(-10);
+		width: 100%;
+
+	}
+
+}
+
+.avatar--med {
+
+	height: rem(50);
+	width: rem(50);
+
+	img {
+
+		margin-top: 0;
+
+	}
+
+}
+
+.avatar--small {
+
+	height: rem(32);
+	width: rem(32);
+
+	img {
+
+		margin-top: 0;
+
+	}
+
+}
