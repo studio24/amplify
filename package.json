@@ -1,30 +1,61 @@
 {
-  "name": "amplify",
-  "version": "1.0.0",
-  "description": "Front-end starter kit for Studio 24",
-  "directories": {
-    "doc": "docs",
-    "test": "tests"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/studio24/amplify.git"
-  },
-  "author": "Studio 24",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/studio24/amplify/issues"
-  },
-  "homepage": "https://github.com/studio24/amplify#readme",
-  "browserslist": [
-    ">0.1%",
-    "last 2 Chrome versions",
-    "last 2 Firefox versions",
-    "last 2 Edge versions",
-    "last 2 Samsung versions",
-    "Safari >= 9",
-    "ie 11",
-    "iOS >= 9",
-    "not dead"
-  ]
+	"name": "amplify",
+	"version": "1.0.0",
+	"description": "Front-end starter kit for Studio 24",
+	"main": "index.js",
+	"directories": {
+		"doc": "docs",
+		"test": "tests"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/studio24/amplify.git"
+	},
+	"author": "Studio 24",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/studio24/amplify/issues"
+	},
+	"homepage": "https://github.com/studio24/amplify#readme",
+	"browserslist": [
+		">0.1%",
+		"last 2 Chrome versions",
+		"last 2 Firefox versions",
+		"last 2 Edge versions",
+		"last 2 Samsung versions",
+		"Safari >= 9",
+		"ie 11",
+		"iOS >= 9",
+		"not dead"
+	],
+	"config": {
+		"from": "assets",
+		"to": "dist/assets"
+	},
+	"scripts": {
+		"sass-core-expanded": "sass --no-source-map --error-css --style=expanded ${npm_package_config_from}/styles/core.scss ${npm_package_config_to}/styles/core.css",
+		"postsass-core-expanded": "postcss ${npm_package_config_to}/styles/core.css --use=autoprefixer --output=${npm_package_config_to}/styles/core.css",
+		"sass-advanced-expanded": "sass --no-source-map --error-css --style=expanded ${npm_package_config_from}/styles/advanced.scss ${npm_package_config_to}/styles/advanced.css",
+		"postsass-advanced-expanded": "postcss ${npm_package_config_to}/styles/advanced.css --use=autoprefixer --output=${npm_package_config_to}/styles/advanced.css",
+		"sass-print-expanded": "sass --no-source-map --error-css --style=expanded ${npm_package_config_from}/styles/print.scss ${npm_package_config_to}/styles/print.css",
+		"postsass-print-expanded": "postcss ${npm_package_config_to}/styles/print.css --use=autoprefixer --output=${npm_package_config_to}/styles/print.css",
+		"sass-core-compressed": "sass --no-source-map --style=compressed ${npm_package_config_from}/styles/core.scss ${npm_package_config_to}/styles/core.min.css",
+		"postsass-core-compressed": "postcss ${npm_package_config_to}/styles/core.min.css --use=autoprefixer --output=${npm_package_config_to}/styles/core.min.css",
+		"sass-advanced-compressed": "sass --no-source-map --style=compressed ${npm_package_config_from}/styles/advanced.scss ${npm_package_config_to}/styles/advanced.min.css",
+		"postsass-advanced-compressed": "postcss ${npm_package_config_to}/styles/advanced.min.css --use=autoprefixer --output=${npm_package_config_to}/styles/advanced.min.css",
+		"sass-print-compressed": "sass --no-source-map --style=compressed ${npm_package_config_from}/styles/print.scss ${npm_package_config_to}/styles/print.min.css",
+		"postsass-print-compressed": "postcss ${npm_package_config_to}/styles/print.min.css --use=autoprefixer --output=${npm_package_config_to}/styles/print.min.css",
+		"prestyles": "shx cp ./node_modules/normalize.css/normalize.css ${npm_package_config_from}/styles/sass/30-base/_normalize.scss",
+		"styles": "npm-run-all --parallel sass-core-expanded sass-core-compressed sass-advanced-expanded sass-advanced-compressed sass-print-expanded sass-print-compressed"
+	},
+	"devDependencies": {
+		"autoprefixer": "^10.4.0",
+		"copyfiles": "^2.4.1",
+		"normalize.css": "^8.0.1",
+		"npm-run-all": "^4.1.5",
+		"postcss": "^8.3.11",
+		"postcss-cli": "^9.0.1",
+		"sass": "^1.43.4",
+		"shx": "^0.3.3"
+	}
 }
