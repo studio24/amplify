@@ -33,6 +33,12 @@
 		"to": "dist/assets"
 	},
 	"scripts": {
+		"fonts": "shx cp -r ${npm_package_config_from}/fonts/* ${npm_package_config_to}/fonts",
+		"preimages-png-opt": "shx cp -r ${npm_package_config_from}/images/*.png ${npm_package_config_to}/images",
+		"images-png-opt": "pngquant --strip --skip-if-larger ${npm_package_config_to}/images/*.png --ext .png --force",
+		"images-jpg-opt": "compress-images-tool --allowed jpg jpeg --quality 70 --directory ${npm_package_config_from}/images/ --save-in ${npm_package_config_to}/images",
+		"images-svg-opt": "svgo --folder=${npm_package_config_from}/svg --output=${npm_package_config_to}/svg",
+		"images": "npm-run-all --parallel images-png-opt images-jpg-opt images-svg-opt",
 		"sass-core-expanded": "sass --no-source-map --error-css --style=expanded ${npm_package_config_from}/styles/core.scss ${npm_package_config_to}/styles/core.css",
 		"postsass-core-expanded": "postcss ${npm_package_config_to}/styles/core.css --use=autoprefixer --output=${npm_package_config_to}/styles/core.css",
 		"sass-advanced-expanded": "sass --no-source-map --error-css --style=expanded ${npm_package_config_from}/styles/advanced.scss ${npm_package_config_to}/styles/advanced.css",
@@ -49,13 +55,16 @@
 		"styles": "npm-run-all --parallel sass-core-expanded sass-core-compressed sass-advanced-expanded sass-advanced-compressed sass-print-expanded sass-print-compressed"
 	},
 	"devDependencies": {
+		"@mole-inc/pngquant-bin": "^8.0.0",
 		"autoprefixer": "^10.4.0",
+		"compress-images-tool": "^1.0.9",
 		"copyfiles": "^2.4.1",
 		"normalize.css": "^8.0.1",
 		"npm-run-all": "^4.1.5",
 		"postcss": "^8.3.11",
 		"postcss-cli": "^9.0.1",
 		"sass": "^1.43.4",
-		"shx": "^0.3.3"
+		"shx": "^0.3.3",
+		"svgo": "^2.8.0"
 	}
 }
