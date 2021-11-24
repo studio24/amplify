@@ -61,7 +61,6 @@
 		"compress-images-tool": "^1.0.10",
 		"copyfiles": "^2.4.1",
 		"gifsicle": "^6.0.3",
-		"normalize.css": "^8.0.1",
 		"npm-run-all": "^4.1.5",
 		"postcss": "^8.3.11",
 		"postcss-cli": "^9.0.1",
@@ -71,6 +70,7 @@
 	},
 	"dependencies": {
 		"accessible-autocomplete": "^2.0.3",
-		"fontfaceobserver": "^2.1.0"
+		"fontfaceobserver": "^2.1.0",
+		"normalize.css": "^8.0.1"
 	}
 }
