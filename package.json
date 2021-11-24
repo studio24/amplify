@@ -67,7 +67,9 @@
 		"postcss-cli": "^9.0.1",
 		"sass": "^1.43.4",
 		"shx": "^0.3.3",
-		"svgo": "^2.8.0"
+		"svgo": "^2.8.0",
+		"webpack": "^5.64.3",
+		"webpack-cli": "^4.9.1"
 	},
 	"dependencies": {
 		"accessible-autocomplete": "^2.0.3",
