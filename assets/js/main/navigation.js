@@ -19,11 +19,6 @@ var navigation = (function () {
 		};
 	}
 
-	// Helper: Check whether element exists
-	function exists(elem) {
-		return (elem != null && (elem.length >= 0 || elem.innerHTML.length >= 0) )
-	}
-
 	let nav = document.querySelector('.global-nav__inner ul');
 	let mobileNavToggler = document.querySelector('[data-trigger="mobile-nav"]');
 	mobileNavToggler.style = "";
