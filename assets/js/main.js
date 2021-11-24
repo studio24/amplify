@@ -1,3 +1,4 @@
+import "./main/_exists.helper";
 import {cardEnhancement} from "./main/cards";
 import {collapsibles} from "./main/collapsibles";
 import {disclosureWidget} from "./main/disclosure-widget";
