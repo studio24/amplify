@@ -53,9 +53,13 @@
 		"postsass-print-compressed": "postcss ${npm_package_config_to}/styles/print.min.css --use=autoprefixer --output=${npm_package_config_to}/styles/print.min.css",
 		"prestyles": "shx cp ./node_modules/normalize.css/normalize.css ${npm_package_config_from}/styles/sass/30-base/_normalize.scss",
 		"styles": "npm-run-all --parallel sass-core-expanded sass-core-compressed sass-advanced-expanded sass-advanced-compressed sass-print-expanded sass-print-compressed",
+		"webpack-expanded": "webpack --config webpack.config.js",
+		"webpack-compressed": "webpack --config webpack.config.min.js",
 		"prejs": "copyfiles -f ./node_modules/fontfaceobserver/fontfaceobserver.js ./node_modules/tabbyjs/dist/js/* ${npm_package_config_from}/js/libraries",
+		"js-libraries": "shx cp -r ${npm_package_config_from}/js/libraries/* ${npm_package_config_to}/js/libraries/",
+		"js": "npm-run-all --parallel webpack-expanded webpack-compressed js-libraries",
 		"prebuild": "shx rm -rf ${npm_package_config_to} && shx mkdir -p ${npm_package_config_to}/fonts && shx mkdir ${npm_package_config_to}/images && shx mkdir ${npm_package_config_to}/js && shx mkdir ${npm_package_config_to}/js/libraries && shx mkdir ${npm_package_config_to}/styles && shx mkdir ${npm_package_config_to}/svg",
-		"build": "npm-run-all --parallel fonts images styles"
+		"build": "npm-run-all --parallel fonts images js styles"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.0",

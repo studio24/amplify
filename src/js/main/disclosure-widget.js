@@ -16,7 +16,7 @@ var disclosureWidget = (function () {
 
 	}
 
-	if (toggleButtonArray.length > 0) {
+	if (exists(toggleButtonArray)) {
 
 		toggleButtonArray.forEach(function (btn) {
 

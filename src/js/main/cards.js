@@ -7,7 +7,7 @@ var cardEnhancement = (function () {
 
 	var cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
 
-	if (cardsArray) {
+	if (exists(cardsArray)) {
 
 		// Loop through cards adding a click event and identifying the main link
 		cardsArray.forEach(function (card, index) {

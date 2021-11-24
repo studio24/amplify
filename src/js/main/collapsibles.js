@@ -8,7 +8,7 @@ var collapsibles = (function () {
 	// Get all the collapsible containers
 	var collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsibles"]'));
 
-	if (collapseArray) {
+	if (exists(collapseArray)) {
 
 		// Loop through containers
 		collapseArray.forEach(function (item) {
