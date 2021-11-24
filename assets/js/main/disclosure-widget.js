@@ -25,31 +25,6 @@ var disclosureWidget = (function () {
 
 		});
 
-		if (document.body.classList.contains('group')) {
-
-			// Media query event handler
-			let mq = window.matchMedia('(min-width: 64em)');
-			mq.addListener(WidthChange);
-			WidthChange(mq);
-
-			// Media query change
-			function WidthChange(mq) {
-
-				var toggleButton = document.querySelector('[data-toggle="true"]');
-
-				if (!(mq.matches)) {
-
-					toggleButton.setAttribute('aria-expanded', 'false');
-
-				} else {
-
-					toggleButton.removeAttribute('aria-expanded');
-
-				}
-			}
-
-		}
-
 		document.addEventListener('click', function (event) {
 
 			if (event.target.matches('[data-toggle="true"]')) {
