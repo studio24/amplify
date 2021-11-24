@@ -52,7 +52,9 @@
 		"sass-print-compressed": "sass --no-source-map --style=compressed ${npm_package_config_from}/styles/print.scss ${npm_package_config_to}/styles/print.min.css",
 		"postsass-print-compressed": "postcss ${npm_package_config_to}/styles/print.min.css --use=autoprefixer --output=${npm_package_config_to}/styles/print.min.css",
 		"prestyles": "shx cp ./node_modules/normalize.css/normalize.css ${npm_package_config_from}/styles/sass/30-base/_normalize.scss",
-		"styles": "npm-run-all --parallel sass-core-expanded sass-core-compressed sass-advanced-expanded sass-advanced-compressed sass-print-expanded sass-print-compressed"
+		"styles": "npm-run-all --parallel sass-core-expanded sass-core-compressed sass-advanced-expanded sass-advanced-compressed sass-print-expanded sass-print-compressed",
+		"prejs": "copyfiles -f ./node_modules/fontfaceobserver/fontfaceobserver.js ${npm_package_config_from}/js/libraries",
+		"build": "npm-run-all --parallel fonts images styles"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.0",
@@ -66,5 +68,9 @@
 		"sass": "^1.43.4",
 		"shx": "^0.3.3",
 		"svgo": "^2.8.0"
+	},
+	"dependencies": {
+		"accessible-autocomplete": "^2.0.3",
+		"fontfaceobserver": "^2.1.0"
 	}
 }
