@@ -53,7 +53,7 @@
 		"postsass-print-compressed": "postcss ${npm_package_config_to}/styles/print.min.css --use=autoprefixer --output=${npm_package_config_to}/styles/print.min.css",
 		"prestyles": "shx cp ./node_modules/normalize.css/normalize.css ${npm_package_config_from}/styles/sass/30-base/_normalize.scss",
 		"styles": "npm-run-all --parallel sass-core-expanded sass-core-compressed sass-advanced-expanded sass-advanced-compressed sass-print-expanded sass-print-compressed",
-		"prejs": "copyfiles -f ./node_modules/fontfaceobserver/fontfaceobserver.js ${npm_package_config_from}/js/libraries",
+		"prejs": "copyfiles -f ./node_modules/fontfaceobserver/fontfaceobserver.js ./node_modules/tabbyjs/dist/js/* ${npm_package_config_from}/js/libraries",
 		"build": "npm-run-all --parallel fonts images styles"
 	},
 	"devDependencies": {
@@ -71,6 +71,7 @@
 	"dependencies": {
 		"accessible-autocomplete": "^2.0.3",
 		"fontfaceobserver": "^2.1.0",
-		"normalize.css": "^8.0.1"
+		"normalize.css": "^8.0.1",
+		"tabbyjs": "^12.0.3"
 	}
 }
