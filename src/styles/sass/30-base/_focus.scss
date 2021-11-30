@@ -7,6 +7,10 @@
 	/**
 	Ideally we would specify the background-color here to cover all circumstances.
 	Unfortunately, this does not work at all well for Internet Explorer, so we can't.
+
+	High contrast themes tend to eliminate background-color. If no border is set, we
+	need to apply a transparent outline to maintain the button shape. The negative
+	outline-offset moves the outline inside the perimeter to behaves like a border.
 	 */
 	outline: 2px solid transparent;
 	outline-offset: -2px;

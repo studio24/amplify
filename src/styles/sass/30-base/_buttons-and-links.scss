@@ -1,0 +1,149 @@
+/*------------------------------------*\
+    #Buttons and links
+
+    1. Don't rely on colour alone for styling links - see
+    https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html
+
+    2. Remove outline on focused links when they're also active/hovered.
+
+    3. Remove text underline from links styled as buttons.
+
+    4. Prevent `.button` going full-width if a child of a flex column.
+
+    5. Meet WCAG AAA target size requirements - see
+    https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
+\*------------------------------------*/
+
+a:not([class]),
+a.with-icon--before,
+a.with-icon--after {
+	border: none;
+	color: $link-color;
+	cursor: pointer;
+	text-decoration: underline; /* 1 */
+	text-decoration-skip-ink: auto; // Not supported by Safari
+	text-underline-offset: 0.25em; // Supported by Safari
+
+	&:visited {
+		color: $link-color--visited;
+	}
+
+	&:hover {
+		color: $link-color--hover;
+		outline-width: 0; /* 2 */
+	}
+
+	&:active {
+		color: $black;
+		outline-width: 0; /* 2 */
+	}
+
+	&:focus {
+		background-color: $focus-color;
+		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+		color: $black;
+		text-decoration: none;
+	}
+}
+
+a.button {
+	cursor: pointer;
+	text-decoration: none; /* 3 */
+}
+
+button,
+a.button,
+input[type="submit"].button {
+	align-items: center;
+	align-self: start; /* 4 */
+	background-color: $link-color;
+	border: solid 2px $link-color;
+	border-radius: 8px;
+	color: $white;
+	display: inline-flex;
+	justify-content: center;
+	line-height: inherit;
+	min-width: 10ch;
+	min-height: rem(44); /* 5 */
+	padding: 0.25em 0.75em;
+	text-align: center;
+
+	&:hover {
+		background-color: $link-color--hover;
+		border-color: $link-color--hover;
+		color: $white;
+	}
+
+	&:active,
+	&:focus {
+		color: $black;
+		background-color: $focus-color;
+		background-image: none;
+		border-color: $black;
+	}
+}
+
+// Full-width buttons
+.button--wide.button--wide {
+	width: 100%;
+}
+
+// Alternative button style with a visible border
+.button--alt.button--alt {
+	background-color: transparent;
+	color: $link-color;
+
+	&:hover {
+		background-color: $light-blue;
+		color: $link-color--hover;
+	}
+
+	&:active,
+	&:focus {
+		background-color: $focus-color;
+		color: $black;
+		outline: 2px solid $black;
+		outline-offset: -3px;
+	}
+}
+
+// For buttons with no visible background or border
+.button--ghost.button--ghost {
+	background-color: transparent;
+	border-color: transparent;
+	color: $black;
+	min-width: rem(44); /* 5 */
+	padding: 0;
+
+	&:hover {
+		background-color: transparent;
+		border-color: transparent;
+	}
+
+	&:active,
+	&:focus {
+		color: $black;
+		background-color: $focus-color;
+		background-image: none;
+		border-color: $black;
+	}
+}
+
+// Disabled buttons
+button[disabled],
+.button[disabled],
+.button.js-disabled {
+	background-color: $twiki-gray;
+	border-color: $twiki-gray;
+	box-shadow: none;
+	color: #303030;
+	cursor: not-allowed;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: $twiki-gray;
+		color: #303030;
+		outline: 0;
+	}
+}

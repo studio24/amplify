@@ -3,11 +3,9 @@
 \*------------------------------------*/
 
 svg {
-
 	fill: currentColor;
 	height: auto;
 	width: 100%;
-
 }
 
 
@@ -19,10 +17,9 @@ size to text size.
  */
 .icon {
 
-	height: 1em;
+	height: 0.75em;
 	height: 1cap; /* 1 */
-	vertical-align: baseline;
-	width: 1em;
+	width: 0.75em;
 	width: 1cap; /* 1 */
 
 }
@@ -34,36 +31,15 @@ size to text size.
 
 }
 
-.icon--beta {
-
-	height: rem(39);
-	width: rem(61);
-
-}
-
 
 /**
-Use the `with-icon` class on the SVG's parent, if there
-is a need to specify the spacing between text and icon.
-Pay attention to whether the icon is before the text or after.
+Use the `with-icon--before` or `with-icon--after` class
+on the SVG's parent if there is a need to specify the spacing
+between text and icon. Pay attention to whether the icon comes
+before the text or after.
 
-2. Logical property creates appropriate spacing irrespective of text direction
+2. Logical property creates spacing irrespective of text direction
  */
-
-.with-icon--before,
-.with-icon--after,
-.with-icon--larger {
-
-	align-items: baseline;
-	display: inline-flex;
-
-}
-
-.with-icon--larger {
-
-	align-items: center;
-
-}
 
 .with-icon--before {
 
