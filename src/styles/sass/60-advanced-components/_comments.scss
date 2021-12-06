@@ -5,7 +5,7 @@
 .button[data-replylink],
 #js-cancel-reply {
 
-	@include txt-pluto;
+	@include text-14;
 
 	text-decoration: underline; /* 1 */
 	text-decoration-skip-ink: auto; // Not supported by Safari

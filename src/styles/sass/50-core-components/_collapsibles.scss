@@ -31,13 +31,13 @@
 
 [data-heading="collapsibles"] h3 {
 
-	@include txt-saturn;
+	@include text-20;
 
 }
 
 [data-heading="collapsibles"] > * {
 
-	@include txt-pluto;
+	@include text-14;
 
 	display: block;
 	font-weight: normal;

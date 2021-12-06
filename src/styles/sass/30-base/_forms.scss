@@ -75,7 +75,7 @@ Group inputs to line up side-by-side
 
 .field-legend {
 
-	@include txt-saturn;
+	@include text-20;
 
 	font-weight: bold;
 
@@ -119,7 +119,7 @@ label,
 
 .field-hint {
 
-	@include txt-pluto;
+	@include text-14;
 
 	color: $storm-gray;
 	margin-bottom: 0.25rem;
@@ -933,7 +933,7 @@ Progress bar
 
 	> span {
 
-		@include txt-pluto;
+		@include text-14;
 
 		padding: rem(10);
 

@@ -313,7 +313,7 @@
 
 	> a {
 
-		@include txt-jupiter;
+		@include text-25;
 
 		color: $off-black;
 		font-weight: $emphasis;
@@ -354,7 +354,7 @@
 
 .global-nav__inner .nav__submenu__intro__text {
 
-	@include txt-saturn;
+	@include text-20;
 
 	display: none;
 
@@ -390,7 +390,7 @@
 
 .global-nav__inner [data-trigger="mobile-back"] {
 
-	@include txt-jupiter;
+	@include text-25;
 
 	border-bottom: solid 1px $border-color;
 	border-radius: 0;
