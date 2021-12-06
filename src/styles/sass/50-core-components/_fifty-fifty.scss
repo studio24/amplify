@@ -4,7 +4,7 @@
 
 .component--fifty-fifty {
 
-	@include mq($bp-tab-small) {
+	@include mq($bp-tab-portrait) {
 
 		align-items: flex-start;
 		display: flex;
@@ -17,7 +17,7 @@
 
 		margin-top: 1rem;
 
-		@include mq($bp-tab-small) {
+		@include mq($bp-tab-portrait) {
 
 			margin-top: 0;
 
@@ -31,13 +31,13 @@
 
 	@include stack(rem(30));
 
-	@include mq($bp-tab-small) {
+	@include mq($bp-tab-portrait) {
 
 		flex-basis: 52%;
 
 	}
 
-	@include mq($bp-tab-large) {
+	@include mq($bp-tab-landscape) {
 
 		flex-basis: 45%;
 
@@ -60,7 +60,7 @@
 .component--fifty-fifty .image,
 .component--fifty-fifty .illustration {
 
-	@include mq($bp-tab-small) {
+	@include mq($bp-tab-portrait) {
 
 		flex-basis: 45%;
 
@@ -82,7 +82,7 @@
 
 	padding-bottom: 66.67%;
 
-	@include mq($bp-tab-small) {
+	@include mq($bp-tab-portrait) {
 
 		padding-bottom: 100%;
 
@@ -100,7 +100,7 @@
 
 	figcaption {
 
-		@include mq($bp-tab-small) {
+		@include mq($bp-tab-portrait) {
 
 			order: -1;
 

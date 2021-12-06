@@ -14,7 +14,7 @@
 
 		max-width: none;
 
-		@include mq($bp-tab-large) {
+		@include mq($bp-tab-landscape) {
 
 			display: grid;
 			grid-column-gap: 7.857%;
@@ -31,7 +31,7 @@
 
 	.group .content h1 {
 
-		@include mq($bp-tab-large) {
+		@include mq($bp-tab-landscape) {
 
 			grid-area: title;
 
@@ -41,7 +41,7 @@
 
 	.group .content #group-nav {
 
-		@include mq($bp-tab-large) {
+		@include mq($bp-tab-landscape) {
 
 			grid-area: nav;
 
@@ -51,7 +51,7 @@
 
 	.group .content .details {
 
-		@include mq($bp-tab-large) {
+		@include mq($bp-tab-landscape) {
 
 			grid-area: details;
 
@@ -66,7 +66,7 @@
 
 	margin-bottom: rem(33);
 
-	@include mq($bp-tab-large) {
+	@include mq($bp-tab-landscape) {
 
 		border-inline-start: solid 1px $border-color;
 		margin-bottom: 0;
@@ -85,7 +85,7 @@
 
 .group [data-toggle="true"] {
 
-	@include mq($bp-tab-large) {
+	@include mq($bp-tab-landscape) {
 
 		display: none;
 

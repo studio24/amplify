@@ -4,7 +4,7 @@
 
 .component--evangelists {
 
-	@include mq($bp-tab-large) {
+	@include mq($bp-tab-landscape) {
 
 		display: flex;
 		flex-wrap: wrap;
@@ -16,7 +16,7 @@
 
 		margin-top: 1rem;
 
-		@include mq($bp-tab-large) {
+		@include mq($bp-tab-landscape) {
 
 			margin-top: 0;
 
@@ -30,7 +30,7 @@
 
 	@include stack;
 
-	@include mq($bp-tab-large) {
+	@include mq($bp-tab-landscape) {
 
 		flex-basis: 45%;
 
@@ -52,7 +52,7 @@
 	overflow: hidden;
 	padding-top: rem(24);
 
-	@include mq($bp-tab-large) {
+	@include mq($bp-tab-landscape) {
 
 		flex-basis: 45%;
 

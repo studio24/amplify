@@ -32,7 +32,7 @@
 
 .pagination__list {
 
-	@include mq($bp-tab-large) {
+	@include mq($bp-tab-landscape) {
 
 		justify-content: flex-end;
 

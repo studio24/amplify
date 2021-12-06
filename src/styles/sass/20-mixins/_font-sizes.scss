@@ -7,7 +7,7 @@
 	font-size: rem(34);
 	line-height: calc(43 / 34);
 
-	@include mq($bp-tab-small) {
+	@include mq($bp-tab-portrait) {
 
 		font-size: rem(60);
 		line-height: calc(72 / 60);
@@ -22,7 +22,7 @@
 	font-size: rem(33);
 	line-height: calc(43 / 33);
 
-	@include mq($bp-tab-small) {
+	@include mq($bp-tab-portrait) {
 
 		font-size: rem(42);
 		line-height: calc(58.8 / 42);
@@ -37,7 +37,7 @@
 	font-size: rem(27);
 	line-height: calc(33.6 / 27);
 
-	@include mq($bp-tab-small) {
+	@include mq($bp-tab-portrait) {
 
 		font-size: rem(34);
 		line-height: calc(43 / 34);

@@ -108,7 +108,7 @@
 
 	flex-basis: 100%;
 
-	@include mq($bp-tab-small) {
+	@include mq($bp-tab-portrait) {
 
 		flex-basis: auto;
 

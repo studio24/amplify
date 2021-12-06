@@ -23,7 +23,7 @@ main,
 
 	margin-top: rem(80);
 
-	@include mq($bp-tab-small) {
+	@include mq($bp-tab-portrait) {
 
 		margin-top: rem(100);
 

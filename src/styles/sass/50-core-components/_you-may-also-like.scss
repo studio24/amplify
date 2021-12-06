@@ -69,7 +69,7 @@
 	li:nth-last-child(n+4):nth-last-child(-n+4):first-child,
 	li:nth-last-child(n+4):nth-last-child(-n+4):first-child ~ li {
 
-		@include mq($bp-tab-large) {
+		@include mq($bp-tab-landscape) {
 
 			flex-basis: 25%;
 

@@ -48,7 +48,7 @@
 		display: flex;
 		flex-wrap: wrap;
 
-		@include mq($bp-tab-large) {
+		@include mq($bp-tab-landscape) {
 
 			margin-inline-start: auto;
 

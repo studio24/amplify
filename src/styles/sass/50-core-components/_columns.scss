@@ -19,7 +19,7 @@
 
 .component--columns > ul {
 
-	@include mq($bp-tab-small) {
+	@include mq($bp-tab-portrait) {
 
 		display: flex;
 		flex-wrap: wrap;
@@ -31,7 +31,7 @@
 
 		margin-top: rem(20);
 
-		@include mq($bp-tab-small) {
+		@include mq($bp-tab-portrait) {
 
 			margin-top: 0;
 
@@ -45,7 +45,7 @@
 
 	> ul > li {
 
-		@include mq($bp-tab-small) {
+		@include mq($bp-tab-portrait) {
 
 			flex: 1 0 33%;
 			max-width: 50%;
@@ -59,7 +59,7 @@
 	li:nth-last-child(n+4):nth-last-child(-n+4):first-child,
 	li:nth-last-child(n+4):nth-last-child(-n+4):first-child ~ li {
 
-		@include mq($bp-tab-small) {
+		@include mq($bp-tab-portrait) {
 
 			flex-basis: 50%;
 
@@ -73,7 +73,7 @@
 
 	> ul > li {
 
-		@include mq($bp-tab-small) {
+		@include mq($bp-tab-portrait) {
 
 			flex: 1 0 50%;
 			max-width: 50%;

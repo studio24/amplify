@@ -14,7 +14,7 @@
 
 		max-width: none;
 
-		@include mq($bp-tab-large) {
+		@include mq($bp-tab-landscape) {
 
 			display: grid;
 			grid-column-gap: 7.857%;
@@ -27,7 +27,7 @@
 
 	.default .content article {
 
-		@include mq($bp-tab-large) {
+		@include mq($bp-tab-landscape) {
 
 			grid-area: article;
 
@@ -37,7 +37,7 @@
 
 	.default .content .related {
 
-		@include mq($bp-tab-large) {
+		@include mq($bp-tab-landscape) {
 
 			grid-area: related;
 
@@ -59,7 +59,7 @@
 
 	.default .related {
 
-		@include mq($bp-tab-large) {
+		@include mq($bp-tab-landscape) {
 
 			margin-top: 0;
 
@@ -71,7 +71,7 @@
 
 .default .related__inner {
 
-	@include mq($bp-tab-large) {
+	@include mq($bp-tab-landscape) {
 
 		border-inline-start: solid 1px $border-color;
 		padding-left: rem(20);

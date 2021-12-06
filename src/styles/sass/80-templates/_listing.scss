@@ -136,7 +136,7 @@
 
 	.l-sidebar .not-sidebar > div {
 
-		@include mq($bp-tab-large) {
+		@include mq($bp-tab-landscape) {
 
 			margin-bottom: rem(40);
 
@@ -238,7 +238,7 @@
 		height: rem(100);
 		width: rem(100);
 
-		@include mq($bp-tab-large) {
+		@include mq($bp-tab-landscape) {
 
 			height: rem(200);
 			width: rem(200);

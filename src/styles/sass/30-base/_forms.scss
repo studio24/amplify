@@ -830,7 +830,7 @@ Progress bar
 
 	margin-bottom: rem(30);
 
-	@include mq($bp-tab-small) {
+	@include mq($bp-tab-portrait) {
 
 		display: flex;
 		flex-wrap: wrap;
@@ -853,7 +853,7 @@ Progress bar
 		position: absolute;
 		width: rem(3);
 
-		@include mq($bp-tab-small) {
+		@include mq($bp-tab-portrait) {
 
 			bottom: auto;
 			height: rem(3);
@@ -870,7 +870,7 @@ Progress bar
 
 		margin-top: rem(20);
 
-		@include mq($bp-tab-small) {
+		@include mq($bp-tab-portrait) {
 
 			margin-top: 0;
 
@@ -887,7 +887,7 @@ Progress bar
 		left: auto;
 		right: rem(19);
 
-		@include mq($bp-tab-small) {
+		@include mq($bp-tab-portrait) {
 
 			left: auto;
 			right: 50%;
@@ -923,7 +923,7 @@ Progress bar
 	align-items: center;
 	display: flex;
 
-	@include mq($bp-tab-small) {
+	@include mq($bp-tab-portrait) {
 
 		flex-direction: column;
 		padding-top: rem(10);
@@ -937,7 +937,7 @@ Progress bar
 
 		padding: rem(10);
 
-		@include mq($bp-tab-small) {
+		@include mq($bp-tab-portrait) {
 
 			width: rem(150);
 
@@ -957,7 +957,7 @@ Progress bar
 	justify-content: center;
 	width: rem(44);
 
-	@include mq($bp-tab-small) {
+	@include mq($bp-tab-portrait) {
 
 		box-shadow: 0 0 0 rem(10) $white;
 
