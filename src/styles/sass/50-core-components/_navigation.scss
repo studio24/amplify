@@ -133,7 +133,7 @@ li.top-nav-item + li.top-nav-item {
 
 		&::before {
 
-			background-color: $w3c-blue;
+			background-color: $blue;
 			bottom: 0;
 			content:'';
 			display: none;
@@ -221,7 +221,7 @@ li.top-nav-item + li.top-nav-item {
 
 		&::before {
 
-			background-color: $w3c-blue;
+			background-color: $blue;
 			bottom: rem(-2);
 			content:'';
 			display: none;

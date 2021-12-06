@@ -647,7 +647,7 @@ show all available options outright, rather than hide them behind a <select>
 	// Input with hover
 	> * > *:hover label {
 
-		background-color: $light-blue;
+		background-color: $blue;
 
 	}
 
@@ -902,7 +902,7 @@ Progress bar
 
 	&::after {
 
-		background-color: $teal-green;
+		background-color: $olive;
 
 	}
 
@@ -967,15 +967,15 @@ Progress bar
 
 .progress-step__marker.complete {
 
-	background-color: $teal-green;
-	border-color: $teal-green;
+	background-color: $olive;
+	border-color: $olive;
 	color: $white;
 	position: relative;
 
 	&::before,
 	&::after {
 
-		background-color: $teal-green;
+		background-color: $olive;
 		content: '';
 		position: absolute;
 
