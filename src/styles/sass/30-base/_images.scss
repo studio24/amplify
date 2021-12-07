@@ -3,15 +3,14 @@
 \*------------------------------------*/
 
 img {
-
 	display: block;
 	height: auto;
 	width: 100%;
-
 }
 
-.avatar {
 
+.avatar {
+	background-color: $white;
 	border: solid 1px $blue;
 	border-radius: 50%;
 	height: rem(100);
@@ -20,37 +19,28 @@ img {
 	width: rem(100);
 
 	img {
-
 		height: auto;
 		margin-top: rem(-10);
 		width: 100%;
-
 	}
-
 }
 
-.avatar--med {
 
+.avatar--med {
 	height: rem(50);
 	width: rem(50);
 
 	img {
-
 		margin-top: 0;
-
 	}
-
 }
 
-.avatar--small {
 
+.avatar--small {
 	height: rem(32);
 	width: rem(32);
 
 	img {
-
 		margin-top: 0;
-
 	}
-
 }
