@@ -13,12 +13,10 @@
 @import "sass/00-settings/typesetting";
 
 
-
 /*------------------------------------*\
     #Functions
 \*------------------------------------*/
 @import "sass/10-functions/units";
-
 
 
 /*------------------------------------*\
@@ -29,31 +27,29 @@
 @import "sass/20-mixins/stack";
 
 
-
 /*------------------------------------*\
     #Base
 
     Normalize comes first for the cascade
 \*------------------------------------*/
 @import "sass/30-base/normalize";
-@import "sass/30-base/animation";
-@import "sass/30-base/quotes";
-@import "sass/30-base/body";
 @import "sass/30-base/box-sizing";
-@import "sass/30-base/buttons-and-links";
-@import "sass/30-base/focus";
-@import "sass/30-base/forms";
+@import "sass/30-base/body";
+@import "sass/30-base/typography";
 @import "sass/30-base/hide-and-show";
 @import "sass/30-base/html-elements";
+@import "sass/30-base/buttons-and-links";
+@import "sass/30-base/skip-link";
+@import "sass/30-base/focus";
+@import "sass/30-base/details-and-summary";
+@import "sass/30-base/forms";
 @import "sass/30-base/icons";
 @import "sass/30-base/images";
 @import "sass/30-base/lists";
-@import "sass/30-base/skip-link";
-@import "sass/30-base/details-and-summary";
+@import "sass/30-base/quotes";
 @import "sass/30-base/social";
 @import "sass/30-base/tables";
-@import "sass/30-base/typography";
-
+@import "sass/30-base/animation";
 
 
 /*------------------------------------*\
@@ -66,7 +62,6 @@
 @import "sass/40-layouts/frame";
 @import "sass/40-layouts/sidebar";
 @import "sass/40-layouts/switcher";
-
 
 
 /*------------------------------------*\
@@ -88,6 +83,7 @@
 @import "sass/50-core-components/notes";
 @import "sass/50-core-components/columns";
 @import "sass/50-core-components/cards";
+//@import "sass/50-core-components/progress-bar";
 @import "sass/50-core-components/tag-list";
 @import "sass/50-core-components/fifty-fifty";
 @import "sass/50-core-components/evangelists";
@@ -109,11 +105,9 @@
 @import "sass/50-core-components/footer";
 
 
-
 /*------------------------------------*\
     #Templates
 \*------------------------------------*/
-
 
 
 
