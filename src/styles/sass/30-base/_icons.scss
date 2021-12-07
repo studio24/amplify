@@ -16,19 +16,16 @@ SVG icons are sized relative to font size, thanks to the em unit.
 size to text size.
  */
 .icon {
-
 	height: 0.75em;
 	height: 1cap; /* 1 */
 	width: 0.75em;
 	width: 1cap; /* 1 */
-
 }
 
-.icon--larger {
 
+.icon--larger {
 	height: rem(30);
 	width: rem(30);
-
 }
 
 
@@ -40,77 +37,53 @@ before the text or after.
 
 2. Logical property creates spacing irrespective of text direction
  */
-
 .with-icon--before {
-
 	.icon {
-
 		margin-right: rem(8); // IE fallback for next rule - only works for ltr languages
 
 		@supports (margin-inline-end: 1em) {
-
 			margin-right: 0;
 			margin-inline-end: rem(8); /* 2 */
-
 		}
-
 	}
-
 }
 
+
 .with-icon--after {
-
 	.icon {
-
 		margin-left: rem(8); // IE fallback for next rule - only works for ltr languages
 
 		@supports (margin-inline-start: 1em) {
-
 			margin-left: 0;
 			margin-inline-start: rem(8); /* 2 */
-
 		}
-
 	}
-
 }
 
+
 [dir="rtl"] {
-
 	.with-icon--before {
-
 		.icon {
-
 			margin-left: rem(8); // IE fallback for next rule - only works for ltr languages
 			margin-right: 0;
 
 			@supports (margin-inline-start: 1em) {
-
 				margin-left: 0;
 				margin-inline-end: rem(8); /* 2 */
-
 			}
-
 		}
-
 	}
 
+
 	.with-icon--after {
-
 		.icon {
-
 			margin-left: 0;
 			margin-right: rem(8); // IE fallback for next rule - only works for ltr languages
 
 			@supports (margin-inline-start: 1em) {
-
 				margin-right: 0;
 				margin-inline-start: rem(8); /* 2 */
-
 			}
-
 		}
-
 	}
-
 }
