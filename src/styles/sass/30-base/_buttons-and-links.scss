@@ -46,10 +46,12 @@ a.with-icon--after {
 	}
 }
 
+
 a.button {
 	cursor: pointer;
 	text-decoration: none; /* 3 */
 }
+
 
 button,
 a.button,
@@ -83,10 +85,12 @@ input[type="submit"].button {
 	}
 }
 
+
 // Full-width buttons
 .button--wide.button--wide {
 	width: 100%;
 }
+
 
 // Alternative button style with a visible border
 .button--alt.button--alt {
@@ -106,6 +110,7 @@ input[type="submit"].button {
 		outline-offset: -3px;
 	}
 }
+
 
 // For buttons with no visible background or border
 .button--ghost.button--ghost {
@@ -128,6 +133,7 @@ input[type="submit"].button {
 		border-color: $black;
 	}
 }
+
 
 // Disabled buttons
 button[disabled],
