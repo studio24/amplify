@@ -25,6 +25,7 @@ in some circumstances.
 	overflow: hidden;
 }
 
+
 /**
 We target the intermediary wrapper and give it a negative margin
 to create a gutter between the `.sidebar` and `.not-sidebar`.
@@ -52,12 +53,9 @@ omitted to let the contents of `.sidebar` determine the width of
 `.sidebar` (e.g. an image with a specified max-width).
  */
 .l-sidebar .sidebar {
-
 	@include stack;
-
 	flex-basis: rem(320);
 	flex-grow: 1;
-
 }
 
 
@@ -67,23 +65,18 @@ will sit side-by-side rather than vertically. This negates the use of
 a viewport media query.
  */
 .l-sidebar .not-sidebar {
-
 	@include stack;
-
 	flex-basis: 0;
 	flex-grow: 999;
 	min-width: calc(55% - 1.5rem);
-
 }
-
 
 
 .l-sidebar--expanded {
 	width: 100%;
 }
 
+
 .l-sidebar .sidebar.sidebar--compact {
-
 	flex-basis: rem(180);
-
 }

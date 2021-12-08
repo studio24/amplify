@@ -14,7 +14,6 @@
 	To apply gutter spacing, apply padding to the flex items and an
     equivalent negative margin to the flex container. This will double up,
     so use half the intended value.
-
 \*------------------------------------*/
 
 .l-switcher {
@@ -26,6 +25,7 @@
 	display: flex;
 	flex-flow: row wrap;
 }
+
 
 /**
 1. Determines the item width in the single column, vertical configuration
