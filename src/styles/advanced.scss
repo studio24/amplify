@@ -12,12 +12,10 @@
 @import "sass/00-settings/typesetting";
 
 
-
 /*------------------------------------*\
     #Functions
 \*------------------------------------*/
 @import "sass/10-functions/units";
-
 
 
 /*------------------------------------*\
@@ -28,7 +26,6 @@
 @import "sass/20-mixins/stack";
 
 
-
 /*------------------------------------*\
     #Base
 
@@ -37,21 +34,16 @@
 @import "sass/30-base/hide-and-show";
 
 
-
 /*------------------------------------*\
     #Advanced components
 
     For JS enhancements
 \*------------------------------------*/
-@import "sass/60-advanced-components/header";
 @import "sass/60-advanced-components/navigation";
 @import "sass/60-advanced-components/collapsibles";
 @import "sass/60-advanced-components/cards";
-@import "sass/60-advanced-components/hero";
 @import "sass/60-advanced-components/slider";
 @import "sass/60-advanced-components/disclosure-widget";
-@import "sass/60-advanced-components/comments";
-
 
 
 /*------------------------------------*\
@@ -59,4 +51,4 @@
 
     Add third-party plugins here.
 \*------------------------------------*/
-@import "sass/70-third-party-plugins/accessible-autocomplete";
+//@import "sass/70-third-party-plugins/accessible-autocomplete";
