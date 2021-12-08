@@ -3,23 +3,16 @@
 \*------------------------------------*/
 
 blockquote {
-
 	@include text-20;
-
 	@include stack(1rem);
 
 	> * {
-
 		font-weight: bold;
-
 	}
 
 	cite {
-
 		font-size: 1rem;
 		font-style: normal;
 		font-weight: normal;
-
 	}
-
 }
