@@ -97,14 +97,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "formErrorSummary": function() { return /* binding */ formErrorSummary; }
 /* harmony export */ });
+/**
+ * Shift focus to form error summary, if present
+ * @see https://design-system.service.gov.uk/components/error-summary/#how-it-works
+ */
 var formErrorSummary = (function () {
 
-	let errorSummary = document.querySelector('[data-component="error-summary"]');
+	var errorSummary = document.querySelector('[data-component="error-summary"]');
 
 	if (exists(errorSummary)) {
-
 		errorSummary.focus();
-
 	}
 
 })();
