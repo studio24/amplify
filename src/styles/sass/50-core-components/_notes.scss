@@ -3,39 +3,30 @@
 \*------------------------------------*/
 
 .note {
-
 	@include stack(1rem);
-
-	border-width: 5px;
+	border-width: rem(5);
 
 	> * {
-
 		max-width: rem($text-measure);
-
 	}
-
 }
+
 
 .note--error {
-
 	border-color: $error-color;
-
 }
+
 
 .note--info {
-
 	border-color: $info-color;
-
 }
+
 
 .note--success {
-
 	border-color: $success-color;
-
 }
 
+
 .note--warning {
-
 	border-color: $warning-color;
-
 }
