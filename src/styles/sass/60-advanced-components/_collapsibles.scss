@@ -2,80 +2,72 @@
     #Collapsible sections advanced
 \*------------------------------------*/
 
-.js .component--collapsibles {
+.js .component--collapsibles__panel {
+	padding: 0;
+}
 
-	// Added via JavaScript
-	[data-heading="collapsibles"] button {
 
-		align-items: flex-start;
-		border-radius: 0;
-		display: flex;
-		flex-wrap: wrap;
-		font-size: rem(18);
-		font-weight: bold;
-		line-height: calc(27 / 18);
-		justify-content: space-between;
-		margin-top: 0;
-		padding: 0;
-		width: 100%;
+// Button added via JavaScript
+.js [data-heading="collapsibles"] button {
+	align-items: flex-start;
+	flex-direction: column;
+	padding: rem(25);
+	width: 100%;
 
-		> span {
+	.js-collapsible-heading {
+		@include text-20;
+		font-weight: $emphasis;
+	}
 
-			font-size: rem(15);
-			font-weight: normal;
-			line-height: calc(22.5 / 15);
-			margin-top: 1rem;
-			order: 2;
-			width: 100%;
 
+	.js-collapsible-toggle {
+		color: $link-color;
+	}
+
+
+	.js-collapsible-label {
+		@include text-16;
+	}
+
+	&:hover {
+		.js-collapsible-heading {
+			color: $link-color;
 		}
 
-		&:hover {
-
-			text-decoration: underline; /* 1 */
+		.js-collapsible-label {
+			text-decoration: underline;
 			text-decoration-skip-ink: auto; // Not supported by Safari
 			text-underline-offset: 0.25em; // Supported by Safari
-
 		}
-
-		&:focus {
-
-			border-color: inherit;
-			background-color: $focus-color;
-			text-decoration: none;
-
-		}
-
-		&[aria-expanded="false"] .angle-up {
-
-			display: none;
-
-		}
-
-		&[aria-expanded="true"] .angle-down {
-
-			display: none;
-
-		}
-
-		svg {
-
-			flex-shrink: 0;
-
-		}
-
 	}
 
-	[data-heading="collapsibles"] + * {
+	&:focus {
+		background-color: $focus-color;
 
-		@include stack;
-
-		&[aria-hidden="true"] {
-
-			display: none;
-
+		.js-collapsible-heading,
+		.js-collapsible-toggle {
+			color: $black;
 		}
-
 	}
 
+	&[aria-expanded="false"] {
+		.circle-up {
+			display: none;
+		}
+	}
+
+	&[aria-expanded="true"] {
+		.circle-down {
+			display: none;
+		}
+	}
+}
+
+
+.js .component--collapsibles__panel__content {
+	padding: 0 rem(25) rem(25);
+
+	&[aria-hidden="true"] {
+		display: none;
+	}
 }

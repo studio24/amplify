@@ -2,58 +2,28 @@
     #Collapsible sections
 \*------------------------------------*/
 
-.component--collapsibles {
-
-	> div {
-
-		@include stack(1rem);
-
-		background-color: $white;
-		border-radius: rem(6);
-		box-shadow: rem(-1) rem(1) rem(4) rgba(55, 70, 95, 0.12);
-		padding: rem(25);
-
-	}
-
-	> div + div {
-
-		margin-top: 1rem;
-
-	}
-
-}
-
-[data-heading="collapsibles"] span {
-
-	@include stack(1rem);
-
-}
-
-[data-heading="collapsibles"] h3 {
-
-	@include text-20;
-
-}
-
-[data-heading="collapsibles"] > * {
-
-	@include text-14;
-
-	display: block;
-	font-weight: normal;
-	margin-top: 1rem;
-
-}
-
+.component--collapsibles,
 [data-heading="collapsibles"] + * {
-
 	@include stack(1rem);
+}
 
+
+[data-heading="collapsibles"] {
+	@include text-20;
+}
+
+
+.component--collapsibles__panel {
+	@include stack(1rem);
+	background-color: $white;
+	border-radius: rem(6);
+	box-shadow: rem(-1) rem(1) rem(4) rgba(55, 70, 95, 0.12);
+	padding: rem(25);
+}
+
+.component--collapsibles__panel__content {
 	// Restrict line-length for readability
 	> * {
-
 		max-width: rem($text-measure);
-
 	}
-
 }

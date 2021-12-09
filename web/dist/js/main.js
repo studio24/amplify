@@ -21,67 +21,12 @@ window.exists = function(elem) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "cardEnhancement": function() { return /* binding */ cardEnhancement; }
-/* harmony export */ });
-/**
- * Card enhancement to trigger the main link whenever the card area is clicked
- * See https://css-tricks.com/block-links-the-search-for-a-perfect-solution/
- */
-
-var cardEnhancement = (function () {
-
-	var cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
-
-	if (exists(cardsArray)) {
-
-		// Loop through cards adding a click event and identifying the main link
-		cardsArray.forEach(function (card, index) {
-
-			var mainLink = card.querySelector('.card__link');
-			var clickableElems = Array.prototype.slice.call(card.querySelectorAll('[data-click]'));
-
-			// Allow other links/buttons in the card to still be "clickable"
-			if (clickableElems) {
-
-				clickableElems.forEach(function (elem) {
-					return elem.addEventListener("click", function (event) {
-						return event.stopPropagation();
-					});
-				});
-
-			}
-
-			card.addEventListener('click', function() {
-
-				var noTextSelected = !window.getSelection().toString();
-				if (noTextSelected) {
-
-					mainLink.click();
-
-				}
-
-			});
-
-		});
-
-	}
-
-})();
-
-
-
-/***/ }),
-/* 3 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "collapsibles": function() { return /* binding */ collapsibles; }
 /* harmony export */ });
 /**
- * Collapsible sections
- * See https://heydon.github.io/inclusive-components-demos/collapsible-sections/progressive.html
+ * Collapsible panels
+ * @see https://heydon.github.io/inclusive-components-demos/collapsible-sections/progressive.html
+ * @see https://insidegovuk.blog.gov.uk/2021/10/29/how-we-made-the-gov-uk-accordion-component-more-accessible/
  */
 
 var collapsibles = (function () {
@@ -101,17 +46,21 @@ var collapsibles = (function () {
 			headingsArray.forEach(function (heading, index) {
 
 				// Insert a button for opening/closing the collapsible section
-				heading.innerHTML = '<button class="button--ghost" aria-expanded="false">' + heading.innerHTML + '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="30px" height="30px"><use class="angle-down" href="/dist/assets/svg/nav-icons.svg#angle-down"></use><use class="angle-up" href="/dist/assets/svg/nav-icons.svg#angle-up"></use></svg></button>';
+				heading.innerHTML = '<button class="button--ghost" aria-expanded="false">' +
+					'<span class="js-collapsible-heading">' + heading.innerHTML + '</span>' +
+					'<span class="js-collapsible-toggle"><span class="visuallyhidden">, </span>' +
+					'<span class="with-icon--before"><svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path fill="none" d="M0 0h24v24H0z"/><path d="M15.08 9.59 12 12.67 8.92 9.59 7.5 11l4.5 4.5 4.5-4.5-1.42-1.41z" class="circle-down"/><path d="m12 9-4.5 4.5 1.41 1.41L12 11.83l3.09 3.09 1.41-1.411z" class="circle-up"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg><span class="js-collapsible-label">Show</span></span>' +
+					 '</span></button>';
 
 				// Add appropriate aria role to the collapsible section
 				heading.nextElementSibling.setAttribute('aria-hidden', 'true');
 
 				// Assign the button
 				var btn = heading.querySelector('button');
+				var toggleText = btn.querySelector('.js-collapsible-label');
 
 				// Add click event listener
 				btn.addEventListener('click', function(event){
-
 					// Cast the state as a boolean
 					var expanded = btn.getAttribute('aria-expanded') === 'true';
 
@@ -121,6 +70,12 @@ var collapsibles = (function () {
 					// Switch the collapsible section's visibility
 					heading.nextElementSibling.setAttribute('aria-hidden', expanded);
 
+					// Update the toggle text
+					if (expanded == true) {
+						toggleText.textContent = 'Show';
+					} else {
+						toggleText.textContent = 'Hide';
+					}
 				});
 
 			}); // End loop
@@ -134,304 +89,7 @@ var collapsibles = (function () {
 
 
 /***/ }),
-/* 4 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "disclosureWidget": function() { return /* binding */ disclosureWidget; }
-/* harmony export */ });
-var disclosureWidget = (function () {
-
-	let toggleButtonArray = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="true"]'));
-
-	let closeDisclosures = function () {
-
-		toggleButtonArray.forEach(function (btn) {
-
-			if (btn.getAttribute('aria-expanded') === 'true') {
-
-				btn.setAttribute('aria-expanded', 'false');
-
-			}
-
-		});
-
-	}
-
-	if (exists(toggleButtonArray)) {
-
-		toggleButtonArray.forEach(function (btn) {
-
-			btn.style = "";
-			btn.setAttribute('aria-expanded', 'false');
-
-		});
-
-		document.addEventListener('click', function (event) {
-
-			if (event.target.matches('[data-toggle="true"]')) {
-
-				if (event.target.matches('[aria-expanded="false"]')) {
-
-					closeDisclosures();
-					event.target.setAttribute('aria-expanded', 'true');
-
-				} else {
-
-					event.target.setAttribute('aria-expanded', 'false');
-
-				}
-
-			} else {
-
-				closeDisclosures();
-
-			}
-
-		});
-
-		document.addEventListener('keyup', function (event) {
-
-			if (event.defaultPrevented) {
-				return;
-			}
-
-			let key = event.key || event.keyCode;
-
-			if (key === 'Escape' || key === 'Esc' || key === 27) {
-
-				closeDisclosures();
-
-			}
-
-		});
-
-	}
-
-})();
-
-
-
-/***/ }),
-/* 5 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "formErrorSummary": function() { return /* binding */ formErrorSummary; }
-/* harmony export */ });
-var formErrorSummary = (function () {
-
-	let errorSummary = document.querySelector('[data-component="error-summary"]');
-
-	if (exists(errorSummary)) {
-
-		errorSummary.focus();
-
-	}
-
-})();
-
-
-
-/***/ }),
-/* 6 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "navigation": function() { return /* binding */ navigation; }
-/* harmony export */ });
-var navigation = (function () {
-
-	// https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
-	if (!Element.prototype.matches) {
-		Element.prototype.matches =
-			Element.prototype.msMatchesSelector ||
-			Element.prototype.webkitMatchesSelector;
-	}
-
-	if (!Element.prototype.closest) {
-		Element.prototype.closest = function(s) {
-			var el = this;
-
-			do {
-				if (Element.prototype.matches.call(el, s)) return el;
-				el = el.parentElement || el.parentNode;
-			} while (el !== null && el.nodeType === 1);
-			return null;
-		};
-	}
-
-	let nav = document.querySelector('.global-nav__inner ul');
-	let mobileNavToggler = document.querySelector('[data-trigger="mobile-nav"]');
-	mobileNavToggler.style = "";
-	let menuIcon = '<svg class="icon icon--larger" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false" aria-hidden="true" viewBox="0 0 448 512" width="1em" height="1em"><use class="menu-icon" href="/dist/assets/svg/nav-icons.svg#menu-icon"></use><use class="close-icon" href="/dist/assets/svg/nav-icons.svg#close-icon"></use></svg>';
-	let parentLinks = [].slice.call(nav.querySelectorAll('.top-nav-item.has-children > a'));
-	let subNavArray = [].slice.call(nav.querySelectorAll('.nav__submenu'));
-
-	// I18N for 'Menu' button text
-	let menuText = 'Menu';
-	if (document.documentElement.lang === 'ja') {
-		menuText = 'メニュー';
-	} else if (document.documentElement.lang === 'zh-hans') {
-		menuText = '菜单';
-	}
-
-	// I18N for 'Main menu' back button text
-	let backText = 'Back to main menu';
-	if (document.documentElement.lang === 'ja') {
-		backText = 'メインメニューに戻る';
-	} else if (document.documentElement.lang === 'zh-hans') {
-		backText = '返回主菜单';
-	}
-
-	let closeSubNavs = function () {
-		let subNavTriggers = [].slice.call(nav.querySelectorAll('[data-trigger="subnav"]'));
-		subNavTriggers.forEach(function (trigger) {
-			trigger.setAttribute('aria-expanded', 'false');
-			trigger.removeAttribute('class');
-		});
-	}
-
-	// Toggle mobile navigation
-	let toggleMobileNav = function () {
-
-		if (mobileNavToggler && nav) {
-
-			mobileNavToggler.innerHTML = menuText + menuIcon;
-			mobileNavToggler.setAttribute('aria-expanded', 'false');
-
-			document.addEventListener('click', function (event) {
-
-				if (event.target.matches('[data-trigger="mobile-nav"]')) {
-
-					if (event.target.getAttribute('aria-expanded') === 'false') {
-
-						event.target.setAttribute('aria-expanded', 'true');
-
-					} else {
-
-						event.target.setAttribute('aria-expanded', 'false');
-						closeSubNavs();
-
-					}
-
-				}
-
-			}, false);
-
-		}
-
-	}
-
-	// Media query event handler
-	let mq = window.matchMedia('(min-width: 70em)');
-	mq.addListener(WidthChange);
-	WidthChange(mq);
-
-	// Media query change
-	function WidthChange(mq) {
-		if (!(mq.matches)) {
-			toggleMobileNav();
-		} else {
-			mobileNavToggler.setAttribute('aria-expanded', 'true');
-		}
-	}
-
-	if (exists(parentLinks)) {
-
-		parentLinks.forEach(function (item) {
-
-			let clonedLink = item.cloneNode(true);
-			let linkText = item.textContent + '&nbsp;';
-			let toggleButton = document.createElement('button');
-			let backButton = document.createElement('button');
-			let fragment = document.createDocumentFragment();
-			let subNav = item.parentNode.querySelector('.nav__submenu__intro');
-			let submenuFirstChild = subNav.querySelector('.nav__submenu__intro__text');
-
-			toggleButton.setAttribute('type', 'button');
-			toggleButton.setAttribute('aria-expanded', 'false');
-			toggleButton.setAttribute('data-trigger', 'subnav');
-			toggleButton.innerHTML = linkText + '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon nav-small" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="/dist/assets/svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="/dist/assets/svg/nav-icons.svg#angle-right"></use></svg><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon nav-wide" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-down" href="/dist/assets/svg/nav-icons.svg#angle-down"></use><use class="angle-up" href="/dist/assets/svg/nav-icons.svg#angle-up"></use></svg>';
-
-			backButton.setAttribute('type', 'button');
-			backButton.setAttribute('class', 'button button--ghost u-full-width with-icon--before with-icon--larger');
-			backButton.setAttribute('data-trigger', 'mobile-back');
-			backButton.innerHTML = '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="/dist/assets/svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="/dist/assets/svg/nav-icons.svg#angle-right"></use></svg>' + backText;
-
-			fragment.appendChild(backButton);
-			fragment.appendChild(clonedLink);
-
-			subNav.insertBefore(fragment, submenuFirstChild);
-			item.parentNode.replaceChild(toggleButton, item);
-
-		});
-
-		for (let i = 0; i < subNavArray.length; i++) {
-
-			subNavArray[i].style = "";
-
-		}
-
-		document.addEventListener('click', function (event) {
-
-			if (event.target.matches('[data-trigger="subnav"]')) {
-
-				if (event.target.matches('[aria-expanded="false"]')) {
-
-					closeSubNavs();
-					event.target.setAttribute('aria-expanded', 'true');
-					event.target.setAttribute('class', 'js-active');
-
-				} else {
-
-					event.target.setAttribute('aria-expanded', 'false');
-					event.target.removeAttribute('class');
-
-				}
-
-			} else if (event.target.matches('[data-trigger="mobile-back"]')) {
-
-				event.target.closest('li').querySelector('[data-trigger="subnav"]').setAttribute('aria-expanded', 'false');
-
-			} else {
-
-				closeSubNavs();
-
-			}
-
-		});
-
-		document.addEventListener('keyup', function (event) {
-
-			if (event.defaultPrevented) {
-				return;
-			}
-
-			let key = event.key || event.keyCode;
-
-			if (key === 'Escape' || key === 'Esc' || key === 27) {
-
-				closeSubNavs();
-
-			}
-
-		});
-
-	}
-
-})();
-
-
-
-/***/ }),
-/* 7 */
+/* 3 */
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -565,21 +223,17 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _main_exists_helper__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
-/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
-/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
-/* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6);
-/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
+/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
 
 
+// import {cardEnhancement} from "./main/cards";
+// import {disclosureWidget} from "./main/disclosure-widget";
+// import {formErrorSummary} from "./main/form-error-summary";
+// import {navigation} from "./main/navigation";
 
 
-
-
-
-
-(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__.responsiveTables)();
+(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_2__.responsiveTables)();
 
 // Tie the responsiveTables function to a resize event, and debounce for performance
 var timeout;
@@ -595,7 +249,7 @@ window.addEventListener('resize', function (event) {
 			timeout = null;
 
 			// Run our resize functions
-			(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_6__.responsiveTables)();
+			(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_2__.responsiveTables)();
 
 		}, 66);
 	}

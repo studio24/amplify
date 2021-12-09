@@ -60,7 +60,7 @@ input[type="submit"].button {
 	align-self: start; /* 4 */
 	background-color: $link-color;
 	border: solid 2px $link-color;
-	border-radius: 8px;
+	border-radius: rem(6);
 	color: $white;
 	display: inline-flex;
 	justify-content: center;
