@@ -3,15 +3,12 @@
 \*------------------------------------*/
 
 .component--quote {
-
 	@include stack(1rem);
-
 	margin-inline-start: rem(10);
 	padding: rem(20);
 	position: relative;
 
 	&::before {
-
 		background-color: $blue;
 		border-radius: rem(5);
 		content: '';
@@ -20,24 +17,17 @@
 		position: absolute;
 		top: 0;
 		width: rem(10);
-
 	}
 
 	blockquote {
-
 		color: $blue;
-
 	}
-
 }
 
+
 [dir="rtl"] {
-
 	.component--quote::before {
-
 		left: auto;
 		right: rem(-10);
-
 	}
-
 }
