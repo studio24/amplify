@@ -20,10 +20,6 @@
 
 
 .pagination__list {
-	@include mq($bp-tab-landscape) {
-		justify-content: flex-end;
-	}
-
 	a {
 		@include text-14;
 		color: $black;
