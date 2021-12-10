@@ -1,6 +1,7 @@
 /**
  * Responsive tables
  * Tab index changed from 0 to -1 if there is no horizontal overflow
+ * @see https://www.tpgi.com/short-note-on-improving-usability-of-scrollable-regions/
  */
 
 var responsiveTables = function () {

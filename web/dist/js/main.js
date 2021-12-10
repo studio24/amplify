@@ -95,36 +95,12 @@ var collapsibles = (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "formErrorSummary": function() { return /* binding */ formErrorSummary; }
-/* harmony export */ });
-/**
- * Shift focus to form error summary, if present
- * @see https://design-system.service.gov.uk/components/error-summary/#how-it-works
- */
-var formErrorSummary = (function () {
-
-	var errorSummary = document.querySelector('[data-component="error-summary"]');
-
-	if (exists(errorSummary)) {
-		errorSummary.focus();
-	}
-
-})();
-
-
-
-/***/ }),
-/* 4 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "responsiveTables": function() { return /* binding */ responsiveTables; }
 /* harmony export */ });
 /**
  * Responsive tables
  * Tab index changed from 0 to -1 if there is no horizontal overflow
+ * @see https://www.tpgi.com/short-note-on-improving-usability-of-scrollable-regions/
  */
 
 var responsiveTables = function () {
@@ -249,16 +225,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _main_exists_helper__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
-/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
+/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
 
 
-
+// import {formErrorSummary} from "./main/form-error-summary";
 // import {cardEnhancement} from "./main/cards";
 // import {disclosureWidget} from "./main/disclosure-widget";
 
 
-(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_3__.responsiveTables)();
+(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_2__.responsiveTables)();
 
 // Tie the responsiveTables function to a resize event, and debounce for performance
 var timeout;
@@ -274,7 +249,7 @@ window.addEventListener('resize', function (event) {
 			timeout = null;
 
 			// Run our resize functions
-			(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_3__.responsiveTables)();
+			(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_2__.responsiveTables)();
 
 		}, 66);
 	}
