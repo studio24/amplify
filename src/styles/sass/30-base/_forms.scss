@@ -496,23 +496,18 @@ show all available options outright, rather than hide them behind a <select>
 		span:first-of-type {
 			font-weight: bold;
 		}
-
 	}
 
 	// Input with hover
 	> * > *:hover label {
-
-		background-color: $blue;
-
+		background-color: $aqua;
 	}
 
 	// Input with focus
 	input:focus + label {
-
 		border-color: $focus-color;
 		box-shadow: inset 0 0 0 4px;
 		outline: solid 2px $focus-color;
-
 	}
 
 	// Input checked
@@ -613,8 +608,7 @@ Error styles
 	padding-left: rem(15);
 
 	input:not([type="file"]),
-	textarea:not(:focus),
-	.segmented-group label {
+	textarea:not(:focus) {
 		border-color: $error-color;
 	}
 
