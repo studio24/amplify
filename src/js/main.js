@@ -1,8 +1,8 @@
 import "./main/_exists.helper";
 import {collapsibles} from "./main/collapsibles";
-// import {formErrorSummary} from "./main/form-error-summary";
+import {disclosureWidget} from "./main/disclosure-widget";
+import {formErrorSummary} from "./main/form-error-summary";
 // import {cardEnhancement} from "./main/cards";
-// import {disclosureWidget} from "./main/disclosure-widget";
 import {responsiveTables} from "./main/responsive-tables";
 
 responsiveTables();

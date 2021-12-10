@@ -95,6 +95,117 @@ var collapsibles = (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "disclosureWidget": function() { return /* binding */ disclosureWidget; }
+/* harmony export */ });
+/**
+ * Simple disclosure widget
+ * @see https://adrianroselli.com/2020/05/disclosure-widgets.html
+ */
+
+var disclosureWidget = (function () {
+
+	var toggleButtonArray = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="true"]'));
+
+	var closeDisclosures = function () {
+
+		toggleButtonArray.forEach(function (btn) {
+
+			if (btn.getAttribute('aria-expanded') === 'true') {
+
+				btn.setAttribute('aria-expanded', 'false');
+
+			}
+
+		});
+
+	}
+
+	if (exists(toggleButtonArray)) {
+
+		toggleButtonArray.forEach(function (btn) {
+
+			btn.style = "";
+			btn.setAttribute('aria-expanded', 'false');
+
+		});
+
+		document.addEventListener('click', function (event) {
+
+			if (event.target.matches('[data-toggle="true"]')) {
+
+				if (event.target.matches('[aria-expanded="false"]')) {
+
+					closeDisclosures();
+					event.target.setAttribute('aria-expanded', 'true');
+
+				} else {
+
+					event.target.setAttribute('aria-expanded', 'false');
+
+				}
+
+			} else {
+
+				closeDisclosures();
+
+			}
+
+		});
+
+		document.addEventListener('keyup', function (event) {
+
+			if (event.defaultPrevented) {
+				return;
+			}
+
+			let key = event.key || event.keyCode;
+
+			if (key === 'Escape' || key === 'Esc' || key === 27) {
+
+				closeDisclosures();
+
+			}
+
+		});
+
+	}
+
+})();
+
+
+
+/***/ }),
+/* 4 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "formErrorSummary": function() { return /* binding */ formErrorSummary; }
+/* harmony export */ });
+/**
+ * Shift focus to form error summary, if present
+ * @see https://design-system.service.gov.uk/components/error-summary/#how-it-works
+ */
+var formErrorSummary = (function () {
+
+	var errorSummary = document.querySelector('[data-component="error-summary"]');
+
+	if (exists(errorSummary)) {
+		errorSummary.focus();
+	}
+
+})();
+
+
+
+/***/ }),
+/* 5 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "responsiveTables": function() { return /* binding */ responsiveTables; }
 /* harmony export */ });
 /**
@@ -225,15 +336,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _main_exists_helper__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
+/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
 
 
-// import {formErrorSummary} from "./main/form-error-summary";
+
+
 // import {cardEnhancement} from "./main/cards";
-// import {disclosureWidget} from "./main/disclosure-widget";
 
 
-(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_2__.responsiveTables)();
+(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__.responsiveTables)();
 
 // Tie the responsiveTables function to a resize event, and debounce for performance
 var timeout;
@@ -249,7 +362,7 @@ window.addEventListener('resize', function (event) {
 			timeout = null;
 
 			// Run our resize functions
-			(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_2__.responsiveTables)();
+			(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__.responsiveTables)();
 
 		}, 66);
 	}

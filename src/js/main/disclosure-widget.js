@@ -1,8 +1,13 @@
+/**
+ * Simple disclosure widget
+ * @see https://adrianroselli.com/2020/05/disclosure-widgets.html
+ */
+
 var disclosureWidget = (function () {
 
-	let toggleButtonArray = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="true"]'));
+	var toggleButtonArray = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="true"]'));
 
-	let closeDisclosures = function () {
+	var closeDisclosures = function () {
 
 		toggleButtonArray.forEach(function (btn) {
 
