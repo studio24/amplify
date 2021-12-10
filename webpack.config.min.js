@@ -4,7 +4,8 @@ module.exports = {
 	context: path.resolve(__dirname, 'src/js'),
 	entry: {
 		main: './main.js',
-		slider: './slider.js'
+		slider: './slider.js',
+		countryAutocomplete: './country-autocomplete.js'
 	},
 	mode: 'none',
 	output: {

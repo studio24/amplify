@@ -1,0 +1,85 @@
+/*------------------------------------*\
+    #S24 accessible autocomplete overrides
+\*------------------------------------*/
+
+.autocomplete__hint,
+.autocomplete__input {
+	appearance: none;
+	border: 2px solid inherit;
+}
+
+
+.autocomplete__hint {
+	color: $twiki-gray;
+}
+
+
+.autocomplete__input--focused {
+	background-color: $white;
+	outline: 3px solid $focus-color;
+	outline-offset: 0;
+	box-shadow: inset 0 0 0 2px;
+}
+
+
+[dir="rtl"] {
+	.autocomplete__input--show-all-values {
+		padding-left: 34px;
+		padding-right: 5px;
+	}
+}
+
+
+.autocomplete__dropdown-arrow-down {
+	pointer-events: none;
+	z-index: initial;
+}
+
+
+[dir="rtl"] {
+	.autocomplete__dropdown-arrow-down {
+		right: auto;
+		left: 8px;
+	}
+}
+
+
+.autocomplete__menu {
+	border: 2px solid inherit;
+}
+
+
+.autocomplete__option--odd {
+	background-color: $mist-gray;
+}
+
+
+.autocomplete__option--focused,
+.autocomplete__option:hover {
+	background-color: $blue;
+	border-color: $blue;
+}
+
+
+.autocomplete__option--no-results {
+	background-color: $mist-gray;
+	color: $storm-gray;
+}
+
+
+.autocomplete__hint,
+.autocomplete__input,
+.autocomplete__option {
+	@include text-16;
+	line-height: 1.25;
+}
+
+
+@media (min-width: 641px) {
+	.autocomplete__hint,
+	.autocomplete__input,
+	.autocomplete__option {
+		@include text-16;
+		line-height: 1.25;
+	}
+}

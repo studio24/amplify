@@ -50,5 +50,7 @@
     #Plugins
 
     Add third-party plugins here.
+    Add custom styles directly after the original in a separate file
 \*------------------------------------*/
-//@import "sass/70-third-party-plugins/accessible-autocomplete";
+@import "sass/70-third-party-plugins/accessible-autocomplete";
+@import "sass/70-third-party-plugins/s24-accessible-autocomplete";
