@@ -1,3 +1,5 @@
+import {exists} from "./helpers";
+
 /**
  * Simple disclosure widget
  * @see https://adrianroselli.com/2020/05/disclosure-widgets.html

@@ -1,3 +1,5 @@
+import {exists} from "./helpers";
+
 /**
  * Responsive tables
  * Tab index changed from 0 to -1 if there is no horizontal overflow

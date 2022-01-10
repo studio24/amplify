@@ -1,28 +1,17 @@
 /******/ (function() { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ([
 /* 0 */,
 /* 1 */
-/***/ (function() {
-
-/**
- * Helper function to check whether element exists
- * Attached to window to make sure it is available globally
- * @param elem
- * @return {boolean}
- */
-window.exists = function(elem) {
-	return (elem !== 'undefined' && elem !== null && (elem.length >= 0 || elem.innerHTML.length >= 0))
-};
-
-/***/ }),
-/* 2 */
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "collapsibles": function() { return /* binding */ collapsibles; }
 /* harmony export */ });
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+
+
 /**
  * Collapsible panels
  * @see https://heydon.github.io/inclusive-components-demos/collapsible-sections/progressive.html
@@ -34,7 +23,7 @@ var collapsibles = (function () {
 	// Get all the collapsible containers
 	var collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsibles"]'));
 
-	if (exists(collapseArray)) {
+	if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(collapseArray)) {
 
 		// Loop through containers
 		collapseArray.forEach(function (item) {
@@ -89,14 +78,40 @@ var collapsibles = (function () {
 
 
 /***/ }),
+/* 2 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "exists": function() { return /* binding */ exists; }
+/* harmony export */ });
+/**
+ * Helper functions for use across other JS files
+ */
+
+/**
+ * Check whether an element exists in the DOM
+ * @param elem
+ * @return {boolean}
+ */
+
+var exists = function(elem) {
+	return (elem !== 'undefined' && elem !== null && (elem.length >= 0 || elem.innerHTML.length >= 0))
+};
+
+
+
+/***/ }),
 /* 3 */
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "disclosureWidget": function() { return /* binding */ disclosureWidget; }
 /* harmony export */ });
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+
+
 /**
  * Simple disclosure widget
  * @see https://adrianroselli.com/2020/05/disclosure-widgets.html
@@ -120,7 +135,7 @@ var disclosureWidget = (function () {
 
 	}
 
-	if (exists(toggleButtonArray)) {
+	if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(toggleButtonArray)) {
 
 		toggleButtonArray.forEach(function (btn) {
 
@@ -178,11 +193,13 @@ var disclosureWidget = (function () {
 /* 4 */
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "formErrorSummary": function() { return /* binding */ formErrorSummary; }
 /* harmony export */ });
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+
+
 /**
  * Shift focus to form error summary, if present
  * @see https://design-system.service.gov.uk/components/error-summary/#how-it-works
@@ -191,7 +208,7 @@ var formErrorSummary = (function () {
 
 	var errorSummary = document.querySelector('[data-component="error-summary"]');
 
-	if (exists(errorSummary)) {
+	if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(errorSummary)) {
 		errorSummary.focus();
 	}
 
@@ -203,11 +220,13 @@ var formErrorSummary = (function () {
 /* 5 */
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "responsiveTables": function() { return /* binding */ responsiveTables; }
 /* harmony export */ });
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+
+
 /**
  * Responsive tables
  * Tab index changed from 0 to -1 if there is no horizontal overflow
@@ -219,7 +238,7 @@ var responsiveTables = function () {
 	// Get all the table wraps
 	let tablesArray = Array.prototype.slice.call(document.querySelectorAll('.table-wrap'));
 
-	if (exists(tablesArray)) {
+	if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(tablesArray)) {
 
 		// Loop through them
 		tablesArray.forEach(function (item) {
@@ -287,18 +306,6 @@ var responsiveTables = function () {
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	!function() {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = function(module) {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				function() { return module['default']; } :
-/******/ 				function() { return module; };
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	}();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	!function() {
 /******/ 		// define getter functions for harmony exports
@@ -329,24 +336,20 @@ var responsiveTables = function () {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 !function() {
-"use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _main_exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _main_exists_helper__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
-/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
-/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
-
+/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
+/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
+/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
 
 
 
 // import {cardEnhancement} from "./main/cards";
 
 
-(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__.responsiveTables)();
+(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_3__.responsiveTables)();
 
 // Tie the responsiveTables function to a resize event, and debounce for performance
 var timeout;
@@ -362,7 +365,7 @@ window.addEventListener('resize', function (event) {
 			timeout = null;
 
 			// Run our resize functions
-			(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__.responsiveTables)();
+			(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_3__.responsiveTables)();
 
 		}, 66);
 	}

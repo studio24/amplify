@@ -1,4 +1,3 @@
-import "./main/_exists.helper";
 import {collapsibles} from "./main/collapsibles";
 import {disclosureWidget} from "./main/disclosure-widget";
 import {formErrorSummary} from "./main/form-error-summary";

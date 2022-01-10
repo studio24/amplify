@@ -1,3 +1,5 @@
+import {exists} from "./helpers";
+
 /**
  * Collapsible panels
  * @see https://heydon.github.io/inclusive-components-demos/collapsible-sections/progressive.html
