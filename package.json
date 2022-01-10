@@ -34,11 +34,11 @@
 	},
 	"scripts": {
 		"fonts": "shx cp -r ${npm_package_config_from}/fonts/* ${npm_package_config_to}/fonts",
+		"images": "shx cp -r ${npm_package_config_from}/images/* ${npm_package_config_to}/images",
+		"svgs": "svgo --folder=${npm_package_config_from}/svg --output=${npm_package_config_to}/svg",
 		"pregif-opt": "shx cp -r ${npm_package_config_from}/images/*.gif ${npm_package_config_to}/images",
 		"gif-opt": "gifsicle --batch -O2 --lossy=30 --colors 200 --no-extensions ${npm_package_config_to}/images/*.gif",
 		"jpg-png-opt": "compress-images-tool --allowed jpg jpeg png --quality 70 --directory ${npm_package_config_from}/images/ --save-in ${npm_package_config_to}/images",
-		"svg-opt": "svgo --folder=${npm_package_config_from}/svg --output=${npm_package_config_to}/svg",
-		"images": "npm-run-all --parallel gif-opt jpg-png-opt svg-opt",
 		"sass-core-expanded": "sass --no-source-map --error-css --style=expanded ${npm_package_config_from}/styles/core.scss ${npm_package_config_to}/styles/core.css",
 		"postsass-core-expanded": "postcss --no-map ${npm_package_config_to}/styles/core.css --use=autoprefixer --output=${npm_package_config_to}/styles/core.css",
 		"sass-advanced-expanded": "sass --no-source-map --error-css --style=expanded ${npm_package_config_from}/styles/advanced.scss ${npm_package_config_to}/styles/advanced.css",
@@ -59,14 +59,12 @@
 		"js-libraries": "shx cp -r ${npm_package_config_from}/js/libraries/* ${npm_package_config_to}/js/libraries/",
 		"js": "npm-run-all --parallel webpack-expanded webpack-compressed js-libraries",
 		"prebuild": "shx rm -rf ${npm_package_config_to} && shx mkdir -p ${npm_package_config_to}/fonts && shx mkdir ${npm_package_config_to}/images && shx mkdir ${npm_package_config_to}/js && shx mkdir ${npm_package_config_to}/js/libraries && shx mkdir ${npm_package_config_to}/styles && shx mkdir ${npm_package_config_to}/svg",
-		"build": "npm-run-all --parallel fonts images js styles"
+		"build": "npm-run-all --parallel fonts images svgs js styles"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.0",
 		"browserslist": "^4.18.1",
-		"compress-images-tool": "^1.0.10",
 		"copyfiles": "^2.4.1",
-		"gifsicle": "^6.0.3",
 		"npm-run-all": "^4.1.5",
 		"postcss": "^8.3.11",
 		"postcss-cli": "^9.0.1",
