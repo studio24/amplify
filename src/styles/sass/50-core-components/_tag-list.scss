@@ -1,5 +1,13 @@
 /*------------------------------------*\
     #Tag list
+
+    1. High contrast themes tend to eliminate background-color. If there is no
+    border set, we need to apply a transparent outline to maintain the
+    the shape. The negative outline-offset moves the outline inside the
+    perimeter so it behaves like a border and doesn't add to the overall size.
+
+    2. Meet WCAG AAA target size requirements for this font size - see
+    https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
 \*------------------------------------*/
 
 .tag-list.tag-list {
@@ -18,24 +26,25 @@
 
 	@include text-14;
 
-	background-color: rgba(#cecdcd, 0.5);
+	background-color: $silver;
 	border-radius: rem(4);
+	color: $off-black;
 	display: inline-block;
-	padding: rem(2.5) rem(5) rem(2.5) rem(5);
+	outline: 1px solid transparent; /* 1 */
+	outline-offset: -1px; /* 1 */
+	padding: rem(11); /* 2 */
+	text-decoration: none;
 
-}
+	&:hover {
+		text-decoration: underline;
+		text-decoration-skip-ink: auto; // Not supported by Safari
+		text-underline-offset: 0.25em; // Supported by Safari
+	}
 
-
-/*
-Makes the tag links selectable if card link is stretched
-across entire card using pseudo element
- */
-a.tag {
-
-	position: relative;
-	text-decoration: underline;
-	z-index: 10;
-	text-decoration-skip-ink: auto; // Not supported by Safari
-	text-underline-offset: 0.25em; // Supported by Safari
+	&:focus {
+		background-color: $focus-color;
+		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+		color: $black;
+	}
 
 }

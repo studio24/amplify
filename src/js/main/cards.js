@@ -1,6 +1,8 @@
+import {exists} from "./helpers";
+
 /**
  * Card enhancement to trigger the main link whenever the card area is clicked
- * See https://css-tricks.com/block-links-the-search-for-a-perfect-solution/
+ * @see https://css-tricks.com/block-links-the-search-for-a-perfect-solution/
  */
 
 var cardEnhancement = (function () {

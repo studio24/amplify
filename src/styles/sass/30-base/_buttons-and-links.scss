@@ -47,14 +47,14 @@ a.with-icon--after {
 }
 
 
-a.button {
+.button {
 	cursor: pointer;
 	text-decoration: none; /* 3 */
 }
 
 
 button,
-a.button,
+.button,
 input[type="submit"].button {
 	align-items: center;
 	align-self: start; /* 4 */

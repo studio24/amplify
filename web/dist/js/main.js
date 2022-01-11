@@ -222,6 +222,64 @@ var formErrorSummary = (function () {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "cardEnhancement": function() { return /* binding */ cardEnhancement; }
+/* harmony export */ });
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+
+
+/**
+ * Card enhancement to trigger the main link whenever the card area is clicked
+ * @see https://css-tricks.com/block-links-the-search-for-a-perfect-solution/
+ */
+
+var cardEnhancement = (function () {
+
+	var cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
+
+	if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(cardsArray)) {
+
+		// Loop through cards adding a click event and identifying the main link
+		cardsArray.forEach(function (card, index) {
+
+			var mainLink = card.querySelector('.card__link');
+			var clickableElems = Array.prototype.slice.call(card.querySelectorAll('[data-click]'));
+
+			// Allow other links/buttons in the card to still be "clickable"
+			if (clickableElems) {
+
+				clickableElems.forEach(function (elem) {
+					return elem.addEventListener("click", function (event) {
+						return event.stopPropagation();
+					});
+				});
+
+			}
+
+			card.addEventListener('click', function() {
+
+				var noTextSelected = !window.getSelection().toString();
+				if (noTextSelected) {
+
+					mainLink.click();
+
+				}
+
+			});
+
+		});
+
+	}
+
+})();
+
+
+
+/***/ }),
+/* 6 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "responsiveTables": function() { return /* binding */ responsiveTables; }
 /* harmony export */ });
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
@@ -342,14 +400,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
 /* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
+/* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
+/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
 
 
 
-// import {cardEnhancement} from "./main/cards";
 
 
-(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_3__.responsiveTables)();
+
+(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__.responsiveTables)();
 
 // Tie the responsiveTables function to a resize event, and debounce for performance
 var timeout;
@@ -365,7 +424,7 @@ window.addEventListener('resize', function (event) {
 			timeout = null;
 
 			// Run our resize functions
-			(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_3__.responsiveTables)();
+			(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__.responsiveTables)();
 
 		}, 66);
 	}

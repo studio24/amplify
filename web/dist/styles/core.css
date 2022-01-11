@@ -780,14 +780,14 @@ a.with-icon--after:focus {
   text-decoration: none;
 }
 
-a.button {
+.button {
   cursor: pointer;
   text-decoration: none;
   /* 3 */
 }
 
 button,
-a.button,
+.button,
 input[type=submit].button {
   align-items: center;
   align-self: start;
@@ -806,15 +806,15 @@ input[type=submit].button {
   text-align: center;
 }
 button:hover,
-a.button:hover,
+.button:hover,
 input[type=submit].button:hover {
   background-color: #001f3f;
   border-color: #001f3f;
   color: #fff;
 }
 button:active, button:focus,
-a.button:active,
-a.button:focus,
+.button:active,
+.button:focus,
 input[type=submit].button:active,
 input[type=submit].button:focus {
   color: #000;
@@ -2581,10 +2581,6 @@ main,
   font-size: 1.25rem;
 }
 
-.card__image img {
-  border-radius: 0.25rem;
-}
-
 .card__link {
   border: 0;
   color: #252525;
@@ -2606,6 +2602,14 @@ main,
 
 /*------------------------------------*\
     #Tag list
+
+    1. High contrast themes tend to eliminate background-color. If there is no
+    border set, we need to apply a transparent outline to maintain the
+    the shape. The negative outline-offset moves the outline inside the
+    perimeter so it behaves like a border and doesn't add to the overall size.
+
+    2. Meet WCAG AAA target size requirements for this font size - see
+    https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
 \*------------------------------------*/
 .tag-list.tag-list {
   margin: -0.625rem;
@@ -2616,23 +2620,28 @@ main,
 
 .tag {
   font-size: 0.875rem;
-  background-color: rgba(206, 205, 205, 0.5);
+  background-color: #ddd;
   border-radius: 0.25rem;
+  color: #252525;
   display: inline-block;
-  padding: 0.15625rem 0.3125rem 0.15625rem 0.3125rem;
+  outline: 1px solid transparent;
+  /* 1 */
+  outline-offset: -1px;
+  /* 1 */
+  padding: 0.6875rem;
+  /* 2 */
+  text-decoration: none;
 }
-
-/*
-Makes the tag links selectable if card link is stretched
-across entire card using pseudo element
- */
-a.tag {
-  position: relative;
+.tag:hover {
   text-decoration: underline;
-  z-index: 10;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
   text-underline-offset: 0.25em;
+}
+.tag:focus {
+  background-color: #ffdc00;
+  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
+  color: #000;
 }
 
 /*------------------------------------*\
