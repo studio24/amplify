@@ -498,6 +498,9 @@ template {
 *::after {
   box-sizing: border-box;
   font-family: inherit;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
   margin: 0;
   overflow-wrap: break-word;
   padding: 0;
@@ -2944,6 +2947,34 @@ input[type=search] {
 /*------------------------------------*\
     #Templates
 \*------------------------------------*/
+/*------------------------------------*\
+    #Amplify
+
+    1. Used purely for the static Amplify site
+\*------------------------------------*/
+/*------------------------------------*\
+    #Amplify guide
+
+    Used purely for the static Amplify site
+\*------------------------------------*/
+.amplify .l-switcher.teasers {
+  overflow: visible;
+}
+
+.amplify .l-switcher.teasers > * {
+  margin: -0.75rem;
+}
+
+.amplify .l-switcher.teasers > * > * {
+  min-width: 33%;
+  padding: 0.75rem;
+}
+
+.amplify .l-switcher.teasers .card {
+  padding: 1.5rem;
+}
+
+/* 1 */
 /*------------------------------------*\
     #Utilities
 \*------------------------------------*/
