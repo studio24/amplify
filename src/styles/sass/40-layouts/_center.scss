@@ -4,14 +4,13 @@
     From https://absolutely.every-layout.dev/layouts/center/
 
     `.l-center` creates a horizontally centered container.
+
+    1. We use left and right padding to add some minimum space between the
+    contents of `.l-center` and the edges of the parent element or viewport.
+    To avoid making the content narrower than intended, we add an exception
+    to our global box-sizing rule (defined in 30-base/_box-sizing.scss).
 \*------------------------------------*/
 
-/**
-1. We use left and right padding to add some minimum space between the
-contents of `.l-center` and the edges of the parent element or viewport.
-To avoid making the content narrower than intended, we add an exception
-to our global box-sizing rule.
- */
 .l-center {
 	box-sizing: content-box /* 1 */;
 	margin-left: auto;
