@@ -77,9 +77,6 @@ See: https://brandcolors.net/
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /*------------------------------------*\
-    #Paths
-\*------------------------------------*/
-/*------------------------------------*\
     #Typesetting
 \*------------------------------------*/
 /**
@@ -2214,21 +2211,14 @@ so that either of these properties is applied instead.
     #Core components
 \*------------------------------------*/
 /*------------------------------------*\
+    #Global header core
+\*------------------------------------*/
+/*------------------------------------*\
     #Logo
 \*------------------------------------*/
-.logo {
-  display: block;
-  height: 2.75rem;
-  position: relative;
-  width: 4.125rem;
-}
-@media screen and (min-width: 64em) {
-  .logo {
-    height: 3.25rem;
-    width: 4.875rem;
-  }
-}
-
+/*------------------------------------*\
+    #Navigation core
+\*------------------------------------*/
 /*------------------------------------*\
     #Breadcrumbs
     See: https://scottaohara.github.io/a11y_breadcrumbs/
@@ -2758,132 +2748,6 @@ main,
 
 .component--collapsibles__panel__content > * {
   max-width: 41.25rem;
-}
-
-/*------------------------------------*\
-    #Slide
-\*------------------------------------*/
-@media screen and (min-width: 64em) {
-  .slide {
-    align-items: flex-start;
-    display: flex;
-    justify-content: space-between;
-  }
-}
-.slide > * + * {
-  margin-top: 1rem;
-}
-@media screen and (min-width: 64em) {
-  .slide > * + * {
-    margin-top: 0;
-  }
-}
-
-@media screen and (min-width: 64em) {
-  .slide__quote,
-.slide__cite {
-    flex-basis: 45%;
-  }
-}
-
-.slide__quote {
-  background: url("../images/quote-bg.png") no-repeat 0 0;
-  font-size: 1.25rem;
-  font-weight: bold;
-  line-height: 1.6;
-  -webkit-margin-start: 2.1875rem;
-          margin-inline-start: 2.1875rem;
-  padding-top: 0.9375rem;
-  position: relative;
-}
-@media screen and (min-width: 48em) {
-  .slide__quote {
-    font-size: 1.5rem;
-    line-height: 1.4;
-  }
-}
-.slide__quote::before {
-  background-color: #0d599b;
-  border-radius: 0.3125rem;
-  content: "";
-  height: 100%;
-  left: -2.0625rem;
-  position: absolute;
-  top: 0;
-  width: 0.25rem;
-}
-.slide__quote > * {
-  max-width: 41.25rem;
-}
-
-[dir=rtl] .slide__quote {
-  background-position-x: 100%;
-}
-[dir=rtl] .slide__quote::before {
-  left: auto;
-  right: -2.0625rem;
-}
-
-.slide__cite {
-  font-size: 0.875rem;
-  -webkit-padding-start: 0.3125rem;
-          padding-inline-start: 0.3125rem;
-}
-.slide__cite.l-sidebar .sidebar {
-  flex-basis: auto;
-}
-.slide__cite.l-sidebar .not-sidebar {
-  align-items: flex-start;
-  min-width: calc(70% - 1.5rem);
-}
-.slide__cite.l-sidebar .not-sidebar p:first-child {
-  font-weight: bold;
-}
-.slide__cite.l-sidebar .not-sidebar p:first-child + p {
-  margin-top: 0;
-}
-
-.slide__logo {
-  background-color: #fff;
-  height: 7.5rem;
-  padding: 1.5rem;
-  position: relative;
-  width: 11.25rem;
-}
-.slide__logo > img {
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  max-width: 100%;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-@supports ((-o-object-fit: contain) or (object-fit: contain)) {
-  .slide__logo > img {
-    height: 100%;
-    max-width: none;
-    -o-object-fit: contain;
-       object-fit: contain;
-    position: static;
-  }
-}
-
-/*------------------------------------*\
-    #Slider core
-\*------------------------------------*/
-.component--slider {
-  background-color: #f8f8fb;
-  padding-bottom: 3.125rem;
-  padding-top: 3.125rem;
-}
-.component--slider h2 {
-  font-size: 1rem;
-  font-weight: normal;
-  margin-bottom: 1.5rem;
-}
-.component--slider ul > li + li {
-  margin-top: 2rem;
 }
 
 /*------------------------------------*\

@@ -42,9 +42,6 @@ Social media colours that might be useful.
 See: https://brandcolors.net/
  */
 /*------------------------------------*\
-    #Paths
-\*------------------------------------*/
-/*------------------------------------*\
     #Typesetting
 \*------------------------------------*/
 /**
@@ -313,89 +310,6 @@ br {
 
 [data-toggle=true] + * {
   margin-top: 1rem;
-}
-
-/*------------------------------------*\
-    #Slider advanced
-
-    N.B. `.js-slider` is added by JS
-\*------------------------------------*/
-.js [data-component=slider] .js-slider {
-  overflow: hidden;
-}
-.js [data-component=slider] .js-slider:focus-within {
-  box-shadow: 0 0 0 3px #ffdc00;
-  outline: 0.125rem solid #252525;
-  outline-offset: -0.125rem;
-}
-.js [data-component=slider] .js-slider > ul {
-  display: flex;
-  padding-bottom: 0.625rem;
-  padding-top: 0.625rem;
-  position: relative;
-}
-.js [data-component=slider] .js-slider > ul > li {
-  flex: 0 0 100%;
-}
-.js [data-component=slider] .js-slider > ul > li.js-current {
-  visibility: visible;
-}
-.js [data-component=slider] .js-slider > ul > li.js-hidden {
-  visibility: hidden;
-}
-.js [data-component=slider] .js-slider > ul > li + li {
-  margin-top: 0;
-}
-
-.slider-controls .js-previous svg,
-.slider-controls .js-next svg {
-  pointer-events: none;
-}
-
-.slider-controls .js-previous .chevron-right {
-  display: none;
-}
-
-.slider-controls .js-next .chevron-left {
-  display: none;
-}
-
-[dir=rtl] .slider-controls .js-previous .chevron-left {
-  display: none;
-}
-[dir=rtl] .slider-controls .js-previous .chevron-right {
-  display: block;
-}
-[dir=rtl] .slider-controls .js-next .chevron-left {
-  display: block;
-}
-[dir=rtl] .slider-controls .js-next .chevron-right {
-  display: none;
-}
-
-.slider-controls .js-previous,
-.slider-controls .js-next {
-  color: #252525;
-}
-.slider-controls .js-previous:hover,
-.slider-controls .js-next:hover {
-  box-shadow: 0 0 4px 2px rgba(84, 84, 84, 0.25);
-}
-.slider-controls .js-previous:focus,
-.slider-controls .js-next:focus {
-  background-color: #fff;
-  border-color: #000;
-  box-shadow: 0 0 0 3px #ffdc00;
-}
-.slider-controls button[disabled] {
-  background-color: transparent;
-  border-color: transparent;
-  color: #545454;
-}
-.slider-controls button[disabled]:hover {
-  background-color: transparent;
-  box-shadow: none;
-  color: #545454;
 }
 
 /*------------------------------------*\
