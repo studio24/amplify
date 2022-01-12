@@ -2302,11 +2302,11 @@ main,
   padding: 1.5rem 5vw 6.25rem;
 }
 
-#main .component + .component {
+.component + .component {
   margin-top: 3.125rem;
 }
 @media screen and (min-width: 48em) {
-  #main .component + .component {
+  .component + .component {
     margin-top: 6.25rem;
   }
 }
