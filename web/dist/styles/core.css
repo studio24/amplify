@@ -2464,6 +2464,7 @@ main,
 
 /*------------------------------------*\
     #Columns
+    (Used for organising cards, etc.)
 \*------------------------------------*/
 .component--columns {
   overflow: hidden;
