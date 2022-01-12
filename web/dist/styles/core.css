@@ -498,9 +498,6 @@ template {
 *::after {
   box-sizing: border-box;
   font-family: inherit;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
   margin: 0;
   overflow-wrap: break-word;
   padding: 0;
@@ -548,6 +545,9 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
   margin: 0;
 }
 
