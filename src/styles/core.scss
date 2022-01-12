@@ -9,7 +9,6 @@
 @import "sass/00-settings/colors";
 //@import "sass/00-settings/debug";
 @import "sass/00-settings/fonts";
-@import "sass/00-settings/paths";
 @import "sass/00-settings/typesetting";
 
 
@@ -66,9 +65,9 @@
 /*------------------------------------*\
     #Core components
 \*------------------------------------*/
-//@import "sass/50-core-components/header";
+@import "sass/50-core-components/header";
 @import "sass/50-core-components/logo";
-//@import "sass/50-core-components/navigation";
+@import "sass/50-core-components/navigation";
 @import "sass/50-core-components/breadcrumbs";
 @import "sass/50-core-components/main";
 //@import "sass/50-core-components/hero";
