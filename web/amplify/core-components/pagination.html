@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Core components - Amplify</title>
+	<title>Pagination - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -82,15 +82,39 @@
 						<ul class="clean-list" role="list">
 							<li><a href="breadcrumbs.html">Breadcrumbs</a></li>
 							<li><a href="cards.html">Cards</a></li>
-							<li><a href="pagination.html">Pagination</a></li>
+							<li><a href="#">Pagination</a></li>
 							<li><a href="tag-list.html">Tag list</a></li>
 						</ul>
 					</nav>
 					<div class="not-sidebar">
 						<div class="component component--text">
-							<h1>Core components</h1>
-							<p>Examples of commonly required components, the building blocks of web pages.</p>
-							<p>In the CSS architecture, the <strong>core components</strong> directory handles the minimum required styles for all components, including the initial styles for more advanced components when JavaScript is not available. They are compiled into <code>core.css</code>, which is served to all browsers (along with <code>print.css</code>).</p>
+							<h1>Pagination</h1>
+						</div>
+						<div class="component">
+							<nav aria-label="Pagination" class="l-cluster pagination">
+								<ul class="pagination__list">
+									<li><a href="javascript:;"><span aria-hidden="true">&lt;&lt;</span><span class="visuallyhidden">First page</span></a></li>
+									<li><a href="javascript:;">Previous <span class="visuallyhidden">page</span></a></li>
+									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 1</a></li>
+									<li><a href="#" aria-label="page 2" aria-current="page">2</a></li>
+									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 3</a></li>
+									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 4</a></li>
+									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 5</a></li>
+									<li><a class="ellipsis">&#8230;</a></li>
+									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 20</a></li>
+									<li><a href="javascript:;">Next <span class="visuallyhidden">page</span></a></li>
+									<li><a href="javascript:;"><span aria-hidden="true">&gt;&gt;</span><span class="visuallyhidden">Last page</span></a></li>
+								</ul>
+							</nav>
+						</div>
+						<div class="component component--text">
+							<h2>Considerations</h2>
+							<p>Note the use of the <a href="../layouts/cluster.html">cluster layout helper</a>.</p>
+							<p>Note how the pagination links meet the requirements of <a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html">WCAG Success Criterion 2.5.5: Target Size (AAA)</a>.</p>
+							<p>The <code>aria-label</code> attribute has been added to the <code>&lt;nav&gt;</code> element. This is because the main website navigation also uses the <code>&lt;nav&gt;</code> element. Where there are multiple<code>&lt;nav&gt;</code> elements on a single page, all must be given a unique accessible name via <code>aria-label</code>.</p>
+							<p>For all pagination links excluding the current page, <code>&lt;span class="visuallyhidden"&gt;page&lt;/span&gt;</code> is added to provide additional context to the link wording for users of Assistive Technology.</p>
+							<p>The current page is indicated by <code>aria-current="page"</code>. As per the <a href="breadcrumbs.html">breadcrumbs component</a>, it is fully linked so that users of Assistive Technology can find which is the currently active link. The <code>aria-label</code>on the current page link provides the same additional context as the visually-hidden span on other pagination links.</p>
+							<p>The angle bracket characters used within the links for the very first and very last pages are hidden from Assistive Technology users with inside <code>&lt;span aria-hidden="true"&gt;</code>. Accessible text labels are added using <code>&lt;span class="visuallyhidden"&gt;</code>.</p>
 						</div>
 					</div>
 				</div>
