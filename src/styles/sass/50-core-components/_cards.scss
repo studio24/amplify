@@ -8,7 +8,6 @@
 	box-shadow: -1px 1px 4px 0 rgba(55,70,95,0.12);
 	display: flex;
 	flex-direction: column;
-	height: 100%;
 	overflow: hidden;
 }
 
@@ -18,6 +17,28 @@
 	flex-grow: 1;
 	order: 1;
 	padding-top: 1rem;
+}
+
+
+/**
+"Neat cards": for a row of cards of equal height and with the last item
+(e.g. CTA or tag list) always pushed to the bottom edge.
+ */
+.card--neat {
+	height: 100%;
+}
+
+.card--neat .card__text {
+	// Minimum spacing between the penultimate and last child elements.
+	// Matches the measure used for the stack mixin on `.card__text`
+	> :nth-last-child(2) {
+		margin-bottom: 1rem;
+	}
+
+	// Align the last child element to the bottom of the card.
+	> :last-child {
+		margin-top: auto;
+	}
 }
 
 

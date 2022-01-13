@@ -2536,7 +2536,6 @@ main,
   box-shadow: -1px 1px 4px 0 rgba(55, 70, 95, 0.12);
   display: flex;
   flex-direction: column;
-  height: 100%;
   overflow: hidden;
 }
 
@@ -2550,6 +2549,21 @@ main,
 }
 .card__text > * + * {
   margin-top: 1rem;
+}
+
+/**
+"Neat cards": for a row of cards of equal height and with the last item
+(e.g. CTA or tag list) always pushed to the bottom edge.
+ */
+.card--neat {
+  height: 100%;
+}
+
+.card--neat .card__text > :nth-last-child(2) {
+  margin-bottom: 1rem;
+}
+.card--neat .card__text > :last-child {
+  margin-top: auto;
 }
 
 .card__text > a:not([class]) {
