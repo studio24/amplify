@@ -2329,13 +2329,6 @@ main,
 .component--text > * {
   max-width: 41.25rem;
 }
-.component--text > * + h2,
-.component--text > * + h3,
-.component--text > * + h4,
-.component--text > * + h5,
-.component--text > * + h6 {
-  margin-top: 2em;
-}
 
 /*------------------------------------*\
     #Quotes
