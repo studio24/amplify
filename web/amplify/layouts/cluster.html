@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Cluster layout helper - Amplify</title>
+
+	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="../../dist/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="../../dist/styles/print.css" media="print"/>
+
+	<script src="../../dist/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '../../dist/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="grid-wrap">
+	<div class="not-footer">
+		<header>
+			<div class="l-center">
+				<a href="../index.html">Amplify from Studio 24</a>
+			</div>
+		</header>
+		<nav aria-label="Main">
+			<div class="l-center">
+				<div class="l-cluster">
+					<ul class="clean-list">
+						<li><a href="../get-started">Get started</a></li>
+						<li><a href="../layouts">Layout helpers</a></li>
+						<li><a href="../fundamentals">Fundamentals</a></li>
+						<li><a href="../core-components">Core components</a></li>
+						<li><a href="../advanced-components">Advanced components</a></li>
+						<li><a href="../design">Design handover &amp; standards</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<main id="main">
+			<div class="l-sidebar">
+				<div>
+					<nav class="sidebar" aria-label="Secondary">
+						<ul class="clean-list" role="list">
+							<li><a href="box.html">Box</a></li>
+							<li><a href="center.html">Center</a></li>
+							<li><a href="#">Cluster</a></li>
+							<li><a href="cover.html">Cover</a></li>
+							<li><a href="frame.html">Frame</a></li>
+							<li><a href="sidebar.html">Sidebar</a></li>
+							<li><a href="switcher.html">Switcher</a></li>
+						</ul>
+					</nav>
+					<div class="not-sidebar">
+						<div class="component component--text">
+							<h1>Cluster</h1>
+							<p>The cluster layout helper suits any group of elements that differ in length, are liable to wrap and need even spacing between them, e.g. lists of tags or groups of buttons. It uses the class <code>.l-cluster</code>.</p>
+							<p>Cluster needs an inner flexbox container - in the following example it's provided by the <code>&lt;ul&gt;</code>. Flexbox gives us control of the alignment of items inside.</p>
+							<p>The cluster items - <code>&lt;li&gt;</code> in this example - sit within this container. Each item has a margin on all sides.</p>
+							<p>The flexbox container has a negative margin of the same size as the cluster items, creating even spacing between them. <code>overflow: hidden;</code> is used to tidy up the edges.</p>
+						</div>
+						<div class="component">
+							<div class="l-cluster">
+								<ul class="clean-list">
+									<li><a href="#1">Item One</a></li>
+									<li><a href="#2">Item Two</a></li>
+									<li><a href="#3">Item Three</a></li>
+									<li><a href="#4">Item Four</a></li>
+									<li><a href="#5">Item Five</a></li>
+									<li><a href="#6">Item Six</a></li>
+									<li><a href="#7">Item Seven</a></li>
+									<li><a href="#8">Item Eight</a></li>
+									<li><a href="#9">Item Nine</a></li>
+									<li><a href="#10">Item Ten</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<footer>
+		<div class="l-center">
+			&copy; Studio 24
+		</div>
+	</footer>
+</div>
+</body>
+
+</html>

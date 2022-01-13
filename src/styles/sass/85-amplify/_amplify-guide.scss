@@ -1,0 +1,32 @@
+/*------------------------------------*\
+    #Amplify guide
+
+    Used purely for the static Amplify site
+\*------------------------------------*/
+
+.amplify .l-switcher.teasers {
+	overflow: visible;
+}
+
+.amplify .l-switcher.teasers > * {
+	margin: rem(-12);
+}
+
+.amplify .l-switcher.teasers > * > * {
+	min-width: 33%;
+	padding: rem(12);
+}
+
+.amplify .l-switcher.teasers .card {
+	padding: rem(24);
+}
+
+.amplify .search-bar .not-sidebar {
+	min-width: 70%;
+}
+
+// To omit the `flex-basis` in this example we haven't used the `.sidebar` class
+// on this element. So we must manually re-apply the required `flex-grow` property.
+.amplify .search-bar .button {
+	flex-grow: 1;
+}

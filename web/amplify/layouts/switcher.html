@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Switcher layout helper - Amplify</title>
+
+	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="../../dist/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="../../dist/styles/print.css" media="print"/>
+
+	<script src="../../dist/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '../../dist/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="grid-wrap">
+	<div class="not-footer">
+		<header>
+			<div class="l-center">
+				<a href="../index.html">Amplify from Studio 24</a>
+			</div>
+		</header>
+		<nav aria-label="Main">
+			<div class="l-center">
+				<div class="l-cluster">
+					<ul class="clean-list">
+						<li><a href="../get-started">Get started</a></li>
+						<li><a href="../layouts">Layout helpers</a></li>
+						<li><a href="../fundamentals">Fundamentals</a></li>
+						<li><a href="../core-components">Core components</a></li>
+						<li><a href="../advanced-components">Advanced components</a></li>
+						<li><a href="../design">Design handover &amp; standards</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<main id="main">
+			<div class="l-sidebar">
+				<div>
+					<nav class="sidebar" aria-label="Secondary">
+						<ul class="clean-list" role="list">
+							<li><a href="box.html">Box</a></li>
+							<li><a href="center.html">Center</a></li>
+							<li><a href="cluster.html">Cluster</a></li>
+							<li><a href="cover.html">Cover</a></li>
+							<li><a href="frame.html">Frame</a></li>
+							<li><a href="sidebar.html">Sidebar</a></li>
+							<li><a href="#">Switcher</a></li>
+						</ul>
+					</nav>
+					<div class="not-sidebar">
+						<div class="component component--text">
+							<h1>Switcher</h1>
+							<p>The switcher layout helper switches the alignment of items from horizontal to vertical at a given, container-based breakpoint. It's a good choice for situations where each child item should be considered of equal importance and has an equal width.</p>
+							<p>As with the <a href="cluster.html">cluster</a> and <a href="sidebar.html">sidebar</a> layouts, an inner flexbox container holds the switcher items, and the negative margin technique to create gutter spacing between items.</p>
+							<p>As there are <strong>no viewport media queries</strong>, the switcher will nest nicely inside other containers.</p>
+						</div>
+						<div class="component">
+							<div class="l-switcher">
+								<div>
+									<div>
+										<div class="l-box l-box">Item 1</div>
+									</div>
+									<div>
+										<div class="l-box">Item 2</div>
+									</div>
+									<div>
+										<div class="l-box">Item 3</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="component component--text">
+							<h2>Considerations</h2>
+							<p>The default switcher layout behaves as follows:</p>
+							<ul>
+								<li>When the inner flexbox container is less than 690px wide, the child items sit vertically.</li>
+								<li>Otherwise, the child items sit horizontally.</li>
+								<li>The number of columns in a row is two (determined by the <code>min-width</code> percentage used on the child items).</li>
+							</ul>
+							<p>Use an additional class to override the default behaviour.</p>
+							<h3>Internet Explorer</h3>
+							<p>There must be no padding on the switcher child items themselves, otherwise the layout will break in this browser. To space content away from the edges, use nested elements with margin or padding. The preceding example uses a nested <a href="box.html">box layout</a>.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<footer>
+		<div class="l-center">
+			&copy; Studio 24
+		</div>
+	</footer>
+</div>
+</body>
+
+</html>

@@ -2964,6 +2964,14 @@ input[type=search] {
   padding: 1.5rem;
 }
 
+.amplify .search-bar .not-sidebar {
+  min-width: 70%;
+}
+
+.amplify .search-bar .button {
+  flex-grow: 1;
+}
+
 /* 1 */
 /*------------------------------------*\
     #Utilities
