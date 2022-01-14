@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Advanced components - Amplify</title>
+	<title>Disclosure widget - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -82,15 +82,23 @@
 						<ul class="clean-list" role="list">
 							<li><a href="cards.html">Cards</a></li>
 							<li><a href="collapsibles.html">Collapsible containers</a></li>
-							<li><a href="disclosure-widget.html">Disclosure widget</a></li>
+							<li><a href="#">Disclosure widget</a></li>
 							<li><a href="tabs.html">Tabbed sections</a></li>
 						</ul>
 					</nav>
 					<div class="not-sidebar">
 						<div class="component component--text">
-							<h1>Advanced components</h1>
-							<p>Examples of components with JavaScript enhancements, such as collapsible content.</p>
-							<p>In the CSS architecture, the <strong>advanced components</strong> directory handles the styles for those few components that are enhanced in some way with JavaScript. They are compiled into a separate <code>advanced.css</code> file, which is only served to browsers that <a href="javascript:;">‘cut the mustard’</a>.</p>
+							<h1>Disclosure widget</h1>
+							<p>A simple control whose sole purpose is to hide or show content, this component is inspired by Adrian Roselli's post about <a href="https://adrianroselli.com/2020/05/disclosure-widgets.html">disclosure widgets</a>.</p>
+							<p>The basic principles demonstrated here can be expanded upon and applied to e.g. off-canvas navigation and <a href="https://adrianroselli.com/2019/06/link-disclosure-widget-navigation.html">dropdown</a> <a href="https://css-tricks.com/in-praise-of-the-unambiguous-click-menu/">site navigation</a>.</p>
+						</div>
+						<div class="component">
+							<button type="button" class="button with-icon--after" data-toggle="true" style="display: none">Toggle <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--larger" width="24" height="24" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path fill="none" d="M0 0h24v24H0z"/><path class="expand-more" d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"/><path class="expand-less" d="m12 8-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/></svg></button>
+							<p>This text should be hidden if JavaScript is available and the preceding button has the <code>data-toggle="true"</code> attribute.</p>
+						</div>
+						<div class="component component--text">
+							<h2>Considerations</h2>
+							<p>Note that the text content of the button - which forms the name of the control for assistive technology users - does not change. Instead, the state of the button is announced via the <code>aria-expanded</code> attribute, which is added via JavaScript. This is the most reliable approach for a disclosure widget, as identified by in Sarah Higley's post: <a href="https://sarahmhigley.com/writing/playing-with-state/">Playing with state</a>.</p>
 						</div>
 					</div>
 				</div>
