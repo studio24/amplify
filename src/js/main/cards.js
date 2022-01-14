@@ -1,4 +1,4 @@
-import {exists} from "./helpers";
+import {exists} from "./_helpers";
 
 /**
  * Card enhancement to trigger the main link whenever the card area is clicked
