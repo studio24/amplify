@@ -113,7 +113,7 @@
 							<h2>Considerations</h2>
 							<p>Note the use of the <a href="../layouts/frame.html">frame layout helper</a> for the card image and the <a href="../layouts/box.html">box layout helper</a> for the card text.</p>
 							<p>In the markup, the card text is first in the source order to prioritise it over the image. Flexbox is used to place the image ahead of the card text visually, via the <code>order</code> property.</p>
-							<p>Where generic link text is used visually, this is enhanced for Assistive Technology users with the <code>&lt;span class="visuallyhidden"&gt;</code> providing descriptive link text.</p>
+							<p>Where generic link text is used visually, this is enhanced for Assistive Technology users with the <code>&lt;span class="visuallyhidden"&gt;</code> providing descriptive link text to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-link-only.html">WCAG Success Criterion 2.4.9: Link Purpose (Link Only) (AAA)</a>.</p>
 							<h3>Neat cards</h3>
 							<p>If the design calls for a row of cards of equal height, irrespective of the amount of text content, you can add the <code>.card--neat</code> modifier class to the cards. This forces the card to take up 100% of the height of the parent container. It will also push the last child element in the text region to the bottom edge. You can see this in action on the <a href="../index.html">Amplify home page</a>.</p>
 						</div>

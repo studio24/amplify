@@ -108,7 +108,7 @@
 							</div>
 						</div>
 						<div class="component">
-							<h2>Block link card with 'CTA'</h2>
+							<h2>Block link card with call-to-action (CTA)</h2>
 							<div class="card" data-component="card">
 								<div class="l-box l-box--no-border card__text">
 									<h3 class="card__heading"><a class="card__link" href="https://en.wikipedia.org/wiki/Cats_and_the_Internet">Cats and the Internet</a></h3>
@@ -147,6 +147,7 @@
 						</div>
 						<div class="component component--text">
 							<h2>Considerations</h2>
+							<p>Block links work because the JavaScript looks for a link with the class <code>.card__link</code>. We add this link to the <code>.card__heading</code> text, to make sure that the link text is descriptive. If the design calls for a visually distinctive CTA, use a simple <code>&lt;div&gt;</code> to hold the text content and <code>aria-hidden</code> to hide it from assistive technology.</p>
 							<p>The preceding example shows that it is possible for a block link card to have one link as the main link while also allowing other specific links (in this case a <a href="../core-components/tag-list.html">list of tags</a>) to different destinations. JavaScript targets the link with the class <code>.card__link</code> and identifies this as the main link for the card.</p>
 							<h3>Neat cards</h3>
 							<p>If the design calls for a row of cards of equal height, irrespective of the amount of text content, you can add the <code>.card--neat</code> modifier class to the cards. This forces the card to take up 100% of the height of the parent container. It will also push the last child element in the text region to the bottom edge. You can see this in action on the <a href="../index.html">Amplify home page</a>.</p>
