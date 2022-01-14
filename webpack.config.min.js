@@ -5,7 +5,8 @@ module.exports = {
 	entry: {
 		main: './main.js',
 		slider: './slider.js',
-		countryAutocomplete: './country-autocomplete.js'
+		countryAutocomplete: './country-autocomplete.js',
+		tabs: './package-extensions/s24-tabby-polyfills.js'
 	},
 	mode: 'none',
 	output: {
