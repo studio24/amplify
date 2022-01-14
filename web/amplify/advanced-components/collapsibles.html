@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Collapsible containers - Amplify</title>
+
+	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="../../dist/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="../../dist/styles/print.css" media="print"/>
+
+	<script src="../../dist/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '../../dist/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="grid-wrap">
+	<div class="not-footer">
+		<header>
+			<div class="l-center">
+				<a href="../index.html">Amplify from Studio 24</a>
+			</div>
+		</header>
+		<nav aria-label="Main">
+			<div class="l-center">
+				<div class="l-cluster">
+					<ul class="clean-list">
+						<li><a href="../get-started">Get started</a></li>
+						<li><a href="../layouts">Layout helpers</a></li>
+						<li><a href="../fundamentals">Fundamentals</a></li>
+						<li><a href="../core-components">Core components</a></li>
+						<li><a href="../advanced-components">Advanced components</a></li>
+						<li><a href="../design">Design handover &amp; standards</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<main id="main">
+			<div class="l-sidebar">
+				<div>
+					<nav class="sidebar" aria-label="Secondary">
+						<ul class="clean-list" role="list">
+							<li><a href="cards.html">Cards</a></li>
+							<li><a href="#">Collapsible containers</a></li>
+							<li><a href="tabs.html">Tabbed sections</a></li>
+						</ul>
+					</nav>
+					<div class="not-sidebar">
+						<div class="component component--text">
+							<h1>Collapsible containers</h1>
+							<p>This is a series of containers, each holding a heading and some content. JavaScript enhances the markup, collapsing all containers and inserting buttons inside the headings to toggle them open/closed. The JavaScript looks for the presence of the data attribute <code>data-component="collapsibles"</code> on the outer container and <code>data-heading="collapsibles"</code> on the headings.</p>
+							<p>The component takes insporation from the <a href="https://design-system.service.gov.uk/components/accordion/">GOV.UK Design System accordion component</a>.</p>
+						</div>
+						<div class="component component--collapsibles" data-component="collapsibles">
+							<div class="component--collapsibles__panel">
+								<h2 data-heading="collapsibles">Panel 1 heading</h2>
+								<div class="component--collapsibles__panel__content">
+									<p>This is a paragraph of text.</p>
+									<p>Here is another paragraph of text that intentionally contains a lot more words inside it in order to fill the width of the page successfully to check layout and so forth.</p>
+								</div>
+							</div>
+							<div class="component--collapsibles__panel">
+								<h2 data-heading="collapsibles">Panel 2 heading</h2>
+								<div class="component--collapsibles__panel__content">
+									<p>This is a paragraph of text.</p>
+									<p>Here is another paragraph of text that intentionally contains a lot more words inside it in order to fill the width of the page successfully to check layout and so forth.</p>
+								</div>
+							</div>
+							<div class="component--collapsibles__panel">
+								<h2 data-heading="collapsibles">Panel 3 heading</h2>
+								<div class="component--collapsibles__panel__content">
+									<p>This is a paragraph of text.</p>
+									<p>Here is another paragraph of text that intentionally contains a lot more words inside it in order to fill the width of the page successfully to check layout and so forth.</p>
+								</div>
+							</div>
+							<div class="component--collapsibles__panel">
+								<h2 data-heading="collapsibles">Panel 4 heading</h2>
+								<div class="component--collapsibles__panel__content">
+									<p>This is a paragraph of text.</p>
+									<p>Here is another paragraph of text that intentionally contains a lot more words inside it in order to fill the width of the page successfully to check layout and so forth.</p>
+								</div>
+							</div>
+						</div>
+						<div class="component component--text">
+							<h2>Considerations</h2>
+							<p><a href="https://adamsilver.io/articles/buttons-shouldnt-have-a-hand-cursor/">Buttons shouldn't use the pointer cursor</a>, so we need to ensure the buttons have sufficient affordance by other visual means. The icon and show/hide help text help to achieve this, but we can also make use of background-color, border and/or box-shadow styles.</p>
+							<p>Aligning the button content to the leading edge reduces the risk of it being missed by people using screen magnification software.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<footer>
+		<div class="l-center">
+			&copy; Studio 24
+		</div>
+	</footer>
+</div>
+</body>
+
+</html>
