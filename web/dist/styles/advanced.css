@@ -300,6 +300,73 @@ br {
 }
 
 /*------------------------------------*\
+    #Tabbed sections
+\*------------------------------------*/
+.no-js .component--tabs {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.no-js .component--tabs > * + * {
+  margin-top: 1em;
+}
+.no-js .component--tabs section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.no-js .component--tabs section > * + * {
+  margin-top: 1rem;
+}
+
+.js .component--tabs [role=tablist] {
+  border-bottom: solid 1px #aaa;
+  display: flex;
+  flex-flow: row nowrap;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 0 1.5rem;
+}
+.js .component--tabs [role=tablist] li {
+  flex-shrink: 0;
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+}
+.js .component--tabs [role=tablist] li + li {
+  margin-left: 1.5rem;
+}
+
+[dir=rtl] .js .component--tabs [role=tablist] li + li {
+  margin-left: 0;
+  margin-right: 1.5rem;
+}
+
+.js .component--tabs a[role=tab] {
+  background-color: #ddd;
+  border: 0;
+  border-bottom: solid 0.1875rem transparent;
+  color: #252525;
+  display: block;
+  padding: 0.625em 0.9375em;
+}
+.js .component--tabs a[role=tab]:focus, .js .component--tabs a[role=tab][aria-selected=true] {
+  border-color: #0d599b;
+  outline: none;
+  text-decoration: none;
+}
+
+.js .component--tabs [role=tabpanel] {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1.5rem;
+}
+.js .component--tabs [role=tabpanel] > * + * {
+  margin-top: 1rem;
+}
+
+/*------------------------------------*\
     #Plugins
 
     Add third-party plugins here.
