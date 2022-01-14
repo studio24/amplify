@@ -32,7 +32,7 @@
 }
 
 [dir="rtl"] {
-	.js .component--tabs [role="tablist"] li + li {
+	&.js .component--tabs [role="tablist"] li + li {
 		margin-left: 0;
 		margin-right: rem(24);
 	}
