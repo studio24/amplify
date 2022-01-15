@@ -118,6 +118,8 @@
 						</div>
 						<div class="component component--text">
 							<h2>Considerations</h2>
+							<p>The default implementation uses <code>overflow-x: auto;</code> on the list of tabs, so that if the width of the tablist is greater than the container/viewport width they will scroll horizontally. This is the same principle that Brad Taunt suggests in his post about <a href="https://tdarb.org/hamburger-menu-alternative/">replacing hamburger menus with sausage links</a>.</p>
+							<p>In the absence of a visible scrollbar, you will need to make sure that there are sufficient visual cues to users that content has been cut off and can be scrolled. You could <a href="https://bbc.github.io/gel/components/data-tables/#indicating-scroll-functionality-visually">use linear gradients to help add visual affordance of scrolling</a>, or else you might choose to add further scripting to detect when the element is scrolled all the way to either side, and add start or end classes for styling.</p>
 						</div>
 					</div>
 				</div>
