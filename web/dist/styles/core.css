@@ -2757,6 +2757,26 @@ main,
 }
 
 /*------------------------------------*\
+    #Tabbed sections
+\*------------------------------------*/
+.no-js .component--tabs {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.no-js .component--tabs > * + * {
+  margin-top: 1em;
+}
+.no-js .component--tabs section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.no-js .component--tabs section > * + * {
+  margin-top: 1rem;
+}
+
+/*------------------------------------*\
     #Crosslinks (You may also like)
 \*------------------------------------*/
 .crosslinks {

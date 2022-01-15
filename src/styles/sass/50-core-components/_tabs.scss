@@ -1,0 +1,11 @@
+/*------------------------------------*\
+    #Tabbed sections
+\*------------------------------------*/
+
+.no-js .component--tabs {
+	@include stack;
+
+	section {
+		@include stack(1rem);
+	}
+}
