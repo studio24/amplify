@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Avatars - Amplify</title>
+	<title>Notes - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -80,10 +80,10 @@
 				<div>
 					<nav class="sidebar" aria-label="Secondary">
 						<ul class="clean-list" role="list">
-							<li><a href="#">Avatars</a></li>
+							<li><a href="avatars.html">Avatars</a></li>
 							<li><a href="breadcrumbs.html">Breadcrumbs</a></li>
 							<li><a href="cards.html">Cards</a></li>
-							<li><a href="notes.html">Notes</a></li>
+							<li><a href="#">Notes</a></li>
 							<li><a href="pagination.html">Pagination</a></li>
 							<li><a href="progress-indicator.html">Progress indicator</a></li>
 							<li><a href="search.html">Simple search form</a></li>
@@ -92,24 +92,38 @@
 					</nav>
 					<div class="not-sidebar">
 						<div class="component component--text">
-							<h1>Avatars</h1>
-							<p>Wrap a square or portrait image inside a <code>&lt;div&gt;</code> or <code>&lt;span&gt;</code> with the class <code>.avatar</code> to apply a circular mask to the image.</p>
+							<h1>Notes</h1>
+							<p>Notes can be used for simple informational messages, and for success, warning and error alerts. They are an enhancement of the <a href="../layouts/box.md#default-box">default box layout</a>.</p>
 						</div>
 						<div class="component">
-							<div class="avatar">
-								<img alt src="https://www.w3.org/2006/05/u/1682ihk1hqqo-sm.jpg">
+							<div class="l-box note note--info" role="status">
+								<h2 class="txt-saturn">Informative note heading</h2>
+								<p>Group calendering is currently in beta-test. We encourage everyone to use it and report feedback and issues to its <a href="#1">dedicated GitHub repository</a>.</p>
+							</div>
+						</div>
+						<div class="component">
+							<div class="l-box note note--success" role="status">
+								<h2 class="txt-saturn">Success note heading</h2>
+								<p>Main profile successfully updated.</p>
+							</div>
+						</div>
+						<div class="component">
+							<div class="l-box note note--warning" role="status">
+								<h2 class="txt-saturn">Warning note heading</h2>
+								<p>We could not detect your affiliation based on your email address. Please select your affiliation below or <a href="#2">go back to use your corporate email address.</a></p>
+							</div>
+						</div>
+						<div class="component">
+							<div class="l-box note note--error" role="alert">
+								<h2 class="txt-saturn">Error note heading</h2>
+								<p>There has been an error.</p>
 							</div>
 						</div>
 						<div class="component component--text">
 							<h2>Considerations</h2>
-							<p>Note the empty <code>alt</code> attribute in this example. Images must always have an <code>alt</code> attribute - leaving it empty shows that it is a decorative image.</p>
-							<p>The default size of an avatar is equivalent to 100px wide and tall (the CSS converts the pixel value into rem units.) Additional modifier classes can be added for smaller avatars:</p>
-							<ul>
-								<li>
-									<code>.avatar--med</code> for an avatar equivalent to 50px wide and tall</li>
-								<li>
-									<code>.avatar--small</code> for an avatar equivalent to 30px wide and tall</li>
-							</ul>
+							<p>Note the use of <code>role="status"</code> and <code>role="alert"</code>. Both create an ARIA live region.</p>
+							<p>If the content of the note is advisory information not important enough to justify an alert, use <code>role="status"</code>. When added to an element, the browser will send out an accessible status event to assistive technologies, which can then notify the user about it.</p>
+							<p>For error messages, use <code>role="alert"</code>. The alert role should read out content that has changed, or bring the user's attention to it immediately, so it should not be used for static content or used regularly. Alerts, by definition, are disruptive. Lots of alerts at once or unnecessary alerts will create a bad user experience.</p>
 						</div>
 					</div>
 				</div>
