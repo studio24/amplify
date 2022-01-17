@@ -114,7 +114,7 @@
 							<p>The <code>aria-label</code> attribute has been added to the <code>&lt;nav&gt;</code> element. This is because the main website navigation also uses the <code>&lt;nav&gt;</code> element. Where there are multiple<code>&lt;nav&gt;</code> elements on a single page, all must be given a unique accessible name via <code>aria-label</code>.</p>
 							<p>For all pagination links excluding the current page, <code>&lt;span class="visuallyhidden"&gt;page&lt;/span&gt;</code> is added to provide additional context to the link wording for users of Assistive Technology.</p>
 							<p>The current page is indicated by <code>aria-current="page"</code>. As per the <a href="breadcrumbs.html">breadcrumbs component</a>, it is fully linked so that users of Assistive Technology can find which is the currently active link. The <code>aria-label</code>on the current page link provides the same additional context as the visually-hidden span on other pagination links.</p>
-							<p>The angle bracket characters used within the links for the very first and very last pages are hidden from Assistive Technology users with inside <code>&lt;span aria-hidden="true"&gt;</code>. Accessible text labels are added using <code>&lt;span class="visuallyhidden"&gt;</code>.</p>
+							<p>The angle bracket characters used within the links for the very first and very last pages are wrapped inside <code>&lt;span aria-hidden="true"&gt;</code> to hide them from assistive technology users. Accessible text labels are added using <code>&lt;span class="visuallyhidden"&gt;</code>.</p>
 						</div>
 					</div>
 				</div>
