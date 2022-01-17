@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Progress indicator - Amplify</title>
+	<title>Video component - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -86,49 +86,35 @@
 							<li><a href="image-component.html">Image component</a></li>
 							<li><a href="notes.html">Notes</a></li>
 							<li><a href="pagination.html">Pagination</a></li>
-							<li><a href="#">Progress indicator</a></li>
+							<li><a href="progress-indicator.html">Progress indicator</a></li>
 							<li><a href="quote-component.html">Quote component</a></li>
 							<li><a href="search.html">Simple search form</a></li>
 							<li><a href="tag-list.html">Tag list</a></li>
-							<li><a href="video.html">Video component</a></li>
+							<li><a href="#">Video component</a></li>
 						</ul>
 					</nav>
 					<div class="not-sidebar">
 						<div class="component component--text">
-							<h1>Progress indicator</h1>
-							<p>While it is <a href="https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators">recommended not to use progress indicators</a> for forms, Amplify does include one:</p>
+							<h1>Video component</h1>
 						</div>
-						<div class="component">
-							<section>
-								<h2 class="visuallyhidden">Form progress</h2>
-								<ol class="clean-list progress-list" role="list">
-									<li class="progress-step complete">
-										<span class="visuallyhidden">Completed: </span>
-										<a href="" class="progress-step__inner">
-											<div class="progress-step__marker complete" aria-hidden="true">1</div>
-											<span>Delivery address</span>
-										</a>
-									</li>
-									<li class="progress-step" aria-current="step">
-										<div class="progress-step__inner">
-											<div class="progress-step__marker" aria-hidden="true">2</div>
-											<span>Billing address</span>
-										</div>
-									</li>
-									<li class="progress-step">
-										<div class="progress-step__inner">
-											<div class="progress-step__marker" aria-hidden="true">3</div>
-											<span>Payment details</span>
-										</div>
-									</li>
-									<li class="progress-step">
-										<div class="progress-step__inner">
-											<div class="progress-step__marker" aria-hidden="true">4</div>
-											<span>Confirmation</span>
-										</div>
-									</li>
-								</ol>
-							</section>
+						<figure class="component component--video">
+							<div class="l-frame l-frame--16-9">
+								<iframe title="Why do cats act so weird?" loading="lazy" width="560" height="315" src="https://embed.ted.com/talks/lang/en/tony_buffington_why_do_cats_act_so_weird" allowfullscreen></iframe>
+							</div>
+							<figcaption>
+								<p>They're cute, they're lovable, and judging by the 26 billion views on over 2 million YouTube videos of them, one thing is certain: cats are very entertaining. But their strange feline behaviours, both amusing and baffling, leave many of us asking: Why do cats do that? Tony Buffington explains the science behind some of your cat's strangest behaviours.</p>
+								<a href="https://www.ted.com/talks/tony_buffington_why_do_cats_act_so_weird/transcript">Video transcript</a>
+							</figcaption>
+						</figure>
+						<div class="component component--text">
+							<h2>Considerations</h2>
+							<p>The <code>iframe</code> must always include a unique, descriptive <code>title</code> attribute to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html">WCAG Success Criterion 2.4.1: Bypass Blocks (A)</a> and <a href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html">WCAG Success Criterion 4.1.2: Name, Role, Value (A)</a>.</p>
+							<h3>Captions</h3>
+							<p>Prerecorded video must include captions to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/captions-prerecorded.html">WCAG Success Criterion 1.2.2: Captions (Prerecorded) (A)</a>.</p>
+							<p><a href="https://www.w3.org/WAI/media/av/captions/">More advice about audiovisual media captions</a>.</p>
+							<h3>Transcripts</h3>
+							<p>Transcripts for prerecorded video are required to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/media-alternative-prerecorded.html">WCAG Success Criterion 1.2.8: Media Alternative (Prerecorded) (AAA)</a>.</p>
+							<p><a href="https://www.w3.org/WAI/media/av/transcripts/">More advice about audiovisual media transcripts.</a></p>
 						</div>
 					</div>
 				</div>
