@@ -3160,7 +3160,7 @@ input[type=search] {
   min-width: 70%;
 }
 
-.amplify .search-bar .button {
+.amplify .search-bar button {
   flex-grow: 1;
 }
 

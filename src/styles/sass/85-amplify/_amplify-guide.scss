@@ -27,6 +27,6 @@
 
 // To omit the `flex-basis` in this example we haven't used the `.sidebar` class
 // on this element. So we must manually re-apply the required `flex-grow` property.
-.amplify .search-bar .button {
+.amplify .search-bar button {
 	flex-grow: 1;
 }
