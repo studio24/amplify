@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Pagination - Amplify</title>
+	<title>Image component - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -83,9 +83,9 @@
 							<li><a href="avatars.html">Avatars</a></li>
 							<li><a href="breadcrumbs.html">Breadcrumbs</a></li>
 							<li><a href="cards.html">Cards</a></li>
-							<li><a href="image-component.html">Image component</a></li>
+							<li><a href="#">Image component</a></li>
 							<li><a href="notes.html">Notes</a></li>
-							<li><a href="#">Pagination</a></li>
+							<li><a href="pagination.html">Pagination</a></li>
 							<li><a href="progress-indicator.html">Progress indicator</a></li>
 							<li><a href="search.html">Simple search form</a></li>
 							<li><a href="tag-list.html">Tag list</a></li>
@@ -93,33 +93,21 @@
 					</nav>
 					<div class="not-sidebar">
 						<div class="component component--text">
-							<h1>Pagination</h1>
+							<h1>Image component</h1>
 						</div>
-						<div class="component">
-							<nav aria-label="Pagination" class="l-cluster pagination">
-								<ul class="pagination__list">
-									<li><a href="javascript:;"><span aria-hidden="true">&lt;&lt;</span><span class="visuallyhidden">First page</span></a></li>
-									<li><a href="javascript:;">Previous <span class="visuallyhidden">page</span></a></li>
-									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 1</a></li>
-									<li><a href="#" aria-label="page 2" aria-current="page">2</a></li>
-									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 3</a></li>
-									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 4</a></li>
-									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 5</a></li>
-									<li><a class="ellipsis">&#8230;</a></li>
-									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 20</a></li>
-									<li><a href="javascript:;">Next <span class="visuallyhidden">page</span></a></li>
-									<li><a href="javascript:;"><span aria-hidden="true">&gt;&gt;</span><span class="visuallyhidden">Last page</span></a></li>
-								</ul>
-							</nav>
-						</div>
+						<figure class="component component--image">
+							<div class="l-frame l-frame--16-9">
+								<img src="../../dist/images/jpg-cat-1.jpg" loading="lazy" alt="" />
+							</div>
+							<figcaption>
+								<p>The figcaption is not a replacement for the image's <code>alt</code> attribute. It should be used for providing relevant supporting content.</p>
+							</figcaption>
+						</figure>
 						<div class="component component--text">
 							<h2>Considerations</h2>
-							<p>Note the use of the <a href="../layouts/cluster.html">cluster layout helper</a>.</p>
-							<p>Note how the pagination links meet the requirements of <a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html">WCAG Success Criterion 2.5.5: Target Size (AAA)</a>.</p>
-							<p>The <code>aria-label</code> attribute has been added to the <code>&lt;nav&gt;</code> element. This is because the main website navigation also uses the <code>&lt;nav&gt;</code> element. Where there are multiple<code>&lt;nav&gt;</code> elements on a single page, all must be given a unique accessible name via <code>aria-label</code>.</p>
-							<p>For all pagination links excluding the current page, <code>&lt;span class="visuallyhidden"&gt;page&lt;/span&gt;</code> is added to provide additional context to the link wording for users of Assistive Technology.</p>
-							<p>The current page is indicated by <code>aria-current="page"</code>. As per the <a href="breadcrumbs.html">breadcrumbs component</a>, it is fully linked so that users of Assistive Technology can find which is the currently active link. The <code>aria-label</code>on the current page link provides the same additional context as the visually-hidden span on other pagination links.</p>
-							<p>The angle bracket characters used within the links for the very first and very last pages are wrapped inside <code>&lt;span aria-hidden="true"&gt;</code> to hide them from assistive technology users. Accessible text labels are added using <code>&lt;span class="visuallyhidden"&gt;</code>.</p>
+							<p>Note the use of the <a href="../layouts/frame.html">frame layout</a>, to create the desired aspect ratio, and the <code>loading="lazy"</code> attribute on <code>&lt;img&gt;</code> for native lazy-loading.</p>
+							<h3>Alternative text</h3>
+							<p>Every instance of <code>&lt;img&gt;</code> must include the <code>alt</code> attribute. If the image is decorative it can be left blank. Otherwise, the <code>alt</code> requires a text value explaining the nature of the image for users of Assistive Technology. This <a href="https://www.w3.org/WAI/tutorials/images/decision-tree/">alt decision tree</a> is helpful for determining whether and how to provide alternative text.</p>
 						</div>
 					</div>
 				</div>
