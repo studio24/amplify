@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Breadcrumbs - Amplify</title>
+	<title>Avatars - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -80,8 +80,8 @@
 				<div>
 					<nav class="sidebar" aria-label="Secondary">
 						<ul class="clean-list" role="list">
-							<li><a href="avatars.html">Avatars</a></li>
-							<li><a href="#">Breadcrumbs</a></li>
+							<li><a href="#">Avatars</a></li>
+							<li><a href="breadcrumbs.html">Breadcrumbs</a></li>
 							<li><a href="cards.html">Cards</a></li>
 							<li><a href="pagination.html">Pagination</a></li>
 							<li><a href="progress-indicator.html">Progress indicator</a></li>
@@ -91,27 +91,24 @@
 					</nav>
 					<div class="not-sidebar">
 						<div class="component component--text">
-							<h1>Breadcrumbs</h1>
+							<h1>Avatars</h1>
+							<p>Wrap a square or portrait image inside a <code>&lt;div&gt;</code> or <code>&lt;span&gt;</code> with the class <code>.avatar</code> to apply a circular mask to the image.</p>
 						</div>
 						<div class="component">
-							<nav class="breadcrumbs" aria-label="Breadcrumb">
-								<div class="l-center">
-									<div class="l-cluster">
-										<ol class="clean-list" role="list">
-											<li><a href="javascript:;">Home</a></li>
-											<li><a href="javascript:;">Second Page</a></li>
-											<li><a href="javascript:;" aria-current="page">This page</a></li>
-										</ol>
-									</div>
-								</div>
-							</nav>
+							<div class="avatar">
+								<img alt src="https://www.w3.org/2006/05/u/1682ihk1hqqo-sm.jpg">
+							</div>
 						</div>
 						<div class="component component--text">
 							<h2>Considerations</h2>
-							<p>Note the use of the <a href="../layouts/center.html">center layout helper</a> and <a href="../layouts/cluster.html">cluster layout helper</a>.</p>
-							<p>Note how the breadcrumb links meet the requirements of <a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html">WCAG Success Criterion 2.5.5: Target Size (AAA)</a>.</p>
-							<p>The <code>aria-label</code> attribute has been added to the <code>&lt;nav&gt;</code> element. This is because the main website navigation also uses the <code>&lt;nav&gt;</code> element. Where there are multiple<code>&lt;nav&gt;</code> elements on a single page, all must be given a unique accessible name via <code>aria-label</code>.</p>
-							<p>The current page is indicated by <code>aria-current="page"</code>. Following Scott O'Hara's <a href="https://scottaohara.github.io/a11y_breadcrumbs/">accessible breadcrumb pattern</a> it is fully linked so that users of Assistive Technology can find which is the currently active link.</p>
+							<p>Note the empty <code>alt</code> attribute in this example. Images must always have an <code>alt</code> attribute - leaving it empty shows that it is a decorative image.</p>
+							<p>The default size of an avatar is equivalent to 100px wide and tall (the CSS converts the pixel value into rem units.) Additional modifier classes can be added for smaller avatars:</p>
+							<ul>
+								<li>
+									<code>.avatar--med</code> for an avatar equivalent to 50px wide and tall</li>
+								<li>
+									<code>.avatar--small</code> for an avatar equivalent to 30px wide and tall</li>
+							</ul>
 						</div>
 					</div>
 				</div>

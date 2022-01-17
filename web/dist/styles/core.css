@@ -1657,37 +1657,6 @@ img {
   width: 100%;
 }
 
-.avatar {
-  background-color: #fff;
-  border: solid 1px #0d599b;
-  border-radius: 50%;
-  height: 6.25rem;
-  overflow: hidden;
-  position: relative;
-  width: 6.25rem;
-}
-.avatar img {
-  height: auto;
-  margin-top: -0.625rem;
-  width: 100%;
-}
-
-.avatar--med {
-  height: 3.125rem;
-  width: 3.125rem;
-}
-.avatar--med img {
-  margin-top: 0;
-}
-
-.avatar--small {
-  height: 2rem;
-  width: 2rem;
-}
-.avatar--small img {
-  margin-top: 0;
-}
-
 /*------------------------------------*\
     #Lists
 \*------------------------------------*/
@@ -2393,6 +2362,40 @@ main,
   margin: 0;
   padding-bottom: 0.625rem;
   padding-top: 0.625rem;
+}
+
+/*------------------------------------*\
+    #Avatars
+\*------------------------------------*/
+.avatar {
+  background-color: #fff;
+  border: solid 1px #0d599b;
+  border-radius: 50%;
+  height: 6.25rem;
+  overflow: hidden;
+  position: relative;
+  width: 6.25rem;
+}
+.avatar img {
+  height: auto;
+  margin-top: -0.625rem;
+  width: 100%;
+}
+
+.avatar--med {
+  height: 3.125rem;
+  width: 3.125rem;
+}
+.avatar--med img {
+  margin-top: 0;
+}
+
+.avatar--small {
+  height: 2rem;
+  width: 2rem;
+}
+.avatar--small img {
+  margin-top: 0;
 }
 
 /*------------------------------------*\
