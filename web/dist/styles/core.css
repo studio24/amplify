@@ -2935,68 +2935,6 @@ main,
 }
 
 /*------------------------------------*\
-    #Crosslinks (You may also like)
-\*------------------------------------*/
-.crosslinks {
-  background-color: #0d599b;
-  color: #fff;
-  padding-bottom: 3.125rem;
-  padding-top: 3.125rem;
-}
-
-.crosslinks .component--columns__intro h2 {
-  font-size: 1.953rem;
-}
-
-@media screen and (min-width: 43.75em) {
-  .crosslinks .component--columns--images > ul {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -1.5%;
-  }
-}
-@media screen and (min-width: 43.75em) {
-  .crosslinks .component--columns--images > ul > li {
-    flex: 1 0 50%;
-    max-width: 50%;
-    padding: 1.5%;
-  }
-}
-@media screen and (min-width: 43.75em) {
-  .crosslinks .component--columns--images > ul li + li {
-    margin-top: 0;
-  }
-}
-
-@media screen and (min-width: 43.75em) {
-  .crosslinks .component--columns--images li:nth-last-child(n+3):nth-last-child(-n+3):first-child,
-.crosslinks .component--columns--images li:nth-last-child(n+3):nth-last-child(-n+3):first-child ~ li {
-    flex-basis: 33%;
-  }
-}
-@media screen and (min-width: 64em) {
-  .crosslinks .component--columns--images li:nth-last-child(n+4):nth-last-child(-n+4):first-child,
-.crosslinks .component--columns--images li:nth-last-child(n+4):nth-last-child(-n+4):first-child ~ li {
-    flex-basis: 25%;
-  }
-}
-
-.crosslinks .card {
-  background-color: #fff;
-  border-radius: 0.25rem;
-  color: #252525;
-  overflow: hidden;
-}
-
-.crosslinks .card__text {
-  padding: 1.25rem;
-}
-
-.crosslinks .card__image img {
-  border-radius: 0;
-}
-
-/*------------------------------------*\
     #Search
 \*------------------------------------*/
 input[type=search] {
