@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Pagination - Amplify</title>
+	<title>Quote component - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -85,42 +85,27 @@
 							<li><a href="cards.html">Cards</a></li>
 							<li><a href="image-component.html">Image component</a></li>
 							<li><a href="notes.html">Notes</a></li>
-							<li><a href="#">Pagination</a></li>
+							<li><a href="pagination.html">Pagination</a></li>
 							<li><a href="progress-indicator.html">Progress indicator</a></li>
-							<li><a href="quote-component.html">Quote component</a></li>
+							<li><a href="#">Quote component</a></li>
 							<li><a href="search.html">Simple search form</a></li>
 							<li><a href="tag-list.html">Tag list</a></li>
 						</ul>
 					</nav>
 					<div class="not-sidebar">
 						<div class="component component--text">
-							<h1>Pagination</h1>
+							<h1>Quote component</h1>
 						</div>
-						<div class="component">
-							<nav aria-label="Pagination" class="l-cluster pagination">
-								<ul class="pagination__list">
-									<li><a href="javascript:;"><span aria-hidden="true">&lt;&lt;</span><span class="visuallyhidden">First page</span></a></li>
-									<li><a href="javascript:;">Previous <span class="visuallyhidden">page</span></a></li>
-									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 1</a></li>
-									<li><a href="#" aria-label="page 2" aria-current="page">2</a></li>
-									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 3</a></li>
-									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 4</a></li>
-									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 5</a></li>
-									<li><a class="ellipsis">&#8230;</a></li>
-									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 20</a></li>
-									<li><a href="javascript:;">Next <span class="visuallyhidden">page</span></a></li>
-									<li><a href="javascript:;"><span aria-hidden="true">&gt;&gt;</span><span class="visuallyhidden">Last page</span></a></li>
-								</ul>
-							</nav>
-						</div>
+						<figure class="component component--quote">
+							<blockquote>
+								<p>I think all cats are wild. They only act tame if there's a saucer of milk in it for them.</p>
+							</blockquote>
+							<figcaption>Douglas Adams</figcaption>
+						</figure>
 						<div class="component component--text">
 							<h2>Considerations</h2>
-							<p>Note the use of the <a href="../layouts/cluster.html">cluster layout helper</a>.</p>
-							<p>Note how the pagination links meet the requirements of <a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html">WCAG Success Criterion 2.5.5: Target Size (AAA)</a>.</p>
-							<p>The <code>aria-label</code> attribute has been added to the <code>&lt;nav&gt;</code> element. This is because the main website navigation also uses the <code>&lt;nav&gt;</code> element. Where there are multiple<code>&lt;nav&gt;</code> elements on a single page, all must be given a unique accessible name via <code>aria-label</code>.</p>
-							<p>For all pagination links excluding the current page, <code>&lt;span class="visuallyhidden"&gt;page&lt;/span&gt;</code> is added to provide additional context to the link wording for users of Assistive Technology.</p>
-							<p>The current page is indicated by <code>aria-current="page"</code>. As per the <a href="breadcrumbs.html">breadcrumbs component</a>, it is fully linked so that users of Assistive Technology can find which is the currently active link. The <code>aria-label</code>on the current page link provides the same additional context as the visually-hidden span on other pagination links.</p>
-							<p>The angle bracket characters used within the links for the very first and very last pages are wrapped inside <code>&lt;span aria-hidden="true"&gt;</code> to hide them from assistive technology users. Accessible text labels are added using <code>&lt;span class="visuallyhidden"&gt;</code>.</p>
+							<p>The W3C specification says that a reference to a creative work, as included within a <code>&lt;cite&gt;</code> element, may include the name of the work’s author. However, the WHATWG specification for <code>&lt;cite&gt;</code> says the opposite: that a person’s name must never be included, under any circumstances. Hence, the example above does not use <code>&lt;cite&gt;</code>.</p>
+							<p>To include a reference to the source of quoted material which is contained within a <code>&lt;blockquote&gt;</code> or <code>&lt;q&gt;</code> element, use the <code>cite</code> attribute on the element to provide a URL.</p>
 						</div>
 					</div>
 				</div>
