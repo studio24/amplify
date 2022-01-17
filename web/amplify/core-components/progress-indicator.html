@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Simple search form - Amplify</title>
+	<title>Progress indicator - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -83,36 +83,47 @@
 							<li><a href="breadcrumbs.html">Breadcrumbs</a></li>
 							<li><a href="cards.html">Cards</a></li>
 							<li><a href="pagination.html">Pagination</a></li>
-							<li><a href="progress-indicator.html">Progress indicator</a></li>
-							<li><a href="#">Simple search form</a></li>
+							<li><a href="#">Progress indicator</a></li>
+							<li><a href="search.html">Simple search form</a></li>
 							<li><a href="tag-list.html">Tag list</a></li>
 						</ul>
 					</nav>
 					<div class="not-sidebar">
 						<div class="component component--text">
-							<h1>Simple search form</h1>
+							<h1>Progress indicator</h1>
+							<p>While it is <a href="https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators">recommended not to use progress indicators</a> for forms, Amplify does include one:</p>
 						</div>
 						<div class="component">
-							<div class="l-box">
-								<label for="search">
-									<span class="field-label">Search</span>
-								</label>
-								<div class="l-sidebar search">
-									<form role="search" novalidate>
-										<div class="not-sidebar">
-											<input type="search" id="search" name="search">
+							<section>
+								<h2 class="visuallyhidden">Form progress</h2>
+								<ol class="clean-list progress-list" role="list">
+									<li class="progress-step complete">
+										<span class="visuallyhidden">Completed: </span>
+										<a href="" class="progress-step__inner">
+											<div class="progress-step__marker complete" aria-hidden="true">1</div>
+											<span>Delivery address</span>
+										</a>
+									</li>
+									<li class="progress-step" aria-current="step">
+										<div class="progress-step__inner">
+											<div class="progress-step__marker" aria-hidden="true">2</div>
+											<span>Billing address</span>
 										</div>
-										<div class="sidebar">
-											<button type="submit" class="button" name="search">Search</button>
+									</li>
+									<li class="progress-step">
+										<div class="progress-step__inner">
+											<div class="progress-step__marker" aria-hidden="true">3</div>
+											<span>Payment details</span>
 										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-						<div class="component component--text">
-							<h2>Considerations</h2>
-							<p>Note the use of <code>&lt;input type="search"&gt;</code>. It is recommended to include <code>role="search"</code> on the parent <code>&lt;form&gt;</code> element. <a href="../fundamentals/forms.html">More about forms</a>.</p>
-							<p>Note the use of the <a href="../layouts/box.html">box layout</a> and <a href="../layouts/sidebar.html">sidebar layout</a> in this example.</p>
+									</li>
+									<li class="progress-step">
+										<div class="progress-step__inner">
+											<div class="progress-step__marker" aria-hidden="true">4</div>
+											<span>Confirmation</span>
+										</div>
+									</li>
+								</ol>
+							</section>
 						</div>
 					</div>
 				</div>
