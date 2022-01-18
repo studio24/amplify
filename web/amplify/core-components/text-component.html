@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Core components - Amplify</title>
+	<title>Text component - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -96,9 +96,17 @@
 					</nav>
 					<div class="not-sidebar">
 						<div class="component component--text">
-							<h1>Core components</h1>
-							<p>Examples of commonly required components, the building blocks of web pages.</p>
-							<p>In the CSS architecture, the <strong>core components</strong> directory handles the minimum required styles for all components, including the initial styles for more advanced components when JavaScript is not available. They are compiled into <code>core.css</code>, which is served to all browsers (along with <code>print.css</code>).</p>
+							<h1>Text component</h1>
+							<p>The most commonly-used component for adding content to a page. Use for prose, <a href="../styles/lists.html">lists</a> and <a href="../styles/tables.html">tables</a>. For quotations, use the <a href="quote.html">quote component</a>.</p>
+						</div>
+						<div class="component component--text">
+							<h2>Example text component</h2>
+							<p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.</p>
+						</div>
+						<div class="component component--text">
+							<h2>Considerations</h2>
+							<p>To help maintain the page heading hierarchy, <code>&lt;h1&gt;</code> is not made available within the text component as this has its own specific location within the page template.</p>
+							<p>If you have prose split across multiple text components, with other components interspersed (e.g. the <a href="image-component.html">image component</a>), be sure to check that no heading levels are accidentally skipped in the text components.</p>
 						</div>
 					</div>
 				</div>
