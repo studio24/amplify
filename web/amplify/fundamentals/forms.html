@@ -98,13 +98,13 @@
 								<li>Use <a href="#fixed-width-inputs">fixed width inputs</a> for content that has a specific, known length. Postcode inputs should be postcode-sized, telephone number inputs should be telephone number-sized.</li>
 								<li>Make form fields look like form fields: apply a border and make sure they are empty to begin with. A minimum height of 44 pixels makes them easy to tap on touch screen devices.</li>
 								<li>Make sure any <code>&lt;button&gt;</code> looks like a button. Align them to the left edge of the last input (the right edge for right-to-left languages) where users naturally look for them. Use a verb for button text because the user is doing something, and relate it to what they are doing - avoid generic ‘Submit’ buttons.</li>
-								<li>The <code>&lt;select&gt;</code> element should be a last resort as they’re really hard to use. Try radio buttons instead. If there’s a long list of options, use JavaScript to enhance the <code>&lt;select&gt;</code> into an <a href="#auto-complete">auto-complete field</a> (not to be confused with the <code>autocomplete</code> attribute).</li>
+								<li>The <code>&lt;select&gt;</code> element should be a last resort as they’re really hard to use. Try radio buttons instead. If there’s a long list of options, use JavaScript to enhance the <code>&lt;select&gt;</code> into an <a href="../advanced-components/accessible-autocomplete.html">accessible auto-complete field</a> (not to be confused with the <code>autocomplete</code> attribute).</li>
 								<li>If you have to use a <code>&lt;select&gt;</code>, don't submit a form when its value changes. Select boxes that submit the form automatically when the user selects an option cause problems for keyboard and screen reader users.</li>
 							</ul>
 							<h3>Required fields</h3>
 							<p>It is best practice to only ask questions that are strictly necessary.</p>
 							<p>In the event that a form contains both optional and required fields, to clearly identify the required fields to all users add <code>&lt;span class="required"&gt;(Required)&lt;/span&gt;</code> within the <code>&lt;label&gt;</code>.</p>
-							<h3>How to add hint text</h3>
+							<h3 id="how-to-add-hint-text">How to add hint text</h3>
 							<p>To provide hint text advising how to complete a field, add a <code>&lt;div class="field-hint"&gt;</code>. Check the examples that follow to see where this should be added. The pattern differs slightly for checkbox and radio inputs compared to other input types.</p>
 							<p>Each instance of <code>&lt;div class="field-hint"&gt;</code> must have a unique ID that is used as the value of the <code>aria-describedby</code> attribute that must be added to the associated <code>&lt;input&gt;</code>.</p>
 							<p>Use the pattern <code>id="hint-...</code>, replacing the <code>...</code> with your unique wording.</p>
@@ -192,7 +192,7 @@
 							<p>When asking for payment details, including the <code>autocomplete</code> attribute can help users complete their responses more quickly. Older browsers make use of the <code>name</code> attribute to achieve the same thing. Here is a list of <a href="https://www.smashingmagazine.com/2017/03/improve-billing-form-ux/">payment autofill attributes</a>.</p>
 						</div>
 						<div class="component">
-							<h2>Dealing with dates and times</h2>
+							<h2 id="dealing-with-dates-and-times">Dealing with dates and times</h2>
 							<form novalidate>
 								<div class="field">
 									<label for="arrival-date">
@@ -449,7 +449,7 @@
 							<p>This class should not be used in conjunction with radios or checkboxes. The pattern has not been fully tested with these input types and may not work well on smaller viewports. Furthermore, radios and checkboxes are easier to read and quicker to scan when presented vertically.</p>
 						</div>
 						<div class="component component--text">
-							<h2>Fixed-width inputs</h2>
+							<h2 id="fixed-width-inputs">Fixed-width inputs</h2>
 							<p>There is a collection of CSS classes prefixed with <code>.input-width-</code> which, when added to an <code>&lt;input&gt;</code>, will reduce the maximum width of the input field to better suit the intended contents:</p>
 						</div>
 						<div class="component">
