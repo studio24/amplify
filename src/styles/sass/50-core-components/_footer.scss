@@ -4,7 +4,9 @@
 
 .global-footer {
 	grid-row-start: 2; // Needed for sticky footer
+	-ms-grid-row: 2; // Because autoprefixer does not cover IE grid
 	grid-row-end: 3; // Needed for sticky footer
+	-ms-grid-row-span: 1; // Because autoprefixer does not cover IE grid
 	padding: rem(20) 0 rem(25);
 
 	.l-center {

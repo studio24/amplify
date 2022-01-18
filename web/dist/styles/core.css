@@ -505,6 +505,7 @@ template {
   margin: 0;
   overflow-wrap: break-word;
   padding: 0;
+  word-wrap: break-word;
 }
 
 /*------------------------------------*\
@@ -532,7 +533,9 @@ Styles needed for a sticky footer
 .grid-wrap {
   display: grid;
   grid-template-columns: 100%;
+  -ms-grid-columns: 100%;
   grid-template-rows: 1fr auto;
+  -ms-grid-rows: 1fr auto;
   min-height: 100vh;
 }
 
@@ -3014,7 +3017,9 @@ input[type=search] {
 \*------------------------------------*/
 .global-footer {
   grid-row-start: 2;
+  -ms-grid-row: 2;
   grid-row-end: 3;
+  -ms-grid-row-span: 1;
   padding: 1.25rem 0 1.5625rem;
 }
 .global-footer .l-center {

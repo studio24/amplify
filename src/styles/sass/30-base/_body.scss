@@ -26,6 +26,8 @@ Styles needed for a sticky footer
 .grid-wrap {
 	display: grid;
 	grid-template-columns: 100%;
+	-ms-grid-columns: 100%; // Because autoprefixer does not cover IE grid
 	grid-template-rows: 1fr auto;
+	-ms-grid-rows: 1fr auto; // Because autoprefixer does not cover IE grid
 	min-height: 100vh;
 }
