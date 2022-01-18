@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Avatars - Amplify</title>
+	<title>Main - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -80,11 +80,11 @@
 				<div>
 					<nav class="sidebar" aria-label="Secondary">
 						<ul class="clean-list" role="list">
-							<li><a href="#">Avatars</a></li>
+							<li><a href="avatars.html">Avatars</a></li>
 							<li><a href="breadcrumbs.html">Breadcrumbs</a></li>
 							<li><a href="cards.html">Cards</a></li>
 							<li><a href="image-component.html">Image component</a></li>
-							<li><a href="main.html">Main</a></li>
+							<li><a href="#">Main</a></li>
 							<li><a href="notes.html">Notes</a></li>
 							<li><a href="pagination.html">Pagination</a></li>
 							<li><a href="progress-indicator.html">Progress indicator</a></li>
@@ -98,23 +98,12 @@
 					</nav>
 					<div class="not-sidebar">
 						<div class="component component--text">
-							<h1>Avatars</h1>
-							<p>Wrap a square or portrait image inside a <code>&lt;div&gt;</code> or <code>&lt;span&gt;</code> with the class <code>.avatar</code> to apply a circular mask to the image.</p>
-						</div>
-						<div class="component">
-							<div class="avatar">
-								<img alt src="https://www.w3.org/2006/05/u/1682ihk1hqqo-sm.jpg">
-							</div>
-						</div>
-						<div class="component component--text">
-							<h2>Considerations</h2>
-							<p>Note the empty <code>alt</code> attribute in this example. Images must always have an <code>alt</code> attribute - leaving it empty shows that it is a decorative image.</p>
-							<p>The default size of an avatar is equivalent to 100px wide and tall (the CSS converts the pixel value into rem units.) Additional modifier classes can be added for smaller avatars:</p>
+							<h1>Main</h1>
+							<p>A few notes on <code>main</code>, which contains the main contents of a web page.</p>
 							<ul>
-								<li>
-									<code>.avatar--med</code> for an avatar equivalent to 50px wide and tall</li>
-								<li>
-									<code>.avatar--small</code> for an avatar equivalent to 30px wide and tall</li>
+								<li>There should only be a single instance of <code>main</code> that does not have the <code>hidden</code> attribute applied to it.</li>
+								<li>In Amplify, <code>main</code> uses the same principles as the <a href="../layouts/center.html">center layout helper</a> to add some minimum space between its contents and the edges of the parent element or viewport. Inspect this page in your web browser to see it in action.</li>
+								<li>Although it has a set maximum width, the utility class <code>.u-full-width</code> can be applied to a child item of <code>main</code> to make it extend full width beyond the borders of <code>main</code>.</li>
 							</ul>
 						</div>
 					</div>
