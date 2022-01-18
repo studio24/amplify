@@ -1,0 +1,42 @@
+/*------------------------------------*\
+    #Shelves
+    (Used for organising groups of cards, etc.)
+\*------------------------------------*/
+
+.component--shelves {
+	overflow: hidden;
+}
+
+
+.component--shelves__intro {
+	@include stack(1rem);
+	margin-bottom: rem(30);
+	max-width: rem($text-measure);
+}
+
+
+.component--shelves__items {
+	@include mq($bp-tab-portrait) {
+		display: flex;
+		flex-wrap: wrap;
+		margin: -1.5%;
+	}
+}
+
+
+.component--shelves__items > * {
+	@include mq($bp-tab-portrait) {
+		flex: 1 0 33%;
+		max-width: 50%;
+		padding: 1.5%;
+	}
+}
+
+
+.component--shelves__items > * + * {
+	margin-top: rem(20);
+
+	@include mq($bp-tab-portrait) {
+		margin-top: 0;
+	}
+}

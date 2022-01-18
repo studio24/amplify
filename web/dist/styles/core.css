@@ -1852,7 +1852,7 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
     #Layouts
 \*------------------------------------*/
 /*------------------------------------*\
-    #Box layout primitive
+    #Box layout helper
 
     From https://absolutely.every-layout.dev/layouts/box/
 
@@ -1884,7 +1884,7 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
 }
 
 /*------------------------------------*\
-    #Center layout primitive
+    #Center layout helper
 
     From https://absolutely.every-layout.dev/layouts/center/
 
@@ -1905,7 +1905,7 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
 }
 
 /*------------------------------------*\
-    #Cover layout primitive
+    #Cover layout helper
 
     From https://absolutely.every-layout.dev/layouts/cover/
 
@@ -1947,7 +1947,7 @@ disturbing the vertically centered element.
 }
 
 /*------------------------------------*\
-    #Cluster layout primitive
+    #Cluster layout helper
 
     From https://absolutely.every-layout.dev/layouts/cluster/
 
@@ -1985,7 +1985,7 @@ out, but halve it to to account for 'doubling up' at the edges.
 }
 
 /*------------------------------------*\
-    #Frame layout primitive
+    #Frame layout helper
 
     From https://absolutely.every-layout.dev/layouts/frame/
 
@@ -2044,7 +2044,7 @@ out, but halve it to to account for 'doubling up' at the edges.
 }
 
 /*------------------------------------*\
-    #Sidebar layout primitive
+    #Sidebar layout helper
 
     From https://absolutely.every-layout.dev/layouts/sidebar/
 
@@ -2130,7 +2130,7 @@ a viewport media query.
 }
 
 /*------------------------------------*\
-    #Switcher layout primitive
+    #Switcher layout helper
 
     Uses this to switch between vertical and horizontal layouts:
     https://www.freecodecamp.org/news/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848/
@@ -2459,78 +2459,6 @@ main,
 }
 
 /*------------------------------------*\
-    #Columns
-    (Used for organising cards, etc.)
-\*------------------------------------*/
-.component--columns {
-  overflow: hidden;
-}
-
-.component--columns__intro {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  max-width: 41.25rem;
-  margin-bottom: 1.875rem;
-}
-.component--columns__intro > * + * {
-  margin-top: 1em;
-}
-
-@media screen and (min-width: 48em) {
-  .component--columns > ul {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -1.5%;
-  }
-}
-.component--columns > ul li + li {
-  margin-top: 1.25rem;
-}
-@media screen and (min-width: 48em) {
-  .component--columns > ul li + li {
-    margin-top: 0;
-  }
-}
-
-@media screen and (min-width: 48em) {
-  .component--columns--images > ul > li {
-    flex: 1 0 33%;
-    max-width: 50%;
-    padding: 1.5%;
-  }
-}
-@media screen and (min-width: 48em) {
-  .component--columns--images li:nth-last-child(n+4):nth-last-child(-n+4):first-child,
-.component--columns--images li:nth-last-child(n+4):nth-last-child(-n+4):first-child ~ li {
-    flex-basis: 50%;
-  }
-}
-
-@media screen and (min-width: 48em) {
-  .component--columns--icons > ul > li {
-    flex: 1 0 50%;
-    max-width: 50%;
-    padding: 1.5%;
-  }
-}
-@media screen and (min-width: 70em) {
-  .component--columns--icons > ul > li {
-    flex-basis: 25%;
-  }
-}
-@media screen and (min-width: 70em) {
-  .component--columns--icons li:nth-last-child(n+5), .component--columns--icons li:nth-last-child(n+5) ~ li {
-    flex-basis: 33%;
-  }
-}
-@media screen and (min-width: 70em) {
-  .component--columns--icons li:nth-last-child(n+7), .component--columns--icons li:nth-last-child(n+7) ~ li {
-    flex-basis: 25%;
-  }
-}
-
-/*------------------------------------*\
     #Cards
 \*------------------------------------*/
 .card {
@@ -2597,6 +2525,50 @@ main,
   background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
   color: #000;
   text-decoration: none;
+}
+
+/*------------------------------------*\
+    #Shelves
+    (Used for organising groups of cards, etc.)
+\*------------------------------------*/
+.component--shelves {
+  overflow: hidden;
+}
+
+.component--shelves__intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 1.875rem;
+  max-width: 41.25rem;
+}
+.component--shelves__intro > * + * {
+  margin-top: 1rem;
+}
+
+@media screen and (min-width: 48em) {
+  .component--shelves__items {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1.5%;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  .component--shelves__items > * {
+    flex: 1 0 33%;
+    max-width: 50%;
+    padding: 1.5%;
+  }
+}
+
+.component--shelves__items > * + * {
+  margin-top: 1.25rem;
+}
+@media screen and (min-width: 48em) {
+  .component--shelves__items > * + * {
+    margin-top: 0;
+  }
 }
 
 /*------------------------------------*\

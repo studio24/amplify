@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Shelves - Amplify</title>
+
+	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="../../dist/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="../../dist/styles/print.css" media="print"/>
+
+	<script src="../../dist/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '../../dist/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="grid-wrap">
+	<div class="not-footer">
+		<header>
+			<div class="l-center">
+				<a href="../index.html">Amplify from Studio 24</a>
+			</div>
+		</header>
+		<nav aria-label="Main">
+			<div class="l-center">
+				<div class="l-cluster">
+					<ul class="clean-list">
+						<li><a href="../get-started">Get started</a></li>
+						<li><a href="../layouts">Layout helpers</a></li>
+						<li><a href="../fundamentals">Fundamentals</a></li>
+						<li><a href="../core-components">Core components</a></li>
+						<li><a href="../advanced-components">Advanced components</a></li>
+						<li><a href="../design">Design handover &amp; standards</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<main id="main">
+			<div class="l-sidebar">
+				<div>
+					<nav class="sidebar" aria-label="Secondary">
+						<ul class="clean-list" role="list">
+							<li><a href="avatars.html">Avatars</a></li>
+							<li><a href="breadcrumbs.html">Breadcrumbs</a></li>
+							<li><a href="cards.html">Cards</a></li>
+							<li><a href="image-component.html">Image component</a></li>
+							<li><a href="notes.html">Notes</a></li>
+							<li><a href="pagination.html">Pagination</a></li>
+							<li><a href="progress-indicator.html">Progress indicator</a></li>
+							<li><a href="quote-component.html">Quote component</a></li>
+							<li><a href="#">Shelves</a></li>
+							<li><a href="search.html">Simple search form</a></li>
+							<li><a href="tag-list.html">Tag list</a></li>
+							<li><a href="text-component.html">Text component</a></li>
+							<li><a href="video.html">Video component</a></li>
+						</ul>
+					</nav>
+					<div class="not-sidebar">
+						<div class="component component--text">
+							<h1>Shelves</h1>
+							<p>Shelves provide a flexbox framework for arranging groups of items such as <a href="cards.html">cards</a>. You might choose to use shelves instead of the <a href="../layouts/switcher.html">switcher layout helper</a> if:</p>
+							<ul>
+								<li>you want to specify the number of items on each shelf in relation to the viewport width rather than the width of the parent container</li>
+								<li>you want to change how many items can fit on a shelf depending on the total number of items, using <a href="https://alistapart.com/article/quantity-queries-for-css/">CSS quantity queries</a> - use <a href="https://quantityqueries.com/">Quantity Queries Builder</a> to roll your own quantity queries</li>
+								<li>items don't have to follow a rigid grid pattern and can grow horizontally to fill up the space on a shelf when there are fewer than the maximum possible (much like a cat taking up all the available space)</li>
+							</ul>
+						</div>
+						<div class="component component--shelves">
+							<div class="component--shelves__intro">
+								<h2>Heading for the shelves component</h2>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+							</div>
+							<ul class="component--shelves__items clean-list" role="presentation">
+								<li>
+									<div class="card">
+										<div class="l-box l-box--no-border card__text">
+											<h3 class="card__heading">Cats and the Internet</h3>
+											<p>Examining the popularity of cat-related media content online.</p>
+											<a class="button" href="https://en.wikipedia.org/wiki/Cats_and_the_Internet"><span class="visuallyhidden">Cats and the Internet:</span> Read more</a>
+										</div>
+										<div class="l-frame l-frame--3-2 card__image">
+											<img src="../../dist/images/jpg-cat-1.jpg" alt="" loading="lazy">
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="card">
+										<div class="l-box l-box--no-border card__text">
+											<h3 class="card__heading">Cats and the Internet</h3>
+											<p>Examining the popularity of cat-related media content online.</p>
+											<a class="button" href="https://en.wikipedia.org/wiki/Cats_and_the_Internet"><span class="visuallyhidden">Cats and the Internet:</span> Read more</a>
+										</div>
+										<div class="l-frame l-frame--3-2 card__image">
+											<img src="../../dist/images/jpg-cat-1.jpg" alt="" loading="lazy">
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="card">
+										<div class="l-box l-box--no-border card__text">
+											<h3 class="card__heading">Cats and the Internet</h3>
+											<p>Examining the popularity of cat-related media content online.</p>
+											<a class="button" href="https://en.wikipedia.org/wiki/Cats_and_the_Internet"><span class="visuallyhidden">Cats and the Internet:</span> Read more</a>
+										</div>
+										<div class="l-frame l-frame--3-2 card__image">
+											<img src="../../dist/images/jpg-cat-1.jpg" alt="" loading="lazy">
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="card">
+										<div class="l-box l-box--no-border card__text">
+											<h3 class="card__heading">Cats and the Internet</h3>
+											<p>Examining the popularity of cat-related media content online.</p>
+											<a class="button" href="https://en.wikipedia.org/wiki/Cats_and_the_Internet"><span class="visuallyhidden">Cats and the Internet:</span> Read more</a>
+										</div>
+										<div class="l-frame l-frame--3-2 card__image">
+											<img src="../../dist/images/jpg-cat-1.jpg" alt="" loading="lazy">
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="card">
+										<div class="l-box l-box--no-border card__text">
+											<h3 class="card__heading">Cats and the Internet</h3>
+											<p>Examining the popularity of cat-related media content online.</p>
+											<a class="button" href="https://en.wikipedia.org/wiki/Cats_and_the_Internet"><span class="visuallyhidden">Cats and the Internet:</span> Read more</a>
+										</div>
+										<div class="l-frame l-frame--3-2 card__image">
+											<img src="../../dist/images/jpg-cat-1.jpg" alt="" loading="lazy">
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="component component--text">
+							<h2>Considerations</h2>
+							<p>The example above uses an unordered list to hold the cards. Because the <a href="cards.html">cards</a> pattern uses headings that fit in with the surrounding page hierarchy, <code>role="presentaton"</code> is added to the unordered list to reduce the verbosity of announcements for assitive technology users.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<footer>
+		<div class="l-center">
+			&copy; Studio 24
+		</div>
+	</footer>
+</div>
+</body>
+
+</html>
