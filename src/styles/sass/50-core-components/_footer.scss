@@ -1,12 +1,15 @@
 /*------------------------------------*\
     #Global footer
+
+    1. Needed for sticky footer
+    2. Because autoprefixer does not cover IE grid
 \*------------------------------------*/
 
 .global-footer {
-	grid-row-start: 2; // Needed for sticky footer
-	-ms-grid-row: 2; // Because autoprefixer does not cover IE grid
-	grid-row-end: 3; // Needed for sticky footer
-	-ms-grid-row-span: 1; // Because autoprefixer does not cover IE grid
+	grid-row-start: 2; /* 1 */
+	-ms-grid-row: 2; /* 2 */
+	grid-row-end: 3; /* 1 */
+	-ms-grid-row-span: 1; /* 2 */
 	padding: rem(20) 0 rem(25);
 
 	.l-center {

@@ -1,5 +1,9 @@
 /*------------------------------------*\
     #Body
+
+    1. Needed for sticky footer
+    2. Because autoprefixer does not cover IE grid
+    3. Only needed for IE
 \*------------------------------------*/
 
 html {
@@ -13,21 +17,14 @@ html {
 body {
 	background-color: $white;
 	color: $off-black;
+	display: grid; /* 1 */
+	display: -ms-grid; /* 2 */
+	-ms-grid-columns: 100%; /* 3 */
+	grid-template-rows: 1fr auto; /* 1 */
+	-ms-grid-rows: 1fr auto; /* 2 */
+	height: 100%;
 	min-height: 100%;
 	overflow-x: hidden;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-}
-
-
-/**
-Styles needed for a sticky footer
- */
-.grid-wrap {
-	display: grid;
-	grid-template-columns: 100%;
-	-ms-grid-columns: 100%; // Because autoprefixer does not cover IE grid
-	grid-template-rows: 1fr auto;
-	-ms-grid-rows: 1fr auto; // Because autoprefixer does not cover IE grid
-	min-height: 100vh;
 }
