@@ -96,7 +96,7 @@
 							</ol>
 							<p>For both types of card, it is important to check that the heading level used fits in with the card's location in the page content hierarchy.</p>
 							<p>A simple card is enhanced into a block link card by adding the data attribute <code>data-component="card"</code>. When this is present, <a href="https://css-tricks.com/block-links-the-search-for-a-perfect-solution/">JavaScript will make the whole card act as a block link</a>.</p>
-							<p>Do not wrap the contents of a card inside a singular <code>&lt;a&gt;</code> element. This can result in a very verbose experience for screen reader users where the entire contents of the card are announced.</p>
+							<p>Do not wrap the contents of a card inside a singular <code>a</code> element. This can result in a very verbose experience for screen reader users where the entire contents of the card are announced.</p>
 							<p>For arranging groups of cards you can use the <a href="../layouts/switcher.html">switcher layout helper</a> or <a href="../core-components/shelves.html">shelves component</a> depending on your requirements.</p>
 						</div>
 						<div class="component">
@@ -151,10 +151,10 @@
 						</div>
 						<div class="component component--text">
 							<h2>Considerations</h2>
-							<p>Block links work because the JavaScript looks for a link with the class <code>.card__link</code>. We add this link to the <code>.card__heading</code> text, to make sure that the link text is descriptive. If the design calls for a visually distinctive CTA, use a simple <code>&lt;div&gt;</code> to hold the text content and <code>aria-hidden</code> to hide it from assistive technology.</p>
-							<p>The preceding example shows that it is possible for a block link card to have one link as the main link while also allowing other specific links (in this case a <a href="../core-components/tag-list.html">list of tags</a>) to different destinations. JavaScript targets the link with the class <code>.card__link</code> and identifies this as the main link for the card.</p>
+							<p>Block links work because the JavaScript looks for a link with the class <code>card__link</code>. We add this link to the <code>card__heading</code> text, to make sure that the link text is descriptive. If the design calls for a visually distinctive CTA, use a simple <code>div</code> to hold the text content and <code>aria-hidden</code> to hide it from assistive technology.</p>
+							<p>The preceding example shows that it is possible for a block link card to have one link as the main link while also allowing other specific links (in this case a <a href="../core-components/tag-list.html">list of tags</a>) to different destinations. JavaScript targets the link with the class <code>card__link</code> and identifies this as the main link for the card.</p>
 							<h3>Neat cards</h3>
-							<p>If the design calls for a row of cards of equal height, irrespective of the amount of text content, you can add the <code>.card--neat</code> modifier class to the cards. This forces the card to take up 100% of the height of the parent container. It will also push the last child element in the text region to the bottom edge. You can see this in action on the <a href="../index.html">Amplify home page</a>.</p>
+							<p>If the design calls for a row of cards of equal height, irrespective of the amount of text content, you can add the <code>card--neat</code> modifier class to the cards. This forces the card to take up 100% of the height of the parent container. It will also push the last child element in the text region to the bottom edge. You can see this in action on the <a href="../index.html">Amplify home page</a>.</p>
 						</div>
 					</div>
 				</div>

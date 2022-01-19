@@ -82,6 +82,7 @@
 							<li><a href="buttons-links.html">Buttons and links</a></li>
 							<li><a href="forms.html">Forms</a></li>
 							<li><a href="#">Form error messages</a></li>
+							<li><a href="lists.html">Lists</a></li>
 							<li><a href="tables.html">Tables</a></li>
 						</ul>
 					</nav>
@@ -90,7 +91,7 @@
 							<h1>Form error messages</h1>
 							<p>To notify a user of an error with their form submission:</p>
 							<ol>
-								<li>Prefix the word “Error:” to the document’s <code>&lt;title&gt;</code>. It’s the first thing announced by screen readers when the page loads.</li>
+								<li>Prefix the word “Error:” to the document’s <code>title</code>. It’s the first thing announced by screen readers when the page loads.</li>
 								<li>Place an error summary at the top of the page</li>
 								<li>Add an error message to each problematic input</li>
 							</ol>
@@ -388,7 +389,7 @@
 						</div>
 						<div class="component component--text">
 							<h2>Error summary considerations</h2>
-							<p>The error summary should be at the top of the <code>&lt;main&gt;</code> element. If the page includes breadcrumbs or a back link, place it after these, but before the <code>&lt;h1&gt;</code>. The error summary must contain the heading ‘There is a problem’.</p>
+							<p>The error summary should be at the top of the <code>main</code> element. If the page includes breadcrumbs or a back link, place it after these, but before the <code>h1</code>. The error summary must contain the heading ‘There is a problem’.</p>
 							<p>Keyboard focus needs to move to the error summary, hence the addition of <code>tabindex="-1"</code>. JavaScript is included to shift focus if an error summary is present.</p>
 							<p>Each item in the summary list must link to the field with the validation error. Use the same wording for the error in both the error summary and the problematic field.</p>
 							<h2>Error message considerations</h2>

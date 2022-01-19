@@ -82,6 +82,7 @@
 							<li><a href="buttons-links.html">Buttons and links</a></li>
 							<li><a href="#">Forms</a></li>
 							<li><a href="form-errors.html">Form error messages</a></li>
+							<li><a href="lists.html">Lists</a></li>
 							<li><a href="tables.html">Tables</a></li>
 						</ul>
 					</nav>
@@ -93,20 +94,20 @@
 							<p><a href="form-errors.html">Form error messages</a> are covered separately.</p>
 							<h2>Top tips</h2>
 							<ul>
-								<li>Every <code>&lt;input&gt;</code> needs a <code>&lt;label&gt;</code>. Do not wrap inputs in labels, put labels above the input.</li>
-								<li>Do not use the <code>placeholder</code> attribute on <code>&lt;input&gt;</code> fields.</li>
+								<li>Every <code>input</code> needs a <code>label</code>. Do not wrap inputs in labels, put labels above the input.</li>
+								<li>Do not use the <code>placeholder</code> attribute on <code>input</code> fields.</li>
 								<li>Use <a href="#fixed-width-inputs">fixed width inputs</a> for content that has a specific, known length. Postcode inputs should be postcode-sized, telephone number inputs should be telephone number-sized.</li>
 								<li>Make form fields look like form fields: apply a border and make sure they are empty to begin with. A minimum height of 44 pixels makes them easy to tap on touch screen devices.</li>
-								<li>Make sure any <code>&lt;button&gt;</code> looks like a button. Align them to the left edge of the last input (the right edge for right-to-left languages) where users naturally look for them. Use a verb for button text because the user is doing something, and relate it to what they are doing - avoid generic ‘Submit’ buttons.</li>
-								<li>The <code>&lt;select&gt;</code> element should be a last resort as they’re really hard to use. Try radio buttons instead. If there’s a long list of options, use JavaScript to enhance the <code>&lt;select&gt;</code> into an <a href="../advanced-components/accessible-autocomplete.html">accessible auto-complete field</a> (not to be confused with the <code>autocomplete</code> attribute).</li>
-								<li>If you have to use a <code>&lt;select&gt;</code>, don't submit a form when its value changes. Select boxes that submit the form automatically when the user selects an option cause problems for keyboard and screen reader users.</li>
+								<li>Make sure any <code>button</code> looks like a button. Align them to the left edge of the last input (the right edge for right-to-left languages) where users naturally look for them. Use a verb for button text because the user is doing something, and relate it to what they are doing - avoid generic ‘Submit’ buttons.</li>
+								<li>The <code>select</code> element should be a last resort as they’re really hard to use. Try radio buttons instead. If there’s a long list of options, use JavaScript to enhance the <code>select</code> into an <a href="../advanced-components/accessible-autocomplete.html">accessible auto-complete field</a> (not to be confused with the <code>autocomplete</code> attribute).</li>
+								<li>If you have to use a <code>select</code>, don't submit a form when its value changes. Select boxes that submit the form automatically when the user selects an option cause problems for keyboard and screen reader users.</li>
 							</ul>
 							<h3>Required fields</h3>
 							<p>It is best practice to only ask questions that are strictly necessary.</p>
-							<p>In the event that a form contains both optional and required fields, to clearly identify the required fields to all users add <code>&lt;span class="required"&gt;(Required)&lt;/span&gt;</code> within the <code>&lt;label&gt;</code>.</p>
+							<p>In the event that a form contains both optional and required fields, to clearly identify the required fields to all users add <code>span class="required"&gt;(Required)&lt;/span</code> within the <code>label</code>.</p>
 							<h3 id="how-to-add-hint-text">How to add hint text</h3>
-							<p>To provide hint text advising how to complete a field, add a <code>&lt;div class="field-hint"&gt;</code>. Check the examples that follow to see where this should be added. The pattern differs slightly for checkbox and radio inputs compared to other input types.</p>
-							<p>Each instance of <code>&lt;div class="field-hint"&gt;</code> must have a unique ID that is used as the value of the <code>aria-describedby</code> attribute that must be added to the associated <code>&lt;input&gt;</code>.</p>
+							<p>To provide hint text advising how to complete a field, add a <code>div class="field-hint"</code>. Check the examples that follow to see where this should be added. The pattern differs slightly for checkbox and radio inputs compared to other input types.</p>
+							<p>Each instance of <code>div class="field-hint"</code> must have a unique ID that is used as the value of the <code>aria-describedby</code> attribute that must be added to the associated <code>input</code>.</p>
 							<p>Use the pattern <code>id="hint-...</code>, replacing the <code>...</code> with your unique wording.</p>
 							<p>Provide hint text when users are more likely to make a mistake, such as when having to satisfy a complex set of password rules. Error messages should be a last resort. Keep hint text brief and to the point. Do not use long paragraphs and lists.</p>
 						</div>
@@ -187,8 +188,8 @@
 						</div>
 						<div class="component component--text">
 							<h3>How to make filling in number fields easier</h3>
-							<p>In many cases, it's better to use <code>&lt;input type="text" pattern="[0-9]*" inputmode="numeric"&gt;</code> rather than <code>&lt;input type="number"&gt;</code> when dealing with numbers. Adam Silver has written about <a href="https://adamsilver.io/articles/form-design-when-to-use-the-number-input/">when to use the number input</a>.</p>
-							<p>For telephone numbers, use the <code>type="tel"</code> and <code>inputmode="tel"</code> attributes on the <code>&lt;input&gt;</code>.</p>
+							<p>In many cases, it's better to use <code>input type="text" pattern="[0-9]*" inputmode="numeric"</code> rather than <code>input type="number"</code> when dealing with numbers. Adam Silver has written about <a href="https://adamsilver.io/articles/form-design-when-to-use-the-number-input/">when to use the number input</a>.</p>
+							<p>For telephone numbers, use the <code>type="tel"</code> and <code>inputmode="tel"</code> attributes on the <code>input</code>.</p>
 							<p>When asking for payment details, including the <code>autocomplete</code> attribute can help users complete their responses more quickly. Older browsers make use of the <code>name</code> attribute to achieve the same thing. Here is a list of <a href="https://www.smashingmagazine.com/2017/03/improve-billing-form-ux/">payment autofill attributes</a>.</p>
 						</div>
 						<div class="component">
@@ -284,9 +285,9 @@
 						</div>
 						<div class="component component--text">
 							<h3>How to make providing dates and times easier</h3>
-							<p>For dates that the user will already know (e.g. birth dates) and dates that are easy to look up, use a series of simple text inputs. Note the use of <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> to group the separate text inputs together.</p>
-							<p>For other dates, due to inconsistencies with how different browsers and Assistive Technologies interpret <code>&lt;input type="date"&gt;</code>, the current recommendation is to use a simple text input. Provide <a href="#how-to-add-hint-text">hint text</a> to let users know what format to use.</p>
-							<p>Again, due to inconsistencies with how different browsers and Assistive Technologies interpret <code>&lt;input type="time"&gt;</code>, it is strongly recommended to use a simple text input. The preceding example includes a <code>&lt;select&gt;</code> to help users specify a local timezone.</p>
+							<p>For dates that the user will already know (e.g. birth dates) and dates that are easy to look up, use a series of simple text inputs. Note the use of <code>fieldset</code> and <code>legend</code> to group the separate text inputs together.</p>
+							<p>For other dates, due to inconsistencies with how different browsers and Assistive Technologies interpret <code>input type="date"</code>, the current recommendation is to use a simple text input. Provide <a href="#how-to-add-hint-text">hint text</a> to let users know what format to use.</p>
+							<p>Again, due to inconsistencies with how different browsers and Assistive Technologies interpret <code>input type="time"</code>, it is strongly recommended to use a simple text input. The preceding example includes a <code>select</code> to help users specify a local timezone.</p>
 						</div>
 						<div class="component">
 							<h2>File input</h2>
@@ -417,7 +418,7 @@
 							</form>
 						</div>
 						<div class="component component--text">
-							<p>The purpose of segmented options is to show all available options outright, rather than hiding them behind a <code>&lt;select&gt;</code>. It can be used with either checkboxes, or with radio buttons as in the preceding example.</p>
+							<p>The purpose of segmented options is to show all available options outright, rather than hiding them behind a <code>select</code>. It can be used with either checkboxes, or with radio buttons as in the preceding example.</p>
 							<p>The basis of this pattern is the <a href="../layouts/switcher.html">switcher layout</a>. The default styles assume that there are three choices and are optimised for this. In the event of fewer or more choices, you can override the default <code>min-width</code> percentage by applying an additional class.</p>
 						</div>
 						<div class="component">
@@ -438,19 +439,19 @@
 						</div>
 						<div class="component component--text">
 							<h3>Considerations</h3>
-							<p>The <code>&lt;select&gt;</code> element should be a last resort as they’re really hard to use. Before using the <code>&lt;select&gt;</code> element, try asking users questions which will allow you to present them with fewer options. This should lessen the need for the <code>&lt;select&gt;</code> element, which could be replaced with e.g. radios.</p>
+							<p>The <code>select</code> element should be a last resort as they’re really hard to use. Before using the <code>select</code> element, try asking users questions which will allow you to present them with fewer options. This should lessen the need for the <code>select</code> element, which could be replaced with e.g. radios.</p>
 							<h3>Accessible auto-complete</h3>
-							<p>A <code>&lt;select&gt;</code> can be enhanced into an <a href="../advanced-components/accessible-autocomplete.html">accessible auto-complete</a> via JavaScript. Amplify uses the <a href="https://github.com/alphagov/accessible-autocomplete">Accessible autocomplete</a> NPM package, and there are a number of <a href="https://alphagov.github.io/accessible-autocomplete/examples/">example customisations</a> which can be followed.</p>
+							<p>A <code>select</code> can be enhanced into an <a href="../advanced-components/accessible-autocomplete.html">accessible auto-complete</a> via JavaScript. Amplify uses the <a href="https://github.com/alphagov/accessible-autocomplete">Accessible autocomplete</a> NPM package, and there are a number of <a href="https://alphagov.github.io/accessible-autocomplete/examples/">example customisations</a> which can be followed.</p>
 						</div>
 						<div class="component component--text">
 							<h2>Grouping inputs to line up side-by-side</h2>
-							<p>The class <code>.input-group</code> can be used to align form inputs horizontally with each other, by applying Flexbox behaviour. You can see an example of this in the preceding example for <a href="#dealing-with-dates-and-times">dealing with times</a>.</p>
+							<p>The class <code>input-group</code> can be used to align form inputs horizontally with each other, by applying Flexbox behaviour. You can see an example of this in the preceding example for <a href="#dealing-with-dates-and-times">dealing with times</a>.</p>
 							<h3>Considerations</h3>
 							<p>This class should not be used in conjunction with radios or checkboxes. The pattern has not been fully tested with these input types and may not work well on smaller viewports. Furthermore, radios and checkboxes are easier to read and quicker to scan when presented vertically.</p>
 						</div>
 						<div class="component component--text">
 							<h2 id="fixed-width-inputs">Fixed-width inputs</h2>
-							<p>There is a collection of CSS classes prefixed with <code>.input-width-</code> which, when added to an <code>&lt;input&gt;</code>, will reduce the maximum width of the input field to better suit the intended contents:</p>
+							<p>There is a collection of CSS classes prefixed with <code>input-width-</code> which, when added to an <code>input</code>, will reduce the maximum width of the input field to better suit the intended contents:</p>
 						</div>
 						<div class="component">
 							<form novalidate>
@@ -500,7 +501,7 @@
 						</div>
 						<div class="component component--text">
 							<h2>Form validation</h2>
-							<p>The best practice is to validate a form on submission. It is recommended to <a href="https://adrianroselli.com/2019/02/avoid-default-field-validation.html">avoid default HTML5 form validation</a>. To turn this off, add the <code>novalidate</code> attribute to the <code>&lt;form&gt;</code> element.</p>
+							<p>The best practice is to validate a form on submission. It is recommended to <a href="https://adrianroselli.com/2019/02/avoid-default-field-validation.html">avoid default HTML5 form validation</a>. To turn this off, add the <code>novalidate</code> attribute to the <code>form</code> element.</p>
 							<p>It is strongly recommended to visit the GOV.UK Design system for <a href="https://design-system.service.gov.uk/patterns/validation/#client-side-and-server-side-validation">more details about form validation</a>.</p>
 							<h3>Client side validation</h3>
 							<p>If client side validation is required, here are some suggested JavaScript libraries:</p>
