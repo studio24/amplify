@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Buttons and links - Amplify</title>
+	<title>Utility classes - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -79,72 +79,64 @@
 			<div>
 				<nav class="sidebar" aria-label="Secondary">
 					<ul class="clean-list" role="list">
-						<li><a href="#">Buttons and links</a></li>
+						<li><a href="buttons-links.html">Buttons and links</a></li>
 						<li><a href="forms.html">Forms</a></li>
 						<li><a href="form-errors.html">Form error messages</a></li>
 						<li><a href="lists.html">Lists</a></li>
 						<li><a href="tables.html">Tables</a></li>
-						<li><a href="utility-classes.html">Utility classes</a></li>
+						<li><a href="#">Utility classes</a></li>
 					</ul>
 				</nav>
 				<div class="not-sidebar">
 					<div class="component component--text">
-						<h1>Buttons and links</h1>
-						<p>Use a button to help a user carry out an action, such as playing audio/video, toggling a dropdown, opening a modal, etc. If you are navigating a user to a new resource, use a link.</p>
-						<p>Buttons, and links styled as buttons, need to have sufficient padding to ensure they meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html">WCAG Success Criterion 2.5.5: Target Size (AAA)</a>. This does not apply to links within sentences and paragraphs.</p>
-					</div>
-					<div class="component">
-						<h2>Buttons</h2>
-						<div class="example">
-							<button type="button" class="button">Default button style</button>
-						</div>
-						<div class="example">
-							<button type="button" class="button button--alt">Alternate button style</button>
-						</div>
-						<div class="example">
-							<button type="button" class="button button--wide">Wide button style</button>
-						</div>
-						<div class="example">
-							<button type="button" class="button button--alt button--wide">Wide button style</button>
-						</div>
-						<div class="example">
-							<button type="button" class="button button--ghost">Ghost button style</button>
-						</div>
-						<div class="example">
-							<button type="button" disabled>This button is disabled</button>
-						</div>
-					</div>
-					<div class="component component--text">
-						<h3>Considerations</h3>
-						<p>Disabled buttons can confuse some people, so only use them if testing shows that they make the user interface easier to understand.</p>
-					</div>
-					<div class="component">
-						<h2>Links</h2>
-						<div class="example">
-							<a href="javascript:;">Simple text link</a>
-						</div>
-						<div class="example">
-							<a class="button" href="javascript:;">Link styled as a button</a>
-						</div>
-						<div class="example">
-							<a class="button button--alt" href="javascript:;">Link with alternate button style</a>
-						</div>
-					</div>
-					<div class="component component--text">
-						<h3>Considerations</h3>
-						<p>Simple text links are given an underline, in addition to any colour treatment, to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html">WCAG Success Criterion 1.4.1: Use of Color (A)</a></p>
-					</div>
-					<div class="component component--text">
-						<h2>Grouping buttons and links</h2>
-						<p>Buttons (and links styled as buttons) can be arranged in groups using the <a href="../layouts/cluster.html">cluster layout</a>:</p>
-					</div>
-					<div class="component">
-						<div class="l-cluster">
-							<div>
-								<a class="button" href="javascript:;">Primary action</a>
-								<a class="button button--alt" href="javascript:;">Secondary action</a>
-							</div>
-						</div>
+						<h1>Utility classes</h1>
+						<p>A utility class applies a single rule or a very simple, universal pattern.</p>
+						<p>In Amplify, utility classes are used as overrides or helper classes. As such, they could apply to any element and in any context, to do exactly the same thing each time. They are always prefixed with <code>u-</code>, e.g. <code>u-float-left</code> or <code>u-full-width</code>.</p>
+						<p>Utility classes are organised into groups with a similar purpose or remit, as detailed below. If you have a requirement that you feel would be best covered by a utility class that does not yet exist, feel free to add to the current selection.</p>
+						<h2>Alignments</h2>
+						<p>For floating items and overriding default text alignment:</p>
+						<ul>
+							<li>
+								<code>u-float-left</code>
+							</li>
+							<li>
+								<code>u-float-right</code>
+							</li>
+							<li>
+								<code>u-text-center</code>
+							</li>
+							<li>
+								<code>u-text-left</code>
+							</li>
+							<li>
+								<code>u-text-right</code>
+							</li>
+							<li>
+								<code>u-text-left-from-lap</code>
+							</li>
+							<li>
+								<code>u-text-center-from-lap</code>
+							</li>
+							<li>
+								<code>u-text-right-from-lap</code>
+							</li>
+						</ul>
+						<p>The final three classes in the preceding list are linked to a specific breakpoint width, as defined in 00-settings.</p>
+						<h2>Clearfix</h2>
+						<p>Forces an element to self-clear its children. Amplify uses this as a <a href="https://sass-lang.com/documentation/style-rules/placeholder-selectors">Sass placeholder selector</a> - also known as a ‘silent class’ - which <a href="https://sass-lang.com/documentation/at-rules/extend#placeholder-selectors">can be extended using the <code>@extend directive</code></a> to avoid cluttering up the CSS or requiring the use of the class within the markup.</p>
+						<h2>Layout</h2>
+						<p>Use the class <code>u-full-width</code> to create a <a href="https://css-tricks.com/full-width-containers-limited-width-parents/#aa-no-calc-needed">full-width container inside a limited width parent</a>.</p>
+						<p>Use the class <code>u-center</code> to horizontally centre a block-level item.</p>
+						<h2>Margins</h2>
+						<p>For removing all margins or just the top margin from an element. Double specificity in the classnames avoids the use of <code>!important</code>.</p>
+						<ul>
+							<li>
+								<code>u-no-margin.u-no-margin</code>
+							</li>
+							<li>
+								<code>u-no-margin-top.u-no-margin-top</code>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
