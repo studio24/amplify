@@ -1686,23 +1686,34 @@ ol:not([class]) li ol {
 }
 
 ul:not([class]) {
-  -webkit-padding-start: 2.4em;
-          padding-inline-start: 2.4em;
+  padding-left: 2.4em;
+}
+
+[dir=rtl] ul:not([class]) {
+  padding-left: 0;
+  padding-right: 2.4em;
 }
 
 ol:not([class]) {
   counter-reset: count;
   list-style-type: none;
-  -webkit-padding-start: 1.25em;
-          padding-inline-start: 1.25em;
+  padding-left: 1.25em;
 }
 ol:not([class]) > li {
   counter-increment: count;
 }
 ol:not([class]) > li::before {
   content: counters(count, ".") " ";
-  -webkit-padding-end: 0.5em;
-          padding-inline-end: 0.5em;
+  padding-right: 0.5em;
+}
+
+[dir=rtl] ol:not([class]) {
+  padding-left: 0;
+  padding-right: 1.25em;
+}
+[dir=rtl] ol:not([class]) > li::before {
+  padding-left: 0.5em;
+  padding-right: 0;
 }
 
 .clean-list li {
@@ -1728,8 +1739,11 @@ dl dd + dd {
     -webkit-column-gap: 1rem;
             column-gap: 1rem;
     display: grid;
+    display: -ms-grid;
     grid-template-columns: 1fr 6fr;
+    -ms-grid-columns: 1fr 6fr;
     grid-template-rows: 1fr;
+    -ms-grid-rows: 1fr;
     row-gap: 1rem;
   }
   dl.grid dd + dt,
@@ -1739,11 +1753,15 @@ dl.grid dd + dd {
   }
   dl.grid dt {
     grid-column-start: 1;
+    -ms-grid-column: 1;
     grid-column-end: 2;
+    -ms-grid-column-span: 1;
   }
   dl.grid dd {
     grid-column-start: 2;
+    -ms-grid-column: 2;
     grid-column-end: 3;
+    -ms-grid-column-span: 1;
   }
 }
 
