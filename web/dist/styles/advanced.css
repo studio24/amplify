@@ -508,7 +508,6 @@ br {
 .autocomplete__hint,
 .autocomplete__input {
   -webkit-appearance: none;
-     -moz-appearance: none;
           appearance: none;
   border: 2px solid inherit;
 }

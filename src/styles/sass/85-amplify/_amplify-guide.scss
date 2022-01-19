@@ -4,6 +4,10 @@
     Used purely for the static Amplify site
 \*------------------------------------*/
 
+.amplify .example + .example {
+	margin-top: 1rem;
+}
+
 .amplify .l-switcher.teasers {
 	overflow: visible;
 }

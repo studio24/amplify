@@ -788,7 +788,6 @@ a.with-icon--after:focus {
 }
 
 .button {
-  cursor: pointer;
   text-decoration: none;
   /* 3 */
 }
@@ -1112,8 +1111,7 @@ textarea,
 [type=text],
 [type=time],
 [type=url] {
-  -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   -webkit-appearance: none;
   border: 2px solid;
   border-radius: 0;
@@ -1192,10 +1190,9 @@ select:focus {
 /**
 Optional select with custom arrow icon matching the SVG used for accessible autocomplete
  */
-@supports ((-webkit-appearance: none) or (-moz-appearance: none) or (appearance: none)) {
+@supports ((-webkit-appearance: none) or (appearance: none)) {
   select {
     -webkit-appearance: none;
-       -moz-appearance: none;
             appearance: none;
     background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="none" d="M0 0h24v24H0z"/%3E%3Cpath d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"/%3E%3C/svg%3E');
     background-position: center right 0.3125rem;
@@ -2987,6 +2984,10 @@ input[type=search] {
 
     Used purely for the static Amplify site
 \*------------------------------------*/
+.amplify .example + .example {
+  margin-top: 1rem;
+}
+
 .amplify .l-switcher.teasers {
   overflow: visible;
 }

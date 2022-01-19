@@ -331,8 +331,7 @@ textarea,
 [type=text],
 [type=time],
 [type=url] {
-  -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   -webkit-appearance: none;
   border: 2px solid;
   border-radius: 0;
