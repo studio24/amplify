@@ -1,10 +1,14 @@
-const { extendDefaultPlugins } = require('svgo');
 module.exports = {
-	name: 'preset-default',
-	params: {
-		overrides: {
-			//disable plugins
-			removeViewBox: false
-		}
-	}
-}
+	plugins: [
+		{
+			name: 'preset-default',
+			params: {
+				overrides: {
+					// disable plugins
+					removeViewBox: false,
+					removeUnknownsAndDefaults: false
+				},
+			},
+		},
+	],
+};

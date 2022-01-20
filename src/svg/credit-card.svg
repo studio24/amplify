@@ -3,6 +3,7 @@
      width="78"
      height="48"
      data-focussed="none"
+     focusable="false"
      aria-hidden="true">
     <g id="credit-card" class="credit-cards">
         <title>Example credit card</title>
