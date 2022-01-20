@@ -2,15 +2,8 @@
     #Icons
 \*------------------------------------*/
 
-svg {
-	fill: currentColor;
-	height: auto;
-	width: 100%;
-}
-
-
 /**
-SVG icons are sized relative to font size, thanks to the em unit.
+Icons are sized relative to font size, thanks to the em unit.
 
 1. When the cap unit is supported this will make it easier to match icon
 size to text size.
@@ -31,7 +24,7 @@ size to text size.
 
 /**
 Use the `with-icon--before` or `with-icon--after` class
-on the SVG's parent if there is a need to specify the spacing
+on the icon's parent if there is a need to specify the spacing
 between text and icon. Pay attention to whether the icon comes
 before the text or after.
 
@@ -46,11 +39,11 @@ before the text or after.
 
 .with-icon--before {
 	.icon {
-		margin-right: rem(8); // IE fallback for next rule - only works for ltr languages
+		margin-right: rem(10); // IE fallback for next rule - only works for ltr languages
 
 		@supports (margin-inline-end: 1em) {
 			margin-right: 0;
-			margin-inline-end: rem(8); /* 2 */
+			margin-inline-end: rem(10); /* 2 */
 		}
 	}
 }
@@ -58,11 +51,11 @@ before the text or after.
 
 .with-icon--after {
 	.icon {
-		margin-left: rem(8); // IE fallback for next rule - only works for ltr languages
+		margin-left: rem(10); // IE fallback for next rule - only works for ltr languages
 
 		@supports (margin-inline-start: 1em) {
 			margin-left: 0;
-			margin-inline-start: rem(8); /* 2 */
+			margin-inline-start: rem(10); /* 2 */
 		}
 	}
 }
@@ -71,12 +64,12 @@ before the text or after.
 [dir="rtl"] {
 	.with-icon--before {
 		.icon {
-			margin-left: rem(8); // IE fallback for next rule - only works for ltr languages
+			margin-left: rem(10); // IE fallback for next rule - only works for ltr languages
 			margin-right: 0;
 
 			@supports (margin-inline-start: 1em) {
 				margin-left: 0;
-				margin-inline-end: rem(8); /* 2 */
+				margin-inline-end: rem(10); /* 2 */
 			}
 		}
 	}
@@ -85,11 +78,11 @@ before the text or after.
 	.with-icon--after {
 		.icon {
 			margin-left: 0;
-			margin-right: rem(8); // IE fallback for next rule - only works for ltr languages
+			margin-right: rem(10); // IE fallback for next rule - only works for ltr languages
 
 			@supports (margin-inline-start: 1em) {
 				margin-right: 0;
-				margin-inline-start: rem(8); /* 2 */
+				margin-inline-start: rem(10); /* 2 */
 			}
 		}
 	}

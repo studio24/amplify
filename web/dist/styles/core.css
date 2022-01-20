@@ -804,7 +804,6 @@ input[type=submit].button {
   color: #fff;
   display: inline-flex;
   justify-content: center;
-  line-height: inherit;
   min-width: 10ch;
   min-height: 2.75rem;
   /* 5 */
@@ -1566,14 +1565,8 @@ Error styles
 /*------------------------------------*\
     #Icons
 \*------------------------------------*/
-svg {
-  fill: currentColor;
-  height: auto;
-  width: 100%;
-}
-
 /**
-SVG icons are sized relative to font size, thanks to the em unit.
+Icons are sized relative to font size, thanks to the em unit.
 
 1. When the cap unit is supported this will make it easier to match icon
 size to text size.
@@ -1594,7 +1587,7 @@ size to text size.
 
 /**
 Use the `with-icon--before` or `with-icon--after` class
-on the SVG's parent if there is a need to specify the spacing
+on the icon's parent if there is a need to specify the spacing
 between text and icon. Pay attention to whether the icon comes
 before the text or after.
 
@@ -1607,50 +1600,50 @@ before the text or after.
 }
 
 .with-icon--before .icon {
-  margin-right: 0.5rem;
+  margin-right: 0.625rem;
 }
 @supports ((-webkit-margin-end: 1em) or (margin-inline-end: 1em)) {
   .with-icon--before .icon {
     margin-right: 0;
-    -webkit-margin-end: 0.5rem;
-            margin-inline-end: 0.5rem;
+    -webkit-margin-end: 0.625rem;
+            margin-inline-end: 0.625rem;
     /* 2 */
   }
 }
 
 .with-icon--after .icon {
-  margin-left: 0.5rem;
+  margin-left: 0.625rem;
 }
 @supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
   .with-icon--after .icon {
     margin-left: 0;
-    -webkit-margin-start: 0.5rem;
-            margin-inline-start: 0.5rem;
+    -webkit-margin-start: 0.625rem;
+            margin-inline-start: 0.625rem;
     /* 2 */
   }
 }
 
 [dir=rtl] .with-icon--before .icon {
-  margin-left: 0.5rem;
+  margin-left: 0.625rem;
   margin-right: 0;
 }
 @supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
   [dir=rtl] .with-icon--before .icon {
     margin-left: 0;
-    -webkit-margin-end: 0.5rem;
-            margin-inline-end: 0.5rem;
+    -webkit-margin-end: 0.625rem;
+            margin-inline-end: 0.625rem;
     /* 2 */
   }
 }
 [dir=rtl] .with-icon--after .icon {
   margin-left: 0;
-  margin-right: 0.5rem;
+  margin-right: 0.625rem;
 }
 @supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
   [dir=rtl] .with-icon--after .icon {
     margin-right: 0;
-    -webkit-margin-start: 0.5rem;
-            margin-inline-start: 0.5rem;
+    -webkit-margin-start: 0.625rem;
+            margin-inline-start: 0.625rem;
     /* 2 */
   }
 }
@@ -1660,6 +1653,12 @@ before the text or after.
 \*------------------------------------*/
 img {
   display: block;
+  height: auto;
+  width: 100%;
+}
+
+svg {
+  fill: currentColor;
   height: auto;
   width: 100%;
 }
