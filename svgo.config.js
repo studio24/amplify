@@ -6,7 +6,8 @@ module.exports = {
 				overrides: {
 					// disable plugins
 					removeViewBox: false,
-					removeUnknownsAndDefaults: false
+					removeUnknownsAndDefaults: false,
+					removeScriptElement: true
 				},
 			},
 		},
