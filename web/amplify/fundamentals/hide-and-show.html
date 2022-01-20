@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Utility classes - Amplify</title>
+	<title>Hide and show items inclusively - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -82,62 +82,40 @@
 						<li><a href="buttons-links.html">Buttons and links</a></li>
 						<li><a href="forms.html">Forms</a></li>
 						<li><a href="form-errors.html">Form error messages</a></li>
-						<li><a href="hide-and-show.html">Hide and show items inclusively</a></li>
+						<li><a href="#">Hide and show items inclusively</a></li>
 						<li><a href="lists.html">Lists</a></li>
 						<li><a href="tables.html">Tables</a></li>
-						<li><a href="#">Utility classes</a></li>
+						<li><a href="utility-classes.html">Utility classes</a></li>
 					</ul>
 				</nav>
 				<div class="not-sidebar">
 					<div class="component component--text">
-						<h1>Utility classes</h1>
-						<p>A utility class applies a single rule or a very simple, universal pattern.</p>
-						<p>In Amplify, utility classes are used as overrides or helper classes. As such, they could apply to any element and in any context, to do exactly the same thing each time. They are always prefixed with <code>u-</code>, e.g. <code>u-float-left</code> or <code>u-full-width</code>.</p>
-						<p>Utility classes are organised into groups with a similar purpose or remit, as detailed below. If you have a requirement that you feel would be best covered by a utility class that does not yet exist, feel free to add to the current selection.</p>
-						<h2>Alignments</h2>
-						<p>For floating items and overriding default text alignment:</p>
+						<h1>Hide and show items inclusively</h1>
+						<p>Scott O'Hara's article, <a href="https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html">Inclusively Hidden</a>, is highly recommended reading. The following summarises that advice.</p>
+						<h2>Hiding items from everybody</h2>
+						<p>To temporarily hide items from all users until needed:</p>
 						<ul>
-							<li>
-								<code>u-float-left</code>
+							<li>Use the CSS display property <code>display: none;</code> to remove items completely from the DOM.
+								<ul>
+									<li>Note that if CSS is unavailable the items will no longer be hidden.</li>
+								</ul>
 							</li>
-							<li>
-								<code>u-float-right</code>
+							<li>Use the <code>hidden</code> HTML attribute, which will work even if CSS is unavailable.
+								<ul>
+									<li>Note that this can be overridden by any CSS which alters the value of the display property.</li>
+								</ul>
 							</li>
-							<li>
-								<code>u-text-center</code>
-							</li>
-							<li>
-								<code>u-text-left</code>
-							</li>
-							<li>
-								<code>u-text-right</code>
-							</li>
-							<li>
-								<code>u-text-left-from-lap</code>
-							</li>
-							<li>
-								<code>u-text-center-from-lap</code>
-							</li>
-							<li>
-								<code>u-text-right-from-lap</code>
+							<li>Use the CSS display property <code>visibility: hidden;</code>, especially if you wish to transition the change from hidden to visible.
+								<ul>
+									<li>Note that, while the item is hidden, it retains the space that it occupies within the DOM. It is best paired with other CSS properties that negate this, e.g. <code>position: absolute;</code>. This is ideal for e.g. off-canvas navigation.
+									</li>
+								</ul>
 							</li>
 						</ul>
-						<p>The final three classes in the preceding list are linked to a specific breakpoint width, as defined in 00-settings.</p>
-						<h2>Clearfix</h2>
-						<p>Forces an element to self-clear its children. Amplify uses this as a <a href="https://sass-lang.com/documentation/style-rules/placeholder-selectors">Sass placeholder selector</a> - also known as a ‘silent class’ - which <a href="https://sass-lang.com/documentation/at-rules/extend#placeholder-selectors">can be extended using the <code>@extend directive</code></a> to avoid cluttering up the CSS or requiring the use of the class within the markup.</p>
-						<h2>Layout</h2>
-						<p>Use the class <code>u-full-width</code> to create a <a href="https://css-tricks.com/full-width-containers-limited-width-parents/#aa-no-calc-needed">full-width container inside a limited width parent</a>.</p>
-						<p>Use the class <code>u-center</code> to horizontally centre a block-level item.</p>
-						<h2>Margins</h2>
-						<p>For removing all margins or just the top margin from an element. Double specificity in the classnames avoids the use of <code>!important</code>.</p>
-						<ul>
-							<li>
-								<code>u-no-margin.u-no-margin</code>
-							</li>
-							<li>
-								<code>u-no-margin-top.u-no-margin-top</code>
-							</li>
-						</ul>
+						<h2>Visually hiding items</h2>
+						<p>Use the <code>visuallyhidden</code> CSS class to hide an item visually but leave it accessible to Assistive Technology.</p>
+						<h2>Hiding items from Assistive Technology</h2>
+						<p>Use the <code>aria-hidden="true"</code> HTML attribute to hide items from Assistive Technology. This will not be overridden by any CSS. Note that it should not be used on focusable elements.</p>
 					</div>
 				</div>
 			</div>
