@@ -51,7 +51,6 @@
 		"postsass-advanced-compressed": "postcss --no-map ${npm_package_config_to}/styles/advanced.min.css --use=autoprefixer --output=${npm_package_config_to}/styles/advanced.min.css",
 		"sass-print-compressed": "sass --no-source-map --style=compressed ${npm_package_config_from}/styles/print.scss ${npm_package_config_to}/styles/print.min.css",
 		"postsass-print-compressed": "postcss --no-map ${npm_package_config_to}/styles/print.min.css --use=autoprefixer --output=${npm_package_config_to}/styles/print.min.css",
-		"prestyles": "shx cp ./node_modules/normalize.css/normalize.css ${npm_package_config_from}/styles/sass/30-base/_normalize.scss && shx cp ./node_modules/accessible-autocomplete/src/autocomplete.css ${npm_package_config_from}/styles/sass/70-third-party-plugins/_accessible-autocomplete.scss",
 		"styles": "npm-run-all --parallel sass-core-expanded sass-core-compressed sass-advanced-expanded sass-advanced-compressed sass-print-expanded sass-print-compressed",
 		"webpack-expanded": "webpack --config webpack.config.js",
 		"webpack-compressed": "webpack --config webpack.config.min.js",

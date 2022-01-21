@@ -31,7 +31,7 @@
 
     Normalize comes first for the cascade
 \*------------------------------------*/
-@import "sass/30-base/normalize";
+@import "../../node_modules/normalize.css/normalize";
 @import "sass/30-base/box-sizing";
 @import "sass/30-base/body";
 @import "sass/30-base/typography";
