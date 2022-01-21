@@ -4,6 +4,30 @@
 
 Amplify currently supports the range of [browsers recommended by the GOVUK Service Manual](https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices).
 
+### Implementation details
+
+All browser versions load `core.css` - which includes [Normalize](https://necolas.github.io/normalize.css/) and limited enhancements to the user-agent stylesheet - and `print.css`.
+
+To load `advanced.css` in just our supported browsers, we implement logic in the `media` attribute of the `link` element for this stylesheet, loading it only in browsers that recognise the properties of that media query.
+
+The loading of JavaScript is tied to the loading of the enhanced CSS. Using `window.matchMedia` we detect when the browser loads the `advanced.css` within the media query. Once the advanced CSS loads, this will cause the JavaScript code to load too. We also change the `no-js` class on `html` to `js`:
+
+```javascript
+(function() {
+	let linkEl = document.getElementById('advanced-stylesheet');
+	if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+		let head = document.querySelector('head');
+		// Add main JS
+        let jsMain = document.createElement('script');
+		jsMain.src = 'path/to/main.js';
+		jsMain.defer = true;
+		head.appendChild(jsMain);
+		// Update classname to show JS is available
+        (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+	}
+})();
+```
+
 ## How to update Amplify browser support
 
 ### Browserslist in `package.json`
