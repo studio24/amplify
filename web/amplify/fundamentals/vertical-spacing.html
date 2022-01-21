@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Buttons and links - Amplify</title>
+	<title>Vertical spacing - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -80,76 +80,29 @@
 			<div>
 				<nav class="sidebar" aria-label="Secondary">
 					<ul class="clean-list" role="list">
-						<li><a href="#">Buttons and links</a></li>
+						<li><a href="buttons-links.html">Buttons and links</a></li>
 						<li><a href="forms.html">Forms</a></li>
 						<li><a href="form-errors.html">Form error messages</a></li>
 						<li><a href="hide-and-show.html">Hide and show items inclusively</a></li>
 						<li><a href="icons.html">Icons</a></li>
 						<li><a href="images.html">Images</a></li>
 						<li><a href="lists.html">Lists</a></li>
+						<li><a href="skip-link.html">Skip link</a></li>
 						<li><a href="tables.html">Tables</a></li>
 						<li><a href="utility-classes.html">Utility classes</a></li>
-						<li><a href="vertical-spacing.html">Vertical spacing</a></li>
+						<li><a href="#">Vertical spacing</a></li>
 					</ul>
 				</nav>
 				<div class="not-sidebar">
 					<div class="component component--text">
-						<h1>Buttons and links</h1>
-						<p>Use a button to help a user carry out an action, such as playing audio/video, toggling a dropdown, opening a modal, etc. If you are navigating a user to a new resource, use a link.</p>
-						<p>Buttons, and links styled as buttons, need to have sufficient padding to ensure they meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html">WCAG Success Criterion 2.5.5: Target Size (AAA)</a>. This does not apply to links within sentences and paragraphs.</p>
-					</div>
-					<div class="component">
-						<h2>Buttons</h2>
-						<div class="example">
-							<button type="button" class="button">Default button style</button>
-						</div>
-						<div class="example">
-							<button type="button" class="button button--alt">Alternate button style</button>
-						</div>
-						<div class="example">
-							<button type="button" class="button button--wide">Wide button style</button>
-						</div>
-						<div class="example">
-							<button type="button" class="button button--alt button--wide">Wide button style</button>
-						</div>
-						<div class="example">
-							<button type="button" class="button button--ghost">Ghost button style</button>
-						</div>
-						<div class="example">
-							<button type="button" disabled>This button is disabled</button>
-						</div>
-					</div>
-					<div class="component component--text">
-						<h3>Considerations</h3>
-						<p>Disabled buttons can confuse some people, so only use them if testing shows that they make the user interface easier to understand.</p>
-					</div>
-					<div class="component">
-						<h2>Links</h2>
-						<div class="example">
-							<a href="javascript:;">Simple text link</a>
-						</div>
-						<div class="example">
-							<a class="button" href="javascript:;">Link styled as a button</a>
-						</div>
-						<div class="example">
-							<a class="button button--alt" href="javascript:;">Link with alternate button style</a>
-						</div>
-					</div>
-					<div class="component component--text">
-						<h3>Considerations</h3>
-						<p>Simple text links are given an underline, in addition to any colour treatment, to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html">WCAG Success Criterion 1.4.1: Use of Color (A)</a></p>
-					</div>
-					<div class="component component--text">
-						<h2>Grouping buttons and links</h2>
-						<p>Buttons (and links styled as buttons) can be arranged in groups using the <a href="../layouts/cluster.html">cluster layout</a>:</p>
-					</div>
-					<div class="component">
-						<div class="l-cluster">
-							<div>
-								<a class="button" href="javascript:;">Primary action</a>
-								<a class="button button--alt" href="javascript:;">Secondary action</a>
-							</div>
-						</div>
+						<h1>Vertical spacing</h1>
+						<p>Negative space is an important part of website design (and design in general). It helps to create visual order, and provides room for our eyes to rest between pieces of content.</p>
+						<p>This section is specifically concerned with vertical spacing between <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements">block-level elements</a>. Amplify manages this in two ways:</p>
+						<ul>
+							<li>Each component that makes up a web page has the class <code>component</code> added to its outermost element. Amplify uses the <a href="https://www.w3.org/TR/selectors-3/#adjacent-sibling-combinators">next-sibling combinator</a> to target this class, adding <code>margin-top</code> to all but the very first component in a series to space them apart vertically.<p>The code for this resides in 50-core-components > Main.</p></li>
+							<li>Within those components, and anywhere else that vertical spacing is needed between block-level elements, Chris Burnell's <a href="https://chrisburnell.com/article/sassy-lobotomised-owl/">stack mixin</a> allows us to add vertical spacing. As it's a <a href="https://sass-lang.com/documentation/at-rules/mixin">Sass mixin</a>, we can use specified units of measurement at whatever value we choose, and that value can vary depending on the use case and design requirements thanks to the <code>@include</code> at-rule.<p>The mixin resides in 20-mixins > Stack.</p></li>
+						</ul>
+						<p>The mixin was adapted from Heydon Pickering's <a href="https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/">lobotomized owl technique</a>, which developed into the <a href="https://every-layout.dev/layouts/stack/">stack in Every Layout</a>. </p>
 					</div>
 				</div>
 			</div>
