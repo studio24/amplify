@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Get started - Amplify</title>
+	<title>Browser support - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -54,49 +54,56 @@
 </head>
 
 <body class="amplify">
-	<div class="not-footer">
-		<a href="#main" class="skip-link">Skip to content</a>
-		<header>
-			<div class="l-center">
-				<a href="../index.html">Amplify from Studio 24</a>
+<div class="not-footer">
+	<a href="#main" class="skip-link">Skip to content</a>
+	<header>
+		<div class="l-center">
+			<a href="../index.html">Amplify from Studio 24</a>
+		</div>
+	</header>
+	<nav aria-label="Main">
+		<div class="l-center">
+			<div class="l-cluster">
+				<ul class="clean-list">
+					<li><a href="../get-started">Get started</a></li>
+					<li><a href="../layouts">Layout helpers</a></li>
+					<li><a href="../fundamentals">Fundamentals</a></li>
+					<li><a href="../core-components">Core components</a></li>
+					<li><a href="../advanced-components">Advanced components</a></li>
+					<li><a href="../design">Design handover &amp; standards</a></li>
+				</ul>
 			</div>
-		</header>
-		<nav aria-label="Main">
-			<div class="l-center">
-				<div class="l-cluster">
-					<ul class="clean-list">
-						<li><a href="../get-started">Get started</a></li>
-						<li><a href="../layouts">Layout helpers</a></li>
-						<li><a href="../fundamentals">Fundamentals</a></li>
-						<li><a href="../core-components">Core components</a></li>
-						<li><a href="../advanced-components">Advanced components</a></li>
-						<li><a href="../design">Design handover &amp; standards</a></li>
+		</div>
+	</nav>
+	<main id="main">
+		<div class="l-sidebar">
+			<div>
+				<nav class="sidebar" aria-label="Secondary">
+					<ul class="clean-list" role="list">
+						<li><a href="#">Browser support</a></li>
 					</ul>
-				</div>
-			</div>
-		</nav>
-		<main id="main">
-			<div class="l-sidebar">
-				<div>
-					<nav class="sidebar" aria-label="Secondary">
-						<ul class="clean-list" role="list">
-							<li><a href="browser-support.html">Browser support</a></li>
+				</nav>
+				<div class="not-sidebar">
+					<div class="component component--text">
+						<h1>Browser support</h1>
+						<p>Amplify currently supports the range of <a href="https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices">browsers recommended by the GOVUK Service Manual</a>.</p>
+						<p>If your browser support needs differ from this, you must make the following updates:</p>
+						<ul>
+							<li>the browserslist in <code>package.json</code></li>
+							<li>the CSS media query in <code>head</code> of your web page templates.</li>
 						</ul>
-					</nav>
-					<div class="not-sidebar">
-						<div class="component component--text">
-							<h1>Get started</h1>
-						</div>
+						<p><a href="https://github.com/studio24/amplify/blob/main/docs/browser-support.md">How to update Amplify browser support</a>.</p>
 					</div>
 				</div>
 			</div>
-		</main>
-	</div>
-	<footer class="global-footer">
-		<div class="l-center">
-			&copy; Studio 24
 		</div>
-	</footer>
+	</main>
+</div>
+<footer class="global-footer">
+	<div class="l-center">
+		&copy; Studio 24
+	</div>
+</footer>
 </body>
 
 </html>
