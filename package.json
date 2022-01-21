@@ -54,15 +54,14 @@
 		"styles": "npm-run-all --parallel sass-core-expanded sass-core-compressed sass-advanced-expanded sass-advanced-compressed sass-print-expanded sass-print-compressed",
 		"webpack-expanded": "webpack --config webpack.config.js",
 		"webpack-compressed": "webpack --config webpack.config.min.js",
-		"prejs": "copyfiles -f ./node_modules/fontfaceobserver/fontfaceobserver.js ${npm_package_config_from}/js/libraries",
-		"js-libraries": "shx cp -r ${npm_package_config_from}/js/libraries/* ${npm_package_config_to}/js/libraries/",
-		"js": "npm-run-all --parallel webpack-expanded webpack-compressed js-libraries",
+		"js": "npm-run-all --parallel webpack-expanded webpack-compressed",
 		"prebuild": "shx rm -rf ${npm_package_config_to} && shx mkdir -p ${npm_package_config_to}/fonts && shx mkdir ${npm_package_config_to}/images && shx mkdir ${npm_package_config_to}/js && shx mkdir ${npm_package_config_to}/js/libraries && shx mkdir ${npm_package_config_to}/styles && shx mkdir ${npm_package_config_to}/svg",
 		"build": "npm-run-all --parallel fonts images svgs js styles"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.0",
 		"browserslist": "^4.18.1",
+		"copy-webpack-plugin": "^10.2.1",
 		"copyfiles": "^2.4.1",
 		"npm-run-all": "^4.1.5",
 		"postcss": "^8.3.11",

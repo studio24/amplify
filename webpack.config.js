@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
 	context: path.resolve(__dirname, 'src/js'),
@@ -15,5 +16,13 @@ module.exports = {
 	},
 	optimization: {
 		minimize: false
-	}
+	},
+	plugins: [
+		new CopyPlugin({
+			patterns: [
+				// { from: "./libraries/", to:  "./libraries" },
+				{ from: "./../../node_modules/fontfaceobserver/fontfaceobserver.js", to: "./libraries" }
+			]
+		})
+	]
 };
