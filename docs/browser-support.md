@@ -8,7 +8,24 @@ Amplify currently supports the range of [browsers recommended by the GOVUK Servi
 
 All browser versions load `core.css` - which includes [Normalize](https://necolas.github.io/normalize.css/) and limited enhancements to the user-agent stylesheet - and `print.css`.
 
-To load `advanced.css` in just our supported browsers, we implement logic in the `media` attribute of the `link` element for this stylesheet, loading it only in browsers that recognise the properties of that media query.
+To load `advanced.css` in just our supported browsers, we implement logic in the `media` attribute of the `link` element for this stylesheet, loading it only in browsers that recognise the properties of that media query. The default media query looks like this:
+
+```HTML
+<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+-->
+<link rel="stylesheet" href="your-stylesheet.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+">
+```
 
 The loading of JavaScript is tied to the loading of the enhanced CSS. Using `window.matchMedia` we detect when the browser loads the `advanced.css` within the media query. Once the advanced CSS loads, this will cause the JavaScript code to load too. We also change the `no-js` class on `html` to `js`:
 
