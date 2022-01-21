@@ -4,7 +4,7 @@ module.exports = {
 			name: 'preset-default',
 			params: {
 				overrides: {
-					// disable plugins
+					// manage plugins
 					removeViewBox: false,
 					removeUnknownsAndDefaults: false,
 					removeScriptElement: true

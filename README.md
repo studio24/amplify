@@ -1,6 +1,6 @@
 # Amplify
 
-Work in progress
+Front-End starter kit for Studio 24.
 
 ## Getting started
 
@@ -22,24 +22,21 @@ Also see more [detailed project documentation](docs/README.md).
 
 ### Live
 * https://www.example.com
-* https://www.example.com/cms-admin
 * https://www.example.com/_build_summary.json
 
 ### Staging
 * https://staging.example.com
-* https://staging.example.com/cms-admin
 * https://staging.example.com/_build_summary.json
 
 ### Development
-* https://local.example.com
-* https://local.example.com/cms-admin
+* http://local.amplify.studio24.net/
 
 ## Installing
 
 ### Requirements
 
 - PHP 7.4
-- Node v12.16.0
+- Node (check the `.nvmrc` file in the project root for latest version)
 - [NPM](https://www.npmjs.com/)
 - [NVM](https://github.com/creationix/nvm)
 - [Composer](https://getcomposer.org/)
@@ -52,7 +49,7 @@ A step-by-step set of instructions that tell you how to get your local dev envir
 Clone repo:
 
 ````bash
-git clone git@github.com:studio24/project-base-template.git
+git clone git@github.com:studio24/amplify.git
 ````
 
 Install PHP dependencies:
@@ -67,27 +64,52 @@ Install project dependencies:
 # Switch your version of Node to the correct version for this project (see `.nvmrc`)
 nvm use
 
-cd web/wp-content/themes/example
 npm install
 ````
 
-Build assets:
+Build front-end assets:
 
 ````bash
-cd web/wp-content/themes/example
-npm build
+npm run build
 ````
 
-Watch for changes:
+There are also specific commands if you only want to compile certain front-end assets:
 
 ````bash
-cd web/wp-content/themes/example
-npm watch
+nvm use 
+
+# Copy font assets to the `dist` directory
+npm run fonts
+
+# Copy image assets to the `dist` directory (note they are *not optimised* as part of this step)
+npm run images
+
+# Optimise and then copy SVG assets to the `dist` directory
+npm run svgs
+
+# Compile the Sass partials into CSS files in the `dist` directory
+npm run styles
+
+# Compile, transpile and minify the JS files, place them in the `dist` directory
+npm run js
 ````
 
 ### Configuration
 
-Any details on configuration files required. 
+#### NPM
+
+If needed, update the `package.json` file in the project root to specify which browsers are supported (referenced by the CSS and JS build tools) and manage the packages and NPM scripts required to build the site assets.
+
+#### SVG Optimizer
+
+[SVG Optimizer](https://github.com/svg/svgo) is used to optimise SVG files. There is a `svgo.config.js` file in the project root to determine optimisation settings.
+
+#### Webpack
+
+[Webpack](https://webpack.js.org/) is used to compile, transpile and minify JavaScript files. Two files exist in the project root to determine these settings:
+
+* `webpack.config.js` for the non-minified version
+* `webpack.config.min.js` for the minified version
 
 ## Making changes
 
@@ -109,8 +131,7 @@ You should always deploy the `main` branch to production.
 
 ### Deploy to Staging
 
-The deploy process outputs a summary of what branch is currently deployed to staging, please check this to ensure you're 
-not overwriting someone's work.
+The deploy process outputs a summary of what branch is currently deployed to staging, please check this to ensure you're not overwriting someone's work.
 
 ````
 ./vendor/bin/dep deploy staging --branch=branch-name-to-deploy
@@ -118,8 +139,7 @@ not overwriting someone's work.
 
 ## Syncing tasks
 
-Sync files from production or staging to your local development environment. These are setup in the `deploy.php` script, 
-see the [sync](https://github.com/studio24/deployer-recipes/blob/main/docs/sync.md) task for more.
+Sync files from production or staging to your local development environment. These are setup in the `deploy.php` script, see the [sync](https://github.com/studio24/deployer-recipes/blob/main/docs/sync.md) task for more.
 
 #### Sync assets: Live → Local development
 
@@ -132,12 +152,5 @@ see the [sync](https://github.com/studio24/deployer-recipes/blob/main/docs/sync.
 ./vendor/bin/dep sync staging --files=images
 ````
 
-## Built with
-
-- [Wordpress 5](https://codex.wordpress.org/) - CMS
-- [Apollo 2](https://apollo.studio24.net/) - Front-end starter kit
-
 ## Credits
-- **Name** - *Role* - Studio 24
-- **Name** - *Role* - Studio 24
-- **Name** - *Role* - Studio 24
+- **Nicola Saunders** - *Front-End Lead Developer* - Studio 24
