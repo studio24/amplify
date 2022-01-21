@@ -18,7 +18,7 @@ To load `advanced.css` in just our supported browsers, we implement logic in the
     Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
     FF 29+
 -->
-<link rel="stylesheet" href="your-stylesheet.css" media="
+<link rel="stylesheet" id="advanced-stylesheet" href="path/to/advanced.css" media="
     only print, screen and (min-width: 1vm),
     only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
     only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
