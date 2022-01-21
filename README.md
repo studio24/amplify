@@ -111,6 +111,25 @@ If needed, update the `package.json` file in the project root to specify which b
 * `webpack.config.js` for the non-minified version
 * `webpack.config.min.js` for the minified version
 
+#### Copying over js libraries
+If there are libraries that you would like to use as is in your project, you set up Webpack to copy them across from the src folder to the dist folder.
+
+##### If the script file is in a node_module
+In the `webpack.config.js` file, add a 'from-to' pattern to the CopyPlugin configuration parameters, using the syntax:
+
+```
+{ from: "./../../node_modules/[node_package_name]/[path to the js file]]", to: "./libraries" }
+```
+
+##### If the script file is NOT in a node_module
+In the `webpack.config.js` file, uncomment the following line from the CopyPlugin configuration parameters:
+
+```
+// { from: "./libraries/", to:  "./libraries" },
+```
+
+You can now add the script to the `src/js/libraries` folder and run the full build script or the 'webpack-expanded' script.
+
 ## Making changes
 
 To make changes to code first work on a branch and create a Pull Request to merge changes into the `main` branch.
