@@ -18,12 +18,12 @@ The loading of JavaScript is tied to the loading of the enhanced CSS. Using `win
 	if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
 		let head = document.querySelector('head');
 		// Add main JS
-        let jsMain = document.createElement('script');
+		let jsMain = document.createElement('script');
 		jsMain.src = 'path/to/main.js';
 		jsMain.defer = true;
 		head.appendChild(jsMain);
 		// Update classname to show JS is available
-        (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+		(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
 	}
 })();
 ```
