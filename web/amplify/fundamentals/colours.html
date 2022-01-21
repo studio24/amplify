@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Hide and show items inclusively - Amplify</title>
+	<title>Colours - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -81,13 +81,14 @@
 				<nav class="sidebar" aria-label="Secondary">
 					<ul class="clean-list" role="list">
 						<li><a href="buttons-links.html">Buttons and links</a></li>
-						<li><a href="colours.html">Colours</a></li>
+						<li><a href="#">Colours</a></li>
 						<li><a href="forms.html">Forms</a></li>
 						<li><a href="form-errors.html">Form error messages</a></li>
-						<li><a href="#">Hide and show items inclusively</a></li>
+						<li><a href="hide-and-show.html">Hide and show items inclusively</a></li>
 						<li><a href="icons.html">Icons</a></li>
 						<li><a href="images.html">Images</a></li>
 						<li><a href="lists.html">Lists</a></li>
+						<li><a href="skip-link.html">Skip link</a></li>
 						<li><a href="tables.html">Tables</a></li>
 						<li><a href="typography.html">Typography</a></li>
 						<li><a href="utility-classes.html">Utility classes</a></li>
@@ -96,32 +97,37 @@
 				</nav>
 				<div class="not-sidebar">
 					<div class="component component--text">
-						<h1>Hide and show items inclusively</h1>
-						<p>Scott O'Hara's article, <a href="https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html">Inclusively Hidden</a>, is highly recommended reading. The following summarises that advice.</p>
-						<h2>Hiding items from everybody</h2>
-						<p>To temporarily hide items from all users until needed:</p>
+						<h1>Colours</h1>
+						<h2>Colour contrast</h2>
+						<p>Make sure that the contrast ratio of text and interactive elements on your site meets the requirements of <strong><dfn id="wcag"><abbr title="Web Content Accessibility Guidelines">WCAG</abbr></dfn> 2.1</strong> as paraphrased in the following sections. The ideal contrast range to meet all requirements is 7:1 - 15:1. Higher contrast ratios can be triggering for some people.</p>
+						<h3>1.4.3 Contrast (Minimum) (AA)</h3>
+						<p>Text (including images of text) has a contrast ratio of at least <strong>4.5:1 for 'regular' text</strong> and at least <strong>3:1 for large text</strong> (at least <code>18pt</code> / <code>24px</code>, or bold and at least <code>14pt</code> / <code>18.5px</code>), unless the text is purely decorative.</p>
+						<h3>1.4.6 Contrast (Enhanced) (AAA)</h3>
+						<p>Text (including images of text) has a contrast ratio of at least <strong>7:1 for 'regular' text</strong> and at least <strong>4.5:1 for large text</strong> (at least <code>18pt</code> / <code>24px</code>, or bold and at least <code>14pt</code> / <code>18.5px</code>), unless the text is purely decorative.</p>
+						<h3>1.4.11 Non-text Contrast (AA)</h3>
+						<p>The visual presentation of <dfn id="ui"><abbr title="user interface">UI</abbr></dfn> components (their states - including focus indication - and boundaries) and graphical objects has a contrast ratio of at least 3:1 against adjacent colour(s).</p>
+						<h3>Tools for checking colour contrast</h3>
+						<p>Choose whichever you prefer from the following list:</p>
 						<ul>
-							<li>Use the CSS display property <code>display: none;</code> to remove items completely from the DOM.
-								<ul>
-									<li>Note that if CSS is unavailable the items will no longer be hidden.</li>
-								</ul>
+							<li>
+								<a href="https://accessible-colors.com/">Accessible Colors</a>
 							</li>
-							<li>Use the <code>hidden</code> HTML attribute, which will work even if CSS is unavailable.
-								<ul>
-									<li>Note that this can be overridden by any CSS which alters the value of the display property.</li>
-								</ul>
+							<li>
+								<a href="https://www.tpgi.com/cca-download/">Color Contrast Analyser Download</a>
 							</li>
-							<li>Use the CSS display property <code>visibility: hidden;</code>, especially if you wish to transition the change from hidden to visible.
-								<ul>
-									<li>Note that, while the item is hidden, it retains the space that it occupies within the DOM. It is best paired with other CSS properties that negate this, e.g. <code>position: absolute;</code>. This is ideal for e.g. off-canvas navigation.
-									</li>
-								</ul>
+							<li>
+								<a href="https://contrast-ratio.com/">Contrast Ratio</a>
+							</li>
+							<li>
+								<a href="https://webaim.org/resources/linkcontrastchecker/">Link Contrast Checker</a>
+							</li>
+							<li>
+								<a href="https://whocanuse.com/">Who Can Use</a>
+							</li>
+							<li>
+								<a href="https://www.brandwood.com/a11y/">Text on background image a11y check</a>
 							</li>
 						</ul>
-						<h2>Visually hiding items</h2>
-						<p>Use the <code>visuallyhidden</code> CSS class to hide an item visually but leave it accessible to Assistive Technology.</p>
-						<h2>Hiding items from Assistive Technology</h2>
-						<p>Use the <code>aria-hidden="true"</code> HTML attribute to hide items from Assistive Technology. This will not be overridden by any CSS. Note that it should not be used on focusable elements.</p>
 					</div>
 				</div>
 			</div>
