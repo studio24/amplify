@@ -6,7 +6,7 @@ Amplify currently supports the range of [browsers recommended by the GOVUK Servi
 
 ### Implementation details
 
-All browser versions load `core.css` - which includes [Normalize](https://necolas.github.io/normalize.css/) and limited enhancements to the user-agent stylesheet - and `print.css`.
+All browser versions load `core.css` - which includes [Normalize](https://necolas.github.io/normalize.css/), limited enhancements to the user-agent stylesheet and simple component styles - and `print.css`.
 
 To load `advanced.css` in just our supported browsers, we implement logic in the `media` attribute of the `link` element for this stylesheet, loading it only in browsers that recognise the properties of that media query. The default media query looks like this:
 
