@@ -35,7 +35,6 @@ Also see more [detailed project documentation](docs/README.md).
 
 ### Requirements
 
-- PHP 7.4
 - Node (check the `.nvmrc` file in the project root for latest version)
 - [NPM](https://www.npmjs.com/)
 - [NVM](https://github.com/creationix/nvm)
