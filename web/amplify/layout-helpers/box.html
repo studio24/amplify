@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Cluster layout helper - Amplify</title>
+	<title>Box layout helper - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -66,7 +66,7 @@
 				<div class="l-cluster">
 					<ul class="clean-list">
 						<li><a href="../get-started">Get started</a></li>
-						<li><a href="../layouts">Layout helpers</a></li>
+						<li><a href="">Layout helpers</a></li>
 						<li><a href="../fundamentals">Fundamentals</a></li>
 						<li><a href="../core-components">Core components</a></li>
 						<li><a href="../advanced-components">Advanced components</a></li>
@@ -80,9 +80,9 @@
 				<div>
 					<nav class="sidebar" aria-label="Secondary">
 						<ul class="clean-list" role="list">
-							<li><a href="box.html">Box</a></li>
+							<li><a href="#">Box</a></li>
 							<li><a href="center.html">Center</a></li>
-							<li><a href="#">Cluster</a></li>
+							<li><a href="cluster.html">Cluster</a></li>
 							<li><a href="cover.html">Cover</a></li>
 							<li><a href="frame.html">Frame</a></li>
 							<li><a href="sidebar.html">Sidebar</a></li>
@@ -91,27 +91,29 @@
 					</nav>
 					<div class="not-sidebar">
 						<div class="component component--text">
-							<h1>Cluster</h1>
-							<p>The cluster layout helper suits any group of elements that differ in length, are liable to wrap and need even spacing between them, e.g. lists of tags or groups of buttons. It uses the class <code>l-cluster</code>.</p>
-							<p>Cluster needs an inner flexbox container - in the following example it's provided by the <code>ul</code>. Flexbox gives us control of the alignment of items inside.</p>
-							<p>The cluster items - <code>li</code> in this example - sit within this container. Each item has a margin on all sides.</p>
-							<p>The flexbox container has a negative margin of the same size as the cluster items, creating even spacing between them. <code>overflow: hidden;</code> is used to tidy up the edges.</p>
+							<h1>Box</h1>
+							<p>The box layout helper is a simple container for grouping content within a defined region. It uses the class <code>l-box</code>.</p>
+							<p>Box deliberately treats padding and borders equally on all sides. If your container needs asymmetrical styling, then it's a container with a more specific purpose and not a box.</p>
 						</div>
 						<div class="component">
-							<div class="l-cluster">
-								<ul class="clean-list">
-									<li><a href="javascript:;">Item One</a></li>
-									<li><a href="javascript:;">Item Two</a></li>
-									<li><a href="javascript:;">Item Three</a></li>
-									<li><a href="javascript:;">Item Four</a></li>
-									<li><a href="javascript:;">Item Five</a></li>
-									<li><a href="javascript:;">Item Six</a></li>
-									<li><a href="javascript:;">Item Seven</a></li>
-									<li><a href="javascript:;">Item Eight</a></li>
-									<li><a href="javascript:;">Item Nine</a></li>
-									<li><a href="javascript:;">Item Ten</a></li>
-								</ul>
-							</div>
+							<h2>Default box</h2>
+							<div class="l-box">Default box, with padding and border</div>
+						</div>
+						<div class="component">
+							<h2>Box without padding</h2>
+							<div class="l-box l-box--no-padding">Box with no padding</div>
+						</div>
+						<div class="component">
+							<h2>Box without border</h2>
+							<div class="l-box l-box--no-border">Box with no border</div>
+						</div>
+						<div class="component">
+							<h2>Box without padding or border</h2>
+							<div class="l-box l-box--no-padding l-box--no-border">Box with no padding and no border</div>
+						</div>
+						<div class="component component--text">
+							<h2>Considerations</h2>
+							<p>Because high contrast themes can eliminate <code>background-color</code>, the <code>l-box--no-border</code> modifier class adds a transparent outline so that the shape of the box remains apparent. Negative <code>outline-offset</code> moves the outline inside the box perimeter so that it doesn't impact its overall size.</p>
 						</div>
 					</div>
 				</div>
