@@ -1,6 +1,6 @@
 # CSS architecture
 
-Sass files sit at `src/styles/sass` and are split across a series of numbered directories. The lower the number the more generic the styles, the higher the number the more explicit. As the directories increase, so does the specificity. If a directory (or file within a directory) is not needed, it can be excluded. New levels (and files) can be added as required.
+Sass files sit at `src/styles/sass` and are split across a series of numbered directories. The lower the number the more generic the styles, the higher the number the more explicit. As the directories increase, so does the specificity. If the contents of a directory are not needed, they can be [excluded](compiling-sass-to-css.md#excluding-unwanted-styles). New levels (and files) can be added as required.
 
 ## 00-settings
 
