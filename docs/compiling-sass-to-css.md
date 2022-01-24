@@ -1,12 +1,12 @@
 # Compiling Sass to CSS
 
-Amplify uses the [PostCSS](https://github.com/postcss/postcss) and [PostCSS CLI](https://github.com/postcss/postcss-cli) NPM packages to compile Sass files from `src/styles/sass` into three separate stylesheets in `web/dist`:
+Amplify uses the Node implementation of [dart-sass](https://sass-lang.com/dart-sass) to parse .scss files in `src/styles/sass` into three CSS stylesheets in `web/dist`:
 
 * `core.css`
 * `print.css`
 * `advanced.css`
 
-Additionally, the [Autoprefixer](https://github.com/postcss/autoprefixer) NPM package is used to parse CSS and add any vendor prefixes which may be required for our [supported list of browsers](browser-support.md).
+[PostCSS](https://github.com/postcss/postcss), [PostCSS CLI](https://github.com/postcss/postcss-cli) and [Autoprefixer](https://github.com/postcss/autoprefixer) NPM packages add any vendor prefixes which may be required for our [supported list of browsers](browser-support.md) and produce minified versions of these stylesheets.
 
 Both `core.css` and `print.css` are served to all browsers. `advanced.css` is only served to supported browsers. 
 
