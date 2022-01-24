@@ -117,8 +117,6 @@ If needed, update the `package.json` file in the project root to specify which b
 
 To make changes to code first work on a branch and create a Pull Request to merge changes into the `main` branch.
 
-All changes to the `main` branch need to pass [continuous integration](docs/continuous-integration.md) tests (PHP linting, PHP code standards).
-
 ## Deployment
 
 The site uses Deployer for deployment (installed via Composer). Please note if no branch is specified your current branch is used.
