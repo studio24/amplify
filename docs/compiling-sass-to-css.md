@@ -6,7 +6,9 @@ Amplify uses the [PostCSS](https://github.com/postcss/postcss) and [PostCSS CLI]
 * `print.css`
 * `advanced.css`
 
-Both `core.css` and `print.css` are served to all browsers. `advanced.css` is only served to our [supported list of browsers](browser-support.md).
+Additionally, the [Autoprefixer](https://github.com/postcss/autoprefixer) NPM package is used to parse CSS and add any vendor prefixes which may be required for our [supported list of browsers](browser-support.md).
+
+Both `core.css` and `print.css` are served to all browsers. `advanced.css` is only served to supported browsers. 
 
 ## Contents of `core.css`
 
@@ -28,4 +30,4 @@ Some default print styles are included, but developers must check and add any fu
 * Advanced component styles
 * Third party plugins involving JavaScript
 
-The files `core.scss`, `print.scss` and `advanced.scss` within `src/styles` determine which Sass files will be compiled into the relevant stylesheet. CSS is organised in specificity order, from low to high. The individual Sass partials are included using the [@import directive](https://sass-lang.com/documentation/at-rules/import#partials) in the order denoted by the level in which they reside, remembering the impact of the [CSS cascade](https://wattenberger.com/blog/css-cascade).
+The files `core.scss`, `print.scss` and `advanced.scss` within `src/styles` determine which Sass files will be compiled into the relevant CSS stylesheet. The individual Sass partials are included using the [@import directive](https://sass-lang.com/documentation/at-rules/import#partials) in the order denoted by the level in which they reside, remembering the impact of the [CSS cascade](https://wattenberger.com/blog/css-cascade).
