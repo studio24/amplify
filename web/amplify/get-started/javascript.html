@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>CSS - Amplify</title>
+	<title>Get started - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -82,23 +82,22 @@
 					<ul class="clean-list" role="list">
 						<li><a href="browser-support.html">Browser support</a></li>
 						<li><a href="css.html">CSS</a></li>
-						<li><a href="javascript.html">JavaScript</a></li>
+						<li><a href="#">JavaScript</a></li>
 					</ul>
 				</nav>
 				<div class="not-sidebar">
 					<div class="component component--text">
-						<h1>CSS</h1>
-						<p>Amplify uses <a href="http://sass-lang.com/">Sass</a> - specifically the <a href="https://sass-lang.com/documentation/syntax">SCSS syntax</a> - which is compiled into CSS files. The CSS approach is heavily influenced by Andy Bell's <a href="https://cube.fyi/">CUBE CSS</a>. This has some similarities with the <a href="http://getbem.com/">BEM Methodology</a> but with a more judicious use of class names.</p>
+						<h1>JavaScript</h1>
 						<h2>Architecture</h2>
-						<p>The architecture is split into a series of numbered levels in <code>src/styles/sass</code> with each level representing a directory that contains our Sass split out into different <a href="https://sass-lang.com/guide#topic-4">partial files</a>. More generic and wide-reaching styles sit within the lower numbered levels, with specificity increasing with each subsequent level.</p>
-						<p><a href="https://github.com/studio24/amplify/blob/main/docs/css.md#css-architecture">CSS architecture details for developers</a>.</p>
-						<h2>Compiling Sass to CSS</h2>
-						<p>As mentioned in <a href="browser-support.html">browser support</a>, the Sass is compiled into the following CSS stylesheets in <code>web/dist</code>:</p>
+						<p>The architecture takes inspiration from Chris Ferdinandi's <a href="https://gomakethings.com/how-i-structure-my-vanilla-js-projects/">How I structure my vanilla JS projects</a>. Rather than keeping all JavaScript within a single file, code is split across a series of individual files and subdirectories within <code>src/js</code> directory. This approach offers two main benefits:</p>
 						<ul>
-							<li><code>core.css</code> and <code>print.css</code>, which are served to all browsers</li>
-							<li><code>advanced.css</code>, which is served to supported browsers.</li>
+							<li>It makes the code easier to understand for developers</li>
+							<li>We don't have to load all JavaScript on all pages</li>
 						</ul>
-						<p><a href="https://github.com/studio24/amplify/blob/main/docs/css.md#compiling-sass-to-css">Sass compilation details for developers</a>.</p>
+						<p><a href="https://github.com/studio24/amplify/blob/main/docs/javascript.md#javascript-architecture">JS architecture details for developers</a>.</p>
+						<h2>Compiling and transpiling</h2>
+						<p><a href="https://webpack.js.org/">Webpack</a> concatenates and minifies the JS needed for the project. <a href="https://babeljs.io/">Babel</a> is used for transpiling the JS into code for our <a href="browser-support.html">supported browsers</a>.</p>
+						<p><a href="https://github.com/studio24/amplify/blob/main/docs/javascript.md#javascript-build-tools">JS build tool details for developers</a>.</p>
 					</div>
 				</div>
 			</div>

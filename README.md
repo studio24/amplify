@@ -72,7 +72,7 @@ Build front-end assets:
 npm run build
 ````
 
-There are also specific commands if you only want to compile certain front-end assets:
+There are also specific commands if you only want to build certain front-end assets:
 
 ````bash
 nvm use 
@@ -93,7 +93,8 @@ npm run styles
 npm run js
 ````
 
-* [More about compiling styles](docs/compiling-sass-to-css.md)
+* [More about CSS](docs/CSS.md)
+* [More about JavaScript](docs/javascript.md)
 
 ### Configuration
 
