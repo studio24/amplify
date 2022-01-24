@@ -114,7 +114,7 @@ If needed, update the `package.json` file in the project root to specify which b
 
 ## Making changes
 
-To make changes to code first work on a branch and create a Pull Request to merge changes into the `main` branch.
+Create a new branch for your work, then create a Pull Request when ready to merge changes into the `main` branch.
 
 ## Deployment
 
