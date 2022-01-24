@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>CSS - Amplify</title>
+
+	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="../../dist/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="../../dist/styles/print.css" media="print"/>
+
+	<script src="../../dist/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '../../dist/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="not-footer">
+	<a href="#main" class="skip-link">Skip to content</a>
+	<header>
+		<div class="l-center">
+			<a href="../index.html">Amplify from Studio 24</a>
+		</div>
+	</header>
+	<nav aria-label="Main">
+		<div class="l-center">
+			<div class="l-cluster">
+				<ul class="clean-list">
+					<li><a href="../get-started">Get started</a></li>
+					<li><a href="../layouts">Layout helpers</a></li>
+					<li><a href="../fundamentals">Fundamentals</a></li>
+					<li><a href="../core-components">Core components</a></li>
+					<li><a href="../advanced-components">Advanced components</a></li>
+					<li><a href="../design">Design handover &amp; standards</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<main id="main">
+		<div class="l-sidebar">
+			<div>
+				<nav class="sidebar" aria-label="Secondary">
+					<ul class="clean-list" role="list">
+						<li><a href="browser-support.html">Browser support</a></li>
+						<li><a href="css.html">CSS</a></li>
+					</ul>
+				</nav>
+				<div class="not-sidebar">
+					<div class="component component--text">
+						<h1>CSS</h1>
+						<p>Amplify uses <a href="http://sass-lang.com/">Sass</a> - specifically the <a href="https://sass-lang.com/documentation/syntax">SCSS syntax</a> - which is compiled into CSS files. The CSS approach is heavily influenced by Andy Bell's <a href="https://cube.fyi/">CUBE CSS</a>. This has some similarities with the <a href="http://getbem.com/">BEM Methodology</a> but with a more judicious use of class names.</p>
+						<h2 id="architecture">Architecture</h2>
+						<p>The Sass files are at <code>src/styles/sass</code>.</p>
+						<p>The architecture is split into a series of levels, each level representing a directory containing Sass split out into multiple <a href="https://sass-lang.com/guide#topic-4">partial files</a>. More generic and wide-reaching styles sit within the lower numbered levels, with specificity increasing with each level.</p>
+						<h3>00-settings</h3>
+						<ul>
+							<li><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face">@font-face</a></code> rules for custom web fonts, which we prefer to self-host. Use <a href="https://google-webfonts-helper.herokuapp.com/fonts">Google Webfonts helper</a> for assistance.</li>
+							<li><a href="https://sass-lang.com/documentation/variables">Sass variables</a> which are referenced elsewhere within Amplify:
+								<ul>
+									<li>breakpoints for CSS media queries</li>
+									<li><a href="../fundamentals/colours.html">colours</a></li>
+									<li>typesetting (system fonts, web fonts, monospaced font family, font weights).</li>
+								</ul>
+							</li>
+							<li>A <a href="https://github.com/mrmrs/pesticide">setting for debugging CSS layouts</a>. Change from <code>false</code> to <code>true</code> to enable.</li>
+						</ul>
+						<h3>10-functions</h3>
+						<p><a href="https://sass-lang.com/documentation/values/functions">Sass functions</a> such as em/rem calculation, unit stripping.</p>
+						<h3>20-mixins</h3>
+						<p><a href="https://sass-lang.com/documentation/at-rules/mixin">Sass mixins</a> to manage font sizes, CSS media queries and <a href="../fundamentals/vertical-spacing.html">vertical spacing</a>.</p>
+						<h3>30-base</h3>
+						<p>Default styles forming the base of your project, including fundamental things like:</p>
+						<ul>
+							<li><a href="https://necolas.github.io/normalize.css/">Normalize</a> reset</li>
+							<li><a href="../fundamentals/typography.html">typography</a></li>
+							<li><a href="../fundamentals/buttons-links.html">buttons and links</a></li>
+							<li><a href="../fundamentals/lists.html">lists</a></li>
+							<li><a href="../fundamentals/forms.html">forms</a> and <a href="../fundamentals/form-errors.html">form errors</a></li>
+							<li><a href="../fundamentals/tables.html">tables</a></li>
+						</ul>
+						<h3>40-layouts</h3>
+						<p>Heavily influenced by <a href="https://every-layout.dev/">Every Layout</a>, these are the styles for the basic <a href="../layouts">layout helpers</a>, which can be combined and customised to make a variety of components and page templates.</p>
+						<h3>50-core-components</h3>
+						<p>The basic components available for use, un-enhanced by JavaScript. <a href="../core-components">More about the core components</a>.</p>
+						<h3>60-advanced-components</h3>
+						<p>Components that are enhanced in some way with JavaScript. <a href="../advanced-components">More about the advanced components</a>.</p>
+						<h3>70-third-party-plugins</h3>
+						<p>Any functionality that comes from external sources.</p>
+						<h3>80-templates</h3>
+						<p>Styles required for specific page templates and/or content types.</p> A subset of this is <strong>85-amplify</strong>, which provides styles specifically to this Amplify website.
+						<h3>90-utilities</h3>
+						<p>Overrides or helper classes. <a href="../fundamentals/utility-classes.html">More about utility classes</a>.</p>
+						<h2>Compiling Sass to CSS</h2>
+						<p>As mentioned in <a href="browser-support.html">browser support</a>, the Sass is compiled into the following CSS stylesheets in <code>web/dist</code>:</p>
+						<ul>
+							<li><code>core.css</code> and <code>print.css</code>, which are served to all browsers</li>
+							<li><code>advanced.css</code>, which is served to supported browsers.</li>
+						</ul>
+						<p><a href="https://github.com/studio24/amplify/blob/main/docs/compiling-sass-to-css.md">Sass compilation details for developers</a>.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</div>
+<footer class="global-footer">
+	<div class="l-center">
+		&copy; Studio 24
+	</div>
+</footer>
+</body>
+
+</html>

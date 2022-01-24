@@ -81,7 +81,7 @@ nvm use
 # Copy font assets to the `dist` directory
 npm run fonts
 
-# Copy image assets to the `dist` directory (note they are *not optimised* as part of this step)
+# Copy image assets to the `dist` directory (note they are **not optimised** as part of this step)
 npm run images
 
 # Optimise and then copy SVG assets to the `dist` directory
@@ -93,6 +93,8 @@ npm run styles
 # Compile, transpile and minify the JS files, place them in the `dist` directory
 npm run js
 ````
+
+* [More about compiling styles](docs/compiling-sass-to-css.md)
 
 ### Configuration
 
