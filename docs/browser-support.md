@@ -1,5 +1,8 @@
 # Amplify browser support
 
+* [Default browser support](#default-browser-support)
+* [How to update Amplify browser support](#how-to-update-amplify-browser-support)
+
 ## Default browser support
 
 Amplify currently supports the range of [browsers recommended by the GOVUK Service Manual](https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices).

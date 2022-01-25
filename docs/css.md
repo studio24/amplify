@@ -1,5 +1,8 @@
 # CSS
 
+* [CSS architecture](#css-architecture)
+* [Compiling Sass to CSS](#compiling-sass-to-css)
+
 ## CSS architecture
 
 Sass files sit at `src/styles/sass` and are split across a series of numbered directories. The lower the number the more generic the styles, the higher the number the more explicit. As the directories increase, so does the specificity. If the contents of a directory are not needed, they can be [excluded](#excluding-unwanted-styles). New levels (and files) can be added as required.

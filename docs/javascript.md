@@ -1,5 +1,8 @@
 # JavaScript
 
+* [JavaScript architecture](#javascript-architecture)
+* [JavaScript build tools](#javascript-build-tools)
+
 ## JavaScript architecture
 
 Inspired by Chris Ferdinandi's [How I structure my vanilla JS projects](https://gomakethings.com/how-i-structure-my-vanilla-js-projects/), all JavaScript is found within `src/js`. 
