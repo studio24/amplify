@@ -30,7 +30,7 @@ To load `advanced.css` in just our supported browsers, we implement logic in the
 ">
 ```
 
-The loading of JavaScript is tied to the loading of the enhanced CSS. Using `window.matchMedia` we detect when the browser loads the `advanced.css` within the media query. Once the advanced CSS loads, this will cause the JavaScript code to load too. We also change the `no-js` class on `html` to `js`:
+The loading of JavaScript is tied to the loading of the advanced CSS. Using `window.matchMedia` we detect when the browser loads the `advanced.css` within the media query. Once the advanced CSS loads, this will cause the JavaScript code to load too. We also change the `no-js` class on `html` to `js`:
 
 ```javascript
 (function() {
