@@ -100,7 +100,7 @@ npm run js
 
 #### NPM
 
-If needed, update the `package.json` file in the project root to specify which browsers are supported (referenced by the CSS and JS build tools) and manage the packages and NPM scripts required to build the site assets.
+If needed, update the `package.json` file in the project root to specify [which browsers are supported](docs/browser-support.md) (referenced by the CSS and JS build tools) and manage the packages and NPM scripts required to build the site assets.
 
 #### SVG Optimizer
 

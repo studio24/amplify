@@ -4,17 +4,17 @@
 
 Inspired by Chris Ferdinandi's [How I structure my vanilla JS projects](https://gomakethings.com/how-i-structure-my-vanilla-js-projects/), all JavaScript is found within `src/js`. 
 
-Individual files in this directory are minified into files of the same name, but are kept separate from the main JavaScript file. They are typically used on only one or two pages.
+Individual files in this directory are minified into files of the same name, but are kept separate from the main JavaScript file. They are typically used only on specific pages.
 
 This directory also contains the following subdirectories:
 
 ### `main`
 
-This contains code that is used on most/all pages across a website. Each distinct piece of functionality is held within its own file. When Amplify's JS build script is run, these files are concatenated together into `dist/js/main.js` and `dist/js/main.min.js`, which is loaded everywhere.
+Contains code that is used on most/all pages across a website. Each distinct piece of functionality is held within its own file. When Amplify's JS build script is run, these files are concatenated together into `web/dist/js/main.js` and `web/dist/js/main.min.js`, which is loaded everywhere.
 
 ### `package-extensions`
 
-This contains Amplify's implementations for any third party scripts that are imported from NPM, such as [accessible auto-complete](https://github.com/alphagov/accessible-autocomplete).
+Contains Amplify's implementations for any third party scripts that are imported from NPM, such as [accessible auto-complete](https://github.com/alphagov/accessible-autocomplete).
 
 ## JavaScript build tools
 

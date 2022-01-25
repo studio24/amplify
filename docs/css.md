@@ -58,7 +58,7 @@ Overrides or helper classes.
 
 ## Compiling Sass to CSS
 
-Amplify uses the Node implementation of [Dart Sass](https://sass-lang.com/dart-sass) to parse .scss files in `src/styles/sass` into three CSS stylesheets in `web/dist`:
+Amplify uses the Node implementation of [Dart Sass](https://sass-lang.com/dart-sass) to parse .scss files in `src/styles/sass` into three CSS stylesheets in `web/dist/styles`:
 
 * `core.css`
 * `print.css`
