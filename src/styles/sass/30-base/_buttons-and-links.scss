@@ -60,7 +60,7 @@ input[type="submit"].button {
 	background-color: $link-color;
 	border: solid 2px $link-color;
 	border-radius: rem(6);
-	color: $white;
+	color: $off-white;
 	display: inline-flex;
 	justify-content: center;
 	min-width: 10ch;
@@ -71,7 +71,7 @@ input[type="submit"].button {
 	&:hover {
 		background-color: $link-color--hover;
 		border-color: $link-color--hover;
-		color: $white;
+		color: $off-white;
 	}
 
 	&:active,
@@ -96,8 +96,8 @@ input[type="submit"].button {
 	color: $link-color;
 
 	&:hover {
-		background-color: $aqua;
-		color: $link-color--hover;
+		background-color: $link-color--hover;
+		color: $off-white;
 	}
 
 	&:active,

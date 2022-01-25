@@ -16,18 +16,16 @@
 /*------------------------------------*\
     #Colors
 
-    Review and edit these default colours, then add further colours
+    Review and edit these default colours, then add further colors
     as required for your project.
 
-    The ideal colour contrast range for meeting WCAG AAA is 7:1 - 15:1
+    The ideal color contrast range for meeting WCAG AAA is 7:1 - 15:1
 
     1. A contrast higher than 15:1 can be triggering, which is why we
-    ideally avoid using pure white with pure black.
+    avoid using pure white with pure black.
 \*------------------------------------*/
 /**
-Base colors that can be used when prototyping. Based on http://clrs.cc/
-but adjusted to meet AAA contrast with off-white or black (see neutrals
-below).
+Brand
  */
 /**
 Neutrals
@@ -35,14 +33,17 @@ Neutrals
 /* 1 */
 /* 1 */
 /**
-Theme colors
+Links
  */
 /**
-Sass variables
+Focus
  */
 /**
-Social media colours that might be useful.
-See: https://brandcolors.net/
+Borders
+ */
+/**
+Contextual colours (meets WCAG AA for regular text against $off-white,
+so also safe for borders)
  */
 /*------------------------------------*\
     #Typesetting
@@ -308,7 +309,7 @@ br {
     All roles are added via JavaScript
 \*------------------------------------*/
 .component--tabs [role=tablist] {
-  border-bottom: solid 1px #aaa;
+  border-bottom: solid 1px #bdbdbd;
   display: flex;
   flex-flow: row nowrap;
   max-width: 100%;
@@ -331,7 +332,7 @@ br {
 }
 
 .component--tabs a[role=tab] {
-  background-color: #ddd;
+  background-color: #bdbdbd;
   border: 0;
   border-bottom: solid 0.1875rem transparent;
   color: #252525;
@@ -339,7 +340,7 @@ br {
   padding: 0.625em 0.9375em;
 }
 .component--tabs a[role=tab]:focus, .component--tabs a[role=tab][aria-selected=true] {
-  border-color: #0d599b;
+  border-color: #235bd1;
   outline: none;
   text-decoration: none;
 }
@@ -546,18 +547,18 @@ br {
 }
 
 .autocomplete__option--odd {
-  background-color: #f8f8fb;
+  background-color: #bdbdbd;
 }
 
 .autocomplete__option--focused,
 .autocomplete__option:hover {
-  background-color: #0d599b;
-  border-color: #0d599b;
+  background-color: #235bd1;
+  border-color: #235bd1;
 }
 
 .autocomplete__option--no-results {
-  background-color: #f8f8fb;
-  color: #545454;
+  background-color: #bdbdbd;
+  color: #252525;
 }
 
 .autocomplete__hint,

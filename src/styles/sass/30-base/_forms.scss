@@ -119,8 +119,8 @@ textarea,
 [type=time],
 [type=url] {
 	appearance: none;
-	-webkit-appearance: none;
-	border: 2px solid;
+	background-color: $off-white;
+	border: 2px solid $input-border-color;
 	border-radius: 0;
 	line-height: 1.25;
 	padding: rem(5);
@@ -176,7 +176,7 @@ Search
 Select
  */
 select {
-	background-color: transparent;
+	background-color: $off-white;
 	border: 2px solid;
 	border-radius: 0;
 	line-height: 1.25;
@@ -392,7 +392,7 @@ Radio/checkbox inputs
 .radio-item:hover input:not(:disabled) + label,
 .checkbox-item:hover input:not(:disabled) + label {
 	&::before {
-		box-shadow: 0 0 0 4px $blue;
+		box-shadow: 0 0 0 4px $info-color;
 	}
 }
 
@@ -520,7 +520,7 @@ show all available options outright, rather than hide them behind a <select>
 
 	// Input with hover
 	> * > *:hover label {
-		background-color: $aqua;
+		background-color: $twiki-gray;
 	}
 
 	// Input with focus
