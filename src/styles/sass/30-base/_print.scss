@@ -349,6 +349,16 @@ textarea {
 	max-width: 5.4ex;
 }
 
+
+iframe {
+	display: none;
+	height: 0 !important;
+	line-height: 0pt !important;
+	overflow: hidden !important;
+	width: 0 !important;
+	white-space: nowrap;
+}
+
 /*
 Layouts
  */
@@ -594,13 +604,12 @@ footer {
 [role="status"],
 [data-trigger],
 [data-toggle],
-#global-nav ul,
-#breadcrumb,
+nav,
+.breadcrumbs,
 .component--video,
 .progress-list,
 .autocomplete__wrapper svg,
 .pagination,
-.crosslinks,
 .global-footer__links {
 	display: none !important;
 }
