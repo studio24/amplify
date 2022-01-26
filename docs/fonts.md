@@ -4,7 +4,7 @@
 
 Update the value of the `$font-family` variable in `src/styles/sass/00-settings/_typesetting.scss`. Use quote marks around fonts with white space in their name.
 
-Be sure to include fonts for both Mac OS and Windows - [CSS Font Stack](https://www.cssfontstack.com/) is useful for checking which fonts sre eradily available on different Operating Systems. 
+Be sure to include fonts for both Mac OS and Windows - [CSS Font Stack](https://www.cssfontstack.com/) is useful for checking which fonts are readily available on different Operating Systems. 
 
 ## Web fonts
 
