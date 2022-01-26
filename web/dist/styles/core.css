@@ -92,7 +92,7 @@ Use https://www.cssfontstack.com/ and https://meowni.ca/font-style-matcher/ to p
 system fonts that are reasonably close to any web fonts needed for the project.
 
 This improves performance, avoids Flash Of Invisible Text (FOIT) and minimises
-Flash of Unstyled Content (FOUC) - see https://helenvholmes.com/writing/type-is-your-right/
+Flash of Unstyled Text (FOUT) - see https://www.filamentgroup.com/lab/font-events.html
 
 Be sure to include fonts for both Mac OS and Windows. Use quote marks around
 fonts with white space in their name.
