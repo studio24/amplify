@@ -560,6 +560,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   margin: 0;
+  line-height: 1.3;
 }
 
 h1,
@@ -2309,17 +2310,6 @@ main,
     so we need to prevent things like buttons and links
     from stretching horizontally
 \*------------------------------------*/
-.component--text {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  /* 1 */
-}
-.component--text > * + * {
-  margin-top: 1em;
-}
-
 .component--text > * {
   max-width: 41.25rem;
 }
