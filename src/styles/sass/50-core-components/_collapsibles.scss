@@ -15,7 +15,7 @@
 
 .component--collapsibles__panel {
 	@include stack(1rem);
-	background-color: $white;
+	background-color: $off-white;
 	border-radius: rem(6);
 	box-shadow: rem(-1) rem(1) rem(4) rgba(55, 70, 95, 0.12);
 	padding: rem(25);
