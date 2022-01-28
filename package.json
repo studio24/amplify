@@ -56,7 +56,9 @@
 		"webpack-compressed": "webpack --config webpack.config.min.js",
 		"js": "npm-run-all --parallel webpack-expanded webpack-compressed",
 		"prebuild": "shx rm -rf ${npm_package_config_to} && shx mkdir -p ${npm_package_config_to}/fonts && shx mkdir ${npm_package_config_to}/images && shx mkdir ${npm_package_config_to}/js && shx mkdir ${npm_package_config_to}/js/libraries && shx mkdir ${npm_package_config_to}/styles && shx mkdir ${npm_package_config_to}/svg",
-		"build": "npm-run-all --parallel fonts images svgs js styles"
+		"build": "npm-run-all --parallel fonts images svgs js styles",
+		"watch:fonts": "chokidar ${npm_package_config_from}/fonts -c \"npm run fonts\"",
+		"watch": "npm-run-all --parallel watch:*"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.0",
@@ -74,6 +76,7 @@
 	},
 	"dependencies": {
 		"accessible-autocomplete": "^2.0.3",
+		"chokidar-cli": "^3.0.0",
 		"fontfaceobserver": "^2.1.0",
 		"normalize.css": "^8.0.1",
 		"tabbyjs": "^12.0.3"
