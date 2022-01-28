@@ -58,6 +58,8 @@
 		"prebuild": "shx rm -rf ${npm_package_config_to} && shx mkdir -p ${npm_package_config_to}/fonts && shx mkdir ${npm_package_config_to}/images && shx mkdir ${npm_package_config_to}/js && shx mkdir ${npm_package_config_to}/js/libraries && shx mkdir ${npm_package_config_to}/styles && shx mkdir ${npm_package_config_to}/svg",
 		"build": "npm-run-all --parallel fonts images svgs js styles",
 		"watch:fonts": "chokidar ${npm_package_config_from}/fonts -c \"npm run fonts\"",
+		"watch:images": "chokidar ${npm_package_config_from}/images -c \"npm run images\"",
+		"watch:svgs": "chokidar ${npm_package_config_from}/svg -c \"npm run svgs\"",
 		"watch": "npm-run-all --parallel watch:*"
 	},
 	"devDependencies": {
