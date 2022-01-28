@@ -60,6 +60,8 @@
 		"watch:fonts": "chokidar ${npm_package_config_from}/fonts -c \"npm run fonts\"",
 		"watch:images": "chokidar ${npm_package_config_from}/images -c \"npm run images\"",
 		"watch:svgs": "chokidar ${npm_package_config_from}/svg -c \"npm run svgs\"",
+		"watch:js": "chokidar ${npm_package_config_from}/js -c \"npm run js\"",
+		"watch:styles": "chokidar ${npm_package_config_from}/styles -c \"npm run styles\"",
 		"watch": "npm-run-all --parallel watch:*"
 	},
 	"devDependencies": {
