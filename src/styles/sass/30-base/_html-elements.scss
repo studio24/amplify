@@ -41,15 +41,31 @@ small,
 
 
 code,
+kbd,
 samp,
 pre {
 	font-family: $mono-family;
-	font-size: .9em;
 	hyphens: none;
 	orphans: 3;
-	padding-left: rem(3);
-	padding-right: rem(3);
 	page-break-before: avoid;
 	text-transform: none;
 	widows: 3;
+}
+
+code,
+kbd,
+samp {
+	font-size: .9em;
+}
+
+samp kbd {
+	font-size: 1em;
+}
+
+code,
+kbd {
+	background-color: $off-black;
+	border-radius: rem(4);
+	color: $off-white;
+	padding: rem(2) rem(4);
 }

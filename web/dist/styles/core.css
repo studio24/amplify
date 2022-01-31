@@ -722,19 +722,35 @@ small,
 }
 
 code,
+kbd,
 samp,
 pre {
   font-family: Monaco, "Lucida Console", "Courier New", monospace;
-  font-size: 0.9em;
   -webkit-hyphens: none;
       -ms-hyphens: none;
           hyphens: none;
   orphans: 3;
-  padding-left: 0.1875rem;
-  padding-right: 0.1875rem;
   page-break-before: avoid;
   text-transform: none;
   widows: 3;
+}
+
+code,
+kbd,
+samp {
+  font-size: 0.9em;
+}
+
+samp kbd {
+  font-size: 1em;
+}
+
+code,
+kbd {
+  background-color: #252525;
+  border-radius: 0.25rem;
+  color: #fcfcfc;
+  padding: 0.125rem 0.25rem;
 }
 
 /*------------------------------------*\
