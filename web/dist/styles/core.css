@@ -557,6 +557,10 @@ body {
   line-height: 1.7;
 }
 
+p + p {
+  margin-top: 1rem;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   margin: 0;
@@ -2295,11 +2299,11 @@ main,
 }
 
 .component + .component {
-  margin-top: 3.125rem;
+  margin-top: 1.5rem;
 }
 @media screen and (min-width: 48em) {
   .component + .component {
-    margin-top: 6.25rem;
+    margin-top: 3rem;
   }
 }
 
