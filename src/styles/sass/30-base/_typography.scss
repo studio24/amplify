@@ -7,16 +7,17 @@ body {
 	font-size: 1rem; // Equivalent to 16px browser default
 	font-style: $font-style;
 	font-weight: $font-weight;
-	line-height: 1.7;
+	line-height: 1.7; // this generous line-height allows space for borders on the bottom of links but will need to be set explicitly on many elements
+}
+
+p + p {
+	margin-top: 1rem; // @TODO: I've set this generically now but we need to discuss how we vertically space type and elements, stack use etc. This will help vertically understanding and consistency between design and dev. - Isaac
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: $emphasis;
 	margin: 0;
-}
-
-h1 {
-	margin-bottom: 1em;
+	line-height: 1.3;
 }
 
 h1,

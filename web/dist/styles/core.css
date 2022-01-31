@@ -16,15 +16,16 @@
 /*------------------------------------*\
     #Colors
 
-    The ideal colour contrast range for meeting WCAG AAA is 7:1 - 15:1
+    Review and edit these default colours, then add further colors
+    as required for your project.
+
+    The ideal color contrast range for meeting WCAG AAA is 7:1 - 15:1
 
     1. A contrast higher than 15:1 can be triggering, which is why we
-    ideally avoid using pure white with pure black.
+    avoid using pure white with pure black.
 \*------------------------------------*/
 /**
-Base colors that can be used when prototyping. Based on http://clrs.cc/
-but adjusted to meet AAA contrast with off-white or black (see neutrals
-below).
+Brand
  */
 /**
 Neutrals
@@ -32,14 +33,17 @@ Neutrals
 /* 1 */
 /* 1 */
 /**
-Theme colors
+Links
  */
 /**
-Sass variables
+Focus
  */
 /**
-Social media colours that might be useful.
-See: https://brandcolors.net/
+Borders
+ */
+/**
+Contextual colours (meets WCAG AA for regular text against $off-white,
+so also safe for borders)
  */
 /*------------------------------------*\
     #Fonts
@@ -88,7 +92,7 @@ Use https://www.cssfontstack.com/ and https://meowni.ca/font-style-matcher/ to p
 system fonts that are reasonably close to any web fonts needed for the project.
 
 This improves performance, avoids Flash Of Invisible Text (FOIT) and minimises
-Flash of Unstyled Content (FOUC) - see https://helenvholmes.com/writing/type-is-your-right/
+Flash of Unstyled Text (FOUT) - see https://www.filamentgroup.com/lab/font-events.html
 
 Be sure to include fonts for both Mac OS and Windows. Use quote marks around
 fonts with white space in their name.
@@ -523,7 +527,7 @@ html {
  Typographical styles for fonts are in 30-base/_typography.scss
  */
 body {
-  background-color: #fff;
+  background-color: #fcfcfc;
   color: #252525;
   display: grid;
   /* 1 */
@@ -553,13 +557,14 @@ body {
   line-height: 1.7;
 }
 
+p + p {
+  margin-top: 1rem;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   margin: 0;
-}
-
-h1 {
-  margin-bottom: 1em;
+  line-height: 1.3;
 }
 
 h1,
@@ -801,7 +806,7 @@ input[type=submit].button {
   background-color: #0d599b;
   border: solid 2px #0d599b;
   border-radius: 0.375rem;
-  color: #fff;
+  color: #fcfcfc;
   display: inline-flex;
   justify-content: center;
   min-width: 10ch;
@@ -815,7 +820,7 @@ button:hover,
 input[type=submit].button:hover {
   background-color: #001f3f;
   border-color: #001f3f;
-  color: #fff;
+  color: #fcfcfc;
 }
 button:active, button:focus,
 .button:active,
@@ -837,8 +842,8 @@ input[type=submit].button:focus {
   color: #0d599b;
 }
 .button--alt.button--alt:hover {
-  background-color: #7fdbff;
-  color: #001f3f;
+  background-color: #001f3f;
+  color: #fcfcfc;
 }
 .button--alt.button--alt:active, .button--alt.button--alt:focus {
   background-color: #ffdc00;
@@ -1110,10 +1115,10 @@ textarea,
 [type=text],
 [type=time],
 [type=url] {
-  -moz-appearance: none;
-       appearance: none;
   -webkit-appearance: none;
-  border: 2px solid;
+          appearance: none;
+  background-color: #fcfcfc;
+  border: 2px solid #545454;
   border-radius: 0;
   line-height: 1.25;
   padding: 0.3125rem;
@@ -1174,7 +1179,7 @@ Search
 Select
  */
 select {
-  background-color: transparent;
+  background-color: #fcfcfc;
   border: 2px solid;
   border-radius: 0;
   line-height: 1.25;
@@ -1190,10 +1195,9 @@ select:focus {
 /**
 Optional select with custom arrow icon matching the SVG used for accessible autocomplete
  */
-@supports ((-webkit-appearance: none) or (-moz-appearance: none) or (appearance: none)) {
+@supports ((-webkit-appearance: none) or (appearance: none)) {
   select {
     -webkit-appearance: none;
-       -moz-appearance: none;
             appearance: none;
     background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="none" d="M0 0h24v24H0z"/%3E%3Cpath d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"/%3E%3C/svg%3E');
     background-position: center right 0.3125rem;
@@ -1356,7 +1360,7 @@ Radio/checkbox inputs
 
 .radio-item:hover input:not(:disabled) + label::before,
 .checkbox-item:hover input:not(:disabled) + label::before {
-  box-shadow: 0 0 0 4px #0d599b;
+  box-shadow: 0 0 0 4px #235bd1;
 }
 
 .radio-item input:focus + label::before,
@@ -1462,7 +1466,7 @@ show all available options outright, rather than hide them behind a <select>
   font-weight: bold;
 }
 .segmented-group.l-switcher > * > *:hover label {
-  background-color: #7fdbff;
+  background-color: #bdbdbd;
 }
 .segmented-group.l-switcher input:focus + label {
   border-color: #ffdc00;
@@ -1525,26 +1529,26 @@ Fixed input widths
 Error styles
  */
 [data-component=error-summary] li a {
-  color: #a82615;
+  color: #b83123;
   display: inline-block;
   font-weight: bold;
   padding-bottom: 0.625rem;
   padding-top: 0.625rem;
 }
 [data-component=error-summary] li a:hover, [data-component=error-summary] li a:visited {
-  color: #a82615;
+  color: #b83123;
 }
 [data-component=error-summary] li a:focus {
   color: #000;
 }
 
 .field--error {
-  border-left: solid 0.3125rem #a82615;
+  border-left: solid 0.3125rem #b83123;
   padding-left: 0.9375rem;
 }
 .field--error input:not([type=file]),
 .field--error textarea:not(:focus) {
-  border-color: #a82615;
+  border-color: #b83123;
 }
 .field--error input:focus,
 .field--error textarea:focus {
@@ -1553,13 +1557,13 @@ Error styles
 
 [dir=rtl] .field--error {
   border-left: none;
-  border-right: solid 0.3125rem #a82615;
+  border-right: solid 0.3125rem #b83123;
   padding-left: 0;
   padding-right: 0.9375rem;
 }
 
 .field-error-msg {
-  color: #a82615;
+  color: #b83123;
   font-weight: bold;
   margin-top: 0.9375rem;
 }
@@ -1875,7 +1879,7 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
   }
 }
 /*------------------------------------*\
-    #Layouts
+    #Layout helpers
 \*------------------------------------*/
 /*------------------------------------*\
     #Box layout helper
@@ -2295,11 +2299,11 @@ main,
 }
 
 .component + .component {
-  margin-top: 3.125rem;
+  margin-top: 1.5rem;
 }
 @media screen and (min-width: 48em) {
   .component + .component {
-    margin-top: 6.25rem;
+    margin-top: 3rem;
   }
 }
 
@@ -2310,17 +2314,6 @@ main,
     so we need to prevent things like buttons and links
     from stretching horizontally
 \*------------------------------------*/
-.component--text {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  /* 1 */
-}
-.component--text > * + * {
-  margin-top: 1em;
-}
-
 .component--text > * {
   max-width: 41.25rem;
 }
@@ -2394,7 +2387,7 @@ main,
     #Avatars
 \*------------------------------------*/
 .avatar {
-  background-color: #fff;
+  background-color: #fcfcfc;
   border: solid 1px #0d599b;
   border-radius: 50%;
   height: 6.25rem;
@@ -2469,26 +2462,26 @@ main,
 }
 
 .note--error {
-  border-color: #a82615;
+  border-color: #b83123;
 }
 
 .note--info {
-  border-color: #0d599b;
+  border-color: #235bd1;
 }
 
 .note--success {
-  border-color: #046704;
+  border-color: #17731d;
 }
 
 .note--warning {
-  border-color: #c28605;
+  border-color: #965203;
 }
 
 /*------------------------------------*\
     #Cards
 \*------------------------------------*/
 .card {
-  background-color: #fff;
+  background-color: #fcfcfc;
   border-radius: 0.25rem;
   box-shadow: -1px 1px 4px 0 rgba(55, 70, 95, 0.12);
   display: flex;
@@ -2655,7 +2648,7 @@ main,
 }
 
 .progress-list li.complete::after {
-  background-color: #286235;
+  background-color: #235bd1;
 }
 
 .progress-list li:last-child::after {
@@ -2685,7 +2678,7 @@ main,
 
 .progress-step__marker {
   align-items: center;
-  background-color: #fff;
+  background-color: #fcfcfc;
   border: solid 3px #545454;
   border-radius: 50%;
   display: flex;
@@ -2695,18 +2688,18 @@ main,
 }
 @media screen and (min-width: 48em) {
   .progress-step__marker {
-    box-shadow: 0 0 0 0.625rem #fff;
+    box-shadow: 0 0 0 0.625rem #fcfcfc;
   }
 }
 
 .progress-step__marker.complete {
-  background-color: #286235;
-  border-color: #286235;
-  color: #fff;
+  background-color: #235bd1;
+  border-color: #235bd1;
+  color: #fcfcfc;
   position: relative;
 }
 .progress-step__marker.complete::before, .progress-step__marker.complete::after {
-  background-color: #286235;
+  background-color: #235bd1;
   content: "";
   position: absolute;
 }
@@ -2772,7 +2765,7 @@ main,
 
 .tag {
   font-size: 0.875rem;
-  background-color: #ddd;
+  background-color: #bdbdbd;
   border-radius: 0.25rem;
   color: #252525;
   display: inline-block;
@@ -2818,7 +2811,7 @@ main,
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: #fff;
+  background-color: #fcfcfc;
   border-radius: 0.375rem;
   box-shadow: -0.0625rem 0.0625rem 0.25rem rgba(55, 70, 95, 0.12);
   padding: 1.5625rem;
@@ -2939,11 +2932,11 @@ input[type=search] {
 }
 .pagination__list a[href][aria-current] {
   background-color: #0d599b;
-  color: #fff;
+  color: #fcfcfc;
   font-weight: bold;
 }
 .pagination__list a[href][aria-current]:hover {
-  color: #fff;
+  color: #fcfcfc;
   text-decoration: none;
 }
 .pagination__list a[href][aria-current]:focus {

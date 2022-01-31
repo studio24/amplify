@@ -50,20 +50,20 @@
 
 
 .autocomplete__option--odd {
-	background-color: $mist-gray;
+	background-color: $twiki-gray;
 }
 
 
 .autocomplete__option--focused,
 .autocomplete__option:hover {
-	background-color: $blue;
-	border-color: $blue;
+	background-color: $info-color;
+	border-color: $info-color;
 }
 
 
 .autocomplete__option--no-results {
-	background-color: $mist-gray;
-	color: $storm-gray;
+	background-color: $twiki-gray;
+	color: $off-black;
 }
 
 

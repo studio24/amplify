@@ -11,69 +11,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 
-
 /**
  * Collapsible panels
  * @see https://heydon.github.io/inclusive-components-demos/collapsible-sections/progressive.html
  * @see https://insidegovuk.blog.gov.uk/2021/10/29/how-we-made-the-gov-uk-accordion-component-more-accessible/
  */
 
-var collapsibles = (function () {
+var collapsibles = function () {
+  // Get all the collapsible containers
+  var collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsibles"]'));
 
-	// Get all the collapsible containers
-	var collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsibles"]'));
+  if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(collapseArray)) {
+    // Loop through containers
+    collapseArray.forEach(function (item) {
+      // Get headings inside a collapsible container
+      var headingsArray = Array.prototype.slice.call(item.querySelectorAll('[data-heading="collapsibles"]')); // Loop through headings
 
-	if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(collapseArray)) {
+      headingsArray.forEach(function (heading, index) {
+        // Insert a button for opening/closing the collapsible section
+        heading.innerHTML = '<button class="button--ghost" aria-expanded="false">' + '<span class="js-collapsible-heading">' + heading.innerHTML + '</span>' + '<span class="js-collapsible-toggle"><span class="visuallyhidden">, </span>' + '<span class="with-icon--before"><svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path fill="none" d="M0 0h24v24H0z"/><path d="M15.08 9.59 12 12.67 8.92 9.59 7.5 11l4.5 4.5 4.5-4.5-1.42-1.41z" class="circle-down"/><path d="m12 9-4.5 4.5 1.41 1.41L12 11.83l3.09 3.09 1.41-1.411z" class="circle-up"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg><span class="js-collapsible-label">Show</span><span class="visuallyhidden"> this section</span></span>' + '</span></button>'; // Add appropriate aria role to the collapsible section
 
-		// Loop through containers
-		collapseArray.forEach(function (item) {
+        heading.nextElementSibling.setAttribute('aria-hidden', 'true'); // Assign the button
 
-			// Get headings inside a collapsible container
-			var headingsArray = Array.prototype.slice.call(item.querySelectorAll('[data-heading="collapsibles"]'));
+        var btn = heading.querySelector('button');
+        var toggleText = btn.querySelector('.js-collapsible-label'); // Add click event listener
 
-			// Loop through headings
-			headingsArray.forEach(function (heading, index) {
+        btn.addEventListener('click', function (event) {
+          // Cast the state as a boolean
+          var expanded = btn.getAttribute('aria-expanded') === 'true'; // Switch the state
 
-				// Insert a button for opening/closing the collapsible section
-				heading.innerHTML = '<button class="button--ghost" aria-expanded="false">' +
-					'<span class="js-collapsible-heading">' + heading.innerHTML + '</span>' +
-					'<span class="js-collapsible-toggle"><span class="visuallyhidden">, </span>' +
-					'<span class="with-icon--before"><svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path fill="none" d="M0 0h24v24H0z"/><path d="M15.08 9.59 12 12.67 8.92 9.59 7.5 11l4.5 4.5 4.5-4.5-1.42-1.41z" class="circle-down"/><path d="m12 9-4.5 4.5 1.41 1.41L12 11.83l3.09 3.09 1.41-1.411z" class="circle-up"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg><span class="js-collapsible-label">Show</span><span class="visuallyhidden"> this section</span></span>' +
-					 '</span></button>';
+          btn.setAttribute('aria-expanded', !expanded); // Switch the collapsible section's visibility
 
-				// Add appropriate aria role to the collapsible section
-				heading.nextElementSibling.setAttribute('aria-hidden', 'true');
+          heading.nextElementSibling.setAttribute('aria-hidden', expanded); // Update the toggle text
 
-				// Assign the button
-				var btn = heading.querySelector('button');
-				var toggleText = btn.querySelector('.js-collapsible-label');
+          if (expanded == true) {
+            toggleText.textContent = 'Show';
+          } else {
+            toggleText.textContent = 'Hide';
+          }
+        });
+      }); // End loop
+    }); // End loop
+  } // End if statement
 
-				// Add click event listener
-				btn.addEventListener('click', function(event){
-					// Cast the state as a boolean
-					var expanded = btn.getAttribute('aria-expanded') === 'true';
-
-					// Switch the state
-					btn.setAttribute('aria-expanded', !expanded);
-
-					// Switch the collapsible section's visibility
-					heading.nextElementSibling.setAttribute('aria-hidden', expanded);
-
-					// Update the toggle text
-					if (expanded == true) {
-						toggleText.textContent = 'Show';
-					} else {
-						toggleText.textContent = 'Hide';
-					}
-				});
-
-			}); // End loop
-
-		}); // End loop
-
-	} // End if statement
-
-})();
+}();
 
 
 
@@ -94,9 +75,8 @@ __webpack_require__.r(__webpack_exports__);
  * @param elem
  * @return {boolean}
  */
-
-var exists = function(elem) {
-	return (elem !== 'undefined' && elem !== null && (elem.length >= 0 || elem.innerHTML.length >= 0))
+var exists = function exists(elem) {
+  return elem !== 'undefined' && elem !== null && (elem.length >= 0 || elem.innerHTML.length >= 0);
 };
 
 
@@ -111,81 +91,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 
-
 /**
  * Simple disclosure widget
  * @see https://adrianroselli.com/2020/05/disclosure-widgets.html
  */
 
-var disclosureWidget = (function () {
+var disclosureWidget = function () {
+  var toggleButtonArray = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="true"]'));
 
-	var toggleButtonArray = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="true"]'));
+  var closeDisclosures = function closeDisclosures() {
+    toggleButtonArray.forEach(function (btn) {
+      if (btn.getAttribute('aria-expanded') === 'true') {
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  };
 
-	var closeDisclosures = function () {
+  if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(toggleButtonArray)) {
+    toggleButtonArray.forEach(function (btn) {
+      btn.style = "";
+      btn.setAttribute('aria-expanded', 'false');
+    });
+    document.addEventListener('click', function (event) {
+      if (event.target.matches('[data-toggle="true"]')) {
+        if (event.target.matches('[aria-expanded="false"]')) {
+          closeDisclosures();
+          event.target.setAttribute('aria-expanded', 'true');
+        } else {
+          event.target.setAttribute('aria-expanded', 'false');
+        }
+      } else {
+        closeDisclosures();
+      }
+    });
+    document.addEventListener('keyup', function (event) {
+      if (event.defaultPrevented) {
+        return;
+      }
 
-		toggleButtonArray.forEach(function (btn) {
+      var key = event.key || event.keyCode;
 
-			if (btn.getAttribute('aria-expanded') === 'true') {
-
-				btn.setAttribute('aria-expanded', 'false');
-
-			}
-
-		});
-
-	}
-
-	if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(toggleButtonArray)) {
-
-		toggleButtonArray.forEach(function (btn) {
-
-			btn.style = "";
-			btn.setAttribute('aria-expanded', 'false');
-
-		});
-
-		document.addEventListener('click', function (event) {
-
-			if (event.target.matches('[data-toggle="true"]')) {
-
-				if (event.target.matches('[aria-expanded="false"]')) {
-
-					closeDisclosures();
-					event.target.setAttribute('aria-expanded', 'true');
-
-				} else {
-
-					event.target.setAttribute('aria-expanded', 'false');
-
-				}
-
-			} else {
-
-				closeDisclosures();
-
-			}
-
-		});
-
-		document.addEventListener('keyup', function (event) {
-
-			if (event.defaultPrevented) {
-				return;
-			}
-
-			let key = event.key || event.keyCode;
-
-			if (key === 'Escape' || key === 'Esc' || key === 27) {
-
-				closeDisclosures();
-
-			}
-
-		});
-
-	}
-
-})();
+      if (key === 'Escape' || key === 'Esc' || key === 27) {
+        closeDisclosures();
+      }
+    });
+  }
+}();
 
 
 
@@ -199,20 +150,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 
-
 /**
  * Shift focus to form error summary, if present
  * @see https://design-system.service.gov.uk/components/error-summary/#how-it-works
  */
-var formErrorSummary = (function () {
 
-	var errorSummary = document.querySelector('[data-component="error-summary"]');
+var formErrorSummary = function () {
+  var errorSummary = document.querySelector('[data-component="error-summary"]');
 
-	if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(errorSummary)) {
-		errorSummary.focus();
-	}
-
-})();
+  if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(errorSummary)) {
+    errorSummary.focus();
+  }
+}();
 
 
 
@@ -226,51 +175,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 
-
 /**
  * Card enhancement to trigger the main link whenever the card area is clicked
  * @see https://css-tricks.com/block-links-the-search-for-a-perfect-solution/
  */
 
-var cardEnhancement = (function () {
+var cardEnhancement = function () {
+  var cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
 
-	var cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
+  if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(cardsArray)) {
+    // Loop through cards adding a click event and identifying the main link
+    cardsArray.forEach(function (card, index) {
+      var mainLink = card.querySelector('.card__link');
+      var clickableElems = Array.prototype.slice.call(card.querySelectorAll('[data-click]')); // Allow other links/buttons in the card to still be "clickable"
 
-	if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(cardsArray)) {
+      if (clickableElems) {
+        clickableElems.forEach(function (elem) {
+          return elem.addEventListener("click", function (event) {
+            return event.stopPropagation();
+          });
+        });
+      }
 
-		// Loop through cards adding a click event and identifying the main link
-		cardsArray.forEach(function (card, index) {
+      card.addEventListener('click', function () {
+        var noTextSelected = !window.getSelection().toString();
 
-			var mainLink = card.querySelector('.card__link');
-			var clickableElems = Array.prototype.slice.call(card.querySelectorAll('[data-click]'));
-
-			// Allow other links/buttons in the card to still be "clickable"
-			if (clickableElems) {
-
-				clickableElems.forEach(function (elem) {
-					return elem.addEventListener("click", function (event) {
-						return event.stopPropagation();
-					});
-				});
-
-			}
-
-			card.addEventListener('click', function() {
-
-				var noTextSelected = !window.getSelection().toString();
-				if (noTextSelected) {
-
-					mainLink.click();
-
-				}
-
-			});
-
-		});
-
-	}
-
-})();
+        if (noTextSelected) {
+          mainLink.click();
+        }
+      });
+    });
+  }
+}();
 
 
 
@@ -284,53 +220,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 
-
 /**
  * Responsive tables
  * Tab index changed from 0 to -1 if there is no horizontal overflow
  * @see https://www.tpgi.com/short-note-on-improving-usability-of-scrollable-regions/
  */
 
-var responsiveTables = function () {
+var responsiveTables = function responsiveTables() {
+  // Get all the table wraps
+  var tablesArray = Array.prototype.slice.call(document.querySelectorAll('.table-wrap'));
 
-	// Get all the table wraps
-	let tablesArray = Array.prototype.slice.call(document.querySelectorAll('.table-wrap'));
+  if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(tablesArray)) {
+    // Loop through them
+    tablesArray.forEach(function (item) {
+      // Get the parent element of the table wrap, and it's width
+      var container = item.parentElement;
+      var containerWidth = parseInt(window.getComputedStyle(container, null).getPropertyValue("width"), 10); // Get the table inside the table wrap, and it's width
 
-	if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(tablesArray)) {
+      var table = item.firstElementChild;
+      var tableWidth = parseInt(window.getComputedStyle(table, null).getPropertyValue("width"), 10); // Comparison: true if the container is wider than the table
 
-		// Loop through them
-		tablesArray.forEach(function (item) {
+      var noScroll = containerWidth >= tableWidth;
+      var ariaLabel = item.querySelector('caption').id; // Only make the container focusable if it needs scrolling
 
-			// Get the parent element of the table wrap, and it's width
-			var container = item.parentElement;
-			var containerWidth = parseInt(window.getComputedStyle(container, null).getPropertyValue("width"), 10);
-
-			// Get the table inside the table wrap, and it's width
-			var table = item.firstElementChild;
-			var tableWidth = parseInt(window.getComputedStyle(table, null).getPropertyValue("width"), 10);
-
-			// Comparison: true if the container is wider than the table
-			var noScroll = containerWidth >= tableWidth;
-			var ariaLabel = item.querySelector('caption').id;
-
-			// Only make the container focusable if it needs scrolling
-			if (noScroll === true) {
-
-				item.removeAttribute('role');
-				item.removeAttribute('aria-labelledby')
-				item.removeAttribute('tabindex');
-
-			} else {
-
-				item.setAttribute('role', 'region');
-				item.setAttribute('aria-labelledby', ariaLabel);
-				item.setAttribute('tabindex', '0');
-
-			}
-
-		}); // End loop
-
-	} // End if statement
+      if (noScroll === true) {
+        item.removeAttribute('role');
+        item.removeAttribute('aria-labelledby');
+        item.removeAttribute('tabindex');
+      } else {
+        item.setAttribute('role', 'region');
+        item.setAttribute('aria-labelledby', ariaLabel);
+        item.setAttribute('tabindex', '0');
+      }
+    }); // End loop
+  } // End if statement
 
 };
 
@@ -407,30 +330,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__.responsiveTables)(); // Tie the responsiveTables function to a resize event, and debounce for performance
 
-(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__.responsiveTables)();
-
-// Tie the responsiveTables function to a resize event, and debounce for performance
 var timeout;
-
 window.addEventListener('resize', function (event) {
+  // If timer is null, reset it to 66ms and run desired functions.
+  // Otherwise, wait until timer is cleared
+  if (!timeout) {
+    timeout = setTimeout(function () {
+      // Reset timeout
+      timeout = null; // Run our resize functions
 
-	// If timer is null, reset it to 66ms and run desired functions.
-	// Otherwise, wait until timer is cleared
-	if (!timeout) {
-		timeout = setTimeout(function () {
-
-			// Reset timeout
-			timeout = null;
-
-			// Run our resize functions
-			(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__.responsiveTables)();
-
-		}, 66);
-	}
-
+      (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__.responsiveTables)();
+    }, 66);
+  }
 }, false);
-
 }();
 /******/ })()
 ;

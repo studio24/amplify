@@ -19,9 +19,9 @@ main,
 
 
 .component + .component {
-	margin-top: rem(50);
+	margin-top: rem(24);
 
 	@include mq($bp-tab-portrait) {
-		margin-top: rem(100);
+		margin-top: rem(48);
 	}
 }

@@ -6,10 +6,10 @@
     from stretching horizontally
 \*------------------------------------*/
 
-.component--text {
-	@include stack(1em);
-	align-items: flex-start; /* 1 */
-}
+//.component--text {
+//	@include stack(1em);
+//	align-items: flex-start; /* 1 */
+//}
 
 
 .component--text > * {

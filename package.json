@@ -36,9 +36,6 @@
 		"fonts": "shx cp -r ${npm_package_config_from}/fonts/* ${npm_package_config_to}/fonts",
 		"images": "shx cp -r ${npm_package_config_from}/images/* ${npm_package_config_to}/images",
 		"svgs": "svgo --folder=${npm_package_config_from}/svg --output=${npm_package_config_to}/svg",
-		"pregif-opt": "shx cp -r ${npm_package_config_from}/images/*.gif ${npm_package_config_to}/images",
-		"gif-opt": "gifsicle --batch -O2 --lossy=30 --colors 200 --no-extensions ${npm_package_config_to}/images/*.gif",
-		"jpg-png-opt": "compress-images-tool --allowed jpg jpeg png --quality 70 --directory ${npm_package_config_from}/images/ --save-in ${npm_package_config_to}/images",
 		"sass-core-expanded": "sass --no-source-map --error-css --style=expanded ${npm_package_config_from}/styles/core.scss ${npm_package_config_to}/styles/core.css",
 		"postsass-core-expanded": "postcss --no-map ${npm_package_config_to}/styles/core.css --use=autoprefixer --output=${npm_package_config_to}/styles/core.css",
 		"sass-advanced-expanded": "sass --no-source-map --error-css --style=expanded ${npm_package_config_from}/styles/advanced.scss ${npm_package_config_to}/styles/advanced.css",
@@ -65,7 +62,10 @@
 		"watch": "npm-run-all --parallel watch:*"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.16.12",
+		"@babel/preset-env": "^7.16.11",
 		"autoprefixer": "^10.4.0",
+		"babel-loader": "^8.2.3",
 		"browserslist": "^4.18.1",
 		"copy-webpack-plugin": "^10.2.1",
 		"copyfiles": "^2.4.1",
@@ -75,7 +75,7 @@
 		"sass": "^1.43.4",
 		"shx": "^0.3.3",
 		"svgo": "^2.8.0",
-		"webpack": "^5.64.3",
+		"webpack": "^5.67.0",
 		"webpack-cli": "^4.9.1"
 	},
 	"dependencies": {

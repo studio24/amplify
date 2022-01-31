@@ -61,7 +61,7 @@
 
 .progress-list li.complete {
 	&::after {
-		background-color: $olive;
+		background-color: $info-color;
 	}
 }
 
@@ -96,7 +96,7 @@
 
 .progress-step__marker {
 	align-items: center;
-	background-color: $white;
+	background-color: $off-white;
 	border: solid 3px $storm-gray;
 	border-radius: 50%;
 	display: flex;
@@ -105,20 +105,20 @@
 	width: rem(44);
 
 	@include mq($bp-tab-portrait) {
-		box-shadow: 0 0 0 rem(10) $white;
+		box-shadow: 0 0 0 rem(10) $off-white;
 	}
 }
 
 
 .progress-step__marker.complete {
-	background-color: $olive;
-	border-color: $olive;
-	color: $white;
+	background-color: $info-color;
+	border-color: $info-color;
+	color: $off-white;
 	position: relative;
 
 	&::before,
 	&::after {
-		background-color: $olive;
+		background-color: $info-color;
 		content: '';
 		position: absolute;
 	}
