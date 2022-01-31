@@ -1,77 +1,66 @@
 /*------------------------------------*\
     #Colors
 
-    The ideal colour contrast range for meeting WCAG AAA is 7:1 - 15:1
+    Review and edit these default colours, then add further colors
+    as required for your project.
+
+    The ideal color contrast range for meeting WCAG AAA is 7:1 - 15:1
 
     1. A contrast higher than 15:1 can be triggering, which is why we
-    ideally avoid using pure white with pure black.
+    avoid using pure white with pure black.
 \*------------------------------------*/
 
 /**
-Base colors that can be used when prototyping. Based on http://clrs.cc/
-but adjusted to meet AAA contrast with off-white or black (see neutrals
-below).
+Brand
  */
-$maroon: #85144b;
-$red: #a6241c;
-$orange: #ff851b;
-$yellow: #ffdc00;
-$olive: #286235;
-$green: #2ecc40;
-$lime: #01ff70;
-$teal: #39cccc;
-$aqua: #7fdbff;
 $blue: #0d599b;
 $navy: #001f3f;
 $purple: #920ba6;
-$pink: #e47cb8;
+
+
 
 /**
 Neutrals
  */
-$black: #000;
 $off-black: #252525; /* 1 */
-$white: #fff;
 $off-white: #fcfcfc; /* 1 */
-$grey: #aaa;
-$mist-gray: #f8f8fb;
-$silver: #ddd;
 $storm-gray: #545454;
 $twiki-gray: #bdbdbd;
 
-
-/**
-Theme colors
- */
-// Add here...
+$black: #000;
+$white: #fff;
 
 
 
 /**
-Sass variables
+Links
  */
-$border-color:                  $twiki-gray;
-$input-border-color:            $storm-gray;
-$focus-color:                   $yellow;
-
 $link-color:                    $blue;
 $link-color--hover:             $navy;
 $link-color--visited:           $purple;
 
-$error-color:                   #a82615;
-$info-color:                    $blue;
-$success-color:                 #046704;
-$warning-color:                 #c28605;
 
 
 /**
-Social media colours that might be useful.
-See: https://brandcolors.net/
+Focus
  */
-$facebook: #3b5998;
-$instagram: #405de6;
-$linkedin: #0077b5;
-$pinterest: #bd081c;
-$twitter: #1da1f2;
-$whatsapp: #25d366;
-$youtube: #ff0000;
+$focus-color:                   #ffdc00;
+
+
+
+/**
+Borders
+ */
+$border-color:                  $twiki-gray;
+$input-border-color:            $storm-gray;
+
+
+
+/**
+Contextual colours (meets WCAG AA for regular text against $off-white,
+so also safe for borders)
+ */
+$error-color:                   #b83123;
+$info-color:                    #235bd1;
+$success-color:                 #17731d;
+$warning-color:                 #965203;

@@ -5,7 +5,7 @@
 \*------------------------------------*/
 
 .component--tabs [role="tablist"] {
-	border-bottom: solid 1px $grey;
+	border-bottom: solid 1px $twiki-gray;
 	display: flex;
 	flex-flow: row nowrap;
 	max-width: 100%;
@@ -33,7 +33,7 @@
 
 
 .component--tabs a[role="tab"] {
-	background-color: $silver;
+	background-color: $twiki-gray;
 	border: 0;
 	border-bottom: solid rem(3) transparent;
 	color: $off-black;
@@ -42,7 +42,7 @@
 
 	&:focus,
 	&[aria-selected="true"] {
-		border-color: $link-color;
+		border-color: $info-color;
 		outline: none;
 		text-decoration: none;
 	}

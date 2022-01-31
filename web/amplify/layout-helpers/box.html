@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Sidebar layout helper - Amplify</title>
+	<title>Box layout helper - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -66,7 +66,7 @@
 				<div class="l-cluster">
 					<ul class="clean-list">
 						<li><a href="../get-started">Get started</a></li>
-						<li><a href="../layouts">Layout helpers</a></li>
+						<li><a href="">Layout helpers</a></li>
 						<li><a href="../fundamentals">Fundamentals</a></li>
 						<li><a href="../core-components">Core components</a></li>
 						<li><a href="../advanced-components">Advanced components</a></li>
@@ -80,55 +80,41 @@
 				<div>
 					<nav class="sidebar" aria-label="Secondary">
 						<ul class="clean-list" role="list">
-							<li><a href="box.html">Box</a></li>
+							<li><a href="#">Box</a></li>
 							<li><a href="center.html">Center</a></li>
 							<li><a href="cluster.html">Cluster</a></li>
 							<li><a href="cover.html">Cover</a></li>
 							<li><a href="frame.html">Frame</a></li>
-							<li><a href="#">Sidebar</a></li>
+							<li><a href="sidebar.html">Sidebar</a></li>
 							<li><a href="switcher.html">Switcher</a></li>
 						</ul>
 					</nav>
 					<div class="not-sidebar">
 						<div class="component component--text">
-							<h1>Sidebar</h1>
-							<p>The sidebar layout helper creates two content panels inside a containing element. These two panels stack vertically, until there is enough horizontal space for them to sit alongside each other. One content panel is narrower than the other, acting as a "sidebar". This web page uses the sidebar layout helper for the secondary navigation and content region.</p>
-							<p>The sidebar layout helper needs an inner flexbox container to hold the two panels. The same negative margin technique used for the <a href="cluster.html">cluster layout</a> creates gutter spacing between the panels.</p>
-							<p>The point at which the panels sit side-by-side horizontally is determined by a <code>flex-basis</code> property on the narrower panel and a <code>min-width</code> on the wider panel. As there are <strong>no viewport media queries</strong>, the sidebar layout will nest nicely inside other containers.</p>
+							<h1>Box</h1>
+							<p>The box layout helper is a simple container for grouping content within a defined region. It uses the class <code>l-box</code>.</p>
+							<p>Box deliberately treats padding and borders <em>equally on all sides</em>.</p>
+							<p>If your container needs asymmetrical styling, then it's a container with a more specific purpose and <em>not</em> a box.</p>
 						</div>
 						<div class="component">
-							<h2>Default sidebar</h2>
-							<div class="l-sidebar">
-								<div>
-									<div class="not-sidebar">Wide panel</div>
-									<div class="sidebar">Narrow "sidebar" panel</div>
-								</div>
-							</div>
+							<h2>Default box</h2>
+							<div class="l-box">Default box, with padding and border</div>
 						</div>
 						<div class="component">
-							<h2>Using nested containers for spacing content</h2>
-							<div class="l-sidebar">
-								<div>
-									<div class="not-sidebar">
-										<div class="l-box l-box--no-border">Wide panel</div>
-									</div>
-									<div class="sidebar">
-										<div class="l-box l-box--no-border">Narrow "sidebar" panel</div>
-									</div>
-								</div>
-							</div>
+							<h2>Box without padding</h2>
+							<div class="l-box l-box--no-padding">Box with no padding</div>
 						</div>
 						<div class="component">
-							<h2>Using intrinsic content width for the sidebar</h2>
-							<div class="l-sidebar search-bar">
-								<form onsubmit="return false;">
-									<input type="text" class="not-sidebar" aria-label="Search the site">
-									<button type="submit">Search</button>
-								</form>
-							</div>
+							<h2>Box without border</h2>
+							<div class="l-box l-box--no-border">Box with no border</div>
+						</div>
+						<div class="component">
+							<h2>Box without padding or border</h2>
+							<div class="l-box l-box--no-padding l-box--no-border">Box with no padding and no border</div>
 						</div>
 						<div class="component component--text">
-							<p>We can choose to not specify a width on the narrow "sidebar" panel (by not declaring a <code>flex-basis</code> value) and let the content of the sidebar determine how wide it is. The preceding example shows how to override the default styles by using an additional class and omitting the <code>sidebar</code> class.</p>
+							<h2>Considerations</h2>
+							<p>Because high contrast themes can eliminate <code>background-color</code>, the <code>l-box--no-border</code> modifier class adds a transparent outline so that the shape of the box remains apparent. Negative <code>outline-offset</code> moves the outline inside the box perimeter so that it doesn't impact its overall size.</p>
 						</div>
 					</div>
 				</div>

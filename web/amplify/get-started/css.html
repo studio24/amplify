@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Hide and show items inclusively - Amplify</title>
+	<title>CSS - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -80,50 +80,25 @@
 			<div>
 				<nav class="sidebar" aria-label="Secondary">
 					<ul class="clean-list" role="list">
-						<li><a href="breakpoints.html">Breakpoints</a></li>
-						<li><a href="buttons-links.html">Buttons and links</a></li>
-						<li><a href="colours.html">Colours</a></li>
-						<li><a href="forms.html">Forms</a></li>
-						<li><a href="form-errors.html">Form error messages</a></li>
-						<li><a href="#">Hide and show items inclusively</a></li>
-						<li><a href="icons.html">Icons</a></li>
-						<li><a href="images.html">Images</a></li>
-						<li><a href="lists.html">Lists</a></li>
-						<li><a href="print-styles.html">Print styles</a></li>
-						<li><a href="tables.html">Tables</a></li>
-						<li><a href="typography.html">Typography</a></li>
-						<li><a href="utility-classes.html">Utility classes</a></li>
-						<li><a href="vertical-spacing.html">Vertical spacing</a></li>
+						<li><a href="browser-support.html">Browser support</a></li>
+						<li><a href="css.html">CSS</a></li>
+						<li><a href="javascript.html">JavaScript</a></li>
 					</ul>
 				</nav>
 				<div class="not-sidebar">
 					<div class="component component--text">
-						<h1>Hide and show items inclusively</h1>
-						<p>Scott O'Hara's article, <a href="https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html">Inclusively Hidden</a>, is highly recommended reading. The following summarises that advice.</p>
-						<h2>Hiding items from everybody</h2>
-						<p>To temporarily hide items from all users until needed:</p>
+						<h1>CSS</h1>
+						<p>Amplify uses <a href="http://sass-lang.com/">Sass</a> - specifically the <a href="https://sass-lang.com/documentation/syntax">SCSS syntax</a> - which is compiled into CSS files. The CSS approach is heavily influenced by Andy Bell's <a href="https://cube.fyi/">CUBE CSS</a>. This has some similarities with the <a href="http://getbem.com/">BEM Methodology</a> but with a more judicious use of class names.</p>
+						<h2>Architecture</h2>
+						<p>The architecture is split into a series of numbered levels in <code>src/styles/sass</code> with each level representing a directory that contains our Sass split out into different <a href="https://sass-lang.com/guide#topic-4">partial files</a>. More generic and wide-reaching styles sit within the lower numbered levels, with specificity increasing with each subsequent level.</p>
+						<p><a href="https://github.com/studio24/amplify/blob/main/docs/css.md#css-architecture">CSS architecture details for developers</a>.</p>
+						<h2>Compiling Sass to CSS</h2>
+						<p>As mentioned in <a href="browser-support.html">browser support</a>, the Sass is compiled into the following CSS stylesheets in <code>web/dist/styles</code>:</p>
 						<ul>
-							<li>Use the CSS display property <code>display: none;</code> to remove items completely from the DOM.
-								<ul>
-									<li>Note that if CSS is unavailable the items will no longer be hidden.</li>
-								</ul>
-							</li>
-							<li>Use the <code>hidden</code> HTML attribute, which will work even if CSS is unavailable.
-								<ul>
-									<li>Note that this can be overridden by any CSS which alters the value of the display property.</li>
-								</ul>
-							</li>
-							<li>Use the CSS display property <code>visibility: hidden;</code>, especially if you wish to transition the change from hidden to visible.
-								<ul>
-									<li>Note that, while the item is hidden, it retains the space that it occupies within the DOM. It is best paired with other CSS properties that negate this, e.g. <code>position: absolute;</code>. This is ideal for e.g. off-canvas navigation.
-									</li>
-								</ul>
-							</li>
+							<li><code>core.css</code> and <code>print.css</code>, which are served to all browsers</li>
+							<li><code>advanced.css</code>, which is served to supported browsers.</li>
 						</ul>
-						<h2>Visually hiding items</h2>
-						<p>Use the <code>visuallyhidden</code> CSS class to hide an item visually but leave it accessible to Assistive Technology.</p>
-						<h2>Hiding items from Assistive Technology</h2>
-						<p>Use the <code>aria-hidden="true"</code> HTML attribute to hide items from Assistive Technology. This will not be overridden by any CSS. Note that it should not be used on focusable elements.</p>
+						<p><a href="https://github.com/studio24/amplify/blob/main/docs/css.md#compiling-sass-to-css">Sass compilation details for developers</a>.</p>
 					</div>
 				</div>
 			</div>

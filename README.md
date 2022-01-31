@@ -35,7 +35,6 @@ Also see more [detailed project documentation](docs/README.md).
 
 ### Requirements
 
-- PHP 7.4
 - Node (check the `.nvmrc` file in the project root for latest version)
 - [NPM](https://www.npmjs.com/)
 - [NVM](https://github.com/creationix/nvm)
@@ -73,7 +72,7 @@ Build front-end assets:
 npm run build
 ````
 
-There are also specific commands if you only want to compile certain front-end assets:
+There are also specific commands if you only want to build certain front-end assets:
 
 ````bash
 nvm use 
@@ -81,7 +80,7 @@ nvm use
 # Copy font assets to the `dist` directory
 npm run fonts
 
-# Copy image assets to the `dist` directory (note they are *not optimised* as part of this step)
+# Copy image assets to the `dist` directory (note they are **not optimised** as part of this step)
 npm run images
 
 # Optimise and then copy SVG assets to the `dist` directory
@@ -94,11 +93,14 @@ npm run styles
 npm run js
 ````
 
+* [More about CSS](docs/CSS.md)
+* [More about JavaScript](docs/javascript.md)
+
 ### Configuration
 
 #### NPM
 
-If needed, update the `package.json` file in the project root to specify which browsers are supported (referenced by the CSS and JS build tools) and manage the packages and NPM scripts required to build the site assets.
+If needed, update the `package.json` file in the project root to specify [which browsers are supported](docs/browser-support.md) (referenced by the CSS and JS build tools) and manage the packages and NPM scripts required to build the site assets.
 
 #### SVG Optimizer
 
@@ -132,9 +134,7 @@ You can now add the script to the `src/js/libraries` folder and run the full bui
 
 ## Making changes
 
-To make changes to code first work on a branch and create a Pull Request to merge changes into the `main` branch.
-
-All changes to the `main` branch need to pass [continuous integration](docs/continuous-integration.md) tests (PHP linting, PHP code standards).
+Create a new branch for your work, then create a Pull Request when ready to merge changes into the `main` branch.
 
 ## Deployment
 

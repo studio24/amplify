@@ -66,7 +66,7 @@
 			<div class="l-cluster">
 				<ul class="clean-list">
 					<li><a href="../get-started">Get started</a></li>
-					<li><a href="../layouts">Layout helpers</a></li>
+					<li><a href="../layout-helpers">Layout helpers</a></li>
 					<li><a href="../fundamentals">Fundamentals</a></li>
 					<li><a href="../core-components">Core components</a></li>
 					<li><a href="../advanced-components">Advanced components</a></li>
@@ -89,6 +89,7 @@
 						<li><a href="icons.html">Icons</a></li>
 						<li><a href="images.html">Images</a></li>
 						<li><a href="lists.html">Lists</a></li>
+						<li><a href="print-styles.html">Print styles</a></li>
 						<li><a href="skip-link.html">Skip link</a></li>
 						<li><a href="tables.html">Tables</a></li>
 						<li><a href="#">Typography</a></li>
@@ -99,6 +100,12 @@
 				<div class="not-sidebar">
 					<div class="component component--text">
 						<h1>Typography</h1>
+						<p>Amplify uses Bram Stein's <a href="https://fontfaceobserver.com/">Font Face Observer</a> NPM package to optimise web font loading and prevent a flash of invisible text (FOIT).</p>
+						<p>A flash of unstyled text (FOUT) is a better user experience than not being able to read something at all. Instead, we want to <a href="https://www.filamentgroup.com/lab/font-events.html">progressively load web fonts</a>, allowing flashes of unstyled text to happen but minimising the effect.</p>
+						<p>To achieve this, the default font stack is limited to system fonts - fonts that are installed on a computer, usually included as part of Operating Systems and sometimes bundled with certain programs. If the project requires custom web fonts, we choose system fonts that are similar in appearance to the web font, to minimise FOUT.</p>
+						<p>Font Face Observer detects when the <code>@font-face</code> files are loaded and adds the <code>fonts-loaded</code> class to the <code>html</code> root element, at which point the web font will be used.
+						</p>
+						<p><a href="https://github.com/studio24/amplify/blob/main/docs/fonts.md">How to update fonts in Amplify for developers</a>.</p>
 					</div>
 				</div>
 			</div>

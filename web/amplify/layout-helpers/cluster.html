@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Cover layout helper - Amplify</title>
+	<title>Cluster layout helper - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -66,7 +66,7 @@
 				<div class="l-cluster">
 					<ul class="clean-list">
 						<li><a href="../get-started">Get started</a></li>
-						<li><a href="../layouts">Layout helpers</a></li>
+						<li><a href="">Layout helpers</a></li>
 						<li><a href="../fundamentals">Fundamentals</a></li>
 						<li><a href="../core-components">Core components</a></li>
 						<li><a href="../advanced-components">Advanced components</a></li>
@@ -82,8 +82,8 @@
 						<ul class="clean-list" role="list">
 							<li><a href="box.html">Box</a></li>
 							<li><a href="center.html">Center</a></li>
-							<li><a href="cluster.html">Cluster</a></li>
-							<li><a href="#">Cover</a></li>
+							<li><a href="#">Cluster</a></li>
+							<li><a href="cover.html">Cover</a></li>
 							<li><a href="frame.html">Frame</a></li>
 							<li><a href="sidebar.html">Sidebar</a></li>
 							<li><a href="switcher.html">Switcher</a></li>
@@ -91,34 +91,27 @@
 					</nav>
 					<div class="not-sidebar">
 						<div class="component component--text">
-							<h1>Cover</h1>
-							<p>The cover layout helper creates a container with a minimum height to hold vertically centered content, ideal for "above the fold" hero blocks and sections needing visual prominence. It uses the classes <code>l-cover</code> for the container and <code>principal</code> for the content to be centered.</p>
+							<h1>Cluster</h1>
+							<p>The cluster layout helper suits any group of elements that differ in length, are liable to wrap and need even spacing between them, e.g. lists of tags or groups of buttons. It uses the class <code>l-cluster</code>.</p>
+							<p>Cluster needs an inner flexbox container - in the following example it's provided by the <code>ul</code>. Flexbox gives us control of the alignment of items inside.</p>
+							<p>The cluster items - <code>li</code> in this example - sit within this container. Each item has a margin on all sides.</p>
+							<p>The flexbox container has a negative margin of the same size as the cluster items, creating even spacing between them. <code>overflow: hidden;</code> is used to tidy up the edges.</p>
 						</div>
 						<div class="component">
-							<h2>Cover with horizontal centering using a utility class</h2>
-							<div class="l-cover">
-								<div class="principal text-39 u-center">Here is the principal content</div>
+							<div class="l-cluster">
+								<ul class="clean-list">
+									<li><a href="javascript:;">Item One</a></li>
+									<li><a href="javascript:;">Item Two</a></li>
+									<li><a href="javascript:;">Item Three</a></li>
+									<li><a href="javascript:;">Item Four</a></li>
+									<li><a href="javascript:;">Item Five</a></li>
+									<li><a href="javascript:;">Item Six</a></li>
+									<li><a href="javascript:;">Item Seven</a></li>
+									<li><a href="javascript:;">Item Eight</a></li>
+									<li><a href="javascript:;">Item Nine</a></li>
+									<li><a href="javascript:;">Item Ten</a></li>
+								</ul>
 							</div>
-						</div>
-						<div class="component">
-							<h2>Cover with a nested center layout for horizontal centering</h2>
-							<div class="l-cover">
-								<div class="l-center principal">
-									<div class="text-39">Here is the principal content</div>
-								</div>
-							</div>
-						</div>
-						<div class="component">
-							<h2>Cover with optional header and footer content</h2>
-							<div class="l-cover">
-								<div>"Header" content, e.g. a close button</div>
-								<div class="principal text-39 u-center">The principal content</div>
-								<div>"Footer" content</div>
-							</div>
-						</div>
-						<div class="component component--text">
-							<h3>Considerations</h3>
-							<p>By adding a class to "Header" and/or "Footer" we could then use <code>align-self: flex-end;</code> to shift them to the far edge of cover.</p>
 						</div>
 					</div>
 				</div>

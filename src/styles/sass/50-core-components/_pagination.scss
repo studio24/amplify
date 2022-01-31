@@ -47,11 +47,11 @@
 
 	a[href][aria-current] {
 		background-color: $link-color;
-		color: $white;
+		color: $off-white;
 		font-weight: bold;
 
 		&:hover {
-			color: $white;
+			color: $off-white;
 			text-decoration: none;
 		}
 

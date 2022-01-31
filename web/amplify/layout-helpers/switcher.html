@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Cluster layout helper - Amplify</title>
+	<title>Switcher layout helper - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -66,7 +66,7 @@
 				<div class="l-cluster">
 					<ul class="clean-list">
 						<li><a href="../get-started">Get started</a></li>
-						<li><a href="../layouts">Layout helpers</a></li>
+						<li><a href="">Layout helpers</a></li>
 						<li><a href="../fundamentals">Fundamentals</a></li>
 						<li><a href="../core-components">Core components</a></li>
 						<li><a href="../advanced-components">Advanced components</a></li>
@@ -82,36 +82,46 @@
 						<ul class="clean-list" role="list">
 							<li><a href="box.html">Box</a></li>
 							<li><a href="center.html">Center</a></li>
-							<li><a href="#">Cluster</a></li>
+							<li><a href="cluster.html">Cluster</a></li>
 							<li><a href="cover.html">Cover</a></li>
 							<li><a href="frame.html">Frame</a></li>
 							<li><a href="sidebar.html">Sidebar</a></li>
-							<li><a href="switcher.html">Switcher</a></li>
+							<li><a href="#">Switcher</a></li>
 						</ul>
 					</nav>
 					<div class="not-sidebar">
 						<div class="component component--text">
-							<h1>Cluster</h1>
-							<p>The cluster layout helper suits any group of elements that differ in length, are liable to wrap and need even spacing between them, e.g. lists of tags or groups of buttons. It uses the class <code>l-cluster</code>.</p>
-							<p>Cluster needs an inner flexbox container - in the following example it's provided by the <code>ul</code>. Flexbox gives us control of the alignment of items inside.</p>
-							<p>The cluster items - <code>li</code> in this example - sit within this container. Each item has a margin on all sides.</p>
-							<p>The flexbox container has a negative margin of the same size as the cluster items, creating even spacing between them. <code>overflow: hidden;</code> is used to tidy up the edges.</p>
+							<h1>Switcher</h1>
+							<p>The switcher layout helper switches the alignment of items from horizontal to vertical at a given, container-based breakpoint. It's a good choice for situations where each child item should be considered of equal importance and has an equal width. You will find an example of the switcher on the <a href="../index.html">Amplify home page</a>.</p>
+							<p>As with the <a href="cluster.html">cluster</a> and <a href="sidebar.html">sidebar</a> layouts, an inner flexbox container holds the switcher items, and the negative margin technique to create gutter spacing between items.</p>
+							<p>As there are <strong>no viewport media queries</strong>, the switcher will nest nicely inside other containers.</p>
 						</div>
 						<div class="component">
-							<div class="l-cluster">
-								<ul class="clean-list">
-									<li><a href="javascript:;">Item One</a></li>
-									<li><a href="javascript:;">Item Two</a></li>
-									<li><a href="javascript:;">Item Three</a></li>
-									<li><a href="javascript:;">Item Four</a></li>
-									<li><a href="javascript:;">Item Five</a></li>
-									<li><a href="javascript:;">Item Six</a></li>
-									<li><a href="javascript:;">Item Seven</a></li>
-									<li><a href="javascript:;">Item Eight</a></li>
-									<li><a href="javascript:;">Item Nine</a></li>
-									<li><a href="javascript:;">Item Ten</a></li>
-								</ul>
+							<div class="l-switcher">
+								<div>
+									<div>
+										<div class="l-box l-box">Item 1</div>
+									</div>
+									<div>
+										<div class="l-box">Item 2</div>
+									</div>
+									<div>
+										<div class="l-box">Item 3</div>
+									</div>
+								</div>
 							</div>
+						</div>
+						<div class="component component--text">
+							<h2>Considerations</h2>
+							<p>The default switcher layout behaves as follows:</p>
+							<ul>
+								<li>When the inner flexbox container is less than 690px wide, the child items sit vertically.</li>
+								<li>Otherwise, the child items sit horizontally.</li>
+								<li>The number of columns in a row is two (determined by the <code>min-width</code> percentage used on the child items).</li>
+							</ul>
+							<p>Use an additional class to override the default behaviour.</p>
+							<h3>Internet Explorer</h3>
+							<p>There must be no padding on the switcher child items themselves, otherwise the layout will break in this browser. To space content away from the edges, use nested elements with margin or padding. The preceding example uses a nested <a href="box.html">box layout</a>.</p>
 						</div>
 					</div>
 				</div>

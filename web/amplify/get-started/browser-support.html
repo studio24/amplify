@@ -66,7 +66,7 @@
 			<div class="l-cluster">
 				<ul class="clean-list">
 					<li><a href="../get-started">Get started</a></li>
-					<li><a href="../layouts">Layout helpers</a></li>
+					<li><a href="../layout-helpers">Layout helpers</a></li>
 					<li><a href="../fundamentals">Fundamentals</a></li>
 					<li><a href="../core-components">Core components</a></li>
 					<li><a href="../advanced-components">Advanced components</a></li>
@@ -81,13 +81,22 @@
 				<nav class="sidebar" aria-label="Secondary">
 					<ul class="clean-list" role="list">
 						<li><a href="#">Browser support</a></li>
+						<li><a href="css.html">CSS</a></li>
+						<li><a href="javascript.html">JavaScript</a></li>
 					</ul>
 				</nav>
 				<div class="not-sidebar">
 					<div class="component component--text">
 						<h1>Browser support</h1>
-						<p>Amplify currently supports the range of <a href="https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices">browsers recommended by the GOVUK Service Manual</a>.</p>
-						<p>If your browser support needs differ from this, you must make the following updates:</p>
+						<p>Amplify supports the range of <a href="https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices">browsers recommended by the GOVUK Service Manual</a>.</p>
+						<p>Inspired by the <a href="https://github.com/springernature/frontend-playbook/blob/main/practices/graded-browser-support.md">Springer Nature Frontend Playbook</a>, all browsers are served semantic HTML and minimal CSS as defined in <code>core.css</code> and <code>print.css</code>, but only supported browsers are served the <code>advanced.css</code> and any JavaScript files that are needed.</p>
+						<p>It is inefficient for developers and website performance (and therefore users) to attempt to make advanced CSS and JavaScript work in older browsers. <strong>Essential user journeys must remain accessible to all users</strong>, irrespective of their browser, but users of supported browsers will have a more interactive and visually pleasing experience.</p>
+						<h2>Implementing browser support</h2>
+						<p>Amplify uses the &lsquo;<a href="http://www.zeldman.com/2015/09/01/youre-welcome-cutting-the-mustard-then-and-now/">cutting the mustard</a>&rsquo; progressive enhancement technique. This involves using feature detection in order to determine which browsers will receive the fully-enhanced experience and which ones will receive only the core experience.</p>
+						<p>By <a href="https://www.sitepoint.com/cutting-the-mustard-with-css-media-queries/">cutting the mustard with CSS media queries</a>, users of supported browsers will have the best possible experience even if JavaScript is not available.</p>
+						<p><a href="https://github.com/studio24/amplify/blob/main/docs/browser-support.md">Implementation details for developers</a>.</p>
+						<h3>Changing the supported browsers</h3>
+						<p>If your browser support needs differ, you must make the following updates:</p>
 						<ul>
 							<li>the browserslist in <code>package.json</code></li>
 							<li>the CSS media query in <code>head</code> of your web page templates.</li>
