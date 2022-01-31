@@ -67,6 +67,7 @@
 		"autoprefixer": "^10.4.0",
 		"babel-loader": "^8.2.3",
 		"browserslist": "^4.18.1",
+		"chokidar-cli": "^3.0.0",
 		"copy-webpack-plugin": "^10.2.1",
 		"copyfiles": "^2.4.1",
 		"npm-run-all": "^4.1.5",
@@ -80,7 +81,6 @@
 	},
 	"dependencies": {
 		"accessible-autocomplete": "^2.0.3",
-		"chokidar-cli": "^3.0.0",
 		"fontfaceobserver": "^2.1.0",
 		"normalize.css": "^8.0.1",
 		"tabbyjs": "^12.0.3"
