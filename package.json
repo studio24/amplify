@@ -53,7 +53,13 @@
 		"webpack-compressed": "webpack --config webpack.config.min.js",
 		"js": "npm-run-all --parallel webpack-expanded webpack-compressed",
 		"prebuild": "shx rm -rf ${npm_package_config_to} && shx mkdir -p ${npm_package_config_to}/fonts && shx mkdir ${npm_package_config_to}/images && shx mkdir ${npm_package_config_to}/js && shx mkdir ${npm_package_config_to}/js/libraries && shx mkdir ${npm_package_config_to}/styles && shx mkdir ${npm_package_config_to}/svg",
-		"build": "npm-run-all --parallel fonts images svgs js styles"
+		"build": "npm-run-all --parallel fonts images svgs js styles",
+		"watch:fonts": "chokidar ${npm_package_config_from}/fonts -c \"npm run fonts\"",
+		"watch:images": "chokidar ${npm_package_config_from}/images -c \"npm run images\"",
+		"watch:svgs": "chokidar ${npm_package_config_from}/svg -c \"npm run svgs\"",
+		"watch:js": "chokidar ${npm_package_config_from}/js -c \"npm run js\"",
+		"watch:styles": "chokidar ${npm_package_config_from}/styles -c \"npm run styles\"",
+		"watch": "npm-run-all --parallel watch:*"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.16.12",
@@ -61,6 +67,7 @@
 		"autoprefixer": "^10.4.0",
 		"babel-loader": "^8.2.3",
 		"browserslist": "^4.18.1",
+		"chokidar-cli": "^3.0.0",
 		"copy-webpack-plugin": "^10.2.1",
 		"copyfiles": "^2.4.1",
 		"npm-run-all": "^4.1.5",
