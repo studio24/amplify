@@ -2508,7 +2508,7 @@ main,
   padding-top: 1rem;
 }
 .card__text > * + * {
-  margin-top: 1rem;
+  margin-top: 1em;
 }
 
 /**
@@ -2520,7 +2520,7 @@ main,
 }
 
 .card--neat .card__text > :nth-last-child(2) {
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 .card--neat .card__text > :last-child {
   margin-top: auto;
