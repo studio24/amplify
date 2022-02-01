@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Breakpoints - Amplify</title>
+	<title>Details and summary - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
@@ -80,10 +80,10 @@
 			<div>
 				<nav class="sidebar" aria-label="Secondary">
 					<ul class="clean-list" role="list">
-						<li><a href="#">Breakpoints</a></li>
+						<li><a href="breakpoints.html">Breakpoints</a></li>
 						<li><a href="buttons-links.html">Buttons and links</a></li>
 						<li><a href="colours.html">Colours</a></li>
-						<li><a href="details-summary.html">Details and summary</a></li>
+						<li><a href="#">Details and summary</a></li>
 						<li><a href="flow-content.html">Flow content</a></li>
 						<li><a href="forms.html">Forms</a></li>
 						<li><a href="form-errors.html">Form error messages</a></li>
@@ -101,7 +101,18 @@
 				</nav>
 				<div class="not-sidebar">
 					<div class="component component--text">
-						<h1>Breakpoints</h1>
+						<h1>Details and summary</h1>
+						<p>The <code>details</code> element generates a simple no-JavaScript widget to show/hide content, optionally by selecting its child <code>summary</code> element. In non-supporting browsers such as IE11 all content is expanded by default.</p>
+					</div>
+					<div class="component">
+						<details>
+							<summary>This is the summary content</summary>
+							<p>This is the detailed content which is revealed if a user requests to see it.</p>
+						</details>
+					</div>
+					<div class="component component--text">
+						<h2>Considerations</h2>
+						<p>There is currently no way for <code>details</code> to be made to display all of its content by default when printed.</p>
 					</div>
 				</div>
 			</div>
