@@ -4,9 +4,17 @@
     Used purely for the static Amplify site
 \*------------------------------------*/
 
+.amplify .component--text,
+.amplify .note {
+	@include stack(.5em);
+	align-items: flex-start;
+}
+
+
 .amplify .example + .example {
 	margin-top: 1rem;
 }
+
 
 .amplify .l-switcher.teasers {
 	overflow: visible;
@@ -24,6 +32,7 @@
 .amplify .l-switcher.teasers .card {
 	padding: rem(24);
 }
+
 
 .amplify .search-bar .not-sidebar {
 	min-width: 70%;

@@ -3,7 +3,6 @@
 \*------------------------------------*/
 
 .note {
-	@include stack(1rem);
 	border-width: rem(5);
 
 	> * {

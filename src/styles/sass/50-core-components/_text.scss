@@ -6,12 +6,6 @@
     from stretching horizontally
 \*------------------------------------*/
 
-//.component--text {
-//	@include stack(1em);
-//	align-items: flex-start; /* 1 */
-//}
-
-
 .component--text > * {
 	// Restrict line-length for readability
 	max-width: rem($text-measure);

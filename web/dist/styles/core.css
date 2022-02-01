@@ -2465,13 +2465,7 @@ main,
     #Notes
 \*------------------------------------*/
 .note {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   border-width: 0.3125rem;
-}
-.note > * + * {
-  margin-top: 1rem;
 }
 .note > * {
   max-width: 41.25rem;
@@ -3012,6 +3006,18 @@ input[type=search] {
 
     Used purely for the static Amplify site
 \*------------------------------------*/
+.amplify .component--text,
+.amplify .note {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.amplify .component--text > * + *,
+.amplify .note > * + * {
+  margin-top: 0.5em;
+}
+
 .amplify .example + .example {
   margin-top: 1rem;
 }
