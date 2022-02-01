@@ -1,5 +1,9 @@
 /*------------------------------------*\
     #Cards
+
+    1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent things like buttons and links
+    from stretching horizontally
 \*------------------------------------*/
 
 .card {
@@ -13,7 +17,7 @@
 
 
 .card__text {
-	@include stack(1em);
+	@include stack;
 	flex-grow: 1;
 	order: 1;
 	padding-top: 1rem;
@@ -43,7 +47,7 @@
 
 
 .card__text > a:not([class]) {
-	align-self: flex-start;
+	align-self: flex-start; /* 1 */
 	margin-top: rem(6);
 	padding-bottom: rem(10);
 	padding-top: rem(10);

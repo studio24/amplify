@@ -1,8 +1,14 @@
 /*------------------------------------*\
     #Notes
+
+    1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent things like buttons and links
+    from stretching horizontally
 \*------------------------------------*/
 
 .note {
+	@include stack;
+	align-items: flex-start; /* 1 */
 	border-width: rem(5);
 
 	> * {

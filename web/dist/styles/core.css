@@ -2325,10 +2325,6 @@ main,
 
 /*------------------------------------*\
     #Text component
-
-    1. The `stack` mixin applies flexbox in the column direction,
-    so we need to prevent things like buttons and links
-    from stretching horizontally
 \*------------------------------------*/
 .component--text > * {
   max-width: 41.25rem;
@@ -2463,9 +2459,21 @@ main,
 
 /*------------------------------------*\
     #Notes
+
+    1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent things like buttons and links
+    from stretching horizontally
 \*------------------------------------*/
 .note {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* 1 */
   border-width: 0.3125rem;
+}
+.note > * + * {
+  margin-top: 1em;
 }
 .note > * {
   max-width: 41.25rem;
@@ -2489,6 +2497,10 @@ main,
 
 /*------------------------------------*\
     #Cards
+
+    1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent things like buttons and links
+    from stretching horizontally
 \*------------------------------------*/
 .card {
   background-color: #fcfcfc;
@@ -2528,6 +2540,7 @@ main,
 
 .card__text > a:not([class]) {
   align-self: flex-start;
+  /* 1 */
   margin-top: 0.375rem;
   padding-bottom: 0.625rem;
   padding-top: 0.625rem;
@@ -2801,6 +2814,10 @@ main,
 
 /*------------------------------------*\
     #Collapsible sections
+
+    1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent things like buttons and links
+    from stretching horizontally
 \*------------------------------------*/
 .component--collapsibles,
 [data-heading=collapsibles] + * {
@@ -2810,7 +2827,7 @@ main,
 }
 .component--collapsibles > * + *,
 [data-heading=collapsibles] + * > * + * {
-  margin-top: 1rem;
+  margin-top: 1em;
 }
 
 [data-heading=collapsibles] {
@@ -2827,20 +2844,36 @@ main,
   padding: 1.5625rem;
 }
 .component--collapsibles__panel > * + * {
-  margin-top: 1rem;
+  margin-top: 1em;
 }
 
+.component--collapsibles__panel__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* 1 */
+}
+.component--collapsibles__panel__content > * + * {
+  margin-top: 1em;
+}
 .component--collapsibles__panel__content > * {
   max-width: 41.25rem;
 }
 
 /*------------------------------------*\
     #Tabbed sections
+
+    1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent things like buttons and links
+    from stretching horizontally
 \*------------------------------------*/
 .no-js .component--tabs {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: flex-start;
+  /* 1 */
 }
 .no-js .component--tabs > * + * {
   margin-top: 1em;
@@ -2849,9 +2882,11 @@ main,
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: flex-start;
+  /* 1 */
 }
 .no-js .component--tabs section > * + * {
-  margin-top: 1rem;
+  margin-top: 1em;
 }
 
 /*------------------------------------*\
@@ -3006,16 +3041,14 @@ input[type=search] {
 
     Used purely for the static Amplify site
 \*------------------------------------*/
-.amplify .component--text,
-.amplify .note {
+.amplify .component--text {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
 }
-.amplify .component--text > * + *,
-.amplify .note > * + * {
-  margin-top: 0.5em;
+.amplify .component--text > * + * {
+  margin-top: 1em;
 }
 
 .amplify .example + .example {

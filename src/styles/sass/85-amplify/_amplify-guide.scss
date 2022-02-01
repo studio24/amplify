@@ -4,9 +4,8 @@
     Used purely for the static Amplify site
 \*------------------------------------*/
 
-.amplify .component--text,
-.amplify .note {
-	@include stack(.5em);
+.amplify .component--text {
+	@include stack;
 	align-items: flex-start;
 }
 

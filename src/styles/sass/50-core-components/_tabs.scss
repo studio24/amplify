@@ -1,11 +1,17 @@
 /*------------------------------------*\
     #Tabbed sections
+
+    1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent things like buttons and links
+    from stretching horizontally
 \*------------------------------------*/
 
 .no-js .component--tabs {
 	@include stack;
+	align-items: flex-start; /* 1 */
 
 	section {
-		@include stack(1rem);
+		@include stack;
+		align-items: flex-start; /* 1 */
 	}
 }

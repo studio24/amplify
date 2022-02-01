@@ -305,8 +305,11 @@ br {
 
 /*------------------------------------*\
     #Tabbed sections advanced
-
     All roles are added via JavaScript
+
+    1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent things like buttons and links
+    from stretching horizontally
 \*------------------------------------*/
 .component--tabs [role=tablist] {
   border-bottom: solid 1px #bdbdbd;
@@ -349,10 +352,12 @@ br {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: flex-start;
+  /* 1 */
   padding: 1.5rem;
 }
 .component--tabs [role=tabpanel] > * + * {
-  margin-top: 1rem;
+  margin-top: 1em;
 }
 
 /*------------------------------------*\
