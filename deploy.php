@@ -9,40 +9,40 @@ require 'vendor/studio24/deployer-recipes/all.php';
  */
 
 // Friendly project name
-$project_name = 'Our Test Website';
+$project_name = 'Amplify';
 
 // The repo for the project
-$repository = 'git@github.com:studio24/xxxxxxxxx.git';
+$repository = 'git@github.com:studio24/amplify.git';
 
 // Array of remote => local file locations to sync to your local development computer
 $sync = [
     'images' => [
-        'shared/web/wp-content/uploads/' => 'web/wp-content/uploads'
+//        'shared/web/wp-content/uploads/' => 'web/wp-content/uploads'
     ],
 ];
 
 // Shared files that are not in git and need to persist between deployments (e.g. local config)
 $shared_files = [
-    'config/wp-config.local.php'
+//    'config/wp-config.local.php'
 ];
 
 // Shared directories that are not in git and need to persist between deployments (e.g. uploaded images)
 $shared_directories = [
-    'web/wp-content/uploads',
-    '.well-known',
-    'web/wp-content/cache',
-    'var/log'
+//    'web/wp-content/uploads',
+//    'web/wp-content/cache',
+//    'var/log',
+    '.well-known'
 ];
 
 // Sets directories as writable (e.g. uploaded images)
 $writable_directories = [
-    'web/wp-content/uploads',
-    'web/wp-content/cache'
+//    'web/wp-content/uploads',
+//    'web/wp-content/cache'
 ];
 
 // Custom (non-root) composer installs required
 $composer_paths = [
-    'web/wp-content/plugins/s24-wp-image-optimiser'
+//    'web/wp-content/plugins/s24-wp-image-optimiser'
 ];
 
 
@@ -78,16 +78,16 @@ set('default_stage', 'staging');
 host('production')
     ->stage('production')
     ->user('deploy')
-    ->hostname('123.456.789.10')
-    ->set('deploy_path', '/data/var/www/vhosts/our-site/production')
-    ->set('url', 'https://www.our-website.com');
+    ->hostname('63.34.69.8')
+    ->set('deploy_path', '/data/var/www/vhosts/amplify/production')
+    ->set('url', 'https://amplify.studio24.net');
 
-host('staging')
-    ->stage('staging')
-    ->user('deploy')
-    ->hostname('123.456.789.10')
-    ->set('deploy_path', '/data/var/www/vhosts/our-site/staging')
-    ->set('url', 'https://staging.our-website.com');
+//host('staging')
+//    ->stage('staging')
+//    ->user('deploy')
+//    ->hostname('123.456.789.10')
+//    ->set('deploy_path', '/data/var/www/vhosts/our-site/staging')
+//    ->set('url', 'https://staging.our-website.com');
 
 
 /**
@@ -100,7 +100,7 @@ task('deploy', [
     // Run initial checks
     's24:check-local-deployer',
     'deploy:info',
-    's24:check-branch',
+//    's24:check-branch',
     's24:show-summary',
     's24:display-disk-space',
 
