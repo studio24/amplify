@@ -21,8 +21,8 @@ Also see more [detailed project documentation](docs/README.md).
 ## Site URLs
 
 ### Live
-* https://www.example.com
-* https://www.example.com/_build_summary.json
+* https://amplify.studio24.net
+* https://amplify.studio24.net/_build_summary.json
 
 ### Staging
 * https://staging.example.com
