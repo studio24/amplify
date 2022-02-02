@@ -140,14 +140,14 @@ button[disabled],
 	background-color: $twiki-gray;
 	border-color: $twiki-gray;
 	box-shadow: none;
-	color: #303030;
+	color: $disable-gray;
 	cursor: not-allowed;
 
 	&:hover,
 	&:focus,
 	&:active {
 		background-color: $twiki-gray;
-		color: #303030;
+		color: $disable-gray;
 		outline: 0;
 	}
 }
