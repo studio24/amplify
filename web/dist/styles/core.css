@@ -2006,10 +2006,6 @@ disturbing the vertically centered element.
 Suppress horizontal scrolling caused by the negative margin
 in some circumstances.
  */
-.l-cluster {
-  overflow: hidden;
-}
-
 /**
 We use flexbox to configure the elements into clusters without creating
 white space. We can control how we align items within the cluster,
@@ -2111,10 +2107,6 @@ out, but halve it to to account for 'doubling up' at the edges.
 Suppress horizontal scrolling caused by the negative margin
 in some circumstances.
  */
-.l-sidebar {
-  overflow: hidden;
-}
-
 /**
 We target the intermediary wrapper and give it a negative margin
 to create a gutter between the `.sidebar` and `.not-sidebar`.
@@ -3041,6 +3033,113 @@ input[type=search] {
 
     Used purely for the static Amplify site
 \*------------------------------------*/
+.amplify .global-header {
+  background-color: #252525;
+  color: #fcfcfc;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+}
+
+.amplify .global-header__link {
+  font-size: 1.563rem;
+  color: #fcfcfc;
+  padding-bottom: 0.3125rem;
+  padding-top: 0.3125rem;
+  text-decoration: none;
+}
+.amplify .global-header__link:hover, .amplify .global-header__link:visited {
+  color: #fcfcfc;
+}
+.amplify .global-header__link:hover {
+  text-decoration: underline;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+  text-underline-offset: 0.25em;
+}
+.amplify .global-header__link:focus {
+  background-color: #ffdc00;
+  color: #252525;
+}
+
+.amplify .global-nav {
+  border-bottom: solid 2px #bdbdbd;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+}
+
+.amplify .global-nav__link {
+  border-bottom: solid 4px transparent;
+  color: #0d599b;
+  display: block;
+  font-size: 1.125rem;
+  font-weight: bold;
+  padding: 0.3125rem;
+  text-decoration: none;
+}
+.amplify .global-nav__link:hover, .amplify .global-nav__link:visited {
+  color: #0d599b;
+}
+.amplify .global-nav__link:hover {
+  text-decoration: underline;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+  text-underline-offset: 0.25em;
+}
+.amplify .global-nav__link:focus {
+  background-clip: padding-box;
+  background-color: #ffdc00;
+  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
+  color: #000;
+  text-decoration: none;
+}
+
+.amplify .current .global-nav__link {
+  border-bottom-color: #252525;
+  color: #252525;
+}
+.amplify .current .global-nav__link:hover {
+  text-decoration: none;
+}
+
+.amplify .nav-secondary__link {
+  color: #0d599b;
+  display: inline-block;
+  padding-bottom: 0.5625rem;
+  padding-top: 0.5625rem;
+  position: relative;
+  text-decoration: none;
+}
+.amplify .nav-secondary__link:hover {
+  text-decoration: underline;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+  text-underline-offset: 0.25em;
+}
+.amplify .nav-secondary__link:focus {
+  background-color: #ffdc00;
+  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
+  color: #000;
+  text-decoration: none;
+}
+
+.amplify .nav-secondary__link[aria-current] {
+  color: #252525;
+}
+.amplify .nav-secondary__link[aria-current]::before {
+  background-color: #252525;
+  content: "";
+  height: 1.5rem;
+  left: -0.75rem;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 4px;
+}
+.amplify .nav-secondary__link[aria-current]:hover {
+  text-decoration: none;
+}
+
 .amplify .component--text {
   display: flex;
   flex-direction: column;

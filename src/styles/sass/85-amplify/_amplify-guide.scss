@@ -4,6 +4,125 @@
     Used purely for the static Amplify site
 \*------------------------------------*/
 
+.amplify .global-header {
+	background-color: $off-black;
+	color: $off-white;
+	padding-bottom: rem(10);
+	padding-top: rem(10);
+}
+
+.amplify .global-header__link {
+	@include text-25;
+	color: $off-white;
+	padding-bottom: rem(5);
+	padding-top: rem(5);
+	text-decoration: none;
+
+	&:hover,
+	&:visited {
+		color: $off-white;
+	}
+
+	&:hover {
+		text-decoration: underline;
+		text-decoration-skip-ink: auto; // Not supported by Safari
+		text-underline-offset: 0.25em; // Supported by Safari
+	}
+
+	&:focus {
+		background-color: $focus-color;
+		color: $off-black;
+	}
+}
+
+
+.amplify .global-nav {
+	border-bottom: solid 2px $twiki-gray;
+	padding-bottom: rem(10);
+	padding-top: rem(10);
+}
+
+.amplify .global-nav__link {
+	border-bottom: solid 4px transparent;
+	color: $link-color;
+	display: block;
+	font-size: rem(18);
+	font-weight: bold;
+	padding: rem(5);
+	text-decoration: none;
+
+	&:hover,
+	&:visited {
+		color: $link-color;
+	}
+
+	&:hover {
+		text-decoration: underline;
+		text-decoration-skip-ink: auto; // Not supported by Safari
+		text-underline-offset: 0.25em; // Supported by Safari
+	}
+
+	&:focus {
+		background-clip: padding-box;
+		background-color: $focus-color;
+		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+		color: $black;
+		text-decoration: none;
+	}
+}
+
+.amplify .current .global-nav__link {
+	border-bottom-color: $off-black;
+	color: $off-black;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+
+.amplify .nav-secondary__link {
+	color: $link-color;
+	display: inline-block;
+	padding-bottom: rem(9);
+	padding-top: rem(9);
+	position: relative;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+		text-decoration-skip-ink: auto; // Not supported by Safari
+		text-underline-offset: 0.25em; // Supported by Safari
+	}
+
+	&:focus {
+		background-color: $focus-color;
+		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+		color: $black;
+		text-decoration: none;
+	}
+}
+
+.amplify .nav-secondary__link[aria-current] {
+	color: $off-black;
+
+	&::before {
+		background-color: $off-black;
+		content: '';
+		height: 1.5rem;
+		left: rem(-12);
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 4px;
+	}
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+
 .amplify .component--text {
 	@include stack;
 	align-items: flex-start;

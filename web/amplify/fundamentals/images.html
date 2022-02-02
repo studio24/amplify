@@ -56,21 +56,21 @@
 <body class="amplify">
 <div class="not-footer">
 	<a href="#main" class="skip-link">Skip to content</a>
-	<header>
+	<header class="global-header">
 		<div class="l-center">
-			<a href="../index.html">Amplify from Studio 24</a>
+			<a class="global-header__link" href="../index.html">Amplify from Studio 24</a>
 		</div>
 	</header>
-	<nav aria-label="Main">
+	<nav class="global-nav" aria-label="Main">
 		<div class="l-center">
 			<div class="l-cluster">
 				<ul class="clean-list">
-					<li><a href="../get-started">Get started</a></li>
-					<li><a href="../layout-helpers">Layout helpers</a></li>
-					<li><a href="../fundamentals">Fundamentals</a></li>
-					<li><a href="../core-components">Core components</a></li>
-					<li><a href="../advanced-components">Advanced components</a></li>
-					<li><a href="../design">Design handover &amp; standards</a></li>
+					<li><a class="global-nav__link" href="../get-started">Get started</a></li>
+					<li><a class="global-nav__link" href="../layout-helpers">Layout helpers</a></li>
+					<li class="current"><a class="global-nav__link" href="../fundamentals">Fundamentals</a></li>
+					<li><a class="global-nav__link" href="../core-components">Core components</a></li>
+					<li><a class="global-nav__link" href="../advanced-components">Advanced components</a></li>
+					<li><a class="global-nav__link" href="../design">Design handover &amp; standards</a></li>
 				</ul>
 			</div>
 		</div>
@@ -78,25 +78,25 @@
 	<main id="main">
 		<div class="l-sidebar">
 			<div>
-				<nav class="sidebar" aria-label="Secondary">
+				<nav class="sidebar nav-secondary" aria-label="Secondary">
 					<ul class="clean-list" role="list">
-						<li><a href="breakpoints.html">Breakpoints</a></li>
-						<li><a href="buttons-links.html">Buttons and links</a></li>
-						<li><a href="colours.html">Colours</a></li>
-						<li><a href="details-summary.html">Details and summary</a></li>
-						<li><a href="flow-content.html">Flow content</a></li>
-						<li><a href="forms.html">Forms</a></li>
-						<li><a href="form-errors.html">Form error messages</a></li>
-						<li><a href="hide-and-show.html">Hide and show items inclusively</a></li>
-						<li><a href="icons.html">Icons</a></li>
-						<li><a href="#">Images</a></li>
-						<li><a href="lists.html">Lists</a></li>
-						<li><a href="print-styles.html">Print styles</a></li>
-						<li><a href="skip-link.html">Skip link</a></li>
-						<li><a href="tables.html">Tables</a></li>
-						<li><a href="typography.html">Typography</a></li>
-						<li><a href="utility-classes.html">Utility classes</a></li>
-						<li><a href="vertical-spacing.html">Vertical spacing</a></li>
+						<li><a class="nav-secondary__link" href="breakpoints.html">Breakpoints</a></li>
+						<li><a class="nav-secondary__link" href="buttons-links.html">Buttons and links</a></li>
+						<li><a class="nav-secondary__link" href="colours.html">Colours</a></li>
+						<li><a class="nav-secondary__link" href="details-summary.html">Details and summary</a></li>
+						<li><a class="nav-secondary__link" href="flow-content.html">Flow content</a></li>
+						<li><a class="nav-secondary__link" href="forms.html">Forms</a></li>
+						<li><a class="nav-secondary__link" href="form-errors.html">Form error messages</a></li>
+						<li><a class="nav-secondary__link" href="hide-and-show.html">Hide and show items inclusively</a></li>
+						<li><a class="nav-secondary__link" href="icons.html">Icons</a></li>
+						<li><a class="nav-secondary__link" href="images.html" aria-current="page">Images</a></li>
+						<li><a class="nav-secondary__link" href="lists.html">Lists</a></li>
+						<li><a class="nav-secondary__link" href="print-styles.html">Print styles</a></li>
+						<li><a class="nav-secondary__link" href="skip-link.html">Skip link</a></li>
+						<li><a class="nav-secondary__link" href="tables.html">Tables</a></li>
+						<li><a class="nav-secondary__link" href="typography.html">Typography</a></li>
+						<li><a class="nav-secondary__link" href="utility-classes.html">Utility classes</a></li>
+						<li><a class="nav-secondary__link" href="vertical-spacing.html">Vertical spacing</a></li>
 					</ul>
 				</nav>
 				<div class="not-sidebar">
@@ -119,7 +119,7 @@
 						<p>If the image is decorative it can be left blank. Otherwise, <code>alt</code> requires a text value explaining the nature of the image for users of Assistive Technology. This <a href="https://www.w3.org/WAI/tutorials/images/decision-tree/">alt decision tree</a> is helpful for determining whether and how to provide alternative text.</p>
 						<h5>Images with SVG source file</h5>
 						<p>For the range of browsers currently supported by Amplify, it is recommended to include <code>role="img"</code> on <code>img</code> where the source file is SVG. Without it, some versions of Safari and iOS will skip over the image entirely and not announce the image or the alternative text.</p>
-						<h3>Using the <code>img</code> element within links</h3>
+						<h4>Using the <code>img</code> element within links</h4>
 						<ul>
 							<li>Where an image is included within a link that also contains a visible text label, treat the image as decorative and provide an empty <code>alt</code> attribute.</li>
 							<li>Where a link contains an image without any visible text, use the value of the image's <code>alt</code> attribute to give the link an accessible name. There is no need to combine this with <code>aria-label</code> or visually-hidden text; that can lead to duplicate announcements by screen readers.</li>
@@ -142,7 +142,7 @@
 						</ul>
 						<h4>Decorative SVGs</h4>
 						<p>Any <code>svg</code> that does not add important information to a document should be considered decorative and have <code>aria-hidden="true"</code> added to it.</p>
-						<h3>Using the <code>svg</code> element within links and buttons</h3>
+						<h4>Using the <code>svg</code> element within links and buttons</h4>
 						<ul>
 							<li>If the link or button has a visible text label, making sure that the <code>svg</code> includes the <code>aria-hidden="true"</code> and <code>focusable="false"</code> attributes is enough.</li>
 							<li>Where the link or button does not include a visible text label, use a child <code>span</code> with the <code>visuallyhidden</code> class to give it an accessible name. Read more about <a href="hide-and-show.html">how to hide and show items</a>.</li>
