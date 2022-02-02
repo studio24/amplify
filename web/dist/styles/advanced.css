@@ -526,7 +526,7 @@ br {
 }
 
 .autocomplete__input--focused {
-  background-color: #fff;
+  background-color: #fcfcfc;
   outline: 3px solid #ffdc00;
   outline-offset: 0;
   box-shadow: inset 0 0 0 2px;
