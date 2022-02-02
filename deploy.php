@@ -100,7 +100,7 @@ task('deploy', [
     // Run initial checks
     's24:check-local-deployer',
     'deploy:info',
-//    's24:check-branch',
+    's24:check-branch',
     's24:show-summary',
     's24:display-disk-space',
 
