@@ -123,12 +123,6 @@
 }
 
 
-.amplify .component--text {
-	@include stack;
-	align-items: flex-start;
-}
-
-
 .amplify .example + .example {
 	margin-top: 1rem;
 }

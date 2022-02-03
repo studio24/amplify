@@ -2,6 +2,12 @@
     #Details and summary elements
 \*------------------------------------*/
 
+details {
+	margin-bottom: rem(16);
+	margin-top: rem(16);
+}
+
+
 summary {
 	color: $link-color;
 	cursor: pointer;

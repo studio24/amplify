@@ -14,6 +14,9 @@ ul[class] {
 
 ul:not([class]),
 ol:not([class]) {
+	margin-bottom: rem(16);
+	margin-top: rem(16);
+
 	> * + *,
 	li ul,
 	li ol {
@@ -74,6 +77,9 @@ ol:not([class]) {
 Description lists / Definition lists
  */
 dl {
+	margin-bottom: rem(16);
+	margin-top: rem(16);
+
 	dt {
 		font-weight: bold;
 	}

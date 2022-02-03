@@ -5,35 +5,52 @@
 \*------------------------------------*/
 
 @mixin text-48 {
-	font-size: 3.052rem;
+	font-size: rem(48);
+	line-height: 1.3;
+
+	@include mq($bp-tab-landscape) {
+		font-size: rem(64)
+	}
 }
 
 
 @mixin text-39 {
-	font-size: 2.441rem;
+	font-size: rem(39);
+	line-height: 1.3;
 }
 
 
 @mixin text-31 {
-	font-size: 1.953rem;
+	font-size: rem(31);
+	line-height: 1.3;
 }
 
 
 @mixin text-25 {
-	font-size: 1.563rem;
+	font-size: rem(25);
+	line-height: 1.3;
 }
 
 
 @mixin text-20 {
-	font-size: 1.25rem;
+	font-size: rem(20);
+	line-height: 1.3;
 }
 
 
 @mixin text-16 {
 	font-size: 1rem;
+	line-height: 1.5;
 }
 
 
 @mixin text-14 {
-	font-size: 0.875rem;
+	font-size: rem(14);
+	line-height: 1.5;
+}
+
+
+@mixin lead {
+	font-size: rem(31);
+	line-height: 1.3;
 }
