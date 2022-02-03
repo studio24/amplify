@@ -1876,8 +1876,7 @@ dl.grid dd + dd {
     #Quotes
 \*------------------------------------*/
 blockquote {
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  margin: 1rem 2.5rem;
   font-size: 1.25rem;
   line-height: 1.3;
   display: flex;
@@ -2444,8 +2443,7 @@ main,
 }
 .component--quote blockquote {
   color: #0d599b;
-  margin-bottom: 0;
-  margin-top: 0;
+  margin: 0;
 }
 
 [dir=rtl] .component--quote::before {

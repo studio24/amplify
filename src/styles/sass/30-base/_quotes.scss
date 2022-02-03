@@ -3,8 +3,7 @@
 \*------------------------------------*/
 
 blockquote {
-	margin-bottom: rem(16);
-	margin-top: rem(16);
+	margin: rem(16) rem(40);
 	@include text-20;
 	@include stack(1rem);
 
