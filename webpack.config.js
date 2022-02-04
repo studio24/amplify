@@ -2,7 +2,7 @@ const path = require('path');
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-	context: path.resolve(__dirname, 'src/js'),
+	context: path.resolve(__dirname, 'assets-src/js'),
 	entry: {
 		main: './main.js',
 		countryAutocomplete: './country-autocomplete.js',

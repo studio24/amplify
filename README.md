@@ -130,7 +130,7 @@ In the `webpack.config.js` file, uncomment the following line from the CopyPlugi
 // { from: "./libraries/", to:  "./libraries" },
 ```
 
-You can now add the script to the `src/js/libraries` folder and run the full build script or the 'webpack-expanded' script.
+You can now add the script to the `assets-src/js/libraries` folder and run the full build script or the 'webpack-expanded' script.
 
 ## Making changes
 
@@ -173,3 +173,4 @@ Sync files from production or staging to your local development environment. The
 
 ## Credits
 - **Nicola Saunders** - *Front-End Lead Developer* - Studio 24
+- **Marie Manandise** - *Senior Web Developer* - Studio 24

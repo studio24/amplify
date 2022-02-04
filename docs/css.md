@@ -5,7 +5,7 @@
 
 ## CSS architecture
 
-Sass files sit at `src/styles/sass` and are split across a series of numbered directories. The lower the number the more generic the styles, the higher the number the more explicit. As the directories increase, so does the specificity. If the contents of a directory are not needed, they can be [excluded](#excluding-unwanted-styles). New levels (and files) can be added as required.
+Sass files sit at `assets-src/styles/sass` and are split across a series of numbered directories. The lower the number the more generic the styles, the higher the number the more explicit. As the directories increase, so does the specificity. If the contents of a directory are not needed, they can be [excluded](#excluding-unwanted-styles). New levels (and files) can be added as required.
 
 ### 00-settings
 
@@ -61,7 +61,7 @@ Overrides or helper classes.
 
 ## Compiling Sass to CSS
 
-Amplify uses the Node implementation of [Dart Sass](https://sass-lang.com/dart-sass) to parse .scss files in `src/styles/sass` into three CSS stylesheets in `web/dist/styles`:
+Amplify uses the Node implementation of [Dart Sass](https://sass-lang.com/dart-sass) to parse .scss files in `assets-src/styles/sass` into three CSS stylesheets in `web/dist/styles`:
 
 * `core.css`
 * `print.css`
@@ -71,7 +71,7 @@ Amplify uses the Node implementation of [Dart Sass](https://sass-lang.com/dart-s
 
 Both `core.css` and `print.css` are served to all browsers. `advanced.css` is only served to supported browsers.
 
-The files `core.scss`, `print.scss` and `advanced.scss` within `src/styles` determine which Sass files will be compiled into the relevant CSS stylesheet. The individual Sass partials are included using the [@import directive](https://sass-lang.com/documentation/at-rules/import#partials) in the order denoted by the level in which they reside, remembering the impact of the [CSS cascade](https://wattenberger.com/blog/css-cascade).
+The files `core.scss`, `print.scss` and `advanced.scss` within `assets-src/styles` determine which Sass files will be compiled into the relevant CSS stylesheet. The individual Sass partials are included using the [@import directive](https://sass-lang.com/documentation/at-rules/import#partials) in the order denoted by the level in which they reside, remembering the impact of the [CSS cascade](https://wattenberger.com/blog/css-cascade).
 
 ### Contents of `core.scss`
 
@@ -95,4 +95,4 @@ Some default print styles are included, but **developers must check and add any 
 
 ### Excluding unwanted styles
 
-Any entry within these files that is commented out will not be part of the compiled CSS. It's recommended to do this, rather than deleting Sass partials from `src/styles/sass`.
+Any entry within these files that is commented out will not be part of the compiled CSS. It's recommended to do this, rather than deleting Sass partials from `assets-src/styles/sass`.

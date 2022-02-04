@@ -29,7 +29,7 @@
 		"not dead"
 	],
 	"config": {
-		"from": "src",
+		"from": "assets-src",
 		"to": "web/dist"
 	},
 	"scripts": {

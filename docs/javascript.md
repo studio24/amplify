@@ -5,7 +5,7 @@
 
 ## JavaScript architecture
 
-Inspired by Chris Ferdinandi's [How I structure my vanilla JS projects](https://gomakethings.com/how-i-structure-my-vanilla-js-projects/), all JavaScript is found within `src/js`. 
+Inspired by Chris Ferdinandi's [How I structure my vanilla JS projects](https://gomakethings.com/how-i-structure-my-vanilla-js-projects/), all JavaScript is found within `assets-src/js`. 
 
 Individual files in this directory are minified into files of the same name, but are kept separate from the main JavaScript file. They are typically used only on specific pages.
 
