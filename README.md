@@ -174,3 +174,11 @@ Sync files from production or staging to your local development environment. The
 ## Credits
 - **Nicola Saunders** - *Front-End Lead Developer* - Studio 24
 - **Marie Manandise** - *Senior Web Developer* - Studio 24
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+## Acknowledgements
+
+Inspired by [Springer Nature Front End Playbook](https://github.com/springernature/frontend-playbook), [Every Layout](https://every-layout.dev/) and [CUBE CSS](https://cube.fyi/)
