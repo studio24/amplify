@@ -57,7 +57,7 @@ img {
 
 img {
 	height: auto !important;
-	width: 100% !important;
+	max-width: 100% !important;
 }
 
 
@@ -85,6 +85,8 @@ blockquote,
 figure {
 	margin-left: 0;
 	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
 }
 
 
