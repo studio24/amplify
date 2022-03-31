@@ -728,17 +728,6 @@ can safely use the web fonts instead of the system fonts.
  *The :not portions of the following selector allow a means for any
  * focusable element to become visible when focused/active by a user.
  */
-/*
- * Make sure that the siblings of hidden components do not cause the hidden
- * component to take up any vertical space.
- */
-[hidden] + *,
-.hidden + *,
-.visuallyhidden + *,
-.skip-link + * {
-  margin-top: 0 !important;
-}
-
 br {
   margin-top: 0;
 }
