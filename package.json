@@ -1,6 +1,6 @@
 {
 	"name": "amplify",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Front-End starter kit for Studio 24",
 	"main": "index.js",
 	"directories": {

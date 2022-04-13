@@ -35,17 +35,25 @@ var disclosureWidget = (function () {
 		document.addEventListener('click', function (event) {
 
 			if (event.target.matches('[data-toggle="true"]')) {
+				var toggleTarget = event.target.nextElementSibling;
 
 				if (event.target.matches('[aria-expanded="false"]')) {
 
 					closeDisclosures();
 					event.target.setAttribute('aria-expanded', 'true');
+					toggleTarget.setAttribute('data-item-expanded', 'true');
 
 				} else {
 
 					event.target.setAttribute('aria-expanded', 'false');
+					toggleTarget.removeAttribute('data-item-expanded');
 
 				}
+
+			} else if (event.target.closest('[data-item-expanded="true"]')) {
+
+				// Do nothing - user is interacting with the expanded content
+				return;
 
 			} else {
 
