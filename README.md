@@ -93,6 +93,12 @@ npm run styles
 npm run js
 ````
 
+Watch for changes:
+
+````bash
+npm run watch
+````
+
 * [More about CSS](docs/CSS.md)
 * [More about JavaScript](docs/javascript.md)
 
