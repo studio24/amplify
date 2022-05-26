@@ -4,6 +4,8 @@
     1. The `stack` mixin applies flexbox in the column direction,
     so we need to prevent things like buttons and links
     from stretching horizontally
+
+    2. Restrict line-length for readability
 \*------------------------------------*/
 
 .component--collapsibles,
@@ -27,10 +29,13 @@
 
 .component--collapsibles__panel__content {
 	@include stack;
-	align-items: flex-start; /* 1 */
 
-	// Restrict line-length for readability
 	> * {
-		max-width: rem($text-measure);
+		max-width: rem($text-measure); /* 2 */
+	}
+
+	a,
+	button {
+		align-self: flex-start; /* 1 */
 	}
 }
