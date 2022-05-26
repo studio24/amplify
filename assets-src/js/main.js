@@ -1,10 +1,24 @@
+import {cardEnhancement} from "./main/cards";
 import {collapsibles} from "./main/collapsibles";
 import {disclosureWidget} from "./main/disclosure-widget";
 import {formErrorSummary} from "./main/form-error-summary";
-import {cardEnhancement} from "./main/cards";
 import {responsiveTables} from "./main/responsive-tables";
 
-responsiveTables();
+function domLoadedActions() {
+	cardEnhancement();
+	collapsibles();
+	disclosureWidget();
+	formErrorSummary();
+	responsiveTables();
+}
+
+if (document.readyState === 'loading') {
+	// Loading hasn't finished yet
+	document.addEventListener('DOMContentLoaded', domLoadedActions);
+} else {
+	// `DOMContentLoaded` has already fired
+	domLoadedActions();
+}
 
 // Tie the responsiveTables function to a resize event, and debounce for performance
 var timeout;

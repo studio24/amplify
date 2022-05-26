@@ -1,8 +1,4 @@
 /**
- * Helper functions for use across other JS files
- */
-
-/**
  * Check whether an element exists in the DOM
  * @param elem
  * @return {boolean}

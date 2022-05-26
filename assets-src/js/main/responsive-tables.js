@@ -1,4 +1,4 @@
-import {exists} from "./_helpers";
+import {exists} from './_exists.helper';
 
 /**
  * Responsive tables

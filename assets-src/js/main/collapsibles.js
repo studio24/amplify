@@ -1,4 +1,4 @@
-import {exists} from "./_helpers";
+import {exists} from './_exists.helper';
 
 /**
  * Collapsible panels
@@ -6,22 +6,18 @@ import {exists} from "./_helpers";
  * @see https://insidegovuk.blog.gov.uk/2021/10/29/how-we-made-the-gov-uk-accordion-component-more-accessible/
  */
 
-var collapsibles = (function () {
-
+var collapsibles = function () {
 	// Get all the collapsible containers
 	var collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsibles"]'));
 
 	if (exists(collapseArray)) {
-
 		// Loop through containers
 		collapseArray.forEach(function (item) {
-
 			// Get headings inside a collapsible container
 			var headingsArray = Array.prototype.slice.call(item.querySelectorAll('[data-heading="collapsibles"]'));
 
 			// Loop through headings
 			headingsArray.forEach(function (heading, index) {
-
 				// Insert a button for opening/closing the collapsible section
 				heading.innerHTML = '<button class="button--ghost" aria-expanded="false">' +
 					'<span class="js-collapsible-heading">' + heading.innerHTML + '</span>' +
@@ -54,13 +50,9 @@ var collapsibles = (function () {
 						toggleText.textContent = 'Hide';
 					}
 				});
-
 			}); // End loop
-
 		}); // End loop
-
 	} // End if statement
-
-})();
+};
 
 export {collapsibles};

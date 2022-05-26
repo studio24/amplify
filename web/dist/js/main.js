@@ -1,15 +1,81 @@
 /******/ (function() { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ([
 /* 0 */,
 /* 1 */
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "cardEnhancement": function() { return /* binding */ cardEnhancement; }
+/* harmony export */ });
+/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+
+/**
+ * Card enhancement to trigger the main link whenever the card area is clicked
+ * @see https://css-tricks.com/block-links-the-search-for-a-perfect-solution/
+ */
+
+var cardEnhancement = function cardEnhancement() {
+  var cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
+
+  if ((0,_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(cardsArray)) {
+    // Loop through cards adding a click event and identifying the main link
+    cardsArray.forEach(function (card) {
+      var mainLink = card.querySelector('.card__link');
+      var clickableElems = Array.prototype.slice.call(card.querySelectorAll('[data-click]')); // Allow other links/buttons in the card to still be "clickable"
+
+      if (clickableElems) {
+        clickableElems.forEach(function (elem) {
+          return elem.addEventListener("click", function (event) {
+            return event.stopPropagation();
+          });
+        });
+      }
+
+      card.addEventListener('click', function () {
+        var noTextSelected = !window.getSelection().toString();
+
+        if (noTextSelected) {
+          mainLink.click();
+        }
+      });
+    });
+  }
+};
+
+
+
+/***/ }),
+/* 2 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "exists": function() { return /* binding */ exists; }
+/* harmony export */ });
+/**
+ * Check whether an element exists in the DOM
+ * @param elem
+ * @return {boolean}
+ */
+var exists = function exists(elem) {
+  return elem !== 'undefined' && elem !== null && (elem.length >= 0 || elem.innerHTML.length >= 0);
+};
+
+
+
+/***/ }),
+/* 3 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "collapsibles": function() { return /* binding */ collapsibles; }
 /* harmony export */ });
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 
 /**
  * Collapsible panels
@@ -17,11 +83,11 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://insidegovuk.blog.gov.uk/2021/10/29/how-we-made-the-gov-uk-accordion-component-more-accessible/
  */
 
-var collapsibles = function () {
+var collapsibles = function collapsibles() {
   // Get all the collapsible containers
   var collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsibles"]'));
 
-  if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(collapseArray)) {
+  if ((0,_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(collapseArray)) {
     // Loop through containers
     collapseArray.forEach(function (item) {
       // Get headings inside a collapsible container
@@ -54,49 +120,30 @@ var collapsibles = function () {
     }); // End loop
   } // End if statement
 
-}();
-
-
-
-/***/ }),
-/* 2 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "exists": function() { return /* binding */ exists; }
-/* harmony export */ });
-/**
- * Helper functions for use across other JS files
- */
-
-/**
- * Check whether an element exists in the DOM
- * @param elem
- * @return {boolean}
- */
-var exists = function exists(elem) {
-  return elem !== 'undefined' && elem !== null && (elem.length >= 0 || elem.innerHTML.length >= 0);
 };
 
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "disclosureWidget": function() { return /* binding */ disclosureWidget; }
 /* harmony export */ });
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
+/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__);
+
 
 /**
  * Simple disclosure widget
  * @see https://adrianroselli.com/2020/05/disclosure-widgets.html
  */
 
-var disclosureWidget = function () {
+var disclosureWidget = function disclosureWidget() {
   var toggleButtonArray = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="true"]'));
 
   var closeDisclosures = function closeDisclosures() {
@@ -107,9 +154,9 @@ var disclosureWidget = function () {
     });
   };
 
-  if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(toggleButtonArray)) {
+  if ((0,_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(toggleButtonArray)) {
     toggleButtonArray.forEach(function (btn) {
-      btn.style = "";
+      btn.removeAttribute('style');
       btn.setAttribute('aria-expanded', 'false');
     });
     document.addEventListener('click', function (event) {
@@ -143,89 +190,73 @@ var disclosureWidget = function () {
       }
     });
   }
-}();
+};
 
 
 
 /***/ }),
-/* 4 */
+/* 5 */
+/***/ (function() {
+
+/**
+ * Element.closest polyfill for IE
+ * Needed for disclosure widget
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
+ */
+if (!Element.prototype.matches) {
+  Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+}
+
+if (!Element.prototype.closest) {
+  Element.prototype.closest = function (s) {
+    var el = this;
+    if (!document.documentElement.contains(el)) return null;
+
+    do {
+      if (el.matches(s)) return el;
+      el = el.parentElement || el.parentNode;
+    } while (el !== null && el.nodeType === 1);
+
+    return null;
+  };
+}
+
+/***/ }),
+/* 6 */
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "formErrorSummary": function() { return /* binding */ formErrorSummary; }
 /* harmony export */ });
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 
 /**
  * Shift focus to form error summary, if present
  * @see https://design-system.service.gov.uk/components/error-summary/#how-it-works
  */
 
-var formErrorSummary = function () {
+var formErrorSummary = function formErrorSummary() {
   var errorSummary = document.querySelector('[data-component="error-summary"]');
 
-  if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(errorSummary)) {
+  if ((0,_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(errorSummary)) {
     errorSummary.focus();
   }
-}();
+};
 
 
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "cardEnhancement": function() { return /* binding */ cardEnhancement; }
-/* harmony export */ });
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-
-/**
- * Card enhancement to trigger the main link whenever the card area is clicked
- * @see https://css-tricks.com/block-links-the-search-for-a-perfect-solution/
- */
-
-var cardEnhancement = function () {
-  var cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
-
-  if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(cardsArray)) {
-    // Loop through cards adding a click event and identifying the main link
-    cardsArray.forEach(function (card, index) {
-      var mainLink = card.querySelector('.card__link');
-      var clickableElems = Array.prototype.slice.call(card.querySelectorAll('[data-click]')); // Allow other links/buttons in the card to still be "clickable"
-
-      if (clickableElems) {
-        clickableElems.forEach(function (elem) {
-          return elem.addEventListener("click", function (event) {
-            return event.stopPropagation();
-          });
-        });
-      }
-
-      card.addEventListener('click', function () {
-        var noTextSelected = !window.getSelection().toString();
-
-        if (noTextSelected) {
-          mainLink.click();
-        }
-      });
-    });
-  }
-}();
-
-
-
-/***/ }),
-/* 6 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "responsiveTables": function() { return /* binding */ responsiveTables; }
 /* harmony export */ });
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 
 /**
  * Responsive tables
@@ -237,7 +268,7 @@ var responsiveTables = function responsiveTables() {
   // Get all the table wraps
   var tablesArray = Array.prototype.slice.call(document.querySelectorAll('.table-wrap'));
 
-  if ((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.exists)(tablesArray)) {
+  if ((0,_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(tablesArray)) {
     // Loop through them
     tablesArray.forEach(function (item) {
       // Get the parent element of the table wrap, and it's width
@@ -294,6 +325,18 @@ var responsiveTables = function responsiveTables() {
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	!function() {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = function(module) {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				function() { return module['default']; } :
+/******/ 				function() { return module; };
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	}();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	!function() {
 /******/ 		// define getter functions for harmony exports
@@ -324,20 +367,37 @@ var responsiveTables = function responsiveTables() {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 !function() {
+"use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
-/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
-/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
+/* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
+/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
+/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
+/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
 
 
 
 
 
-(0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__.responsiveTables)(); // Tie the responsiveTables function to a resize event, and debounce for performance
+
+function domLoadedActions() {
+  (0,_main_cards__WEBPACK_IMPORTED_MODULE_0__.cardEnhancement)();
+  (0,_main_collapsibles__WEBPACK_IMPORTED_MODULE_1__.collapsibles)();
+  (0,_main_disclosure_widget__WEBPACK_IMPORTED_MODULE_2__.disclosureWidget)();
+  (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_3__.formErrorSummary)();
+  (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__.responsiveTables)();
+}
+
+if (document.readyState === 'loading') {
+  // Loading hasn't finished yet
+  document.addEventListener('DOMContentLoaded', domLoadedActions);
+} else {
+  // `DOMContentLoaded` has already fired
+  domLoadedActions();
+} // Tie the responsiveTables function to a resize event, and debounce for performance
+
 
 var timeout;
 window.addEventListener('resize', function (event) {
