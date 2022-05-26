@@ -887,7 +887,6 @@ input[type=submit].button {
   min-height: 2.75rem;
   /* 5 */
   padding: 0.25em 0.75em;
-  text-align: center;
 }
 button:hover,
 .button:hover,
