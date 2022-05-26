@@ -3,6 +3,14 @@
 
     1. Needed for sticky footer
     2. Because autoprefixer does not cover IE grid
+
+    Amplify uses the grid implementation of the sticky footer
+    from https://css-tricks.com/couple-takes-sticky-footer/ -
+
+   The footer isn't sticky in IE, but the flexbox alternative
+   results in display issues, caused by components with overflow
+   not set to visible (e.g. carousels) if used within the sidebar layout.
+
 \*------------------------------------*/
 
 .global-footer {
