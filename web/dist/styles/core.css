@@ -1751,62 +1751,59 @@ svg {
 /*------------------------------------*\
     #Lists
 \*------------------------------------*/
-/**
-Remove default list styles on lists with a class name (e.g. 'nav-list')
- */
-ol[class],
-ul[class] {
-  list-style: none;
-  padding: 0;
-}
-
-ul:not([class]),
-ol:not([class]) {
+ul,
+ol {
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
-ul:not([class]) > * + *,
-ul:not([class]) li ul,
-ul:not([class]) li ol,
-ol:not([class]) > * + *,
-ol:not([class]) li ul,
-ol:not([class]) li ol {
+ul > * + *,
+ul li ul,
+ul li ol,
+ol > * + *,
+ol li ul,
+ol li ol {
   margin-top: 0.75em;
 }
 
-ul:not([class]) {
+ul {
   padding-left: 2.4em;
 }
 
-[dir=rtl] ul:not([class]) {
+[dir=rtl] ul {
   padding-left: 0;
   padding-right: 2.4em;
 }
 
-ol:not([class]) {
+ol {
   counter-reset: count;
   list-style-type: none;
   padding-left: 1.25em;
 }
-ol:not([class]) > li {
+ol > li {
   counter-increment: count;
 }
-ol:not([class]) > li::before {
+ol > li::before {
   content: counters(count, ".") " ";
   padding-right: 0.5em;
 }
 
-[dir=rtl] ol:not([class]) {
+[dir=rtl] ol {
   padding-left: 0;
   padding-right: 1.25em;
 }
-[dir=rtl] ol:not([class]) > li::before {
+[dir=rtl] ol > li::before {
   padding-left: 0.5em;
   padding-right: 0;
 }
 
-.clean-list li {
-  display: block;
+/**
+List without bullets, numbers or indentation. Bear in mind that this
+removes list semantics in some WebKit browsers. If it's important that
+the number of items in a list is announced, add role="list" to the <ul>
+ */
+.clean-list {
+  list-style: none;
+  padding: 0;
 }
 
 /**

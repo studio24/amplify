@@ -2,18 +2,8 @@
     #Lists
 \*------------------------------------*/
 
-/**
-Remove default list styles on lists with a class name (e.g. 'nav-list')
- */
-ol[class],
-ul[class] {
-	list-style: none;
-	padding: 0;
-}
-
-
-ul:not([class]),
-ol:not([class]) {
+ul,
+ol {
 	margin-bottom: rem(16);
 	margin-top: rem(16);
 
@@ -25,19 +15,19 @@ ol:not([class]) {
 }
 
 
-ul:not([class]) {
+ul {
 	padding-left: 2.4em;
 }
 
 [dir="rtl"] {
-	ul:not([class]) {
+	ul {
 		padding-left: 0;
 		padding-right: 2.4em;
 	}
 }
 
 
-ol:not([class]) {
+ol {
 	counter-reset: count;
 	list-style-type: none;
 	padding-left: 1.25em;
@@ -53,7 +43,7 @@ ol:not([class]) {
 }
 
 [dir="rtl"] {
-	ol:not([class]) {
+	ol {
 		padding-left: 0;
 		padding-right: 1.25em;
 
@@ -65,11 +55,14 @@ ol:not([class]) {
 }
 
 
-// No bullets or numbering
+/**
+List without bullets, numbers or indentation. Bear in mind that this
+removes list semantics in some WebKit browsers. If it's important that
+the number of items in a list is announced, add role="list" to the <ul>
+ */
 .clean-list {
-	li {
-		display: block;
-	}
+	list-style: none;
+	padding: 0;
 }
 
 
