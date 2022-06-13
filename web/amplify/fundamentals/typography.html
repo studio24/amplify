@@ -110,6 +110,20 @@
 						<p>Font Face Observer detects when the <code>@font-face</code> files are loaded and adds the <code>fonts-loaded</code> class to the <code>html</code> root element, at which point the web font will be used.
 						</p>
 						<p><a href="https://github.com/studio24/amplify/blob/main/docs/fonts.md">How to update fonts in Amplify for developers</a>.</p>
+						<h2>Font sizing and spacing</h2>
+						<p>It's common for designs to use a range of font sizes, with each size coupled to a specific line-height. To ensure consistency, each font size/line-height combination is defined as a <a href="https://sass-lang.com/documentation/at-rules/mixin">mixin</a>.</p>
+						<p>Each font size mixin is associated with a class using the same naming convention: use the prefix `<strong>text-</strong>` followed by a number representing the font size in pixels. This makes it easy for developers to know which class to use, and allows flexibility to add intermediate sizes if required.</p>
+						<h3>Example of creating a new mixin</h3>
+						<p>Suppose the design calls for a font size of 20px using a line-height of 26px. This needs to be converted into relative measurements - typically rems and a unitless line-height - for accessibility.</p>
+						<ul>
+							<li>Create a mixin called `text-20` in 20-mixins/_font-sizes.scss</li>
+							<li>Inside the mixin, use the `rem` function to convert the 20px into a rem value</li>
+							<li>Divide the line-height figure (26) by the font-size figure (20) to calculate the unitless line-height value for the mixin</li>
+							<li>Create a class called `text-20` in 30-base/_typograhy.scss and <a href="https://sass-lang.com/documentation/at-rules/mixin">include</a> the mixin</li>
+						</ul>
+						<p>If the font size/line-height combination will change at a specified viewport breakpoint (e.g. if <code>h1</code> or <code>h2</code> get larger above a certain viewport size), name it according to the largest font size it will have, e.g. `text-48`.</p>
+						<h3>Updating existing mixins</h3>
+						<p>Amplify has a range of font size mixins ready to use. If you decide to remove a mixin in favour of a new one, remember to perform a search and replace across the Sass files to prevent errors when compiling the SCSS into CSS.</p>
 					</div>
 				</div>
 			</div>
