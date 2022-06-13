@@ -120,7 +120,7 @@ If needed, update the `package.json` file in the project root to specify [which 
 * `webpack.config.min.js` for the minified version
 
 #### Copying over JS libraries
-If there are libraries that you would like to use as is in your project, you set up Webpack to copy them across from the src folder to the dist folder.
+If there are libraries that you would like to use as is in your project, set up Webpack to copy them across from the src folder to the dist folder.
 
 ##### If the script file is in a node_module
 In the `webpack.config.js` file, add a 'from-to' pattern to the CopyPlugin configuration parameters, using the syntax:
