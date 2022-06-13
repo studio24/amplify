@@ -1783,7 +1783,7 @@ ol > li {
   counter-increment: count;
 }
 ol > li::before {
-  content: counters(count, ".") " ";
+  content: counters(count, ".") ".";
   padding-right: 0.5em;
 }
 
@@ -2138,6 +2138,10 @@ out, but halve it to to account for 'doubling up' at the edges.
 .l-frame > video {
   height: 100%;
   width: 100%;
+}
+
+.l-frame > iframe {
+  border: 0;
 }
 
 .l-frame > img,

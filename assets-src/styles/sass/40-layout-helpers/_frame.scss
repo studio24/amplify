@@ -38,6 +38,11 @@
 }
 
 
+.l-frame > iframe {
+	border: 0;
+}
+
+
 .l-frame > img,
 .l-frame > video {
 	object-fit: cover;

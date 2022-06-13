@@ -36,7 +36,7 @@ ol {
 		counter-increment: count;
 
 		&::before {
-			content: counters(count, ".") " ";
+			content: counters(count, ".") ".";
 			padding-right: 0.5em;
 		}
 	}
