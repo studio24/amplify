@@ -112,7 +112,7 @@
 								<li>Use <a href="#fixed-width-inputs">fixed width inputs</a> for content that has a specific, known length. Postcode inputs should be postcode-sized, telephone number inputs should be telephone number-sized.</li>
 								<li>Make form fields look like form fields: apply a border and make sure they are empty to begin with. A minimum height of 44 pixels makes them easy to tap on touch screen devices.</li>
 								<li>Make sure any <code>button</code> looks like a button. Align them to the left edge of the last input (the right edge for right-to-left languages) where users naturally look for them. Use a verb for button text because the user is doing something, and relate it to what they are doing - avoid generic ‘Submit’ buttons.</li>
-								<li>The <code>select</code> element should be a last resort as they’re really hard to use. Try radio buttons instead. If there’s a long list of options, use JavaScript to enhance the <code>select</code> into an <a href="../advanced-components/accessible-autocomplete.html">accessible auto-complete field</a> (not to be confused with the <code>autocomplete</code> attribute).</li>
+								<li><a href="https://www.youtube.com/watch?v=CUkMCQR4TpY">The <code>select</code> element should be a last resort</a> as they’re really hard to use. Try radio buttons instead. If there’s a long list of options, use JavaScript to enhance the <code>select</code> into an <a href="../advanced-components/accessible-autocomplete.html">accessible auto-complete field</a> (not to be confused with the <code>autocomplete</code> attribute).</li>
 								<li>If you have to use a <code>select</code>, don't submit a form when its value changes. Select boxes that submit the form automatically when the user selects an option cause problems for keyboard and screen reader users.</li>
 							</ul>
 							<h3>Required fields</h3>
@@ -452,7 +452,8 @@
 						</div>
 						<div class="component component--text">
 							<h3>Considerations</h3>
-							<p>The <code>select</code> element should be a last resort as they’re really hard to use. Before using the <code>select</code> element, try asking users questions which will allow you to present them with fewer options. This should lessen the need for the <code>select</code> element, which could be replaced with e.g. radios.</p>
+							<p>The <code>select</code> element should be a last resort as they’re really hard to use. Before using it, try asking users questions which will allow you to present them with fewer options. This should lessen the need for the <code>select</code> element, which could be replaced with e.g. radios.</p>
+							<p>If using the <code>select</code> element to determine a change in browsing context (e.g. change to a map display or redirect to a different URL) it <strong>must</strong> be accompanied by a submit button, so that users can confirm their choice and make a correction if needed.</p>
 							<h3>Accessible auto-complete</h3>
 							<p>A <code>select</code> can be enhanced into an <a href="../advanced-components/accessible-autocomplete.html">accessible auto-complete</a> via JavaScript. Amplify uses the <a href="https://github.com/alphagov/accessible-autocomplete">Accessible autocomplete</a> NPM package, and there are a number of <a href="https://alphagov.github.io/accessible-autocomplete/examples/">example customisations</a> which can be followed.</p>
 						</div>
