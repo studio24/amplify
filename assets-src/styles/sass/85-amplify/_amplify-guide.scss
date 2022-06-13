@@ -123,6 +123,37 @@
 }
 
 
+.amplify .content-wrap {
+	@include mq($bp-tab-landscape) {
+		display: grid;
+		display: -ms-grid;
+		grid-template-columns: 24% 10% 66%;
+		-ms-grid-columns: 24% 10% 66%;
+		grid-template-rows: 1fr;
+		-ms-grid-rows: 1fr;
+	}
+}
+
+.amplify .content-wrap > *:first-child {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	-ms-grid-column: 1;
+	-ms-grid-row: 1;
+}
+
+.amplify .content-wrap > *:last-child {
+	grid-column-start: 3;
+	grid-column-end:4;
+	-ms-grid-column: 3;
+	-ms-grid-row: 1;
+	margin-top: rem(30);
+
+	@include mq($bp-tab-landscape) {
+		margin-top: 0;
+	}
+}
+
+
 .amplify .example + .example {
 	margin-top: 1rem;
 }
@@ -154,4 +185,20 @@
 // on this element. So we must manually re-apply the required `flex-grow` property.
 .amplify .search-bar button {
 	flex-grow: 1;
+}
+
+
+.amplify .table-wrap tr td:nth-child(1),
+.amplify .table-wrap tr td:nth-child(2),
+.amplify .table-wrap tr td:nth-child(3)
+{
+	min-width: 8.5em;
+}
+
+.amplify .table-wrap tr td:nth-child(4) {
+	min-width: 11.5em;
+}
+
+.amplify .table-wrap tr td:nth-child(5) {
+	min-width: 12.5em;
 }
