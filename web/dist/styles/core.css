@@ -1935,21 +1935,21 @@ Responsive tables:
 https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
  */
 @media screen {
-  .table-wrap {
+  [data-component=table-wrap] {
     border: 1px solid #bdbdbd;
     margin-bottom: 1rem;
     margin-top: 1rem;
     max-width: 100% !important;
   }
-  .table-wrap[role][aria-labelledby][tabindex] {
+  [data-component=table-wrap][role][aria-labelledby][tabindex] {
     overflow: auto;
   }
-  .table-wrap table {
+  [data-component=table-wrap] table {
     border: 0;
     margin-bottom: 0;
     margin-top: 0;
   }
-  .table-wrap:focus {
+  [data-component=table-wrap]:focus {
     border-color: #000;
     box-shadow: inset 0 0 0 4px;
     outline: 3px solid #ffdc00;
@@ -3312,17 +3312,17 @@ input[type=search] {
   flex-grow: 1;
 }
 
-.amplify .table-wrap tr td:nth-child(1),
-.amplify .table-wrap tr td:nth-child(2),
-.amplify .table-wrap tr td:nth-child(3) {
+.amplify [data-component=table-wrap] tr td:nth-child(1),
+.amplify [data-component=table-wrap] tr td:nth-child(2),
+.amplify [data-component=table-wrap] tr td:nth-child(3) {
   min-width: 8.5em;
 }
 
-.amplify .table-wrap tr td:nth-child(4) {
+.amplify [data-component=table-wrap] tr td:nth-child(4) {
   min-width: 11.5em;
 }
 
-.amplify .table-wrap tr td:nth-child(5) {
+.amplify [data-component=table-wrap] tr td:nth-child(5) {
   min-width: 12.5em;
 }
 

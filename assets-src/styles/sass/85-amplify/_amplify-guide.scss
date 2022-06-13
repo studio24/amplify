@@ -188,17 +188,17 @@
 }
 
 
-.amplify .table-wrap tr td:nth-child(1),
-.amplify .table-wrap tr td:nth-child(2),
-.amplify .table-wrap tr td:nth-child(3)
+.amplify [data-component="table-wrap"] tr td:nth-child(1),
+.amplify [data-component="table-wrap"] tr td:nth-child(2),
+.amplify [data-component="table-wrap"] tr td:nth-child(3)
 {
 	min-width: 8.5em;
 }
 
-.amplify .table-wrap tr td:nth-child(4) {
+.amplify [data-component="table-wrap"] tr td:nth-child(4) {
 	min-width: 11.5em;
 }
 
-.amplify .table-wrap tr td:nth-child(5) {
+.amplify [data-component="table-wrap"] tr td:nth-child(5) {
 	min-width: 12.5em;
 }

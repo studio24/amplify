@@ -139,7 +139,7 @@
 						<p>The grid structure of data tables must remain intact, no matter the available space. If there are many columns, the result may be horizontal scrolling. Based on the advice in Adrian Roselli's article <a href="https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html">Under-Engineered Responsive Tables</a>, the basic table markup then needs to be amended as follows:</p>
 						<ul>
 							<li>
-								<p>Wrap the table in a <code>div</code> with the class <code>table-wrap</code>, and the attribute <code>tabindex="0"</code> so that keyboard users can scroll it.</p>
+								<p>Wrap the table in a <code>div</code> with the data-attribute <code>data-component="table-wrap"</code>, and the attribute <code>tabindex="0"</code> so that keyboard users can scroll it.</p>
 							</li>
 							<li>
 								<p>Add the following attributes to the wrapping <code>div</code>: <code>tabindex="0"</code> and <code>role="region"</code></p>
@@ -153,7 +153,7 @@
 						</ul>
 					</div>
 					<div class="component">
-						<div class="table-wrap" role="region" aria-labelledby="unique-caption-id" tabindex="0">
+						<div role="region" aria-labelledby="unique-caption-id" tabindex="0" data-component="table-wrap">
 							<table>
 								<caption id="unique-caption-id">Members of the Spice Girls</caption>
 								<thead>

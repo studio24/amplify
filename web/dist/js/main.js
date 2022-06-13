@@ -266,7 +266,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var responsiveTables = function responsiveTables() {
   // Get all the table wraps
-  var tablesArray = Array.prototype.slice.call(document.querySelectorAll('.table-wrap'));
+  var tablesArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="table-wrap"]'));
 
   if ((0,_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(tablesArray)) {
     // Loop through them

@@ -63,7 +63,7 @@ Responsive tables:
 https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
  */
 @media screen {
-    .table-wrap {
+    [data-component="table-wrap"] {
         border: 1px solid $border-color;
         margin-bottom: rem(16);
         margin-top: rem(16);
