@@ -92,7 +92,7 @@
 					<div class="not-sidebar">
 						<div class="component component--text">
 							<h1>Sidebar</h1>
-							<p>The sidebar layout helper creates two content panels inside a containing element. These two panels stack vertically, until there is enough horizontal space for them to sit alongside each other. One content panel is narrower than the other, acting as a "sidebar". This web page uses the sidebar layout helper for the secondary navigation and content region.</p>
+							<p>The sidebar layout helper creates a pair of content panels inside a containing element. These two panels stack vertically, until there is enough horizontal space for them to sit alongside each other. One content panel is typically narrower than the other, acting as a "sidebar".</p>
 							<p>The sidebar layout helper needs an inner flexbox container to hold the two panels. The same negative margin technique used for the <a href="cluster.html">cluster layout</a> creates gutter spacing between the panels.</p>
 							<p>The point at which the panels sit side-by-side horizontally is determined by a <code>flex-basis</code> property on the narrower panel and a <code>min-width</code> on the wider panel. As there are <strong>no viewport media queries</strong>, the sidebar layout will nest nicely inside other containers.</p>
 						</div>
@@ -129,6 +129,8 @@
 						</div>
 						<div class="component component--text">
 							<p>We can choose to not specify a width on the narrow "sidebar" panel (by not declaring a <code>flex-basis</code> value) and let the content of the sidebar determine how wide it is. The preceding example shows how to override the default styles by using an additional class and omitting the <code>sidebar</code> class.</p>
+							<h2>Considerations</h2>
+							<p>It is not recommended to use the sidebar layout helper to create an entire page layout, with a main content area and a sidebar. This is because the technique Amplify uses to manage <a href="../fundamentals/tables.html">responsive tables</a> has been found not to work if the table sits within the sidebar layout helper.</p>
 						</div>
 					</div>
 				</div>
