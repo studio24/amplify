@@ -247,6 +247,56 @@ var formErrorSummary = function formErrorSummary() {
 
 
 
+/***/ }),
+/* 7 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "responsiveTables": function() { return /* binding */ responsiveTables; }
+/* harmony export */ });
+/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+
+/**
+ * Responsive tables
+ * Tab index changed from 0 to -1 if there is no horizontal overflow
+ * @see https://www.tpgi.com/short-note-on-improving-usability-of-scrollable-regions/
+ */
+
+var responsiveTables = function responsiveTables() {
+  // Get all the table wraps
+  var tablesArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="table-wrap"]'));
+
+  if ((0,_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(tablesArray)) {
+    // Loop through them
+    tablesArray.forEach(function (item) {
+      // Get the parent element of the table wrap, and it's width
+      var container = item.parentElement;
+      var containerWidth = parseInt(window.getComputedStyle(container, null).getPropertyValue("width"), 10); // Get the table inside the table wrap, and it's width
+
+      var table = item.firstElementChild;
+      var tableWidth = parseInt(window.getComputedStyle(table, null).getPropertyValue("width"), 10); // Comparison: true if the container is wider than the table
+
+      var noScroll = containerWidth >= tableWidth;
+      var ariaLabel = item.querySelector('caption').id; // Only make the container focusable if it needs scrolling
+
+      if (noScroll === true) {
+        item.removeAttribute('role');
+        item.removeAttribute('aria-labelledby');
+        item.removeAttribute('tabindex');
+      } else {
+        item.setAttribute('role', 'region');
+        item.setAttribute('aria-labelledby', ariaLabel);
+        item.setAttribute('tabindex', '0');
+      }
+    }); // End loop
+  } // End if statement
+
+};
+
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -325,16 +375,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
 /* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
 /* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
+/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
 
 
 
- // import {responsiveTables} from "./main/responsive-tables";
+
+
 
 function domLoadedActions() {
   (0,_main_cards__WEBPACK_IMPORTED_MODULE_0__.cardEnhancement)();
   (0,_main_collapsibles__WEBPACK_IMPORTED_MODULE_1__.collapsibles)();
   (0,_main_disclosure_widget__WEBPACK_IMPORTED_MODULE_2__.disclosureWidget)();
-  (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_3__.formErrorSummary)(); // responsiveTables();
+  (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_3__.formErrorSummary)();
+  (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__.responsiveTables)();
 }
 
 if (document.readyState === 'loading') {
@@ -346,23 +399,19 @@ if (document.readyState === 'loading') {
 } // Tie the responsiveTables function to a resize event, and debounce for performance
 
 
-var timeout; // window.addEventListener('resize', function (event) {
-//
-// 	// If timer is null, reset it to 66ms and run desired functions.
-// 	// Otherwise, wait until timer is cleared
-// 	if (!timeout) {
-// 		timeout = setTimeout(function () {
-//
-// 			// Reset timeout
-// 			timeout = null;
-//
-// 			// Run our resize functions
-// 			responsiveTables();
-//
-// 		}, 66);
-// 	}
-//
-// }, false);
+var timeout;
+window.addEventListener('resize', function (event) {
+  // If timer is null, reset it to 66ms and run desired functions.
+  // Otherwise, wait until timer is cleared
+  if (!timeout) {
+    timeout = setTimeout(function () {
+      // Reset timeout
+      timeout = null; // Run our resize functions
+
+      (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__.responsiveTables)();
+    }, 66);
+  }
+}, false);
 }();
 /******/ })()
 ;
