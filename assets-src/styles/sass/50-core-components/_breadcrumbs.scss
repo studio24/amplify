@@ -28,6 +28,17 @@
 }
 
 
+// Reset base <ol> styles
+.breadcrumbs ol {
+	counter-reset: none;
+}
+
+.breadcrumbs ol > li::before {
+	content: '';
+	padding: 0;
+}
+
+
 .breadcrumbs a {
 	color: $off-black;
 	display: block;
