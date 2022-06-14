@@ -76,52 +76,51 @@
 		</div>
 	</nav>
 	<main id="main">
-		<div class="l-sidebar">
-			<div>
-				<nav class="sidebar nav-secondary" aria-label="Secondary">
-					<ul class="clean-list" role="list">
-						<li><a class="nav-secondary__link" href="colours.html">Colours</a></li>
-						<li><a class="nav-secondary__link" href="typography.html">Typography</a></li>
-						<li><a class="nav-secondary__link" href="buttons-links.html">Buttons and links</a></li>
-						<li><a class="nav-secondary__link" href="lists.html">Lists</a></li>
-						<li><a class="nav-secondary__link" href="icons.html">Icons</a></li>
-						<li><a class="nav-secondary__link" href="breakpoints.html">Breakpoints</a></li>
-						<li><a class="nav-secondary__link" href="vertical-spacing.html">Vertical spacing</a></li>
-						<li><a class="nav-secondary__link" href="hide-and-show.html">Hide and show items inclusively</a></li>
-						<li><a class="nav-secondary__link" href="skip-link.html">Skip link</a></li>
-						<li><a class="nav-secondary__link" href="images.html">Images</a></li>
-						<li><a class="nav-secondary__link" href="forms.html">Forms</a></li>
-						<li><a class="nav-secondary__link" href="form-errors.html">Form error messages</a></li>
-						<li><a class="nav-secondary__link" href="tables.html">Tables</a></li>
-						<li><a class="nav-secondary__link" href="details-summary.html">Details and summary</a></li>
-						<li><a class="nav-secondary__link" href="utility-classes.html">Utility classes</a></li>
-						<li><a class="nav-secondary__link" href="flow-elements.html" aria-current="page">Flow elements</a></li>
-						<li><a class="nav-secondary__link" href="print-styles.html">Print styles</a></li>
-					</ul>
-				</nav>
-				<div class="not-sidebar">
-					<div class="component component--text">
-						<h1>Flow elements</h1>
-						<p>These are elements that are used in the body of documents and applications.</p>
-						<p>This page provides examples of how Amplify does (or doesn't) style some of the more common flow elements that are not covered in more detail elsewhere.</p>
-						<p>This paragraph contains a selection of HTML5 elements, such as <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>. You can also use <kbd>keyboard text</kbd>, which sometimes is styled similarly to the <code>code</code> or <samp>samp</samp> elements. Even more specifically, there is an element just for <var>variables</var>. And let's not forget the sub (H<sub>2</sub>O) and sup (E = MC<sup>2</sup>) elements.</p>
+		<div class="content-wrap">
+			<nav class="sidebar nav-secondary" aria-label="Secondary">
+				<ul class="clean-list" role="list">
+					<li><a class="nav-secondary__link" href="colours.html">Colours</a></li>
+					<li><a class="nav-secondary__link" href="typography.html">Typography</a></li>
+					<li><a class="nav-secondary__link" href="buttons-links.html">Buttons and links</a></li>
+					<li><a class="nav-secondary__link" href="lists.html">Lists</a></li>
+					<li><a class="nav-secondary__link" href="icons.html">Icons</a></li>
+					<li><a class="nav-secondary__link" href="breakpoints.html">Breakpoints</a></li>
+					<li><a class="nav-secondary__link" href="vertical-spacing.html">Vertical spacing</a></li>
+					<li><a class="nav-secondary__link" href="hide-and-show.html">Hide and show items inclusively</a></li>
+					<li><a class="nav-secondary__link" href="skip-link.html">Skip link</a></li>
+					<li><a class="nav-secondary__link" href="images.html">Images</a></li>
+					<li><a class="nav-secondary__link" href="forms.html">Forms</a></li>
+					<li><a class="nav-secondary__link" href="form-errors.html">Form error messages</a></li>
+					<li><a class="nav-secondary__link" href="tables.html">Tables</a></li>
+					<li><a class="nav-secondary__link" href="details-summary.html">Details and summary</a></li>
+					<li><a class="nav-secondary__link" href="utility-classes.html">Utility classes</a></li>
+					<li><a class="nav-secondary__link" href="flow-elements.html" aria-current="page">Flow elements</a></li>
+					<li><a class="nav-secondary__link" href="print-styles.html">Print styles</a></li>
+				</ul>
+			</nav>
+			<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+			<div class="content">
+				<div class="component component--text">
+					<h1>Flow elements</h1>
+					<p>These are elements that are used in the body of documents and applications.</p>
+					<p>This page provides examples of how Amplify does (or doesn't) style some of the more common flow elements that are not covered in more detail elsewhere.</p>
+					<p>This paragraph contains a selection of HTML5 elements, such as <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>. You can also use <kbd>keyboard text</kbd>, which sometimes is styled similarly to the <code>code</code> or <samp>samp</samp> elements. Even more specifically, there is an element just for <var>variables</var>. And let's not forget the sub (H<sub>2</sub>O) and sup (E = MC<sup>2</sup>) elements.</p>
 
 
-						<p><code>abbr</code>: Some vehicles meet the <abbr title="Super Ultra Low Emission Vehicle">SULEV</abbr> standard.<br> <code>br</code> was used to make this sentence start on a new line.</p>
-						<p><code>em</code> is used for <em>emphasis</em> and usually renders as italics, contrast that with <code>i</code> which is used for alternate voice or to offset from the normal (such as a phrase from a different language or taxonomic designation): <i>E. coli</i> can be bad. <code>strong</code> is used for <strong>importance or urgency</strong> and usually renders as bold, contrast that with <code>b</code> which is used to <b>draw attention</b> without the semantic meaning of importance.</p>
-						<p><code>cite</code>: In the words of <cite>Charles Bukowski</cite> — <q>An intellectual says a simple thing in a hard way. An artist says a hard thing in a simple way.</q></p>
-						<p><code>q</code>: The W3C page <cite>About W3C</cite> says the W3C’s mission is <q cite="https://www.w3.org/Consortium/">To lead the World Wide Web to its full potential by developing protocols and guidelines that ensure long-term growth for the Web</q>.</p>
-						<p><code>sub</code> is used for subscripts: H<sub>2</sub>O. <code>sup</code> is used for superscripts: E = MC<sup>2</sup>.</p>
-						<p><code>small</code> is used for side comments: <q>I wrote this whole document. <small>[Editor's note: no they did not]</small></q></p>
-						<p><code>dfn</code>: Foreign phrases add a certain <dfn lang="fr" title="French: indefinable quality">je ne sais quoi</dfn> to one's prose.</p>
-						<p><code>time</code>: use for specifying <time datetime="2022-01-24T05:00-07:00">5 A.M.</time> in a machine-readable format.</p>
-						<p><code>kbd</code> and <code>samp</code>: I did this:</p>
-						<pre><samp>c:\&gt;<kbd>format c: /yes</kbd></samp></pre>
-						<p>Is that bad? Press <kbd><kbd>Ctrl</kbd></kbd>+<kbd><kbd>F5</kbd></kbd> for a hard reload.</p>
-						<p><code>var</code>: To log in, type <kbd>ssh <var>user</var>@example.com</kbd>, where <var>user</var> is your user ID.</p>
-						<p><code>mark</code>: the HTML equivalent of the <mark>yellow highlighter</mark>.</p>
-						<p><code>meter</code> and <code>progress</code>: Storage space usage: <meter value="6" max="8">6 blocks used (out of 8 total)</meter> Progress: <progress value="37" max="100">37%</progress></p>
-					</div>
+					<p><code>abbr</code>: Some vehicles meet the <abbr title="Super Ultra Low Emission Vehicle">SULEV</abbr> standard.<br> <code>br</code> was used to make this sentence start on a new line.</p>
+					<p><code>em</code> is used for <em>emphasis</em> and usually renders as italics, contrast that with <code>i</code> which is used for alternate voice or to offset from the normal (such as a phrase from a different language or taxonomic designation): <i>E. coli</i> can be bad. <code>strong</code> is used for <strong>importance or urgency</strong> and usually renders as bold, contrast that with <code>b</code> which is used to <b>draw attention</b> without the semantic meaning of importance.</p>
+					<p><code>cite</code>: In the words of <cite>Charles Bukowski</cite> — <q>An intellectual says a simple thing in a hard way. An artist says a hard thing in a simple way.</q></p>
+					<p><code>q</code>: The W3C page <cite>About W3C</cite> says the W3C’s mission is <q cite="https://www.w3.org/Consortium/">To lead the World Wide Web to its full potential by developing protocols and guidelines that ensure long-term growth for the Web</q>.</p>
+					<p><code>sub</code> is used for subscripts: H<sub>2</sub>O. <code>sup</code> is used for superscripts: E = MC<sup>2</sup>.</p>
+					<p><code>small</code> is used for side comments: <q>I wrote this whole document. <small>[Editor's note: no they did not]</small></q></p>
+					<p><code>dfn</code>: Foreign phrases add a certain <dfn lang="fr" title="French: indefinable quality">je ne sais quoi</dfn> to one's prose.</p>
+					<p><code>time</code>: use for specifying <time datetime="2022-01-24T05:00-07:00">5 A.M.</time> in a machine-readable format.</p>
+					<p><code>kbd</code> and <code>samp</code>: I did this:</p>
+					<pre><samp>c:\&gt;<kbd>format c: /yes</kbd></samp></pre>
+					<p>Is that bad? Press <kbd><kbd>Ctrl</kbd></kbd>+<kbd><kbd>F5</kbd></kbd> for a hard reload.</p>
+					<p><code>var</code>: To log in, type <kbd>ssh <var>user</var>@example.com</kbd>, where <var>user</var> is your user ID.</p>
+					<p><code>mark</code>: the HTML equivalent of the <mark>yellow highlighter</mark>.</p>
+					<p><code>meter</code> and <code>progress</code>: Storage space usage: <meter value="6" max="8">6 blocks used (out of 8 total)</meter> Progress: <progress value="37" max="100">37%</progress></p>
 				</div>
 			</div>
 		</div>

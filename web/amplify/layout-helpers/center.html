@@ -76,29 +76,28 @@
 			</div>
 		</nav>
 		<main id="main">
-			<div class="l-sidebar">
-				<div>
-					<nav class="sidebar nav-secondary" aria-label="Secondary">
-						<ul class="clean-list" role="list">
-							<li><a class="nav-secondary__link" href="box.html">Box</a></li>
-							<li><a class="nav-secondary__link" href="center.html" aria-current="page">Center</a></li>
-							<li><a class="nav-secondary__link" href="cluster.html">Cluster</a></li>
-							<li><a class="nav-secondary__link" href="cover.html">Cover</a></li>
-							<li><a class="nav-secondary__link" href="frame.html">Frame</a></li>
-							<li><a class="nav-secondary__link" href="sidebar.html">Sidebar</a></li>
-							<li><a class="nav-secondary__link" href="switcher.html">Switcher</a></li>
-						</ul>
-					</nav>
-					<div class="not-sidebar">
-						<div class="component component--text">
-							<h1>Center</h1>
-							<p>The center layout helper creates a vertical strip of content inside a given container element, with equal spacing on either side. It uses the class <code>l-center</code>. This technique is used on the <code>main</code> element (albeit without using the <code>l-center</code> class).</p>
-							<p>Padding on the sides of the center layout helper maintains a space between its contents and the edges of the parent container, even when the parent is narrower than the <code>max-width</code> of the center layout.</p>
-							<p>The center layout helper uses an exception to the global <code>box-sizing: border-box;</code> declaration. It uses <code>box-sizing: content-box;</code> to prevent the padding from making the content narrower than intended.</p>
-						</div>
-						<div class="component">
-							<div class="l-center">Center layout in action</div>
-						</div>
+			<div class="content-wrap">
+				<nav class="sidebar nav-secondary" aria-label="Secondary">
+					<ul class="clean-list" role="list">
+						<li><a class="nav-secondary__link" href="box.html">Box</a></li>
+						<li><a class="nav-secondary__link" href="center.html" aria-current="page">Center</a></li>
+						<li><a class="nav-secondary__link" href="cluster.html">Cluster</a></li>
+						<li><a class="nav-secondary__link" href="cover.html">Cover</a></li>
+						<li><a class="nav-secondary__link" href="frame.html">Frame</a></li>
+						<li><a class="nav-secondary__link" href="sidebar.html">Sidebar</a></li>
+						<li><a class="nav-secondary__link" href="switcher.html">Switcher</a></li>
+					</ul>
+				</nav>
+				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+				<div class="content">
+					<div class="component component--text">
+						<h1>Center</h1>
+						<p>The center layout helper creates a vertical strip of content inside a given container element, with equal spacing on either side. It uses the class <code>l-center</code>. This technique is used on the <code>main</code> element (albeit without using the <code>l-center</code> class).</p>
+						<p>Padding on the sides of the center layout helper maintains a space between its contents and the edges of the parent container, even when the parent is narrower than the <code>max-width</code> of the center layout.</p>
+						<p>The center layout helper uses an exception to the global <code>box-sizing: border-box;</code> declaration. It uses <code>box-sizing: content-box;</code> to prevent the padding from making the content narrower than intended.</p>
+					</div>
+					<div class="component">
+						<div class="l-center">Center layout in action</div>
 					</div>
 				</div>
 			</div>

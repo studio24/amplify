@@ -127,8 +127,8 @@
 	@include mq($bp-tab-landscape) {
 		display: grid;
 		display: -ms-grid;
-		grid-template-columns: 24% 10% 66%;
-		-ms-grid-columns: 24% 10% 66%;
+		grid-template-columns: 25% 10% 65%;
+		-ms-grid-columns: 25% 10% 65%;
 		grid-template-rows: 1fr;
 		-ms-grid-rows: 1fr;
 	}
@@ -185,21 +185,4 @@
 // on this element. So we must manually re-apply the required `flex-grow` property.
 .amplify .search-bar button {
 	flex-grow: 1;
-}
-
-
-// Styles needed to make sure the responsive table contents will overflow for the example.
-.amplify [data-component="table-wrap"] tr td:nth-child(1),
-.amplify [data-component="table-wrap"] tr td:nth-child(2),
-.amplify [data-component="table-wrap"] tr td:nth-child(3)
-{
-	min-width: 8.5em;
-}
-
-.amplify [data-component="table-wrap"] tr td:nth-child(4) {
-	min-width: 11.5em;
-}
-
-.amplify [data-component="table-wrap"] tr td:nth-child(5) {
-	min-width: 12.5em;
 }

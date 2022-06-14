@@ -76,59 +76,58 @@
 			</div>
 		</nav>
 		<main id="main">
-			<div class="l-sidebar">
-				<div>
-					<nav class="sidebar nav-secondary" aria-label="Secondary">
-						<ul class="clean-list" role="list">
-							<li><a class="nav-secondary__link" href="avatars.html">Avatars</a></li>
-							<li><a class="nav-secondary__link" href="breadcrumbs.html">Breadcrumbs</a></li>
-							<li><a class="nav-secondary__link" href="cards.html" aria-current="page">Cards</a></li>
-							<li><a class="nav-secondary__link" href="image-component.html">Image component</a></li>
-							<li><a class="nav-secondary__link" href="main.html">Main</a></li>
-							<li><a class="nav-secondary__link" href="notes.html">Notes</a></li>
-							<li><a class="nav-secondary__link" href="pagination.html">Pagination</a></li>
-							<li><a class="nav-secondary__link" href="progress-indicator.html">Progress indicator</a></li>
-							<li><a class="nav-secondary__link" href="quote-component.html">Quote component</a></li>
-							<li><a class="nav-secondary__link" href="shelves.html">Shelves</a></li>
-							<li><a class="nav-secondary__link" href="search.html">Simple search form</a></li>
-							<li><a class="nav-secondary__link" href="sticky-footer.html">Sticky footer</a></li>
-							<li><a class="nav-secondary__link" href="tag-list.html">Tag list</a></li>
-							<li><a class="nav-secondary__link" href="text-component.html">Text component</a></li>
-							<li><a class="nav-secondary__link" href="video.html">Video component</a></li>
-						</ul>
-					</nav>
-					<div class="not-sidebar">
-						<div class="component component--text">
-							<h1>Simple cards</h1>
-							<p>Cards are used in multiple places. Although the visual appearance may vary, they share two general patterns:</p>
-							<ol>
-								<li>Simple cards (covered here) with a distinct link that can be selected</li>
-								<li><a href="../advanced-components/cards.html">Block link cards</a>, where JavaScript is used to make the entire surface area act as a link</li>
-							</ol>
-							<p>For both types of card, it is important to check that the heading level used fits in with the card's location in the page content hierarchy.</p>
-							<p>For arranging groups of cards you can use the <a href="../layout-helpers/switcher.html">switcher layout helper</a> or <a href="shelves.html">shelves component</a> depending on your requirements.</p>
-						</div>
-						<div class="component">
-							<h2>A simple card</h2>
-							<div class="card">
-								<div class="l-box l-box--no-border card__text">
-									<h3 class="card__heading">Cats and the Internet</h3>
-									<p>Examining the popularity of cat-related media content online.</p>
-									<a class="button" href="https://en.wikipedia.org/wiki/Cats_and_the_Internet"><span class="visuallyhidden">Cats and the Internet:</span> Read more</a>
-								</div>
-								<div class="l-frame l-frame--3-2 card__image">
-									<img src="../../dist/images/jpg-cat-1.jpg" alt="" loading="lazy">
-								</div>
+			<div class="content-wrap">
+				<nav class="sidebar nav-secondary" aria-label="Secondary">
+					<ul class="clean-list" role="list">
+						<li><a class="nav-secondary__link" href="avatars.html">Avatars</a></li>
+						<li><a class="nav-secondary__link" href="breadcrumbs.html">Breadcrumbs</a></li>
+						<li><a class="nav-secondary__link" href="cards.html" aria-current="page">Cards</a></li>
+						<li><a class="nav-secondary__link" href="image-component.html">Image component</a></li>
+						<li><a class="nav-secondary__link" href="main.html">Main</a></li>
+						<li><a class="nav-secondary__link" href="notes.html">Notes</a></li>
+						<li><a class="nav-secondary__link" href="pagination.html">Pagination</a></li>
+						<li><a class="nav-secondary__link" href="progress-indicator.html">Progress indicator</a></li>
+						<li><a class="nav-secondary__link" href="quote-component.html">Quote component</a></li>
+						<li><a class="nav-secondary__link" href="shelves.html">Shelves</a></li>
+						<li><a class="nav-secondary__link" href="search.html">Simple search form</a></li>
+						<li><a class="nav-secondary__link" href="sticky-footer.html">Sticky footer</a></li>
+						<li><a class="nav-secondary__link" href="tag-list.html">Tag list</a></li>
+						<li><a class="nav-secondary__link" href="text-component.html">Text component</a></li>
+						<li><a class="nav-secondary__link" href="video.html">Video component</a></li>
+					</ul>
+				</nav>
+				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+				<div class="content">
+					<div class="component component--text">
+						<h1>Simple cards</h1>
+						<p>Cards are used in multiple places. Although the visual appearance may vary, they share two general patterns:</p>
+						<ol>
+							<li>Simple cards (covered here) with a distinct link that can be selected</li>
+							<li><a href="../advanced-components/cards.html">Block link cards</a>, where JavaScript is used to make the entire surface area act as a link</li>
+						</ol>
+						<p>For both types of card, it is important to check that the heading level used fits in with the card's location in the page content hierarchy.</p>
+						<p>For arranging groups of cards you can use the <a href="../layout-helpers/switcher.html">switcher layout helper</a> or <a href="shelves.html">shelves component</a> depending on your requirements.</p>
+					</div>
+					<div class="component">
+						<h2>A simple card</h2>
+						<div class="card">
+							<div class="l-box l-box--no-border card__text">
+								<h3 class="card__heading">Cats and the Internet</h3>
+								<p>Examining the popularity of cat-related media content online.</p>
+								<a class="button" href="https://en.wikipedia.org/wiki/Cats_and_the_Internet"><span class="visuallyhidden">Cats and the Internet:</span> Read more</a>
+							</div>
+							<div class="l-frame l-frame--3-2 card__image">
+								<img src="../../dist/images/jpg-cat-1.jpg" alt="" loading="lazy">
 							</div>
 						</div>
-						<div class="component component--text">
-							<h2>Considerations</h2>
-							<p>Note the use of the <a href="../layout-helpers/frame.html">frame layout helper</a> for the card image and the <a href="../layout-helpers/box.html">box layout helper</a> for the card text.</p>
-							<p>In the markup, the card text is first in the source order to prioritise it over the image. Flexbox is used to place the image ahead of the card text visually, via the <code>order</code> property.</p>
-							<p>Where generic link text is used visually, this is enhanced for Assistive Technology users with the <code>span class="visuallyhidden"</code> providing descriptive link text to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-link-only.html">WCAG Success Criterion 2.4.9: Link Purpose (Link Only) (AAA)</a>.</p>
-							<h3>Neat cards</h3>
-							<p>If the design calls for a row of cards of equal height, irrespective of the amount of text content, you can add the <code>card--neat</code> modifier class to the cards. This forces the card to take up 100% of the height of the parent container. It will also push the last child element in the text region to the bottom edge. You can see this in action on the <a href="../index.html">Amplify home page</a>.</p>
-						</div>
+					</div>
+					<div class="component component--text">
+						<h2>Considerations</h2>
+						<p>Note the use of the <a href="../layout-helpers/frame.html">frame layout helper</a> for the card image and the <a href="../layout-helpers/box.html">box layout helper</a> for the card text.</p>
+						<p>In the markup, the card text is first in the source order to prioritise it over the image. Flexbox is used to place the image ahead of the card text visually, via the <code>order</code> property.</p>
+						<p>Where generic link text is used visually, this is enhanced for Assistive Technology users with the <code>span class="visuallyhidden"</code> providing descriptive link text to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-link-only.html">WCAG Success Criterion 2.4.9: Link Purpose (Link Only) (AAA)</a>.</p>
+						<h3>Neat cards</h3>
+						<p>If the design calls for a row of cards of equal height, irrespective of the amount of text content, you can add the <code>card--neat</code> modifier class to the cards. This forces the card to take up 100% of the height of the parent container. It will also push the last child element in the text region to the bottom edge. You can see this in action on the <a href="../index.html">Amplify home page</a>.</p>
 					</div>
 				</div>
 			</div>

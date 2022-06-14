@@ -76,59 +76,58 @@
 			</div>
 		</nav>
 		<main id="main">
-			<div class="l-sidebar">
-				<div>
-					<nav class="sidebar nav-secondary" aria-label="Secondary">
-						<ul class="clean-list" role="list">
-							<li><a class="nav-secondary__link" href="accessible-autocomplete.html">Accessible auto-complete</a></li>
-							<li><a class="nav-secondary__link" href="cards.html">Cards</a></li>
-							<li><a class="nav-secondary__link" href="collapsibles.html" aria-current="page">Collapsible containers</a></li>
-							<li><a class="nav-secondary__link" href="disclosure-widget.html">Disclosure widget</a></li>
-							<li><a class="nav-secondary__link" href="tabs.html">Tabbed sections</a></li>
-						</ul>
-					</nav>
-					<div class="not-sidebar">
-						<div class="component component--text">
-							<h1>Collapsible containers</h1>
-							<p>This is a series of containers, each holding a heading and some content. JavaScript enhances the markup, collapsing all containers and inserting buttons inside the headings to toggle them open/closed. The JavaScript looks for the presence of the data attribute <code>data-component="collapsibles"</code> on the outer container and <code>data-heading="collapsibles"</code> on the headings.</p>
-							<p>The component takes inspiration from the <a href="https://design-system.service.gov.uk/components/accordion/">GOV.UK Design System accordion component</a>.</p>
-						</div>
-						<div class="component component--collapsibles" data-component="collapsibles">
-							<div class="component--collapsibles__panel">
-								<h2 data-heading="collapsibles">Panel 1 heading</h2>
-								<div class="component--collapsibles__panel__content">
-									<p>This is a paragraph of text.</p>
-									<p>Here is another paragraph of text that intentionally contains a lot more words inside it in order to fill the width of the page successfully to check layout and so forth.</p>
-									<a href="https://en.wikipedia.org/wiki/Paragraph">Paragraph on Wikipedia</a>
-								</div>
-							</div>
-							<div class="component--collapsibles__panel">
-								<h2 data-heading="collapsibles">Panel 2 heading</h2>
-								<div class="component--collapsibles__panel__content">
-									<p>This is a paragraph of text.</p>
-									<p>Here is another paragraph of text that intentionally contains a lot more words inside it in order to fill the width of the page successfully to check layout and so forth.</p>
-								</div>
-							</div>
-							<div class="component--collapsibles__panel">
-								<h2 data-heading="collapsibles">Panel 3 heading</h2>
-								<div class="component--collapsibles__panel__content">
-									<p>This is a paragraph of text.</p>
-									<p>Here is another paragraph of text that intentionally contains a lot more words inside it in order to fill the width of the page successfully to check layout and so forth.</p>
-								</div>
-							</div>
-							<div class="component--collapsibles__panel">
-								<h2 data-heading="collapsibles">Panel 4 heading</h2>
-								<div class="component--collapsibles__panel__content">
-									<p>This is a paragraph of text.</p>
-									<p>Here is another paragraph of text that intentionally contains a lot more words inside it in order to fill the width of the page successfully to check layout and so forth.</p>
-								</div>
+			<div class="content-wrap">
+				<nav class="sidebar nav-secondary" aria-label="Secondary">
+					<ul class="clean-list" role="list">
+						<li><a class="nav-secondary__link" href="accessible-autocomplete.html">Accessible auto-complete</a></li>
+						<li><a class="nav-secondary__link" href="cards.html">Cards</a></li>
+						<li><a class="nav-secondary__link" href="collapsibles.html" aria-current="page">Collapsible containers</a></li>
+						<li><a class="nav-secondary__link" href="disclosure-widget.html">Disclosure widget</a></li>
+						<li><a class="nav-secondary__link" href="tabs.html">Tabbed sections</a></li>
+					</ul>
+				</nav>
+				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+				<div class="content">
+					<div class="component component--text">
+						<h1>Collapsible containers</h1>
+						<p>This is a series of containers, each holding a heading and some content. JavaScript enhances the markup, collapsing all containers and inserting buttons inside the headings to toggle them open/closed. The JavaScript looks for the presence of the data attribute <code>data-component="collapsibles"</code> on the outer container and <code>data-heading="collapsibles"</code> on the headings.</p>
+						<p>The component takes inspiration from the <a href="https://design-system.service.gov.uk/components/accordion/">GOV.UK Design System accordion component</a>.</p>
+					</div>
+					<div class="component component--collapsibles" data-component="collapsibles">
+						<div class="component--collapsibles__panel">
+							<h2 data-heading="collapsibles">Panel 1 heading</h2>
+							<div class="component--collapsibles__panel__content">
+								<p>This is a paragraph of text.</p>
+								<p>Here is another paragraph of text that intentionally contains a lot more words inside it in order to fill the width of the page successfully to check layout and so forth.</p>
+								<a href="https://en.wikipedia.org/wiki/Paragraph">Paragraph on Wikipedia</a>
 							</div>
 						</div>
-						<div class="component component--text">
-							<h2>Considerations</h2>
-							<p><a href="https://adamsilver.io/articles/buttons-shouldnt-have-a-hand-cursor/">Buttons shouldn't use the pointer cursor</a>, so we need to ensure the buttons have sufficient affordance by other visual means. The icon and show/hide help text help to achieve this, but we can also make use of background-color, border and/or box-shadow styles.</p>
-							<p>Aligning the button content to the leading edge reduces the risk of it being missed by people using screen magnification software.</p>
+						<div class="component--collapsibles__panel">
+							<h2 data-heading="collapsibles">Panel 2 heading</h2>
+							<div class="component--collapsibles__panel__content">
+								<p>This is a paragraph of text.</p>
+								<p>Here is another paragraph of text that intentionally contains a lot more words inside it in order to fill the width of the page successfully to check layout and so forth.</p>
+							</div>
 						</div>
+						<div class="component--collapsibles__panel">
+							<h2 data-heading="collapsibles">Panel 3 heading</h2>
+							<div class="component--collapsibles__panel__content">
+								<p>This is a paragraph of text.</p>
+								<p>Here is another paragraph of text that intentionally contains a lot more words inside it in order to fill the width of the page successfully to check layout and so forth.</p>
+							</div>
+						</div>
+						<div class="component--collapsibles__panel">
+							<h2 data-heading="collapsibles">Panel 4 heading</h2>
+							<div class="component--collapsibles__panel__content">
+								<p>This is a paragraph of text.</p>
+								<p>Here is another paragraph of text that intentionally contains a lot more words inside it in order to fill the width of the page successfully to check layout and so forth.</p>
+							</div>
+						</div>
+					</div>
+					<div class="component component--text">
+						<h2>Considerations</h2>
+						<p><a href="https://adamsilver.io/articles/buttons-shouldnt-have-a-hand-cursor/">Buttons shouldn't use the pointer cursor</a>, so we need to ensure the buttons have sufficient affordance by other visual means. The icon and show/hide help text help to achieve this, but we can also make use of background-color, border and/or box-shadow styles.</p>
+						<p>Aligning the button content to the leading edge reduces the risk of it being missed by people using screen magnification software.</p>
 					</div>
 				</div>
 			</div>

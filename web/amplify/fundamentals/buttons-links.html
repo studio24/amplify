@@ -76,86 +76,85 @@
 			</div>
 		</nav>
 		<main id="main">
-			<div class="l-sidebar">
-				<div>
-					<nav class="sidebar nav-secondary" aria-label="Secondary">
-						<ul class="clean-list" role="list">
-							<li><a class="nav-secondary__link" href="colours.html">Colours</a></li>
-							<li><a class="nav-secondary__link" href="typography.html">Typography</a></li>
-							<li><a class="nav-secondary__link" href="buttons-links.html" aria-current="page">Buttons and links</a></li>
-							<li><a class="nav-secondary__link" href="lists.html">Lists</a></li>
-							<li><a class="nav-secondary__link" href="icons.html">Icons</a></li>
-							<li><a class="nav-secondary__link" href="breakpoints.html">Breakpoints</a></li>
-							<li><a class="nav-secondary__link" href="vertical-spacing.html">Vertical spacing</a></li>
-							<li><a class="nav-secondary__link" href="hide-and-show.html">Hide and show items inclusively</a></li>
-							<li><a class="nav-secondary__link" href="skip-link.html">Skip link</a></li>
-							<li><a class="nav-secondary__link" href="images.html">Images</a></li>
-							<li><a class="nav-secondary__link" href="forms.html">Forms</a></li>
-							<li><a class="nav-secondary__link" href="form-errors.html">Form error messages</a></li>
-							<li><a class="nav-secondary__link" href="tables.html">Tables</a></li>
-							<li><a class="nav-secondary__link" href="details-summary.html">Details and summary</a></li>
-							<li><a class="nav-secondary__link" href="utility-classes.html">Utility classes</a></li>
-							<li><a class="nav-secondary__link" href="flow-elements.html">Flow elements</a></li>
-							<li><a class="nav-secondary__link" href="print-styles.html">Print styles</a></li>
-						</ul>
-					</nav>
-					<div class="not-sidebar">
-						<div class="component component--text">
-							<h1>Buttons and links</h1>
-							<p>Use a button to help a user carry out an action, such as playing audio/video, toggling a dropdown, opening a modal, etc. If you are navigating a user to a new resource, use a link.</p>
-							<p>Buttons, and links styled as buttons, need to have sufficient padding to ensure they meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html">WCAG Success Criterion 2.5.5: Target Size (AAA)</a>. This does not apply to links within sentences and paragraphs.</p>
+			<div class="content-wrap">
+				<nav class="sidebar nav-secondary" aria-label="Secondary">
+					<ul class="clean-list" role="list">
+						<li><a class="nav-secondary__link" href="colours.html">Colours</a></li>
+						<li><a class="nav-secondary__link" href="typography.html">Typography</a></li>
+						<li><a class="nav-secondary__link" href="buttons-links.html" aria-current="page">Buttons and links</a></li>
+						<li><a class="nav-secondary__link" href="lists.html">Lists</a></li>
+						<li><a class="nav-secondary__link" href="icons.html">Icons</a></li>
+						<li><a class="nav-secondary__link" href="breakpoints.html">Breakpoints</a></li>
+						<li><a class="nav-secondary__link" href="vertical-spacing.html">Vertical spacing</a></li>
+						<li><a class="nav-secondary__link" href="hide-and-show.html">Hide and show items inclusively</a></li>
+						<li><a class="nav-secondary__link" href="skip-link.html">Skip link</a></li>
+						<li><a class="nav-secondary__link" href="images.html">Images</a></li>
+						<li><a class="nav-secondary__link" href="forms.html">Forms</a></li>
+						<li><a class="nav-secondary__link" href="form-errors.html">Form error messages</a></li>
+						<li><a class="nav-secondary__link" href="tables.html">Tables</a></li>
+						<li><a class="nav-secondary__link" href="details-summary.html">Details and summary</a></li>
+						<li><a class="nav-secondary__link" href="utility-classes.html">Utility classes</a></li>
+						<li><a class="nav-secondary__link" href="flow-elements.html">Flow elements</a></li>
+						<li><a class="nav-secondary__link" href="print-styles.html">Print styles</a></li>
+					</ul>
+				</nav>
+				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+				<div class="content">
+					<div class="component component--text">
+						<h1>Buttons and links</h1>
+						<p>Use a button to help a user carry out an action, such as playing audio/video, toggling a dropdown, opening a modal, etc. If you are navigating a user to a new resource, use a link.</p>
+						<p>Buttons, and links styled as buttons, need to have sufficient padding to ensure they meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html">WCAG Success Criterion 2.5.5: Target Size (AAA)</a>. This does not apply to links within sentences and paragraphs.</p>
+					</div>
+					<div class="component">
+						<h2>Buttons</h2>
+						<div class="example">
+							<button type="button" class="button">Default button style</button>
 						</div>
-						<div class="component">
-							<h2>Buttons</h2>
-							<div class="example">
-								<button type="button" class="button">Default button style</button>
-							</div>
-							<div class="example">
-								<button type="button" class="button button--alt">Alternate button style</button>
-							</div>
-							<div class="example">
-								<button type="button" class="button button--wide">Wide button style</button>
-							</div>
-							<div class="example">
-								<button type="button" class="button button--alt button--wide">Wide button style</button>
-							</div>
-							<div class="example">
-								<button type="button" class="button button--ghost">Ghost button style</button>
-							</div>
-							<div class="example">
-								<button type="button" disabled>This button is disabled</button>
-							</div>
+						<div class="example">
+							<button type="button" class="button button--alt">Alternate button style</button>
 						</div>
-						<div class="component component--text">
-							<h3>Considerations</h3>
-							<p>Disabled buttons can confuse some people, so only use them if testing shows that they make the user interface easier to understand.</p>
+						<div class="example">
+							<button type="button" class="button button--wide">Wide button style</button>
 						</div>
-						<div class="component">
-							<h2>Links</h2>
-							<div class="example">
-								<a href="javascript:;">Simple text link</a>
-							</div>
-							<div class="example">
-								<a class="button" href="javascript:;">Link styled as a button</a>
-							</div>
-							<div class="example">
-								<a class="button button--alt" href="javascript:;">Link with alternate button style</a>
-							</div>
+						<div class="example">
+							<button type="button" class="button button--alt button--wide">Wide button style</button>
 						</div>
-						<div class="component component--text">
-							<h3>Considerations</h3>
-							<p>Simple text links are given an underline, in addition to any colour treatment, to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html">WCAG Success Criterion 1.4.1: Use of Color (A)</a></p>
+						<div class="example">
+							<button type="button" class="button button--ghost">Ghost button style</button>
 						</div>
-						<div class="component component--text">
-							<h2>Grouping buttons and links</h2>
-							<p>Buttons (and links styled as buttons) can be arranged in groups using the <a href="../layout-helpers/cluster.html">cluster layout</a>:</p>
+						<div class="example">
+							<button type="button" disabled>This button is disabled</button>
 						</div>
-						<div class="component">
-							<div class="l-cluster">
-								<div>
-									<a class="button" href="javascript:;">Primary action</a>
-									<a class="button button--alt" href="javascript:;">Secondary action</a>
-								</div>
+					</div>
+					<div class="component component--text">
+						<h3>Considerations</h3>
+						<p>Disabled buttons can confuse some people, so only use them if testing shows that they make the user interface easier to understand.</p>
+					</div>
+					<div class="component">
+						<h2>Links</h2>
+						<div class="example">
+							<a href="javascript:;">Simple text link</a>
+						</div>
+						<div class="example">
+							<a class="button" href="javascript:;">Link styled as a button</a>
+						</div>
+						<div class="example">
+							<a class="button button--alt" href="javascript:;">Link with alternate button style</a>
+						</div>
+					</div>
+					<div class="component component--text">
+						<h3>Considerations</h3>
+						<p>Simple text links are given an underline, in addition to any colour treatment, to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html">WCAG Success Criterion 1.4.1: Use of Color (A)</a></p>
+					</div>
+					<div class="component component--text">
+						<h2>Grouping buttons and links</h2>
+						<p>Buttons (and links styled as buttons) can be arranged in groups using the <a href="../layout-helpers/cluster.html">cluster layout</a>:</p>
+					</div>
+					<div class="component">
+						<div class="l-cluster">
+							<div>
+								<a class="button" href="javascript:;">Primary action</a>
+								<a class="button button--alt" href="javascript:;">Secondary action</a>
 							</div>
 						</div>
 					</div>

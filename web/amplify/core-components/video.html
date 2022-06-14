@@ -76,50 +76,49 @@
 			</div>
 		</nav>
 		<main id="main">
-			<div class="l-sidebar">
-				<div>
-					<nav class="sidebar nav-secondary" aria-label="Secondary">
-						<ul class="clean-list" role="list">
-							<li><a class="nav-secondary__link" href="avatars.html">Avatars</a></li>
-							<li><a class="nav-secondary__link" href="breadcrumbs.html">Breadcrumbs</a></li>
-							<li><a class="nav-secondary__link" href="cards.html">Cards</a></li>
-							<li><a class="nav-secondary__link" href="image-component.html">Image component</a></li>
-							<li><a class="nav-secondary__link" href="main.html">Main</a></li>
-							<li><a class="nav-secondary__link" href="notes.html">Notes</a></li>
-							<li><a class="nav-secondary__link" href="pagination.html">Pagination</a></li>
-							<li><a class="nav-secondary__link" href="progress-indicator.html">Progress indicator</a></li>
-							<li><a class="nav-secondary__link" href="quote-component.html">Quote component</a></li>
-							<li><a class="nav-secondary__link" href="shelves.html">Shelves</a></li>
-							<li><a class="nav-secondary__link" href="search.html">Simple search form</a></li>
-							<li><a class="nav-secondary__link" href="sticky-footer.html">Sticky footer</a></li>
-							<li><a class="nav-secondary__link" href="tag-list.html">Tag list</a></li>
-							<li><a class="nav-secondary__link" href="text-component.html">Text component</a></li>
-							<li><a class="nav-secondary__link" href="video.html" aria-current="page">Video component</a></li>
-						</ul>
-					</nav>
-					<div class="not-sidebar">
-						<div class="component component--text">
-							<h1>Video component</h1>
+			<div class="content-wrap">
+				<nav class="sidebar nav-secondary" aria-label="Secondary">
+					<ul class="clean-list" role="list">
+						<li><a class="nav-secondary__link" href="avatars.html">Avatars</a></li>
+						<li><a class="nav-secondary__link" href="breadcrumbs.html">Breadcrumbs</a></li>
+						<li><a class="nav-secondary__link" href="cards.html">Cards</a></li>
+						<li><a class="nav-secondary__link" href="image-component.html">Image component</a></li>
+						<li><a class="nav-secondary__link" href="main.html">Main</a></li>
+						<li><a class="nav-secondary__link" href="notes.html">Notes</a></li>
+						<li><a class="nav-secondary__link" href="pagination.html">Pagination</a></li>
+						<li><a class="nav-secondary__link" href="progress-indicator.html">Progress indicator</a></li>
+						<li><a class="nav-secondary__link" href="quote-component.html">Quote component</a></li>
+						<li><a class="nav-secondary__link" href="shelves.html">Shelves</a></li>
+						<li><a class="nav-secondary__link" href="search.html">Simple search form</a></li>
+						<li><a class="nav-secondary__link" href="sticky-footer.html">Sticky footer</a></li>
+						<li><a class="nav-secondary__link" href="tag-list.html">Tag list</a></li>
+						<li><a class="nav-secondary__link" href="text-component.html">Text component</a></li>
+						<li><a class="nav-secondary__link" href="video.html" aria-current="page">Video component</a></li>
+					</ul>
+				</nav>
+				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+				<div class="content">
+					<div class="component component--text">
+						<h1>Video component</h1>
+					</div>
+					<figure class="component component--video">
+						<div class="l-frame l-frame--16-9">
+							<iframe title="Why do cats act so weird?" loading="lazy" width="560" height="315" src="https://embed.ted.com/talks/lang/en/tony_buffington_why_do_cats_act_so_weird" allowfullscreen></iframe>
 						</div>
-						<figure class="component component--video">
-							<div class="l-frame l-frame--16-9">
-								<iframe title="Why do cats act so weird?" loading="lazy" width="560" height="315" src="https://embed.ted.com/talks/lang/en/tony_buffington_why_do_cats_act_so_weird" allowfullscreen></iframe>
-							</div>
-							<figcaption>
-								<p>They're cute, they're lovable, and judging by the 26 billion views on over 2 million YouTube videos of them, one thing is certain: cats are very entertaining. But their strange feline behaviours, both amusing and baffling, leave many of us asking: Why do cats do that? Tony Buffington explains the science behind some of your cat's strangest behaviours.</p>
-								<a href="https://www.ted.com/talks/tony_buffington_why_do_cats_act_so_weird/transcript">Video transcript</a>
-							</figcaption>
-						</figure>
-						<div class="component component--text">
-							<h2>Considerations</h2>
-							<p>The <code>iframe</code> must always include a unique, descriptive <code>title</code> attribute to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html">WCAG Success Criterion 2.4.1: Bypass Blocks (A)</a> and <a href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html">WCAG Success Criterion 4.1.2: Name, Role, Value (A)</a>.</p>
-							<h3>Captions</h3>
-							<p>Prerecorded video must include captions to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/captions-prerecorded.html">WCAG Success Criterion 1.2.2: Captions (Prerecorded) (A)</a>.</p>
-							<p><a href="https://www.w3.org/WAI/media/av/captions/">More advice about audiovisual media captions</a>.</p>
-							<h3>Transcripts</h3>
-							<p>Transcripts for prerecorded video are required to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/media-alternative-prerecorded.html">WCAG Success Criterion 1.2.8: Media Alternative (Prerecorded) (AAA)</a>.</p>
-							<p><a href="https://www.w3.org/WAI/media/av/transcripts/">More advice about audiovisual media transcripts.</a></p>
-						</div>
+						<figcaption>
+							<p>They're cute, they're lovable, and judging by the 26 billion views on over 2 million YouTube videos of them, one thing is certain: cats are very entertaining. But their strange feline behaviours, both amusing and baffling, leave many of us asking: Why do cats do that? Tony Buffington explains the science behind some of your cat's strangest behaviours.</p>
+							<a href="https://www.ted.com/talks/tony_buffington_why_do_cats_act_so_weird/transcript">Video transcript</a>
+						</figcaption>
+					</figure>
+					<div class="component component--text">
+						<h2>Considerations</h2>
+						<p>The <code>iframe</code> must always include a unique, descriptive <code>title</code> attribute to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html">WCAG Success Criterion 2.4.1: Bypass Blocks (A)</a> and <a href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html">WCAG Success Criterion 4.1.2: Name, Role, Value (A)</a>.</p>
+						<h3>Captions</h3>
+						<p>Prerecorded video must include captions to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/captions-prerecorded.html">WCAG Success Criterion 1.2.2: Captions (Prerecorded) (A)</a>.</p>
+						<p><a href="https://www.w3.org/WAI/media/av/captions/">More advice about audiovisual media captions</a>.</p>
+						<h3>Transcripts</h3>
+						<p>Transcripts for prerecorded video are required to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/media-alternative-prerecorded.html">WCAG Success Criterion 1.2.8: Media Alternative (Prerecorded) (AAA)</a>.</p>
+						<p><a href="https://www.w3.org/WAI/media/av/transcripts/">More advice about audiovisual media transcripts.</a></p>
 					</div>
 				</div>
 			</div>

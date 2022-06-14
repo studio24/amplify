@@ -76,80 +76,79 @@
 		</div>
 	</nav>
 	<main id="main">
-		<div class="l-sidebar">
-			<div>
-				<nav class="sidebar nav-secondary" aria-label="Secondary">
-					<ul class="clean-list" role="list">
-						<li><a class="nav-secondary__link" href="colours.html">Colours</a></li>
-						<li><a class="nav-secondary__link" href="typography.html">Typography</a></li>
-						<li><a class="nav-secondary__link" href="buttons-links.html">Buttons and links</a></li>
-						<li><a class="nav-secondary__link" href="lists.html">Lists</a></li>
-						<li><a class="nav-secondary__link" href="icons.html">Icons</a></li>
-						<li><a class="nav-secondary__link" href="breakpoints.html">Breakpoints</a></li>
-						<li><a class="nav-secondary__link" href="vertical-spacing.html">Vertical spacing</a></li>
-						<li><a class="nav-secondary__link" href="hide-and-show.html">Hide and show items inclusively</a></li>
-						<li><a class="nav-secondary__link" href="skip-link.html">Skip link</a></li>
-						<li><a class="nav-secondary__link" href="images.html">Images</a></li>
-						<li><a class="nav-secondary__link" href="forms.html">Forms</a></li>
-						<li><a class="nav-secondary__link" href="form-errors.html">Form error messages</a></li>
-						<li><a class="nav-secondary__link" href="tables.html">Tables</a></li>
-						<li><a class="nav-secondary__link" href="details-summary.html">Details and summary</a></li>
-						<li><a class="nav-secondary__link" href="utility-classes.html" aria-current="page">Utility classes</a></li>
-						<li><a class="nav-secondary__link" href="flow-elements.html">Flow elements</a></li>
-						<li><a class="nav-secondary__link" href="print-styles.html">Print styles</a></li>
+		<div class="content-wrap">
+			<nav class="sidebar nav-secondary" aria-label="Secondary">
+				<ul class="clean-list" role="list">
+					<li><a class="nav-secondary__link" href="colours.html">Colours</a></li>
+					<li><a class="nav-secondary__link" href="typography.html">Typography</a></li>
+					<li><a class="nav-secondary__link" href="buttons-links.html">Buttons and links</a></li>
+					<li><a class="nav-secondary__link" href="lists.html">Lists</a></li>
+					<li><a class="nav-secondary__link" href="icons.html">Icons</a></li>
+					<li><a class="nav-secondary__link" href="breakpoints.html">Breakpoints</a></li>
+					<li><a class="nav-secondary__link" href="vertical-spacing.html">Vertical spacing</a></li>
+					<li><a class="nav-secondary__link" href="hide-and-show.html">Hide and show items inclusively</a></li>
+					<li><a class="nav-secondary__link" href="skip-link.html">Skip link</a></li>
+					<li><a class="nav-secondary__link" href="images.html">Images</a></li>
+					<li><a class="nav-secondary__link" href="forms.html">Forms</a></li>
+					<li><a class="nav-secondary__link" href="form-errors.html">Form error messages</a></li>
+					<li><a class="nav-secondary__link" href="tables.html">Tables</a></li>
+					<li><a class="nav-secondary__link" href="details-summary.html">Details and summary</a></li>
+					<li><a class="nav-secondary__link" href="utility-classes.html" aria-current="page">Utility classes</a></li>
+					<li><a class="nav-secondary__link" href="flow-elements.html">Flow elements</a></li>
+					<li><a class="nav-secondary__link" href="print-styles.html">Print styles</a></li>
+				</ul>
+			</nav>
+			<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+			<div class="content">
+				<div class="component component--text">
+					<h1>Utility classes</h1>
+					<p>A utility class applies a single rule or a very simple, universal pattern.</p>
+					<p>In Amplify, utility classes are used as overrides or helper classes. As such, they could apply to any element and in any context, to do exactly the same thing each time. They are always prefixed with <code>u-</code>, e.g. <code>u-float-left</code> or <code>u-full-width</code>.</p>
+					<p>Utility classes are organised into groups with a similar purpose or remit, as detailed below. If you have a requirement that you feel would be best covered by a utility class that does not yet exist, feel free to add to the current selection.</p>
+					<h2>Alignments</h2>
+					<p>For floating items and overriding default text alignment:</p>
+					<ul>
+						<li>
+							<code>u-float-left</code>
+						</li>
+						<li>
+							<code>u-float-right</code>
+						</li>
+						<li>
+							<code>u-text-center</code>
+						</li>
+						<li>
+							<code>u-text-left</code>
+						</li>
+						<li>
+							<code>u-text-right</code>
+						</li>
+						<li>
+							<code>u-text-left-from-lap</code>
+						</li>
+						<li>
+							<code>u-text-center-from-lap</code>
+						</li>
+						<li>
+							<code>u-text-right-from-lap</code>
+						</li>
 					</ul>
-				</nav>
-				<div class="not-sidebar">
-					<div class="component component--text">
-						<h1>Utility classes</h1>
-						<p>A utility class applies a single rule or a very simple, universal pattern.</p>
-						<p>In Amplify, utility classes are used as overrides or helper classes. As such, they could apply to any element and in any context, to do exactly the same thing each time. They are always prefixed with <code>u-</code>, e.g. <code>u-float-left</code> or <code>u-full-width</code>.</p>
-						<p>Utility classes are organised into groups with a similar purpose or remit, as detailed below. If you have a requirement that you feel would be best covered by a utility class that does not yet exist, feel free to add to the current selection.</p>
-						<h2>Alignments</h2>
-						<p>For floating items and overriding default text alignment:</p>
-						<ul>
-							<li>
-								<code>u-float-left</code>
-							</li>
-							<li>
-								<code>u-float-right</code>
-							</li>
-							<li>
-								<code>u-text-center</code>
-							</li>
-							<li>
-								<code>u-text-left</code>
-							</li>
-							<li>
-								<code>u-text-right</code>
-							</li>
-							<li>
-								<code>u-text-left-from-lap</code>
-							</li>
-							<li>
-								<code>u-text-center-from-lap</code>
-							</li>
-							<li>
-								<code>u-text-right-from-lap</code>
-							</li>
-						</ul>
-						<p>The final three classes in the preceding list are linked to a specific breakpoint width, as defined in 00-settings.</p>
-						<h2>Clearfix</h2>
-						<p>Forces an element to self-clear its children. Amplify uses this as a <a href="https://sass-lang.com/documentation/style-rules/placeholder-selectors">Sass placeholder selector</a> - also known as a ‘silent class’ - which <a href="https://sass-lang.com/documentation/at-rules/extend#placeholder-selectors">can be extended using the <code>@extend directive</code></a> to avoid cluttering up the CSS or requiring the use of the class within the markup.</p>
-						<h2>Layout</h2>
-						<p>Use the class <code>u-full-width</code> to create a <a href="https://css-tricks.com/full-width-containers-limited-width-parents/#aa-no-calc-needed">full-width container inside a limited width parent</a>.</p>
-						<p>Use the class <code>u-center</code> to horizontally centre a block-level item.</p>
-						<h2>Margins</h2>
-						<p>For removing all margins or just the top margin from an element. Double specificity in the classnames avoids the use of <code>!important</code>.</p>
-						<ul>
-							<li>
-								<code>u-no-margin.u-no-margin</code>
-							</li>
-							<li>
-								<code>u-no-margin-top.u-no-margin-top</code>
-							</li>
-						</ul>
-					</div>
+					<p>The final three classes in the preceding list are linked to a specific breakpoint width, as defined in 00-settings.</p>
+					<h2>Clearfix</h2>
+					<p>Forces an element to self-clear its children. Amplify uses this as a <a href="https://sass-lang.com/documentation/style-rules/placeholder-selectors">Sass placeholder selector</a> - also known as a ‘silent class’ - which <a href="https://sass-lang.com/documentation/at-rules/extend#placeholder-selectors">can be extended using the <code>@extend directive</code></a> to avoid cluttering up the CSS or requiring the use of the class within the markup.</p>
+					<h2>Layout</h2>
+					<p>Use the class <code>u-full-width</code> to create a <a href="https://css-tricks.com/full-width-containers-limited-width-parents/#aa-no-calc-needed">full-width container inside a limited width parent</a>.</p>
+					<p>Use the class <code>u-center</code> to horizontally centre a block-level item.</p>
+					<h2>Margins</h2>
+					<p>For removing all margins or just the top margin from an element. Double specificity in the classnames avoids the use of <code>!important</code>.</p>
+					<ul>
+						<li>
+							<code>u-no-margin.u-no-margin</code>
+						</li>
+						<li>
+							<code>u-no-margin-top.u-no-margin-top</code>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>

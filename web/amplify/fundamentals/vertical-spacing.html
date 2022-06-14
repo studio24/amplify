@@ -76,41 +76,40 @@
 		</div>
 	</nav>
 	<main id="main">
-		<div class="l-sidebar">
-			<div>
-				<nav class="sidebar nav-secondary" aria-label="Secondary">
-					<ul class="clean-list" role="list">
-						<li><a class="nav-secondary__link" href="colours.html">Colours</a></li>
-						<li><a class="nav-secondary__link" href="typography.html">Typography</a></li>
-						<li><a class="nav-secondary__link" href="buttons-links.html">Buttons and links</a></li>
-						<li><a class="nav-secondary__link" href="lists.html">Lists</a></li>
-						<li><a class="nav-secondary__link" href="icons.html">Icons</a></li>
-						<li><a class="nav-secondary__link" href="breakpoints.html">Breakpoints</a></li>
-						<li><a class="nav-secondary__link" href="vertical-spacing.html" aria-current="page">Vertical spacing</a></li>
-						<li><a class="nav-secondary__link" href="hide-and-show.html">Hide and show items inclusively</a></li>
-						<li><a class="nav-secondary__link" href="skip-link.html">Skip link</a></li>
-						<li><a class="nav-secondary__link" href="images.html">Images</a></li>
-						<li><a class="nav-secondary__link" href="forms.html">Forms</a></li>
-						<li><a class="nav-secondary__link" href="form-errors.html">Form error messages</a></li>
-						<li><a class="nav-secondary__link" href="tables.html">Tables</a></li>
-						<li><a class="nav-secondary__link" href="details-summary.html">Details and summary</a></li>
-						<li><a class="nav-secondary__link" href="utility-classes.html">Utility classes</a></li>
-						<li><a class="nav-secondary__link" href="flow-elements.html">Flow elements</a></li>
-						<li><a class="nav-secondary__link" href="print-styles.html">Print styles</a></li>
+		<div class="content-wrap">
+			<nav class="sidebar nav-secondary" aria-label="Secondary">
+				<ul class="clean-list" role="list">
+					<li><a class="nav-secondary__link" href="colours.html">Colours</a></li>
+					<li><a class="nav-secondary__link" href="typography.html">Typography</a></li>
+					<li><a class="nav-secondary__link" href="buttons-links.html">Buttons and links</a></li>
+					<li><a class="nav-secondary__link" href="lists.html">Lists</a></li>
+					<li><a class="nav-secondary__link" href="icons.html">Icons</a></li>
+					<li><a class="nav-secondary__link" href="breakpoints.html">Breakpoints</a></li>
+					<li><a class="nav-secondary__link" href="vertical-spacing.html" aria-current="page">Vertical spacing</a></li>
+					<li><a class="nav-secondary__link" href="hide-and-show.html">Hide and show items inclusively</a></li>
+					<li><a class="nav-secondary__link" href="skip-link.html">Skip link</a></li>
+					<li><a class="nav-secondary__link" href="images.html">Images</a></li>
+					<li><a class="nav-secondary__link" href="forms.html">Forms</a></li>
+					<li><a class="nav-secondary__link" href="form-errors.html">Form error messages</a></li>
+					<li><a class="nav-secondary__link" href="tables.html">Tables</a></li>
+					<li><a class="nav-secondary__link" href="details-summary.html">Details and summary</a></li>
+					<li><a class="nav-secondary__link" href="utility-classes.html">Utility classes</a></li>
+					<li><a class="nav-secondary__link" href="flow-elements.html">Flow elements</a></li>
+					<li><a class="nav-secondary__link" href="print-styles.html">Print styles</a></li>
+				</ul>
+			</nav>
+			<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+			<div class="content">
+				<div class="component component--text">
+					<h1>Vertical spacing</h1>
+					<p>View typographical spacing on the <a href="../design/typography-test.html">typography test page</a>.</p>
+					<p>Negative space is an important part of website design (and design in general). It helps to create visual order, and provides room for our eyes to rest between pieces of content.</p>
+					<p>This section is specifically concerned with vertical spacing between <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements">block-level elements</a>. Amplify manages this in two ways:</p>
+					<ul>
+						<li>Each component that makes up a web page has the class <code>component</code> added to its outermost element. Amplify uses the <a href="https://www.w3.org/TR/selectors-3/#adjacent-sibling-combinators">next-sibling combinator</a> to target this class, adding <code>margin-top</code> to all but the very first component in a series to space them apart vertically.<p>The code for this resides in <a href="https://github.com/studio24/amplify/blob/main/docs/css.md#css-architecture">50-core-components/_main.scss</a>.</p></li>
+						<li>Within those components, and anywhere else that vertical spacing is needed between block-level elements, Chris Burnell's <a href="https://chrisburnell.com/article/sassy-lobotomised-owl/">stack mixin</a> gives us the option to add vertical spacing. As it's a <a href="https://sass-lang.com/documentation/at-rules/mixin">Sass mixin</a>, we can use specified units of measurement at whatever value we choose, and that value can vary depending on the use case and design requirements thanks to the <code>@include</code> at-rule.<p>The mixin resides in <a href="https://github.com/studio24/amplify/blob/main/docs/css.md#css-architecture">20-mixins/_stack.scss</a>.</p></li>
 					</ul>
-				</nav>
-				<div class="not-sidebar">
-					<div class="component component--text">
-						<h1>Vertical spacing</h1>
-						<p>View typographical spacing on the <a href="../design/typography-test.html">typography test page</a>.</p>
-						<p>Negative space is an important part of website design (and design in general). It helps to create visual order, and provides room for our eyes to rest between pieces of content.</p>
-						<p>This section is specifically concerned with vertical spacing between <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements">block-level elements</a>. Amplify manages this in two ways:</p>
-						<ul>
-							<li>Each component that makes up a web page has the class <code>component</code> added to its outermost element. Amplify uses the <a href="https://www.w3.org/TR/selectors-3/#adjacent-sibling-combinators">next-sibling combinator</a> to target this class, adding <code>margin-top</code> to all but the very first component in a series to space them apart vertically.<p>The code for this resides in <a href="https://github.com/studio24/amplify/blob/main/docs/css.md#css-architecture">50-core-components/_main.scss</a>.</p></li>
-							<li>Within those components, and anywhere else that vertical spacing is needed between block-level elements, Chris Burnell's <a href="https://chrisburnell.com/article/sassy-lobotomised-owl/">stack mixin</a> gives us the option to add vertical spacing. As it's a <a href="https://sass-lang.com/documentation/at-rules/mixin">Sass mixin</a>, we can use specified units of measurement at whatever value we choose, and that value can vary depending on the use case and design requirements thanks to the <code>@include</code> at-rule.<p>The mixin resides in <a href="https://github.com/studio24/amplify/blob/main/docs/css.md#css-architecture">20-mixins/_stack.scss</a>.</p></li>
-						</ul>
-						<p>The mixin was adapted from Heydon Pickering's <a href="https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/">lobotomized owl technique</a>, which developed into the <a href="https://every-layout.dev/layouts/stack/">stack in Every Layout</a>. </p>
-					</div>
+					<p>The mixin was adapted from Heydon Pickering's <a href="https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/">lobotomized owl technique</a>, which developed into the <a href="https://every-layout.dev/layouts/stack/">stack in Every Layout</a>. </p>
 				</div>
 			</div>
 		</div>

@@ -76,45 +76,44 @@
 			</div>
 		</nav>
 		<main id="main">
-			<div class="l-sidebar">
-				<div>
-					<nav class="sidebar nav-secondary" aria-label="Secondary">
-						<ul class="clean-list" role="list">
-							<li><a class="nav-secondary__link" href="avatars.html">Avatars</a></li>
-							<li><a class="nav-secondary__link" href="breadcrumbs.html">Breadcrumbs</a></li>
-							<li><a class="nav-secondary__link" href="cards.html">Cards</a></li>
-							<li><a class="nav-secondary__link" href="image-component.html" aria-current="page">Image component</a></li>
-							<li><a class="nav-secondary__link" href="main.html">Main</a></li>
-							<li><a class="nav-secondary__link" href="notes.html">Notes</a></li>
-							<li><a class="nav-secondary__link" href="pagination.html">Pagination</a></li>
-							<li><a class="nav-secondary__link" href="progress-indicator.html">Progress indicator</a></li>
-							<li><a class="nav-secondary__link" href="quote-component.html">Quote component</a></li>
-							<li><a class="nav-secondary__link" href="shelves.html">Shelves</a></li>
-							<li><a class="nav-secondary__link" href="search.html">Simple search form</a></li>
-							<li><a class="nav-secondary__link" href="sticky-footer.html">Sticky footer</a></li>
-							<li><a class="nav-secondary__link" href="tag-list.html">Tag list</a></li>
-							<li><a class="nav-secondary__link" href="text-component.html">Text component</a></li>
-							<li><a class="nav-secondary__link" href="video.html">Video component</a></li>
-						</ul>
-					</nav>
-					<div class="not-sidebar">
-						<div class="component component--text">
-							<h1>Image component</h1>
+			<div class="content-wrap">
+				<nav class="sidebar nav-secondary" aria-label="Secondary">
+					<ul class="clean-list" role="list">
+						<li><a class="nav-secondary__link" href="avatars.html">Avatars</a></li>
+						<li><a class="nav-secondary__link" href="breadcrumbs.html">Breadcrumbs</a></li>
+						<li><a class="nav-secondary__link" href="cards.html">Cards</a></li>
+						<li><a class="nav-secondary__link" href="image-component.html" aria-current="page">Image component</a></li>
+						<li><a class="nav-secondary__link" href="main.html">Main</a></li>
+						<li><a class="nav-secondary__link" href="notes.html">Notes</a></li>
+						<li><a class="nav-secondary__link" href="pagination.html">Pagination</a></li>
+						<li><a class="nav-secondary__link" href="progress-indicator.html">Progress indicator</a></li>
+						<li><a class="nav-secondary__link" href="quote-component.html">Quote component</a></li>
+						<li><a class="nav-secondary__link" href="shelves.html">Shelves</a></li>
+						<li><a class="nav-secondary__link" href="search.html">Simple search form</a></li>
+						<li><a class="nav-secondary__link" href="sticky-footer.html">Sticky footer</a></li>
+						<li><a class="nav-secondary__link" href="tag-list.html">Tag list</a></li>
+						<li><a class="nav-secondary__link" href="text-component.html">Text component</a></li>
+						<li><a class="nav-secondary__link" href="video.html">Video component</a></li>
+					</ul>
+				</nav>
+				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+				<div class="content">
+					<div class="component component--text">
+						<h1>Image component</h1>
+					</div>
+					<figure class="component component--image">
+						<div class="l-frame l-frame--16-9">
+							<img src="../../dist/images/jpg-cat-1.jpg" loading="lazy" alt="" />
 						</div>
-						<figure class="component component--image">
-							<div class="l-frame l-frame--16-9">
-								<img src="../../dist/images/jpg-cat-1.jpg" loading="lazy" alt="" />
-							</div>
-							<figcaption>
-								<p>The figcaption is not a replacement for the image's <code>alt</code> attribute. It should be used for providing relevant supporting content.</p>
-							</figcaption>
-						</figure>
-						<div class="component component--text">
-							<h2>Considerations</h2>
-							<p>Note the use of the <a href="../layout-helpers/frame.html">frame layout</a>, to create the desired aspect ratio, and the <code>loading="lazy"</code> attribute on <code>img</code> for native lazy-loading.</p>
-							<h3>Alternative text</h3>
-							<p>Every instance of <code>img</code> <a href="../fundamentals/images.html">must include the <code>alt</code> attribute</a>. This <a href="https://www.w3.org/WAI/tutorials/images/decision-tree/">alt decision tree</a> is helpful for determining whether and how to provide alternative text.</p>
-						</div>
+						<figcaption>
+							<p>The figcaption is not a replacement for the image's <code>alt</code> attribute. It should be used for providing relevant supporting content.</p>
+						</figcaption>
+					</figure>
+					<div class="component component--text">
+						<h2>Considerations</h2>
+						<p>Note the use of the <a href="../layout-helpers/frame.html">frame layout</a>, to create the desired aspect ratio, and the <code>loading="lazy"</code> attribute on <code>img</code> for native lazy-loading.</p>
+						<h3>Alternative text</h3>
+						<p>Every instance of <code>img</code> <a href="../fundamentals/images.html">must include the <code>alt</code> attribute</a>. This <a href="https://www.w3.org/WAI/tutorials/images/decision-tree/">alt decision tree</a> is helpful for determining whether and how to provide alternative text.</p>
 					</div>
 				</div>
 			</div>

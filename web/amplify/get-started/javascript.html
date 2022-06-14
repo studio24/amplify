@@ -76,29 +76,28 @@
 		</div>
 	</nav>
 	<main id="main">
-		<div class="l-sidebar">
-			<div>
-				<nav class="sidebar nav-secondary" aria-label="Secondary">
-					<ul class="clean-list" role="list">
-						<li><a class="nav-secondary__link" href="browser-support.html">Browser support</a></li>
-						<li><a class="nav-secondary__link" href="css.html">CSS</a></li>
-						<li><a class="nav-secondary__link" href="javascript.html" aria-current="page">JavaScript</a></li>
+		<div class="content-wrap">
+			<nav class="sidebar nav-secondary" aria-label="Secondary">
+				<ul class="clean-list" role="list">
+					<li><a class="nav-secondary__link" href="browser-support.html">Browser support</a></li>
+					<li><a class="nav-secondary__link" href="css.html">CSS</a></li>
+					<li><a class="nav-secondary__link" href="javascript.html" aria-current="page">JavaScript</a></li>
+				</ul>
+			</nav>
+			<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+			<div class="not-sidebar">
+				<div class="component component--text">
+					<h1>JavaScript</h1>
+					<h2>Architecture</h2>
+					<p>The architecture takes inspiration from Chris Ferdinandi's <a href="https://gomakethings.com/how-i-structure-my-vanilla-js-projects/">How I structure my vanilla JS projects</a>. Rather than keeping all JavaScript within a single file, code is split across a series of individual files and subdirectories within <code>src/js</code> directory. This approach offers two main benefits:</p>
+					<ul>
+						<li>It makes the code easier to understand for developers</li>
+						<li>We don't have to load all JavaScript on all pages</li>
 					</ul>
-				</nav>
-				<div class="not-sidebar">
-					<div class="component component--text">
-						<h1>JavaScript</h1>
-						<h2>Architecture</h2>
-						<p>The architecture takes inspiration from Chris Ferdinandi's <a href="https://gomakethings.com/how-i-structure-my-vanilla-js-projects/">How I structure my vanilla JS projects</a>. Rather than keeping all JavaScript within a single file, code is split across a series of individual files and subdirectories within <code>src/js</code> directory. This approach offers two main benefits:</p>
-						<ul>
-							<li>It makes the code easier to understand for developers</li>
-							<li>We don't have to load all JavaScript on all pages</li>
-						</ul>
-						<p><a href="https://github.com/studio24/amplify/blob/main/docs/javascript.md#javascript-architecture">JS architecture details for developers</a>.</p>
-						<h2>Compiling and transpiling</h2>
-						<p><a href="https://webpack.js.org/">Webpack</a> concatenates and minifies the JS needed for the project into <code>web/dist/js</code>. <a href="https://babeljs.io/">Babel</a> is used for transpiling the JS into code for our <a href="browser-support.html">supported browsers</a>.</p>
-						<p><a href="https://github.com/studio24/amplify/blob/main/docs/javascript.md#javascript-build-tools">JS build tool details for developers</a>.</p>
-					</div>
+					<p><a href="https://github.com/studio24/amplify/blob/main/docs/javascript.md#javascript-architecture">JS architecture details for developers</a>.</p>
+					<h2>Compiling and transpiling</h2>
+					<p><a href="https://webpack.js.org/">Webpack</a> concatenates and minifies the JS needed for the project into <code>web/dist/js</code>. <a href="https://babeljs.io/">Babel</a> is used for transpiling the JS into code for our <a href="browser-support.html">supported browsers</a>.</p>
+					<p><a href="https://github.com/studio24/amplify/blob/main/docs/javascript.md#javascript-build-tools">JS build tool details for developers</a>.</p>
 				</div>
 			</div>
 		</div>

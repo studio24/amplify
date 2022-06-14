@@ -76,30 +76,29 @@
 		</div>
 	</nav>
 	<main id="main">
-		<div class="l-sidebar">
-			<div>
-				<nav class="sidebar nav-secondary" aria-label="Secondary">
-					<ul class="clean-list" role="list">
-						<li><a class="nav-secondary__link" href="browser-support.html">Browser support</a></li>
-						<li><a class="nav-secondary__link" href="css.html" aria-current="page">CSS</a></li>
-						<li><a class="nav-secondary__link" href="javascript.html">JavaScript</a></li>
+		<div class="content-wrap">
+			<nav class="sidebar nav-secondary" aria-label="Secondary">
+				<ul class="clean-list" role="list">
+					<li><a class="nav-secondary__link" href="browser-support.html">Browser support</a></li>
+					<li><a class="nav-secondary__link" href="css.html" aria-current="page">CSS</a></li>
+					<li><a class="nav-secondary__link" href="javascript.html">JavaScript</a></li>
+				</ul>
+			</nav>
+			<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+			<div class="content">
+				<div class="component component--text">
+					<h1>CSS</h1>
+					<p>Amplify uses <a href="http://sass-lang.com/">Sass</a> - specifically the <a href="https://sass-lang.com/documentation/syntax">SCSS syntax</a> - which is compiled into CSS files. The CSS approach is heavily influenced by Andy Bell's <a href="https://cube.fyi/">CUBE CSS</a>. This has some similarities with the <a href="http://getbem.com/">BEM Methodology</a> but with a more judicious use of class names.</p>
+					<h2>Architecture</h2>
+					<p>The architecture is split into a series of numbered levels in <code>src/styles/sass</code> with each level representing a directory that contains our Sass split out into different <a href="https://sass-lang.com/guide#topic-4">partial files</a>. More generic and wide-reaching styles sit within the lower numbered levels, with specificity increasing with each subsequent level.</p>
+					<p><a href="https://github.com/studio24/amplify/blob/main/docs/css.md#css-architecture">CSS architecture details for developers</a>.</p>
+					<h2>Compiling Sass to CSS</h2>
+					<p>As mentioned in <a href="browser-support.html">browser support</a>, the Sass is compiled into the following CSS stylesheets in <code>web/dist/styles</code>:</p>
+					<ul>
+						<li><code>core.css</code> and <code>print.css</code>, which are served to all browsers</li>
+						<li><code>advanced.css</code>, which is served to supported browsers.</li>
 					</ul>
-				</nav>
-				<div class="not-sidebar">
-					<div class="component component--text">
-						<h1>CSS</h1>
-						<p>Amplify uses <a href="http://sass-lang.com/">Sass</a> - specifically the <a href="https://sass-lang.com/documentation/syntax">SCSS syntax</a> - which is compiled into CSS files. The CSS approach is heavily influenced by Andy Bell's <a href="https://cube.fyi/">CUBE CSS</a>. This has some similarities with the <a href="http://getbem.com/">BEM Methodology</a> but with a more judicious use of class names.</p>
-						<h2>Architecture</h2>
-						<p>The architecture is split into a series of numbered levels in <code>src/styles/sass</code> with each level representing a directory that contains our Sass split out into different <a href="https://sass-lang.com/guide#topic-4">partial files</a>. More generic and wide-reaching styles sit within the lower numbered levels, with specificity increasing with each subsequent level.</p>
-						<p><a href="https://github.com/studio24/amplify/blob/main/docs/css.md#css-architecture">CSS architecture details for developers</a>.</p>
-						<h2>Compiling Sass to CSS</h2>
-						<p>As mentioned in <a href="browser-support.html">browser support</a>, the Sass is compiled into the following CSS stylesheets in <code>web/dist/styles</code>:</p>
-						<ul>
-							<li><code>core.css</code> and <code>print.css</code>, which are served to all browsers</li>
-							<li><code>advanced.css</code>, which is served to supported browsers.</li>
-						</ul>
-						<p><a href="https://github.com/studio24/amplify/blob/main/docs/css.md#compiling-sass-to-css">Sass compilation details for developers</a>.</p>
-					</div>
+					<p><a href="https://github.com/studio24/amplify/blob/main/docs/css.md#compiling-sass-to-css">Sass compilation details for developers</a>.</p>
 				</div>
 			</div>
 		</div>

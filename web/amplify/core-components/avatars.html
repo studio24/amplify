@@ -76,48 +76,47 @@
 			</div>
 		</nav>
 		<main id="main">
-			<div class="l-sidebar">
-				<div>
-					<nav class="sidebar nav-secondary" aria-label="Secondary">
-						<ul class="clean-list" role="list">
-							<li><a class="nav-secondary__link" href="avatars.html" aria-current="page">Avatars</a></li>
-							<li><a class="nav-secondary__link" href="breadcrumbs.html">Breadcrumbs</a></li>
-							<li><a class="nav-secondary__link" href="cards.html">Cards</a></li>
-							<li><a class="nav-secondary__link" href="image-component.html">Image component</a></li>
-							<li><a class="nav-secondary__link" href="main.html">Main</a></li>
-							<li><a class="nav-secondary__link" href="notes.html">Notes</a></li>
-							<li><a class="nav-secondary__link" href="pagination.html">Pagination</a></li>
-							<li><a class="nav-secondary__link" href="progress-indicator.html">Progress indicator</a></li>
-							<li><a class="nav-secondary__link" href="quote-component.html">Quote component</a></li>
-							<li><a class="nav-secondary__link" href="shelves.html">Shelves</a></li>
-							<li><a class="nav-secondary__link" href="search.html">Simple search form</a></li>
-							<li><a class="nav-secondary__link" href="sticky-footer.html">Sticky footer</a></li>
-							<li><a class="nav-secondary__link" href="tag-list.html">Tag list</a></li>
-							<li><a class="nav-secondary__link" href="text-component.html">Text component</a></li>
-							<li><a class="nav-secondary__link" href="video.html">Video component</a></li>
+			<div class="content-wrap">
+				<nav class="sidebar nav-secondary" aria-label="Secondary">
+					<ul class="clean-list" role="list">
+						<li><a class="nav-secondary__link" href="avatars.html" aria-current="page">Avatars</a></li>
+						<li><a class="nav-secondary__link" href="breadcrumbs.html">Breadcrumbs</a></li>
+						<li><a class="nav-secondary__link" href="cards.html">Cards</a></li>
+						<li><a class="nav-secondary__link" href="image-component.html">Image component</a></li>
+						<li><a class="nav-secondary__link" href="main.html">Main</a></li>
+						<li><a class="nav-secondary__link" href="notes.html">Notes</a></li>
+						<li><a class="nav-secondary__link" href="pagination.html">Pagination</a></li>
+						<li><a class="nav-secondary__link" href="progress-indicator.html">Progress indicator</a></li>
+						<li><a class="nav-secondary__link" href="quote-component.html">Quote component</a></li>
+						<li><a class="nav-secondary__link" href="shelves.html">Shelves</a></li>
+						<li><a class="nav-secondary__link" href="search.html">Simple search form</a></li>
+						<li><a class="nav-secondary__link" href="sticky-footer.html">Sticky footer</a></li>
+						<li><a class="nav-secondary__link" href="tag-list.html">Tag list</a></li>
+						<li><a class="nav-secondary__link" href="text-component.html">Text component</a></li>
+						<li><a class="nav-secondary__link" href="video.html">Video component</a></li>
+					</ul>
+				</nav>
+				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+				<div class="content">
+					<div class="component component--text">
+						<h1>Avatars</h1>
+						<p>Wrap a square or portrait image inside a <code>div</code> or <code>span</code> with the class <code>avatar</code> to apply a circular mask to the image.</p>
+					</div>
+					<div class="component">
+						<div class="avatar">
+							<img alt src="https://www.w3.org/2006/05/u/1682ihk1hqqo-sm.jpg">
+						</div>
+					</div>
+					<div class="component component--text">
+						<h2>Considerations</h2>
+						<p>Note the empty <code>alt</code> attribute in this example. Images must always have an <code>alt</code> attribute - leaving it empty shows that it is a decorative image.</p>
+						<p>The default size of an avatar is equivalent to 100px wide and tall (the CSS converts the pixel value into rem units.) Additional modifier classes can be added for smaller avatars:</p>
+						<ul>
+							<li>
+								<code>avatar--med</code> for an avatar equivalent to 50px wide and tall</li>
+							<li>
+								<code>avatar--small</code> for an avatar equivalent to 30px wide and tall</li>
 						</ul>
-					</nav>
-					<div class="not-sidebar">
-						<div class="component component--text">
-							<h1>Avatars</h1>
-							<p>Wrap a square or portrait image inside a <code>div</code> or <code>span</code> with the class <code>avatar</code> to apply a circular mask to the image.</p>
-						</div>
-						<div class="component">
-							<div class="avatar">
-								<img alt src="https://www.w3.org/2006/05/u/1682ihk1hqqo-sm.jpg">
-							</div>
-						</div>
-						<div class="component component--text">
-							<h2>Considerations</h2>
-							<p>Note the empty <code>alt</code> attribute in this example. Images must always have an <code>alt</code> attribute - leaving it empty shows that it is a decorative image.</p>
-							<p>The default size of an avatar is equivalent to 100px wide and tall (the CSS converts the pixel value into rem units.) Additional modifier classes can be added for smaller avatars:</p>
-							<ul>
-								<li>
-									<code>avatar--med</code> for an avatar equivalent to 50px wide and tall</li>
-								<li>
-									<code>avatar--small</code> for an avatar equivalent to 30px wide and tall</li>
-							</ul>
-						</div>
 					</div>
 				</div>
 			</div>

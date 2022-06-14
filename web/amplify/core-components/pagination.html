@@ -76,57 +76,56 @@
 			</div>
 		</nav>
 		<main id="main">
-			<div class="l-sidebar">
-				<div>
-					<nav class="sidebar nav-secondary" aria-label="Secondary">
-						<ul class="clean-list" role="list">
-							<li><a class="nav-secondary__link" href="avatars.html">Avatars</a></li>
-							<li><a class="nav-secondary__link" href="breadcrumbs.html">Breadcrumbs</a></li>
-							<li><a class="nav-secondary__link" href="cards.html">Cards</a></li>
-							<li><a class="nav-secondary__link" href="image-component.html">Image component</a></li>
-							<li><a class="nav-secondary__link" href="main.html">Main</a></li>
-							<li><a class="nav-secondary__link" href="notes.html">Notes</a></li>
-							<li><a class="nav-secondary__link" href="pagination.html" aria-current="page">Pagination</a></li>
-							<li><a class="nav-secondary__link" href="progress-indicator.html">Progress indicator</a></li>
-							<li><a class="nav-secondary__link" href="quote-component.html">Quote component</a></li>
-							<li><a class="nav-secondary__link" href="shelves.html">Shelves</a></li>
-							<li><a class="nav-secondary__link" href="search.html">Simple search form</a></li>
-							<li><a class="nav-secondary__link" href="sticky-footer.html">Sticky footer</a></li>
-							<li><a class="nav-secondary__link" href="tag-list.html">Tag list</a></li>
-							<li><a class="nav-secondary__link" href="text-component.html">Text component</a></li>
-							<li><a class="nav-secondary__link" href="video.html">Video component</a></li>
-						</ul>
-					</nav>
-					<div class="not-sidebar">
-						<div class="component component--text">
-							<h1>Pagination</h1>
-						</div>
-						<div class="component">
-							<nav aria-label="Pagination" class="l-cluster pagination">
-								<ul class="pagination__list">
-									<li><a href="javascript:;"><span aria-hidden="true">&lt;&lt;</span><span class="visuallyhidden">First page</span></a></li>
-									<li><a href="javascript:;">Previous <span class="visuallyhidden">page</span></a></li>
-									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 1</a></li>
-									<li><a href="#" aria-label="page 2" aria-current="page">2</a></li>
-									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 3</a></li>
-									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 4</a></li>
-									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 5</a></li>
-									<li><a class="ellipsis">&#8230;</a></li>
-									<li><a href="javascript:;"><span class="visuallyhidden">page</span> 20</a></li>
-									<li><a href="javascript:;">Next <span class="visuallyhidden">page</span></a></li>
-									<li><a href="javascript:;"><span aria-hidden="true">&gt;&gt;</span><span class="visuallyhidden">Last page</span></a></li>
-								</ul>
-							</nav>
-						</div>
-						<div class="component component--text">
-							<h2>Considerations</h2>
-							<p>Note the use of the <a href="../layout-helpers/cluster.html">cluster layout helper</a>.</p>
-							<p>Note how the pagination links meet the requirements of <a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html">WCAG Success Criterion 2.5.5: Target Size (AAA)</a>.</p>
-							<p>The <code>aria-label</code> attribute has been added to the <code>nav</code> element. This is because the main website navigation also uses the <code>nav</code> element. Where there are multiple<code>nav</code> elements on a single page, all must be given a unique accessible name via <code>aria-label</code>.</p>
-							<p>For all pagination links excluding the current page, <code>span class="visuallyhidden"&gt;page&lt;/span</code> is added to provide additional context to the link wording for users of Assistive Technology.</p>
-							<p>The current page is indicated by <code>aria-current="page"</code>. As per the <a href="breadcrumbs.html">breadcrumbs component</a>, it is fully linked so that users of Assistive Technology can find which is the currently active link. The <code>aria-label</code>on the current page link provides the same additional context as the visually-hidden span on other pagination links.</p>
-							<p>The angle bracket characters used within the links for the very first and very last pages are wrapped inside <code>span aria-hidden="true"</code> to hide them from assistive technology users. Accessible text labels are added using <code>span class="visuallyhidden"</code>.</p>
-						</div>
+			<div class="content-wrap">
+				<nav class="sidebar nav-secondary" aria-label="Secondary">
+					<ul class="clean-list" role="list">
+						<li><a class="nav-secondary__link" href="avatars.html">Avatars</a></li>
+						<li><a class="nav-secondary__link" href="breadcrumbs.html">Breadcrumbs</a></li>
+						<li><a class="nav-secondary__link" href="cards.html">Cards</a></li>
+						<li><a class="nav-secondary__link" href="image-component.html">Image component</a></li>
+						<li><a class="nav-secondary__link" href="main.html">Main</a></li>
+						<li><a class="nav-secondary__link" href="notes.html">Notes</a></li>
+						<li><a class="nav-secondary__link" href="pagination.html" aria-current="page">Pagination</a></li>
+						<li><a class="nav-secondary__link" href="progress-indicator.html">Progress indicator</a></li>
+						<li><a class="nav-secondary__link" href="quote-component.html">Quote component</a></li>
+						<li><a class="nav-secondary__link" href="shelves.html">Shelves</a></li>
+						<li><a class="nav-secondary__link" href="search.html">Simple search form</a></li>
+						<li><a class="nav-secondary__link" href="sticky-footer.html">Sticky footer</a></li>
+						<li><a class="nav-secondary__link" href="tag-list.html">Tag list</a></li>
+						<li><a class="nav-secondary__link" href="text-component.html">Text component</a></li>
+						<li><a class="nav-secondary__link" href="video.html">Video component</a></li>
+					</ul>
+				</nav>
+				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+				<div class="content">
+					<div class="component component--text">
+						<h1>Pagination</h1>
+					</div>
+					<div class="component">
+						<nav aria-label="Pagination" class="l-cluster pagination">
+							<ul class="pagination__list">
+								<li><a href="javascript:;"><span aria-hidden="true">&lt;&lt;</span><span class="visuallyhidden">First page</span></a></li>
+								<li><a href="javascript:;">Previous <span class="visuallyhidden">page</span></a></li>
+								<li><a href="javascript:;"><span class="visuallyhidden">page</span> 1</a></li>
+								<li><a href="#" aria-label="page 2" aria-current="page">2</a></li>
+								<li><a href="javascript:;"><span class="visuallyhidden">page</span> 3</a></li>
+								<li><a href="javascript:;"><span class="visuallyhidden">page</span> 4</a></li>
+								<li><a href="javascript:;"><span class="visuallyhidden">page</span> 5</a></li>
+								<li><a class="ellipsis">&#8230;</a></li>
+								<li><a href="javascript:;"><span class="visuallyhidden">page</span> 20</a></li>
+								<li><a href="javascript:;">Next <span class="visuallyhidden">page</span></a></li>
+								<li><a href="javascript:;"><span aria-hidden="true">&gt;&gt;</span><span class="visuallyhidden">Last page</span></a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="component component--text">
+						<h2>Considerations</h2>
+						<p>Note the use of the <a href="../layout-helpers/cluster.html">cluster layout helper</a>.</p>
+						<p>Note how the pagination links meet the requirements of <a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html">WCAG Success Criterion 2.5.5: Target Size (AAA)</a>.</p>
+						<p>The <code>aria-label</code> attribute has been added to the <code>nav</code> element. This is because the main website navigation also uses the <code>nav</code> element. Where there are multiple<code>nav</code> elements on a single page, all must be given a unique accessible name via <code>aria-label</code>.</p>
+						<p>For all pagination links excluding the current page, <code>span class="visuallyhidden"&gt;page&lt;/span</code> is added to provide additional context to the link wording for users of Assistive Technology.</p>
+						<p>The current page is indicated by <code>aria-current="page"</code>. As per the <a href="breadcrumbs.html">breadcrumbs component</a>, it is fully linked so that users of Assistive Technology can find which is the currently active link. The <code>aria-label</code>on the current page link provides the same additional context as the visually-hidden span on other pagination links.</p>
+						<p>The angle bracket characters used within the links for the very first and very last pages are wrapped inside <code>span aria-hidden="true"</code> to hide them from assistive technology users. Accessible text labels are added using <code>span class="visuallyhidden"</code>.</p>
 					</div>
 				</div>
 			</div>

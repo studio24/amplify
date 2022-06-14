@@ -76,63 +76,62 @@
 		</div>
 	</nav>
 	<main id="main">
-		<div class="l-sidebar">
-			<div>
-				<nav class="sidebar nav-secondary" aria-label="Secondary">
-					<ul class="clean-list" role="list">
-						<li><a class="nav-secondary__link" href="colours.html" aria-current="page">Colours</a></li>
-						<li><a class="nav-secondary__link" href="typography.html">Typography</a></li>
-						<li><a class="nav-secondary__link" href="buttons-links.html">Buttons and links</a></li>
-						<li><a class="nav-secondary__link" href="lists.html">Lists</a></li>
-						<li><a class="nav-secondary__link" href="icons.html">Icons</a></li>
-						<li><a class="nav-secondary__link" href="breakpoints.html">Breakpoints</a></li>
-						<li><a class="nav-secondary__link" href="vertical-spacing.html">Vertical spacing</a></li>
-						<li><a class="nav-secondary__link" href="hide-and-show.html">Hide and show items inclusively</a></li>
-						<li><a class="nav-secondary__link" href="skip-link.html">Skip link</a></li>
-						<li><a class="nav-secondary__link" href="images.html">Images</a></li>
-						<li><a class="nav-secondary__link" href="forms.html">Forms</a></li>
-						<li><a class="nav-secondary__link" href="form-errors.html">Form error messages</a></li>
-						<li><a class="nav-secondary__link" href="tables.html">Tables</a></li>
-						<li><a class="nav-secondary__link" href="details-summary.html">Details and summary</a></li>
-						<li><a class="nav-secondary__link" href="utility-classes.html">Utility classes</a></li>
-						<li><a class="nav-secondary__link" href="flow-elements.html">Flow elements</a></li>
-						<li><a class="nav-secondary__link" href="print-styles.html">Print styles</a></li>
+		<div class="content-wrap">
+			<nav class="sidebar nav-secondary" aria-label="Secondary">
+				<ul class="clean-list" role="list">
+					<li><a class="nav-secondary__link" href="colours.html" aria-current="page">Colours</a></li>
+					<li><a class="nav-secondary__link" href="typography.html">Typography</a></li>
+					<li><a class="nav-secondary__link" href="buttons-links.html">Buttons and links</a></li>
+					<li><a class="nav-secondary__link" href="lists.html">Lists</a></li>
+					<li><a class="nav-secondary__link" href="icons.html">Icons</a></li>
+					<li><a class="nav-secondary__link" href="breakpoints.html">Breakpoints</a></li>
+					<li><a class="nav-secondary__link" href="vertical-spacing.html">Vertical spacing</a></li>
+					<li><a class="nav-secondary__link" href="hide-and-show.html">Hide and show items inclusively</a></li>
+					<li><a class="nav-secondary__link" href="skip-link.html">Skip link</a></li>
+					<li><a class="nav-secondary__link" href="images.html">Images</a></li>
+					<li><a class="nav-secondary__link" href="forms.html">Forms</a></li>
+					<li><a class="nav-secondary__link" href="form-errors.html">Form error messages</a></li>
+					<li><a class="nav-secondary__link" href="tables.html">Tables</a></li>
+					<li><a class="nav-secondary__link" href="details-summary.html">Details and summary</a></li>
+					<li><a class="nav-secondary__link" href="utility-classes.html">Utility classes</a></li>
+					<li><a class="nav-secondary__link" href="flow-elements.html">Flow elements</a></li>
+					<li><a class="nav-secondary__link" href="print-styles.html">Print styles</a></li>
+				</ul>
+			</nav>
+			<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+			<div class="content">
+				<div class="component component--text">
+					<h1>Colours</h1>
+					<h2>Colour contrast</h2>
+					<p>Make sure that the contrast ratio of text and interactive elements on your site meets the requirements of <strong><dfn id="wcag"><abbr title="Web Content Accessibility Guidelines">WCAG</abbr></dfn> 2.1</strong> as paraphrased in the following sections. The ideal contrast range to meet all requirements is 7:1 - 15:1. Higher contrast ratios can be triggering for some people.</p>
+					<h3>1.4.3 Contrast (Minimum) (AA)</h3>
+					<p>Text (including images of text) has a contrast ratio of at least <strong>4.5:1 for 'regular' text</strong> and at least <strong>3:1 for large text</strong> (at least <code>18pt</code> / <code>24px</code>, or bold and at least <code>14pt</code> / <code>18.5px</code>), unless the text is purely decorative.</p>
+					<h3>1.4.6 Contrast (Enhanced) (AAA)</h3>
+					<p>Text (including images of text) has a contrast ratio of at least <strong>7:1 for 'regular' text</strong> and at least <strong>4.5:1 for large text</strong> (at least <code>18pt</code> / <code>24px</code>, or bold and at least <code>14pt</code> / <code>18.5px</code>), unless the text is purely decorative.</p>
+					<h3>1.4.11 Non-text Contrast (AA)</h3>
+					<p>The visual presentation of <dfn id="ui"><abbr title="user interface">UI</abbr></dfn> components (their states - including focus indication - and boundaries) and graphical objects has a contrast ratio of at least 3:1 against adjacent colour(s).</p>
+					<h3>Tools for checking colour contrast</h3>
+					<p>Choose whichever you prefer from the following list:</p>
+					<ul>
+						<li>
+							<a href="https://accessible-colors.com/">Accessible Colors</a>
+						</li>
+						<li>
+							<a href="https://www.tpgi.com/cca-download/">Color Contrast Analyser Download</a>
+						</li>
+						<li>
+							<a href="https://contrast-ratio.com/">Contrast Ratio</a>
+						</li>
+						<li>
+							<a href="https://webaim.org/resources/linkcontrastchecker/">Link Contrast Checker</a>
+						</li>
+						<li>
+							<a href="https://whocanuse.com/">Who Can Use</a>
+						</li>
+						<li>
+							<a href="https://www.brandwood.com/a11y/">Text on background image a11y check</a>
+						</li>
 					</ul>
-				</nav>
-				<div class="not-sidebar">
-					<div class="component component--text">
-						<h1>Colours</h1>
-						<h2>Colour contrast</h2>
-						<p>Make sure that the contrast ratio of text and interactive elements on your site meets the requirements of <strong><dfn id="wcag"><abbr title="Web Content Accessibility Guidelines">WCAG</abbr></dfn> 2.1</strong> as paraphrased in the following sections. The ideal contrast range to meet all requirements is 7:1 - 15:1. Higher contrast ratios can be triggering for some people.</p>
-						<h3>1.4.3 Contrast (Minimum) (AA)</h3>
-						<p>Text (including images of text) has a contrast ratio of at least <strong>4.5:1 for 'regular' text</strong> and at least <strong>3:1 for large text</strong> (at least <code>18pt</code> / <code>24px</code>, or bold and at least <code>14pt</code> / <code>18.5px</code>), unless the text is purely decorative.</p>
-						<h3>1.4.6 Contrast (Enhanced) (AAA)</h3>
-						<p>Text (including images of text) has a contrast ratio of at least <strong>7:1 for 'regular' text</strong> and at least <strong>4.5:1 for large text</strong> (at least <code>18pt</code> / <code>24px</code>, or bold and at least <code>14pt</code> / <code>18.5px</code>), unless the text is purely decorative.</p>
-						<h3>1.4.11 Non-text Contrast (AA)</h3>
-						<p>The visual presentation of <dfn id="ui"><abbr title="user interface">UI</abbr></dfn> components (their states - including focus indication - and boundaries) and graphical objects has a contrast ratio of at least 3:1 against adjacent colour(s).</p>
-						<h3>Tools for checking colour contrast</h3>
-						<p>Choose whichever you prefer from the following list:</p>
-						<ul>
-							<li>
-								<a href="https://accessible-colors.com/">Accessible Colors</a>
-							</li>
-							<li>
-								<a href="https://www.tpgi.com/cca-download/">Color Contrast Analyser Download</a>
-							</li>
-							<li>
-								<a href="https://contrast-ratio.com/">Contrast Ratio</a>
-							</li>
-							<li>
-								<a href="https://webaim.org/resources/linkcontrastchecker/">Link Contrast Checker</a>
-							</li>
-							<li>
-								<a href="https://whocanuse.com/">Who Can Use</a>
-							</li>
-							<li>
-								<a href="https://www.brandwood.com/a11y/">Text on background image a11y check</a>
-							</li>
-						</ul>
-					</div>
 				</div>
 			</div>
 		</div>

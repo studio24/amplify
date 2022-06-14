@@ -76,52 +76,51 @@
 			</div>
 		</nav>
 		<main id="main">
-			<div class="l-sidebar">
-				<div>
-					<nav class="sidebar nav-secondary" aria-label="Secondary">
-						<ul class="clean-list" role="list">
-							<li><a class="nav-secondary__link" href="accessible-autocomplete.html">Accessible auto-complete</a></li>
-							<li><a class="nav-secondary__link" href="cards.html">Cards</a></li>
-							<li><a class="nav-secondary__link" href="collapsibles.html">Collapsible containers</a></li>
-							<li><a class="nav-secondary__link" href="disclosure-widget.html">Disclosure widget</a></li>
-							<li><a class="nav-secondary__link" href="tabs.html" aria-current="page">Tabbed sections</a></li>
+			<div class="content-wrap">
+				<nav class="sidebar nav-secondary" aria-label="Secondary">
+					<ul class="clean-list" role="list">
+						<li><a class="nav-secondary__link" href="accessible-autocomplete.html">Accessible auto-complete</a></li>
+						<li><a class="nav-secondary__link" href="cards.html">Cards</a></li>
+						<li><a class="nav-secondary__link" href="collapsibles.html">Collapsible containers</a></li>
+						<li><a class="nav-secondary__link" href="disclosure-widget.html">Disclosure widget</a></li>
+						<li><a class="nav-secondary__link" href="tabs.html" aria-current="page">Tabbed sections</a></li>
+					</ul>
+				</nav>
+				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+				<div class="content">
+					<div class="component component--text">
+						<h1>Tabbed sections</h1>
+						<p>We use the <a href="https://github.com/cferdinandi/tabby">Tabby</a> NPM package to generate tabbed content sections (not because it sounds like a type of cat). It progressively enhances a linked list of content into tabbed navigation.</p>
+					</div>
+					<div class="component component--tabs">
+						<ul data-tabs>
+							<li>
+								<a data-tabby-default href="#grumpy-cat">Grumpy Cat</a>
+							</li>
+							<li>
+								<a href="#lil-bub">Lil Bub</a>
+							</li>
+							<li>
+								<a href="#maru">Maru</a>
+							</li>
 						</ul>
-					</nav>
-					<div class="not-sidebar">
-						<div class="component component--text">
-							<h1>Tabbed sections</h1>
-							<p>We use the <a href="https://github.com/cferdinandi/tabby">Tabby</a> NPM package to generate tabbed content sections (not because it sounds like a type of cat). It progressively enhances a linked list of content into tabbed navigation.</p>
-						</div>
-						<div class="component component--tabs">
-							<ul data-tabs>
-								<li>
-									<a data-tabby-default href="#grumpy-cat">Grumpy Cat</a>
-								</li>
-								<li>
-									<a href="#lil-bub">Lil Bub</a>
-								</li>
-								<li>
-									<a href="#maru">Maru</a>
-								</li>
-							</ul>
-							<section id="grumpy-cat">
-								<h2>Grumpy Cat</h2>
-								<p><a href="https://en.wikipedia.org/wiki/Grumpy_Cat">Grumpy Cat</a> was a notable Internet cat, known and nicknamed for her permanently grumpy facial features.</p>
-							</section>
-							<section id="lil-bub">
-								<h2>Lil Bub</h2>
-								<p>Lil Bub was an American celebrity cat known for her unique physical appearance. Born the runt of the litter and with several genetic mutations, she had to be bottle-fed.</p>
-							</section>
-							<section id="maru">
-								<h2>Maru</h2>
-								<p><a href="https://en.wikipedia.org/wiki/Maru_(cat)">Maru</a> is a popular YouTube cat. He previously held the Guiness World Record for the most YouTube video views of an individual animal.</p>
-							</section>
-						</div>
-						<div class="component component--text">
-							<h2>Considerations</h2>
-							<p>The default implementation uses <code>overflow-x: auto;</code> on the list of tabs, so that if the width of the tablist is greater than the container/viewport width they will scroll horizontally. This is the same principle that Brad Taunt suggests in his post about <a href="https://tdarb.org/hamburger-menu-alternative/">replacing hamburger menus with sausage links</a>.</p>
-							<p>In the absence of a visible scrollbar, you will need to make sure that there are sufficient visual cues to users that content has been cut off and can be scrolled. You could <a href="https://bbc.github.io/gel/components/data-tables/#indicating-scroll-functionality-visually">use linear gradients to help add visual affordance of scrolling</a>, or else you might choose to add further scripting to detect when the element is scrolled all the way to either side, and add start or end classes for styling.</p>
-						</div>
+						<section id="grumpy-cat">
+							<h2>Grumpy Cat</h2>
+							<p><a href="https://en.wikipedia.org/wiki/Grumpy_Cat">Grumpy Cat</a> was a notable Internet cat, known and nicknamed for her permanently grumpy facial features.</p>
+						</section>
+						<section id="lil-bub">
+							<h2>Lil Bub</h2>
+							<p>Lil Bub was an American celebrity cat known for her unique physical appearance. Born the runt of the litter and with several genetic mutations, she had to be bottle-fed.</p>
+						</section>
+						<section id="maru">
+							<h2>Maru</h2>
+							<p><a href="https://en.wikipedia.org/wiki/Maru_(cat)">Maru</a> is a popular YouTube cat. He previously held the Guiness World Record for the most YouTube video views of an individual animal.</p>
+						</section>
+					</div>
+					<div class="component component--text">
+						<h2>Considerations</h2>
+						<p>The default implementation uses <code>overflow-x: auto;</code> on the list of tabs, so that if the width of the tablist is greater than the container/viewport width they will scroll horizontally. This is the same principle that Brad Taunt suggests in his post about <a href="https://tdarb.org/hamburger-menu-alternative/">replacing hamburger menus with sausage links</a>.</p>
+						<p>In the absence of a visible scrollbar, you will need to make sure that there are sufficient visual cues to users that content has been cut off and can be scrolled. You could <a href="https://bbc.github.io/gel/components/data-tables/#indicating-scroll-functionality-visually">use linear gradients to help add visual affordance of scrolling</a>, or else you might choose to add further scripting to detect when the element is scrolled all the way to either side, and add start or end classes for styling.</p>
 					</div>
 				</div>
 			</div>

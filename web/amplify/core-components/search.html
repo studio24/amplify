@@ -76,53 +76,52 @@
 			</div>
 		</nav>
 		<main id="main">
-			<div class="l-sidebar">
-				<div>
-					<nav class="sidebar nav-secondary" aria-label="Secondary">
-						<ul class="clean-list" role="list">
-							<li><a class="nav-secondary__link" href="avatars.html">Avatars</a></li>
-							<li><a class="nav-secondary__link" href="breadcrumbs.html">Breadcrumbs</a></li>
-							<li><a class="nav-secondary__link" href="cards.html">Cards</a></li>
-							<li><a class="nav-secondary__link" href="image-component.html">Image component</a></li>
-							<li><a class="nav-secondary__link" href="main.html">Main</a></li>
-							<li><a class="nav-secondary__link" href="notes.html">Notes</a></li>
-							<li><a class="nav-secondary__link" href="pagination.html">Pagination</a></li>
-							<li><a class="nav-secondary__link" href="progress-indicator.html">Progress indicator</a></li>
-							<li><a class="nav-secondary__link" href="quote-component.html">Quote component</a></li>
-							<li><a class="nav-secondary__link" href="shelves.html">Shelves</a></li>
-							<li><a class="nav-secondary__link" href="search.html" aria-current="page">Simple search form</a></li>
-							<li><a class="nav-secondary__link" href="sticky-footer.html">Sticky footer</a></li>
-							<li><a class="nav-secondary__link" href="tag-list.html">Tag list</a></li>
-							<li><a class="nav-secondary__link" href="text-component.html">Text component</a></li>
-							<li><a class="nav-secondary__link" href="video.html">Video component</a></li>
-						</ul>
-					</nav>
-					<div class="not-sidebar">
-						<div class="component component--text">
-							<h1>Simple search form</h1>
-						</div>
-						<div class="component">
-							<div class="l-box">
-								<label for="search">
-									<span class="field-label">Search</span>
-								</label>
-								<div class="l-sidebar search">
-									<form role="search" novalidate>
-										<div class="not-sidebar">
-											<input type="search" id="search" name="search">
-										</div>
-										<div class="sidebar">
-											<button type="submit" class="button" name="search">Search</button>
-										</div>
-									</form>
-								</div>
+			<div class="content-wrap">
+				<nav class="sidebar nav-secondary" aria-label="Secondary">
+					<ul class="clean-list" role="list">
+						<li><a class="nav-secondary__link" href="avatars.html">Avatars</a></li>
+						<li><a class="nav-secondary__link" href="breadcrumbs.html">Breadcrumbs</a></li>
+						<li><a class="nav-secondary__link" href="cards.html">Cards</a></li>
+						<li><a class="nav-secondary__link" href="image-component.html">Image component</a></li>
+						<li><a class="nav-secondary__link" href="main.html">Main</a></li>
+						<li><a class="nav-secondary__link" href="notes.html">Notes</a></li>
+						<li><a class="nav-secondary__link" href="pagination.html">Pagination</a></li>
+						<li><a class="nav-secondary__link" href="progress-indicator.html">Progress indicator</a></li>
+						<li><a class="nav-secondary__link" href="quote-component.html">Quote component</a></li>
+						<li><a class="nav-secondary__link" href="shelves.html">Shelves</a></li>
+						<li><a class="nav-secondary__link" href="search.html" aria-current="page">Simple search form</a></li>
+						<li><a class="nav-secondary__link" href="sticky-footer.html">Sticky footer</a></li>
+						<li><a class="nav-secondary__link" href="tag-list.html">Tag list</a></li>
+						<li><a class="nav-secondary__link" href="text-component.html">Text component</a></li>
+						<li><a class="nav-secondary__link" href="video.html">Video component</a></li>
+					</ul>
+				</nav>
+				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+				<div class="content">
+					<div class="component component--text">
+						<h1>Simple search form</h1>
+					</div>
+					<div class="component">
+						<div class="l-box">
+							<label for="search">
+								<span class="field-label">Search</span>
+							</label>
+							<div class="l-sidebar search">
+								<form role="search" novalidate>
+									<div class="not-sidebar">
+										<input type="search" id="search" name="search">
+									</div>
+									<div class="sidebar">
+										<button type="submit" class="button" name="search">Search</button>
+									</div>
+								</form>
 							</div>
 						</div>
-						<div class="component component--text">
-							<h2>Considerations</h2>
-							<p>Note the use of <code>input type="search"</code>. It is recommended to include <code>role="search"</code> on the parent <code>form</code> element. <a href="../fundamentals/forms.html">More about forms</a>.</p>
-							<p>Note the use of the <a href="../layout-helpers/box.html">box layout</a> and <a href="../layout-helpers/sidebar.html">sidebar layout</a> in this example.</p>
-						</div>
+					</div>
+					<div class="component component--text">
+						<h2>Considerations</h2>
+						<p>Note the use of <code>input type="search"</code>. It is recommended to include <code>role="search"</code> on the parent <code>form</code> element. <a href="../fundamentals/forms.html">More about forms</a>.</p>
+						<p>Note the use of the <a href="../layout-helpers/box.html">box layout</a> and <a href="../layout-helpers/sidebar.html">sidebar layout</a> in this example.</p>
 					</div>
 				</div>
 			</div>

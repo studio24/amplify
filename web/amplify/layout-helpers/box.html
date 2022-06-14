@@ -76,46 +76,45 @@
 			</div>
 		</nav>
 		<main id="main">
-			<div class="l-sidebar">
-				<div>
-					<nav class="sidebar nav-secondary" aria-label="Secondary">
-						<ul class="clean-list" role="list">
-							<li><a class="nav-secondary__link" href="box.html" aria-current="page">Box</a></li>
-							<li><a class="nav-secondary__link" href="center.html">Center</a></li>
-							<li><a class="nav-secondary__link" href="cluster.html">Cluster</a></li>
-							<li><a class="nav-secondary__link" href="cover.html">Cover</a></li>
-							<li><a class="nav-secondary__link" href="frame.html">Frame</a></li>
-							<li><a class="nav-secondary__link" href="sidebar.html">Sidebar</a></li>
-							<li><a class="nav-secondary__link" href="switcher.html">Switcher</a></li>
-						</ul>
-					</nav>
-					<div class="not-sidebar">
-						<div class="component component--text">
-							<h1>Box</h1>
-							<p>The box layout helper is a simple container for grouping content within a defined region. It uses the class <code>l-box</code>.</p>
-							<p>Box deliberately treats padding and borders <em>equally on all sides</em>.</p>
-							<p>If your container needs asymmetrical styling, then it's a container with a more specific purpose and <em>not</em> a box.</p>
-						</div>
-						<div class="component">
-							<h2>Default box</h2>
-							<div class="l-box">Default box, with padding and border</div>
-						</div>
-						<div class="component">
-							<h2>Box without padding</h2>
-							<div class="l-box l-box--no-padding">Box with no padding</div>
-						</div>
-						<div class="component">
-							<h2>Box without border</h2>
-							<div class="l-box l-box--no-border">Box with no border</div>
-						</div>
-						<div class="component">
-							<h2>Box without padding or border</h2>
-							<div class="l-box l-box--no-padding l-box--no-border">Box with no padding and no border</div>
-						</div>
-						<div class="component component--text">
-							<h2>Considerations</h2>
-							<p>Because high contrast themes can eliminate <code>background-color</code>, the <code>l-box--no-border</code> modifier class adds a transparent outline so that the shape of the box remains apparent. Negative <code>outline-offset</code> moves the outline inside the box perimeter so that it doesn't impact its overall size.</p>
-						</div>
+			<div class="content-wrap">
+				<nav class="sidebar nav-secondary" aria-label="Secondary">
+					<ul class="clean-list" role="list">
+						<li><a class="nav-secondary__link" href="box.html" aria-current="page">Box</a></li>
+						<li><a class="nav-secondary__link" href="center.html">Center</a></li>
+						<li><a class="nav-secondary__link" href="cluster.html">Cluster</a></li>
+						<li><a class="nav-secondary__link" href="cover.html">Cover</a></li>
+						<li><a class="nav-secondary__link" href="frame.html">Frame</a></li>
+						<li><a class="nav-secondary__link" href="sidebar.html">Sidebar</a></li>
+						<li><a class="nav-secondary__link" href="switcher.html">Switcher</a></li>
+					</ul>
+				</nav>
+				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+				<div class="content">
+					<div class="component component--text">
+						<h1>Box</h1>
+						<p>The box layout helper is a simple container for grouping content within a defined region. It uses the class <code>l-box</code>.</p>
+						<p>Box deliberately treats padding and borders <em>equally on all sides</em>.</p>
+						<p>If your container needs asymmetrical styling, then it's a container with a more specific purpose and <em>not</em> a box.</p>
+					</div>
+					<div class="component">
+						<h2>Default box</h2>
+						<div class="l-box">Default box, with padding and border</div>
+					</div>
+					<div class="component">
+						<h2>Box without padding</h2>
+						<div class="l-box l-box--no-padding">Box with no padding</div>
+					</div>
+					<div class="component">
+						<h2>Box without border</h2>
+						<div class="l-box l-box--no-border">Box with no border</div>
+					</div>
+					<div class="component">
+						<h2>Box without padding or border</h2>
+						<div class="l-box l-box--no-padding l-box--no-border">Box with no padding and no border</div>
+					</div>
+					<div class="component component--text">
+						<h2>Considerations</h2>
+						<p>Because high contrast themes can eliminate <code>background-color</code>, the <code>l-box--no-border</code> modifier class adds a transparent outline so that the shape of the box remains apparent. Negative <code>outline-offset</code> moves the outline inside the box perimeter so that it doesn't impact its overall size.</p>
 					</div>
 				</div>
 			</div>
