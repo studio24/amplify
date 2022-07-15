@@ -517,7 +517,6 @@ template {
 
     1. Needed for sticky footer
     2. Because autoprefixer does not cover IE grid
-    3. Only needed for IE
 \*------------------------------------*/
 html {
   height: 100%;
@@ -533,8 +532,9 @@ body {
   /* 1 */
   display: -ms-grid;
   /* 2 */
+  grid-template-columns: 100%;
   -ms-grid-columns: 100%;
-  /* 3 */
+  /* 2 */
   grid-template-rows: 1fr auto;
   /* 1 */
   -ms-grid-rows: 1fr auto;
@@ -1684,6 +1684,10 @@ before the text or after.
   align-items: center;
   display: inline-flex;
 }
+.with-icon--before .icon,
+.with-icon--after .icon {
+  flex: 0 0 auto;
+}
 
 .with-icon--before .icon {
   margin-right: 0.625rem;
@@ -2089,6 +2093,10 @@ disturbing the vertically centered element.
 Suppress horizontal scrolling caused by the negative margin
 in some circumstances.
  */
+.l-cluster {
+  overflow: hidden;
+}
+
 /**
 We use flexbox to configure the elements into clusters without creating
 white space. We can control how we align items within the cluster,
@@ -2194,6 +2202,10 @@ out, but halve it to to account for 'doubling up' at the edges.
 Suppress horizontal scrolling caused by the negative margin
 in some circumstances.
  */
+.l-sidebar {
+  overflow: hidden;
+}
+
 /**
 We target the intermediary wrapper and give it a negative margin
 to create a gutter between the `.sidebar` and `.not-sidebar`.
