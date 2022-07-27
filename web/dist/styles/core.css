@@ -3236,7 +3236,7 @@ input[type=search] {
 
 .amplify .nav-secondary__link {
   color: #0d599b;
-  display: inline-block;
+  display: block;
   padding-bottom: 0.5625rem;
   padding-top: 0.5625rem;
   position: relative;
