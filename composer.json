@@ -1,6 +1,5 @@
 {
-	"type": "project",
-	"require-dev": {
-		"studio24/deployer-recipes": "^1.0"
-	}
+    "require": {
+        "studio24/deployer-recipes": "^1.1"
+    }
 }
