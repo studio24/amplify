@@ -93,39 +93,31 @@
                     <h1>Carousel</h1>
                     <p>We use the <a href="https://github.com/Splidejs/splide">Splide</a> NPM package for building accessible carousels.</p>
                     <p>It is strongly recommended to follow the <a href="https://splidejs.com/guides/getting-started">getting started instructions</a> to make sure you have the <a href="https://splidejs.com/guides/getting-started/#html">correct markup</a> for your implementation, as it can vary depending on the nature of the carousel.</p>
-                    <p><strong>In keeping with Amplify's principle of favouring data-attributes over classnames for targeting JS, be sure to include the following attribute on the component: <code>data-component="carousel"</code></strong>.</p>
+                    <p><strong>In keeping with Amplify's principle of favouring data-attributes over classnames for targeting JS, be sure to include the following attribute on the carousel: <code>data-component="carousel"</code></strong>.</p>
                     <p>We use the core Splide stylesheet so that we can write custom styles while minimizing the need for overrides. A number of <a href="https://splidejs.com/guides/options/">JS customisation options are also available</a>.</p>
                 </div>
-                <div class="component splide" data-component="carousel" role="group" aria-labelledby="carousel-heading">
-                    <h2 id="carousel-heading">Splide Basic HTML Example</h2>
-                    <div class="splide__track">
-                        <ul class="splide__list">
-                            <li class="splide__slide">
-                                <img src="../../dist/images/jpg-cat-1.jpg" alt="">
-                            </li>
-                            <li class="splide__slide">
-                                <img src="../../dist/images/jpg-cat-1.jpg" alt="">
-                            </li>
-                            <li class="splide__slide">
-                                <img src="../../dist/images/jpg-cat-1.jpg" alt="">
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="component splide" data-component="carousel" role="group" aria-labelledby="carousel-heading-2">
-                    <h2 id="carousel-heading-2">Splide Basic HTML Example</h2>
-                    <div class="splide__track">
-                        <ul class="splide__list">
-                            <li class="splide__slide">
-                                <img src="../../dist/images/jpg-cat-1.jpg" alt="">
-                            </li>
-                            <li class="splide__slide">
-                                <img src="../../dist/images/jpg-cat-1.jpg" alt="">
-                            </li>
-                            <li class="splide__slide">
-                                <img src="../../dist/images/jpg-cat-1.jpg" alt="">
-                            </li>
-                        </ul>
+                <div class="component">
+                    <h2>Simple image carousel</h2>
+                    <div class="splide" data-component="carousel" role="group" aria-label="">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <li class="splide__slide">
+                                    <div class="l-frame l-frame--16-9">
+                                        <img src="../../dist/images/jpg-cat-1.jpg" alt="A brown tabby cat with green eyes faces the camera">
+                                    </div>
+                                </li>
+                                <li class="splide__slide">
+                                    <div class="l-frame l-frame--16-9">
+                                        <img src="../../dist/images/jpg-cat-1.jpg" alt="A second copy of the tabby cat from slide 1">
+                                    </div>
+                                </li>
+                                <li class="splide__slide">
+                                    <div class="l-frame l-frame--16-9">
+                                        <img src="../../dist/images/jpg-cat-1.jpg" alt="A third copy of the tabby cat from slide 1">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

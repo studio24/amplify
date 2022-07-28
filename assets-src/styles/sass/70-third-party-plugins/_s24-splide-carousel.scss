@@ -1,3 +1,79 @@
 /*------------------------------------*\
     #S24 customisation of Splide carousel
 \*------------------------------------*/
+
+// Space for pagination - using margin so next/previous buttons are vertically centred
+// Use double the top margin of .component + .component to account for collapsing margins
+[data-component="carousel"] {
+    margin-bottom: rem(96);
+}
+
+.splide__arrow {
+    min-width: auto; // Override Amplify button style
+    padding-left: rem(4);
+    padding-right: rem(4);
+    position: absolute;
+    top: calc(50%);
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.splide__arrow--prev {
+    left: 0;
+
+    svg {
+        transform: scaleX(-1); // Change arrow direction
+    }
+}
+
+.splide__arrow--next {
+    right: 0;
+}
+
+.splide__arrow svg {
+    height: rem(32);
+    width: rem(32);
+}
+
+.splide__pagination {
+    bottom: rem(-50);
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.splide__pagination__page {
+    background-color: transparent;
+    border-color: transparent;
+    height: rem(44);
+    min-width: auto; // Override Amplify button style
+    position: relative;
+    width: rem(44);
+
+    &:hover,
+    &:focus {
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+    &:focus-visible {
+        background-color: $focus-color;
+        background-image: none;
+        border-color: $black;
+    }
+
+    &::after {
+        background-color: $link-color;
+        border-radius: 50%;
+        content: "";
+        height: rem(14);
+        position: absolute;
+        width: rem(14);
+    }
+
+    &[aria-selected="true"]::after {
+        background-color: transparent;
+        border: solid 2px $link-color;
+    }
+}

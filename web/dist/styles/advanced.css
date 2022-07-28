@@ -741,3 +741,73 @@ br {
 /*------------------------------------*\
     #S24 customisation of Splide carousel
 \*------------------------------------*/
+[data-component=carousel] {
+  margin-bottom: 6rem;
+}
+
+.splide__arrow {
+  min-width: auto;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 1;
+}
+
+.splide__arrow--prev {
+  left: 0;
+}
+.splide__arrow--prev svg {
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+.splide__arrow--next {
+  right: 0;
+}
+
+.splide__arrow svg {
+  height: 2rem;
+  width: 2rem;
+}
+
+.splide__pagination {
+  bottom: -3.125rem;
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 100%;
+}
+
+.splide__pagination__page {
+  background-color: transparent;
+  border-color: transparent;
+  height: 2.75rem;
+  min-width: auto;
+  position: relative;
+  width: 2.75rem;
+}
+.splide__pagination__page:hover, .splide__pagination__page:focus {
+  background-color: transparent;
+  border-color: transparent;
+}
+.splide__pagination__page:focus-visible {
+  background-color: #ffdc00;
+  background-image: none;
+  border-color: #000;
+}
+.splide__pagination__page::after {
+  background-color: #0d599b;
+  border-radius: 50%;
+  content: "";
+  height: 0.875rem;
+  position: absolute;
+  width: 0.875rem;
+}
+.splide__pagination__page[aria-selected=true]::after {
+  background-color: transparent;
+  border: solid 2px #0d599b;
+}
