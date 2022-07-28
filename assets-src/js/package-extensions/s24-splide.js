@@ -4,10 +4,14 @@
  */
 
 import Splide from "@splidejs/splide";
+import {exists} from '../main/_exists.helper';
 
-var elms = document.getElementsByClassName( 'splide' );
+// Get all carousel instances
+var splideArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="carousel"]'));
 
-// Needed to allow for multiple carousel instances on a page
-for ( var i = 0; i < elms.length; i++ ) {
-    new Splide( elms[ i ] ).mount();
+if (exists(splideArray)) {
+    // Loop through them
+    splideArray.forEach(function (carousel) {
+        new Splide(carousel).mount();
+    });
 }

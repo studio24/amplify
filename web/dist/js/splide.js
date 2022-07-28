@@ -3727,6 +3727,26 @@ var SplideRenderer = /*#__PURE__*/function () {
 
 
 
+/***/ }),
+
+/***/ 2:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "exists": function() { return /* binding */ exists; }
+/* harmony export */ });
+/**
+ * Check whether an element exists in the DOM
+ * @param elem
+ * @return {boolean}
+ */
+var exists = function exists(elem) {
+  return elem !== 'undefined' && elem !== null && (elem.length >= 0 || elem.innerHTML.length >= 0);
+};
+
+
+
 /***/ })
 
 /******/ 	});
@@ -3790,15 +3810,21 @@ var __webpack_exports__ = {};
 !function() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _splidejs_splide__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
+/* harmony import */ var _main_exists_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /**
  * Customising the Splide carousel for Amplify
  * @see https://github.com/Splidejs/splide
  */
 
-var elms = document.getElementsByClassName('splide'); // Needed to allow for multiple carousel instances on a page
+ // Get all carousel instances
 
-for (var i = 0; i < elms.length; i++) {
-  new _splidejs_splide__WEBPACK_IMPORTED_MODULE_0__["default"](elms[i]).mount();
+var splideArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="carousel"]'));
+
+if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_1__.exists)(splideArray)) {
+  // Loop through them
+  splideArray.forEach(function (carousel) {
+    new _splidejs_splide__WEBPACK_IMPORTED_MODULE_0__["default"](carousel).mount();
+  });
 }
 }();
 /******/ })()

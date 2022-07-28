@@ -92,25 +92,40 @@
                 <div class="component component--text">
                     <h1>Carousel</h1>
                     <p>We use the <a href="https://github.com/Splidejs/splide">Splide</a> NPM package for building accessible carousels.</p>
-                    <p>It is strongly recommended to follow the <a href="https://splidejs.com/guides/getting-started">getting started instructions</a> to make sure you have the <a href="https://splidejs.com/guides/getting-started/#html">correct markup</a> for your implementation, as it can vary depending on the nature of the carousel. A number of <a href="https://splidejs.com/guides/options/">customisation options are available</a>.</p>
-                    <p>We use the core Splide stylesheet so that we can write custom styles while minimizing the need for overrides.</p>
+                    <p>It is strongly recommended to follow the <a href="https://splidejs.com/guides/getting-started">getting started instructions</a> to make sure you have the <a href="https://splidejs.com/guides/getting-started/#html">correct markup</a> for your implementation, as it can vary depending on the nature of the carousel.</p>
+                    <p><strong>In keeping with Amplify's principle of favouring data-attributes over classnames for targeting JS, be sure to include the following attribute on the component: <code>data-component="carousel"</code></strong>.</p>
+                    <p>We use the core Splide stylesheet so that we can write custom styles while minimizing the need for overrides. A number of <a href="https://splidejs.com/guides/options/">JS customisation options are also available</a>.</p>
                 </div>
-                <div class="component">
-                    <div class="splide" role="group" aria-labelledby="carousel-heading">
-                        <h2 id="carousel-heading">Splide Basic HTML Example</h2>
-                        <div class="splide__track">
-                            <ul class="splide__list">
-                                <li class="splide__slide">
-                                    <img src="../../dist/images/jpg-cat-1.jpg" alt="">
-                                </li>
-                                <li class="splide__slide">
-                                    <img src="../../dist/images/jpg-cat-1.jpg" alt="">
-                                </li>
-                                <li class="splide__slide">
-                                    <img src="../../dist/images/jpg-cat-1.jpg" alt="">
-                                </li>
-                            </ul>
-                        </div>
+                <div class="component splide" data-component="carousel" role="group" aria-labelledby="carousel-heading">
+                    <h2 id="carousel-heading">Splide Basic HTML Example</h2>
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <img src="../../dist/images/jpg-cat-1.jpg" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="../../dist/images/jpg-cat-1.jpg" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="../../dist/images/jpg-cat-1.jpg" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="component splide" data-component="carousel" role="group" aria-labelledby="carousel-heading-2">
+                    <h2 id="carousel-heading-2">Splide Basic HTML Example</h2>
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <img src="../../dist/images/jpg-cat-1.jpg" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="../../dist/images/jpg-cat-1.jpg" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="../../dist/images/jpg-cat-1.jpg" alt="">
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
