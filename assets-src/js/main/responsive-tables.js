@@ -9,7 +9,7 @@ import {exists} from './_exists.helper';
 var responsiveTables = function () {
 
 	// Get all the table wraps
-	let tablesArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="table-wrap"]'));
+	var tablesArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="table-wrap"]'));
 
 	if (exists(tablesArray)) {
 

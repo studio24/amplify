@@ -1,0 +1,21 @@
+/*------------------------------------*\
+    #Carousel - no-js customisation of Splide
+\*------------------------------------*/
+
+/*
+ Splide hides the entire carousel if there is no JS.
+ Amplify prefers to keep the slides visible and stacked vertically.
+ */
+.no-js {
+    .splide {
+        visibility: visible;
+    }
+
+    .splide__list {
+        display: block;
+    }
+
+    .splide__list > * + * {
+        margin-top: 1rem;
+    }
+}

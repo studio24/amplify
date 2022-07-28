@@ -43,7 +43,6 @@
 @import "sass/60-advanced-components/collapsibles";
 @import "sass/60-advanced-components/disclosure-widget";
 @import "sass/60-advanced-components/tabs";
-//@import "sass/60-advanced-components/slider";
 
 
 /*------------------------------------*\
@@ -54,3 +53,6 @@
 \*------------------------------------*/
 @import "../../node_modules/accessible-autocomplete/src/autocomplete";
 @import "sass/70-third-party-plugins/s24-accessible-autocomplete";
+
+@import "../../node_modules/@splidejs/splide/src/css/core/index";
+@import "sass/70-third-party-plugins/s24-splide-carousel";
