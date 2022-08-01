@@ -1,8 +1,11 @@
+import {exists} from "./main/_exists.helper";
+
 import {cardEnhancement} from "./main/cards";
 import {collapsibles} from "./main/collapsibles";
 import {disclosureWidget} from "./main/disclosure-widget";
 import {formErrorSummary} from "./main/form-error-summary";
 import {responsiveTables} from "./main/responsive-tables";
+import {navDoubleLevel} from "./main/nav-double-level";
 
 function domLoadedActions() {
 	cardEnhancement();
@@ -10,6 +13,14 @@ function domLoadedActions() {
 	disclosureWidget();
 	formErrorSummary();
 	responsiveTables();
+
+	/* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
+	const navigation = document.querySelector('ul[data-component="nav-double"]');
+
+	if (exists(navigation)) {
+		let siteNav = new navDoubleLevel(navigation);
+		siteNav.init();
+	}
 }
 
 if (document.readyState === 'loading') {

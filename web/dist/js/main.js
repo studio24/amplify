@@ -7,9 +7,29 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "exists": function() { return /* binding */ exists; }
+/* harmony export */ });
+/**
+ * Check whether an element exists in the DOM
+ * @param elem
+ * @return {boolean}
+ */
+var exists = function exists(elem) {
+  return elem !== 'undefined' && elem !== null && (elem.length >= 0 || elem.innerHTML.length >= 0);
+};
+
+
+
+/***/ }),
+/* 2 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "cardEnhancement": function() { return /* binding */ cardEnhancement; }
 /* harmony export */ });
-/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
 /**
  * Card enhancement to trigger the main link whenever the card area is clicked
@@ -47,26 +67,6 @@ var cardEnhancement = function cardEnhancement() {
 
 
 /***/ }),
-/* 2 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "exists": function() { return /* binding */ exists; }
-/* harmony export */ });
-/**
- * Check whether an element exists in the DOM
- * @param elem
- * @return {boolean}
- */
-var exists = function exists(elem) {
-  return elem !== 'undefined' && elem !== null && (elem.length >= 0 || elem.innerHTML.length >= 0);
-};
-
-
-
-/***/ }),
 /* 3 */
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -75,7 +75,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "collapsibles": function() { return /* binding */ collapsibles; }
 /* harmony export */ });
-/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
 /**
  * Collapsible panels
@@ -133,7 +133,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "disclosureWidget": function() { return /* binding */ disclosureWidget; }
 /* harmony export */ });
-/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
 /* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -230,7 +230,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "formErrorSummary": function() { return /* binding */ formErrorSummary; }
 /* harmony export */ });
-/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
 /**
  * Shift focus to form error summary, if present
@@ -256,7 +256,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "responsiveTables": function() { return /* binding */ responsiveTables; }
 /* harmony export */ });
-/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
 /**
  * Responsive tables
@@ -293,6 +293,159 @@ var responsiveTables = function responsiveTables() {
     }); // End loop
   } // End if statement
 
+};
+
+
+
+/***/ }),
+/* 8 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "navDoubleLevel": function() { return /* binding */ navDoubleLevel; }
+/* harmony export */ });
+/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_closest_polyfill_js__WEBPACK_IMPORTED_MODULE_0__);
+
+/**
+ * Object for creating double-level navigation menus
+ * Inspired by https://github.com/mrwweb/clicky-menus/blob/main/clicky-menus.js
+ */
+
+var navDoubleLevel = function navDoubleLevel(menu) {
+  // DOM element(s)
+  var container = menu.parentElement;
+  var currentMenuItem;
+  var i;
+  var length;
+
+  this.init = function () {
+    menuSetup();
+    document.addEventListener('click', closeOpenMenu);
+    document.addEventListener('keyup', closeOnEscKey);
+  };
+  /*--------------------------------------------------
+   Nav open / close functions
+  --------------------------------------------------*/
+
+
+  function toggleOnMenuClick(event) {
+    var button = event.currentTarget; // close open menu if there is one
+
+    if (currentMenuItem && button !== currentMenuItem) {
+      toggleSubmenu(currentMenuItem);
+    }
+
+    toggleSubmenu(button);
+  }
+
+  function toggleSubmenu(button) {
+    if ('true' === button.getAttribute('aria-expanded')) {
+      button.setAttribute('aria-expanded', 'false');
+      currentMenuItem = false;
+    } else {
+      button.setAttribute('aria-expanded', 'true');
+      currentMenuItem = button;
+    }
+  }
+
+  function closeOnEscKey(event) {
+    if (event.defaultPrevented) {
+      return;
+    }
+
+    var key = event.key || event.keyCode;
+
+    if (key === 'Escape' || key === 'Esc' || key === 27) {
+      if (null !== event.target.closest('ul[aria-hidden="false"]')) {
+        // We're on a child item
+        currentMenuItem.focus();
+        toggleSubmenu(currentMenuItem);
+      } else if ('true' === event.target.getAttribute('aria-expanded')) {
+        // We're on a parent item
+        toggleSubmenu(currentMenuItem);
+      }
+    }
+  }
+
+  function closeOpenMenu(event) {
+    if (currentMenuItem && !event.target.closest('#' + container.id)) {
+      toggleSubmenu(currentMenuItem);
+    }
+  }
+  /*--------------------------------------------------
+   Modify menu markup & bind event listeners
+  --------------------------------------------------*/
+
+
+  function menuSetup() {
+    var submenus = Array.prototype.slice.call(menu.querySelectorAll('ul'));
+    submenus.forEach(function (submenu) {
+      var menuItem = submenu.parentElement;
+
+      if ('undefined' !== typeof submenu) {
+        var button = convertLinkToButton(menuItem);
+        setUpAria(submenu, button); // bind event listener to button
+
+        button.addEventListener('click', toggleOnMenuClick); // bind event listener to menu
+
+        menu.addEventListener('keyup', closeOnEscKey);
+      }
+    });
+  }
+  /**
+   * Why do this? See https://justmarkup.com/articles/2019-01-21-the-link-to-button-enhancement/
+   */
+
+
+  function convertLinkToButton(menuItem) {
+    var link = menuItem.getElementsByTagName('a')[0];
+    var linkClone = link.cloneNode(true);
+    var linkHTML = link.innerHTML;
+    var linkAtts = link.attributes;
+    var button = document.createElement('button');
+    var li = document.createElement('li');
+    var subMenu = link.nextElementSibling;
+
+    if (null !== link) {
+      // copy button attributes and content from link
+      button.innerHTML = linkHTML.trim();
+
+      for (i = 0, length = linkAtts.length; i < length; i++) {
+        var attr = linkAtts[i];
+
+        if ('href' !== attr.name) {
+          button.setAttribute(attr.name, attr.value);
+        }
+      } // insert cloned link as first item of submenu list
+
+
+      li.appendChild(linkClone);
+      subMenu.insertBefore(li, subMenu.children[0]);
+      menuItem.replaceChild(button, link);
+    }
+
+    return button;
+  }
+
+  function setUpAria(submenu, button) {
+    var submenuId = submenu.getAttribute('id');
+    var id;
+
+    if (null === submenuId) {
+      id = 'js-' + button.textContent.trim().replace(/\s+/g, '-').toLowerCase() + '-submenu';
+    } else {
+      id = 'js-' + menuItemId + '-submenu';
+    } // set button ARIA
+
+
+    button.setAttribute('aria-controls', id);
+    button.setAttribute('aria-expanded', false); // set submenu ARIA
+
+    submenu.setAttribute('id', id);
+  }
 };
 
 
@@ -371,11 +524,15 @@ var __webpack_exports__ = {};
 !function() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
-/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
-/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
+/* harmony import */ var _main_exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
+/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
+/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
+/* harmony import */ var _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8);
+
+
 
 
 
@@ -383,11 +540,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function domLoadedActions() {
-  (0,_main_cards__WEBPACK_IMPORTED_MODULE_0__.cardEnhancement)();
-  (0,_main_collapsibles__WEBPACK_IMPORTED_MODULE_1__.collapsibles)();
-  (0,_main_disclosure_widget__WEBPACK_IMPORTED_MODULE_2__.disclosureWidget)();
-  (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_3__.formErrorSummary)();
-  (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__.responsiveTables)();
+  (0,_main_cards__WEBPACK_IMPORTED_MODULE_1__.cardEnhancement)();
+  (0,_main_collapsibles__WEBPACK_IMPORTED_MODULE_2__.collapsibles)();
+  (0,_main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__.disclosureWidget)();
+  (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__.formErrorSummary)();
+  (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_5__.responsiveTables)();
+  /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
+
+  var navigation = document.querySelector('ul[data-component="nav-double"]');
+
+  if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navigation)) {
+    var siteNav = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navigation);
+    siteNav.init();
+  }
 }
 
 if (document.readyState === 'loading') {
@@ -408,7 +573,7 @@ window.addEventListener('resize', function (event) {
       // Reset timeout
       timeout = null; // Run our resize functions
 
-      (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_4__.responsiveTables)();
+      (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_5__.responsiveTables)();
     }, 66);
   }
 }, false);

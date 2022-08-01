@@ -2323,6 +2323,17 @@ so that either of these properties is applied instead.
 /*------------------------------------*\
     #Navigation core
 \*------------------------------------*/
+.nav ul,
+.nav ul * + * {
+  margin: 0;
+}
+
+a.nav-link {
+  display: block;
+  line-height: normal;
+  padding: 0.6875rem 0.75rem;
+}
+
 /*------------------------------------*\
     #Breadcrumbs
     See: https://scottaohara.github.io/a11y_breadcrumbs/

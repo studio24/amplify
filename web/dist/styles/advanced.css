@@ -189,6 +189,32 @@ br {
     For JS enhancements
 \*------------------------------------*/
 /*------------------------------------*\
+    #Navigation advanced
+
+    N.B. aria-expanded attribute is managed by JS
+\*------------------------------------*/
+@media screen and (min-width: 48em) {
+  .nav--double > ul {
+    align-items: center;
+    display: flex;
+  }
+}
+@media screen and (min-width: 48em) {
+  .nav--double > ul > li + li {
+    margin-left: 0.3125rem;
+  }
+}
+.nav--double button.nav-link {
+  position: relative;
+}
+.nav--double button.nav-link + * {
+  position: absolute;
+}
+.nav--double button.nav-link[aria-expanded=false] + * {
+  display: none;
+}
+
+/*------------------------------------*\
     #Cards advanced
 \*------------------------------------*/
 .js [data-component=card] {
@@ -219,6 +245,7 @@ br {
   font-size: 1.25rem;
   line-height: 1.3;
   font-weight: 600;
+  text-align: left;
 }
 .js [data-heading=collapsibles] button .js-collapsible-toggle {
   color: #0d599b;

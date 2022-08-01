@@ -1,3 +1,32 @@
 /*------------------------------------*\
     #Navigation advanced
+
+    N.B. aria-expanded attribute is managed by JS
 \*------------------------------------*/
+
+.nav--double {
+    > ul {
+        @include mq($bp-tab-portrait) {
+            align-items: center;
+            display: flex;
+        }
+    }
+
+    > ul > li + li {
+        @include mq($bp-tab-portrait) {
+            margin-left: rem(5);
+        }
+    }
+
+    button.nav-link {
+        position: relative;
+
+        + * {
+            position: absolute;
+        }
+
+        &[aria-expanded="false"] + * {
+            display: none;
+        }
+    }
+}
