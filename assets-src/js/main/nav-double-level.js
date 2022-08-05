@@ -3,48 +3,35 @@ import './_closest.polyfill.js';
 /**
  * Object for creating double-level navigation menus
  * Inspired by https://github.com/mrwweb/clicky-menus/blob/main/clicky-menus.js
+ * Uses event delegation to handle events for improved performance
  */
 
 const navDoubleLevel = function(menu) {
-    // DOM element(s)
     let	container = menu.parentElement;
-    let currentMenuItem;
-    let i;
-    let length;
 
     this.init = function() {
         menuSetup();
-        document.addEventListener('click', closeOpenMenu);
+        document.addEventListener('click', clickHandler);
         document.addEventListener('keyup', closeOnEscKey);
     }
 
-    /*--------------------------------------------------
-     Nav open / close functions
-    --------------------------------------------------*/
-    function toggleOnMenuClick(event) {
-        const button = event.currentTarget;
-
-        // close open menu if there is one
-        if (currentMenuItem && button !== currentMenuItem) {
-            toggleSubmenu(currentMenuItem);
-        }
-
-        toggleSubmenu(button);
+    function closeSubmenus() {
+        let subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('button'));
+        subNavTriggers.forEach(function (trigger) {
+            trigger.setAttribute('aria-expanded', 'false');
+        });
     }
 
-    function toggleSubmenu(button) {
-        if ('true' === button.getAttribute('aria-expanded')) {
-            button.setAttribute('aria-expanded', 'false');
-            currentMenuItem = false;
+    function clickHandler(event) {
+        if (event.target.closest('#js-click-navigation')) {
+            if (event.target.matches('[aria-expanded="true"]')) {
+                event.target.setAttribute('aria-expanded', 'false');
+            } else {
+                closeSubmenus();
+                event.target.setAttribute('aria-expanded', 'true');
+            }
         } else {
-            button.setAttribute('aria-expanded', 'true');
-            currentMenuItem = button;
-        }
-    }
-
-    function closeOpenMenu(event) {
-        if (currentMenuItem && ! event.target.closest('#' + container.id)) {
-            toggleSubmenu(currentMenuItem);
+            closeSubmenus();
         }
     }
 
@@ -56,20 +43,10 @@ const navDoubleLevel = function(menu) {
         let key = event.key || event.keyCode;
 
         if (key === 'Escape' || key === 'Esc' || key === 27) {
-            if (null !== event.target.closest('ul[aria-hidden="false"]')) {
-                // We're on a child item
-                currentMenuItem.focus();
-                toggleSubmenu(currentMenuItem);
-            } else if ('true' === event.target.getAttribute('aria-expanded')) {
-                // We're on a parent item
-                toggleSubmenu(currentMenuItem);
-            }
+            closeSubmenus();
         }
     }
 
-    /*--------------------------------------------------
-     Modify menu markup & bind event listeners
-    --------------------------------------------------*/
     function menuSetup() {
         container.setAttribute('id', 'js-click-navigation');
         const submenus = Array.prototype.slice.call(menu.querySelectorAll('ul'));
@@ -81,11 +58,6 @@ const navDoubleLevel = function(menu) {
                 let button = convertLinkToButton(menuItem);
 
                 setUpAria(submenu, button);
-
-                // bind event listener to button
-                button.addEventListener('click', toggleOnMenuClick);
-                // bind event listener to menu
-                menu.addEventListener('keyup', closeOnEscKey);
             }
         });
     }
@@ -106,7 +78,7 @@ const navDoubleLevel = function(menu) {
             // copy button attributes and content from link
             button.innerHTML = linkHTML.trim();
 
-            for (i = 0, length = linkAtts.length; i < length; i++) {
+            for (let i = 0, length = linkAtts.length; i < length; i++) {
                 let attr = linkAtts[i];
                 if ('href' !== attr.name) {
                     button.setAttribute(attr.name, attr.value);
