@@ -313,12 +313,15 @@ __webpack_require__.r(__webpack_exports__);
  * Object for creating double-level navigation menus
  * Inspired by https://github.com/mrwweb/clicky-menus/blob/main/clicky-menus.js
  * Uses event delegation to handle events for improved performance
+ * Also manages button for toggling navigation on mobile
  */
 
 var navDoubleLevel = function navDoubleLevel(menu) {
   var container = menu.parentElement;
+  var mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
 
   this.init = function () {
+    mobileToggleSetup();
     menuSetup();
     document.addEventListener('click', clickHandler);
     document.addEventListener('keyup', closeOnEscKey);
@@ -331,8 +334,22 @@ var navDoubleLevel = function navDoubleLevel(menu) {
     });
   }
 
+  function closeAllOpenMenus() {
+    var openTrigger = Array.prototype.slice.call(container.querySelectorAll('[aria-expanded="true"]'));
+    openTrigger.forEach(function (trigger) {
+      trigger.setAttribute('aria-expanded', 'false');
+    });
+  }
+
   function clickHandler(event) {
-    if (event.target.closest('#js-click-navigation')) {
+    if (event.target.matches('[data-trigger="mobile-nav"]')) {
+      if (event.target.matches('[aria-expanded="true"]')) {
+        closeSubmenus();
+        event.target.setAttribute('aria-expanded', 'false');
+      } else {
+        event.target.setAttribute('aria-expanded', 'true');
+      }
+    } else if (event.target.matches('[data-trigger="subnav"]')) {
       if (event.target.matches('[aria-expanded="true"]')) {
         event.target.setAttribute('aria-expanded', 'false');
       } else {
@@ -352,7 +369,24 @@ var navDoubleLevel = function navDoubleLevel(menu) {
     var key = event.key || event.keyCode;
 
     if (key === 'Escape' || key === 'Esc' || key === 27) {
-      closeSubmenus();
+      closeAllOpenMenus();
+    }
+  }
+
+  function mobileToggleSetup() {
+    mobileToggle.setAttribute('aria-expanded', 'false');
+    mobileToggle.style.display = 'block'; // Corresponds to $bp-tab-landscape Sass variable
+
+    var mq = window.matchMedia('(min-width: 64em)');
+    mq.addListener(WidthChange);
+    WidthChange(mq); // Media query change
+
+    function WidthChange(mq) {
+      if (!mq.matches) {
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      } else {
+        mobileToggle.setAttribute('aria-expanded', 'true');
+      }
     }
   }
 
@@ -379,6 +413,7 @@ var navDoubleLevel = function navDoubleLevel(menu) {
     var linkHTML = link.innerHTML;
     var linkAtts = link.attributes;
     var button = document.createElement('button');
+    button.setAttribute('data-trigger', 'subnav');
     var li = document.createElement('li');
     var subMenu = link.nextElementSibling;
 
