@@ -351,6 +351,12 @@ var navDoubleLevel = function navDoubleLevel(menu) {
     }
   }
 
+  function closeOpenMenu(event) {
+    if (currentMenuItem && !event.target.closest('#' + container.id)) {
+      toggleSubmenu(currentMenuItem);
+    }
+  }
+
   function closeOnEscKey(event) {
     if (event.defaultPrevented) {
       return;
@@ -369,18 +375,13 @@ var navDoubleLevel = function navDoubleLevel(menu) {
       }
     }
   }
-
-  function closeOpenMenu(event) {
-    if (currentMenuItem && !event.target.closest('#' + container.id)) {
-      toggleSubmenu(currentMenuItem);
-    }
-  }
   /*--------------------------------------------------
    Modify menu markup & bind event listeners
   --------------------------------------------------*/
 
 
   function menuSetup() {
+    container.setAttribute('id', 'js-click-navigation');
     var submenus = Array.prototype.slice.call(menu.querySelectorAll('ul'));
     submenus.forEach(function (submenu) {
       var menuItem = submenu.parentElement;

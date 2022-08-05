@@ -42,6 +42,12 @@ const navDoubleLevel = function(menu) {
         }
     }
 
+    function closeOpenMenu(event) {
+        if (currentMenuItem && ! event.target.closest('#' + container.id)) {
+            toggleSubmenu(currentMenuItem);
+        }
+    }
+
     function closeOnEscKey(event) {
         if (event.defaultPrevented) {
             return;
@@ -61,16 +67,11 @@ const navDoubleLevel = function(menu) {
         }
     }
 
-    function closeOpenMenu(event) {
-        if (currentMenuItem && ! event.target.closest('#' + container.id)) {
-            toggleSubmenu(currentMenuItem);
-        }
-    }
-
     /*--------------------------------------------------
      Modify menu markup & bind event listeners
     --------------------------------------------------*/
     function menuSetup() {
+        container.setAttribute('id', 'js-click-navigation');
         const submenus = Array.prototype.slice.call(menu.querySelectorAll('ul'));
 
         submenus.forEach(function (submenu) {
