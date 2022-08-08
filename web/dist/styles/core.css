@@ -2331,7 +2331,7 @@ so that either of these properties is applied instead.
 a.nav-link {
   display: block;
   line-height: normal;
-  padding: 0.6875rem 0.75rem;
+  padding: 0.6875rem 0.875rem;
 }
 
 /*------------------------------------*\
