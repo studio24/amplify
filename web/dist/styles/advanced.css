@@ -193,6 +193,27 @@ br {
 
     N.B. aria-expanded attribute is managed by JS
 \*------------------------------------*/
+@media screen and (min-width: 64em) {
+  [data-trigger=mobile-nav] {
+    display: none !important;
+  }
+}
+[data-trigger=mobile-nav] svg {
+  pointer-events: none;
+}
+[data-trigger=mobile-nav][aria-expanded=false] .close {
+  display: none;
+}
+[data-trigger=mobile-nav][aria-expanded=false] .open {
+  display: block;
+}
+[data-trigger=mobile-nav][aria-expanded=true] .close {
+  display: block;
+}
+[data-trigger=mobile-nav][aria-expanded=true] .open {
+  display: none;
+}
+
 @media screen and (min-width: 48em) {
   .nav--double > ul {
     align-items: center;
@@ -204,13 +225,17 @@ br {
     margin-left: 0.3125rem;
   }
 }
-.nav--double button.nav-link {
+.nav--double [data-trigger=sub-nav] {
   position: relative;
+  justify-content: flex-start;
+  width: 100%;
 }
-.nav--double button.nav-link + * {
-  position: absolute;
+@media screen and (min-width: 48em) {
+  .nav--double [data-trigger=sub-nav] + * {
+    position: absolute;
+  }
 }
-.nav--double button.nav-link[aria-expanded=false] + * {
+.nav--double [aria-expanded=false] + * {
   display: none;
 }
 
