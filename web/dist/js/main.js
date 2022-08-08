@@ -411,6 +411,7 @@ var navDoubleLevel = function navDoubleLevel(menu) {
     var linkClone = link.cloneNode(true);
     var linkHTML = link.innerHTML;
     var linkAtts = link.attributes;
+    var icon = '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true">' + '<path class="control-vertical" d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z" />' + '<path class="control-horizontal" d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>' + '</svg>';
     var button = document.createElement('button');
     button.setAttribute('data-trigger', 'sub-nav');
     var li = document.createElement('li');
@@ -419,6 +420,7 @@ var navDoubleLevel = function navDoubleLevel(menu) {
     if (null !== link) {
       // copy button attributes and content from link
       button.innerHTML = linkHTML.trim();
+      button.innerHTML = button.innerHTML + icon;
 
       for (var i = 0, length = linkAtts.length; i < length; i++) {
         var attr = linkAtts[i];

@@ -46,19 +46,32 @@
         }
     }
 
-    [data-trigger="sub-nav"] {
-        position: relative;
-        justify-content: flex-start;
-        width: 100%;
-
-        + * {
-            @include mq($bp-tab-portrait) {
-                position: absolute;
-            }
-        }
-    }
-
     [aria-expanded="false"] + * {
         display: none;
+    }
+}
+
+[data-trigger="sub-nav"] {
+    position: relative;
+    justify-content: space-between;
+    width: 100%;
+
+    svg {
+        pointer-events: none;
+    }
+
+    &[aria-expanded="true"] svg {
+        transform: scaleY(-1);
+    }
+
+    .control-horizontal {
+        display: none;
+    }
+
+    // Position the sub navigation
+    + * {
+        @include mq($bp-tab-portrait) {
+            position: absolute;
+        }
     }
 }
