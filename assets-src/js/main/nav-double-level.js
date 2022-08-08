@@ -40,7 +40,7 @@ const navDoubleLevel = function(menu) {
             } else {
                 event.target.setAttribute('aria-expanded', 'true');
             }
-        } else if (event.target.matches('[data-trigger="subnav"]')) {
+        } else if (event.target.matches('[data-trigger="sub-nav"]')) {
             if (event.target.matches('[aria-expanded="true"]')) {
                 event.target.setAttribute('aria-expanded', 'false');
             } else {
@@ -106,7 +106,7 @@ const navDoubleLevel = function(menu) {
         const linkHTML = link.innerHTML;
         const linkAtts = link.attributes;
         const button = document.createElement('button');
-        button.setAttribute('data-trigger', 'subnav');
+        button.setAttribute('data-trigger', 'sub-nav');
         const li = document.createElement('li');
         let subMenu = link.nextElementSibling;
 

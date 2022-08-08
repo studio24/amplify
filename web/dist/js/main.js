@@ -349,7 +349,7 @@ var navDoubleLevel = function navDoubleLevel(menu) {
       } else {
         event.target.setAttribute('aria-expanded', 'true');
       }
-    } else if (event.target.matches('[data-trigger="subnav"]')) {
+    } else if (event.target.matches('[data-trigger="sub-nav"]')) {
       if (event.target.matches('[aria-expanded="true"]')) {
         event.target.setAttribute('aria-expanded', 'false');
       } else {
@@ -412,7 +412,7 @@ var navDoubleLevel = function navDoubleLevel(menu) {
     var linkHTML = link.innerHTML;
     var linkAtts = link.attributes;
     var button = document.createElement('button');
-    button.setAttribute('data-trigger', 'subnav');
+    button.setAttribute('data-trigger', 'sub-nav');
     var li = document.createElement('li');
     var subMenu = link.nextElementSibling;
 
