@@ -445,7 +445,7 @@ var navDoubleLevel = function navDoubleLevel(menu) {
     if (null === submenuId) {
       id = 'js-' + button.textContent.trim().replace(/\s+/g, '-').toLowerCase() + '-submenu';
     } else {
-      id = 'js-' + menuItemId + '-submenu';
+      id = 'js-' + submenuId + '-submenu';
     } // set button ARIA
 
 
