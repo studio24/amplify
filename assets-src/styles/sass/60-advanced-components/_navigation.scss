@@ -4,6 +4,34 @@
     N.B. aria-expanded attribute is managed by JS
 \*------------------------------------*/
 
+[data-trigger="mobile-nav"] {
+    @include mq($bp-tab-landscape) {
+        display: none !important;
+    }
+
+    svg {
+        pointer-events: none;
+    }
+
+    &[aria-expanded="false"]{
+        .close {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+
+    &[aria-expanded="true"]{
+        .close {
+            display: block;
+        }
+        .open {
+            display: none;
+        }
+    }
+}
+
 .nav--double {
     > ul {
         @include mq($bp-tab-portrait) {
@@ -18,15 +46,19 @@
         }
     }
 
-    button.nav-link {
+    [data-trigger="sub-nav"] {
         position: relative;
+        justify-content: flex-start;
+        width: 100%;
 
         + * {
-            position: absolute;
+            @include mq($bp-tab-portrait) {
+                position: absolute;
+            }
         }
+    }
 
-        &[aria-expanded="false"] + * {
-            display: none;
-        }
+    [aria-expanded="false"] + * {
+        display: none;
     }
 }
