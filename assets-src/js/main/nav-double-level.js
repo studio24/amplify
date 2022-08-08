@@ -68,7 +68,7 @@ const navDoubleLevel = function(menu) {
         mobileToggle.setAttribute('aria-expanded', 'false');
         mobileToggle.style.display = 'block';
 
-        // Corresponds to $bp-tab-landscape Sass variable
+        // Corresponds to $bp-tab-landscape Sass variable (1024px)
         let mq = window.matchMedia('(min-width: 64em)');
         mq.addListener(WidthChange);
         WidthChange(mq);
@@ -84,7 +84,6 @@ const navDoubleLevel = function(menu) {
     }
 
     function menuSetup() {
-        container.setAttribute('id', 'js-click-navigation');
         const submenus = Array.prototype.slice.call(menu.querySelectorAll('ul'));
 
         submenus.forEach(function (submenu) {

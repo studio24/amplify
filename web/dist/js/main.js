@@ -375,7 +375,7 @@ var navDoubleLevel = function navDoubleLevel(menu) {
 
   function mobileToggleSetup() {
     mobileToggle.setAttribute('aria-expanded', 'false');
-    mobileToggle.style.display = 'block'; // Corresponds to $bp-tab-landscape Sass variable
+    mobileToggle.style.display = 'block'; // Corresponds to $bp-tab-landscape Sass variable (1024px)
 
     var mq = window.matchMedia('(min-width: 64em)');
     mq.addListener(WidthChange);
@@ -391,7 +391,6 @@ var navDoubleLevel = function navDoubleLevel(menu) {
   }
 
   function menuSetup() {
-    container.setAttribute('id', 'js-click-navigation');
     var submenus = Array.prototype.slice.call(menu.querySelectorAll('ul'));
     submenus.forEach(function (submenu) {
       var menuItem = submenu.parentElement;
