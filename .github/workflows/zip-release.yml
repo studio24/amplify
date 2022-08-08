@@ -1,13 +1,10 @@
-name: Create Archive
+# See https://keithweaver.ca/lessons/zip-code-base-with-github-actions-for-releases
+name: Create release
 on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Archive Release
-        uses: thedoctor0/zip-release@main
-        with:
-          type: 'zip'
-          filename: 'amplify.zip'
-          exclusions: '.git* .github/* docs/* web/* .gitignore *.md composer.* *.php package-lock.json'
+      - name: Create ZIP archive
+        run: zip -r release.zip assets-src .nvmrc package.json svgo.config.js webpack.config.js webpack.config.min.js
