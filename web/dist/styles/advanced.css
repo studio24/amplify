@@ -201,10 +201,10 @@ br {
 [data-trigger=mobile-nav] svg {
   pointer-events: none;
 }
-[data-trigger=mobile-nav][aria-expanded=false] .close {
+[data-trigger=mobile-nav] .close {
   display: none;
 }
-[data-trigger=mobile-nav][aria-expanded=false] .open {
+[data-trigger=mobile-nav] .open {
   display: block;
 }
 [data-trigger=mobile-nav][aria-expanded=true] .close {
