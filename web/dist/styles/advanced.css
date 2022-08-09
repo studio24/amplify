@@ -193,11 +193,6 @@ br {
 
     N.B. aria-expanded attribute is managed by JS
 \*------------------------------------*/
-@media screen and (min-width: 64em) {
-  [data-trigger=mobile-nav] {
-    display: none !important;
-  }
-}
 [data-trigger=mobile-nav] svg {
   pointer-events: none;
 }
