@@ -13,13 +13,12 @@
         pointer-events: none;
     }
 
-    &[aria-expanded="false"]{
-        .close {
-            display: none;
-        }
-        .open {
-            display: block;
-        }
+    .close {
+        display: none;
+    }
+
+    .open {
+        display: block;
     }
 
     &[aria-expanded="true"]{
