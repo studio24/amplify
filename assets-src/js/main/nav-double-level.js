@@ -45,18 +45,6 @@ const navDoubleLevel = function(menu) {
         }
     }
 
-    // function closeOnEscKey(event) {
-    //     if (event.defaultPrevented) {
-    //         return;
-    //     }
-    //
-    //     let key = event.key || event.keyCode;
-    //
-    //     if (key === 'Escape' || key === 'Esc' || key === 27) {
-    //         closeAllOpenMenus()
-    //     }
-    // }
-
     function closeOnEscKey(event) {
         if (event.defaultPrevented) {
             return;

@@ -352,18 +352,7 @@ var navDoubleLevel = function navDoubleLevel(menu) {
     } else {
       closeSubmenus();
     }
-  } // function closeOnEscKey(event) {
-  //     if (event.defaultPrevented) {
-  //         return;
-  //     }
-  //
-  //     let key = event.key || event.keyCode;
-  //
-  //     if (key === 'Escape' || key === 'Esc' || key === 27) {
-  //         closeAllOpenMenus()
-  //     }
-  // }
-
+  }
 
   function closeOnEscKey(event) {
     if (event.defaultPrevented) {
