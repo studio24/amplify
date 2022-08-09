@@ -75,8 +75,6 @@ const navDoubleLevel = function(menu) {
                 }
             }
 
-            //console.log(result);
-
             if (result && mobileToggle.style.display === 'block') {
                 mobileToggle.setAttribute('aria-expanded', 'false');
             } else {
