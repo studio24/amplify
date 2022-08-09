@@ -18,7 +18,9 @@ function domLoadedActions() {
 	const navigation = document.querySelector('ul[data-component="nav-double"]');
 
 	if (exists(navigation)) {
-		let siteNav = new navDoubleLevel(navigation);
+		let siteNav = new navDoubleLevel(navigation, {
+			mobileSubmenuDirection: 'horizontal'
+		});
 		siteNav.init();
 	}
 }

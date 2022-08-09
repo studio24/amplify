@@ -306,8 +306,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "navDoubleLevel": function() { return /* binding */ navDoubleLevel; }
 /* harmony export */ });
-/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
-/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_closest_polyfill_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
+/* harmony import */ var _object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
+/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__);
+
 
 /**
  * Object for creating double-level navigation menus
@@ -316,9 +319,15 @@ __webpack_require__.r(__webpack_exports__);
  * Also manages button for toggling navigation on mobile
  */
 
-var navDoubleLevel = function navDoubleLevel(menu) {
+var navDoubleLevel = function navDoubleLevel(menu, options) {
   var container = menu.parentElement;
-  var mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
+  var mobileToggle = document.querySelector('[data-trigger="mobile-nav"]'); // Default settings
+
+  var defaults = {
+    mobileSubmenuDirection: 'vertical'
+  }; // Merge user options into defaults
+
+  var settings = Object.assign({}, defaults, options);
 
   this.init = function () {
     mobileToggleSetup();
@@ -400,6 +409,7 @@ var navDoubleLevel = function navDoubleLevel(menu) {
   }
 
   function menuSetup() {
+    container.setAttribute('id', 'js-click-navigation-' + settings.mobileSubmenuDirection);
     var submenus = Array.prototype.slice.call(menu.querySelectorAll('ul'));
     submenus.forEach(function (submenu) {
       var menuItem = submenu.parentElement;
@@ -467,6 +477,50 @@ var navDoubleLevel = function navDoubleLevel(menu) {
 };
 
 
+
+/***/ }),
+/* 9 */
+/***/ (function() {
+
+/**
+ * Object.assign() polyfill for IE
+ * Needed for navigation
+ * @see https://vanillajstoolkit.com/polyfills/objectassign/
+ */
+if (typeof Object.assign != 'function') {
+  // Must be writable: true, enumerable: false, configurable: true
+  Object.defineProperty(Object, "assign", {
+    value: function assign(target, varArgs) {
+      // .length of function is 2
+      'use strict';
+
+      if (target == null) {
+        // TypeError if undefined or null
+        throw new TypeError('Cannot convert undefined or null to object');
+      }
+
+      var to = Object(target);
+
+      for (var index = 1; index < arguments.length; index++) {
+        var nextSource = arguments[index];
+
+        if (nextSource != null) {
+          // Skip over if undefined or null
+          for (var nextKey in nextSource) {
+            // Avoid bugs when hasOwnProperty is shadowed
+            if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+              to[nextKey] = nextSource[nextKey];
+            }
+          }
+        }
+      }
+
+      return to;
+    },
+    writable: true,
+    configurable: true
+  });
+}
 
 /***/ })
 /******/ 	]);
@@ -568,7 +622,9 @@ function domLoadedActions() {
   var navigation = document.querySelector('ul[data-component="nav-double"]');
 
   if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navigation)) {
-    var siteNav = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navigation);
+    var siteNav = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navigation, {
+      mobileSubmenuDirection: 'horizontal'
+    });
     siteNav.init();
   }
 }

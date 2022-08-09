@@ -1,3 +1,4 @@
+import './_object.assign.polyfill';
 import './_closest.polyfill.js';
 
 /**
@@ -7,9 +8,17 @@ import './_closest.polyfill.js';
  * Also manages button for toggling navigation on mobile
  */
 
-const navDoubleLevel = function(menu) {
+const navDoubleLevel = function(menu, options) {
     let	container = menu.parentElement;
     let mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
+
+    // Default settings
+    let defaults = {
+        mobileSubmenuDirection: 'vertical',
+    };
+
+    // Merge user options into defaults
+    let settings = Object.assign({}, defaults, options);
 
     this.init = function() {
         mobileToggleSetup();
@@ -93,6 +102,7 @@ const navDoubleLevel = function(menu) {
     }
 
     function menuSetup() {
+        container.setAttribute('id', 'js-click-navigation-' + settings.mobileSubmenuDirection);
         const submenus = Array.prototype.slice.call(menu.querySelectorAll('ul'));
 
         submenus.forEach(function (submenu) {
