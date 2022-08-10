@@ -7,7 +7,7 @@ import './_closest.polyfill.js';
  * Uses event delegation to handle events for improved performance
  * Also manages button for toggling navigation on mobile
  *
- * @param menu
+ * @param {Element} menu - the top level navigation <ul>
  * @param {Object} options - configuration options for the navigation
  * @param {string} [options.mobileSubmenuDirection=vertical] - direction in which sub menus operate on mobile (vertical or horizontal)
  * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden
@@ -34,7 +34,7 @@ const navDoubleLevel = function(menu, options) {
     }
 
     function closeSubmenus() {
-        let subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('button'));
+        let subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger]'));
         subNavTriggers.forEach(function (trigger) {
             trigger.setAttribute('aria-expanded', 'false');
         });
@@ -157,6 +157,19 @@ const navDoubleLevel = function(menu, options) {
             menuItem.replaceChild( button, link );
         }
 
+        if (settings.mobileSubmenuDirection === 'horizontal') {
+            // Wrap subMenu in a div and insert a "back" button
+            const div = document.createElement('div');
+            const backButton = document.createElement('button');
+            div.setAttribute('class', 'js-nav__submenu');
+            subMenu.parentNode.insertBefore(div, subMenu);
+            div.appendChild(subMenu);
+            backButton.setAttribute('data-button', 'mobile-back');
+            backButton.setAttribute('class', 'button button--ghost with-icon--before');
+            backButton.innerHTML = icon + ' Back';
+            div.insertBefore(backButton, subMenu);
+        }
+
         return button;
     }
 
@@ -167,12 +180,12 @@ const navDoubleLevel = function(menu, options) {
         if (null === submenuId) {
             id = 'js-' + button.textContent.trim().replace(/\s+/g, '-').toLowerCase() + '-submenu';
         } else {
-            id = 'js-' + submenuId + '-submenu';
+            id = submenuId + '-submenu';
         }
 
         // set button ARIA
         button.setAttribute('aria-controls', id);
-        button.setAttribute('aria-expanded', false);
+        button.setAttribute('aria-expanded', 'false');
 
         // set submenu ARIA
         submenu.setAttribute('id', id);
