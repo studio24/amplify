@@ -19,7 +19,8 @@ function domLoadedActions() {
 
 	if (exists(navigation)) {
 		let siteNav = new navDoubleLevel(navigation, {
-			mobileSubmenuDirection: 'horizontal'
+			mobileSubmenuDirection: 'horizontal',
+			breakpoint: 768
 		});
 		siteNav.init();
 	}

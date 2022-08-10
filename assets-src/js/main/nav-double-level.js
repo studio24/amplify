@@ -6,6 +6,11 @@ import './_closest.polyfill.js';
  * Inspired by https://github.com/mrwweb/clicky-menus/blob/main/clicky-menus.js
  * Uses event delegation to handle events for improved performance
  * Also manages button for toggling navigation on mobile
+ *
+ * @param menu
+ * @param {Object} options - configuration options for the navigation
+ * @param {string} [options.mobileSubmenuDirection=vertical] - direction in which sub menus operate on mobile (vertical or horizontal)
+ * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden
  */
 
 const navDoubleLevel = function(menu, options) {
@@ -15,6 +20,7 @@ const navDoubleLevel = function(menu, options) {
     // Default settings
     let defaults = {
         mobileSubmenuDirection: 'vertical',
+        breakpoint: 1024
     };
 
     // Merge user options into defaults
@@ -84,8 +90,8 @@ const navDoubleLevel = function(menu, options) {
         mobileToggle.setAttribute('aria-expanded', 'false');
         mobileToggle.style.display = 'block';
 
-        // Corresponds to $bp-tab-landscape Sass variable (1024px)
-        let mq = window.matchMedia('(min-width: 64em)');
+        let mqValue = settings.breakpoint / 16;
+        let mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
         mq.addListener(WidthChange);
         WidthChange(mq);
 

@@ -317,6 +317,11 @@ __webpack_require__.r(__webpack_exports__);
  * Inspired by https://github.com/mrwweb/clicky-menus/blob/main/clicky-menus.js
  * Uses event delegation to handle events for improved performance
  * Also manages button for toggling navigation on mobile
+ *
+ * @param menu
+ * @param {Object} options - configuration options for the navigation
+ * @param {string} [options.mobileSubmenuDirection=vertical] - direction in which sub menus operate on mobile (vertical or horizontal)
+ * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden
  */
 
 var navDoubleLevel = function navDoubleLevel(menu, options) {
@@ -324,7 +329,8 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
   var mobileToggle = document.querySelector('[data-trigger="mobile-nav"]'); // Default settings
 
   var defaults = {
-    mobileSubmenuDirection: 'vertical'
+    mobileSubmenuDirection: 'vertical',
+    breakpoint: 1024
   }; // Merge user options into defaults
 
   var settings = Object.assign({}, defaults, options);
@@ -391,9 +397,9 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
 
   function mobileToggleSetup() {
     mobileToggle.setAttribute('aria-expanded', 'false');
-    mobileToggle.style.display = 'block'; // Corresponds to $bp-tab-landscape Sass variable (1024px)
-
-    var mq = window.matchMedia('(min-width: 64em)');
+    mobileToggle.style.display = 'block';
+    var mqValue = settings.breakpoint / 16;
+    var mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
     mq.addListener(WidthChange);
     WidthChange(mq); // Media query change
 
@@ -623,7 +629,8 @@ function domLoadedActions() {
 
   if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navigation)) {
     var siteNav = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navigation, {
-      mobileSubmenuDirection: 'horizontal'
+      mobileSubmenuDirection: 'horizontal',
+      breakpoint: 768
     });
     siteNav.init();
   }
