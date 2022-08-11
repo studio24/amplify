@@ -18,7 +18,7 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
       - name: Create release files
         run: |
-          zip -r release.zip assets-src .nvmrc package.json svgo.config.js webpack.config.js webpack.config.min.js
+          zip -r release.zip version.txt assets-src .nvmrc package.json svgo.config.js webpack.config.js webpack.config.min.js
         if: ${{ steps.release.outputs.release_created }}
       - name: Upload release files
         uses: svenstaro/upload-release-action@v2
