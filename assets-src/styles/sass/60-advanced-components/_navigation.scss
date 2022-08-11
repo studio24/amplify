@@ -69,6 +69,17 @@
 
 /* Styles for simple double-level navigation */
 #js-click-nav-vertical {
+    > ul {
+        background-color: $off-white;
+        left: 0;
+        position: absolute;
+        width: 100%;
+
+        @include mq($bp-tab-portrait) {
+            position: relative;
+        }
+    }
+
     [data-trigger="sub-nav"] .control-horizontal {
         display: none;
     }
