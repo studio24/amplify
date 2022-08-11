@@ -27,7 +27,11 @@
     }
 }
 
-.nav--double {
+.nav {
+    [aria-expanded="false"] + * {
+        display: none;
+    }
+
     > ul {
         @include mq($bp-tab-portrait) {
             align-items: center;
@@ -35,18 +39,14 @@
         }
     }
 
+    ul ul {
+        background-color: $off-white;
+    }
+
     > ul > li + li {
         @include mq($bp-tab-portrait) {
             margin-left: rem(5);
         }
-    }
-
-    ul > ul {
-        background-color: $off-white;
-    }
-
-    [aria-expanded="false"] + * {
-        display: none;
     }
 }
 
@@ -67,7 +67,7 @@
     }
 }
 
-/* Styles for simple two level navigation */
+/* Styles for simple double-level navigation */
 #js-click-nav-vertical {
     [data-trigger="sub-nav"] .control-horizontal {
         display: none;
@@ -78,12 +78,17 @@
     }
 }
 
-/* Styles for two level navigation with back button in submenus */
+/* Styles for double-navigation with back button in sub menus */
 #js-click-nav-horizontal {
     > ul {
-        position: absolute;
+        background-color: $off-white;
         left: 0;
+        position: absolute;
         width: 100%;
+
+        @include mq($bp-tab-portrait) {
+            position: relative;
+        }
     }
 
     [data-trigger="sub-nav"] .control-horizontal {

@@ -209,22 +209,22 @@ br {
   display: none;
 }
 
+.nav [aria-expanded=false] + * {
+  display: none;
+}
 @media screen and (min-width: 48em) {
-  .nav--double > ul {
+  .nav > ul {
     align-items: center;
     display: flex;
   }
 }
-@media screen and (min-width: 48em) {
-  .nav--double > ul > li + li {
-    margin-left: 0.3125rem;
-  }
-}
-.nav--double ul > ul {
+.nav ul ul {
   background-color: #fcfcfc;
 }
-.nav--double [aria-expanded=false] + * {
-  display: none;
+@media screen and (min-width: 48em) {
+  .nav > ul > li + li {
+    margin-left: 0.3125rem;
+  }
 }
 
 [data-trigger=sub-nav] {
@@ -241,7 +241,7 @@ br {
   }
 }
 
-/* Styles for simple two level navigation */
+/* Styles for simple double-level navigation */
 #js-click-nav-vertical [data-trigger=sub-nav] .control-horizontal {
   display: none;
 }
@@ -250,11 +250,17 @@ br {
           transform: scaleY(-1);
 }
 
-/* Styles for two level navigation with back button in submenus */
+/* Styles for double-navigation with back button in sub menus */
 #js-click-nav-horizontal > ul {
-  position: absolute;
+  background-color: #fcfcfc;
   left: 0;
+  position: absolute;
   width: 100%;
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-horizontal > ul {
+    position: relative;
+  }
 }
 @media screen and (min-width: 48em) {
   #js-click-nav-horizontal [data-trigger=sub-nav] .control-horizontal {

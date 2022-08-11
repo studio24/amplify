@@ -5,6 +5,7 @@ import {collapsibles} from "./main/collapsibles";
 import {disclosureWidget} from "./main/disclosure-widget";
 import {formErrorSummary} from "./main/form-error-summary";
 import {responsiveTables} from "./main/responsive-tables";
+import {navSingleLevel} from "./main/nav-single-level";
 import {navDoubleLevel} from "./main/nav-double-level";
 
 function domLoadedActions() {
@@ -14,11 +15,21 @@ function domLoadedActions() {
 	formErrorSummary();
 	responsiveTables();
 
-	/* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
-	const navigation = document.querySelector('ul[data-component="nav-double"]');
+	/* Create a navSingleLevel object and initiate single-level navigation for a <ul> with the correct data-component attribute */
+	const navExampleSingle = document.querySelector('ul[data-component="nav-single"]');
 
-	if (exists(navigation)) {
-		let siteNav = new navDoubleLevel(navigation, {
+	if (exists(navExampleSingle)) {
+		let siteNav = new navSingleLevel(navExampleSingle, {
+			breakpoint: 768,
+		});
+		siteNav.init();
+	}
+
+	/* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
+	const navExampleDouble = document.querySelector('ul[data-component="nav-double"]');
+
+	if (exists(navExampleDouble)) {
+		let siteNav = new navDoubleLevel(navExampleDouble, {
 			breakpoint: 768,
 			mobileSubmenuDirection: 'horizontal'
 		});

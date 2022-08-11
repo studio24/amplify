@@ -304,6 +304,137 @@ var responsiveTables = function responsiveTables() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "navSingleLevel": function() { return /* binding */ navSingleLevel; }
+/* harmony export */ });
+/* harmony import */ var _object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
+/* harmony import */ var _object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0__);
+
+/**
+ * Object for creating single-level navigation menus
+ * Manages button for toggling navigation on mobile
+ * Uses event delegation to handle events for improved performance
+ *
+ * @param {Element} menu - the top level navigation <ul>
+ * @param {Object} options - configuration options for the navigation
+ * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden. Is converted to em.
+ * @param {string} [options.mobileIcon] - SVG icon used for the button to show/hide the navigation on mobile.
+ */
+
+var navSingleLevel = function navSingleLevel(menu, options) {
+  var container = menu.parentElement;
+  var mobileToggle = document.querySelector('[data-trigger="mobile-nav"]'); // Default settings
+
+  var defaults = {
+    breakpoint: 1024,
+    mobileIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true">' + '<path class="open" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>' + '<path class="close" d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>' + '</svg>'
+  }; // Merge user options into defaults
+
+  var settings = Object.assign({}, defaults, options);
+
+  this.init = function () {
+    mobileToggleSetup();
+    document.addEventListener('click', clickHandler);
+    document.addEventListener('keyup', closeOnEscKey);
+  };
+
+  function clickHandler(event) {
+    if (event.target.matches('[data-trigger="mobile-nav"]')) {
+      if (event.target.matches('[aria-expanded="true"]')) {
+        event.target.setAttribute('aria-expanded', 'false');
+      } else {
+        event.target.setAttribute('aria-expanded', 'true');
+      }
+    }
+  }
+
+  function closeOnEscKey(event) {
+    if (event.defaultPrevented) {
+      return;
+    }
+
+    var key = event.key || event.keyCode;
+
+    if (key === 'Escape' || key === 'Esc' || key === 27) {
+      if (mobileToggle.style.display === 'block') {
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      }
+    }
+  }
+
+  function mobileToggleSetup() {
+    mobileToggle.innerHTML = '<span class="visuallyhidden">Mobile navigation</span>' + settings.mobileIcon;
+    mobileToggle.setAttribute('aria-expanded', 'false');
+    mobileToggle.style.display = 'block';
+    var mqValue = settings.breakpoint / 16;
+    var mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
+    mq.addListener(WidthChange);
+    WidthChange(mq); // Media query change
+
+    function WidthChange(mq) {
+      if (!mq.matches) {
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileToggle.style.display = 'block';
+      } else {
+        mobileToggle.setAttribute('aria-expanded', 'true');
+        mobileToggle.style.display = 'none';
+      }
+    }
+  }
+};
+
+
+
+/***/ }),
+/* 9 */
+/***/ (function() {
+
+/**
+ * Object.assign() polyfill for IE
+ * Needed for navigation
+ * @see https://vanillajstoolkit.com/polyfills/objectassign/
+ */
+if (typeof Object.assign != 'function') {
+  // Must be writable: true, enumerable: false, configurable: true
+  Object.defineProperty(Object, "assign", {
+    value: function assign(target, varArgs) {
+      // .length of function is 2
+      'use strict';
+
+      if (target == null) {
+        // TypeError if undefined or null
+        throw new TypeError('Cannot convert undefined or null to object');
+      }
+
+      var to = Object(target);
+
+      for (var index = 1; index < arguments.length; index++) {
+        var nextSource = arguments[index];
+
+        if (nextSource != null) {
+          // Skip over if undefined or null
+          for (var nextKey in nextSource) {
+            // Avoid bugs when hasOwnProperty is shadowed
+            if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+              to[nextKey] = nextSource[nextKey];
+            }
+          }
+        }
+      }
+
+      return to;
+    },
+    writable: true,
+    configurable: true
+  });
+}
+
+/***/ }),
+/* 10 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "navDoubleLevel": function() { return /* binding */ navDoubleLevel; }
 /* harmony export */ });
 /* harmony import */ var _object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
@@ -509,50 +640,6 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
 
 
 
-/***/ }),
-/* 9 */
-/***/ (function() {
-
-/**
- * Object.assign() polyfill for IE
- * Needed for navigation
- * @see https://vanillajstoolkit.com/polyfills/objectassign/
- */
-if (typeof Object.assign != 'function') {
-  // Must be writable: true, enumerable: false, configurable: true
-  Object.defineProperty(Object, "assign", {
-    value: function assign(target, varArgs) {
-      // .length of function is 2
-      'use strict';
-
-      if (target == null) {
-        // TypeError if undefined or null
-        throw new TypeError('Cannot convert undefined or null to object');
-      }
-
-      var to = Object(target);
-
-      for (var index = 1; index < arguments.length; index++) {
-        var nextSource = arguments[index];
-
-        if (nextSource != null) {
-          // Skip over if undefined or null
-          for (var nextKey in nextSource) {
-            // Avoid bugs when hasOwnProperty is shadowed
-            if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
-              to[nextKey] = nextSource[nextKey];
-            }
-          }
-        }
-      }
-
-      return to;
-    },
-    writable: true,
-    configurable: true
-  });
-}
-
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -633,7 +720,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
 /* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
 /* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
-/* harmony import */ var _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8);
+/* harmony import */ var _main_nav_single_level__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8);
+/* harmony import */ var _main_nav_double_level__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(10);
+
 
 
 
@@ -648,16 +737,28 @@ function domLoadedActions() {
   (0,_main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__.disclosureWidget)();
   (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__.formErrorSummary)();
   (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_5__.responsiveTables)();
+  /* Create a navSingleLevel object and initiate single-level navigation for a <ul> with the correct data-component attribute */
+
+  var navExampleSingle = document.querySelector('ul[data-component="nav-single"]');
+
+  if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleSingle)) {
+    var siteNav = new _main_nav_single_level__WEBPACK_IMPORTED_MODULE_6__.navSingleLevel(navExampleSingle, {
+      breakpoint: 768
+    });
+    siteNav.init();
+  }
   /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
 
-  var navigation = document.querySelector('ul[data-component="nav-double"]');
 
-  if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navigation)) {
-    var siteNav = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navigation, {
+  var navExampleDouble = document.querySelector('ul[data-component="nav-double"]');
+
+  if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleDouble)) {
+    var _siteNav = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_7__.navDoubleLevel(navExampleDouble, {
       breakpoint: 768,
       mobileSubmenuDirection: 'horizontal'
     });
-    siteNav.init();
+
+    _siteNav.init();
   }
 }
 

@@ -77,8 +77,9 @@
     </nav>
     <main id="main">
         <h1>Demo: single-level navigation</h1>
-        <nav id="demo-navigation" class="nav nav--single" aria-label="Advanced navigation demonstration">
-            <ul class="clean-list">
+        <nav class="nav" aria-label="Advanced navigation demonstration">
+            <button class="button button--ghost" data-trigger="mobile-nav" style="display: none;"></button>
+            <ul class="clean-list" data-component="nav-single">
                 <li>
                     <a class="nav-link" href="javascript;">Home</a>
                 </li>
@@ -93,6 +94,9 @@
                 </li>
             </ul>
         </nav>
+        <div class="component component--text">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+        </div>
     </main>
 </div>
 <footer class="global-footer">
