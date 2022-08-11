@@ -80,9 +80,9 @@
         <div class="component">
             <nav class="nav" aria-label="Advanced navigation demonstration">
                 <button class="button button--ghost" data-trigger="mobile-nav" style="display: none;">
-                    <span class="visuallyhidden">Mobile navigation</span>
+                    <span class="visuallyhidden">Menu</span>
                 </button>
-                <ul class="clean-list" data-component="nav-single">
+                <ul class="clean-list" role="list" data-component="nav-single">
                     <li>
                         <a class="nav-link" href="javascript;">Home</a>
                     </li>
@@ -103,7 +103,24 @@
         </div>
         <div class="component component--text">
             <h2>Considerations</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+            <ul>
+                <li>This navigation pattern uses minimal CSS and JavaScript, so as not to be too opinionated and require lots of overrides and adjustments within projects. Expect to have to make some modifications yourself - though hopefully not too many for the script.</li>
+                <li>The <code>nav</code> element is only wrapped in a <code>div</code> container with the classname <code>component</code> for styling this demo version.</li>
+                <li>If you use more than one <code>nav</code> element on a page make sure to add the <code>aria-label</code> attribute to them with a unique descriptive value.</li>
+            </ul>
+            <h3>Naming the small screen navigation toggle button</h3>
+            <p>Buttons must always have an accessible name. To allow for an icon-only button design, Amplify uses a <code>span</code> element with the <code>visuallyhidden</code> class for naming the button (`Menu` in the preceding example). It could just as easily be made visible by removing that class, which may be more user-friendly.</p>
+            <p>JavaScript adds the <code>aria-expanded</code> attribute to this toggle button to convey its open/closed state to Assistive Technology users.</p>
+            <p>Changes to the accessible name are not always conveyed to Assistive Technology. If we were to change both the accessible name of the button and its <code>aria-expanded</code> state, there is a risk that a user will hear a confusing announcement such as &quot;Open menu expanded&quot;.</p>
+            <p>Keep the accessible name simple and use it only to tell users what the button is/does, not its state - in other words, avoid using words such as `open` or `close` in the accessible name.</p>
+            <h3>Notes on the JavaScript</h3>
+            <p>The following configuration options are available:</p>
+            <dl>
+                <dt>breakpoint</dt>
+                <dd>A unitless number, indicating the viewport width in pixels at which the small screen navigation toggle button is no longer required. It is converted to <code>em</code> units in the script. Make sure that this ties up with the breakpoint values used in the Sass.</dd>
+                <dt>mobileIcon</dt>
+                <dd>The code for the SVG icon used in the small screen navigation toggle button. It is strongly recommended to follow the existing pattern, which uses two <code>path</code> elements, one for the open icon and one for the close icon, and retain the existing classes. CSS is used to change the icon depending on its <code>aria-expanded</code> state.</dd>
+            </dl>
         </div>
     </main>
 </div>
