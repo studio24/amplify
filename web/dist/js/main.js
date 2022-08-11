@@ -321,7 +321,7 @@ __webpack_require__.r(__webpack_exports__);
  * @param {Element} menu - the top level navigation <ul>
  * @param {Object} options - configuration options for the navigation
  * @param {string} [options.mobileSubmenuDirection=vertical] - direction in which sub menus operate on mobile (vertical or horizontal)
- * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden
+ * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden. Is converted to em.
  */
 
 var navDoubleLevel = function navDoubleLevel(menu, options) {
@@ -343,7 +343,7 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
   };
 
   function closeSubmenus() {
-    var subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger]'));
+    var subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger="sub-nav"]'));
     subNavTriggers.forEach(function (trigger) {
       trigger.setAttribute('aria-expanded', 'false');
     });
@@ -364,6 +364,8 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
         closeSubmenus();
         event.target.setAttribute('aria-expanded', 'true');
       }
+    } else if (event.target.matches('[data-button="mobile-back"]')) {
+      event.target.closest('li').querySelector('[data-trigger="sub-nav"]').setAttribute('aria-expanded', 'false');
     } else {
       closeSubmenus();
     }

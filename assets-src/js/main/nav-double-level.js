@@ -10,7 +10,7 @@ import './_closest.polyfill.js';
  * @param {Element} menu - the top level navigation <ul>
  * @param {Object} options - configuration options for the navigation
  * @param {string} [options.mobileSubmenuDirection=vertical] - direction in which sub menus operate on mobile (vertical or horizontal)
- * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden
+ * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden. Is converted to em.
  */
 
 const navDoubleLevel = function(menu, options) {
@@ -34,7 +34,7 @@ const navDoubleLevel = function(menu, options) {
     }
 
     function closeSubmenus() {
-        let subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger]'));
+        let subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger="sub-nav"]'));
         subNavTriggers.forEach(function (trigger) {
             trigger.setAttribute('aria-expanded', 'false');
         });
@@ -55,6 +55,8 @@ const navDoubleLevel = function(menu, options) {
                 closeSubmenus();
                 event.target.setAttribute('aria-expanded', 'true');
             }
+        } else if (event.target.matches('[data-button="mobile-back"]')) {
+            event.target.closest('li').querySelector('[data-trigger="sub-nav"]').setAttribute('aria-expanded', 'false');
         } else {
             closeSubmenus();
         }
