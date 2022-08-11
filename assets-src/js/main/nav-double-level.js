@@ -110,7 +110,7 @@ const navDoubleLevel = function(menu, options) {
     }
 
     function menuSetup() {
-        container.setAttribute('id', 'js-click-navigation-' + settings.mobileSubmenuDirection);
+        container.setAttribute('id', 'js-click-nav-' + settings.mobileSubmenuDirection);
         const submenus = Array.prototype.slice.call(menu.querySelectorAll('ul'));
 
         submenus.forEach(function (submenu) {
@@ -167,7 +167,7 @@ const navDoubleLevel = function(menu, options) {
             subMenu.parentNode.insertBefore(div, subMenu);
             div.appendChild(subMenu);
             backButton.setAttribute('data-button', 'mobile-back');
-            backButton.setAttribute('class', 'button button--ghost with-icon--before');
+            backButton.setAttribute('class', 'button button--ghost');
             backButton.innerHTML = icon + ' Back';
             div.insertBefore(backButton, subMenu);
         }

@@ -2333,6 +2333,22 @@ a.nav-link {
   line-height: normal;
   padding: 0.6875rem 0.875rem;
 }
+a.nav-link:hover {
+  color: #001f3f;
+  outline-width: 0;
+  /* 2 */
+}
+a.nav-link:active {
+  color: #252525;
+  outline-width: 0;
+  /* 2 */
+}
+a.nav-link:focus {
+  background-color: #ffdc00;
+  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
+  color: #000;
+  text-decoration: none;
+}
 
 /*------------------------------------*\
     #Breadcrumbs

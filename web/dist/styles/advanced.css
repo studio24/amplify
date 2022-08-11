@@ -220,6 +220,9 @@ br {
     margin-left: 0.3125rem;
   }
 }
+.nav--double ul > ul {
+  background-color: #fcfcfc;
+}
 .nav--double [aria-expanded=false] + * {
   display: none;
 }
@@ -232,17 +235,72 @@ br {
 [data-trigger=sub-nav] svg {
   pointer-events: none;
 }
-[data-trigger=sub-nav][aria-expanded=true] svg {
-  -webkit-transform: scaleY(-1);
-          transform: scaleY(-1);
-}
-[data-trigger=sub-nav] .control-horizontal {
-  display: none;
-}
 @media screen and (min-width: 48em) {
   [data-trigger=sub-nav] + * {
     position: absolute;
   }
+}
+
+/* Styles for simple two level navigation */
+#js-click-nav-vertical [data-trigger=sub-nav] .control-horizontal {
+  display: none;
+}
+#js-click-nav-vertical [data-trigger=sub-nav][aria-expanded=true] svg {
+  -webkit-transform: scaleY(-1);
+          transform: scaleY(-1);
+}
+
+/* Styles for two level navigation with back button in submenus */
+#js-click-nav-horizontal > ul {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-horizontal [data-trigger=sub-nav] .control-horizontal {
+    display: none;
+  }
+}
+#js-click-nav-horizontal [data-trigger=sub-nav] .control-vertical {
+  display: none;
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-horizontal [data-trigger=sub-nav] .control-vertical {
+    display: block;
+  }
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-horizontal [data-trigger=sub-nav][aria-expanded=true] svg {
+    -webkit-transform: scaleY(-1);
+            transform: scaleY(-1);
+  }
+}
+#js-click-nav-horizontal .js-nav__submenu {
+  background-color: #fcfcfc;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-horizontal .js-nav__submenu {
+    min-height: auto;
+    top: auto;
+    width: auto;
+  }
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-horizontal [data-button=mobile-back] {
+    display: none;
+  }
+}
+#js-click-nav-horizontal [data-button=mobile-back] svg {
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+#js-click-nav-horizontal [data-button=mobile-back] svg .control-vertical {
+  display: none;
 }
 
 /*------------------------------------*\
