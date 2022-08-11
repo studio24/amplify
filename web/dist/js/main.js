@@ -320,9 +320,11 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @param {Element} menu - the top level navigation <ul>
  * @param {Object} options - configuration options for the navigation
- * @param {string} [options.mobileSubmenuDirection=vertical] - direction in which sub menus operate on mobile (vertical or horizontal)
  * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden. Is converted to em.
  * @param {boolean} [options.cloneTopLevelLink=true] - whether to copy the link to be replaced with a button and add it to the sub menu.
+ * @param {string} [options.mobileIcon] - SVG icon used for the button to show/hide the navigation on mobile.
+ * @param {string} [options.submenuIcon] - SVG icon used for sub menus and back button.
+ * @param {string} [options.mobileSubmenuDirection=vertical] - direction in which sub menus operate on mobile (vertical or horizontal).
  */
 
 var navDoubleLevel = function navDoubleLevel(menu, options) {
@@ -330,9 +332,11 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
   var mobileToggle = document.querySelector('[data-trigger="mobile-nav"]'); // Default settings
 
   var defaults = {
-    mobileSubmenuDirection: 'vertical',
     breakpoint: 1024,
-    cloneTopLevelLink: true
+    cloneTopLevelLink: true,
+    mobileIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true">' + '<path class="open" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>' + '<path class="close" d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>' + '</svg>',
+    submenuIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true">' + '<path class="control-vertical" d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z" />' + '<path class="control-horizontal" d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>' + '</svg>',
+    mobileSubmenuDirection: 'vertical'
   }; // Merge user options into defaults
 
   var settings = Object.assign({}, defaults, options);
@@ -400,6 +404,7 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
   }
 
   function mobileToggleSetup() {
+    mobileToggle.innerHTML = '<span class="visuallyhidden">Mobile navigation</span>' + settings.mobileIcon;
     mobileToggle.setAttribute('aria-expanded', 'false');
     mobileToggle.style.display = 'block';
     var mqValue = settings.breakpoint / 16;
@@ -439,7 +444,7 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
     var link = menuItem.getElementsByTagName('a')[0];
     var linkHTML = link.innerHTML;
     var linkAtts = link.attributes;
-    var icon = '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true">' + '<path class="control-vertical" d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z" />' + '<path class="control-horizontal" d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>' + '</svg>';
+    var icon = settings.submenuIcon;
     var button = document.createElement('button');
     button.setAttribute('data-trigger', 'sub-nav');
     var li = document.createElement('li');
@@ -649,8 +654,8 @@ function domLoadedActions() {
 
   if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navigation)) {
     var siteNav = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navigation, {
-      mobileSubmenuDirection: 'horizontal',
-      breakpoint: 768
+      breakpoint: 768,
+      mobileSubmenuDirection: 'horizontal'
     });
     siteNav.init();
   }
