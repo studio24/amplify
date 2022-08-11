@@ -24,7 +24,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           file: ./amplify.zip
-          asset_name: amplify-${{ steps.release.outputs.tag_name }}.zip
+          asset_name: amplify.zip
           tag: ${{ steps.release.outputs.tag_name }}
           overwrite: true
         if: ${{ steps.release.outputs.release_created }}
