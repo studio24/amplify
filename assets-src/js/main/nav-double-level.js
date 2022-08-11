@@ -11,6 +11,7 @@ import './_closest.polyfill.js';
  * @param {Object} options - configuration options for the navigation
  * @param {string} [options.mobileSubmenuDirection=vertical] - direction in which sub menus operate on mobile (vertical or horizontal)
  * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden. Is converted to em.
+ * @param {boolean} [options.cloneTopLevelLink=true] - whether to copy the link to be replaced with a button and add it to the sub menu.
  */
 
 const navDoubleLevel = function(menu, options) {
@@ -20,7 +21,8 @@ const navDoubleLevel = function(menu, options) {
     // Default settings
     let defaults = {
         mobileSubmenuDirection: 'vertical',
-        breakpoint: 1024
+        breakpoint: 1024,
+        cloneTopLevelLink: true
     };
 
     // Merge user options into defaults
@@ -129,7 +131,6 @@ const navDoubleLevel = function(menu, options) {
      */
     function convertLinkToButton(menuItem) {
         const link = menuItem.getElementsByTagName('a')[0];
-        const linkClone = link.cloneNode(true);
         const linkHTML = link.innerHTML;
         const linkAtts = link.attributes;
         const icon = '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true">' +
@@ -153,10 +154,14 @@ const navDoubleLevel = function(menu, options) {
                 }
             }
 
-            // insert cloned link as first item of submenu list
-            li.appendChild(linkClone);
-            subMenu.insertBefore(li, subMenu.children[0]);
-            menuItem.replaceChild( button, link );
+            if (settings.cloneTopLevelLink === true) {
+                // insert cloned link as first item of submenu list
+                const linkClone = link.cloneNode(true);
+                li.appendChild(linkClone);
+                subMenu.insertBefore(li, subMenu.children[0]);
+            }
+
+            menuItem.replaceChild(button, link);
         }
 
         if (settings.mobileSubmenuDirection === 'horizontal') {

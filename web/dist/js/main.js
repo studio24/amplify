@@ -322,6 +322,7 @@ __webpack_require__.r(__webpack_exports__);
  * @param {Object} options - configuration options for the navigation
  * @param {string} [options.mobileSubmenuDirection=vertical] - direction in which sub menus operate on mobile (vertical or horizontal)
  * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden. Is converted to em.
+ * @param {boolean} [options.cloneTopLevelLink=true] - whether to copy the link to be replaced with a button and add it to the sub menu.
  */
 
 var navDoubleLevel = function navDoubleLevel(menu, options) {
@@ -330,7 +331,8 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
 
   var defaults = {
     mobileSubmenuDirection: 'vertical',
-    breakpoint: 1024
+    breakpoint: 1024,
+    cloneTopLevelLink: true
   }; // Merge user options into defaults
 
   var settings = Object.assign({}, defaults, options);
@@ -435,7 +437,6 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
 
   function convertLinkToButton(menuItem) {
     var link = menuItem.getElementsByTagName('a')[0];
-    var linkClone = link.cloneNode(true);
     var linkHTML = link.innerHTML;
     var linkAtts = link.attributes;
     var icon = '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true">' + '<path class="control-vertical" d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z" />' + '<path class="control-horizontal" d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>' + '</svg>';
@@ -455,11 +456,15 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
         if ('href' !== attr.name) {
           button.setAttribute(attr.name, attr.value);
         }
-      } // insert cloned link as first item of submenu list
+      }
 
+      if (settings.cloneTopLevelLink === true) {
+        // insert cloned link as first item of submenu list
+        var linkClone = link.cloneNode(true);
+        li.appendChild(linkClone);
+        subMenu.insertBefore(li, subMenu.children[0]);
+      }
 
-      li.appendChild(linkClone);
-      subMenu.insertBefore(li, subMenu.children[0]);
       menuItem.replaceChild(button, link);
     }
 
