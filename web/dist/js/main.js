@@ -362,7 +362,7 @@ var navSingleLevel = function navSingleLevel(menu, options) {
   }
 
   function mobileToggleSetup() {
-    mobileToggle.innerHTML = '<span class="visuallyhidden">Mobile navigation</span>' + settings.mobileIcon;
+    mobileToggle.innerHTML += settings.mobileIcon;
     mobileToggle.setAttribute('aria-expanded', 'false');
     mobileToggle.style.display = 'block';
     var mqValue = settings.breakpoint / 16;
@@ -535,7 +535,7 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
   }
 
   function mobileToggleSetup() {
-    mobileToggle.innerHTML = '<span class="visuallyhidden">Mobile navigation</span>' + settings.mobileIcon;
+    mobileToggle.innerHTML += settings.mobileIcon;
     mobileToggle.setAttribute('aria-expanded', 'false');
     mobileToggle.style.display = 'block';
     var mqValue = settings.breakpoint / 16;

@@ -77,48 +77,56 @@
     </nav>
     <main id="main">
         <h1>Demo: double-level navigation</h1>
-        <nav class="nav" aria-label="Advanced navigation demonstration">
-            <button class="button button--ghost" data-trigger="mobile-nav" style="display: none;"></button>
-            <ul class="clean-list" data-component="nav-double">
-                <li>
-                    <a class="nav-link" href="javascript;">Home</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="javascript;">
-                        Services
-                    </a>
-                    <ul class="clean-list">
-                        <li><a class="nav-link" href="javascript;">Design</a></li>
-                        <li><a class="nav-link" href="javascript;">Development</a></li>
-                        <li><a class="nav-link" href="javascript;">Accessibility</a></li>
-                        <li><a class="nav-link" href="javascript;">Content Strategy</a></li>
-                        <li><a class="nav-link" href="javascript;">Training</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="nav-link" href="javascript;">
-                        Portfolio
-                    </a>
-                    <ul class="clean-list">
-                        <li><a class="nav-link" href="javascript;">Nonprofits</a></li>
-                        <li><a class="nav-link" href="javascript;">Higher Education</a></li>
-                        <li><a class="nav-link" href="javascript;">Associations</a></li>
-                        <li><a class="nav-link" href="javascript;">Consultants</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="nav-link" href="javascript;">
-                        About us
-                    </a>
-                    <ul class="clean-list">
-                        <li><a class="nav-link" href="javascript;">Mission</a></li>
-                        <li><a class="nav-link" href="javascript;">History</a></li>
-                        <li><a class="nav-link" href="javascript;">Contact</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+        <div class="component">
+            <nav class="nav" aria-label="Advanced navigation demonstration">
+                <button class="button button--ghost" data-trigger="mobile-nav" style="display: none;">
+                    <span class="visuallyhidden">Mobile navigation</span>
+                </button>
+                <ul class="clean-list" data-component="nav-double">
+                    <li>
+                        <a class="nav-link" href="javascript;">Home</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="javascript;">
+                            Services
+                        </a>
+                        <ul class="clean-list">
+                            <li><a class="nav-link" href="javascript;">Design</a></li>
+                            <li><a class="nav-link" href="javascript;">Development</a></li>
+                            <li><a class="nav-link" href="javascript;">Accessibility</a></li>
+                            <li><a class="nav-link" href="javascript;">Content Strategy</a></li>
+                            <li><a class="nav-link" href="javascript;">Training</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="javascript;">
+                            Portfolio
+                        </a>
+                        <ul class="clean-list">
+                            <li><a class="nav-link" href="javascript;">Nonprofits</a></li>
+                            <li><a class="nav-link" href="javascript;">Higher Education</a></li>
+                            <li><a class="nav-link" href="javascript;">Associations</a></li>
+                            <li><a class="nav-link" href="javascript;">Consultants</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="javascript;">
+                            About us
+                        </a>
+                        <ul class="clean-list">
+                            <li><a class="nav-link" href="javascript;">Mission</a></li>
+                            <li><a class="nav-link" href="javascript;">History</a></li>
+                            <li><a class="nav-link" href="javascript;">Contact</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
         <div class="component component--text">
+            <a href="index.html">Back to navigation index</a>
+        </div>
+        <div class="component component--text">
+            <h2>Considerations</h2>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
         </div>
     </main>

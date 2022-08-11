@@ -101,7 +101,7 @@ const navDoubleLevel = function(menu, options) {
     }
 
     function mobileToggleSetup() {
-        mobileToggle.innerHTML = '<span class="visuallyhidden">Mobile navigation</span>' + settings.mobileIcon;
+        mobileToggle.innerHTML += settings.mobileIcon;
         mobileToggle.setAttribute('aria-expanded', 'false');
         mobileToggle.style.display = 'block';
 
