@@ -556,13 +556,13 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
 
   function menuSetup() {
     container.setAttribute('id', 'js-click-nav-' + settings.mobileSubmenuDirection);
-    var submenus = Array.prototype.slice.call(menu.querySelectorAll('ul'));
-    submenus.forEach(function (submenu) {
-      var menuItem = submenu.parentElement;
+    var subMenuWrappers = Array.prototype.slice.call(menu.querySelectorAll('[data-nav="submenu"]'));
+    subMenuWrappers.forEach(function (wrapper) {
+      var menuItem = wrapper.parentElement;
 
-      if ('undefined' !== typeof submenu) {
+      if ('undefined' !== typeof wrapper) {
         var button = convertLinkToButton(menuItem);
-        setUpAria(submenu, button);
+        setUpAria(wrapper, button);
       }
     });
   }
@@ -579,7 +579,7 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
     var button = document.createElement('button');
     button.setAttribute('data-trigger', 'sub-nav');
     var li = document.createElement('li');
-    var subMenu = link.nextElementSibling;
+    var subMenu = link.nextElementSibling.querySelector('ul');
 
     if (null !== link) {
       // copy button attributes and content from link
@@ -605,16 +605,12 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
     }
 
     if (settings.mobileSubmenuDirection === 'horizontal') {
-      // Wrap subMenu in a div and insert a "back" button
-      var div = document.createElement('div');
+      // Insert a "back" button
       var backButton = document.createElement('button');
-      div.setAttribute('class', 'js-nav__submenu');
-      subMenu.parentNode.insertBefore(div, subMenu);
-      div.appendChild(subMenu);
       backButton.setAttribute('data-button', 'mobile-back');
       backButton.setAttribute('class', 'button button--ghost');
       backButton.innerHTML = icon + ' Back';
-      div.insertBefore(backButton, subMenu);
+      subMenu.parentNode.insertBefore(backButton, subMenu);
     }
 
     return button;

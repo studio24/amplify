@@ -124,15 +124,15 @@ const navDoubleLevel = function(menu, options) {
 
     function menuSetup() {
         container.setAttribute('id', 'js-click-nav-' + settings.mobileSubmenuDirection);
-        const submenus = Array.prototype.slice.call(menu.querySelectorAll('ul'));
+        const subMenuWrappers = Array.prototype.slice.call(menu.querySelectorAll('[data-nav="submenu"]'));
 
-        submenus.forEach(function (submenu) {
-            const menuItem = submenu.parentElement;
+        subMenuWrappers.forEach(function (wrapper) {
+            const menuItem = wrapper.parentElement;
 
-            if ('undefined' !== typeof submenu) {
+            if ('undefined' !== typeof wrapper) {
                 let button = convertLinkToButton(menuItem);
 
-                setUpAria(submenu, button);
+                setUpAria(wrapper, button);
             }
         });
     }
@@ -148,7 +148,7 @@ const navDoubleLevel = function(menu, options) {
         const button = document.createElement('button');
         button.setAttribute('data-trigger', 'sub-nav');
         const li = document.createElement('li');
-        let subMenu = link.nextElementSibling;
+        let subMenu = link.nextElementSibling.querySelector('ul');
 
         if (null !== link) {
             // copy button attributes and content from link
@@ -173,16 +173,12 @@ const navDoubleLevel = function(menu, options) {
         }
 
         if (settings.mobileSubmenuDirection === 'horizontal') {
-            // Wrap subMenu in a div and insert a "back" button
-            const div = document.createElement('div');
+            // Insert a "back" button
             const backButton = document.createElement('button');
-            div.setAttribute('class', 'js-nav__submenu');
-            subMenu.parentNode.insertBefore(div, subMenu);
-            div.appendChild(subMenu);
             backButton.setAttribute('data-button', 'mobile-back');
             backButton.setAttribute('class', 'button button--ghost');
             backButton.innerHTML = icon + ' Back';
-            div.insertBefore(backButton, subMenu);
+            subMenu.parentNode.insertBefore(backButton, subMenu);
         }
 
         return button;

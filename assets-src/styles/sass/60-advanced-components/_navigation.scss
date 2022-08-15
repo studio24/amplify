@@ -39,13 +39,24 @@
         }
     }
 
-    ul ul {
-        background-color: $off-white;
-    }
-
     > ul > li + li {
         @include mq($bp-tab-portrait) {
             margin-left: rem(5);
+        }
+    }
+
+    [data-nav="submenu"] {
+        background-color: $off-white;
+        min-height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 5;
+
+        @include mq($bp-tab-portrait) {
+            min-height: auto;
+            top: auto;
+            width: auto;
         }
     }
 }
@@ -119,21 +130,6 @@
     [data-trigger="sub-nav"][aria-expanded="true"] svg {
         @include mq($bp-tab-portrait) {
             transform: scaleY(-1);
-        }
-    }
-
-    .js-nav__submenu {
-        background-color: $off-white;
-        min-height: 100%;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        z-index: 5;
-
-        @include mq($bp-tab-portrait) {
-            min-height: auto;
-            top: auto;
-            width: auto;
         }
     }
 
