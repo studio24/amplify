@@ -212,6 +212,9 @@ br {
 .nav [aria-expanded=false] + * {
   display: none;
 }
+.nav > ul {
+  background-color: #fcfcfc;
+}
 @media screen and (min-width: 48em) {
   .nav > ul {
     align-items: center;
@@ -255,7 +258,6 @@ br {
 
 /* Styles for simple double-level navigation */
 #js-click-nav-vertical > ul {
-  background-color: #fcfcfc;
   left: 0;
   position: absolute;
   width: 100%;
@@ -272,10 +274,14 @@ br {
   -webkit-transform: scaleY(-1);
           transform: scaleY(-1);
 }
+@media screen and (min-width: 48em) {
+  #js-click-nav-vertical [data-nav=submenu] {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+}
 
 /* Styles for double-navigation with back button in sub menus */
 #js-click-nav-horizontal > ul {
-  background-color: #fcfcfc;
   left: 0;
   position: absolute;
   width: 100%;
@@ -305,6 +311,11 @@ br {
   }
 }
 @media screen and (min-width: 48em) {
+  #js-click-nav-horizontal [data-nav=submenu] {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+@media screen and (min-width: 48em) {
   #js-click-nav-horizontal [data-button=mobile-back] {
     display: none;
   }
@@ -315,6 +326,56 @@ br {
 }
 #js-click-nav-horizontal [data-button=mobile-back] svg .control-vertical {
   display: none;
+}
+
+/* Styles for double-navigation with intro text and back button in sub menus */
+.js-nav-with-intro [data-nav=submenu] {
+  border-bottom: solid 3px;
+  padding: 1.25rem 0;
+}
+@media screen and (min-width: 48em) {
+  .js-nav-with-intro [data-nav=submenu] {
+    left: 50%;
+    min-height: auto;
+    padding: 3.125rem 1.25rem;
+    top: 100%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 100vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .js-nav-with-intro [data-nav=submenu] .l-center {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 48em) {
+  .js-nav-with-intro [data-button=mobile-back] {
+    display: none;
+  }
+}
+@media screen and (min-width: 48em) {
+  .js-nav-with-intro [data-nav=submenu] .nav__intro {
+    width: 40%;
+  }
+}
+.js-nav-with-intro .nav__intro p {
+  display: none;
+}
+@media screen and (min-width: 48em) {
+  .js-nav-with-intro .nav__intro p {
+    display: block;
+  }
+}
+@media screen and (min-width: 48em) {
+  .js-nav-with-intro [data-nav=submenu] ul {
+    -webkit-column-gap: 2.5rem;
+            column-gap: 2.5rem;
+    -webkit-columns: 2;
+            columns: 2;
+    width: 50%;
+  }
 }
 
 /*------------------------------------*\

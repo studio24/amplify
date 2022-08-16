@@ -13,7 +13,8 @@ import './_closest.polyfill.js';
  * @param {boolean} [options.cloneTopLevelLink=true] - whether to copy the link to be replaced with a button and add it to the sub menu.
  * @param {string} [options.mobileIcon] - SVG icon used for the button to show/hide the navigation on mobile.
  * @param {string} [options.submenuIcon] - SVG icon used for sub menus and back button.
- * @param {string} [options.mobileSubmenuDirection=vertical] - direction in which sub menus operate on mobile (vertical or horizontal).
+ * @param {string} [options.submenuDirection=vertical] - direction in which sub menus operate on mobile (vertical, or horizontal with a 'back' button).
+ * @param {boolean} [options.submenuIntro=false] - whether the sub menu
  */
 
 const navDoubleLevel = function(menu, options) {
@@ -28,11 +29,12 @@ const navDoubleLevel = function(menu, options) {
                     '<path class="open" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>' +
                     '<path class="close" d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>' +
                     '</svg>',
+        submenuDirection: 'vertical',
         submenuIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true" fill="currentColor">' +
                      '<path class="control-vertical" d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z" />' +
                      '<path class="control-horizontal" d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>' +
                      '</svg>',
-        mobileSubmenuDirection: 'vertical'
+        submenuIntro: false,
     };
 
     // Merge user options into defaults
@@ -123,7 +125,10 @@ const navDoubleLevel = function(menu, options) {
     }
 
     function menuSetup() {
-        container.setAttribute('id', 'js-click-nav-' + settings.mobileSubmenuDirection);
+        container.setAttribute('id', 'js-click-nav-' + settings.submenuDirection);
+        if (settings.submenuIntro === true) {
+            container.classList.add('js-nav-with-intro');
+        }
         const subMenuWrappers = Array.prototype.slice.call(menu.querySelectorAll('[data-nav="submenu"]'));
 
         subMenuWrappers.forEach(function (wrapper) {
@@ -172,13 +177,15 @@ const navDoubleLevel = function(menu, options) {
             menuItem.replaceChild(button, link);
         }
 
-        if (settings.mobileSubmenuDirection === 'horizontal') {
+        if (settings.submenuDirection === 'horizontal') {
             // Insert a "back" button
             const backButton = document.createElement('button');
             backButton.setAttribute('data-button', 'mobile-back');
             backButton.setAttribute('class', 'button button--ghost');
             backButton.innerHTML = icon + ' Back';
-            subMenu.parentNode.insertBefore(backButton, subMenu);
+            if (settings.submenuIntro === true) {
+                subMenu.parentNode.insertBefore(backButton, subMenu.parentNode.children[0]);
+            } else subMenu.parentNode.insertBefore(backButton, subMenu);
         }
 
         return button;

@@ -31,7 +31,20 @@ function domLoadedActions() {
 	if (exists(navExampleDouble)) {
 		let siteNav = new navDoubleLevel(navExampleDouble, {
 			breakpoint: 768,
-			mobileSubmenuDirection: 'horizontal'
+			submenuDirection: 'horizontal',
+		});
+		siteNav.init();
+	}
+
+	/* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
+	const navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');
+
+	if (exists(navDoubleIntro)) {
+		let siteNav = new navDoubleLevel(navDoubleIntro, {
+			breakpoint: 768,
+			cloneTopLevelLink: false,
+			submenuDirection: 'horizontal',
+			submenuIntro: true
 		});
 		siteNav.init();
 	}

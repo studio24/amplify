@@ -33,6 +33,8 @@
     }
 
     > ul {
+        background-color: $off-white;
+
         @include mq($bp-tab-portrait) {
             align-items: center;
             display: flex;
@@ -81,7 +83,6 @@
 /* Styles for simple double-level navigation */
 #js-click-nav-vertical {
     > ul {
-        background-color: $off-white;
         left: 0;
         position: absolute;
         width: 100%;
@@ -98,12 +99,17 @@
     [data-trigger="sub-nav"][aria-expanded="true"] svg {
         transform: scaleY(-1);
     }
+
+    [data-nav="submenu"] {
+        @include mq($bp-tab-portrait) {
+            box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%);
+        }
+    }
 }
 
 /* Styles for double-navigation with back button in sub menus */
 #js-click-nav-horizontal {
     > ul {
-        background-color: $off-white;
         left: 0;
         position: absolute;
         width: 100%;
@@ -133,6 +139,12 @@
         }
     }
 
+    [data-nav="submenu"] {
+        @include mq($bp-tab-portrait) {
+            box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%);
+        }
+    }
+
     [data-button="mobile-back"] {
         @include mq($bp-tab-portrait) {
             display: none;
@@ -144,6 +156,58 @@
 
         .control-vertical {
             display: none;
+        }
+    }
+}
+
+/* Styles for double-navigation with intro text and back button in sub menus */
+.js-nav-with-intro {
+    [data-nav="submenu"] {
+        border-bottom: solid 3px;
+        padding: rem(20) 0;
+
+        @include mq($bp-tab-portrait) {
+            left: 50%;
+            min-height: auto;
+            padding: rem(50) rem(20);
+            top: 100%;
+            transform: translateX(-50%);
+            width: 100vw;
+        }
+    }
+
+    [data-nav="submenu"] .l-center {
+        @include mq($bp-tab-portrait) {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    [data-button="mobile-back"] {
+        @include mq($bp-tab-portrait) {
+            display: none;
+        }
+    }
+
+    [data-nav="submenu"] .nav__intro {
+        @include mq($bp-tab-portrait) {
+            width: 40%;
+        }
+    }
+
+    .nav__intro p {
+        display: none;
+
+        @include mq($bp-tab-portrait) {
+            display: block;
+        }
+    }
+
+    [data-nav="submenu"] ul {
+        @include mq($bp-tab-portrait) {
+            column-gap: rem(40);
+            columns: 2;
+            width: 50%;
         }
     }
 }
