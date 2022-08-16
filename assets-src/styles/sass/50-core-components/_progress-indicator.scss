@@ -17,6 +17,10 @@
 .progress-list li {
 	position: relative;
 
+	&::before {
+		display: none;
+	}
+
 	&::after {
 		background-color: $storm-gray;
 		bottom: rem(-16);

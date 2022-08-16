@@ -2736,6 +2736,9 @@ main,
 .progress-list li {
   position: relative;
 }
+.progress-list li::before {
+  display: none;
+}
 .progress-list li::after {
   background-color: #545454;
   bottom: -1rem;

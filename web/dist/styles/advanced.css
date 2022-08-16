@@ -219,6 +219,7 @@ br {
   font-size: 1.25rem;
   line-height: 1.3;
   font-weight: 600;
+  text-align: left;
 }
 .js [data-heading=collapsibles] button .js-collapsible-toggle {
   color: #0d599b;
