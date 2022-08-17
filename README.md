@@ -114,10 +114,7 @@ If needed, update the `package.json` file in the project root to specify [which 
 
 #### Webpack
 
-[Webpack](https://webpack.js.org/) is used to compile, transpile and minify JavaScript files. Two files exist in the project root to determine these settings:
-
-* `webpack.config.js` for the non-minified version
-* `webpack.config.min.js` for the minified version
+[Webpack](https://webpack.js.org/) is used to compile, transpile and minify JavaScript files. There is a `webpack.config.js` file in the project root which controls this process.
 
 #### Copying over JS libraries
 If there are libraries that you would like to use as is in your project, set up Webpack to copy them across from the src folder to the dist folder.

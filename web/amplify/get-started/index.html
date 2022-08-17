@@ -104,10 +104,11 @@
 									<li><code>.nvmrc</code> file - update to the current LTS version</li>
 									<li><code>package.json</code> and <code>package-lock.json</code> files</li>
 									<li><code>svgo.config.js</code> file</li>
-									<li><code>webpack.config.js</code> and <code>webpack.config.min.js</code> files</li>
+									<li><code>webpack.config.js</code> file</li>
 								</ul>
 							</li>
-							<li>Copy the <code>/dist</code> directory into your webroot directory (which could be called 'web' or 'public' depending on your project setup)</li>
+							<li>Check that the config <code>from</code> and <code>to</code> paths in <code>package.json</code> are correct for your project setup</li>
+							<li>Check the <code>context</code> and <code>output</code> paths in <code>webpack.config.js</code> are correct for your project setup</li>
 							<li>Optional: copy the <code>/amplify</code> directory into the webroot</li>
 							<li>Follow the command line instructions to <a href="https://github.com/studio24/amplify">install project dependencies</a> and check there are no errors when building the front-end assets</li>
 							<li>Make sure the <code>html</code> element in your web page template has an appropriate <code>lang</code> attribute and the <code>no-js</code> class</li>
