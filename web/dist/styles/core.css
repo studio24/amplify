@@ -2328,6 +2328,10 @@ so that either of these properties is applied instead.
   margin: 0;
 }
 
+[data-nav=submenu] {
+  padding-left: 1.25rem;
+}
+
 a.nav-link {
   display: block;
   line-height: normal;

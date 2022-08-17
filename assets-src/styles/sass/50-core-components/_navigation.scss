@@ -7,6 +7,10 @@
     margin: 0;
 }
 
+[data-nav="submenu"] {
+    padding-left: rem(20);
+}
+
 a.nav-link {
     display: block;
     line-height: normal;

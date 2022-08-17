@@ -209,33 +209,34 @@ br {
   display: none;
 }
 
-.nav [aria-expanded=false] + * {
+.js .nav [aria-expanded=false] + * {
   display: none;
 }
-.nav > ul {
+.js .nav > ul {
   background-color: #fcfcfc;
 }
 @media screen and (min-width: 48em) {
-  .nav > ul {
+  .js .nav > ul {
     align-items: center;
     display: flex;
   }
 }
 @media screen and (min-width: 48em) {
-  .nav > ul > li + li {
+  .js .nav > ul > li + li {
     margin-left: 0.3125rem;
   }
 }
-.nav [data-nav=submenu] {
+.js .nav [data-nav=submenu] {
   background-color: #fcfcfc;
   min-height: 100%;
+  padding-left: 0;
   position: absolute;
   top: 0;
   width: 100%;
   z-index: 5;
 }
 @media screen and (min-width: 48em) {
-  .nav [data-nav=submenu] {
+  .js .nav [data-nav=submenu] {
     min-height: auto;
     top: auto;
     width: auto;

@@ -27,7 +27,7 @@
     }
 }
 
-.nav {
+.js .nav {
     [aria-expanded="false"] + * {
         display: none;
     }
@@ -50,6 +50,7 @@
     [data-nav="submenu"] {
         background-color: $off-white;
         min-height: 100%;
+        padding-left: 0;
         position: absolute;
         top: 0;
         width: 100%;
