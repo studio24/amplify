@@ -262,6 +262,7 @@ br {
   left: 0;
   position: absolute;
   width: 100%;
+  z-index: 5;
 }
 @media screen and (min-width: 48em) {
   #js-click-nav-vertical > ul {
@@ -286,6 +287,7 @@ br {
   left: 0;
   position: absolute;
   width: 100%;
+  z-index: 5;
 }
 @media screen and (min-width: 48em) {
   #js-click-nav-horizontal > ul {

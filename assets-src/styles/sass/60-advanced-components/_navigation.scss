@@ -87,6 +87,7 @@
         left: 0;
         position: absolute;
         width: 100%;
+        z-index: 5;
 
         @include mq($bp-tab-portrait) {
             position: relative;
@@ -114,6 +115,7 @@
         left: 0;
         position: absolute;
         width: 100%;
+        z-index: 5;
 
         @include mq($bp-tab-portrait) {
             position: relative;
