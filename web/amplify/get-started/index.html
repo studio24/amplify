@@ -86,18 +86,42 @@
 				</nav>
 				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
 				<div class="content">
-					<div class="component component--text">
-						<h1>Get started</h1>
-						<p>Grab an up-to-date copy of Amplify from <a href="https://github.com/studio24/amplify">GitHub</a>.</p>
-						<p>@TODO: advise how to add Amplify into a project using e.g. WordPress etc.</p>
-					</div>
 					<div class="component">
+						<h1>Get started</h1>
 						<div class="l-box note note--info" role="status">
 							<h2 class="txt-saturn">A living guide</h2>
 							<p>This is a living guide, running off your project Sass and JavaScript. It starts as the default, clean starter kit. <em>It is not meant to be styled nicely.</em></p>
 							<p>As you write your project's Sass and JavaScript, this guide will pick up those changes.</p>
 							<p>You can delete this directory (<code>/amplify</code>) if you don't need to refer to these docs or don't want to include it in your finished project.</p>
 						</div>
+					</div>
+					<div class="component component--text">
+						<ol>
+							<li>Grab an up-to-date copy of Amplify from <a href="https://github.com/studio24/amplify">GitHub</a></li>
+							<li>Copy the following items from Amplify into your project (probably into the theme directory, but it will depend on your project setup):
+								<ul>
+									<li><code>/assets-src</code> directory</li>
+									<li><code>.nvmrc</code> file - update to the current LTS version</li>
+									<li><code>package.json</code> and <code>package-lock.json</code> files</li>
+									<li><code>svgo.config.js</code> file</li>
+									<li><code>webpack.config.js</code> file</li>
+								</ul>
+							</li>
+							<li>Check that the config <code>from</code> and <code>to</code> paths in <code>package.json</code> are correct for your project setup</li>
+							<li>Check the <code>context</code> and <code>output</code> paths in <code>webpack.config.js</code> are correct for your project setup</li>
+							<li>Optional: copy the <code>/amplify</code> directory into the webroot</li>
+							<li>Follow the command line instructions to <a href="https://github.com/studio24/amplify">install project dependencies</a> and check there are no errors when building the front-end assets</li>
+							<li>Make sure the <code>html</code> element in your web page template has an appropriate <code>lang</code> attribute and the <code>no-js</code> class</li>
+							<li>Make sure your web page template includes the following (which can be copied from any of the example pages in the <code>/amplify</code> directory):
+								<ul>
+									<li>link to the core stylesheet</li>
+									<li>link to the advanced stylesheet, including the media query to determine which browsers it will be served to</li>
+									<li>link to the print stylesheet</li>
+									<li><code>script</code> for the Font Face Observer library in the <code>head</code></li>
+									<li>another <code>script</code> in the <code>head</code>, which checks when the desired web font is loaded, adds the <code>fonts-loaded</code> class to <code>html</code>, adds the main JavaScript file to the <code>head</code> and switches the <code>no-js</code> class to <code>js</code></li>
+								</ul>
+							</li>
+						</ol>
 					</div>
 				</div>
 			</div>

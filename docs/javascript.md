@@ -21,9 +21,6 @@ Contains Amplify's implementations for any third party scripts that are imported
 
 ## JavaScript build tools
 
-[Webpack](https://webpack.js.org/) is used to compile, transpile and minify JavaScript files. Two files exist in the project root to determine these settings:
-
-* `webpack.config.js` for the non-minified version
-* `webpack.config.min.js` for the minified version
+[Webpack](https://webpack.js.org/) is used to compile, transpile and minify JavaScript files. There is a `webpack.config.js` file in the project root which controls this process.
 
 @TODO: add notes about Babel setup and transpiling from the browserslist in `package.json`.
