@@ -1556,7 +1556,6 @@ textarea:focus,
   outline-offset: 0;
 }
 
-select,
 [type=date],
 [type=email],
 [type=number],
