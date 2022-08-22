@@ -173,45 +173,6 @@ Search
 
 
 /**
-Select
- */
-select {
-	background-color: $off-white;
-	border: 2px solid;
-	border-radius: 0;
-	line-height: 1.25;
-	padding: rem(5);
-	width: 100%;
-
-	&:focus {
-		box-shadow: inset 0 0 0 2px;
-		outline: solid 3px $focus-color;
-		outline-offset: 0;
-	}
-}
-
-
-/**
-Optional select with custom arrow icon matching the SVG used for accessible autocomplete
- */
-@supports (appearance: none) {
-	select {
-		appearance: none;
-		background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="none" d="M0 0h24v24H0z"/%3E%3Cpath d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"/%3E%3C/svg%3E');
-		background-position: center right rem(5);
-		background-repeat: no-repeat;
-		padding-right: rem(34);
-	}
-
-	[dir="rtl"] select {
-		background-position: center left rem(5);
-		padding-left: rem(34);
-		padding-right: rem(5);
-	}
-}
-
-
-/**
 Textarea
  */
 textarea {
