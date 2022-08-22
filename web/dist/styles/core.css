@@ -1653,109 +1653,6 @@ Memorable dates (e.g. date of birth)
 }
 
 /**
-Segmented options. Can use either radio or checkbox inputs. The purpose is to
-show all available options outright, rather than hide them behind a <select>
- */
-.segmented-group-wrapper {
-  max-width: none;
-}
-
-.segmented-group.l-switcher {
-  margin-top: 0;
-}
-.segmented-group.l-switcher > * > * {
-  max-width: 100%;
-  min-width: 33.333%;
-  position: relative;
-}
-.segmented-group.l-switcher label {
-  border: 2px solid;
-  cursor: pointer;
-  display: block;
-  margin: 0.125rem;
-}
-.segmented-group.l-switcher label:before, .segmented-group.l-switcher label:after {
-  content: "";
-  position: absolute;
-}
-.segmented-group.l-switcher label::before {
-  background: transparent;
-  height: 1.5rem;
-  right: 0.625rem;
-  top: 0.625rem;
-  width: 1.5rem;
-}
-.segmented-group.l-switcher label::after {
-  background: transparent;
-  border: solid;
-  border-top-color: transparent;
-  border-width: 0 0 3px 3px;
-  height: 0.40625rem;
-  right: 1rem;
-  opacity: 0;
-  top: 1.0625rem;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  width: 0.75rem;
-}
-.segmented-group.l-switcher input {
-  cursor: pointer;
-  height: 2.75rem;
-  margin: 0;
-  opacity: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 2.75rem;
-  z-index: 1;
-}
-.segmented-group.l-switcher .segmented-label {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  display: block;
-  padding: 0.625rem;
-  padding-right: 2.75rem;
-}
-.segmented-group.l-switcher .segmented-label > * + * {
-  margin-top: 0.5em;
-}
-.segmented-group.l-switcher .segmented-label span {
-  display: block;
-}
-.segmented-group.l-switcher .segmented-label span:first-of-type {
-  font-weight: bold;
-}
-.segmented-group.l-switcher > * > *:hover label {
-  background-color: #bdbdbd;
-}
-.segmented-group.l-switcher input:focus + label {
-  border-color: #ffdc00;
-  box-shadow: inset 0 0 0 4px;
-  outline: solid 2px #ffdc00;
-}
-.segmented-group.l-switcher input:checked + label::after {
-  opacity: 1;
-}
-
-[dir=rtl] .segmented-group label::before {
-  left: 0.625rem;
-  right: auto;
-}
-[dir=rtl] .segmented-group label::after {
-  left: 1rem;
-  right: auto;
-}
-[dir=rtl] .segmented-group input {
-  left: 0;
-  right: auto;
-}
-[dir=rtl] .segmented-group .segmented-label {
-  padding: 0.625rem;
-  padding-left: 2.75rem;
-}
-
-/**
 Fixed input widths
  */
 .input-width-30 {
@@ -1982,6 +1879,112 @@ Error styles
 [type=radio]:disabled + label,
 [type=checkbox]:disabled + label {
   opacity: 0.5;
+}
+
+/*------------------------------------*\
+    #Forms - segmented options
+
+    Can use either radio or checkbox inputs.
+    The purpose is to show all available options outright,
+    rather than hide them behind a <select>
+\*------------------------------------*/
+.segmented-group-wrapper {
+  max-width: none;
+}
+
+.segmented-group.l-switcher {
+  margin-top: 0;
+}
+.segmented-group.l-switcher > * > * {
+  max-width: 100%;
+  min-width: 33.333%;
+  position: relative;
+}
+.segmented-group.l-switcher label {
+  border: 2px solid;
+  cursor: pointer;
+  display: block;
+  margin: 0.125rem;
+}
+.segmented-group.l-switcher label:before, .segmented-group.l-switcher label:after {
+  content: "";
+  position: absolute;
+}
+.segmented-group.l-switcher label::before {
+  background: transparent;
+  height: 1.5rem;
+  right: 0.625rem;
+  top: 0.625rem;
+  width: 1.5rem;
+}
+.segmented-group.l-switcher label::after {
+  background: transparent;
+  border: solid;
+  border-top-color: transparent;
+  border-width: 0 0 3px 3px;
+  height: 0.40625rem;
+  right: 1rem;
+  opacity: 0;
+  top: 1.0625rem;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  width: 0.75rem;
+}
+.segmented-group.l-switcher input {
+  cursor: pointer;
+  height: 2.75rem;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2.75rem;
+  z-index: 1;
+}
+.segmented-group.l-switcher .segmented-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  display: block;
+  padding: 0.625rem;
+  padding-right: 2.75rem;
+}
+.segmented-group.l-switcher .segmented-label > * + * {
+  margin-top: 0.5em;
+}
+.segmented-group.l-switcher .segmented-label span {
+  display: block;
+}
+.segmented-group.l-switcher .segmented-label span:first-of-type {
+  font-weight: bold;
+}
+.segmented-group.l-switcher > * > *:hover label {
+  background-color: #bdbdbd;
+}
+.segmented-group.l-switcher input:focus + label {
+  border-color: #ffdc00;
+  box-shadow: inset 0 0 0 4px;
+  outline: solid 2px #ffdc00;
+}
+.segmented-group.l-switcher input:checked + label::after {
+  opacity: 1;
+}
+
+[dir=rtl] .segmented-group label::before {
+  left: 0.625rem;
+  right: auto;
+}
+[dir=rtl] .segmented-group label::after {
+  left: 1rem;
+  right: auto;
+}
+[dir=rtl] .segmented-group input {
+  left: 0;
+  right: auto;
+}
+[dir=rtl] .segmented-group .segmented-label {
+  padding: 0.625rem;
+  padding-left: 2.75rem;
 }
 
 /*------------------------------------*\
