@@ -14,7 +14,6 @@ Also see more [detailed project documentation](docs/README.md).
 * [Installing](#installing)
 * [Making changes](#making-changes)
 * [Deployment](#deployment)
-* [Syncing tasks](#syncing-tasks)
 * [Built with](#built-with)
 * [Credits](#credits)
 
@@ -157,21 +156,6 @@ The deploy process outputs a summary of what branch is currently deployed to sta
 
 ````
 ./vendor/bin/dep deploy staging --branch=branch-name-to-deploy
-````
-
-## Syncing tasks
-
-Sync files from production or staging to your local development environment. These are setup in the `deploy.php` script, see the [sync](https://github.com/studio24/deployer-recipes/blob/main/docs/sync.md) task for more.
-
-#### Sync assets: Live → Local development
-
-````bash
-./vendor/bin/dep sync production --files=images
-````
-#### Sync assets: Staging → Local development
-
-````bash
-./vendor/bin/dep sync staging --files=images
 ````
 
 ## Credits
