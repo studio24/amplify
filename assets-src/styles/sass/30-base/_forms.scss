@@ -181,57 +181,31 @@ textarea {
 
 
 /**
-Memorable dates (e.g. date of birth)
- */
-.memorable-date {
-	display: inline-block;
-	margin-top: 0;
-}
-
-.memorable-date + .memorable-date {
-	margin-left: 1rem;
-}
-
-[dir="rtl"] {
-	.memorable-date + .memorable-date {
-		margin-left: auto;
-		margin-right: 1rem;
-	}
-}
-
-
-/**
 Fixed input widths
  */
 .input-width-30 {
 	max-width: 59ex;
 }
 
-
 .input-width-20 {
 	max-width: 41ex;
 }
-
 
 .input-width-10 {
 	max-width: 23ex;
 }
 
-
 .input-width-5 {
 	max-width: 10.8ex;
 }
-
 
 .input-width-4 {
 	max-width: 9ex;
 }
 
-
 .input-width-3 {
 	max-width: 7.2ex;
 }
-
 
 .input-width-2 {
 	max-width: 5.4ex;
@@ -259,7 +233,6 @@ Error styles
 
 }
 
-
 .field--error {
 	border-left: solid rem(5) $error-color;
 	padding-left: rem(15);
@@ -275,7 +248,6 @@ Error styles
 	}
 }
 
-
 [dir="rtl"] {
 	.field--error {
 		border-left: none;
@@ -284,7 +256,6 @@ Error styles
 		padding-right: rem(15);
 	}
 }
-
 
 .field-error-msg {
 	color: $error-color;

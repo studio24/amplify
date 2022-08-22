@@ -1599,23 +1599,6 @@ textarea {
 }
 
 /**
-Memorable dates (e.g. date of birth)
- */
-.memorable-date {
-  display: inline-block;
-  margin-top: 0;
-}
-
-.memorable-date + .memorable-date {
-  margin-left: 1rem;
-}
-
-[dir=rtl] .memorable-date + .memorable-date {
-  margin-left: auto;
-  margin-right: 1rem;
-}
-
-/**
 Fixed input widths
  */
 .input-width-30 {
@@ -1842,6 +1825,23 @@ Error styles
 [type=radio]:disabled + label,
 [type=checkbox]:disabled + label {
   opacity: 0.5;
+}
+
+/*------------------------------------*\
+    #Memorable dates (e.g. date of birth)
+\*------------------------------------*/
+.memorable-date {
+  display: inline-block;
+  margin-top: 0;
+}
+
+.memorable-date + .memorable-date {
+  margin-left: 1rem;
+}
+
+[dir=rtl] .memorable-date + .memorable-date {
+  margin-left: auto;
+  margin-right: 1rem;
 }
 
 /*------------------------------------*\
