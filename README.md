@@ -23,10 +23,6 @@ Also see more [detailed project documentation](docs/README.md).
 * https://amplify.studio24.net
 * https://amplify.studio24.net/_build_summary.json
 
-### Staging
-* https://staging.example.com
-* https://staging.example.com/_build_summary.json
-
 ### Development
 * http://local.amplify.studio24.net/
 
@@ -148,14 +144,6 @@ You should always deploy the `main` branch to production.
 
 ````
 ./vendor/bin/dep deploy production --branch=main
-````
-
-### Deploy to Staging
-
-The deploy process outputs a summary of what branch is currently deployed to staging, please check this to ensure you're not overwriting someone's work.
-
-````
-./vendor/bin/dep deploy staging --branch=branch-name-to-deploy
 ````
 
 ## Credits
