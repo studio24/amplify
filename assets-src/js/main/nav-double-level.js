@@ -4,17 +4,17 @@ import './_closest.polyfill.js';
 /**
  * Object for creating double-level navigation menus
  * Inspired by https://github.com/mrwweb/clicky-menus/blob/main/clicky-menus.js
- * Uses event delegation to handle events for improved performance
+ * Uses event delegation to handle events for improved performance, and data attributes for targeting elements
  * Also manages button for toggling navigation on mobile
  *
  * @param {Element} menu - the top level navigation <ul>
  * @param {Object} options - configuration options for the navigation
- * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden. Is converted to em.
+ * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden. Is converted to em (assumes 16px browser default).
  * @param {boolean} [options.cloneTopLevelLink=true] - whether to copy the link to be replaced with a button and add it to the sub menu.
  * @param {string} [options.mobileIcon] - SVG icon used for the button to show/hide the navigation on mobile.
  * @param {string} [options.submenuIcon] - SVG icon used for sub menus and back button.
  * @param {string} [options.submenuDirection=vertical] - direction in which sub menus operate on mobile (vertical, or horizontal with a 'back' button).
- * @param {boolean} [options.submenuIntro=false] - whether the sub menu
+ * @param {boolean} [options.submenuIntro=false] - whether the sub menu includes introductory text.
  */
 
 const navDoubleLevel = function(menu, options) {
@@ -55,6 +55,7 @@ const navDoubleLevel = function(menu, options) {
     }
 
     function clickHandler(event) {
+
         if (event.target.matches('[data-trigger="mobile-nav"]')) {
             if (event.target.matches('[aria-expanded="true"]')) {
                 closeSubmenus();
@@ -63,11 +64,16 @@ const navDoubleLevel = function(menu, options) {
                 event.target.setAttribute('aria-expanded', 'true');
             }
         } else if (event.target.matches('[data-trigger="sub-nav"]')) {
+            const button = event.target;
+            const submenu = button.nextElementSibling;
             if (event.target.matches('[aria-expanded="true"]')) {
                 event.target.setAttribute('aria-expanded', 'false');
             } else {
                 closeSubmenus();
                 event.target.setAttribute('aria-expanded', 'true');
+                if (settings.submenuIntro === false) {
+                    preventOffScreenSubmenu(submenu);
+                }
             }
         } else if (event.target.matches('[data-button="mobile-back"]')) {
             event.target.closest('li').querySelector('[data-trigger="sub-nav"]').setAttribute('aria-expanded', 'false');
@@ -99,6 +105,18 @@ const navDoubleLevel = function(menu, options) {
             } else {
                 closeSubmenus();
             }
+        }
+    }
+
+    function preventOffScreenSubmenu(submenu) {
+        const screenWidth =	window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        const parent = submenu.parentElement;
+        const menuLeftEdge = parent.getBoundingClientRect().left;
+        const menuRightEdge = menuLeftEdge + submenu.offsetWidth;
+
+        if (menuRightEdge + 32 > screenWidth) {
+            // adding 32 so it's not too close
+            submenu.classList.add('js-sub-menu-right');
         }
     }
 

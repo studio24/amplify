@@ -209,6 +209,9 @@ br {
   display: none;
 }
 
+.js .nav {
+  /* Prevent offscreen-submenus */
+}
 .js .nav [aria-expanded=false] + * {
   display: none;
 }
@@ -226,6 +229,14 @@ br {
     margin-left: 0.3125rem;
   }
 }
+.js .nav [data-trigger=sub-nav] {
+  position: relative;
+  justify-content: space-between;
+  width: 100%;
+}
+.js .nav [data-trigger=sub-nav] svg {
+  pointer-events: none;
+}
 .js .nav [data-nav=submenu] {
   background-color: #fcfcfc;
   min-height: 100%;
@@ -242,19 +253,9 @@ br {
     width: auto;
   }
 }
-
-[data-trigger=sub-nav] {
-  position: relative;
-  justify-content: space-between;
-  width: 100%;
-}
-[data-trigger=sub-nav] svg {
-  pointer-events: none;
-}
-@media screen and (min-width: 48em) {
-  [data-trigger=sub-nav] + * {
-    position: absolute;
-  }
+.js .nav [data-nav=submenu].js-sub-menu-right {
+  left: auto;
+  right: 0;
 }
 
 /* Styles for simple double-level navigation */
@@ -266,6 +267,11 @@ br {
 }
 @media screen and (min-width: 48em) {
   #js-click-nav-vertical > ul {
+    position: relative;
+  }
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-vertical > ul > li {
     position: relative;
   }
 }
@@ -291,6 +297,11 @@ br {
 }
 @media screen and (min-width: 48em) {
   #js-click-nav-horizontal > ul {
+    position: relative;
+  }
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-horizontal > ul > li {
     position: relative;
   }
 }
@@ -332,6 +343,11 @@ br {
 }
 
 /* Styles for double-navigation with intro text and back button in sub menus */
+@media screen and (min-width: 48em) {
+  .js-nav-with-intro > ul > li {
+    position: static !important;
+  }
+}
 .js-nav-with-intro [data-nav=submenu] {
   border-bottom: solid 3px;
   padding: 1.25rem 0;
@@ -344,7 +360,7 @@ br {
     top: 100%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
-    width: 100vw;
+    width: 100vw !important;
   }
 }
 @media screen and (min-width: 48em) {

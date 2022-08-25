@@ -47,6 +47,16 @@
         }
     }
 
+    [data-trigger="sub-nav"] {
+        position: relative;
+        justify-content: space-between;
+        width: 100%;
+
+        svg {
+            pointer-events: none;
+        }
+    }
+
     [data-nav="submenu"] {
         background-color: $off-white;
         min-height: 100%;
@@ -62,22 +72,11 @@
             width: auto;
         }
     }
-}
 
-[data-trigger="sub-nav"] {
-    position: relative;
-    justify-content: space-between;
-    width: 100%;
-
-    svg {
-        pointer-events: none;
-    }
-
-    // Position the sub navigation
-    + * {
-        @include mq($bp-tab-portrait) {
-            position: absolute;
-        }
+    /* Prevent offscreen-submenus */
+    [data-nav="submenu"].js-sub-menu-right {
+        left: auto;
+        right: 0;
     }
 }
 
@@ -89,6 +88,12 @@
         width: 100%;
         z-index: 5;
 
+        @include mq($bp-tab-portrait) {
+            position: relative;
+        }
+    }
+
+    > ul > li {
         @include mq($bp-tab-portrait) {
             position: relative;
         }
@@ -117,6 +122,12 @@
         width: 100%;
         z-index: 5;
 
+        @include mq($bp-tab-portrait) {
+            position: relative;
+        }
+    }
+
+    > ul > li {
         @include mq($bp-tab-portrait) {
             position: relative;
         }
@@ -165,6 +176,12 @@
 
 /* Styles for double-navigation with intro text and back button in sub menus */
 .js-nav-with-intro {
+    > ul > li {
+        @include mq($bp-tab-portrait) {
+            position: static !important;
+        }
+    }
+
     [data-nav="submenu"] {
         border-bottom: solid 3px;
         padding: rem(20) 0;
@@ -175,7 +192,7 @@
             padding: rem(50) rem(20);
             top: 100%;
             transform: translateX(-50%);
-            width: 100vw;
+            width: 100vw !important;
         }
     }
 
