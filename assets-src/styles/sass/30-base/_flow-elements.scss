@@ -3,8 +3,8 @@
 \*------------------------------------*/
 
 abbr {
+	text-decoration-skip: auto; // Supported by Safari
 	text-decoration-skip-ink: auto; // Not supported by Safari
-	text-underline-offset: 0.25em; // Supported by Safari
 }
 
 

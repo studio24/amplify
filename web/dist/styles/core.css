@@ -740,9 +740,10 @@ br {
     #Flow elements
 \*------------------------------------*/
 abbr {
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 
 dfn {
@@ -834,9 +835,10 @@ a.with-icon--after {
   cursor: pointer;
   text-decoration: underline;
   /* 1 */
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 a:not([class]):visited,
 a.with-icon--before:visited,
@@ -1059,9 +1061,10 @@ summary span {
   padding-bottom: 0.625rem;
   padding-top: 0.625rem;
   text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 summary:focus {
   background-color: #ffdc00;
@@ -1097,17 +1100,10 @@ details[open] > summary::before {
 \*------------------------------------*/
 /**
 Icons are sized relative to font size, thanks to the em unit.
-
-1. When the cap unit is supported this will make it easier to match icon
-size to text size.
  */
 .icon {
   height: 0.75em;
-  height: 1cap;
-  /* 1 */
   width: 0.75em;
-  width: 1cap;
-  /* 1 */
 }
 
 .icon--24 {
@@ -2648,9 +2644,10 @@ main,
 .card__link:hover {
   text-decoration: underline;
   /* 1 */
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 .card__link:focus {
   background-color: #ffdc00;
@@ -2842,9 +2839,10 @@ main,
 
 .progress-list a {
   color: #545454;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 .progress-list a:visited {
   color: #920ba6;
@@ -2898,9 +2896,10 @@ main,
 }
 .tag:hover {
   text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 .tag:focus {
   background-color: #ffdc00;
@@ -3075,9 +3074,10 @@ input[type=search] {
 }
 .pagination__list a[href]:hover {
   text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 .pagination__list a[href][aria-current] {
   background-color: #0d599b;
@@ -3174,9 +3174,10 @@ input[type=search] {
 }
 .amplify .global-header__link:hover {
   text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 .amplify .global-header__link:focus {
   background-color: #ffdc00;
@@ -3203,9 +3204,10 @@ input[type=search] {
 }
 .amplify .global-nav__link:hover {
   text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 .amplify .global-nav__link:focus {
   background-clip: padding-box;
@@ -3233,9 +3235,10 @@ input[type=search] {
 }
 .amplify .nav-secondary__link:hover {
   text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 .amplify .nav-secondary__link:focus {
   background-color: #ffdc00;
