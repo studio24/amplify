@@ -4,54 +4,33 @@
 
 ul,
 ol {
-	margin-bottom: rem(16);
-	margin-top: rem(16);
+	margin-bottom: 1rem;
+	margin-top: 1rem;
+	padding-left: 2rem;
+
+	li {
+		padding-left: 0.25rem;
+	}
 
 	> * + *,
 	li ul,
 	li ol {
-		margin-top: 0.75em;
+		margin-top: 0.75rem;
 	}
 }
 
-
-ul {
-	padding-left: 2.4em;
-}
 
 [dir="rtl"] {
-	ul {
-		padding-left: 0;
-		padding-right: 2.4em;
-	}
-}
-
-
-ol {
-	counter-reset: count;
-	list-style-type: none;
-	padding-left: 1.25em;
-
-	> li {
-		counter-increment: count;
-
-		&::before {
-			content: counters(count, ".") ".";
-			padding-right: 0.5em;
-		}
-	}
-}
-
-[dir="rtl"] {
+	ul,
 	ol {
 		padding-left: 0;
-		padding-right: 1.25em;
-
-		> li::before {
-			padding-left: 0.5em;
-			padding-right: 0;
-		}
+		padding-right: 2rem;
 	}
+}
+
+
+ol ::marker {
+	content: counters(list-item, ".") ". ";
 }
 
 
@@ -70,20 +49,20 @@ the number of items in a list is announced, add role="list" to the <ul>
 Description lists / Definition lists
  */
 dl {
-	margin-bottom: rem(16);
-	margin-top: rem(16);
+	margin-bottom: 1rem;
+	margin-top: 1rem;
 
 	dt {
 		font-weight: bold;
 	}
 
 	dd + dt {
-		margin-top: 0.5em;
+		margin-top: 0.5rem;
 	}
 
 	dt + dd,
 	dd + dd {
-		margin-top: 0.25em;
+		margin-top: 0.25rem;
 	}
 }
 

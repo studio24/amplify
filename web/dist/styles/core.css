@@ -1203,6 +1203,11 @@ ul,
 ol {
   margin-bottom: 1rem;
   margin-top: 1rem;
+  padding-left: 2rem;
+}
+ul li,
+ol li {
+  padding-left: 0.25rem;
 }
 ul > * + *,
 ul li ul,
@@ -1210,38 +1215,17 @@ ul li ol,
 ol > * + *,
 ol li ul,
 ol li ol {
-  margin-top: 0.75em;
+  margin-top: 0.75rem;
 }
 
-ul {
-  padding-left: 2.4em;
-}
-
-[dir=rtl] ul {
-  padding-left: 0;
-  padding-right: 2.4em;
-}
-
-ol {
-  counter-reset: count;
-  list-style-type: none;
-  padding-left: 1.25em;
-}
-ol > li {
-  counter-increment: count;
-}
-ol > li::before {
-  content: counters(count, ".") ".";
-  padding-right: 0.5em;
-}
-
+[dir=rtl] ul,
 [dir=rtl] ol {
   padding-left: 0;
-  padding-right: 1.25em;
+  padding-right: 2rem;
 }
-[dir=rtl] ol > li::before {
-  padding-left: 0.5em;
-  padding-right: 0;
+
+ol ::marker {
+  content: counters(list-item, ".") ". ";
 }
 
 /**
@@ -1265,11 +1249,11 @@ dl dt {
   font-weight: bold;
 }
 dl dd + dt {
-  margin-top: 0.5em;
+  margin-top: 0.5rem;
 }
 dl dt + dd,
 dl dd + dd {
-  margin-top: 0.25em;
+  margin-top: 0.25rem;
 }
 
 @supports (grid-row-start: auto) {
