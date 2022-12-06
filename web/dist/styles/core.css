@@ -2336,13 +2336,8 @@ so that either of these properties is applied instead.
   padding-right: 0;
 }
 
-.breadcrumbs ol {
-  counter-reset: none;
-}
-
-.breadcrumbs ol > li::before {
-  content: "";
-  padding: 0;
+.breadcrumbs ol ::marker {
+  content: "" !important;
 }
 
 .breadcrumbs a {
@@ -2723,11 +2718,12 @@ main,
   }
 }
 
+.progress-list ::marker {
+  content: "" !important;
+}
+
 .progress-list li {
   position: relative;
-}
-.progress-list li::before {
-  display: none;
 }
 .progress-list li::after {
   background-color: #545454;

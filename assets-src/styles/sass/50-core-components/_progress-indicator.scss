@@ -14,12 +14,14 @@
 }
 
 
+// Reset base <ol> styles
+.progress-list ::marker {
+	content: ''!important;
+}
+
+
 .progress-list li {
 	position: relative;
-
-	&::before {
-		display: none;
-	}
 
 	&::after {
 		background-color: $storm-gray;

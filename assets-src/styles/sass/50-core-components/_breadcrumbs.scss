@@ -29,13 +29,8 @@
 
 
 // Reset base <ol> styles
-.breadcrumbs ol {
-	counter-reset: none;
-}
-
-.breadcrumbs ol > li::before {
-	content: '';
-	padding: 0;
+.breadcrumbs ol ::marker {
+	content: ''!important;
 }
 
 
