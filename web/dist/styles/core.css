@@ -1258,8 +1258,9 @@ dl dd + dd {
             column-gap: 1rem;
     display: grid;
     display: -ms-grid;
-    grid-template-columns: 1fr 6fr;
-    -ms-grid-columns: 1fr 6fr;
+    grid-template-columns: -webkit-max-content;
+    grid-template-columns: max-content;
+    -ms-grid-columns: max-content;
     grid-template-rows: 1fr;
     -ms-grid-rows: 1fr;
     row-gap: 1rem;
