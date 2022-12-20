@@ -54,8 +54,7 @@ so also safe for borders)
   font-family: "Nunito";
   font-style: normal;
   font-weight: 400;
-  src: local(""), url("../fonts/nunito-v20-latin-regular.woff2") format("woff2"), url("../fonts/nunito-v20-latin-regular.woff") format("woff");
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(""), url("../fonts/nunito-v20-latin-regular.woff2") format("woff2"), url("../fonts/nunito-v20-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* nunito-700 - latin */
 @font-face {
@@ -63,8 +62,7 @@ so also safe for borders)
   font-family: "Nunito";
   font-style: normal;
   font-weight: 700;
-  src: local(""), url("../fonts/nunito-v20-latin-700.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700.woff") format("woff");
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(""), url("../fonts/nunito-v20-latin-700.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* nunito-italic - latin */
 @font-face {
@@ -72,8 +70,7 @@ so also safe for borders)
   font-family: "Nunito";
   font-style: italic;
   font-weight: 400;
-  src: local(""), url("../fonts/nunito-v20-latin-italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-italic.woff") format("woff");
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(""), url("../fonts/nunito-v20-latin-italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* nunito-700italic - latin */
 @font-face {
@@ -81,8 +78,7 @@ so also safe for borders)
   font-family: "Nunito";
   font-style: italic;
   font-weight: 700;
-  src: local(""), url("../fonts/nunito-v20-latin-700italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700italic.woff") format("woff");
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(""), url("../fonts/nunito-v20-latin-700italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /*------------------------------------*\
     #Typesetting
@@ -166,10 +162,8 @@ article {
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 html {
-  line-height: 1.15;
-  /* 1 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
 }
 
 /* Sections
@@ -204,12 +198,9 @@ h1 {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
-  box-sizing: content-box;
-  /* 1 */
-  height: 0;
-  /* 1 */
-  overflow: visible;
-  /* 2 */
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
 }
 
 /**
@@ -217,10 +208,8 @@ hr {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 pre {
-  font-family: monospace, monospace;
-  /* 1 */
-  font-size: 1em;
-  /* 2 */
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
 
 /* Text-level semantics
@@ -237,13 +226,10 @@ a {
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */
 abbr[title] {
-  border-bottom: none;
-  /* 1 */
-  text-decoration: underline;
-  /* 2 */
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
-  /* 2 */
+          text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -261,10 +247,8 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
-  /* 1 */
-  font-size: 1em;
-  /* 2 */
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
 
 /**
@@ -314,14 +298,10 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit;
-  /* 1 */
-  font-size: 100%;
-  /* 1 */
-  line-height: 1.15;
-  /* 1 */
-  margin: 0;
-  /* 2 */
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
 }
 
 /**
@@ -329,8 +309,7 @@ textarea {
  * 1. Show the overflow in Edge.
  */
 button,
-input {
-  /* 1 */
+input { /* 1 */
   overflow: visible;
 }
 
@@ -339,8 +318,7 @@ input {
  * 1. Remove the inheritance of text transform in Firefox.
  */
 button,
-select {
-  /* 1 */
+select { /* 1 */
   text-transform: none;
 }
 
@@ -389,18 +367,12 @@ fieldset {
  *    `fieldset` elements in all browsers.
  */
 legend {
-  box-sizing: border-box;
-  /* 1 */
-  color: inherit;
-  /* 2 */
-  display: table;
-  /* 1 */
-  max-width: 100%;
-  /* 1 */
-  padding: 0;
-  /* 3 */
-  white-space: normal;
-  /* 1 */
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
 }
 
 /**
@@ -423,10 +395,8 @@ textarea {
  */
 [type=checkbox],
 [type=radio] {
-  box-sizing: border-box;
-  /* 1 */
-  padding: 0;
-  /* 2 */
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
 }
 
 /**
@@ -442,10 +412,8 @@ textarea {
  * 2. Correct the outline style in Safari.
  */
 [type=search] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  outline-offset: -2px;
-  /* 2 */
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
 }
 
 /**
@@ -460,10 +428,8 @@ textarea {
  * 2. Change font properties to `inherit` in Safari.
  */
 ::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  /* 1 */
-  font: inherit;
-  /* 2 */
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
 }
 
 /* Interactive
@@ -528,17 +494,12 @@ html {
 body {
   background-color: #fcfcfc;
   color: #252525;
-  display: grid;
-  /* 1 */
-  display: -ms-grid;
-  /* 2 */
+  display: grid; /* 1 */
+  display: -ms-grid; /* 2 */
   grid-template-columns: 100%;
-  -ms-grid-columns: 100%;
-  /* 2 */
-  grid-template-rows: 1fr auto;
-  /* 1 */
-  -ms-grid-rows: 1fr auto;
-  /* 2 */
+  -ms-grid-columns: 100%; /* 2 */
+  grid-template-rows: 1fr auto; /* 1 */
+  -ms-grid-rows: 1fr auto; /* 2 */
   min-height: 100%;
   overflow-x: hidden;
   -moz-osx-font-smoothing: grayscale;
@@ -554,12 +515,10 @@ body {
 \*------------------------------------*/
 body {
   font-family: "Arial MT Rounded Bold", Arial, sans-serif;
-  font-size: 1rem;
-  /* 1 */
+  font-size: 1rem; /* 1 */
   font-style: normal;
   font-weight: 400;
-  line-height: 1.7;
-  /* 2 */
+  line-height: 1.7; /* 2 */
 }
 
 p + * {
@@ -578,7 +537,7 @@ h1,
 }
 @media screen and (min-width: 64em) {
   h1,
-.text-48 {
+  .text-48 {
     font-size: 4rem;
   }
 }
@@ -786,7 +745,6 @@ samp,
 pre {
   font-family: Monaco, "Lucida Console", "Courier New", monospace;
   -webkit-hyphens: none;
-      -ms-hyphens: none;
           hyphens: none;
   orphans: 3;
   page-break-before: avoid;
@@ -833,8 +791,7 @@ a.with-icon--after {
   border: none;
   color: #0d599b;
   cursor: pointer;
-  text-decoration: underline;
-  /* 1 */
+  text-decoration: underline; /* 1 */
   -webkit-text-decoration-skip: auto;
           text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
@@ -849,15 +806,13 @@ a:not([class]):hover,
 a.with-icon--before:hover,
 a.with-icon--after:hover {
   color: #001f3f;
-  outline-width: 0;
-  /* 2 */
+  outline-width: 0; /* 2 */
 }
 a:not([class]):active,
 a.with-icon--before:active,
 a.with-icon--after:active {
   color: #252525;
-  outline-width: 0;
-  /* 2 */
+  outline-width: 0; /* 2 */
 }
 a:not([class]):focus,
 a.with-icon--before:focus,
@@ -869,16 +824,14 @@ a.with-icon--after:focus {
 }
 
 .button {
-  text-decoration: none;
-  /* 3 */
+  text-decoration: none; /* 3 */
 }
 
 button,
 .button,
 input[type=submit].button {
   align-items: center;
-  align-self: start;
-  /* 4 */
+  align-self: start; /* 4 */
   background-color: #0d599b;
   border: solid 2px #0d599b;
   border-radius: 0.375rem;
@@ -886,8 +839,7 @@ input[type=submit].button {
   display: inline-flex;
   justify-content: center;
   min-width: 10ch;
-  min-height: 2.75rem;
-  /* 5 */
+  min-height: 2.75rem; /* 5 */
   padding: 0.25em 0.75em;
 }
 button:hover,
@@ -931,8 +883,7 @@ input[type=submit].button:focus {
   background-color: transparent;
   border-color: transparent;
   color: #000;
-  min-width: 2.75rem;
-  /* 5 */
+  min-width: 2.75rem; /* 5 */
   padding: 0;
 }
 .button--ghost.button--ghost:hover {
@@ -1136,8 +1087,7 @@ before the text or after.
   .with-icon--before .icon {
     margin-right: 0;
     -webkit-margin-end: 0.625rem;
-            margin-inline-end: 0.625rem;
-    /* 2 */
+            margin-inline-end: 0.625rem; /* 2 */
   }
 }
 
@@ -1148,8 +1098,7 @@ before the text or after.
   .with-icon--after .icon {
     margin-left: 0;
     -webkit-margin-start: 0.625rem;
-            margin-inline-start: 0.625rem;
-    /* 2 */
+            margin-inline-start: 0.625rem; /* 2 */
   }
 }
 
@@ -1161,8 +1110,7 @@ before the text or after.
   [dir=rtl] .with-icon--before .icon {
     margin-left: 0;
     -webkit-margin-end: 0.625rem;
-            margin-inline-end: 0.625rem;
-    /* 2 */
+            margin-inline-end: 0.625rem; /* 2 */
   }
 }
 [dir=rtl] .with-icon--after .icon {
@@ -1173,8 +1121,7 @@ before the text or after.
   [dir=rtl] .with-icon--after .icon {
     margin-right: 0;
     -webkit-margin-start: 0.625rem;
-            margin-inline-start: 0.625rem;
-    /* 2 */
+            margin-inline-start: 0.625rem; /* 2 */
   }
 }
 
@@ -1266,8 +1213,8 @@ dl dd + dd {
     row-gap: 1rem;
   }
   dl.grid dd + dt,
-dl.grid dt + dd,
-dl.grid dd + dd {
+  dl.grid dt + dd,
+  dl.grid dd + dd {
     margin-top: 0;
   }
   dl.grid dt {
@@ -1330,16 +1277,14 @@ td,
 table caption {
   padding: 0.75rem;
   text-align: left;
-  text-align: start;
-  /* 1 */
+  text-align: start; /* 1 */
 }
 
 [dir=rtl] th,
 [dir=rtl] td,
 [dir=rtl] table caption {
   text-align: right;
-  text-align: start;
-  /* 1 */
+  text-align: start; /* 1 */
 }
 
 th,
@@ -1392,8 +1337,8 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
  */
 @media screen and (prefers-reduced-motion: reduce), (update: slow) {
   *,
-::before,
-::after {
+  ::before,
+  ::after {
     -webkit-animation-delay: -1ms !important;
             animation-delay: -1ms !important;
     -webkit-animation-duration: 1ms !important;
@@ -1961,7 +1906,6 @@ Optional select with custom arrow icon matching the SVG used for accessible auto
     background-repeat: no-repeat;
     padding-right: 2.125rem;
   }
-
   [dir=rtl] select {
     background-position: center left 0.3125rem;
     padding-left: 2.125rem;
@@ -1997,10 +1941,8 @@ Optional select with custom arrow icon matching the SVG used for accessible auto
 
 .l-box--no-border {
   border: none;
-  outline: 1px solid transparent;
-  /* 1 */
-  outline-offset: -1px;
-  /* 1 */
+  outline: 1px solid transparent; /* 1 */
+  outline-offset: -1px; /* 1 */
 }
 
 /*------------------------------------*\
@@ -2290,12 +2232,9 @@ value that's either bigger than the max-width or smaller than the min-width,
 so that either of these properties is applied instead.
  */
 .l-switcher > * > * {
-  max-width: 100%;
-  /* 1 */
-  min-width: 50%;
-  /* 2 */
-  width: calc(476100px - 69000%);
-  /* 3 */
+  max-width: 100%; /* 1 */
+  min-width: 50%; /* 2 */
+  width: calc(476100px - 69000%); /* 3 */
 }
 
 /*------------------------------------*\
@@ -2554,8 +2493,7 @@ main,
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
-  /* 1 */
+  align-items: flex-start; /* 1 */
   border-width: 0.3125rem;
 }
 .note > * + * {
@@ -2625,8 +2563,7 @@ main,
 }
 
 .card__text > a:not([class]) {
-  align-self: flex-start;
-  /* 1 */
+  align-self: flex-start; /* 1 */
   margin-top: 0.375rem;
   padding-bottom: 0.625rem;
   padding-top: 0.625rem;
@@ -2643,8 +2580,7 @@ main,
   text-decoration: none;
 }
 .card__link:hover {
-  text-decoration: underline;
-  /* 1 */
+  text-decoration: underline; /* 1 */
   -webkit-text-decoration-skip: auto;
           text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
@@ -2887,12 +2823,9 @@ main,
   border-radius: 0.25rem;
   color: #252525;
   display: inline-block;
-  outline: 1px solid transparent;
-  /* 1 */
-  outline-offset: -1px;
-  /* 1 */
-  padding: 0.6875rem;
-  /* 2 */
+  outline: 1px solid transparent; /* 1 */
+  outline-offset: -1px; /* 1 */
+  padding: 0.6875rem; /* 2 */
   text-decoration: none;
 }
 .tag:hover {
@@ -2955,13 +2888,11 @@ main,
   margin-top: 1em;
 }
 .component--collapsibles__panel__content > * {
-  max-width: 41.25rem;
-  /* 2 */
+  max-width: 41.25rem; /* 2 */
 }
 .component--collapsibles__panel__content a,
 .component--collapsibles__panel__content button {
-  align-self: flex-start;
-  /* 1 */
+  align-self: flex-start; /* 1 */
 }
 
 /*------------------------------------*\
@@ -2975,8 +2906,7 @@ main,
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
-  /* 1 */
+  align-items: flex-start; /* 1 */
 }
 .no-js .component--tabs > * + * {
   margin-top: 1em;
@@ -2985,8 +2915,7 @@ main,
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
-  /* 1 */
+  align-items: flex-start; /* 1 */
 }
 .no-js .component--tabs section > * + * {
   margin-top: 1em;
@@ -3034,7 +2963,6 @@ input[type=search] {
     -webkit-padding-start: 2.5rem;
             padding-inline-start: 2.5rem;
   }
-
   [dir=rtl] input[type=search] {
     background-position: center right 0.5em;
   }
@@ -3108,14 +3036,10 @@ input[type=search] {
 
 \*------------------------------------*/
 .global-footer {
-  grid-row-start: 2;
-  /* 1 */
-  -ms-grid-row: 2;
-  /* 2 */
-  grid-row-end: 3;
-  /* 1 */
-  -ms-grid-row-span: 1;
-  /* 2 */
+  grid-row-start: 2; /* 1 */
+  -ms-grid-row: 2; /* 2 */
+  grid-row-end: 3; /* 1 */
+  -ms-grid-row-span: 1; /* 2 */
   padding: 1.25rem 0 1.5625rem;
 }
 .global-footer .l-center {
@@ -3337,14 +3261,12 @@ input[type=search] {
 \*------------------------------------*/
 .u-float-left {
   float: left;
-  float: inline-start;
-  /* 1 */
+  float: inline-start; /* 1 */
 }
 
 .u-float-right {
   float: right;
-  float: inline-end;
-  /* 1 */
+  float: inline-end; /* 1 */
 }
 
 .u-text-center {
@@ -3353,14 +3275,12 @@ input[type=search] {
 
 .u-text-left {
   text-align: left;
-  text-align: start;
-  /* 1 */
+  text-align: start; /* 1 */
 }
 
 .u-text-right {
   text-align: right;
-  text-align: end;
-  /* 1 */
+  text-align: end; /* 1 */
 }
 
 /**
@@ -3372,8 +3292,7 @@ as defined in /10-settings/breakpoints
 @media screen and (min-width: 80em) {
   .u-text-left-from-lap {
     text-align: left;
-    text-align: start;
-    /* 1 */
+    text-align: start; /* 1 */
   }
 }
 
@@ -3386,8 +3305,7 @@ as defined in /10-settings/breakpoints
 @media screen and (min-width: 80em) {
   .u-text-right-from-lap {
     text-align: right;
-    text-align: end;
-    /* 1 */
+    text-align: end; /* 1 */
   }
 }
 
