@@ -134,7 +134,38 @@ You can now add the script to the `assets-src/js/libraries` folder and run the f
 
 ## Making changes
 
-Create a new branch for your work, then create a Pull Request when ready to merge changes into the `main` branch.
+Create a new branch for your work, when you are ready for your changes to be integrated into the main branch, create a new release (if you haven't done so already) - this process is automated, see below on how to do that.
+A release is a new version of Amplify, tagged with a version number (e.g. 1.2.0). The current version number can be found in the file `assets-src/version.txt`.
+Each release can be revisited separately in Github, e.g. when you want to look up documentation or code related to a legacy version of Amplify.
+Each release comes with an associated .zip file that contains the `assets-src` folder and the build scripts for that version.
+
+### Creating new releases
+Note you can create a new release even if your work is still in progress and not just yet ready to merge into main. Once the release is generated, a release PR to the main branch is automatically created but further commits can be made to the branch.
+PR to the main branch will need review by another dev.
+
+First, decide on the level of the release (see [https://semver.org/](https://semver.org/) for full details): 
+* patch: quick fix, no new feature (e.g. going from 1.0.0 to 1.0.1)
+* minor: new feature, no breaking change (e.g. going from 1.0.0 to 1.1.0)
+* major: major release, new features or refactoring with breaking changes (e.g. going from 1.0.0. to 2.0.0)
+
+To create a new release use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) in your commit message.
+Their syntax is as follows:
+
+* To create a new __patch__ version - `fix:` Example: `fix: fixed typo in JS file comment`
+* To create a new __minor__ version - `feat:` Example: `feat: added carousel component`
+* To create a __major__ version - there are two possible ways:
+  * `fix!:` or `feat!:` Example: `feat!: updraging CSS properties, not compatible with IE11 anymore`
+  * Alternatively, add a footer of `BREAKING CHANGE:` with details of what breaking changes there are. See example below
+
+```ssh
+$ git commit -m "feat: upgrading css syntax
+
+FOOTER latest CSS properties not compatible with IE11 anymore
+"
+```
+
+This repo uses [Release Please](https://github.com/marketplace/actions/release-please-action) to automatically create releases, based on [semantic versioning](https://semver.org/).
+If the action fails to run you can view the action under https://github.com/studio24/amplify/actions and re-run it (full instructions on re-running actions: [https://docs.github.com/en/actions/managing-workflow-runs/re-running-workflows-and-jobs](https://docs.github.com/en/actions/managing-workflow-runs/re-running-workflows-and-jobs)).
 
 ## Deployment
 
@@ -146,6 +177,29 @@ You should always deploy the `main` branch to production.
 
 ````
 ./vendor/bin/dep deploy production --branch=main
+````
+
+### Deploy to Staging
+
+The deploy process outputs a summary of what branch is currently deployed to staging, please check this to ensure you're not overwriting someone's work.
+
+````
+./vendor/bin/dep deploy staging --branch=branch-name-to-deploy
+````
+
+## Syncing tasks
+
+Sync files from production or staging to your local development environment. These are setup in the `deploy.php` script, see the [sync](https://github.com/studio24/deployer-recipes/blob/main/docs/sync.md) task for more.
+
+#### Sync assets: Live → Local development
+
+````bash
+./vendor/bin/dep sync production --files=images
+````
+#### Sync assets: Staging → Local development
+
+````bash
+./vendor/bin/dep sync staging --files=images
 ````
 
 ## Credits
