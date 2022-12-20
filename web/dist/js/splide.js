@@ -3741,10 +3741,10 @@ __webpack_require__.r(__webpack_exports__);
  * @param elem
  * @return {boolean}
  */
+
 var exists = function exists(elem) {
   return elem !== 'undefined' && elem !== null && (elem.length >= 0 || elem.innerHTML.length >= 0);
 };
-
 
 
 /***/ })
@@ -3816,10 +3816,11 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://github.com/Splidejs/splide
  */
 
- // Get all carousel instances
 
+
+
+// Get all carousel instances
 var splideArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="carousel"]'));
-
 if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_1__.exists)(splideArray)) {
   // Loop through them
   splideArray.forEach(function (carousel) {

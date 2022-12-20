@@ -14,6 +14,12 @@
 }
 
 
+// Reset base <ol> styles
+.progress-list ::marker {
+	content: ''!important;
+}
+
+
 .progress-list li {
 	position: relative;
 
@@ -146,8 +152,8 @@
 
 .progress-list a {
 	color: $storm-gray;
+	text-decoration-skip: auto; // Supported by Safari
 	text-decoration-skip-ink: auto; // Not supported by Safari
-	text-underline-offset: 0.25em; // Supported by Safari
 
 	&:visited {
 		color: $link-color--visited;

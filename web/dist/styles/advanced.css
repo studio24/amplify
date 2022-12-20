@@ -195,11 +195,11 @@ br {
   cursor: pointer;
 }
 .js [data-component=card]:hover .card__link {
-  text-decoration: underline;
-  /* 1 */
+  text-decoration: underline; /* 1 */
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 
 /*------------------------------------*\
@@ -233,9 +233,10 @@ br {
 }
 .js [data-heading=collapsibles] button:hover .js-collapsible-label {
   text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 .js [data-heading=collapsibles] button:focus {
   background-color: #ffdc00;
@@ -297,63 +298,6 @@ br {
 }
 
 /*------------------------------------*\
-    #Tabbed sections advanced
-    All roles are added via JavaScript
-
-    1. The `stack` mixin applies flexbox in the column direction,
-    so we need to prevent things like buttons and links
-    from stretching horizontally
-\*------------------------------------*/
-.component--tabs [role=tablist] {
-  border-bottom: solid 1px #bdbdbd;
-  display: flex;
-  flex-flow: row nowrap;
-  max-width: 100%;
-  overflow-x: auto;
-  padding: 0 1.5rem;
-}
-.component--tabs [role=tablist] li {
-  flex-shrink: 0;
-  list-style: none;
-  margin-top: 0;
-  padding: 0;
-}
-.component--tabs [role=tablist] li + li {
-  margin-left: 1.5rem;
-}
-
-[dir=rtl] .component--tabs [role=tablist] li + li {
-  margin-left: 0;
-  margin-right: 1.5rem;
-}
-
-.component--tabs a[role=tab] {
-  background-color: #bdbdbd;
-  border: 0;
-  border-bottom: solid 0.1875rem transparent;
-  color: #252525;
-  display: block;
-  padding: 0.625em 0.9375em;
-}
-.component--tabs a[role=tab]:focus, .component--tabs a[role=tab][aria-selected=true] {
-  border-color: #235bd1;
-  outline: none;
-  text-decoration: none;
-}
-
-.component--tabs [role=tabpanel] {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  /* 1 */
-  padding: 1.5rem;
-}
-.component--tabs [role=tabpanel] > * + * {
-  margin-top: 1em;
-}
-
-/*------------------------------------*\
     #Plugins
 
     Add third-party plugins here.
@@ -367,13 +311,11 @@ br {
 .autocomplete__input {
   -webkit-appearance: none;
   border: 2px solid #0b0c0c;
-  border-radius: 0;
-  /* Safari 10 on iOS adds implicit border rounding. */
+  border-radius: 0; /* Safari 10 on iOS adds implicit border rounding. */
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  margin-bottom: 0;
-  /* BUG: Safari 10 on macOS seems to add an implicit margin. */
+  margin-bottom: 0; /* BUG: Safari 10 on macOS seems to add an implicit margin. */
   width: 100%;
 }
 
@@ -398,8 +340,7 @@ br {
 }
 
 .autocomplete__input--show-all-values {
-  padding: 5px 34px 5px 5px;
-  /* Space for arrow. Other padding should match .autocomplete__input--default. */
+  padding: 5px 34px 5px 5px; /* Space for arrow. Other padding should match .autocomplete__input--default. */
   cursor: pointer;
 }
 
@@ -478,6 +419,27 @@ br {
   outline: none;
 }
 
+@media (-ms-high-contrast: active), (forced-colors: active) {
+  .autocomplete__menu {
+    border-color: FieldText;
+  }
+  .autocomplete__option {
+    background-color: Field;
+    color: FieldText;
+  }
+  .autocomplete__option--focused,
+  .autocomplete__option:hover {
+    forced-color-adjust: none; /* prevent backplate from obscuring text */
+    background-color: Highlight;
+    border-color: Highlight;
+    color: HighlightText;
+    /* Prefer SelectedItem / SelectedItemText in browsers that support it */
+    background-color: SelectedItem;
+    border-color: SelectedItem;
+    color: SelectedItemText;
+    outline-color: SelectedItemText;
+  }
+}
 .autocomplete__option--no-results {
   background-color: #FAFAFA;
   color: #646b6f;
@@ -498,8 +460,8 @@ br {
 
 @media (min-width: 641px) {
   .autocomplete__hint,
-.autocomplete__input,
-.autocomplete__option {
+  .autocomplete__input,
+  .autocomplete__option {
     font-size: 19px;
     line-height: 1.31579;
   }
@@ -569,8 +531,8 @@ br {
 
 @media (min-width: 641px) {
   .autocomplete__hint,
-.autocomplete__input,
-.autocomplete__option {
+  .autocomplete__input,
+  .autocomplete__option {
     font-size: 1rem;
     line-height: 1.5;
     line-height: 1.25;
@@ -599,7 +561,6 @@ br {
 .splide__track--draggable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 
@@ -810,4 +771,141 @@ br {
 .splide__pagination__page[aria-selected=true]::after {
   background-color: transparent;
   border: solid 2px #0d599b;
+}
+
+/**
+ * The tablist
+ */
+[role=tablist] {
+  border-bottom: 1px solid lightgray;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+[role=tablist] * {
+  box-sizing: border-box;
+}
+
+/**
+ * The tablist item
+ */
+@media (min-width: 30em) {
+  [role=tablist] li {
+    display: inline-block;
+  }
+}
+
+/**
+ * The tabs
+ */
+[role=tab] {
+  border: 1px solid transparent;
+  border-top-color: lightgray;
+  display: block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  /**
+   * Active tab styling
+   */
+  /**
+   * Tabs on hover
+   */
+}
+@media (min-width: 30em) {
+  [role=tab] {
+    border-top-color: transparent;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    display: inline-block;
+    margin-bottom: -1px;
+  }
+}
+[role=tab][aria-selected=true] {
+  background-color: lightgray;
+}
+@media (min-width: 30em) {
+  [role=tab][aria-selected=true] {
+    background-color: transparent;
+    border: 1px solid lightgray;
+    border-bottom-color: #ffffff;
+  }
+}
+[role=tab]:hover:not([aria-selected=true]) {
+  background-color: #f7f7f7;
+}
+@media (min-width: 30em) {
+  [role=tab]:hover:not([aria-selected=true]) {
+    border: 1px solid lightgray;
+  }
+}
+
+/**
+ * [hidden] fallback for IE10 and lower
+ */
+[hidden] {
+  display: none;
+}
+
+/*------------------------------------*\
+    #S24 tabby overrides
+
+	1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent things like buttons and links
+    from stretching horizontally
+\*------------------------------------*/
+.component--tabs [role=tablist] {
+  border-bottom: solid 1px #bdbdbd;
+  display: flex;
+  flex-flow: row nowrap;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 0 1.5rem;
+}
+.component--tabs [role=tablist] li {
+  flex-shrink: 0;
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+}
+.component--tabs [role=tablist] li + li {
+  margin-left: 1.5rem;
+}
+
+[dir=rtl] .component--tabs [role=tablist] li + li {
+  margin-left: 0;
+  margin-right: 1.5rem;
+}
+
+.component--tabs a[role=tab] {
+  background-color: #bdbdbd;
+  border: 0;
+  border-radius: 0;
+  border-bottom: solid 0.1875rem transparent;
+  color: #252525;
+  display: block;
+  margin-bottom: 0;
+  padding: 0.625em 0.9375em;
+}
+.component--tabs a[role=tab]:hover {
+  background-color: #bdbdbd;
+  border: 0;
+  border-bottom: solid 0.1875rem #bdbdbd;
+  color: #252525;
+}
+.component--tabs a[role=tab]:focus, .component--tabs a[role=tab][aria-selected=true] {
+  background-color: #bdbdbd;
+  border-bottom: solid 0.1875rem #235bd1;
+  outline: none;
+  text-decoration: none;
+}
+
+.component--tabs [role=tabpanel] {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; /* 1 */
+  padding: 1.5rem;
+}
+.component--tabs [role=tabpanel] > * + * {
+  margin-top: 1em;
 }

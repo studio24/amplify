@@ -54,8 +54,7 @@ so also safe for borders)
   font-family: "Nunito";
   font-style: normal;
   font-weight: 400;
-  src: local(""), url("../fonts/nunito-v20-latin-regular.woff2") format("woff2"), url("../fonts/nunito-v20-latin-regular.woff") format("woff");
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(""), url("../fonts/nunito-v20-latin-regular.woff2") format("woff2"), url("../fonts/nunito-v20-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* nunito-700 - latin */
 @font-face {
@@ -63,8 +62,7 @@ so also safe for borders)
   font-family: "Nunito";
   font-style: normal;
   font-weight: 700;
-  src: local(""), url("../fonts/nunito-v20-latin-700.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700.woff") format("woff");
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(""), url("../fonts/nunito-v20-latin-700.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* nunito-italic - latin */
 @font-face {
@@ -72,8 +70,7 @@ so also safe for borders)
   font-family: "Nunito";
   font-style: italic;
   font-weight: 400;
-  src: local(""), url("../fonts/nunito-v20-latin-italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-italic.woff") format("woff");
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(""), url("../fonts/nunito-v20-latin-italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* nunito-700italic - latin */
 @font-face {
@@ -81,8 +78,7 @@ so also safe for borders)
   font-family: "Nunito";
   font-style: italic;
   font-weight: 700;
-  src: local(""), url("../fonts/nunito-v20-latin-700italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700italic.woff") format("woff");
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(""), url("../fonts/nunito-v20-latin-700italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /*------------------------------------*\
     #Typesetting
@@ -166,10 +162,8 @@ article {
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 html {
-  line-height: 1.15;
-  /* 1 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
 }
 
 /* Sections
@@ -204,12 +198,9 @@ h1 {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
-  box-sizing: content-box;
-  /* 1 */
-  height: 0;
-  /* 1 */
-  overflow: visible;
-  /* 2 */
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
 }
 
 /**
@@ -217,10 +208,8 @@ hr {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 pre {
-  font-family: monospace, monospace;
-  /* 1 */
-  font-size: 1em;
-  /* 2 */
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
 
 /* Text-level semantics
@@ -237,13 +226,10 @@ a {
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */
 abbr[title] {
-  border-bottom: none;
-  /* 1 */
-  text-decoration: underline;
-  /* 2 */
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
-  /* 2 */
+          text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -261,10 +247,8 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
-  /* 1 */
-  font-size: 1em;
-  /* 2 */
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
 
 /**
@@ -314,14 +298,10 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit;
-  /* 1 */
-  font-size: 100%;
-  /* 1 */
-  line-height: 1.15;
-  /* 1 */
-  margin: 0;
-  /* 2 */
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
 }
 
 /**
@@ -329,8 +309,7 @@ textarea {
  * 1. Show the overflow in Edge.
  */
 button,
-input {
-  /* 1 */
+input { /* 1 */
   overflow: visible;
 }
 
@@ -339,8 +318,7 @@ input {
  * 1. Remove the inheritance of text transform in Firefox.
  */
 button,
-select {
-  /* 1 */
+select { /* 1 */
   text-transform: none;
 }
 
@@ -389,18 +367,12 @@ fieldset {
  *    `fieldset` elements in all browsers.
  */
 legend {
-  box-sizing: border-box;
-  /* 1 */
-  color: inherit;
-  /* 2 */
-  display: table;
-  /* 1 */
-  max-width: 100%;
-  /* 1 */
-  padding: 0;
-  /* 3 */
-  white-space: normal;
-  /* 1 */
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
 }
 
 /**
@@ -423,10 +395,8 @@ textarea {
  */
 [type=checkbox],
 [type=radio] {
-  box-sizing: border-box;
-  /* 1 */
-  padding: 0;
-  /* 2 */
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
 }
 
 /**
@@ -442,10 +412,8 @@ textarea {
  * 2. Correct the outline style in Safari.
  */
 [type=search] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  outline-offset: -2px;
-  /* 2 */
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
 }
 
 /**
@@ -460,10 +428,8 @@ textarea {
  * 2. Change font properties to `inherit` in Safari.
  */
 ::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  /* 1 */
-  font: inherit;
-  /* 2 */
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
 }
 
 /* Interactive
@@ -528,17 +494,12 @@ html {
 body {
   background-color: #fcfcfc;
   color: #252525;
-  display: grid;
-  /* 1 */
-  display: -ms-grid;
-  /* 2 */
+  display: grid; /* 1 */
+  display: -ms-grid; /* 2 */
   grid-template-columns: 100%;
-  -ms-grid-columns: 100%;
-  /* 2 */
-  grid-template-rows: 1fr auto;
-  /* 1 */
-  -ms-grid-rows: 1fr auto;
-  /* 2 */
+  -ms-grid-columns: 100%; /* 2 */
+  grid-template-rows: 1fr auto; /* 1 */
+  -ms-grid-rows: 1fr auto; /* 2 */
   min-height: 100%;
   overflow-x: hidden;
   -moz-osx-font-smoothing: grayscale;
@@ -554,12 +515,10 @@ body {
 \*------------------------------------*/
 body {
   font-family: "Arial MT Rounded Bold", Arial, sans-serif;
-  font-size: 1rem;
-  /* 1 */
+  font-size: 1rem; /* 1 */
   font-style: normal;
   font-weight: 400;
-  line-height: 1.7;
-  /* 2 */
+  line-height: 1.7; /* 2 */
 }
 
 p + * {
@@ -578,7 +537,7 @@ h1,
 }
 @media screen and (min-width: 64em) {
   h1,
-.text-48 {
+  .text-48 {
     font-size: 4rem;
   }
 }
@@ -740,9 +699,10 @@ br {
     #Flow elements
 \*------------------------------------*/
 abbr {
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 
 dfn {
@@ -785,7 +745,6 @@ samp,
 pre {
   font-family: Monaco, "Lucida Console", "Courier New", monospace;
   -webkit-hyphens: none;
-      -ms-hyphens: none;
           hyphens: none;
   orphans: 3;
   page-break-before: avoid;
@@ -832,11 +791,11 @@ a.with-icon--after {
   border: none;
   color: #0d599b;
   cursor: pointer;
-  text-decoration: underline;
-  /* 1 */
+  text-decoration: underline; /* 1 */
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 a:not([class]):visited,
 a.with-icon--before:visited,
@@ -847,15 +806,13 @@ a:not([class]):hover,
 a.with-icon--before:hover,
 a.with-icon--after:hover {
   color: #001f3f;
-  outline-width: 0;
-  /* 2 */
+  outline-width: 0; /* 2 */
 }
 a:not([class]):active,
 a.with-icon--before:active,
 a.with-icon--after:active {
   color: #252525;
-  outline-width: 0;
-  /* 2 */
+  outline-width: 0; /* 2 */
 }
 a:not([class]):focus,
 a.with-icon--before:focus,
@@ -867,16 +824,14 @@ a.with-icon--after:focus {
 }
 
 .button {
-  text-decoration: none;
-  /* 3 */
+  text-decoration: none; /* 3 */
 }
 
 button,
 .button,
 input[type=submit].button {
   align-items: center;
-  align-self: start;
-  /* 4 */
+  align-self: start; /* 4 */
   background-color: #0d599b;
   border: solid 2px #0d599b;
   border-radius: 0.375rem;
@@ -884,8 +839,7 @@ input[type=submit].button {
   display: inline-flex;
   justify-content: center;
   min-width: 10ch;
-  min-height: 2.75rem;
-  /* 5 */
+  min-height: 2.75rem; /* 5 */
   padding: 0.25em 0.75em;
 }
 button:hover,
@@ -929,8 +883,7 @@ input[type=submit].button:focus {
   background-color: transparent;
   border-color: transparent;
   color: #000;
-  min-width: 2.75rem;
-  /* 5 */
+  min-width: 2.75rem; /* 5 */
   padding: 0;
 }
 .button--ghost.button--ghost:hover {
@@ -1059,9 +1012,10 @@ summary span {
   padding-bottom: 0.625rem;
   padding-top: 0.625rem;
   text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 summary:focus {
   background-color: #ffdc00;
@@ -1092,6 +1046,314 @@ details[open] > summary::before {
           transform: rotate(180deg);
 }
 
+/*------------------------------------*\
+    #Icons
+\*------------------------------------*/
+/**
+Icons are sized relative to font size, thanks to the em unit.
+ */
+.icon {
+  height: 0.75em;
+  width: 0.75em;
+}
+
+.icon--24 {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+/**
+Use the `with-icon--before` or `with-icon--after` class
+on the icon's parent if there is a need to specify the spacing
+between text and icon. Pay attention to whether the icon comes
+before the text or after.
+
+2. Logical property creates spacing irrespective of text direction
+ */
+.with-icon--before,
+.with-icon--after {
+  align-items: center;
+  display: inline-flex;
+}
+.with-icon--before .icon,
+.with-icon--after .icon {
+  flex: 0 0 auto;
+}
+
+.with-icon--before .icon {
+  margin-right: 0.625rem;
+}
+@supports ((-webkit-margin-end: 1em) or (margin-inline-end: 1em)) {
+  .with-icon--before .icon {
+    margin-right: 0;
+    -webkit-margin-end: 0.625rem;
+            margin-inline-end: 0.625rem; /* 2 */
+  }
+}
+
+.with-icon--after .icon {
+  margin-left: 0.625rem;
+}
+@supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
+  .with-icon--after .icon {
+    margin-left: 0;
+    -webkit-margin-start: 0.625rem;
+            margin-inline-start: 0.625rem; /* 2 */
+  }
+}
+
+[dir=rtl] .with-icon--before .icon {
+  margin-left: 0.625rem;
+  margin-right: 0;
+}
+@supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
+  [dir=rtl] .with-icon--before .icon {
+    margin-left: 0;
+    -webkit-margin-end: 0.625rem;
+            margin-inline-end: 0.625rem; /* 2 */
+  }
+}
+[dir=rtl] .with-icon--after .icon {
+  margin-left: 0;
+  margin-right: 0.625rem;
+}
+@supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
+  [dir=rtl] .with-icon--after .icon {
+    margin-right: 0;
+    -webkit-margin-start: 0.625rem;
+            margin-inline-start: 0.625rem; /* 2 */
+  }
+}
+
+/*------------------------------------*\
+    #Images
+\*------------------------------------*/
+img {
+  display: block;
+  max-width: 100%;
+}
+
+svg {
+  fill: currentColor;
+  height: auto;
+  width: 100%;
+}
+
+/*------------------------------------*\
+    #Lists
+\*------------------------------------*/
+ul,
+ol {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  padding-left: 2rem;
+}
+ul li,
+ol li {
+  padding-left: 0.25rem;
+}
+ul > * + *,
+ul li ul,
+ul li ol,
+ol > * + *,
+ol li ul,
+ol li ol {
+  margin-top: 0.75rem;
+}
+
+[dir=rtl] ul,
+[dir=rtl] ol {
+  padding-left: 0;
+  padding-right: 2rem;
+}
+
+ol ::marker {
+  content: counters(list-item, ".") ". ";
+}
+
+/**
+List without bullets, numbers or indentation. Bear in mind that this
+removes list semantics in some WebKit browsers. If it's important that
+the number of items in a list is announced, add role="list" to the <ul>
+ */
+.clean-list {
+  list-style: none;
+  padding: 0;
+}
+
+/**
+Description lists / Definition lists
+ */
+dl {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+dl dt {
+  font-weight: bold;
+}
+dl dd + dt {
+  margin-top: 0.5rem;
+}
+dl dt + dd,
+dl dd + dd {
+  margin-top: 0.25rem;
+}
+
+@supports (grid-row-start: auto) {
+  dl.grid {
+    -webkit-column-gap: 1rem;
+            column-gap: 1rem;
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: -webkit-max-content;
+    grid-template-columns: max-content;
+    -ms-grid-columns: max-content;
+    grid-template-rows: 1fr;
+    -ms-grid-rows: 1fr;
+    row-gap: 1rem;
+  }
+  dl.grid dd + dt,
+  dl.grid dt + dd,
+  dl.grid dd + dd {
+    margin-top: 0;
+  }
+  dl.grid dt {
+    grid-column-start: 1;
+    -ms-grid-column: 1;
+    grid-column-end: 2;
+    -ms-grid-column-span: 1;
+  }
+  dl.grid dd {
+    grid-column-start: 2;
+    -ms-grid-column: 2;
+    grid-column-end: 3;
+    -ms-grid-column-span: 1;
+  }
+}
+
+/*------------------------------------*\
+    #Quotes
+\*------------------------------------*/
+blockquote {
+  margin: 1rem 0;
+  padding: 0 2.5rem;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+blockquote > * + * {
+  margin-top: 1rem;
+}
+blockquote > * {
+  font-weight: bold;
+}
+blockquote cite {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: normal;
+}
+
+/*------------------------------------*\
+    #Tables
+
+    1. Logical property allows text-direction to change with 'dir'
+\*------------------------------------*/
+table {
+  border: 1px solid #bdbdbd;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(206, 205, 205, 0.5);
+}
+
+th,
+td,
+table caption {
+  padding: 0.75rem;
+  text-align: left;
+  text-align: start; /* 1 */
+}
+
+[dir=rtl] th,
+[dir=rtl] td,
+[dir=rtl] table caption {
+  text-align: right;
+  text-align: start; /* 1 */
+}
+
+th,
+td {
+  vertical-align: text-top;
+}
+
+th {
+  vertical-align: bottom;
+}
+th[scope=col] {
+  background-color: #252525;
+  color: #fcfcfc;
+}
+
+td {
+  vertical-align: text-top;
+}
+
+/**
+Responsive tables:
+https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
+ */
+@media screen {
+  [data-component=table-wrap] {
+    border: 1px solid #bdbdbd;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    max-width: 100% !important;
+  }
+  [data-component=table-wrap][role][aria-labelledby][tabindex] {
+    overflow: auto;
+  }
+  [data-component=table-wrap] table {
+    border: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  [data-component=table-wrap]:focus {
+    border-color: #000;
+    box-shadow: inset 0 0 0 4px;
+    outline: 3px solid #ffdc00;
+  }
+}
+/*------------------------------------*\
+    #Animation
+\*------------------------------------*/
+/*
+ * Respect the choices of users who do not want animations.
+ */
+@media screen and (prefers-reduced-motion: reduce), (update: slow) {
+  *,
+  ::before,
+  ::after {
+    -webkit-animation-delay: -1ms !important;
+            animation-delay: -1ms !important;
+    -webkit-animation-duration: 1ms !important;
+            animation-duration: 1ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0s !important;
+  }
+}
+/*------------------------------------*\
+    #Forms
+\*------------------------------------*/
 /*------------------------------------*\
     #Forms
 \*------------------------------------*/
@@ -1220,7 +1482,6 @@ textarea:focus,
   outline-offset: 0;
 }
 
-select,
 [type=date],
 [type=email],
 [type=number],
@@ -1256,42 +1517,6 @@ Search
 }
 
 /**
-Select
- */
-select {
-  background-color: #fcfcfc;
-  border: 2px solid;
-  border-radius: 0;
-  line-height: 1.25;
-  padding: 0.3125rem;
-  width: 100%;
-}
-select:focus {
-  box-shadow: inset 0 0 0 2px;
-  outline: solid 3px #ffdc00;
-  outline-offset: 0;
-}
-
-/**
-Optional select with custom arrow icon matching the SVG used for accessible autocomplete
- */
-@supports ((-webkit-appearance: none) or (appearance: none)) {
-  select {
-    -webkit-appearance: none;
-            appearance: none;
-    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="none" d="M0 0h24v24H0z"/%3E%3Cpath d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"/%3E%3C/svg%3E');
-    background-position: center right 0.3125rem;
-    background-repeat: no-repeat;
-    padding-right: 2.125rem;
-  }
-
-  [dir=rtl] select {
-    background-position: center left 0.3125rem;
-    padding-left: 2.125rem;
-    padding-right: 0.3125rem;
-  }
-}
-/**
 Textarea
  */
 textarea {
@@ -1300,25 +1525,82 @@ textarea {
 }
 
 /**
-Memorable dates (e.g. date of birth)
+Fixed input widths
  */
-.memorable-date {
-  display: inline-block;
-  margin-top: 0;
+.input-width-30 {
+  max-width: 59ex;
 }
 
-.memorable-date + .memorable-date {
-  margin-left: 1rem;
+.input-width-20 {
+  max-width: 41ex;
 }
 
-[dir=rtl] .memorable-date + .memorable-date {
-  margin-left: auto;
-  margin-right: 1rem;
+.input-width-10 {
+  max-width: 23ex;
+}
+
+.input-width-5 {
+  max-width: 10.8ex;
+}
+
+.input-width-4 {
+  max-width: 9ex;
+}
+
+.input-width-3 {
+  max-width: 7.2ex;
+}
+
+.input-width-2 {
+  max-width: 5.4ex;
 }
 
 /**
-Radio/checkbox inputs
+Error styles
  */
+[data-component=error-summary] li a {
+  color: #b83123;
+  display: inline-block;
+  font-weight: bold;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+}
+[data-component=error-summary] li a:hover, [data-component=error-summary] li a:visited {
+  color: #b83123;
+}
+[data-component=error-summary] li a:focus {
+  color: #252525;
+}
+
+.field--error {
+  border-left: solid 0.3125rem #b83123;
+  padding-left: 0.9375rem;
+}
+.field--error input:not([type=file]),
+.field--error textarea:not(:focus) {
+  border-color: #b83123;
+}
+.field--error input:focus,
+.field--error textarea:focus {
+  border-color: inherit;
+}
+
+[dir=rtl] .field--error {
+  border-left: none;
+  border-right: solid 0.3125rem #b83123;
+  padding-left: 0;
+  padding-right: 0.9375rem;
+}
+
+.field-error-msg {
+  color: #b83123;
+  font-weight: bold;
+  margin-top: 0.9375rem;
+}
+
+/*------------------------------------*\
+    #Forms - checkbox and radio inputs
+\*------------------------------------*/
 .radio-item,
 .checkbox-item {
   clear: left;
@@ -1471,10 +1753,30 @@ Radio/checkbox inputs
   opacity: 0.5;
 }
 
-/**
-Segmented options. Can use either radio or checkbox inputs. The purpose is to
-show all available options outright, rather than hide them behind a <select>
- */
+/*------------------------------------*\
+    #Memorable dates (e.g. date of birth)
+\*------------------------------------*/
+.memorable-date {
+  display: inline-block;
+  margin-top: 0;
+}
+
+.memorable-date + .memorable-date {
+  margin-left: 1rem;
+}
+
+[dir=rtl] .memorable-date + .memorable-date {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+/*------------------------------------*\
+    #Forms - segmented options
+
+    Can use either radio or checkbox inputs.
+    The purpose is to show all available options outright,
+    rather than hide them behind a <select>
+\*------------------------------------*/
 .segmented-group-wrapper {
   max-width: none;
 }
@@ -1574,411 +1876,40 @@ show all available options outright, rather than hide them behind a <select>
   padding-left: 2.75rem;
 }
 
-/**
-Fixed input widths
- */
-.input-width-30 {
-  max-width: 59ex;
-}
-
-.input-width-20 {
-  max-width: 41ex;
-}
-
-.input-width-10 {
-  max-width: 23ex;
-}
-
-.input-width-5 {
-  max-width: 10.8ex;
-}
-
-.input-width-4 {
-  max-width: 9ex;
-}
-
-.input-width-3 {
-  max-width: 7.2ex;
-}
-
-.input-width-2 {
-  max-width: 5.4ex;
-}
-
-/**
-Error styles
- */
-[data-component=error-summary] li a {
-  color: #b83123;
-  display: inline-block;
-  font-weight: bold;
-  padding-bottom: 0.625rem;
-  padding-top: 0.625rem;
-}
-[data-component=error-summary] li a:hover, [data-component=error-summary] li a:visited {
-  color: #b83123;
-}
-[data-component=error-summary] li a:focus {
-  color: #252525;
-}
-
-.field--error {
-  border-left: solid 0.3125rem #b83123;
-  padding-left: 0.9375rem;
-}
-.field--error input:not([type=file]),
-.field--error textarea:not(:focus) {
-  border-color: #b83123;
-}
-.field--error input:focus,
-.field--error textarea:focus {
-  border-color: inherit;
-}
-
-[dir=rtl] .field--error {
-  border-left: none;
-  border-right: solid 0.3125rem #b83123;
-  padding-left: 0;
-  padding-right: 0.9375rem;
-}
-
-.field-error-msg {
-  color: #b83123;
-  font-weight: bold;
-  margin-top: 0.9375rem;
-}
-
 /*------------------------------------*\
-    #Icons
+    #Select
 \*------------------------------------*/
-/**
-Icons are sized relative to font size, thanks to the em unit.
-
-1. When the cap unit is supported this will make it easier to match icon
-size to text size.
- */
-.icon {
-  height: 0.75em;
-  height: 1cap;
-  /* 1 */
-  width: 0.75em;
-  width: 1cap;
-  /* 1 */
-}
-
-.icon--24 {
-  height: 1.5rem;
-  width: 1.5rem;
-}
-
-/**
-Use the `with-icon--before` or `with-icon--after` class
-on the icon's parent if there is a need to specify the spacing
-between text and icon. Pay attention to whether the icon comes
-before the text or after.
-
-2. Logical property creates spacing irrespective of text direction
- */
-.with-icon--before,
-.with-icon--after {
-  align-items: center;
-  display: inline-flex;
-}
-.with-icon--before .icon,
-.with-icon--after .icon {
-  flex: 0 0 auto;
-}
-
-.with-icon--before .icon {
-  margin-right: 0.625rem;
-}
-@supports ((-webkit-margin-end: 1em) or (margin-inline-end: 1em)) {
-  .with-icon--before .icon {
-    margin-right: 0;
-    -webkit-margin-end: 0.625rem;
-            margin-inline-end: 0.625rem;
-    /* 2 */
-  }
-}
-
-.with-icon--after .icon {
-  margin-left: 0.625rem;
-}
-@supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
-  .with-icon--after .icon {
-    margin-left: 0;
-    -webkit-margin-start: 0.625rem;
-            margin-inline-start: 0.625rem;
-    /* 2 */
-  }
-}
-
-[dir=rtl] .with-icon--before .icon {
-  margin-left: 0.625rem;
-  margin-right: 0;
-}
-@supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
-  [dir=rtl] .with-icon--before .icon {
-    margin-left: 0;
-    -webkit-margin-end: 0.625rem;
-            margin-inline-end: 0.625rem;
-    /* 2 */
-  }
-}
-[dir=rtl] .with-icon--after .icon {
-  margin-left: 0;
-  margin-right: 0.625rem;
-}
-@supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
-  [dir=rtl] .with-icon--after .icon {
-    margin-right: 0;
-    -webkit-margin-start: 0.625rem;
-            margin-inline-start: 0.625rem;
-    /* 2 */
-  }
-}
-
-/*------------------------------------*\
-    #Images
-\*------------------------------------*/
-img {
-  display: block;
-  max-width: 100%;
-}
-
-svg {
-  fill: currentColor;
-  height: auto;
+select {
+  background-color: #fcfcfc;
+  border: 2px solid;
+  border-radius: 0;
+  height: 2.75rem;
+  line-height: 1.25;
+  padding: 0.3125rem;
   width: 100%;
 }
-
-/*------------------------------------*\
-    #Lists
-\*------------------------------------*/
-ul,
-ol {
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-}
-ul > * + *,
-ul li ul,
-ul li ol,
-ol > * + *,
-ol li ul,
-ol li ol {
-  margin-top: 0.75em;
-}
-
-ul {
-  padding-left: 2.4em;
-}
-
-[dir=rtl] ul {
-  padding-left: 0;
-  padding-right: 2.4em;
-}
-
-ol {
-  counter-reset: count;
-  list-style-type: none;
-  padding-left: 1.25em;
-}
-ol > li {
-  counter-increment: count;
-}
-ol > li::before {
-  content: counters(count, ".") ".";
-  padding-right: 0.5em;
-}
-
-[dir=rtl] ol {
-  padding-left: 0;
-  padding-right: 1.25em;
-}
-[dir=rtl] ol > li::before {
-  padding-left: 0.5em;
-  padding-right: 0;
+select:focus {
+  box-shadow: inset 0 0 0 2px;
+  outline: solid 3px #ffdc00;
+  outline-offset: 0;
 }
 
 /**
-List without bullets, numbers or indentation. Bear in mind that this
-removes list semantics in some WebKit browsers. If it's important that
-the number of items in a list is announced, add role="list" to the <ul>
+Optional select with custom arrow icon matching the SVG used for accessible autocomplete
  */
-.clean-list {
-  list-style: none;
-  padding: 0;
-}
-
-/**
-Description lists / Definition lists
- */
-dl {
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-}
-dl dt {
-  font-weight: bold;
-}
-dl dd + dt {
-  margin-top: 0.5em;
-}
-dl dt + dd,
-dl dd + dd {
-  margin-top: 0.25em;
-}
-
-@supports (grid-row-start: auto) {
-  dl.grid {
-    -webkit-column-gap: 1rem;
-            column-gap: 1rem;
-    display: grid;
-    display: -ms-grid;
-    grid-template-columns: 1fr 6fr;
-    -ms-grid-columns: 1fr 6fr;
-    grid-template-rows: 1fr;
-    -ms-grid-rows: 1fr;
-    row-gap: 1rem;
+@supports ((-webkit-appearance: none) or (appearance: none)) {
+  select {
+    -webkit-appearance: none;
+            appearance: none;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="none" d="M0 0h24v24H0z"/%3E%3Cpath d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"/%3E%3C/svg%3E');
+    background-position: center right 0.3125rem;
+    background-repeat: no-repeat;
+    padding-right: 2.125rem;
   }
-  dl.grid dd + dt,
-dl.grid dt + dd,
-dl.grid dd + dd {
-    margin-top: 0;
-  }
-  dl.grid dt {
-    grid-column-start: 1;
-    -ms-grid-column: 1;
-    grid-column-end: 2;
-    -ms-grid-column-span: 1;
-  }
-  dl.grid dd {
-    grid-column-start: 2;
-    -ms-grid-column: 2;
-    grid-column-end: 3;
-    -ms-grid-column-span: 1;
-  }
-}
-
-/*------------------------------------*\
-    #Quotes
-\*------------------------------------*/
-blockquote {
-  margin: 1rem 0;
-  padding: 0 2.5rem;
-  font-size: 1.25rem;
-  line-height: 1.3;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-blockquote > * + * {
-  margin-top: 1rem;
-}
-blockquote > * {
-  font-weight: bold;
-}
-blockquote cite {
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: normal;
-}
-
-/*------------------------------------*\
-    #Tables
-
-    1. Logical property allows text-direction to change with 'dir'
-\*------------------------------------*/
-table {
-  border: 1px solid #bdbdbd;
-  border-collapse: collapse;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  width: 100%;
-}
-
-tr:nth-child(even) {
-  background-color: rgba(206, 205, 205, 0.5);
-}
-
-th,
-td,
-table caption {
-  padding: 0.75rem;
-  text-align: left;
-  text-align: start;
-  /* 1 */
-}
-
-[dir=rtl] th,
-[dir=rtl] td,
-[dir=rtl] table caption {
-  text-align: right;
-  text-align: start;
-  /* 1 */
-}
-
-th,
-td {
-  vertical-align: text-top;
-}
-
-th {
-  vertical-align: bottom;
-}
-th[scope=col] {
-  background-color: #252525;
-  color: #fcfcfc;
-}
-
-td {
-  vertical-align: text-top;
-}
-
-/**
-Responsive tables:
-https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
- */
-@media screen {
-  [data-component=table-wrap] {
-    border: 1px solid #bdbdbd;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    max-width: 100% !important;
-  }
-  [data-component=table-wrap][role][aria-labelledby][tabindex] {
-    overflow: auto;
-  }
-  [data-component=table-wrap] table {
-    border: 0;
-    margin-bottom: 0;
-    margin-top: 0;
-  }
-  [data-component=table-wrap]:focus {
-    border-color: #000;
-    box-shadow: inset 0 0 0 4px;
-    outline: 3px solid #ffdc00;
-  }
-}
-/*------------------------------------*\
-    #Animation
-\*------------------------------------*/
-/*
- * Respect the choices of users who do not want animations.
- */
-@media screen and (prefers-reduced-motion: reduce), (update: slow) {
-  *,
-::before,
-::after {
-    -webkit-animation-delay: -1ms !important;
-            animation-delay: -1ms !important;
-    -webkit-animation-duration: 1ms !important;
-            animation-duration: 1ms !important;
-    -webkit-animation-iteration-count: 1 !important;
-            animation-iteration-count: 1 !important;
-    background-attachment: initial !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.001ms !important;
-    transition-delay: 0s !important;
+  [dir=rtl] select {
+    background-position: center left 0.3125rem;
+    padding-left: 2.125rem;
+    padding-right: 0.3125rem;
   }
 }
 /*------------------------------------*\
@@ -2010,10 +1941,8 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
 
 .l-box--no-border {
   border: none;
-  outline: 1px solid transparent;
-  /* 1 */
-  outline-offset: -1px;
-  /* 1 */
+  outline: 1px solid transparent; /* 1 */
+  outline-offset: -1px; /* 1 */
 }
 
 /*------------------------------------*\
@@ -2303,12 +2232,9 @@ value that's either bigger than the max-width or smaller than the min-width,
 so that either of these properties is applied instead.
  */
 .l-switcher > * > * {
-  max-width: 100%;
-  /* 1 */
-  min-width: 50%;
-  /* 2 */
-  width: calc(476100px - 69000%);
-  /* 3 */
+  max-width: 100%; /* 1 */
+  min-width: 50%; /* 2 */
+  width: calc(476100px - 69000%); /* 3 */
 }
 
 /*------------------------------------*\
@@ -2346,13 +2272,8 @@ so that either of these properties is applied instead.
   padding-right: 0;
 }
 
-.breadcrumbs ol {
-  counter-reset: none;
-}
-
-.breadcrumbs ol > li::before {
-  content: "";
-  padding: 0;
+.breadcrumbs ol ::marker {
+  content: "" !important;
 }
 
 .breadcrumbs a {
@@ -2572,8 +2493,7 @@ main,
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
-  /* 1 */
+  align-items: flex-start; /* 1 */
   border-width: 0.3125rem;
 }
 .note > * + * {
@@ -2643,8 +2563,7 @@ main,
 }
 
 .card__text > a:not([class]) {
-  align-self: flex-start;
-  /* 1 */
+  align-self: flex-start; /* 1 */
   margin-top: 0.375rem;
   padding-bottom: 0.625rem;
   padding-top: 0.625rem;
@@ -2661,11 +2580,11 @@ main,
   text-decoration: none;
 }
 .card__link:hover {
-  text-decoration: underline;
-  /* 1 */
+  text-decoration: underline; /* 1 */
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 .card__link:focus {
   background-color: #ffdc00;
@@ -2731,6 +2650,10 @@ main,
     display: flex;
     flex-wrap: wrap;
   }
+}
+
+.progress-list ::marker {
+  content: "" !important;
 }
 
 .progress-list li {
@@ -2853,9 +2776,10 @@ main,
 
 .progress-list a {
   color: #545454;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 .progress-list a:visited {
   color: #920ba6;
@@ -2899,19 +2823,17 @@ main,
   border-radius: 0.25rem;
   color: #252525;
   display: inline-block;
-  outline: 1px solid transparent;
-  /* 1 */
-  outline-offset: -1px;
-  /* 1 */
-  padding: 0.6875rem;
-  /* 2 */
+  outline: 1px solid transparent; /* 1 */
+  outline-offset: -1px; /* 1 */
+  padding: 0.6875rem; /* 2 */
   text-decoration: none;
 }
 .tag:hover {
   text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 .tag:focus {
   background-color: #ffdc00;
@@ -2966,13 +2888,11 @@ main,
   margin-top: 1em;
 }
 .component--collapsibles__panel__content > * {
-  max-width: 41.25rem;
-  /* 2 */
+  max-width: 41.25rem; /* 2 */
 }
 .component--collapsibles__panel__content a,
 .component--collapsibles__panel__content button {
-  align-self: flex-start;
-  /* 1 */
+  align-self: flex-start; /* 1 */
 }
 
 /*------------------------------------*\
@@ -3003,8 +2923,7 @@ main,
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
-  /* 1 */
+  align-items: flex-start; /* 1 */
 }
 .no-js .component--tabs > * + * {
   margin-top: 1em;
@@ -3013,8 +2932,7 @@ main,
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
-  /* 1 */
+  align-items: flex-start; /* 1 */
 }
 .no-js .component--tabs section > * + * {
   margin-top: 1em;
@@ -3062,7 +2980,6 @@ input[type=search] {
     -webkit-padding-start: 2.5rem;
             padding-inline-start: 2.5rem;
   }
-
   [dir=rtl] input[type=search] {
     background-position: center right 0.5em;
   }
@@ -3103,9 +3020,10 @@ input[type=search] {
 }
 .pagination__list a[href]:hover {
   text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 .pagination__list a[href][aria-current] {
   background-color: #0d599b;
@@ -3135,14 +3053,10 @@ input[type=search] {
 
 \*------------------------------------*/
 .global-footer {
-  grid-row-start: 2;
-  /* 1 */
-  -ms-grid-row: 2;
-  /* 2 */
-  grid-row-end: 3;
-  /* 1 */
-  -ms-grid-row-span: 1;
-  /* 2 */
+  grid-row-start: 2; /* 1 */
+  -ms-grid-row: 2; /* 2 */
+  grid-row-end: 3; /* 1 */
+  -ms-grid-row-span: 1; /* 2 */
   padding: 1.25rem 0 1.5625rem;
 }
 .global-footer .l-center {
@@ -3202,9 +3116,10 @@ input[type=search] {
 }
 .amplify .global-header__link:hover {
   text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 .amplify .global-header__link:focus {
   background-color: #ffdc00;
@@ -3231,9 +3146,10 @@ input[type=search] {
 }
 .amplify .global-nav__link:hover {
   text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 .amplify .global-nav__link:focus {
   background-clip: padding-box;
@@ -3261,9 +3177,10 @@ input[type=search] {
 }
 .amplify .nav-secondary__link:hover {
   text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 .amplify .nav-secondary__link:focus {
   background-color: #ffdc00;
@@ -3361,14 +3278,12 @@ input[type=search] {
 \*------------------------------------*/
 .u-float-left {
   float: left;
-  float: inline-start;
-  /* 1 */
+  float: inline-start; /* 1 */
 }
 
 .u-float-right {
   float: right;
-  float: inline-end;
-  /* 1 */
+  float: inline-end; /* 1 */
 }
 
 .u-text-center {
@@ -3377,14 +3292,12 @@ input[type=search] {
 
 .u-text-left {
   text-align: left;
-  text-align: start;
-  /* 1 */
+  text-align: start; /* 1 */
 }
 
 .u-text-right {
   text-align: right;
-  text-align: end;
-  /* 1 */
+  text-align: end; /* 1 */
 }
 
 /**
@@ -3396,8 +3309,7 @@ as defined in /10-settings/breakpoints
 @media screen and (min-width: 80em) {
   .u-text-left-from-lap {
     text-align: left;
-    text-align: start;
-    /* 1 */
+    text-align: start; /* 1 */
   }
 }
 
@@ -3410,8 +3322,7 @@ as defined in /10-settings/breakpoints
 @media screen and (min-width: 80em) {
   .u-text-right-from-lap {
     text-align: right;
-    text-align: end;
-    /* 1 */
+    text-align: end; /* 1 */
   }
 }
 

@@ -13,8 +13,7 @@
   font-family: "Nunito";
   font-style: normal;
   font-weight: 400;
-  src: local(""), url("../fonts/nunito-v20-latin-regular.woff2") format("woff2"), url("../fonts/nunito-v20-latin-regular.woff") format("woff");
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(""), url("../fonts/nunito-v20-latin-regular.woff2") format("woff2"), url("../fonts/nunito-v20-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* nunito-700 - latin */
 @font-face {
@@ -22,8 +21,7 @@
   font-family: "Nunito";
   font-style: normal;
   font-weight: 700;
-  src: local(""), url("../fonts/nunito-v20-latin-700.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700.woff") format("woff");
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(""), url("../fonts/nunito-v20-latin-700.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* nunito-italic - latin */
 @font-face {
@@ -31,8 +29,7 @@
   font-family: "Nunito";
   font-style: italic;
   font-weight: 400;
-  src: local(""), url("../fonts/nunito-v20-latin-italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-italic.woff") format("woff");
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(""), url("../fonts/nunito-v20-latin-italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* nunito-700italic - latin */
 @font-face {
@@ -40,8 +37,7 @@
   font-family: "Nunito";
   font-style: italic;
   font-weight: 700;
-  src: local(""), url("../fonts/nunito-v20-latin-700italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700italic.woff") format("woff");
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(""), url("../fonts/nunito-v20-latin-700italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /*------------------------------------*\
     #Typesetting
@@ -512,78 +508,6 @@ Layouts
 
 [dir=rtl] .component--collapsibles button {
   text-align: right;
-}
-
-.component--columns ul {
-  padding: 0;
-}
-.component--columns li {
-  display: block;
-}
-
-.component--columns--icons .card {
-  padding-top: 1.5cm;
-  position: relative;
-}
-.component--columns--icons .card__heading {
-  margin-top: 0;
-}
-.component--columns--icons .icon {
-  height: 1cm;
-  position: absolute;
-  top: 0;
-  width: 1cm;
-}
-
-.component--columns--images .card {
-  min-height: 5cm;
-  padding-right: 6cm;
-  position: relative;
-}
-.component--columns--images .card__image {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 6cm;
-}
-
-[dir=rtl] .component--columns--images .card {
-  padding-left: 6cm;
-  padding-right: 0;
-}
-[dir=rtl] .component--columns--images .card__image {
-  left: 0;
-  right: auto;
-}
-
-.component--columns--icons a:not(.card__link),
-.component--columns--images a:not(.card__link) {
-  display: block;
-  margin: -18pt 0 18pt;
-  visibility: hidden;
-}
-.component--columns--icons a[href]::after,
-.component--columns--images a[href]::after {
-  content: " <" attr(href) "> ";
-  display: block;
-  font-size: 12pt;
-  visibility: visible;
-}
-
-.component--slider .clean-list {
-  display: block !important;
-}
-.component--slider .clean-list li {
-  visibility: visible !important;
-}
-.component--slider .clean-list li[style] {
-  left: 0 !important;
-}
-.component--slider .clean-list li + li {
-  margin-top: 8pt;
-}
-.component--slider .slider-controls {
-  display: none !important;
 }
 
 footer {
