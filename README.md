@@ -2,6 +2,8 @@
 
 Front-End starter kit for Studio 24.
 
+All merge request need to be authorised by a Code Owner
+
 ## Getting started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for how to deploy the project to staging and live environments. 
