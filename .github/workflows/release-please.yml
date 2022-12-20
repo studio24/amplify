@@ -15,7 +15,7 @@ jobs:
           version-file: asset-src/version.txt
           
         # Run only once a new release is created:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
         if: ${{ steps.release.outputs.release_created }}
       - name: Create release files
         run: |
