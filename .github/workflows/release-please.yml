@@ -12,13 +12,14 @@ jobs:
         uses: google-github-actions/release-please-action@v3
         with:
           release-type: simple
+          version-file: asset-src/version.txt
           
         # Run only once a new release is created:
       - uses: actions/checkout@master
         if: ${{ steps.release.outputs.release_created }}
       - name: Create release files
         run: |
-          zip -r amplify.zip version.txt assets-src .nvmrc package.json svgo.config.js webpack.config.js webpack.config.min.js
+          zip -r amplify.zip assets-src .nvmrc package.json svgo.config.js webpack.config.js
         if: ${{ steps.release.outputs.release_created }}
       - name: Upload release files
         uses: svenstaro/upload-release-action@v2
