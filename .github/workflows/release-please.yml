@@ -12,7 +12,7 @@ jobs:
         uses: google-github-actions/release-please-action@v3
         with:
           release-type: simple
-          version-file: asset-src/version.txt
+          version-file: assets-src/version.txt
           
         # Run only once a new release is created:
       - uses: actions/checkout@main
