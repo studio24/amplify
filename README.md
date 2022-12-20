@@ -2,6 +2,8 @@
 
 Front-End starter kit for Studio 24.
 
+All merge request need to be authorised by a Code Owner
+
 ## Getting started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for how to deploy the project to staging and live environments. 
@@ -14,7 +16,6 @@ Also see more [detailed project documentation](docs/README.md).
 * [Installing](#installing)
 * [Making changes](#making-changes)
 * [Deployment](#deployment)
-* [Syncing tasks](#syncing-tasks)
 * [Built with](#built-with)
 * [Credits](#credits)
 
@@ -23,10 +24,6 @@ Also see more [detailed project documentation](docs/README.md).
 ### Live
 * https://amplify.studio24.net
 * https://amplify.studio24.net/_build_summary.json
-
-### Staging
-* https://staging.example.com
-* https://staging.example.com/_build_summary.json
 
 ### Development
 * http://local.amplify.studio24.net/
@@ -114,10 +111,7 @@ If needed, update the `package.json` file in the project root to specify [which 
 
 #### Webpack
 
-[Webpack](https://webpack.js.org/) is used to compile, transpile and minify JavaScript files. Two files exist in the project root to determine these settings:
-
-* `webpack.config.js` for the non-minified version
-* `webpack.config.min.js` for the minified version
+[Webpack](https://webpack.js.org/) is used to compile, transpile and minify JavaScript files. There is a `webpack.config.js` file in the project root which controls this process.
 
 #### Copying over JS libraries
 If there are libraries that you would like to use as is in your project, set up Webpack to copy them across from the src folder to the dist folder.
@@ -140,7 +134,38 @@ You can now add the script to the `assets-src/js/libraries` folder and run the f
 
 ## Making changes
 
-Create a new branch for your work, then create a Pull Request when ready to merge changes into the `main` branch.
+Create a new branch for your work, when you are ready for your changes to be integrated into the main branch, create a new release (if you haven't done so already) - this process is automated, see below on how to do that.
+A release is a new version of Amplify, tagged with a version number (e.g. 1.2.0). The current version number can be found in the file `assets-src/version.txt`.
+Each release can be revisited separately in Github, e.g. when you want to look up documentation or code related to a legacy version of Amplify.
+Each release comes with an associated .zip file that contains the `assets-src` folder and the build scripts for that version.
+
+### Creating new releases
+Note you can create a new release even if your work is still in progress and not just yet ready to merge into main. Once the release is generated, a release PR to the main branch is automatically created but further commits can be made to the branch.
+PR to the main branch will need review by another dev.
+
+First, decide on the level of the release (see [https://semver.org/](https://semver.org/) for full details): 
+* patch: quick fix, no new feature (e.g. going from 1.0.0 to 1.0.1)
+* minor: new feature, no breaking change (e.g. going from 1.0.0 to 1.1.0)
+* major: major release, new features or refactoring with breaking changes (e.g. going from 1.0.0. to 2.0.0)
+
+To create a new release use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) in your commit message.
+Their syntax is as follows:
+
+* To create a new __patch__ version - `fix:` Example: `fix: fixed typo in JS file comment`
+* To create a new __minor__ version - `feat:` Example: `feat: added carousel component`
+* To create a __major__ version - there are two possible ways:
+  * `fix!:` or `feat!:` Example: `feat!: updraging CSS properties, not compatible with IE11 anymore`
+  * Alternatively, add a footer of `BREAKING CHANGE:` with details of what breaking changes there are. See example below
+
+```ssh
+$ git commit -m "feat: upgrading css syntax
+
+FOOTER latest CSS properties not compatible with IE11 anymore
+"
+```
+
+This repo uses [Release Please](https://github.com/marketplace/actions/release-please-action) to automatically create releases, based on [semantic versioning](https://semver.org/).
+If the action fails to run you can view the action under https://github.com/studio24/amplify/actions and re-run it (full instructions on re-running actions: [https://docs.github.com/en/actions/managing-workflow-runs/re-running-workflows-and-jobs](https://docs.github.com/en/actions/managing-workflow-runs/re-running-workflows-and-jobs)).
 
 ## Deployment
 
@@ -176,20 +201,6 @@ Sync files from production or staging to your local development environment. The
 ````bash
 ./vendor/bin/dep sync staging --files=images
 ````
-
-## Creating new releases
-
-This repo uses [Release Please](https://github.com/marketplace/actions/release-please-action) to automatically create releases, based on [semantic versioning](https://semver.org/).
-
-To create a new release use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) in your commit message. This will automatically create a Release PR, which is kept up to date with further commits and you can merge it to create the new release when you are ready.
-
-Use the following keywords in your commits:
-
-* `fix:` this indicates a bug fix and creates a new patch version (e.g. 1.0.1).
-* `feat:` this indicates a new feature and creates a new minor version (e.g. 1.1.0).
-* To create a new major version (e.g. 2.0.0) either append an exclamation mark to `fix!:` or `feat!:` or add a foter of `BREAKING CHANGE:` with details of what breaking changes there are.
-
-If the action fails to run you can view the action and select `Re-run all jobs` to re-run it.
 
 ## Credits
 - **Nicola Saunders** - *Front-End Lead Developer* - Studio 24

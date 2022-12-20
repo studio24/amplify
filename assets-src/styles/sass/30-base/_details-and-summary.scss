@@ -45,8 +45,8 @@ summary {
 		padding-bottom: rem(10);
 		padding-top: rem(10);
 		text-decoration: underline;
+		text-decoration-skip: auto; // Supported by Safari
 		text-decoration-skip-ink: auto; // Not supported by Safari
-		text-underline-offset: 0.25em; // Supported by Safari
 	}
 
 	&:focus {
