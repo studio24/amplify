@@ -1144,13 +1144,17 @@ svg {
 \*------------------------------------*/
 ul,
 ol {
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  padding-left: 2rem;
+  -webkit-margin-after: 1rem;
+          margin-block-end: 1rem;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
+  -webkit-padding-start: 2rem;
+          padding-inline-start: 2rem;
 }
 ul li,
 ol li {
-  padding-left: 0.25rem;
+  -webkit-padding-start: 0.25rem;
+          padding-inline-start: 0.25rem;
 }
 ul > * + *,
 ul li ul,
@@ -1158,13 +1162,8 @@ ul li ol,
 ol > * + *,
 ol li ul,
 ol li ol {
-  margin-top: 0.75rem;
-}
-
-[dir=rtl] ul,
-[dir=rtl] ol {
-  padding-left: 0;
-  padding-right: 2rem;
+  -webkit-margin-before: 0.75rem;
+          margin-block-start: 0.75rem;
 }
 
 ol ::marker {
@@ -1180,23 +1179,32 @@ the number of items in a list is announced, add role="list" to the <ul>
   list-style: none;
   padding: 0;
 }
+.clean-list li,
+.clean-list ol,
+.clean-list ul {
+  padding: 0;
+}
 
 /**
 Description lists / Definition lists
  */
 dl {
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  -webkit-margin-after: 1rem;
+          margin-block-end: 1rem;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
 }
 dl dt {
   font-weight: bold;
 }
 dl dd + dt {
-  margin-top: 0.5rem;
+  -webkit-margin-before: 0.5rem;
+          margin-block-start: 0.5rem;
 }
 dl dt + dd,
 dl dd + dd {
-  margin-top: 0.25rem;
+  -webkit-margin-before: 0.25rem;
+          margin-block-start: 0.25rem;
 }
 
 @supports (grid-row-start: auto) {
@@ -1215,7 +1223,8 @@ dl dd + dd {
   dl.grid dd + dt,
   dl.grid dt + dd,
   dl.grid dd + dd {
-    margin-top: 0;
+    -webkit-margin-before: 0;
+            margin-block-start: 0;
   }
   dl.grid dt {
     grid-column-start: 1;
@@ -2254,22 +2263,22 @@ so that either of these properties is applied instead.
     See: https://scottaohara.github.io/a11y_breadcrumbs/
 \*------------------------------------*/
 .breadcrumbs {
-  padding-bottom: 0.9375rem;
-  padding-top: 0.625rem;
+  -webkit-padding-after: 0.9375rem;
+          padding-block-end: 0.9375rem;
+  -webkit-padding-before: 0.625rem;
+          padding-block-start: 0.625rem;
 }
 .breadcrumbs .l-cluster > * {
-  margin: 0 -0.6875rem;
+  margin: 0;
 }
 .breadcrumbs .l-cluster > * > * {
-  margin: 0 0 0 0.6875rem;
-  padding-right: 1em;
+  margin-block: 0;
+  margin-inline: 0;
+  -webkit-padding-end: 2em;
+          padding-inline-end: 2em;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
   position: relative;
-}
-
-[dir=rtl] .breadcrumbs .l-cluster > * > * {
-  margin: 0 0.6875rem 0 0;
-  padding-left: 1em;
-  padding-right: 0;
 }
 
 .breadcrumbs ol ::marker {
@@ -2279,8 +2288,10 @@ so that either of these properties is applied instead.
 .breadcrumbs a {
   color: #252525;
   display: block;
-  padding-bottom: 0.6875rem;
-  padding-top: 0.6875rem;
+  -webkit-padding-after: 0.6875rem;
+          padding-block-end: 0.6875rem;
+  -webkit-padding-before: 0.6875rem;
+          padding-block-start: 0.6875rem;
 }
 .breadcrumbs a:visited, .breadcrumbs a:hover, .breadcrumbs a:active {
   color: #252525;
@@ -2299,22 +2310,24 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 */
 .breadcrumbs li:not(:last-child)::after {
   border-style: solid;
-  border-width: 0.1em 0.1em 0 0;
+  border-block-end-width: 0;
+  border-block-start-width: 0.1em;
+  border-inline-end-width: 0.1em;
+  border-inline-start-width: 0;
   content: "";
   display: block;
   height: 0.5em;
   position: absolute;
-  right: 0.4em;
-  top: 50%;
+  inset-inline-end: 1.25em;
+  inset-block-start: 50%;
   -webkit-transform: rotate(45deg) translateY(-50%);
           transform: rotate(45deg) translateY(-50%);
   width: 0.5em;
 }
 
 [dir=rtl] .breadcrumbs li:not(:last-child)::after {
-  border-width: 0 0 0.1em 0.1em;
-  left: 0.1em;
-  right: auto;
+  -webkit-transform: rotate(-45deg) translateY(-50%);
+          transform: rotate(-45deg) translateY(-50%);
 }
 
 /*------------------------------------*\

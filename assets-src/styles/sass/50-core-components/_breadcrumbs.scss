@@ -4,26 +4,19 @@
 \*------------------------------------*/
 
 .breadcrumbs {
-	padding-bottom: rem(15);
-	padding-top: rem(10);
+	padding-block-end: rem(15);
+	padding-block-start: rem(10);
 
 	.l-cluster > * {
-		margin: 0 rem(-11);
+		margin: 0;
 	}
 
 	.l-cluster > * > * {
-		margin: 0 0 0 rem(11);
-		padding-right: 1em;
+		margin-block: 0;
+		margin-inline: 0;
+		padding-inline-end: 2em;
+		padding-inline-start: 0;
 		position: relative;
-	}
-}
-
-
-[dir="rtl"] {
-	.breadcrumbs .l-cluster > * > * {
-		margin: 0 rem(11) 0 0;
-		padding-left: 1em;
-		padding-right: 0;
 	}
 }
 
@@ -37,8 +30,8 @@
 .breadcrumbs a {
 	color: $off-black;
 	display: block;
-	padding-bottom: rem(11);
-	padding-top: rem(11);
+	padding-block-end: rem(11);
+	padding-block-start: rem(11);
 
 	&:visited,
 	&:hover,
@@ -65,13 +58,16 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 .breadcrumbs li:not(:last-child) {
 	&::after {
 		border-style: solid;
-		border-width: 0.1em 0.1em 0 0;
+		border-block-end-width: 0;
+		border-block-start-width: 0.1em;
+		border-inline-end-width: 0.1em;
+		border-inline-start-width: 0;
 		content: '';
 		display: block;
 		height: 0.5em;
 		position: absolute;
-		right: 0.4em;
-		top: 50%;
+		inset-inline-end: 1.25em;
+		inset-block-start: 50%;
 		transform: rotate(45deg) translateY(-50%);
 		width: 0.5em;
 	}
@@ -81,9 +77,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 [dir="rtl"] {
 	.breadcrumbs li:not(:last-child) {
 		&::after {
-			border-width: 0 0 0.1em 0.1em;
-			left: 0.1em;
-			right: auto;
+			transform: rotate(-45deg) translateY(-50%);
 		}
 	}
 }
