@@ -1,6 +1,6 @@
 # Amplify
 
-Front-End starter kit for Studio 24.
+Front-End starter kit by Studio 24.
 
 All merge request need to be authorised by a Code Owner
 
