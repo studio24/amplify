@@ -134,14 +134,17 @@ You can now add the script to the `assets-src/js/libraries` folder and run the f
 
 ## Making changes
 
-Create a new branch for your work, when you are ready for your changes to be integrated into the main branch, create a new release (if you haven't done so already) - this process is automated, see below on how to do that.
-A release is a new version of Amplify, tagged with a version number (e.g. 1.2.0). The current version number can be found in the file `assets-src/version.txt`.
+Create a new branch for your work, when you are ready for your changes to be integrated into the main branch, create a new release commit (if you haven't done so already), push to the repo, and issue a PR into main.
+
+Once the PR is accepted, you can merge your branch into main. A new release will then be automatically generated.
+
+A release is a new version of Amplify, tagged with a version number (e.g. 1.2.0). The current version number can be found in the file `version.txt`.
 Each release can be revisited separately in Github, e.g. when you want to look up documentation or code related to a legacy version of Amplify.
 Each release comes with an associated .zip file that contains the `assets-src` folder and the build scripts for that version.
 
-### Creating new releases
-Note you can create a new release even if your work is still in progress and not just yet ready to merge into main. Once the release is generated, a release PR to the main branch is automatically created but further commits can be made to the branch.
-PR to the main branch will need review by another dev.
+### Creating new release commit
+Note you can create a new release even if your work is still in progress and not just yet ready to merge into main. Further commits can be made to the branch.
+PRs to the main branch will need review by another dev.
 
 First, decide on the level of the release (see [https://semver.org/](https://semver.org/) for full details): 
 * patch: quick fix, no new feature (e.g. going from 1.0.0 to 1.0.1)
