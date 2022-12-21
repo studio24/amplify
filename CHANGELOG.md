@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/studio24/amplify/compare/v1.0.1...v1.1.0) (2022-12-21)
+
+
+### Features
+
+* carousel + mixin fix ([6d369d4](https://github.com/studio24/amplify/commit/6d369d4031b694cddde061021f6aeaafac9729f7))
+
 ## [1.0.1](https://github.com/studio24/amplify/compare/v1.0.0...v1.0.1) (2022-12-20)
 
 
