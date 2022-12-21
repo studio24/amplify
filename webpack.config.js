@@ -1,28 +1,28 @@
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 
-module.exports = [
-	{
-		context: path.resolve(__dirname, 'assets-src/js'),
-		entry: {
-			'main': './main.js',
-			'country-autocomplete': './country-autocomplete.js',
-			'tabs': './package-extensions/s24-tabby-polyfills.js'
-		},
-		mode: 'none',
-		module: {
-			rules: [
-				{
-					test: /\.(js)$/,
-					exclude: /node_modules/,
-					use: {
-						loader: 'babel-loader',
-						options: {
-							presets: ['@babel/preset-env']
-						}
-					}
-				}
-			]
+module.exports = [{
+	context: path.resolve(__dirname, 'assets-src/js'),
+	entry: {
+		'main': './main.js',
+		'countryAutocomplete': './country-autocomplete.js',
+		'tabs': './package-extensions/s24-tabby-polyfills.js',
+		'splide': './package-extensions/s24-splide.js'
+	},
+	mode: 'none',
+	module: {
+		rules: [
+            {
+                test: /\.(js)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            }
+            ]
 		},
 		name: 'main',
 		optimization: {
@@ -46,7 +46,8 @@ module.exports = [
 		entry: {
 			'main': './main.js',
 			'country-autocomplete': './country-autocomplete.js',
-			'tabs': './package-extensions/s24-tabby-polyfills.js'
+			'tabs': './package-extensions/s24-tabby-polyfills.js',
+            'splide': './package-extensions/s24-splide.js'
 		},
 		mode: 'none',
 		module: {
