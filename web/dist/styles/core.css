@@ -2282,18 +2282,23 @@ to our global box-sizing rule.
 main,
 #main {
   box-sizing: content-box;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
   max-inline-size: 70rem;
-  padding: 1.5rem 5vw 6.25rem;
+  -webkit-padding-after: 6.25rem;
+          padding-block-end: 6.25rem;
+  -webkit-padding-before: 1.5rem;
+          padding-block-start: 1.5rem;
+  padding-inline: 5vw;
 }
 
 .component + .component {
-  margin-top: 1.5rem;
+  -webkit-margin-before: 1.5rem;
+          margin-block-start: 1.5rem;
 }
 @media screen and (min-width: 48em) {
   .component + .component {
-    margin-top: 3rem;
+    -webkit-margin-before: 3rem;
+            margin-block-start: 3rem;
   }
 }
 
