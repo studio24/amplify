@@ -39,6 +39,6 @@ so that either of these properties is applied instead.
  */
 .l-switcher > * > * {
 	max-inline-size: 100%; /* 1 */
-	min-width: 50%; /* 2 */
-	width: calc(690px * 690 - 100% * 690); /* 3 */
+	min-inline-size: 50%; /* 2 */
+	inline-size: calc(690px * 690 - 100% * 690); /* 3 */
 }

@@ -13,9 +13,7 @@
 
 .l-center {
 	box-sizing: content-box /* 1 */;
-	margin-left: auto;
-	margin-right: auto;
+	margin-inline: auto;
 	max-inline-size: rem($max-inline-size);
-	padding-left: 5vw;
-	padding-right: 5vw;
+	padding-inline: 5vw;
 }

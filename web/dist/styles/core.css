@@ -1904,11 +1904,9 @@ Optional select with custom arrow icon matching the SVG used for accessible auto
 \*------------------------------------*/
 .l-center {
   box-sizing: content-box;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
   max-inline-size: 70rem;
-  padding-left: 5vw;
-  padding-right: 5vw;
+  padding-inline: 5vw;
 }
 
 /*------------------------------------*\
@@ -1927,18 +1925,16 @@ Optional select with custom arrow icon matching the SVG used for accessible auto
 .l-cover {
   display: flex;
   flex-direction: column;
-  min-height: 30vh;
+  min-block-size: 30vh;
   padding: 1rem;
 }
 
 .l-cover > * {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-block: 1rem;
 }
 
 .l-cover > .principal {
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-block: auto;
 }
 
 /**
@@ -1946,11 +1942,13 @@ These styles space out an optional header/footer area without
 disturbing the vertically centered element.
  */
 .l-cover > :first-child:not(.principal) {
-  margin-top: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
 
 .l-cover > :last-child:not(.principal) {
-  margin-bottom: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
 }
 
 /*------------------------------------*\
@@ -2011,20 +2009,20 @@ out, but halve it to to account for 'doubling up' at the edges.
 
 .l-frame > * {
   align-items: center;
-  bottom: 0;
   display: flex;
+  inset-block-end: 0;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-inline-start: 0;
   justify-content: center;
-  left: 0;
   position: absolute;
-  right: 0;
-  top: 0;
 }
 
 .l-frame > iframe,
 .l-frame > img,
 .l-frame > video {
-  height: 100%;
-  width: 100%;
+  block-size: 100%;
+  inline-size: 100%;
 }
 
 .l-frame > iframe {
@@ -2039,19 +2037,23 @@ out, but halve it to to account for 'doubling up' at the edges.
 
 /* Common aspect ratios */
 .l-frame--16-9 {
-  padding-bottom: 56.25%;
+  -webkit-padding-after: 56.25%;
+          padding-block-end: 56.25%;
 }
 
 .l-frame--3-2 {
-  padding-bottom: 66.67%;
+  -webkit-padding-after: 66.67%;
+          padding-block-end: 66.67%;
 }
 
 .l-frame--4-3 {
-  padding-bottom: 75%;
+  -webkit-padding-after: 75%;
+          padding-block-end: 75%;
 }
 
 .l-frame--square {
-  padding-bottom: 100%;
+  -webkit-padding-after: 100%;
+          padding-block-end: 100%;
 }
 
 /*------------------------------------*\
@@ -2127,7 +2129,7 @@ a viewport media query.
   justify-content: flex-start;
   flex-basis: 0;
   flex-grow: 999;
-  min-width: calc(55% - 1.5rem);
+  min-inline-size: calc(55% - 1.5rem);
 }
 .l-sidebar .not-sidebar > * + * {
   -webkit-margin-before: 1em;
@@ -2135,7 +2137,7 @@ a viewport media query.
 }
 
 .l-sidebar--expanded {
-  width: 100%;
+  inline-size: 100%;
 }
 
 .l-sidebar .sidebar.sidebar--compact {
@@ -2180,8 +2182,8 @@ so that either of these properties is applied instead.
  */
 .l-switcher > * > * {
   max-inline-size: 100%; /* 1 */
-  min-width: 50%; /* 2 */
-  width: calc(476100px - 69000%); /* 3 */
+  min-inline-size: 50%; /* 2 */
+  inline-size: calc(476100px - 69000%); /* 3 */
 }
 
 /*------------------------------------*\
