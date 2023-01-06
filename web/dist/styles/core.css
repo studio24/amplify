@@ -973,20 +973,23 @@ main:focus,
     #Details and summary elements
 \*------------------------------------*/
 details {
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  -webkit-margin-after: 1rem;
+          margin-block-end: 1rem;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
 }
 
 summary {
   color: #0d599b;
   cursor: pointer;
   display: inline-block;
-  padding-left: 1.5625rem;
+  -webkit-padding-start: 1.5625rem;
+          padding-inline-start: 1.5625rem;
   position: relative;
 }
 summary::before {
   border-color: transparent;
-  border-left-color: inherit;
+  border-inline-start-color: inherit;
   border-style: solid;
   border-width: 7px 0 7px 12.124px;
   bottom: 0;
@@ -995,10 +998,10 @@ summary::before {
   content: "";
   display: block;
   height: 0;
-  left: 0;
+  inset-block-start: -0.0625rem;
+  inset-inline-start: 0;
   margin: auto;
   position: absolute;
-  top: -0.0625rem;
   width: 0;
 }
 summary::-webkit-details-marker {
@@ -1009,8 +1012,10 @@ summary:hover {
 }
 summary span {
   display: inline-block;
-  padding-bottom: 0.625rem;
-  padding-top: 0.625rem;
+  -webkit-padding-after: 0.625rem;
+          padding-block-end: 0.625rem;
+  -webkit-padding-before: 0.625rem;
+          padding-block-start: 0.625rem;
   text-decoration: underline;
   -webkit-text-decoration-skip: auto;
           text-decoration-skip: auto;
@@ -1027,7 +1032,8 @@ summary:focus span {
 }
 
 details[open] > summary {
-  margin-bottom: 1rem;
+  -webkit-margin-after: 1rem;
+          margin-block-end: 1rem;
 }
 
 details[open] > summary::before {
@@ -1035,13 +1041,7 @@ details[open] > summary::before {
           transform: rotate(90deg);
 }
 
-[dir=rtl] summary {
-  padding-left: 0;
-  padding-right: 1.5625rem;
-}
 [dir=rtl] summary::before {
-  left: auto;
-  right: 0;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
