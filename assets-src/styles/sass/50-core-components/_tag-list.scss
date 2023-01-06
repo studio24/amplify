@@ -11,21 +11,16 @@
 \*------------------------------------*/
 
 .tag-list.tag-list {
-
 	margin: rem(-10);
 
 	li {
-
 		margin: rem(10);
-
 	}
 
 }
 
 .tag {
-
 	@include text-14;
-
 	background-color: $twiki-gray;
 	border-radius: rem(4);
 	color: $off-black;
@@ -46,5 +41,4 @@
 		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
 		color: $black;
 	}
-
 }

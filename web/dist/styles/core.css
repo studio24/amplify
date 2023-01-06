@@ -2428,8 +2428,7 @@ main,
   align-self: flex-start;
   display: inline-block;
   margin: 0;
-  padding-bottom: 0.625rem;
-  padding-top: 0.625rem;
+  padding-block: 0.625rem;
 }
 
 /*------------------------------------*\
