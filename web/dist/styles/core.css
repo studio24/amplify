@@ -1214,7 +1214,8 @@ blockquote {
   justify-content: flex-start;
 }
 blockquote > * + * {
-  margin-top: 1rem;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
 }
 blockquote > * {
   font-weight: bold;
@@ -1805,7 +1806,8 @@ Error styles
   padding-right: 2.75rem;
 }
 .segmented-group.l-switcher .segmented-label > * + * {
-  margin-top: 0.5em;
+  -webkit-margin-before: 0.5em;
+          margin-block-start: 0.5em;
 }
 .segmented-group.l-switcher .segmented-label span {
   display: block;
@@ -2133,7 +2135,8 @@ omitted to let the contents of `.sidebar` determine the width of
   flex-grow: 1;
 }
 .l-sidebar .sidebar > * + * {
-  margin-top: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
 
 /**
@@ -2150,7 +2153,8 @@ a viewport media query.
   min-width: calc(55% - 1.5rem);
 }
 .l-sidebar .not-sidebar > * + * {
-  margin-top: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
 
 .l-sidebar--expanded {
@@ -2334,7 +2338,8 @@ main,
   position: relative;
 }
 .component--quote > * + * {
-  margin-top: 1rem;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
 }
 .component--quote::before {
   background-color: #0d599b;
@@ -2366,7 +2371,8 @@ main,
   justify-content: flex-start;
 }
 .component--image > * + * {
-  margin-top: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
 .component--image figcaption {
   font-size: 0.875rem;
@@ -2376,7 +2382,8 @@ main,
   justify-content: flex-start;
 }
 .component--image figcaption > * + * {
-  margin-top: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
 .component--image figcaption > * {
   max-inline-size: 33.75rem;
@@ -2439,7 +2446,8 @@ main,
           margin-block-start: 1em;
 }
 .component--video figcaption > * + * {
-  margin-top: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
 .component--video figcaption > * {
   max-inline-size: 33.75rem;
@@ -2467,7 +2475,8 @@ main,
   border-width: 0.3125rem;
 }
 .note > * + * {
-  margin-top: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
 .note > * {
   max-inline-size: 41.25rem;
@@ -2514,7 +2523,8 @@ main,
   padding-top: 1rem;
 }
 .card__text > * + * {
-  margin-top: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
 
 /**
@@ -2579,7 +2589,8 @@ main,
   max-inline-size: 41.25rem;
 }
 .component--shelves__intro > * + * {
-  margin-top: 1rem;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
 }
 
 @media screen and (min-width: 48em) {
@@ -2828,7 +2839,8 @@ main,
 }
 .component--collapsibles > * + *,
 [data-heading=collapsibles] + * > * + * {
-  margin-top: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
 
 [data-heading=collapsibles] {
@@ -2846,7 +2858,8 @@ main,
   padding: 1.5625rem;
 }
 .component--collapsibles__panel > * + * {
-  margin-top: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
 
 .component--collapsibles__panel__content {
@@ -2855,7 +2868,8 @@ main,
   justify-content: flex-start;
 }
 .component--collapsibles__panel__content > * + * {
-  margin-top: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
 .component--collapsibles__panel__content > * {
   max-inline-size: 41.25rem; /* 2 */
@@ -2879,7 +2893,8 @@ main,
   align-items: flex-start; /* 1 */
 }
 .no-js .component--tabs > * + * {
-  margin-top: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
 .no-js .component--tabs section {
   display: flex;
@@ -2888,7 +2903,8 @@ main,
   align-items: flex-start; /* 1 */
 }
 .no-js .component--tabs section > * + * {
-  margin-top: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
 
 /*------------------------------------*\
@@ -3018,7 +3034,8 @@ input[type=search] {
   justify-content: flex-start;
 }
 .global-footer .l-center > * + * {
-  margin-top: 1rem;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
 }
 .global-footer a,
 .global-footer .copyright {

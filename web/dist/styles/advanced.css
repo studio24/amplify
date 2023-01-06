@@ -672,5 +672,6 @@ br {
   padding: 1.5rem;
 }
 .component--tabs [role=tabpanel] > * + * {
-  margin-top: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
