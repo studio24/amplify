@@ -422,19 +422,6 @@ Layouts
 }
 
 
-[dir="rtl"] {
-	.component--fifty-fifty {
-		padding-left: 6cm;
-		padding-right: 0;
-
-		.l-frame {
-			left: 0;
-			right: auto;
-		}
-	}
-}
-
-
 .component--image,
 .component--quote {
 	margin-left: auto;
@@ -485,15 +472,6 @@ Layouts
 		display: block;
 		font-size: 12pt;
 		visibility: visible;
-	}
-}
-
-
-[dir="rtl"] {
-	.component--collapsibles {
-		button {
-			text-align: right;
-		}
 	}
 }
 
