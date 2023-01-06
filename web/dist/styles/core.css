@@ -2380,33 +2380,27 @@ main,
 \*------------------------------------*/
 .avatar {
   background-color: #fcfcfc;
+  block-size: 6.25rem;
   border: solid 1px #0d599b;
   border-radius: 50%;
-  height: 6.25rem;
+  inline-size: 6.25rem;
   overflow: hidden;
-  position: relative;
-  width: 6.25rem;
 }
 .avatar img {
-  height: auto;
-  margin-top: -0.625rem;
-  width: 100%;
+  block-size: 100%;
+  inline-size: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .avatar--med {
-  height: 3.125rem;
-  width: 3.125rem;
-}
-.avatar--med img {
-  margin-top: 0;
+  block-size: 3.125rem;
+  inline-size: 3.125rem;
 }
 
 .avatar--small {
-  height: 2rem;
-  width: 2rem;
-}
-.avatar--small img {
-  margin-top: 0;
+  block-size: 2rem;
+  inline-size: 2rem;
 }
 
 /*------------------------------------*\
