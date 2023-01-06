@@ -2940,17 +2940,16 @@ input[type=search] {
     #Pagination
 \*------------------------------------*/
 .pagination {
-  margin-top: 2.5rem;
+  -webkit-margin-before: 2.5rem;
+          margin-block-start: 2.5rem;
 }
 
 .l-cluster.pagination > * {
-  margin-bottom: 0;
-  margin-top: 0;
+  margin-block: 0;
 }
 
 .l-cluster.pagination > * > * {
-  margin-bottom: 0;
-  margin-top: 0;
+  margin-block: 0;
 }
 
 .pagination__list a {
@@ -2959,7 +2958,8 @@ input[type=search] {
   color: #000;
   display: block;
   text-decoration: none;
-  padding: 0.6875rem 1.125rem;
+  padding-block: 0.6875rem;
+  padding-inline: 1.125rem;
 }
 .pagination__list a:visited {
   color: #000;

@@ -3,19 +3,17 @@
 \*------------------------------------*/
 
 .pagination {
-	margin-top: rem(40);
+	margin-block-start: rem(40);
 }
 
 
 .l-cluster.pagination > * {
-	margin-bottom: 0;
-	margin-top: 0;
+	margin-block: 0;
 }
 
 
 .l-cluster.pagination > * > * {
-	margin-bottom: 0;
-	margin-top: 0;
+	margin-block: 0;
 }
 
 
@@ -25,7 +23,8 @@
 		color: $black;
 		display: block;
 		text-decoration: none;
-		padding: rem(11) rem(18);
+		padding-block: rem(11);
+		padding-inline: rem(18);
 
 		&:visited {
 			color: $black;
