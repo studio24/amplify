@@ -4,16 +4,9 @@
 
 .memorable-date {
     display: inline-block;
-    margin-top: 0;
+    margin-block-start: 0;
 }
 
 .memorable-date + .memorable-date {
-    margin-left: 1rem;
-}
-
-[dir="rtl"] {
-    .memorable-date + .memorable-date {
-        margin-left: auto;
-        margin-right: 1rem;
-    }
+    margin-inline-start: 1rem;
 }
