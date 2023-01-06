@@ -1091,7 +1091,7 @@ before the text or after.
 \*------------------------------------*/
 img {
   display: block;
-  max-width: 100%;
+  max-inline-size: 100%;
 }
 
 svg {
@@ -1374,7 +1374,7 @@ Group inputs to line up side-by-side
 }
 
 .field {
-  max-width: 41.25rem;
+  max-inline-size: 41.25rem;
 }
 
 label,
@@ -1404,7 +1404,7 @@ label,
   line-height: 1.5;
   color: #545454;
   margin-bottom: 0.25rem;
-  max-width: 41.25rem;
+  max-inline-size: 41.25rem;
 }
 
 .required {
@@ -1494,31 +1494,31 @@ textarea {
 Fixed input widths
  */
 .input-width-30 {
-  max-width: 59ex;
+  max-inline-size: 59ex;
 }
 
 .input-width-20 {
-  max-width: 41ex;
+  max-inline-size: 41ex;
 }
 
 .input-width-10 {
-  max-width: 23ex;
+  max-inline-size: 23ex;
 }
 
 .input-width-5 {
-  max-width: 10.8ex;
+  max-inline-size: 10.8ex;
 }
 
 .input-width-4 {
-  max-width: 9ex;
+  max-inline-size: 9ex;
 }
 
 .input-width-3 {
-  max-width: 7.2ex;
+  max-inline-size: 7.2ex;
 }
 
 .input-width-2 {
-  max-width: 5.4ex;
+  max-inline-size: 5.4ex;
 }
 
 /**
@@ -1744,14 +1744,14 @@ Error styles
     rather than hide them behind a <select>
 \*------------------------------------*/
 .segmented-group-wrapper {
-  max-width: none;
+  max-inline-size: none;
 }
 
 .segmented-group.l-switcher {
   margin-top: 0;
 }
 .segmented-group.l-switcher > * > * {
-  max-width: 100%;
+  max-inline-size: 100%;
   min-width: 33.333%;
   position: relative;
 }
@@ -1927,7 +1927,7 @@ Optional select with custom arrow icon matching the SVG used for accessible auto
   box-sizing: content-box;
   margin-left: auto;
   margin-right: auto;
-  max-width: 70rem;
+  max-inline-size: 70rem;
   padding-left: 5vw;
   padding-right: 5vw;
 }
@@ -2198,7 +2198,7 @@ value that's either bigger than the max-width or smaller than the min-width,
 so that either of these properties is applied instead.
  */
 .l-switcher > * > * {
-  max-width: 100%; /* 1 */
+  max-inline-size: 100%; /* 1 */
   min-width: 50%; /* 2 */
   width: calc(476100px - 69000%); /* 3 */
 }
@@ -2301,7 +2301,7 @@ main,
   box-sizing: content-box;
   margin-left: auto;
   margin-right: auto;
-  max-width: 70rem;
+  max-inline-size: 70rem;
   padding: 1.5rem 5vw 6.25rem;
 }
 
@@ -2318,7 +2318,7 @@ main,
     #Text component
 \*------------------------------------*/
 .component--text > * {
-  max-width: 41.25rem;
+  max-inline-size: 41.25rem;
 }
 
 /*------------------------------------*\
@@ -2379,7 +2379,7 @@ main,
   margin-top: 1em;
 }
 .component--image figcaption > * {
-  max-width: 33.75rem;
+  max-inline-size: 33.75rem;
 }
 .component--image figcaption > a {
   align-self: flex-start;
@@ -2442,7 +2442,7 @@ main,
   margin-top: 1em;
 }
 .component--video figcaption > * {
-  max-width: 33.75rem;
+  max-inline-size: 33.75rem;
 }
 .component--video figcaption > a {
   align-self: flex-start;
@@ -2470,7 +2470,7 @@ main,
   margin-top: 1em;
 }
 .note > * {
-  max-width: 41.25rem;
+  max-inline-size: 41.25rem;
 }
 
 .note--error {
@@ -2576,7 +2576,7 @@ main,
   flex-direction: column;
   justify-content: flex-start;
   margin-bottom: 1.875rem;
-  max-width: 41.25rem;
+  max-inline-size: 41.25rem;
 }
 .component--shelves__intro > * + * {
   margin-top: 1rem;
@@ -2593,7 +2593,7 @@ main,
 @media screen and (min-width: 48em) {
   .component--shelves__items > * {
     flex: 1 0 33%;
-    max-width: 50%;
+    max-inline-size: 50%;
     padding: 1.5%;
   }
 }
@@ -2858,7 +2858,7 @@ main,
   margin-top: 1em;
 }
 .component--collapsibles__panel__content > * {
-  max-width: 41.25rem; /* 2 */
+  max-inline-size: 41.25rem; /* 2 */
 }
 .component--collapsibles__panel__content a,
 .component--collapsibles__panel__content button {
@@ -2895,7 +2895,7 @@ main,
     #Search
 \*------------------------------------*/
 input[type=search] {
-  max-width: none;
+  max-inline-size: none;
   position: relative;
   z-index: 1;
 }
@@ -2921,7 +2921,7 @@ input[type=search] {
 }
 
 .l-sidebar.search input[type=search] {
-  max-width: none;
+  max-inline-size: none;
 }
 
 @supports ((-webkit-padding-start: 1em) or (padding-inline-start: 1em)) {

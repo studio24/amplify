@@ -7,14 +7,14 @@
 \*------------------------------------*/
 
 .segmented-group-wrapper {
-    max-width: none;
+    max-inline-size: none;
 }
 
 .segmented-group.l-switcher {
     margin-top: 0;
 
     > * > * {
-        max-width: 100%;
+        max-inline-size: 100%;
         min-width: 33.333%; // Modify the percentage according to the number of choices and what looks best
         position: relative; // Required for the absolutely positioned input indicator
     }

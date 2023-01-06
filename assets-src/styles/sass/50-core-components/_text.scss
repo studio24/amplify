@@ -4,5 +4,5 @@
 
 .component--text > * {
 	// Restrict line-length for readability
-	max-width: rem($text-measure);
+	max-inline-size: rem($text-measure);
 }

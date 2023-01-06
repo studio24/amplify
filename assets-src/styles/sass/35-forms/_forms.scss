@@ -63,7 +63,7 @@ Group inputs to line up side-by-side
 
 
 .field {
-	max-width: rem($text-measure);
+	max-inline-size: rem($text-measure);
 }
 
 
@@ -97,7 +97,7 @@ label,
 	@include text-14;
 	color: $storm-gray;
 	margin-bottom: 0.25rem;
-	max-width: rem($text-measure);
+	max-inline-size: rem($text-measure);
 }
 
 
@@ -184,31 +184,31 @@ textarea {
 Fixed input widths
  */
 .input-width-30 {
-	max-width: 59ex;
+	max-inline-size: 59ex;
 }
 
 .input-width-20 {
-	max-width: 41ex;
+	max-inline-size: 41ex;
 }
 
 .input-width-10 {
-	max-width: 23ex;
+	max-inline-size: 23ex;
 }
 
 .input-width-5 {
-	max-width: 10.8ex;
+	max-inline-size: 10.8ex;
 }
 
 .input-width-4 {
-	max-width: 9ex;
+	max-inline-size: 9ex;
 }
 
 .input-width-3 {
-	max-width: 7.2ex;
+	max-inline-size: 7.2ex;
 }
 
 .input-width-2 {
-	max-width: 5.4ex;
+	max-inline-size: 5.4ex;
 }
 
 

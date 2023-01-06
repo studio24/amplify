@@ -69,7 +69,7 @@
 
 	> * {
 
-		max-width: rem($text-measure);
+		max-inline-size: rem($text-measure);
 
 	}
 
@@ -140,7 +140,7 @@
 		bottom: 0;
 		left: 0;
 		margin: auto;
-		max-width: 100%;
+		max-inline-size: 100%;
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -148,7 +148,7 @@
 		@supports (object-fit: contain) {
 
 			height: 100%;
-			max-width: none;
+			max-inline-size: none;
 			object-fit: contain;
 			position: static;
 

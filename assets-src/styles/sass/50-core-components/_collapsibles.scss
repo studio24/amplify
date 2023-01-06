@@ -31,7 +31,7 @@
 	@include stack;
 
 	> * {
-		max-width: rem($text-measure); /* 2 */
+		max-inline-size: rem($text-measure); /* 2 */
 	}
 
 	a,

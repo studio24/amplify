@@ -12,7 +12,7 @@
 	border-width: rem(5);
 
 	> * {
-		max-width: rem($text-measure);
+		max-inline-size: rem($text-measure);
 	}
 }
 
