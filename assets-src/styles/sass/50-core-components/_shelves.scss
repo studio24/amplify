@@ -10,7 +10,7 @@
 
 .component--shelves__intro {
 	@include stack(1rem);
-	margin-bottom: rem(30);
+	margin-block-end: rem(30);
 	max-inline-size: rem($text-measure);
 }
 
@@ -24,7 +24,7 @@
 }
 
 
-.component--shelves__items > * {
+.component--shelves__items > li {
 	@include mq($bp-tab-portrait) {
 		flex: 1 0 33%;
 		max-inline-size: 50%;
@@ -34,9 +34,9 @@
 
 
 .component--shelves__items > * + * {
-	margin-top: rem(20);
+	margin-block-start: rem(20);
 
 	@include mq($bp-tab-portrait) {
-		margin-top: 0;
+		margin-block-start: 0;
 	}
 }

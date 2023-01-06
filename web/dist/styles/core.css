@@ -2563,7 +2563,8 @@ main,
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-bottom: 1.875rem;
+  -webkit-margin-after: 1.875rem;
+          margin-block-end: 1.875rem;
   max-inline-size: 41.25rem;
 }
 .component--shelves__intro > * + * {
@@ -2580,7 +2581,7 @@ main,
 }
 
 @media screen and (min-width: 48em) {
-  .component--shelves__items > * {
+  .component--shelves__items > li {
     flex: 1 0 33%;
     max-inline-size: 50%;
     padding: 1.5%;
@@ -2588,11 +2589,13 @@ main,
 }
 
 .component--shelves__items > * + * {
-  margin-top: 1.25rem;
+  -webkit-margin-before: 1.25rem;
+          margin-block-start: 1.25rem;
 }
 @media screen and (min-width: 48em) {
   .component--shelves__items > * + * {
-    margin-top: 0;
+    -webkit-margin-before: 0;
+            margin-block-start: 0;
   }
 }
 
