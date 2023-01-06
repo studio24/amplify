@@ -20,7 +20,7 @@
 	@include stack;
 	flex-grow: 1;
 	order: 1;
-	padding-top: 1rem;
+	padding-block-start: 1rem;
 }
 
 
@@ -29,28 +29,28 @@
 (e.g. CTA or tag list) always pushed to the bottom edge.
  */
 .card--neat {
-	height: 100%;
+	block-size: 100%;
 }
 
 .card--neat .card__text {
 	// Minimum spacing between the penultimate and last child elements.
 	// Matches the measure used for the stack mixin on `.card__text`
 	> :nth-last-child(2) {
-		margin-bottom: 1em;
+		margin-block-end: 1em;
 	}
 
 	// Align the last child element to the bottom of the card.
 	> :last-child {
-		margin-top: auto;
+		margin-block-start: auto;
 	}
 }
 
 
 .card__text > a:not([class]) {
 	align-self: flex-start; /* 1 */
-	margin-top: rem(6);
-	padding-bottom: rem(10);
-	padding-top: rem(10);
+	margin-block-start: rem(6);
+	padding-block-end: rem(10);
+	padding-block-start: rem(10);
 }
 
 

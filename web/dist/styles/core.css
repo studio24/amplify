@@ -2493,7 +2493,8 @@ main,
   justify-content: flex-start;
   flex-grow: 1;
   order: 1;
-  padding-top: 1rem;
+  -webkit-padding-before: 1rem;
+          padding-block-start: 1rem;
 }
 .card__text > * + * {
   -webkit-margin-before: 1em;
@@ -2505,21 +2506,26 @@ main,
 (e.g. CTA or tag list) always pushed to the bottom edge.
  */
 .card--neat {
-  height: 100%;
+  block-size: 100%;
 }
 
 .card--neat .card__text > :nth-last-child(2) {
-  margin-bottom: 1em;
+  -webkit-margin-after: 1em;
+          margin-block-end: 1em;
 }
 .card--neat .card__text > :last-child {
-  margin-top: auto;
+  -webkit-margin-before: auto;
+          margin-block-start: auto;
 }
 
 .card__text > a:not([class]) {
   align-self: flex-start; /* 1 */
-  margin-top: 0.375rem;
-  padding-bottom: 0.625rem;
-  padding-top: 0.625rem;
+  -webkit-margin-before: 0.375rem;
+          margin-block-start: 0.375rem;
+  -webkit-padding-after: 0.625rem;
+          padding-block-end: 0.625rem;
+  -webkit-padding-before: 0.625rem;
+          padding-block-start: 0.625rem;
 }
 
 .card__heading {
