@@ -5,9 +5,9 @@
 table {
     border: 1px solid $border-color;
     border-collapse: collapse;
+	inline-size: 100%;
     margin-block-end: rem(16);
     margin-block-start: rem(16);
-    width: 100%;
 }
 
 

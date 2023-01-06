@@ -485,7 +485,7 @@ template {
     2. Because autoprefixer does not cover IE grid
 \*------------------------------------*/
 html {
-  height: 100%;
+  block-size: 100%;
 }
 
 /**
@@ -500,8 +500,8 @@ body {
   -ms-grid-columns: 100%; /* 2 */
   grid-template-rows: 1fr auto; /* 1 */
   -ms-grid-rows: 1fr auto; /* 2 */
-  min-height: 100%;
-  overflow-x: hidden;
+  min-block-size: 100%;
+  overflow-inline: hidden;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
@@ -522,7 +522,8 @@ body {
 }
 
 p + * {
-  margin-top: 1rem;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -543,7 +544,8 @@ h1,
 }
 h1 + *,
 .text-48 + * {
-  margin-top: 1.5rem;
+  -webkit-margin-before: 1.5rem;
+          margin-block-start: 1.5rem;
 }
 
 h2,
@@ -553,7 +555,8 @@ h2,
 }
 h2 + *,
 .text-39 + * {
-  margin-top: 0.5rem;
+  -webkit-margin-before: 0.5rem;
+          margin-block-start: 0.5rem;
 }
 
 h3,
@@ -563,7 +566,8 @@ h3,
 }
 h3 + *,
 .text-31 + * {
-  margin-top: 0.5rem;
+  -webkit-margin-before: 0.5rem;
+          margin-block-start: 0.5rem;
 }
 
 h4,
@@ -573,7 +577,8 @@ h4,
 }
 h4 + *,
 .text-25 + * {
-  margin-top: 0.5rem;
+  -webkit-margin-before: 0.5rem;
+          margin-block-start: 0.5rem;
 }
 
 h5,
@@ -583,7 +588,8 @@ h5,
 }
 h5 + *,
 .text-20 + * {
-  margin-top: 0.25rem;
+  -webkit-margin-before: 0.25rem;
+          margin-block-start: 0.25rem;
 }
 
 h6,
@@ -593,13 +599,15 @@ h6,
 }
 h6 + *,
 .text-16 + * {
-  margin-top: 0.25rem;
+  -webkit-margin-before: 0.25rem;
+          margin-block-start: 0.25rem;
 }
 
 .text-14 {
   font-size: 0.875rem;
   line-height: 1.5;
-  margin-top: 1rem;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
 }
 
 * + h2,
@@ -612,7 +620,8 @@ h6 + *,
 .text-20,
 * + h6,
 .text-16 {
-  margin-top: 1.5rem;
+  -webkit-margin-before: 1.5rem;
+          margin-block-start: 1.5rem;
 }
 
 .lead {
@@ -620,7 +629,8 @@ h6 + *,
   line-height: 1.3;
 }
 .lead + * {
-  margin-top: 3rem;
+  -webkit-margin-before: 3rem;
+          margin-block-start: 3rem;
 }
 
 /**
@@ -670,16 +680,16 @@ can safely use the web fonts instead of the system fonts.
  * Sass to avoid it appearing repeatedly in your markup).
  */
 .visuallyhidden:not(:focus):not(:active), .skip-link:not(:focus):not(:active) {
+  block-size: 1px;
   border: 0;
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(100%);
           clip-path: inset(100%);
-  height: 1px;
+  inline-size: 1px;
   overflow: hidden;
   padding: 0;
   position: absolute;
   white-space: nowrap;
-  width: 1px;
 }
 
 /*
@@ -687,7 +697,8 @@ can safely use the web fonts instead of the system fonts.
  * focusable element to become visible when focused/active by a user.
  */
 br {
-  margin-top: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
 
 /*
@@ -735,8 +746,7 @@ small,
 
 hr,
 pre {
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  margin-block: 1rem;
 }
 
 code,
@@ -767,7 +777,8 @@ kbd {
   background-color: #252525;
   border-radius: 0.25rem;
   color: #fcfcfc;
-  padding: 0.125rem 0.25rem;
+  padding-block: 0.125rem;
+  padding-inline: 0.25rem;
 }
 
 /*------------------------------------*\
@@ -838,9 +849,10 @@ input[type=submit].button {
   color: #fcfcfc;
   display: inline-flex;
   justify-content: center;
-  min-width: 10ch;
-  min-height: 2.75rem; /* 5 */
-  padding: 0.25em 0.75em;
+  min-block-size: 2.75rem; /* 5 */
+  min-inline-size: 10ch;
+  padding-block: 0.25em;
+  padding-inline: 0.75em;
 }
 button:hover,
 .button:hover,
@@ -854,14 +866,14 @@ button:active, button:focus,
 .button:focus,
 input[type=submit].button:active,
 input[type=submit].button:focus {
-  color: #000;
   background-color: #ffdc00;
   background-image: none;
   border-color: #000;
+  color: #000;
 }
 
 .button--wide.button--wide {
-  width: 100%;
+  inline-size: 100%;
 }
 
 .button--alt.button--alt {
@@ -883,7 +895,7 @@ input[type=submit].button:focus {
   background-color: transparent;
   border-color: transparent;
   color: #000;
-  min-width: 2.75rem; /* 5 */
+  min-inline-size: 2.75rem; /* 5 */
   padding: 0;
 }
 .button--ghost.button--ghost:hover {
@@ -988,12 +1000,12 @@ summary::before {
   border-inline-start-color: inherit;
   border-style: solid;
   border-width: 7px 0 7px 12.124px;
-  bottom: 0;
   -webkit-clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
           clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
   content: "";
   display: block;
   height: 0;
+  inset-block-end: 0;
   inset-block-start: -0.0625rem;
   inset-inline-start: 0;
   margin: auto;
@@ -1049,13 +1061,13 @@ details[open] > summary::before {
 Icons are sized relative to font size, thanks to the em unit.
  */
 .icon {
-  height: 0.75em;
-  width: 0.75em;
+  block-size: 0.75em;
+  inline-size: 0.75em;
 }
 
 .icon--24 {
-  height: 1.5rem;
-  width: 1.5rem;
+  block-size: 1.5rem;
+  inline-size: 1.5rem;
 }
 
 /**
@@ -1095,9 +1107,9 @@ img {
 }
 
 svg {
+  block-size: auto;
   fill: currentColor;
-  height: auto;
-  width: 100%;
+  inline-size: 100%;
 }
 
 /*------------------------------------*\
@@ -1205,13 +1217,15 @@ dl dd + dd {
     #Quotes
 \*------------------------------------*/
 blockquote {
-  margin: 1rem 0;
-  padding: 0 2.5rem;
   font-size: 1.25rem;
   line-height: 1.3;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin-block: 1rem;
+  margin-inline: 0;
+  padding-block: 0;
+  padding-inline: 2.5rem;
 }
 blockquote > * + * {
   -webkit-margin-before: 1rem;
@@ -1232,11 +1246,11 @@ blockquote cite {
 table {
   border: 1px solid #bdbdbd;
   border-collapse: collapse;
+  inline-size: 100%;
   -webkit-margin-after: 1rem;
           margin-block-end: 1rem;
   -webkit-margin-before: 1rem;
           margin-block-start: 1rem;
-  width: 100%;
 }
 
 tr:nth-child(even) {

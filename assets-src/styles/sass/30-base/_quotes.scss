@@ -3,10 +3,13 @@
 \*------------------------------------*/
 
 blockquote {
-	margin: rem(16) 0;
-	padding: 0 rem(40);
 	@include text-20;
 	@include stack(1rem);
+
+	margin-block: rem(16);
+	margin-inline: 0;
+	padding-block: 0;
+	padding-inline: rem(40);
 
 	> * {
 		font-weight: bold;

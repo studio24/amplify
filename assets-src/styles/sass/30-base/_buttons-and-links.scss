@@ -63,9 +63,10 @@ input[type="submit"].button {
 	color: $off-white;
 	display: inline-flex;
 	justify-content: center;
-	min-width: 10ch;
-	min-height: rem(44); /* 5 */
-	padding: 0.25em 0.75em;
+	min-block-size: rem(44); /* 5 */
+	min-inline-size: 10ch;
+	padding-block: 0.25em;
+	padding-inline: 0.75em;
 
 	&:hover {
 		background-color: $link-color--hover;
@@ -75,17 +76,17 @@ input[type="submit"].button {
 
 	&:active,
 	&:focus {
-		color: $black;
 		background-color: $focus-color;
 		background-image: none;
 		border-color: $black;
+		color: $black;
 	}
 }
 
 
 // Full-width buttons
 .button--wide.button--wide {
-	width: 100%;
+	inline-size: 100%;
 }
 
 
@@ -114,7 +115,7 @@ input[type="submit"].button {
 	background-color: transparent;
 	border-color: transparent;
 	color: $black;
-	min-width: rem(44); /* 5 */
+	min-inline-size: rem(44); /* 5 */
 	padding: 0;
 
 	&:hover {

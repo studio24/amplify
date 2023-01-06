@@ -42,8 +42,7 @@ small,
 
 hr,
 pre {
-	margin-bottom: rem(16);
-	margin-top: rem(16);
+	margin-block: rem(16);
 }
 
 
@@ -74,5 +73,6 @@ kbd {
 	background-color: $off-black;
 	border-radius: rem(4);
 	color: $off-white;
-	padding: rem(2) rem(4);
+	padding-block: rem(2);
+	padding-inline: rem(4);
 }

@@ -158,16 +158,16 @@ article {
  * Sass to avoid it appearing repeatedly in your markup).
  */
 .visuallyhidden:not(:focus):not(:active) {
+  block-size: 1px;
   border: 0;
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(100%);
           clip-path: inset(100%);
-  height: 1px;
+  inline-size: 1px;
   overflow: hidden;
   padding: 0;
   position: absolute;
   white-space: nowrap;
-  width: 1px;
 }
 
 /*
@@ -175,7 +175,8 @@ article {
  * focusable element to become visible when focused/active by a user.
  */
 br {
-  margin-top: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
 
 /*
