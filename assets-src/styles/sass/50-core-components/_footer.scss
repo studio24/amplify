@@ -18,7 +18,9 @@
 	-ms-grid-row: 2; /* 2 */
 	grid-row-end: 3; /* 1 */
 	-ms-grid-row-span: 1; /* 2 */
-	padding: rem(20) 0 rem(25);
+	padding-block-end: rem(25);
+	padding-block-start: rem(20);
+	padding-inline: 0;
 
 	.l-center {
 		@include stack(1rem);
