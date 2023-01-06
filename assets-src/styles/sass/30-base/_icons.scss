@@ -38,51 +38,13 @@ before the text or after.
 
 .with-icon--before {
 	.icon {
-		margin-right: rem(10); // IE fallback for next rule - only works for ltr languages
-
-		@supports (margin-inline-end: 1em) {
-			margin-right: 0;
-			margin-inline-end: rem(10); /* 2 */
-		}
+		margin-inline-end: rem(10);
 	}
 }
 
 
 .with-icon--after {
 	.icon {
-		margin-left: rem(10); // IE fallback for next rule - only works for ltr languages
-
-		@supports (margin-inline-start: 1em) {
-			margin-left: 0;
-			margin-inline-start: rem(10); /* 2 */
-		}
-	}
-}
-
-
-[dir="rtl"] {
-	.with-icon--before {
-		.icon {
-			margin-left: rem(10); // IE fallback for next rule - only works for ltr languages
-			margin-right: 0;
-
-			@supports (margin-inline-start: 1em) {
-				margin-left: 0;
-				margin-inline-end: rem(10); /* 2 */
-			}
-		}
-	}
-
-
-	.with-icon--after {
-		.icon {
-			margin-left: 0;
-			margin-right: rem(10); // IE fallback for next rule - only works for ltr languages
-
-			@supports (margin-inline-start: 1em) {
-				margin-right: 0;
-				margin-inline-start: rem(10); /* 2 */
-			}
-		}
+		margin-inline-start: rem(10);
 	}
 }

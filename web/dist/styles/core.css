@@ -1081,48 +1081,13 @@ before the text or after.
 }
 
 .with-icon--before .icon {
-  margin-right: 0.625rem;
-}
-@supports ((-webkit-margin-end: 1em) or (margin-inline-end: 1em)) {
-  .with-icon--before .icon {
-    margin-right: 0;
-    -webkit-margin-end: 0.625rem;
-            margin-inline-end: 0.625rem; /* 2 */
-  }
+  -webkit-margin-end: 0.625rem;
+          margin-inline-end: 0.625rem;
 }
 
 .with-icon--after .icon {
-  margin-left: 0.625rem;
-}
-@supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
-  .with-icon--after .icon {
-    margin-left: 0;
-    -webkit-margin-start: 0.625rem;
-            margin-inline-start: 0.625rem; /* 2 */
-  }
-}
-
-[dir=rtl] .with-icon--before .icon {
-  margin-left: 0.625rem;
-  margin-right: 0;
-}
-@supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
-  [dir=rtl] .with-icon--before .icon {
-    margin-left: 0;
-    -webkit-margin-end: 0.625rem;
-            margin-inline-end: 0.625rem; /* 2 */
-  }
-}
-[dir=rtl] .with-icon--after .icon {
-  margin-left: 0;
-  margin-right: 0.625rem;
-}
-@supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
-  [dir=rtl] .with-icon--after .icon {
-    margin-right: 0;
-    -webkit-margin-start: 0.625rem;
-            margin-inline-start: 0.625rem; /* 2 */
-  }
+  -webkit-margin-start: 0.625rem;
+          margin-inline-start: 0.625rem;
 }
 
 /*------------------------------------*\
