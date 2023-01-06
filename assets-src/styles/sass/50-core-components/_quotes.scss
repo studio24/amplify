@@ -10,26 +10,18 @@
 
 	&::before {
 		background-color: $blue;
+		block-size: 100%;
 		border-radius: rem(5);
 		content: '';
-		height: 100%;
-		left: rem(-10);
+		inline-size: rem(10);
+		inset-inline-start: rem(-10);
 		position: absolute;
-		top: 0;
-		width: rem(10);
+		inset-block-start: 0;
 	}
 
 	blockquote {
 		color: $blue;
 		margin: 0;
 		padding: 0;
-	}
-}
-
-
-[dir="rtl"] {
-	.component--quote::before {
-		left: auto;
-		right: rem(-10);
 	}
 }

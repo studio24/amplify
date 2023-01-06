@@ -2327,23 +2327,18 @@ main,
 }
 .component--quote::before {
   background-color: #0d599b;
+  block-size: 100%;
   border-radius: 0.3125rem;
   content: "";
-  height: 100%;
-  left: -0.625rem;
+  inline-size: 0.625rem;
+  inset-inline-start: -0.625rem;
   position: absolute;
-  top: 0;
-  width: 0.625rem;
+  inset-block-start: 0;
 }
 .component--quote blockquote {
   color: #0d599b;
   margin: 0;
   padding: 0;
-}
-
-[dir=rtl] .component--quote::before {
-  left: auto;
-  right: -0.625rem;
 }
 
 /*------------------------------------*\
