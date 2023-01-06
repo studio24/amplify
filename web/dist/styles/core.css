@@ -2904,7 +2904,7 @@ input[type=search] {
 }
 
 .l-sidebar.search form .not-sidebar {
-  min-width: 70%;
+  min-inline-size: 70%;
 }
 
 .l-sidebar.search input[type=search] {
