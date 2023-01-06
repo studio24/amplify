@@ -1266,14 +1266,14 @@ blockquote cite {
 
 /*------------------------------------*\
     #Tables
-
-    1. Logical property allows text-direction to change with 'dir'
 \*------------------------------------*/
 table {
   border: 1px solid #bdbdbd;
   border-collapse: collapse;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  -webkit-margin-after: 1rem;
+          margin-block-end: 1rem;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
   width: 100%;
 }
 
@@ -1285,15 +1285,7 @@ th,
 td,
 table caption {
   padding: 0.75rem;
-  text-align: left;
-  text-align: start; /* 1 */
-}
-
-[dir=rtl] th,
-[dir=rtl] td,
-[dir=rtl] table caption {
-  text-align: right;
-  text-align: start; /* 1 */
+  text-align: start;
 }
 
 th,
@@ -1320,17 +1312,21 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
 @media screen {
   [data-component=table-wrap] {
     border: 1px solid #bdbdbd;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    max-width: 100% !important;
+    -webkit-margin-after: 1rem;
+            margin-block-end: 1rem;
+    -webkit-margin-before: 1rem;
+            margin-block-start: 1rem;
+    max-inline-size: 100% !important;
   }
   [data-component=table-wrap][role][aria-labelledby][tabindex] {
     overflow: auto;
   }
   [data-component=table-wrap] table {
     border: 0;
-    margin-bottom: 0;
-    margin-top: 0;
+    -webkit-margin-after: 0;
+            margin-block-end: 0;
+    -webkit-margin-before: 0;
+            margin-block-start: 0;
   }
   [data-component=table-wrap]:focus {
     border-color: #000;
