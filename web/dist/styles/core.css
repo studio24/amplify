@@ -2249,6 +2249,7 @@ so that either of these properties is applied instead.
 Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 */
 .breadcrumbs li:not(:last-child)::after {
+  block-size: 0.5em;
   border-style: solid;
   border-block-end-width: 0;
   border-block-start-width: 0.1em;
@@ -2256,13 +2257,12 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   border-inline-start-width: 0;
   content: "";
   display: block;
-  height: 0.5em;
   position: absolute;
+  inline-size: 0.5em;
   inset-inline-end: 1.25em;
   inset-block-start: 50%;
   -webkit-transform: rotate(45deg) translateY(-50%);
           transform: rotate(45deg) translateY(-50%);
-  width: 0.5em;
 }
 
 [dir=rtl] .breadcrumbs li:not(:last-child)::after {
