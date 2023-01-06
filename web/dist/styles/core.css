@@ -3221,7 +3221,7 @@ input[type=search] {
 /*------------------------------------*\
     #Alignment utilities
 
-    1. Logical property allows text-direction to change with `ltr`
+    1. Allows text-direction to change with writing direction
 \*------------------------------------*/
 .u-float-left {
   float: left;
@@ -3255,8 +3255,7 @@ as defined in /10-settings/breakpoints
  */
 @media screen and (min-width: 80em) {
   .u-text-left-from-lap {
-    text-align: left;
-    text-align: start; /* 1 */
+    text-align: start;
   }
 }
 
@@ -3268,8 +3267,7 @@ as defined in /10-settings/breakpoints
 
 @media screen and (min-width: 80em) {
   .u-text-right-from-lap {
-    text-align: right;
-    text-align: end; /* 1 */
+    text-align: end;
   }
 }
 
@@ -3290,20 +3288,17 @@ The parent must be exactly centered in the browser in order for this
 to work - see https://css-tricks.com/full-width-containers-limited-width-parents/
  */
 .u-full-width {
-  left: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  inset-inline: 50%;
+  inline-size: 100vw;
+  margin-inline: -50vw;
   position: relative;
-  right: 50%;
-  width: 100vw;
 }
 
 /**
 To horizontally center a block-level item
  */
 .u-center {
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
   position: relative;
 }
 
@@ -3317,5 +3312,6 @@ To horizontally center a block-level item
 }
 
 .u-no-margin-top.u-no-margin-top {
-  margin-top: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
