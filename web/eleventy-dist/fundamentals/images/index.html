@@ -1,0 +1,319 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Images - Amplify</title>
+
+	<link rel="stylesheet" href="/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="/styles/print.css" media="print"/>
+
+	<script src="/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="not-footer">
+    <a href="#main" class="skip-link">Skip to content</a>
+    <header class="global-header">
+    <div class="l-center">
+        <a class="global-header__link" href="/">Amplify from Studio 24</a>
+    </div>
+</header>
+<nav class="global-nav" aria-label="Main">
+    <div class="l-center">
+        <div class="l-cluster">
+            <ul class="clean-list">
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/get-started/" 
+                    >
+                    Get Started
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/fundamentals/" 
+                    >
+                    Fundamentals
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/core-components/" 
+                    >
+                    Core components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/advanced-components/" 
+                    >
+                    Advanced components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/design/" 
+                    >
+                    Design handover &amp; standards
+                </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+	<main id="main">
+		<div class="content-wrap">
+    <nav class="sidebar nav-secondary" aria-label="Secondary">
+    <ul class="clean-list" role="list">
+        
+        
+            <li>
+                <a href="/fundamentals/colours/" class="nav-secondary__link"
+                >
+                    Colours
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/typography/" class="nav-secondary__link"
+                >
+                    Typography
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/buttons/" class="nav-secondary__link"
+                >
+                    Buttons
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/lists/" class="nav-secondary__link"
+                >
+                    Lists
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/icons/" class="nav-secondary__link"
+                >
+                    Icons
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/breakpoints/" class="nav-secondary__link"
+                >
+                    Breakpoints
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/vertical-spacing/" class="nav-secondary__link"
+                >
+                    Vertical spacing
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/hide-and-show/" class="nav-secondary__link"
+                >
+                    Hide and show items inclusively
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/skip-link/" class="nav-secondary__link"
+                >
+                    Skip link
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/images/" class="nav-secondary__link"
+                
+                    aria-current="page"
+                >
+                    Images
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/forms/" class="nav-secondary__link"
+                >
+                    Forms
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/form-errors/" class="nav-secondary__link"
+                >
+                    Form error messages
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/tables/" class="nav-secondary__link"
+                >
+                    Tables
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/details-summary/" class="nav-secondary__link"
+                >
+                    Details and summary
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/utility-classes/" class="nav-secondary__link"
+                >
+                    Utility Classes
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/flow-elements/" class="nav-secondary__link"
+                >
+                    Flow elements
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/print-styles/" class="nav-secondary__link"
+                >
+                    Print styles
+                </a>
+            </li>
+        
+        
+    </ul>
+</nav>
+    <div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+    <div>
+        <h1>Images</h1>
+        <div class="component component--text">
+            <h2>Image optimisation</h2>
+<p>SVGs are optimised as part of Amplify's asset building process, but <strong><code>jpeg/jpg</code>, <code>png</code> and <code>gif</code> files are not optimised</strong>. This is because:</p>
+<ul>
+<li>Node/JS tools are not the most efficient way of optimising images</li>
+<li>the most popular NPM package for optimising images is not actively supported and introduces security vulnerabilities</li>
+<li>most image assets added to Amplify are unlikely to change very often, e.g. logos, making it inefficient to process them each time we want to build front-end assets.</li>
+</ul>
+<p><strong>You must double-check that image assets are optimised</strong> and, if not, use a tool such as the <a href="https://imageoptim.com/mac">ImageOptim</a> Mac app or a web service such as <a href="https://tinypng.com/">Tiny PNG</a> to do so. If you are not sure, use <a href="https://developers.google.com/web/tools/lighthouse/">Lighthouse</a> to check the web pages - this should highlight any image assets that require attention.</p>
+<h2>Using <code>img</code> and <code>svg</code></h2>
+<p>This section is about how to accessibly markup the <code>img</code> and <code>svg</code> elements depending on the context in which they are used. The <a href="https://amplify.studio24.net/amplify/core-components/image-component.html">image component</a> is covered separately.</p>
+<p>Scott O'Hara's article, <a href="https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html">Contextually marking up accessible images and SVGs</a>, is highly recommended reading. The following summarises that advice.</p>
+<h3>Using the <code>img</code> element</h3>
+<h4>Alternative text</h4>
+<p>Every instance of <code>img</code> must include the <code>alt</code> attribute in order to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html">WCAG Success Criterion 1.1.1: Non-text Content</a>.</p>
+<p>If the image is decorative it can be left blank. Otherwise, <code>alt</code> requires a text value explaining the nature of the image for users of Assistive Technology. This <a href="https://www.w3.org/WAI/tutorials/images/decision-tree/">alt decision tree</a> is helpful for determining whether and how to provide alternative text.</p>
+<h5>Images with SVG source file</h5>
+<p>For the range of browsers currently supported by Amplify, it is recommended to include <code>role=&quot;img&quot;</code> on <code>img</code> where the source file is SVG. Without it, some versions of Safari and iOS will skip over the image entirely and not announce the image or the alternative text.</p>
+<h4>Using the <code>img</code> element within links</h4>
+<ul>
+<li>Where an image is included within a link that also contains a visible text label, treat the image as decorative and provide an empty <code>alt</code> attribute.</li>
+<li>Where a link contains an image without any visible text, use the value of the image's <code>alt</code> attribute to give the link an accessible name. There is no need to combine this with <code>aria-label</code> or visually-hidden text; that can lead to duplicate announcements by screen readers.</li>
+</ul>
+<h4>Using the <code>img</code> element within buttons</h4>
+<ul>
+<li>Where an image is included within a button that also contains a visible text label, treat the image as decorative and provide an empty <code>alt</code> attribute.</li>
+<li>Where a button contains an image without any visible text, use a child <code>span</code> with the <code>visuallyhidden</code> class to give it an accessible name. Read more about <a href="https://amplify.studio24.net/amplify/fundamentals/hide-and-show.html">how to hide and show items</a>.</li>
+</ul>
+<h3>Using the <code>svg</code> element</h3>
+<p>Always include width and height attributes as part of the SVG markup. This prevents the SVG from expanding to fill the whole page if the CSS doesn't load.</p>
+<h4>Prevent unwanted SVG focus</h4>
+<p>Always add <code>focusable=&quot;false&quot;</code> to the <code>svg</code> element to <a href="http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4">stop IE11 from allowing the Tab key to navigate into the SVG</a>.</p>
+<h4>Informative SVGs</h4>
+<p>Add the <code>role=&quot;img&quot;</code> attribute and use <code>aria-label</code> to provide an accessible name. This is useful for e.g. SVG logos.</p>
+<p>To prevent redundant screen reader announcements:</p>
+<ul>
+<li>add <code>aria-hidden=&quot;true&quot;</code> to any <code>use</code> elements within the SVG</li>
+<li>where an SVG is fully inlined within the markup, add <code>aria-hidden=&quot;true&quot;</code> to any <code>path</code> or other direct child of <code>svg</code> if they contain no information that should be made accessible</li>
+</ul>
+<h4>Decorative SVGs</h4>
+<p>Any <code>svg</code> that does not add important information to a document should be considered decorative and have <code>aria-hidden=&quot;true&quot;</code> added to it.</p>
+<h4>Using the <code>svg</code> element within links and buttons</h4>
+<ul>
+<li>If the link or button has a visible text label, making sure that the <code>svg</code> includes the <code>aria-hidden=&quot;true&quot;</code> and <code>focusable=&quot;false&quot;</code> attributes is enough.</li>
+<li>Where the link or button does not include a visible text label, use a child <code>span</code> with the <code>visuallyhidden</code> class to give it an accessible name. Read more about <a href="https://amplify.studio24.net/amplify/fundamentals/hide-and-show.html">how to hide and show items</a>.</li>
+</ul>
+
+        </div>
+    </div>
+</div>
+	</main>
+</div>
+<footer class="global-footer">
+    <div class="l-center">
+        &copy; Studio 24
+    </div>
+</footer>
+<script>
+    if (document.documentElement.classList.contains('js')) {
+        var jsAutocompleteCountry = document.createElement('script');
+        jsAutocompleteCountry.src = '/js/country-Autocomplete.js';
+        document.querySelector('body').appendChild(jsAutocompleteCountry);
+    }
+</script>
+
+</body>
+
+</html>

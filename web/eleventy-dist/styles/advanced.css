@@ -1,0 +1,911 @@
+/*------------------------------------*\
+    #Amplify: advanced styles for browsers selected by mustard cut
+\*------------------------------------*/
+/*------------------------------------*\
+    #Settings
+\*------------------------------------*/
+/*------------------------------------*\
+    #Breakpoints
+
+    The measurements presented here are for guidance only
+    and should be updated to reflect the design/content needs.
+
+    1. Sets a max-width for improved readability
+\*------------------------------------*/
+/* 1 */
+/*------------------------------------*\
+    #Colors
+
+    Review and edit these default colours, then add further colors
+    as required for your project.
+
+    The ideal color contrast range for meeting WCAG AAA is 7:1 - 15:1
+
+    1. A contrast higher than 15:1 can be triggering, which is why we
+    avoid using pure white with pure black.
+\*------------------------------------*/
+/**
+Brand
+ */
+/**
+Neutrals
+ */
+/* 1 */
+/* 1 */
+/**
+Links
+ */
+/**
+Focus
+ */
+/**
+Borders
+ */
+/**
+Contextual colours (meets WCAG AA for regular text against $off-white,
+so also safe for borders)
+ */
+/*------------------------------------*\
+    #Typesetting
+\*------------------------------------*/
+/**
+Use https://www.cssfontstack.com/ and https://meowni.ca/font-style-matcher/ to pick
+system fonts that are reasonably close to any web fonts needed for the project.
+
+This improves performance, avoids Flash Of Invisible Text (FOIT) and minimises
+Flash of Unstyled Text (FOUT) - see https://www.filamentgroup.com/lab/font-events.html
+
+Be sure to include fonts for both Mac OS and Windows. Use quote marks around
+fonts with white space in their name.
+
+When Font Face Observer has detected that the @font-face files are loaded, then we
+can safely use the web fonts instead of the system fonts.
+ */
+/*------------------------------------*\
+    #Functions
+\*------------------------------------*/
+/*------------------------------------*\
+    #CSS unit functions
+\*------------------------------------*/
+/**
+ #em
+ */
+/**
+ #rem
+ */
+/**
+ #px
+ */
+/**
+ #Return a number without a unit
+ */
+/**
+ #Remove any unit present to return a unitless number
+ */
+/*------------------------------------*\
+    #Mixins
+\*------------------------------------*/
+/*------------------------------------*\
+    #Font sizes
+
+    Base sizes use the Major Third scale from https://type-scale.com/
+\*------------------------------------*/
+/*------------------------------------*\
+    #Media query
+\*------------------------------------*/
+/*------------------------------------*\
+    #Stack
+\*------------------------------------*/
+/**
+This mixin allows us to add vertical spacing between a container's direct children,
+much like the 'axiomatic owl' technique but limited to specific use cases.
+
+By applying Flexbox to the parent container, we can use auto margin on a specific
+child element. This way, we can choose to group elements inside the stack to the
+top/bottom of the vertical space, which is useful for card-like components.
+
+Use with a specific measure, or without for the default measure, e.g.
+
+main {
+	@include stack(4rem);
+}
+
+article {
+	@include stack;
+}
+ */
+/*------------------------------------*\
+    #Base
+
+    Repeated to allow for extending placeholders
+\*------------------------------------*/
+/*------------------------------------*\
+    #Hide and show items inclusively
+
+    See https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+\*------------------------------------*/
+/*
+ * Hide from everybody and remove from the document flow, using the hidden
+ * attribute.
+ *
+ * Use if a component should remain hidden regardless of CSS being
+ * available or not (the style below provides support for legacy browsers).
+ */
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide from everybody and remove from the document flow, using the %hidden
+ * placeholder (extend the placeholder with Sass to avoid it appearing
+ * repeatedly in your markup).
+ *
+ * Use if a component requires a basic show and hide interaction, and the
+ * content should become available were CSS to fail.
+ */
+/*
+ * Hide from everybody while maintaining layout, using the %invisible
+ * placeholder (extend the placeholder with Sass to avoid it appearing
+ * repeatedly in your markup).
+ *
+ * Use if a more complex transition is required, like when transitioning an
+ * off-screen navigation into the viewport. Best paired with other CSS
+ * properties that negate its position in the DOM e.g. `position: absolute;`
+ */
+/*
+ * Hide visually only - remains available to Assistive Technology -
+ * using the %visually-hidden placeholder (extend the placeholder with
+ * Sass to avoid it appearing repeatedly in your markup).
+ */
+.visuallyhidden:not(:focus):not(:active) {
+  border: 0;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/*
+ *The :not portions of the following selector allow a means for any
+ * focusable element to become visible when focused/active by a user.
+ */
+br {
+  margin-top: 0;
+}
+
+/*
+ * Restore an element that has been visually hidden, using the %visually-hidden
+ * placeholder (extend the placeholder with Sass to avoid it appearing
+ * repeatedly in your markup).
+ */
+/*------------------------------------*\
+    #Advanced components
+
+    For JS enhancements
+\*------------------------------------*/
+/*------------------------------------*\
+    #Cards advanced
+\*------------------------------------*/
+.js [data-component=card] {
+  cursor: pointer;
+}
+.js [data-component=card]:hover .card__link {
+  text-decoration: underline; /* 1 */
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/*------------------------------------*\
+    #Collapsible sections advanced
+\*------------------------------------*/
+.js .component--collapsibles__panel {
+  padding: 0;
+}
+
+.js [data-heading=collapsibles] button {
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 1.5625rem;
+  width: 100%;
+}
+.js [data-heading=collapsibles] button .js-collapsible-heading {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  font-weight: 600;
+  text-align: left;
+}
+.js [data-heading=collapsibles] button .js-collapsible-toggle {
+  color: #0d599b;
+}
+.js [data-heading=collapsibles] button .js-collapsible-label {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.js [data-heading=collapsibles] button:hover .js-collapsible-heading {
+  color: #0d599b;
+}
+.js [data-heading=collapsibles] button:hover .js-collapsible-label {
+  text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+.js [data-heading=collapsibles] button:focus {
+  background-color: #ffdc00;
+}
+.js [data-heading=collapsibles] button:focus .js-collapsible-heading,
+.js [data-heading=collapsibles] button:focus .js-collapsible-toggle {
+  color: #000;
+}
+.js [data-heading=collapsibles] button[aria-expanded=false] .circle-up {
+  display: none;
+}
+.js [data-heading=collapsibles] button[aria-expanded=true] .circle-down {
+  display: none;
+}
+
+.js .component--collapsibles__panel__content {
+  padding: 0 1.5625rem 1.5625rem;
+}
+.js .component--collapsibles__panel__content[aria-hidden=true] {
+  display: none;
+}
+
+/*------------------------------------*\
+    #Disclosure widget
+\*------------------------------------*/
+.no-js [data-toggle=true] {
+  display: none;
+}
+.no-js [data-toggle=true] + * {
+  display: initial;
+}
+
+[data-toggle=true] svg {
+  pointer-events: none;
+}
+[data-toggle=true]:hover {
+  box-shadow: 0 0 4px 2px rgba(84, 84, 84, 0.25);
+}
+[data-toggle=true]:focus {
+  background-color: #ffdc00;
+  border-color: #000;
+  box-shadow: none;
+}
+[data-toggle=true][aria-expanded=false] .expand-less {
+  display: none;
+}
+[data-toggle=true][aria-expanded=false] + * {
+  display: none;
+}
+[data-toggle=true][aria-expanded=true] .expand-more {
+  display: none;
+}
+[data-toggle=true][aria-expanded=true] + * {
+  display: block;
+}
+
+[data-toggle=true] + * {
+  margin-top: 1rem;
+}
+
+/*------------------------------------*\
+    #Plugins
+
+    Add third-party plugins here.
+    Add custom styles directly after the original in a separate file
+\*------------------------------------*/
+.autocomplete__wrapper {
+  position: relative;
+}
+
+.autocomplete__hint,
+.autocomplete__input {
+  -webkit-appearance: none;
+  border: 2px solid #0b0c0c;
+  border-radius: 0; /* Safari 10 on iOS adds implicit border rounding. */
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin-bottom: 0; /* BUG: Safari 10 on macOS seems to add an implicit margin. */
+  width: 100%;
+}
+
+.autocomplete__input {
+  background-color: transparent;
+  position: relative;
+}
+
+.autocomplete__hint {
+  color: #b1b4b6;
+  position: absolute;
+}
+
+.autocomplete__input--default {
+  padding: 5px;
+}
+
+.autocomplete__input--focused {
+  outline: 3px solid #fd0;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 2px;
+}
+
+.autocomplete__input--show-all-values {
+  padding: 5px 34px 5px 5px; /* Space for arrow. Other padding should match .autocomplete__input--default. */
+  cursor: pointer;
+}
+
+.autocomplete__dropdown-arrow-down {
+  z-index: -1;
+  display: inline-block;
+  position: absolute;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  top: 10px;
+}
+
+.autocomplete__menu {
+  background-color: #fff;
+  border: 2px solid #0B0C0C;
+  border-top: 0;
+  color: #0B0C0C;
+  margin: 0;
+  max-height: 342px;
+  overflow-x: hidden;
+  padding: 0;
+  width: 100%;
+  width: calc(100% - 4px);
+}
+
+.autocomplete__menu--visible {
+  display: block;
+}
+
+.autocomplete__menu--hidden {
+  display: none;
+}
+
+.autocomplete__menu--overlay {
+  box-shadow: rgba(0, 0, 0, 0.256863) 0px 2px 6px;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  z-index: 100;
+}
+
+.autocomplete__menu--inline {
+  position: relative;
+}
+
+.autocomplete__option {
+  border-bottom: solid #b1b4b6;
+  border-width: 1px 0;
+  cursor: pointer;
+  display: block;
+  position: relative;
+}
+
+.autocomplete__option > * {
+  pointer-events: none;
+}
+
+.autocomplete__option:first-of-type {
+  border-top-width: 0;
+}
+
+.autocomplete__option:last-of-type {
+  border-bottom-width: 0;
+}
+
+.autocomplete__option--odd {
+  background-color: #FAFAFA;
+}
+
+.autocomplete__option--focused,
+.autocomplete__option:hover {
+  background-color: #1d70b8;
+  border-color: #1d70b8;
+  color: white;
+  outline: none;
+}
+
+@media (-ms-high-contrast: active), (forced-colors: active) {
+  .autocomplete__menu {
+    border-color: FieldText;
+  }
+  .autocomplete__option {
+    background-color: Field;
+    color: FieldText;
+  }
+  .autocomplete__option--focused,
+  .autocomplete__option:hover {
+    forced-color-adjust: none; /* prevent backplate from obscuring text */
+    background-color: Highlight;
+    border-color: Highlight;
+    color: HighlightText;
+    /* Prefer SelectedItem / SelectedItemText in browsers that support it */
+    background-color: SelectedItem;
+    border-color: SelectedItem;
+    color: SelectedItemText;
+    outline-color: SelectedItemText;
+  }
+}
+.autocomplete__option--no-results {
+  background-color: #FAFAFA;
+  color: #646b6f;
+  cursor: not-allowed;
+}
+
+.autocomplete__hint,
+.autocomplete__input,
+.autocomplete__option {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.autocomplete__hint,
+.autocomplete__option {
+  padding: 5px;
+}
+
+@media (min-width: 641px) {
+  .autocomplete__hint,
+  .autocomplete__input,
+  .autocomplete__option {
+    font-size: 19px;
+    line-height: 1.31579;
+  }
+}
+/*------------------------------------*\
+    #S24 accessible autocomplete overrides
+\*------------------------------------*/
+.autocomplete__hint,
+.autocomplete__input {
+  -webkit-appearance: none;
+          appearance: none;
+  border: 2px solid inherit;
+}
+
+.autocomplete__hint {
+  color: #bdbdbd;
+}
+
+.autocomplete__input--focused {
+  background-color: #fcfcfc;
+  outline: 3px solid #ffdc00;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 2px;
+}
+
+[dir=rtl] .autocomplete__input--show-all-values {
+  padding-left: 34px;
+  padding-right: 5px;
+}
+
+.autocomplete__dropdown-arrow-down {
+  pointer-events: none;
+  z-index: initial;
+}
+
+[dir=rtl] .autocomplete__dropdown-arrow-down {
+  right: auto;
+  left: 8px;
+}
+
+.autocomplete__menu {
+  border: 2px solid inherit;
+}
+
+.autocomplete__option--odd {
+  background-color: #bdbdbd;
+}
+
+.autocomplete__option--focused,
+.autocomplete__option:hover {
+  background-color: #235bd1;
+  border-color: #235bd1;
+}
+
+.autocomplete__option--no-results {
+  background-color: #bdbdbd;
+  color: #252525;
+}
+
+.autocomplete__hint,
+.autocomplete__input,
+.autocomplete__option {
+  font-size: 1rem;
+  line-height: 1.5;
+  line-height: 1.25;
+}
+
+@media (min-width: 641px) {
+  .autocomplete__hint,
+  .autocomplete__input,
+  .autocomplete__option {
+    font-size: 1rem;
+    line-height: 1.5;
+    line-height: 1.25;
+  }
+}
+@-webkit-keyframes splide-loading {
+  0% {
+    -webkit-transform: rotateZ(0);
+            transform: rotateZ(0);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+  }
+}
+@keyframes splide-loading {
+  0% {
+    -webkit-transform: rotateZ(0);
+            transform: rotateZ(0);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+  }
+}
+.splide__track--draggable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+          user-select: none;
+}
+
+.splide__track--fade > .splide__list {
+  display: block;
+}
+
+.splide__track--fade > .splide__list > .splide__slide {
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+
+.splide__track--fade > .splide__list > .splide__slide.is-active {
+  opacity: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.splide--rtl {
+  direction: rtl;
+}
+
+.splide__track--ttb > .splide__list {
+  display: block;
+}
+
+.splide__container {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.splide__list {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  display: flex;
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.splide.is-initialized:not(.is-active) .splide__list {
+  display: block;
+}
+
+.splide__pagination {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  pointer-events: none;
+}
+
+.splide__pagination li {
+  display: inline-block;
+  line-height: 1;
+  list-style-type: none;
+  margin: 0;
+  pointer-events: auto;
+}
+
+.splide__progress__bar {
+  width: 0;
+}
+
+.splide {
+  position: relative;
+  visibility: hidden;
+}
+
+.splide.is-initialized, .splide.is-rendered {
+  visibility: visible;
+}
+
+.splide__slide {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  list-style-type: none !important;
+  margin: 0;
+  position: relative;
+}
+
+.splide__slide img {
+  vertical-align: bottom;
+}
+
+.splide__spinner {
+  -webkit-animation: splide-loading 1s infinite linear;
+          animation: splide-loading 1s infinite linear;
+  border: 2px solid #999;
+  border-left-color: transparent;
+  border-radius: 50%;
+  bottom: 0;
+  contain: strict;
+  display: inline-block;
+  height: 20px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20px;
+}
+
+.splide__sr {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.splide__toggle__pause {
+  display: none;
+}
+
+.splide__toggle.is-active .splide__toggle__play {
+  display: none;
+}
+
+.splide__toggle.is-active .splide__toggle__pause {
+  display: inline;
+}
+
+.splide__track {
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+/*------------------------------------*\
+    #S24 customisation of Splide carousel
+\*------------------------------------*/
+[data-component=carousel] {
+  margin-bottom: 6rem;
+}
+
+.splide__arrow {
+  min-width: auto;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 1;
+}
+
+.splide__arrow--prev {
+  left: 0;
+}
+.splide__arrow--prev svg {
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+.splide__arrow--next {
+  right: 0;
+}
+
+.splide__arrow svg {
+  height: 2rem;
+  width: 2rem;
+}
+
+.splide__pagination {
+  bottom: -3.125rem;
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 100%;
+}
+
+.splide__pagination__page {
+  background-color: transparent;
+  border-color: transparent;
+  height: 2.75rem;
+  min-width: auto;
+  position: relative;
+  width: 2.75rem;
+}
+.splide__pagination__page:hover, .splide__pagination__page:focus {
+  background-color: transparent;
+  border-color: transparent;
+}
+.splide__pagination__page:focus-visible {
+  background-color: #ffdc00;
+  background-image: none;
+  border-color: #000;
+}
+.splide__pagination__page::after {
+  background-color: #0d599b;
+  border-radius: 50%;
+  content: "";
+  height: 0.875rem;
+  position: absolute;
+  width: 0.875rem;
+}
+.splide__pagination__page[aria-selected=true]::after {
+  background-color: transparent;
+  border: solid 2px #0d599b;
+}
+
+/**
+ * The tablist
+ */
+[role=tablist] {
+  border-bottom: 1px solid lightgray;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+[role=tablist] * {
+  box-sizing: border-box;
+}
+
+/**
+ * The tablist item
+ */
+@media (min-width: 30em) {
+  [role=tablist] li {
+    display: inline-block;
+  }
+}
+
+/**
+ * The tabs
+ */
+[role=tab] {
+  border: 1px solid transparent;
+  border-top-color: lightgray;
+  display: block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  /**
+   * Active tab styling
+   */
+  /**
+   * Tabs on hover
+   */
+}
+@media (min-width: 30em) {
+  [role=tab] {
+    border-top-color: transparent;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    display: inline-block;
+    margin-bottom: -1px;
+  }
+}
+[role=tab][aria-selected=true] {
+  background-color: lightgray;
+}
+@media (min-width: 30em) {
+  [role=tab][aria-selected=true] {
+    background-color: transparent;
+    border: 1px solid lightgray;
+    border-bottom-color: #ffffff;
+  }
+}
+[role=tab]:hover:not([aria-selected=true]) {
+  background-color: #f7f7f7;
+}
+@media (min-width: 30em) {
+  [role=tab]:hover:not([aria-selected=true]) {
+    border: 1px solid lightgray;
+  }
+}
+
+/**
+ * [hidden] fallback for IE10 and lower
+ */
+[hidden] {
+  display: none;
+}
+
+/*------------------------------------*\
+    #S24 tabby overrides
+
+	1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent things like buttons and links
+    from stretching horizontally
+\*------------------------------------*/
+.component--tabs [role=tablist] {
+  border-bottom: solid 1px #bdbdbd;
+  display: flex;
+  flex-flow: row nowrap;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 0 1.5rem;
+}
+.component--tabs [role=tablist] li {
+  flex-shrink: 0;
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+}
+.component--tabs [role=tablist] li + li {
+  margin-left: 1.5rem;
+}
+
+[dir=rtl] .component--tabs [role=tablist] li + li {
+  margin-left: 0;
+  margin-right: 1.5rem;
+}
+
+.component--tabs a[role=tab] {
+  background-color: #bdbdbd;
+  border: 0;
+  border-radius: 0;
+  border-bottom: solid 0.1875rem transparent;
+  color: #252525;
+  display: block;
+  margin-bottom: 0;
+  padding: 0.625em 0.9375em;
+}
+.component--tabs a[role=tab]:hover {
+  background-color: #bdbdbd;
+  border: 0;
+  border-bottom: solid 0.1875rem #bdbdbd;
+  color: #252525;
+}
+.component--tabs a[role=tab]:focus, .component--tabs a[role=tab][aria-selected=true] {
+  background-color: #bdbdbd;
+  border-bottom: solid 0.1875rem #235bd1;
+  outline: none;
+  text-decoration: none;
+}
+
+.component--tabs [role=tabpanel] {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; /* 1 */
+  padding: 1.5rem;
+}
+.component--tabs [role=tabpanel] > * + * {
+  margin-top: 1em;
+}

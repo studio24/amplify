@@ -1,0 +1,271 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Simple cards - Amplify</title>
+
+	<link rel="stylesheet" href="/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="/styles/print.css" media="print"/>
+
+	<script src="/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="not-footer">
+    <a href="#main" class="skip-link">Skip to content</a>
+    <header class="global-header">
+    <div class="l-center">
+        <a class="global-header__link" href="/">Amplify from Studio 24</a>
+    </div>
+</header>
+<nav class="global-nav" aria-label="Main">
+    <div class="l-center">
+        <div class="l-cluster">
+            <ul class="clean-list">
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/get-started/" 
+                    >
+                    Get Started
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/fundamentals/" 
+                    >
+                    Fundamentals
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/core-components/" 
+                    >
+                    Core components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/advanced-components/" 
+                    >
+                    Advanced components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/design/" 
+                    >
+                    Design handover &amp; standards
+                </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+	<main id="main">
+		<div class="content-wrap">
+    <nav class="sidebar nav-secondary" aria-label="Secondary">
+    <ul class="clean-list" role="list">
+        
+        
+            <li>
+                <a href="/core-components/video-component/" class="nav-secondary__link"
+                >
+                    Video component
+                </a>
+            </li>
+        
+            <li>
+                <a href="/core-components/text-component/" class="nav-secondary__link"
+                >
+                    Text component
+                </a>
+            </li>
+        
+            <li>
+                <a href="/core-components/tag-list/" class="nav-secondary__link"
+                >
+                    Tag list
+                </a>
+            </li>
+        
+            <li>
+                <a href="/core-components/sticky-footer/" class="nav-secondary__link"
+                >
+                    Sticky footer
+                </a>
+            </li>
+        
+            <li>
+                <a href="/core-components/shelves/" class="nav-secondary__link"
+                >
+                    Shelves
+                </a>
+            </li>
+        
+            <li>
+                <a href="/core-components/quote-component/" class="nav-secondary__link"
+                >
+                    Quote component
+                </a>
+            </li>
+        
+            <li>
+                <a href="/core-components/progress-indicator/" class="nav-secondary__link"
+                >
+                    Progress indicator
+                </a>
+            </li>
+        
+            <li>
+                <a href="/core-components/pagination/" class="nav-secondary__link"
+                >
+                    Pagination
+                </a>
+            </li>
+        
+            <li>
+                <a href="/core-components/notes/" class="nav-secondary__link"
+                >
+                    Notes
+                </a>
+            </li>
+        
+            <li>
+                <a href="/core-components/main/" class="nav-secondary__link"
+                >
+                    Main
+                </a>
+            </li>
+        
+            <li>
+                <a href="/core-components/image-component/" class="nav-secondary__link"
+                >
+                    Image Component
+                </a>
+            </li>
+        
+            <li>
+                <a href="/core-components/simple-cards/" class="nav-secondary__link"
+                
+                    aria-current="page"
+                >
+                    Simple cards
+                </a>
+            </li>
+        
+            <li>
+                <a href="/core-components/breadcrumbs/" class="nav-secondary__link"
+                >
+                    Breadcrumbs
+                </a>
+            </li>
+        
+            <li>
+                <a href="/core-components/avatars/" class="nav-secondary__link"
+                >
+                    Avatars
+                </a>
+            </li>
+        
+        
+    </ul>
+</nav>
+    <div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+    <div>
+        <h1>Simple cards</h1>
+        <div class="component component--text">
+            <p>Cards are used in multiple places. Although the visual appearance may vary, they share two general patterns:</p>
+<ol>
+<li>Simple cards (covered here) with a distinct link that can be selected</li>
+<li><a href="https://amplify.studio24.net/amplify/advanced-components/cards.html">Block link cards</a>, where JavaScript is used to make the entire surface area act as a link</li>
+</ol>
+<p>For both types of card, it is important to check that the heading level used fits in with the card's location in the page content hierarchy.</p>
+<p>For arranging groups of cards you can use the <a href="https://amplify.studio24.net/amplify/layout-helpers/switcher.html">switcher layout helper</a> or <a href="https://amplify.studio24.net/amplify/core-components/shelves.html">shelves component</a> depending on your requirements.</p>
+<h2>A simple card</h2>
+<h3>Cats and the Internet</h3>
+<p>Examining the popularity of cat-related media content online.</p>
+<p><a href="https://en.wikipedia.org/wiki/Cats_and_the_Internet">Cats and the Internet: Read more</a></p>
+<p><img src="https://amplify.studio24.net/dist/images/jpg-cat-1.jpg" alt=""></p>
+<h2>Considerations</h2>
+<p>Note the use of the <a href="https://amplify.studio24.net/amplify/layout-helpers/frame.html">frame layout helper</a> for the card image and the <a href="https://amplify.studio24.net/amplify/layout-helpers/box.html">box layout helper</a> for the card text.</p>
+<p>In the markup, the card text is first in the source order to prioritise it over the image. Flexbox is used to place the image ahead of the card text visually, via the <code>order</code> property.</p>
+<p>Where generic link text is used visually, this is enhanced for Assistive Technology users with the <code>span class=&quot;visuallyhidden&quot;</code> providing descriptive link text to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-link-only.html">WCAG Success Criterion 2.4.9: Link Purpose (Link Only) (AAA)</a>.</p>
+<h3>Neat cards</h3>
+<p>If the design calls for a row of cards of equal height, irrespective of the amount of text content, you can add the <code>card--neat</code> modifier class to the cards. This forces the card to take up 100% of the height of the parent container. It will also push the last child element in the text region to the bottom edge. You can see this in action on the <a href="https://amplify.studio24.net/amplify/index.html">Amplify home page</a>.</p>
+
+        </div>
+    </div>
+</div>
+	</main>
+</div>
+<footer class="global-footer">
+    <div class="l-center">
+        &copy; Studio 24
+    </div>
+</footer>
+<script>
+    if (document.documentElement.classList.contains('js')) {
+        var jsAutocompleteCountry = document.createElement('script');
+        jsAutocompleteCountry.src = '/js/country-Autocomplete.js';
+        document.querySelector('body').appendChild(jsAutocompleteCountry);
+    }
+</script>
+
+</body>
+
+</html>

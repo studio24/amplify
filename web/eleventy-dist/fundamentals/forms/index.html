@@ -1,0 +1,395 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Forms - Amplify</title>
+
+	<link rel="stylesheet" href="/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="/styles/print.css" media="print"/>
+
+	<script src="/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="not-footer">
+    <a href="#main" class="skip-link">Skip to content</a>
+    <header class="global-header">
+    <div class="l-center">
+        <a class="global-header__link" href="/">Amplify from Studio 24</a>
+    </div>
+</header>
+<nav class="global-nav" aria-label="Main">
+    <div class="l-center">
+        <div class="l-cluster">
+            <ul class="clean-list">
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/get-started/" 
+                    >
+                    Get Started
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/fundamentals/" 
+                    >
+                    Fundamentals
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/core-components/" 
+                    >
+                    Core components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/advanced-components/" 
+                    >
+                    Advanced components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/design/" 
+                    >
+                    Design handover &amp; standards
+                </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+	<main id="main">
+		<div class="content-wrap">
+    <nav class="sidebar nav-secondary" aria-label="Secondary">
+    <ul class="clean-list" role="list">
+        
+        
+            <li>
+                <a href="/fundamentals/colours/" class="nav-secondary__link"
+                >
+                    Colours
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/typography/" class="nav-secondary__link"
+                >
+                    Typography
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/buttons/" class="nav-secondary__link"
+                >
+                    Buttons
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/lists/" class="nav-secondary__link"
+                >
+                    Lists
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/icons/" class="nav-secondary__link"
+                >
+                    Icons
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/breakpoints/" class="nav-secondary__link"
+                >
+                    Breakpoints
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/vertical-spacing/" class="nav-secondary__link"
+                >
+                    Vertical spacing
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/hide-and-show/" class="nav-secondary__link"
+                >
+                    Hide and show items inclusively
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/skip-link/" class="nav-secondary__link"
+                >
+                    Skip link
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/images/" class="nav-secondary__link"
+                >
+                    Images
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/forms/" class="nav-secondary__link"
+                
+                    aria-current="page"
+                >
+                    Forms
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/form-errors/" class="nav-secondary__link"
+                >
+                    Form error messages
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/tables/" class="nav-secondary__link"
+                >
+                    Tables
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/details-summary/" class="nav-secondary__link"
+                >
+                    Details and summary
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/utility-classes/" class="nav-secondary__link"
+                >
+                    Utility Classes
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/flow-elements/" class="nav-secondary__link"
+                >
+                    Flow elements
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/print-styles/" class="nav-secondary__link"
+                >
+                    Print styles
+                </a>
+            </li>
+        
+        
+    </ul>
+</nav>
+    <div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+    <div>
+        <h1>Forms</h1>
+        <div class="component component--text">
+            <p>The examples on this page show how we manage forms and their fields, and their default styles. Recommendations are based on Adam Silver's article <a href="https://adamsilver.io/blog/form-design-from-zero-to-hero-all-in-one-blog-post/">Form design: from zero to hero all in one blog post</a> and the <a href="https://design-system.service.gov.uk/components/">GOV.UK design system</a>.</p>
+<p>An <a href="https://amplify.studio24.net/amplify/core-components/search.html">example search form</a> is available in <a href="https://amplify.studio24.net/amplify/core-components">core components</a>.</p>
+<p><a href="https://amplify.studio24.net/amplify/fundamentals/form-errors.html">Form error messages</a> are covered separately.</p>
+<h2>Top tips</h2>
+<ul>
+<li>Every <code>input</code> needs a <code>label</code>. Do not wrap inputs in labels, put labels above the input.</li>
+<li>Do not use the <code>placeholder</code> attribute on <code>input</code> fields.</li>
+<li>Use <a href="https://amplify.studio24.net/amplify/fundamentals/forms.html#fixed-width-inputs">fixed width inputs</a> for content that has a specific, known length. Postcode inputs should be postcode-sized, telephone number inputs should be telephone number-sized.</li>
+<li>Make form fields look like form fields: apply a border and make sure they are empty to begin with. A minimum height of 44 pixels makes them easy to tap on touch screen devices.</li>
+<li>Make sure any <code>button</code> looks like a button. Align them to the left edge of the last input (the right edge for right-to-left languages) where users naturally look for them. Use a verb for button text because the user is doing something, and relate it to what they are doing - avoid generic 'Submit' buttons.</li>
+<li><a href="https://www.youtube.com/watch?v=CUkMCQR4TpY">The <code>select</code> element should be a last resort</a> as they're really hard to use. Try radio buttons instead. If there's a long list of options, use JavaScript to enhance the <code>select</code> into an <a href="https://amplify.studio24.net/amplify/advanced-components/accessible-autocomplete.html">accessible auto-complete field</a> (not to be confused with the <code>autocomplete</code> attribute).</li>
+<li>If you have to use a <code>select</code>, don't submit a form when its value changes. Select boxes that submit the form automatically when the user selects an option cause problems for keyboard and screen reader users.</li>
+</ul>
+<h3>Required fields</h3>
+<p>It is best practice to only ask questions that are strictly necessary.</p>
+<p>In the event that a form contains both optional and required fields, to clearly identify the required fields to all users add <code>span class=&quot;required&quot;&gt;(Required)&lt;/span</code> within the <code>label</code>.</p>
+<h3>How to add hint text</h3>
+<p>To provide hint text advising how to complete a field, add a <code>div class=&quot;field-hint&quot;</code>. Check the examples that follow to see where this should be added. The pattern differs slightly for checkbox and radio inputs compared to other input types.</p>
+<p>Each instance of <code>div class=&quot;field-hint&quot;</code> must have a unique ID that is used as the value of the <code>aria-describedby</code> attribute that must be added to the associated <code>input</code>.</p>
+<p>Use the pattern <code>id=&quot;hint-...</code>, replacing the <code>...</code> with your unique wording.</p>
+<p>Provide hint text when users are more likely to make a mistake, such as when having to satisfy a complex set of password rules. Error messages should be a last resort. Keep hint text brief and to the point. Do not use long paragraphs and lists.</p>
+<h2>Dealing with text</h2>
+<p>Name (Required)</p>
+<p>E.g. Robin Smith</p>
+<p>Email</p>
+<p>E.g. robin.smith@example.co.uk</p>
+<p>Website address</p>
+<p>Password</p>
+<p>Must contain 8+ characters with at least 1 number</p>
+<p>Your message</p>
+<h3>How to make filling in text fields easier</h3>
+<p>Use the relevant input <code>type</code> when asking for email addresses, URLs and passwords.</p>
+<p>Adding the <code>autocomplete</code> attribute to common fields such as name, address, email etc. can help to speed up the form filling process for users. Here is a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#Values">list of valid autocomplete values</a>.</p>
+<p>Use <code>autocapitalize=&quot;none&quot;</code>, <code>autocorrect=&quot;off&quot;</code> and <code>spellcheck=&quot;false&quot;</code> to stop browsers automatically changing user input on fields that expect grammatically incorrect data, such as email addresses and passwords.</p>
+<h2>Dealing with numbers</h2>
+<p>Account number</p>
+<p>Must be between 6 and 8 numbers long</p>
+<p>Phone number</p>
+<p>Please include your country code</p>
+<p>Number of guest tickets required</p>
+<h3>How to make filling in number fields easier</h3>
+<p>In many cases, it's better to use <code>input type=&quot;text&quot; pattern=&quot;[0-9]*&quot; inputmode=&quot;numeric&quot;</code> rather than <code>input type=&quot;number&quot;</code> when dealing with numbers. Adam Silver has written about <a href="https://adamsilver.io/articles/form-design-when-to-use-the-number-input/">when to use the number input</a>.</p>
+<p>For telephone numbers, use the <code>type=&quot;tel&quot;</code> and <code>inputmode=&quot;tel&quot;</code> attributes on the <code>input</code>.</p>
+<p>When asking for payment details, including the <code>autocomplete</code> attribute can help users complete their responses more quickly. Older browsers make use of the <code>name</code> attribute to achieve the same thing. Here is a list of <a href="https://www.smashingmagazine.com/2017/03/improve-billing-form-ux/">payment autofill attributes</a>.</p>
+<h2>Dealing with dates and times</h2>
+<p>Date of arrival</p>
+<p>For example 30/05/2021</p>
+<p>Date of birth (an example of a memorable date)</p>
+<p>For example 20 07 1972</p>
+<p>Day</p>
+<p>Month</p>
+<p>Year</p>
+<p>Specify a start time for your meeting</p>
+<p>Use UTC and your local time zone</p>
+<p>Start time</p>
+<p>Time zone</p>
+<h3>How to make providing dates and times easier</h3>
+<p>For dates that the user will already know (e.g. birth dates) and dates that are easy to look up, use a series of simple text inputs. Note the use of <code>fieldset</code> and <code>legend</code> to group the separate text inputs together.</p>
+<p>For other dates, due to inconsistencies with how different browsers and Assistive Technologies interpret <code>input type=&quot;date&quot;</code>, the current recommendation is to use a simple text input. Provide <a href="https://amplify.studio24.net/amplify/fundamentals/forms.html#how-to-add-hint-text">hint text</a> to let users know what format to use.</p>
+<p>Again, due to inconsistencies with how different browsers and Assistive Technologies interpret <code>input type=&quot;time&quot;</code>, it is strongly recommended to use a simple text input. The preceding example includes a <code>select</code> to help users specify a local timezone.</p>
+<h2>File input</h2>
+<p>Choose a file</p>
+<h2>Checkboxes</h2>
+<p>Things you like</p>
+<p>Select all that apply.</p>
+<p>Chocolate</p>
+<p>Coffee</p>
+<p>Cake</p>
+<p>Chips</p>
+<p>Fries or frites, not crisps.</p>
+<h3>How to make checkboxes easier to use</h3>
+<p>Always position checkboxes to the left of their labels (to the right for right-to-left languages). This makes them easier to find, especially for users of screen magnifiers.</p>
+<p>If required, hint text can be added for the entire checkbox group and/or for individual checkbox items. The preceding example shows how to do this.</p>
+<h2>Radios</h2>
+<p>Have you changed your name?</p>
+<p>This includes changing your family name or spelling your name differently.</p>
+<p>Yes</p>
+<p>No</p>
+<p>Hint text for this radio item would go here.</p>
+<h3>How to make radios easier to use</h3>
+<p>Always position radios to the left of their labels (to the right for right-to-left languages). This makes them easier to find, especially for users of screen magnifiers.</p>
+<p>Radio buttons cannot be unchecked once they are selected. So if the question is not mandatory, you'll need to include a 'None' or 'Prefer not to say' option.</p>
+<p>If required, hint text can be added for the entire radio group and/or for individual radio items. The preceding example shows how to do this.</p>
+<h2>Segmented options</h2>
+<p>Segmented options (Radio)</p>
+<p>We understand that different people enjoy books in different ways, which is why we're giving you lots of options.</p>
+<p>Budget option Copy to explain this option in more detail.</p>
+<p>Value option Copy to explain this option in more detail.</p>
+<p>Expensive option Copy to explain this option in more detail.</p>
+<p>The purpose of segmented options is to show all available options outright, rather than hiding them behind a <code>select</code>. It can be used with either checkboxes, or with radio buttons as in the preceding example.</p>
+<p>The basis of this pattern is the <a href="https://amplify.studio24.net/amplify/layout-helpers/switcher.html">switcher layout</a>. The default styles assume that there are three choices and are optimised for this. In the event of fewer or more choices, you can override the default <code>min-width</code> percentage by applying an additional class.</p>
+<h2>Select</h2>
+<p>Sort by</p>
+<h3>Considerations</h3>
+<p>The <code>select</code> element should be a last resort as they're really hard to use. Before using it, try asking users questions which will allow you to present them with fewer options. This should lessen the need for the <code>select</code> element, which could be replaced with e.g. radios.</p>
+<p>If using the <code>select</code> element to determine a change in browsing context (e.g. change to a map display or redirect to a different URL) it <strong>must</strong> be accompanied by a submit button, so that users can confirm their choice and make a correction if needed.</p>
+<h3>Accessible auto-complete</h3>
+<p>A <code>select</code> can be enhanced into an <a href="https://amplify.studio24.net/amplify/advanced-components/accessible-autocomplete.html">accessible auto-complete</a> via JavaScript. Amplify uses the <a href="https://github.com/alphagov/accessible-autocomplete">Accessible autocomplete</a> NPM package, and there are a number of <a href="https://alphagov.github.io/accessible-autocomplete/examples/">example customisations</a> which can be followed.</p>
+<h2>Grouping inputs to line up side-by-side</h2>
+<p>The class <code>input-group</code> can be used to align form inputs horizontally with each other, by applying Flexbox behaviour. You can see an example of this in the preceding example for <a href="https://amplify.studio24.net/amplify/fundamentals/forms.html#dealing-with-dates-and-times">dealing with times</a>.</p>
+<h3>Considerations</h3>
+<p>This class should not be used in conjunction with radios or checkboxes. The pattern has not been fully tested with these input types and may not work well on smaller viewports. Furthermore, radios and checkboxes are easier to read and quicker to scan when presented vertically.</p>
+<h2>Fixed-width inputs</h2>
+<p>There is a collection of CSS classes prefixed with <code>input-width-</code> which, when added to an <code>input</code>, will reduce the maximum width of the input field to better suit the intended contents:</p>
+<p>30 character width</p>
+<p>20 character width</p>
+<p>10 character width</p>
+<p>5 character width</p>
+<p>4 character width</p>
+<p>3 character width</p>
+<p>2 character width</p>
+<h2>Form validation</h2>
+<p>The best practice is to validate a form on submission. It is recommended to <a href="https://adrianroselli.com/2019/02/avoid-default-field-validation.html">avoid default HTML5 form validation</a>. To turn this off, add the <code>novalidate</code> attribute to the <code>form</code> element.</p>
+<p>It is strongly recommended to visit the GOV.UK Design system for <a href="https://design-system.service.gov.uk/patterns/validation/#client-side-and-server-side-validation">more details about form validation</a>.</p>
+<h3>Client side validation</h3>
+<p>If client side validation is required, here are some suggested JavaScript libraries:</p>
+<ul>
+<li><a href="https://parsleyjs.org/">Parsley</a></li>
+<li><a href="https://pristine.js.org/">PristineJS</a></li>
+</ul>
+<p>Alternatively, you could roll your own thanks to <a href="https://css-tricks.com/form-validation-part-1-constraint-validation-html/">Chris Ferdinandi's series on form validation</a>.</p>
+
+        </div>
+    </div>
+</div>
+	</main>
+</div>
+<footer class="global-footer">
+    <div class="l-center">
+        &copy; Studio 24
+    </div>
+</footer>
+<script>
+    if (document.documentElement.classList.contains('js')) {
+        var jsAutocompleteCountry = document.createElement('script');
+        jsAutocompleteCountry.src = '/js/country-Autocomplete.js';
+        document.querySelector('body').appendChild(jsAutocompleteCountry);
+    }
+</script>
+
+</body>
+
+</html>

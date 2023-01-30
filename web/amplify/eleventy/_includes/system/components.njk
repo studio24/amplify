@@ -1,0 +1,24 @@
+{%- macro pageComponents(target) -%}
+{% from "./component.njk" import component %}
+{%- for key, item in target -%}
+
+{%- if item.type and item.name and item.data  -%}
+
+    {{ component(item.type, item.name, item.data) }}
+
+    {%- if item | length <= 1 -%}
+        {%- for childKey, child in item -%}
+            {{ component(child.type, child.name, child.data) }}
+        {%- endfor -%}
+    {%- endif -%}
+
+{%- else -%}
+
+    {%- for childKey, child in item -%}
+        {{ component(child.type, child.name, child.data) }}
+    {%- endfor -%}
+
+{%- endif -%}
+
+{%- endfor -%}
+{%- endmacro -%}

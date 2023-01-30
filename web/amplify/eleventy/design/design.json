@@ -1,0 +1,5 @@
+{
+    "layout": "page.njk",
+    "tags": "design",
+    "templateEngineOverride": "njk, md"
+}

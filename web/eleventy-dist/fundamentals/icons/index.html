@@ -1,0 +1,293 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Icons - Amplify</title>
+
+	<link rel="stylesheet" href="/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="/styles/print.css" media="print"/>
+
+	<script src="/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="not-footer">
+    <a href="#main" class="skip-link">Skip to content</a>
+    <header class="global-header">
+    <div class="l-center">
+        <a class="global-header__link" href="/">Amplify from Studio 24</a>
+    </div>
+</header>
+<nav class="global-nav" aria-label="Main">
+    <div class="l-center">
+        <div class="l-cluster">
+            <ul class="clean-list">
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/get-started/" 
+                    >
+                    Get Started
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/fundamentals/" 
+                    >
+                    Fundamentals
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/core-components/" 
+                    >
+                    Core components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/advanced-components/" 
+                    >
+                    Advanced components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/design/" 
+                    >
+                    Design handover &amp; standards
+                </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+	<main id="main">
+		<div class="content-wrap">
+    <nav class="sidebar nav-secondary" aria-label="Secondary">
+    <ul class="clean-list" role="list">
+        
+        
+            <li>
+                <a href="/fundamentals/colours/" class="nav-secondary__link"
+                >
+                    Colours
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/typography/" class="nav-secondary__link"
+                >
+                    Typography
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/buttons/" class="nav-secondary__link"
+                >
+                    Buttons
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/lists/" class="nav-secondary__link"
+                >
+                    Lists
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/icons/" class="nav-secondary__link"
+                
+                    aria-current="page"
+                >
+                    Icons
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/breakpoints/" class="nav-secondary__link"
+                >
+                    Breakpoints
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/vertical-spacing/" class="nav-secondary__link"
+                >
+                    Vertical spacing
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/hide-and-show/" class="nav-secondary__link"
+                >
+                    Hide and show items inclusively
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/skip-link/" class="nav-secondary__link"
+                >
+                    Skip link
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/images/" class="nav-secondary__link"
+                >
+                    Images
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/forms/" class="nav-secondary__link"
+                >
+                    Forms
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/form-errors/" class="nav-secondary__link"
+                >
+                    Form error messages
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/tables/" class="nav-secondary__link"
+                >
+                    Tables
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/details-summary/" class="nav-secondary__link"
+                >
+                    Details and summary
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/utility-classes/" class="nav-secondary__link"
+                >
+                    Utility Classes
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/flow-elements/" class="nav-secondary__link"
+                >
+                    Flow elements
+                </a>
+            </li>
+        
+            <li>
+                <a href="/fundamentals/print-styles/" class="nav-secondary__link"
+                >
+                    Print styles
+                </a>
+            </li>
+        
+        
+    </ul>
+</nav>
+    <div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+    <div>
+        <h1>Icons</h1>
+        <div class="component component--text">
+            <p>The default <code>icon</code> class uses the relative em unit and is ideal for using icons inline with text, adapting the icon size to the font size of the parent element. The default size is <code>0.75em</code> which works well with custom SVGs and <a href="https://fonts.google.com/icons?selected=Material+Icons">Material Design icons</a>. If your project calls for using <a href="https://github.com/FortAwesome/Font-Awesome">Font Awesome icons</a> you may want to bump this up to <code>1em</code>.</p>
+<p>For SVG icons, always include width and height attributes as part of the markup to stop them from expanding to fill the whole page if the CSS doesn't load. Setting <code>fill=&quot;currentColor&quot;</code> will make sure that an icon within a link or button picks up it's colour from the link or button styles - including hover and focus states. This dynamic colour change makes SVG icons easier to manage if branding needs to change in the future.</p>
+<p>The icon can easily sit before or after the text, using natural word spacing:</p>
+<p>Pets</p>
+<p>Pets</p>
+<h2>Controlling icon spacing</h2>
+<p>If you want control over the amount of space between the icon and text, add either the <code>with-icon--before</code> or <code>with-icon--after</code> class to the parent element. This applies inline-flex and alignment styles to help things line up nicely, and uses margin for the spacing. It also handles right-to-left text if applicable. Choose the class which reflects the correct order of icon and text.</p>
+<h2>Icon sizing</h2>
+<p>If you need more control over the size of the icon, use a similar approach to that used for <a href="https://amplify.studio24.net/amplify/fundamentals/typography.html">font sizing</a>. Amplify includes the <code>icon--24</code> class, which uses the <code>rem</code> unit for an icon equivalent to 24px width/height. If the design calls for additional size options, create classes in 30-base/_icons.scss using the prefix <code>**icon-**</code> followed by a number representing the font size in pixels.</p>
+<h2>Inline SVGs and SVG sprites</h2>
+<p>The preceding examples show how to include icons as inline SVGs. The benefits of doing this are:</p>
+<ul>
+<li>It eliminates a separate HTTP request</li>
+<li>SVGs added as background images as part of an icon font may not show properly for high contrast mode users</li>
+<li>We have full CSS control of the SVG in terms of colour, animations/transitions and manipulating paths.</li>
+</ul>
+<p>However, inline SVGs are not cached. An alternative is to <a href="https://css-tricks.com/svg-use-with-external-reference-take-2/">use the <code>use</code> element of SVG to reference code from an external file</a>, which the browser can cache. <a href="https://tympanus.net/codrops/2015/07/16/styling-svg-use-content-css/">CSS styling is still possible</a>, although it has some limitations - be sure to add an extra class and target this in the CSS.</p>
+<h3>Considerations for Internet Explorer</h3>
+<p>There is no Internet Explorer support for using SVGs with <code>use</code> and an external source. A JavaScript workaround - <a href="https://github.com/jonathantneal/svg4everybody">SVG for Everybody</a> - is available if support for this browser is important, but in this scenario it's simpler to just use inline SVGs.</p>
+
+        </div>
+    </div>
+</div>
+	</main>
+</div>
+<footer class="global-footer">
+    <div class="l-center">
+        &copy; Studio 24
+    </div>
+</footer>
+<script>
+    if (document.documentElement.classList.contains('js')) {
+        var jsAutocompleteCountry = document.createElement('script');
+        jsAutocompleteCountry.src = '/js/country-Autocomplete.js';
+        document.querySelector('body').appendChild(jsAutocompleteCountry);
+    }
+</script>
+
+</body>
+
+</html>

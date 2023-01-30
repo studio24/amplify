@@ -1,0 +1,41 @@
+{%- if params.isExample -%}
+<div class="example">
+    {%- if not params.disabled -%}
+    <button class="button
+    {%- if params.type -%}
+        {%- if params.type === 'alt' -%}
+        button--alt
+        {%- elif params.type === 'wide' -%}
+        button--wide
+        {%- elif params.type === 'wide-alt' -%}
+        button--alt button--wide
+        {%- elif params.type === 'ghost' -%}
+        button--ghost
+        {%- endif %}
+    {%- endif %}">
+    {{ params.text }}
+    </button>
+    {%- else -%}
+    <button class="button" disabled>{{ params.text }}</button>
+    {%- endif -%}
+</div>
+{%- else -%}
+{%- if not params.disabled -%}
+<button class="button
+{%- if params.type -%}
+    {%- if params.type === 'alt' -%}
+    button--alt
+    {%- elif params.type === 'wide' -%}
+    button--wide
+    {%- elif params.type === 'wide-alt' -%}
+    button--alt button--wide
+    {%- elif params.type === 'ghost' -%}
+    button--ghost
+    {%- endif %}
+{%- endif %}">
+{{ params.text }}
+</button>
+{%- else -%}
+<button class="button" disabled>{{ params.text }}</button>
+{%- endif -%}
+{%- endif -%}

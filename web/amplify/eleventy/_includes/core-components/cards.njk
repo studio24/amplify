@@ -1,0 +1,58 @@
+<div class="component">
+    {%- if params.cards -%}
+    <div class="l-switcher{% if params.extraClass %} {{ params.extraClass }}{% endif %}">
+        <div>
+            {%- for key, card in params.cards -%}
+            <div>
+                <div class="card{% if params.type %} card--{{ params.type }}{% endif %}">
+                    {%- if card.heading or card.body -%}
+                    <div class="{% if card.boxType %}l-box l-box--{{ card.boxType }} {% endif %}card__text">
+                        <h2 class="card__heading">{{ card.heading }}</h2>
+                        {{ card.body | safe }}
+                        {%- if card.link -%}
+                        <a href="{{ card.link.url }}" 
+                        {%- if card.link.type -%}
+                            class="{{ card.link.type }}"
+                        {%- endif -%}
+                        >
+                            {%- if card.link.name -%}
+                                <span class="visuallyhidden">{{ card.link.name }}:</span>
+                            {%- endif -%}
+                            {{ card.link.text }}
+                        </a>
+                        {%- endif -%}
+                    </div>
+                    {%- endif -%}
+                    {%- if card.image -%}
+                    <div class="{% if card.image.frameType %}l-frame l-frame--{{ card.image.frameType }}{% endif %}card__image">
+                        <img src="{{ card.image.url }}" alt="{{ card.image.altText }}" loading="lazy">
+                    </div>
+                    {%- endif -%}
+                </div>
+            </div>
+            {%- endfor -%}
+        </div>
+    </div>
+    {%- else -%}
+    <div class="card{% if params.type %} card--{{ params.type }}{% endif %}">
+        {%- if params.heading or params.body -%}
+            <div class="card__text">
+                {%- if params.heading -%}
+                    <h3 class="card__heading">{{ params.heading }}</h3>
+                {%- endif -%}
+                {%- if params.body -%}
+                    {{ params.body | safe }}
+                {%- endif -%}
+                {%- if params.link -%}
+                <a href="{{ params.link.url }}">{{ params.link.text }}</a>
+                {%- endif -%}
+            </div>
+            {%- if params.image -%}
+            <div class="card__image">
+                <img src="{{ params.image.url }}" alt="{{ params.image.altText }}" loading="lazy" />
+            </div>
+            {%- endif -%}
+        {%- endif -%}
+    </div>
+    {%- endif -%}
+</div>
