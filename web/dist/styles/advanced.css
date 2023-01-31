@@ -297,7 +297,8 @@ br {
 }
 
 [data-toggle=true] + * {
-  margin-top: 1rem;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
 }
 
 /*------------------------------------*\
