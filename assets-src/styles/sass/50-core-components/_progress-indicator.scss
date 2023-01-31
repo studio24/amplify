@@ -127,7 +127,7 @@
 	&::after {
 		block-size: rem(9);
 		border: solid;
-		border-top-color: transparent;
+		border-block-start-color: transparent;
 		border-width: 0 0 3px 3px;
 		inline-size: rem(18);
 		inset-block-start: rem(13);

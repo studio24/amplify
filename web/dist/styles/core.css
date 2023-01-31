@@ -1667,7 +1667,7 @@ Error styles
   background: transparent;
   block-size: 0.40625rem;
   border: solid;
-  border-top-color: transparent;
+  border-block-start-color: transparent;
   border-width: 0 0 3px 3px;
   inline-size: 0.75rem;
   inset-block-start: 0.9375rem;
@@ -1771,7 +1771,7 @@ Error styles
   background: transparent;
   block-size: 0.40625rem;
   border: solid;
-  border-top-color: transparent;
+  border-block-start-color: transparent;
   border-width: 0 0 3px 3px;
   inline-size: 0.75rem;
   inset-block-start: 1.0625rem;
@@ -2719,7 +2719,7 @@ main,
 .progress-step__marker.complete::after {
   block-size: 0.5625rem;
   border: solid;
-  border-top-color: transparent;
+  border-block-start-color: transparent;
   border-width: 0 0 3px 3px;
   inline-size: 1.125rem;
   inset-block-start: 0.8125rem;
