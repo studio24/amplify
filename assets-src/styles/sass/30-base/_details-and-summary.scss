@@ -16,6 +16,7 @@ summary {
 	position: relative;
 
 	&::before {
+		block-size: 0;
 		border-color: transparent;
 		border-inline-start-color: inherit;
 		border-style: solid;
@@ -23,13 +24,12 @@ summary {
 		clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
 		content: '';
 		display: block;
-		height: 0;
+		inline-size: 0;
 		inset-block-end: 0;
 		inset-block-start: rem(-1);
 		inset-inline-start: 0;
 		margin: auto;
 		position: absolute;
-		width: 0;
 	}
 
 	&::-webkit-details-marker {

@@ -10,7 +10,7 @@
     The measurements presented here are for guidance only
     and should be updated to reflect the design/content needs.
 
-    1. Sets a max-width for improved readability
+    1. Sets a max-inline-size for improved readability
 \*------------------------------------*/
 /* 1 */
 /*------------------------------------*\
@@ -996,6 +996,7 @@ summary {
   position: relative;
 }
 summary::before {
+  block-size: 0;
   border-color: transparent;
   border-inline-start-color: inherit;
   border-style: solid;
@@ -1004,13 +1005,12 @@ summary::before {
           clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
   content: "";
   display: block;
-  height: 0;
+  inline-size: 0;
   inset-block-end: 0;
   inset-block-start: -0.0625rem;
   inset-inline-start: 0;
   margin: auto;
   position: absolute;
-  width: 0;
 }
 summary::-webkit-details-marker {
   display: none;
@@ -1915,7 +1915,7 @@ Optional select with custom arrow icon matching the SVG used for accessible auto
     From https://absolutely.every-layout.dev/layouts/cover/
 
     `.l-cover` uses Flexbox to vertically center a principal item
-    of content. It is given a min-height value to achieve this
+    of content. It is given a min-block-size value to achieve this
     which could be 100vh, or less.
 
     Horizontal centering of content can be achieved using the `.l-center`
@@ -2067,7 +2067,7 @@ out, but halve it to to account for 'doubling up' at the edges.
     When there is enough horizontal space for them to sit alongside
     each other, they do so. Otherwise they stack vertically. The
     point at which this happens is determined by setting a flex-basis
-    on the sidebar panel and a min-width on the other panel.
+    on the sidebar panel and a min-inline-size on the other panel.
 
     N.B: because this layout uses Flexbox, we can use the `order`
     property on either `.not-sidebar` or `.sidebar` (depending upon
@@ -2104,7 +2104,7 @@ but halve it to to account for 'doubling up' at the edges.
 /**
 Flex-basis determines the ideal width of the `.sidebar`. This can be
 omitted to let the contents of `.sidebar` determine the width of
-`.sidebar` (e.g. an image with a specified max-width).
+`.sidebar` (e.g. an image with a specified max-inline-size).
  */
 .l-sidebar .sidebar {
   display: flex;
@@ -2119,9 +2119,9 @@ omitted to let the contents of `.sidebar` determine the width of
 }
 
 /**
-Min-width determines the point at which `.sidebar` and `.not-sidebar`
-will sit side-by-side rather than vertically. This negates the use of
-a viewport media query.
+The min-inline-size determines the point at which `.sidebar` and `.not-sidebar`
+will sit side-by-side rather than vertically. This negates the use of a viewport
+media query.
  */
 .l-sidebar .not-sidebar {
   display: flex;
@@ -2177,8 +2177,8 @@ a viewport media query.
 
 3. The 690 value matches the desired breakpoint value. The 100% corresponds to
 the width of the columns' parent container. This calculation will create a
-value that's either bigger than the max-width or smaller than the min-width,
-so that either of these properties is applied instead.
+value that's either bigger than the max-inline-size or smaller than the
+min-inline-size, so that either of these properties is applied instead.
  */
 .l-switcher > * > * {
   max-inline-size: 100%; /* 1 */
@@ -3141,14 +3141,14 @@ input[type=search] {
 }
 .amplify .nav-secondary__link[aria-current]::before {
   background-color: #252525;
+  block-size: 1.5rem;
   content: "";
-  height: 1.5rem;
+  inline-size: 4px;
   left: -0.75rem;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  width: 4px;
 }
 .amplify .nav-secondary__link[aria-current]:hover {
   text-decoration: none;
@@ -3198,7 +3198,7 @@ input[type=search] {
 }
 
 .amplify .l-switcher.teasers > * > * {
-  min-width: 33%;
+  min-inline-size: 33%;
   padding: 0.75rem;
 }
 
@@ -3207,7 +3207,7 @@ input[type=search] {
 }
 
 .amplify .search-bar .not-sidebar {
-  min-width: 70%;
+  min-inline-size: 70%;
 }
 
 .amplify .search-bar button {

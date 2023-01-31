@@ -108,13 +108,13 @@
 
 	&::before {
 		background-color: $off-black;
+		block-size: 1.5rem;
 		content: '';
-		height: 1.5rem;
+		inline-size: 4px;
 		left: rem(-12);
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		width: 4px;
 	}
 
 	&:hover {
@@ -168,7 +168,7 @@
 }
 
 .amplify .l-switcher.teasers > * > * {
-	min-width: 33%;
+	min-inline-size: 33%;
 	padding: rem(12);
 }
 
@@ -178,7 +178,7 @@
 
 
 .amplify .search-bar .not-sidebar {
-	min-width: 70%;
+	min-inline-size: 70%;
 }
 
 // To omit the `flex-basis` in this example we haven't used the `.sidebar` class

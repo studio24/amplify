@@ -10,7 +10,7 @@
     The measurements presented here are for guidance only
     and should be updated to reflect the design/content needs.
 
-    1. Sets a max-width for improved readability
+    1. Sets a max-inline-size for improved readability
 \*------------------------------------*/
 /* 1 */
 /*------------------------------------*\
@@ -212,9 +212,9 @@ br {
 
 .js [data-heading=collapsibles] button {
   align-items: flex-start;
+  block-size: 100%;
   flex-direction: column;
   padding: 1.5625rem;
-  width: 100%;
 }
 .js [data-heading=collapsibles] button .js-collapsible-heading {
   font-size: 1.25rem;

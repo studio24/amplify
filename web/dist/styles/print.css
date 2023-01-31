@@ -434,9 +434,9 @@ Layouts
   position: relative;
 }
 .avatar img {
+  block-size: 100%;
   -webkit-margin-before: -8pt;
           margin-block-start: -8pt;
-  width: 100%;
 }
 
 .logo {

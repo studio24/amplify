@@ -10,9 +10,9 @@
 // Button added via JavaScript
 .js [data-heading="collapsibles"] button {
 	align-items: flex-start;
+	block-size: 100%;
 	flex-direction: column;
 	padding: rem(25);
-	width: 100%;
 
 	.js-collapsible-heading {
 		@include text-20;

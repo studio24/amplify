@@ -57,13 +57,13 @@
 	&::before {
 
 		background-color: $blue;
+		block-size: 100%;
 		border-radius: rem(5);
 		content: '';
-		height: 100%;
+		inline-size: rem(4);
 		left: rem(-33);
 		position: absolute;
 		top: 0;
-		width: rem(4);
 
 	}
 
@@ -108,7 +108,7 @@
 	&.l-sidebar .not-sidebar {
 
 		align-items: flex-start;
-		min-width: calc(70% - 1.5rem);
+		min-inline-size: calc(70% - 1.5rem);
 
 		p:first-child {
 
@@ -130,10 +130,10 @@
 .slide__logo {
 
 	background-color: $off-white;
-	height: rem(120);
+	block-size: rem(120);
+	inline-size: rem(180);
 	padding: rem(24);
 	position: relative;
-	width: rem(180);
 
 	> img {
 
@@ -147,7 +147,7 @@
 
 		@supports (object-fit: contain) {
 
-			height: 100%;
+			block-size: 100%;
 			max-inline-size: none;
 			object-fit: contain;
 			position: static;
