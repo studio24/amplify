@@ -212,15 +212,15 @@ br {
 
 .js [data-heading=collapsibles] button {
   align-items: flex-start;
-  block-size: 100%;
   flex-direction: column;
+  inline-size: 100%;
   padding: 1.5625rem;
 }
 .js [data-heading=collapsibles] button .js-collapsible-heading {
   font-size: 1.25rem;
   line-height: 1.3;
   font-weight: 600;
-  text-align: left;
+  text-align: start;
 }
 .js [data-heading=collapsibles] button .js-collapsible-toggle {
   color: #0d599b;
@@ -254,7 +254,9 @@ br {
 }
 
 .js .component--collapsibles__panel__content {
-  padding: 0 1.5625rem 1.5625rem;
+  padding: 1.5625rem;
+  -webkit-padding-before: 0;
+          padding-block-start: 0;
 }
 .js .component--collapsibles__panel__content[aria-hidden=true] {
   display: none;
