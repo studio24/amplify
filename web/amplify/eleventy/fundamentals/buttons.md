@@ -1,5 +1,5 @@
 ---
-title: Buttons
+title: Buttons and links
 components:
     buttons:
         button-normal:

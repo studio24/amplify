@@ -1,5 +1,5 @@
 {%- macro pageComponents(target) -%}
-{% from "./component.njk" import component %}
+{%- from "./component.njk" import component -%}
 {%- for key, item in target -%}
 
 {%- if item.type and item.name and item.data  -%}

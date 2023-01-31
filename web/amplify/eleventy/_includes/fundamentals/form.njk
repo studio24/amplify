@@ -1,63 +1,7 @@
-<form novalidate="">
-    {%- for key, field in params.fields -%}
-        <div class="field">
-            {%- if field.label -%}
-                <label for="{{ field.name }}">
-                    <span class="field-label">
-                        {{ field.label }}
-                        {%- if field.required -%}
-                            <span class="required">(Required)</span>
-                        {%- endif -%}
-                    </span>
-                </label>
-            {%- endif -%}
-            {%- if field.hint -%}
-                <div id="hint-{{ field.name }}" class="field-hint">{{ field.hint }}</div>
-            {%- endif -%}
-            {%- if not field.type === "textarea" or not field.type === "fieldset" -%}
-                <input id="{{ field.name }}" 
-                type=" 
-                {%- if field.type === 'number-text' -%}
-                    text
-                {% else %}
-                    {{ field.type }}
-                {%- endif -%}
-                " 
-                name="{{ field.name }}" 
-                {%- if field.autocomplete -%}
-                    autocomplete="{{ field.name }}"
-                    aria-describedby="hint- {{ field.hint }}"
-                {%- elif field.autocapitalize === "off" -%}
-                    autocapitalize="none"
-                {%- elif field.autocorrect === "off" -%}
-                    autocorrect="off"
-                {%- elif field.spellcheck === "off" -%}
-                    spellcheck="false"
-                {%- elif field.inputmode -%}
-                    inputmode="{{ field.name }}"
-                {%- elif field.maxlength -%}
-                    {%- if field.type === "number" or field.type === "number-text" -%}
-                    pattern="[0 - {{ field.maxlength + 1 }}]"
-                    {%- endif -%}
-                    maxlength="8"
-                {%- elif field.initialValue -%}
-                    value="{{ field.initialValue }}"
-                {% elif field.additionalClass %}
-                    class="{{ field.additionalClass }}"
-                {%- endif -%}>
-            {%- elif field.type === "textarea" -%}
-                <textarea id="{{ field.name }}" name="{{ field.name }}"></textarea>
-            {%- elif field.type === "fieldset" -%}
-                <fieldset role="group"
-                {% if field.hint %}
-                    aria-describedby="hint- {{ field.hint }}"
-                {% elif field.label %}
-                    <legend>
-                        <span class="field-label">{{ field.label }}</span>
-                    </legend>
-                {% endif %}>
-                </fieldset>
-            {%- endif -%}
-        </div>
+{%- from "../system/forms/field.njk" import field -%}
+<form {% if params.action %} action="{{ params.action }}" {% else %} novalidate=""{% endif %}{% if params.method %} method="{{ params.method }}" {% endif %}>
+    {%- for key, item in params.fields -%}
+    {{ field(item) }}
     {%- endfor -%}
+    <button class="button" type="submit">Submit</button>
 </form>

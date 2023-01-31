@@ -1,12 +1,12 @@
 <div class="component">
     {%- if params.cards -%}
-    <div class="l-switcher{% if params.extraClass %} {{ params.extraClass }}{% endif %}">
+    <div class="l-switcher{%- if params.extraClass -%} {{ params.extraClass }}{%- endif -%}">
         <div>
             {%- for key, card in params.cards -%}
             <div>
-                <div class="card{% if params.type %} card--{{ params.type }}{% endif %}">
+                <div class="card{%- if params.type -%} card--{{ params.type }}{%- endif -%}">
                     {%- if card.heading or card.body -%}
-                    <div class="{% if card.boxType %}l-box l-box--{{ card.boxType }} {% endif %}card__text">
+                    <div class="{%- if card.boxType -%}l-box l-box--{{ card.boxType }} {%- endif -%}card__text">
                         <h2 class="card__heading">{{ card.heading }}</h2>
                         {{ card.body | safe }}
                         {%- if card.link -%}
@@ -24,7 +24,7 @@
                     </div>
                     {%- endif -%}
                     {%- if card.image -%}
-                    <div class="{% if card.image.frameType %}l-frame l-frame--{{ card.image.frameType }}{% endif %}card__image">
+                    <div class="{%- if card.image.frameType -%}l-frame l-frame--{{ card.image.frameType }}{%- endif -%}card__image">
                         <img src="{{ card.image.url }}" alt="{{ card.image.altText }}" loading="lazy">
                     </div>
                     {%- endif -%}
@@ -34,7 +34,7 @@
         </div>
     </div>
     {%- else -%}
-    <div class="card{% if params.type %} card--{{ params.type }}{% endif %}">
+    <div class="card{%- if params.type -%} card--{{ params.type }}{%- endif -%}">
         {%- if params.heading or params.body -%}
             <div class="card__text">
                 {%- if params.heading -%}

@@ -1,27 +1,27 @@
 <nav class="sidebar nav-secondary" aria-label="Secondary">
     <ul class="clean-list" role="list">
-        {% if tags %}
-        {% for item in collections[tags] %}
+        {%- if tags -%}
+        {%- for item in collections[tags] -%}
             <li>
                 <a href="{{ item.url }}" class="nav-secondary__link"
-                {% if page.url === item.url %}
+                {%- if page.url === item.url -%}
                     aria-current="page"
-                {% endif %}>
+                {%- endif -%}>
                     {{ item.data.title }}
                 </a>
             </li>
-        {% endfor %}
-        {% else %}
-        {% for item in collections[page.fileSlug] %}
+        {%- endfor -%}
+        {%- else -%}
+        {%- for item in collections[page.fileSlug] -%}
             <li>
                 <a href="{{ item.url }}" class="nav-secondary__link"
-                 {% if page.url === item.url %}
+                 {%- if page.url === item.url -%}
                     aria-current="page"
-                 {% endif %}>
+                 {%- endif -%}>
                     {{ item.data.title }}
                 </a>
             </li>
-        {% endfor %}
-        {% endif %}
+        {%- endfor -%}
+        {%- endif -%}
     </ul>
 </nav>

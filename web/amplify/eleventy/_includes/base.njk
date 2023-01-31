@@ -1,4 +1,4 @@
-{% from "./system/components.njk" import pageComponents %}
+{%- from "./system/components.njk" import pageComponents -%}
 <!doctype html>
 <html lang="en" class="no-js">
 
@@ -57,12 +57,12 @@
 <body class="amplify">
 <div class="not-footer">
     <a href="#main" class="skip-link">Skip to content</a>
-    {% include './global/header.njk'  %}
+    {%- include './global/header.njk'  -%}
 	<main id="main">
 		{{ content | safe }}
 	</main>
 </div>
-{% include './global/footer.njk' %}
+{%- include './global/footer.njk' -%}
 <script>
     if (document.documentElement.classList.contains('js')) {
         var jsAutocompleteCountry = document.createElement('script');

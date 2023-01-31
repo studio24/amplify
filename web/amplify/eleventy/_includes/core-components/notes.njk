@@ -1,23 +1,23 @@
-{% if params.type === "info" %}
+{%- if params.type === "info" -%}
 <div class="component">
     <div class="l-box note note--info" role="status">
         <h2 class="txt-saturn">{{ params.title }}</h2>
         {{ params.message | safe }}
     </div>
 </div>
-{% elif params.type === "success" %}
+{%- elif params.type === "success" -%}
 <div class="l-box note note--success" role="status">
     <h2 class="txt-saturn">{{ params.title }}</h2>
     {{ params.message | safe }}
 </div>
-{% elif params.type === "warning" %}
+{%- elif params.type === "warning" -%}
 <div class="l-box note note--warning" role="status">
     <h2 class="txt-saturn">{{ params.title }}</h2>
     {{ params.message | safe }}
 </div>
-{% elif params.type === "error" %}
+{%- elif params.type === "error" -%}
 <div class="l-box note note--error" role="alert">
     <h2 class="txt-saturn">{{ params.title }}</h2>
     {{ params.message | safe }}
 </div>
-{% endif %}
+{%- endif -%}
