@@ -5,7 +5,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Frame - Amplify</title>
+	<title>Forms Playground - Amplify</title>
 
 	<link rel="stylesheet" href="/styles/core.css" media="screen"/>
 
@@ -115,62 +115,26 @@
 </nav><main id="main">
 		<div class="content-wrap"><nav class="sidebar nav-secondary" aria-label="Secondary">
     <ul class="clean-list" role="list"><li>
-                <a href="/layout-helpers/switcher/" class="nav-secondary__link">
-                    Switcher
-                </a>
-            </li><li>
-                <a href="/layout-helpers/sidebar/" class="nav-secondary__link">
-                    Sidebar
-                </a>
-            </li><li>
-                <a href="/layout-helpers/frame/" class="nav-secondary__link"aria-current="page">
-                    Frame
-                </a>
-            </li><li>
-                <a href="/layout-helpers/cover/" class="nav-secondary__link">
-                    Cover
-                </a>
-            </li><li>
-                <a href="/layout-helpers/cluster/" class="nav-secondary__link">
-                    Cluster
-                </a>
-            </li><li>
-                <a href="/layout-helpers/center/" class="nav-secondary__link">
-                    Center
-                </a>
-            </li><li>
-                <a href="/layout-helpers/box/" class="nav-secondary__link">
-                    Box
-                </a>
-            </li><li>
-                <a href="/layout-helpers/simple-search/" class="nav-secondary__link">
-                    Simple search form
+                <a href="/playground/forms/" class="nav-secondary__link"aria-current="page">
+                    Forms Playground
                 </a>
             </li></ul>
 </nav><div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
     <div>
-        <h1>Frame</h1>
+        <h1>Forms Playground</h1>
         <div class="component component--text">
-            <p>The frame layout helper is useful for cropping media (images and video) to a specific aspect ratio. It uses the class <code>l-frame</code> and additional modifier classes for pre-defined aspect ratios. These modifier classes determine the amount of vertical padding on the frame, which then acts as a window onto the content inside.</p>
-<h2>16:9 aspect ratio</h2>
-<p><img src="https://amplify.studio24.net/dist/images/jpg-cat-1.jpg" alt=""></p>
-<p>An example of the 16:9 frame modifier</p>
-<h2>3:2 aspect ratio</h2>
-<p><img src="https://amplify.studio24.net/dist/images/jpg-cat-1.jpg" alt=""></p>
-<p>An example of the 3:2 frame modifier</p>
-<h2>4:3 aspect ratio</h2>
-<p><img src="https://amplify.studio24.net/dist/images/jpg-cat-1.jpg" alt=""></p>
-<p>An example of the 4:3 frame modifier</p>
-<h2>Square aspect ratio</h2>
-<p><img src="https://amplify.studio24.net/dist/images/jpg-cat-1.jpg" alt=""></p>
-<p>An example of the square frame modifier</p>
-<h2>Considerations</h2>
-<h3>Figure/figcaption use</h3>
-<p>If using <code>figure</code> with <code>figcaption</code>, make sure to apply the <code>l-frame</code> class to an inner <code>div</code> or <code>picture</code> rather than directly to the <code>figure</code> to avoid obscuring the <code>figcaption</code>.</p>
-<h3>Internet Explorer/non-Chromium Edge</h3>
-<p>The default frame layout uses <code>object-fit: cover</code> for images and videos. This is not supported in Internet Explorer or Edge prior to version 16 and in Edge 16-18 it is only supported on images. However, the Chromium Edge browser, which does support object-fit, is now available to systems as far back as Windows 7.</p>
-<p>If you need broader support you may prefer to forgo <code>object-fit</code> and adapt your instance of the frame to rely on absolute positioning of the contents and hiding any overflow.</p>
-
+            <form  action="https://www.formbackend.com/f/779e2c554c194098"  method="POST" ><div class="field"><label for="name">
+            <span class="field-label">
+                Name<span class="required"> (Required)</span></span>
+        </label><div id="hint-name" class="field-hint">E.g Robin Smith</div><input id="name" 
+        type="text" 
+        name="name"autocomplete="name"></div><div class="field"><label for="email">
+            <span class="field-label">
+                Email</span>
+        </label><div id="hint-email" class="field-hint">E.g robin.smith@example.co.uk</div><input id="email" 
+        type="email" 
+        name="email"autocomplete="email"></div><button class="button" type="submit">Submit</button>
+</form>
         </div>
     </div>
 </div>
