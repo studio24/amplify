@@ -23,8 +23,8 @@
 	.js-slider > ul {
 
 		display: flex;
-		padding-bottom: rem(10);
-		padding-top: rem(10);
+		padding-block-end: rem(10);
+		padding-block-start: rem(10);
 		position: relative;
 
 		> li {
@@ -47,7 +47,7 @@
 
 		> li + li {
 
-			margin-top: 0;
+			margin-block-start: 0;
 
 		}
 
