@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Colours - Amplify</title>
+
+	<link rel="stylesheet" href="/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="/styles/print.css" media="print"/>
+
+	<script src="/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="not-footer">
+    <a href="#main" class="skip-link">Skip to content</a><header class="global-header">
+    <div class="l-center">
+        <a class="global-header__link" href="/">Amplify from Studio 24</a>
+    </div>
+</header><nav class="global-nav" aria-label="Main">
+    <div class="l-center">
+        <div class="l-cluster">
+            <ul class="clean-list">
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/get-started/" 
+                    >
+                    Get Started
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/fundamentals/" 
+                    >
+                    Fundamentals
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/core-components/" 
+                    >
+                    Core components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/advanced-components/" 
+                    >
+                    Advanced components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/design/" 
+                    >
+                    Design handover &amp; standards
+                </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav><main id="main">
+		<div class="content-wrap"><nav class="sidebar nav-secondary" aria-label="Secondary">
+    <ul class="clean-list" role="list"><li>
+                <a href="/fundamentals/colours/" class="nav-secondary__link"aria-current="page">
+                    Colours
+                </a>
+            </li><li>
+                <a href="/fundamentals/typography/" class="nav-secondary__link">
+                    Typography
+                </a>
+            </li><li>
+                <a href="/fundamentals/buttons/" class="nav-secondary__link">
+                    Buttons and links
+                </a>
+            </li><li>
+                <a href="/fundamentals/lists/" class="nav-secondary__link">
+                    Lists
+                </a>
+            </li><li>
+                <a href="/fundamentals/icons/" class="nav-secondary__link">
+                    Icons
+                </a>
+            </li><li>
+                <a href="/fundamentals/breakpoints/" class="nav-secondary__link">
+                    Breakpoints
+                </a>
+            </li><li>
+                <a href="/fundamentals/vertical-spacing/" class="nav-secondary__link">
+                    Vertical spacing
+                </a>
+            </li><li>
+                <a href="/fundamentals/hide-and-show/" class="nav-secondary__link">
+                    Hide and show items inclusively
+                </a>
+            </li><li>
+                <a href="/fundamentals/skip-link/" class="nav-secondary__link">
+                    Skip link
+                </a>
+            </li><li>
+                <a href="/fundamentals/images/" class="nav-secondary__link">
+                    Images
+                </a>
+            </li><li>
+                <a href="/fundamentals/forms/" class="nav-secondary__link">
+                    Forms
+                </a>
+            </li><li>
+                <a href="/fundamentals/form-errors/" class="nav-secondary__link">
+                    Form error messages
+                </a>
+            </li><li>
+                <a href="/fundamentals/tables/" class="nav-secondary__link">
+                    Tables
+                </a>
+            </li><li>
+                <a href="/fundamentals/details-summary/" class="nav-secondary__link">
+                    Details and summary
+                </a>
+            </li><li>
+                <a href="/fundamentals/utility-classes/" class="nav-secondary__link">
+                    Utility Classes
+                </a>
+            </li><li>
+                <a href="/fundamentals/flow-elements/" class="nav-secondary__link">
+                    Flow elements
+                </a>
+            </li><li>
+                <a href="/fundamentals/print-styles/" class="nav-secondary__link">
+                    Print styles
+                </a>
+            </li></ul>
+</nav><div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+    <div>
+        <h1>Colours</h1>
+        <div class="component component--text">
+            <h2>Colour contrast</h2>
+<p>Make sure that the contrast ratio of text and interactive elements on your site meets the requirements of <strong>WCAG 2.1</strong> as paraphrased in the following sections. The ideal contrast range to meet all requirements is 7:1 - 15:1. Higher contrast ratios can be triggering for some people.</p>
+<h3>1.4.3 Contrast (Minimum) (AA)</h3>
+<p>Text (including images of text) has a contrast ratio of at least <strong>4.5:1 for 'regular' text</strong> and at least <strong>3:1 for large text</strong> (at least <code>18pt</code> / <code>24px</code>, or bold and at least <code>14pt</code> / <code>18.5px</code>), unless the text is purely decorative.</p>
+<h3>1.4.6 Contrast (Enhanced) (AAA)</h3>
+<p>Text (including images of text) has a contrast ratio of at least <strong>7:1 for 'regular' text</strong> and at least <strong>4.5:1 for large text</strong> (at least <code>18pt</code> / <code>24px</code>, or bold and at least <code>14pt</code> / <code>18.5px</code>), unless the text is purely decorative.</p>
+<h3>1.4.11 Non-text Contrast (AA)</h3>
+<p>The visual presentation of UI components (their states - including focus indication - and boundaries) and graphical objects has a contrast ratio of at least 3:1 against adjacent colour(s).</p>
+<h3>Tools for checking colour contrast</h3>
+<p>Choose whichever you prefer from the following list:</p>
+<ul>
+<li><a href="https://accessible-colors.com/">Accessible Colors</a></li>
+<li><a href="https://www.tpgi.com/cca-download/">Color Contrast Analyser Download</a></li>
+<li><a href="https://contrast-ratio.com/">Contrast Ratio</a></li>
+<li><a href="https://webaim.org/resources/linkcontrastchecker/">Link Contrast Checker</a></li>
+<li><a href="https://whocanuse.com/">Who Can Use</a></li>
+<li><a href="https://www.brandwood.com/a11y/">Text on background image a11y check</a></li>
+</ul>
+
+        </div>
+    </div>
+</div>
+	</main>
+</div><footer class="global-footer">
+    <div class="l-center">
+        &copy; Studio 24
+    </div>
+</footer><script>
+    if (document.documentElement.classList.contains('js')) {
+        var jsAutocompleteCountry = document.createElement('script');
+        jsAutocompleteCountry.src = '/js/country-Autocomplete.js';
+        document.querySelector('body').appendChild(jsAutocompleteCountry);
+    }
+</script>
+
+</body>
+
+</html>

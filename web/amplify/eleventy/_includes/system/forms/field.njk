@@ -1,0 +1,120 @@
+{%- from "./field-types/input.njk" import input -%}
+{%- from "./field-types/select.njk" import select -%}
+{%- macro field(params) -%}
+
+{%- if params.isSegmentedGroup -%}
+    {% set segmentedGroup = " segmented-group-wrapper" %}
+{%- endif -%}
+{%- if params.error -%}
+    {% set errorClass = " field--error" %}
+{%- endif -%}
+
+<div class="field{{ segmentedGroup }}{{ errorClass }}">
+    {%- if params.type !== "fieldset" -%}
+        {%- if params.label -%}
+            <label for="{{ params.name }}">
+                <span class="field-label">
+                    {{ params.label }}
+                    {%- if params.required -%}
+                        <span class="required"> (Required)</span>
+                    {%- endif -%}
+                </span>
+                {%- if params.error.message -%}
+                    <span id="error-{{ params.name }}" class="field-error-msg">
+                        <span class="visuallyhidden">Error:</span>
+                        {{ params.error.message }}
+                    </span>
+                {%- endif -%}
+            </label>
+        {%- endif -%}
+        {%- if params.hint -%}
+            <div id="hint-{{ params.name }}" class="field-hint">{{ params.hint }}</div>
+        {%- endif -%}
+    {%- endif -%}
+    {%- if params.type === "textarea" -%}
+        <textarea id="{{ params.name }}" name="{{ params.name }}"></textarea>
+    {%- elif params.type === "fieldset" -%}
+        <fieldset 
+        role="group" 
+        {%- if params.hint -%}
+        aria-describedby="hint-{{ params.name }}"
+        {%- endif -%}>
+            {%- if params.label -%}
+                <legend>
+                <span class="field-label">{{ params.label }}</span>
+                </legend>
+            {%- endif -%}
+            {%- if params.error.message -%}
+                <span id="error-{{ params.name }}" class="field-error-msg">
+                    <span class="visuallyhidden">Error:</span>
+                    {{ params.error.message }}
+                </span>
+            {%- endif -%}
+            <div id="hint-{{ params.name }}" class="field-hint {{ params.hintClass }}">{{ params.hint }}</div>
+            {%- if params.isGroup -%}
+            <div class="input-group">
+                {%- for key, item in params.fields -%}
+                    {%- if item.type === "select" -%}
+                    <div class="{{ params.itemWrapClass }}">
+                        <label for="{{ item.name }}" class="faux-label">{{ item.label }}</label>
+                        {{ select(item) }}
+                    </div>
+                    {%- elif item.type === "checkbox" or item.type === "radio" -%}
+                    <div class="{{ item.type }}-item">
+                        {{ input(item) }}
+                        <label for="{{ item.name }}">
+                            <span class="faux-label">{{ item.label }}</span>
+                        </label>
+                    </div>
+                    {%- else -%}
+                    <div class="{{ params.itemWrapClass }}">
+                        <label for="{{ item.name }}" class="faux-label">{{ item.label }}</label>
+                        {{ input(item) }}
+                    </div>
+                    {%- endif -%}
+                {%- endfor -%}
+            </div>
+            {%- elif params.isSegmentedGroup -%}
+            <div class="l-switcher segmented-group">
+                <div>
+                    {%- for key, item in params.fields -%}
+                        <div>
+                            {{ input(item) }}
+                            <label for="{{ item.name }}">
+                                <span class="segmented-label">
+                                    <span>{{ item.segmentTitle }}</span>
+                                    <span>{{ item.segmentBody }}</span>
+                                </span>
+                            </label>
+                        </div>
+                    {%- endfor -%}
+                </div>
+            </div>
+            {%- else -%}
+                {%- for key, item in params.fields -%}
+                    {%- if item.type === "select" -%}
+                    <div class="{{ params.itemWrapClass }}">
+                        {{ select(item) }}
+                    </div>
+                    {%- elif item.type === "checkbox" or item.type === "radio" -%}
+                    <div class="{{ item.type }}-item">
+                        {{ input(item) }}
+                        <label for="{{ item.name }}">
+                            <span class="faux-label">{{ item.label }}</span>
+                        </label>
+                    </div>
+                    {%- else -%}
+                    <div class="{{ params.itemWrapClass }}">
+                        {{ input(item) }}
+                    </div>
+                    {%- endif -%}
+                {%- endfor -%}
+            {%- endif -%}
+        </fieldset>
+    {%- elif params.type === "select" -%}
+        {{ select(params) }}
+    {%- else -%}
+        {{ input(params) }}
+    {%- endif -%}
+</div>
+{%- endmacro -%}

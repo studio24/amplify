@@ -1,0 +1,11 @@
+<div class="field">
+    <label for="{{ params.field.name }}">
+        <span class="field-label">{{ params.field.label }}</span>
+    </label>
+    <select id="{{ params.field.id }}">
+        <option value="">{{ params.defaultOption }}</option>
+        {%- for key, option in params.options -%}
+            <option value="{{ option.value }}" data-alt="{{ option.alt }}">{{ option.title }}</option>
+        {%- endfor -%}
+    </select>
+</div>

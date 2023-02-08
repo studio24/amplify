@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Block link cards - Amplify</title>
+
+	<link rel="stylesheet" href="/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="/styles/print.css" media="print"/>
+
+	<script src="/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="not-footer">
+    <a href="#main" class="skip-link">Skip to content</a><header class="global-header">
+    <div class="l-center">
+        <a class="global-header__link" href="/">Amplify from Studio 24</a>
+    </div>
+</header><nav class="global-nav" aria-label="Main">
+    <div class="l-center">
+        <div class="l-cluster">
+            <ul class="clean-list">
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/get-started/" 
+                    >
+                    Get Started
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/fundamentals/" 
+                    >
+                    Fundamentals
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/core-components/" 
+                    >
+                    Core components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/advanced-components/" 
+                    >
+                    Advanced components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/design/" 
+                    >
+                    Design handover &amp; standards
+                </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav><main id="main">
+		<div class="content-wrap"><nav class="sidebar nav-secondary" aria-label="Secondary">
+    <ul class="clean-list" role="list"><li>
+                <a href="/advanced-components/tabs/" class="nav-secondary__link">
+                    Tabbed sections
+                </a>
+            </li><li>
+                <a href="/advanced-components/disclosure-widget/" class="nav-secondary__link">
+                    Disclosure widget
+                </a>
+            </li><li>
+                <a href="/advanced-components/collapsibles/" class="nav-secondary__link">
+                    Collapsible containers
+                </a>
+            </li><li>
+                <a href="/advanced-components/cards/" class="nav-secondary__link"aria-current="page">
+                    Block link cards
+                </a>
+            </li><li>
+                <a href="/advanced-components/accessible-autocomplete/" class="nav-secondary__link">
+                    Accessible auto-complete
+                </a>
+            </li></ul>
+</nav><div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+    <div>
+        <h1>Block link cards</h1>
+        <div class="component component--text">
+            <p>Cards are used in multiple places. Although the visual appearance may vary, they share two general patterns:</p>
+<ol>
+<li><a href="https://amplify.studio24.net/amplify/core-components/cards.html">Simple cards</a> with a distinct link that can be selected</li>
+<li>Block link cards (covered here) where JavaScript is used to make the entire surface area act as a link</li>
+</ol>
+<p>For both types of card, it is important to check that the heading level used fits in with the card's location in the page content hierarchy.</p>
+<p>A simple card is enhanced into a block link card by adding the data attribute <code>data-component=&quot;card&quot;</code>. When this is present, <a href="https://css-tricks.com/block-links-the-search-for-a-perfect-solution/">JavaScript will make the whole card act as a block link</a>.</p>
+<p>Do not wrap the contents of a card inside a singular <code>a</code> element. This can result in a very verbose experience for screen reader users where the entire contents of the card are announced.</p>
+<p>For arranging groups of cards you can use the <a href="https://amplify.studio24.net/amplify/layout-helpers/switcher.html">switcher layout helper</a> or <a href="https://amplify.studio24.net/amplify/core-components/shelves.html">shelves component</a> depending on your requirements.</p>
+<h2>A block link card</h2>
+<h3><a href="https://en.wikipedia.org/wiki/Cats_and_the_Internet">Cats and the Internet</a></h3>
+<p>Examining the popularity of cat-related media content online.</p>
+<p><img src="https://amplify.studio24.net/dist/images/jpg-cat-1.jpg" alt=""></p>
+<h2>Block link card with call-to-action (CTA)</h2>
+<h3><a href="https://en.wikipedia.org/wiki/Cats_and_the_Internet">Cats and the Internet</a></h3>
+<p>Examining the popularity of cat-related media content online.</p>
+<p>Read more</p>
+<p><img src="https://amplify.studio24.net/dist/images/jpg-cat-1.jpg" alt=""></p>
+<h2>A block link card with tag links</h2>
+<h3><a href="https://en.wikipedia.org/wiki/Cats_and_the_Internet">Cats and the Internet</a></h3>
+<p>Examining the popularity of cat-related media content online.</p>
+<ul>
+<li><a href="https://www.studio24.net/work-sector/arts-and-culture/">Content tagged with Arts and culture</a></li>
+<li><a href="https://www.studio24.net/work-sector/education/">Content tagged with Education</a></li>
+<li><a href="https://www.studio24.net/work-sector/charity-and-not-for-profit/">Content tagged with Charity and not-for-profit</a></li>
+</ul>
+<p><img src="https://amplify.studio24.net/dist/images/jpg-cat-1.jpg" alt=""></p>
+<h2>Considerations</h2>
+<p>Block links work because the JavaScript looks for a link with the class <code>card__link</code>. We add this link to the <code>card__heading</code> text, to make sure that the link text is descriptive. If the design calls for a visually distinctive CTA, use a simple <code>div</code> to hold the text content and <code>aria-hidden</code> to hide it from assistive technology.</p>
+<p>The preceding example shows that it is possible for a block link card to have one link as the main link while also allowing other specific links (in this case a <a href="https://amplify.studio24.net/amplify/core-components/tag-list.html">list of tags</a>) to different destinations. JavaScript targets the link with the class <code>card__link</code> and identifies this as the main link for the card.</p>
+<h3>Neat cards</h3>
+<p>If the design calls for a row of cards of equal height, irrespective of the amount of text content, you can add the <code>card--neat</code> modifier class to the cards. This forces the card to take up 100% of the height of the parent container. It will also push the last child element in the text region to the bottom edge. You can see this in action on the <a href="https://amplify.studio24.net/amplify/index.html">Amplify home page</a>.</p>
+
+        </div>
+    </div>
+</div>
+	</main>
+</div><footer class="global-footer">
+    <div class="l-center">
+        &copy; Studio 24
+    </div>
+</footer><script>
+    if (document.documentElement.classList.contains('js')) {
+        var jsAutocompleteCountry = document.createElement('script');
+        jsAutocompleteCountry.src = '/js/country-Autocomplete.js';
+        document.querySelector('body').appendChild(jsAutocompleteCountry);
+    }
+</script>
+
+</body>
+
+</html>

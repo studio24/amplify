@@ -52,6 +52,8 @@
 		"js": "webpack --config webpack.config.js",
 		"prebuild": "shx rm -rf ${npm_package_config_to} && shx mkdir -p ${npm_package_config_to}/fonts && shx mkdir ${npm_package_config_to}/images && shx mkdir ${npm_package_config_to}/js && shx mkdir ${npm_package_config_to}/js/libraries && shx mkdir ${npm_package_config_to}/styles && shx mkdir ${npm_package_config_to}/svg",
 		"build": "npm-run-all --parallel fonts images svgs js styles",
+		"eleventy-start": "eleventy --serve",
+		"eleventy-build": "eleventy",
 		"watch:fonts": "chokidar ${npm_package_config_from}/fonts -c \"npm run fonts\"",
 		"watch:images": "chokidar ${npm_package_config_from}/images -c \"npm run images\"",
 		"watch:svgs": "chokidar ${npm_package_config_from}/svg -c \"npm run svgs\"",
@@ -60,6 +62,7 @@
 		"watch": "npm-run-all --parallel watch:*"
 	},
 	"devDependencies": {
+		"@11ty/eleventy": "^1.0.2",
 		"@babel/core": "^7.16.12",
 		"@babel/preset-env": "^7.16.11",
 		"autoprefixer": "^10.4.0",
@@ -80,6 +83,8 @@
 		"@splidejs/splide": "^4.0.7",
 		"accessible-autocomplete": "^2.0.3",
 		"fontfaceobserver": "^2.1.0",
+		"markdown-it": "^13.0.1",
+		"markdown-it-attrs": "^4.1.6",
 		"normalize.css": "^8.0.1",
 		"tabbyjs": "^12.0.3"
 	}

@@ -1,0 +1,10 @@
+<div class="component component--collapsibles" data-component="collapsibles">
+    {%- for key, panel in params.panels -%}
+    <div class="component--collapsibles__panel">
+        <h2 data-heading="collapsibles">{{ panel.title }}</h2>
+        <div class="component--collapsibles__panel__content">
+            {{ panel.body | safe }}
+        </div>
+    </div>
+    {%- endfor -%}
+</div>

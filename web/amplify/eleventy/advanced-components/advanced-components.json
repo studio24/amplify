@@ -1,0 +1,6 @@
+{
+    "layout": "page.njk",
+    "tags": "advanced-components",
+    "templateEngineOverride": "njk, md",
+    "subpage": true
+}

@@ -1,0 +1,13 @@
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+    <div class="l-center">
+        <div class="l-cluster">
+            <ol class="clean-list" role="list">
+                {%- for key, item in params.items -%}
+                    <li
+                    {% if page.url === item.url %}class="current"{% endif %}
+                    ><a href="{{ item.link }}">{{ item.text }}</a></li>
+                {%- endfor -%}
+            </ol>
+        </div>
+    </div>
+</nav>

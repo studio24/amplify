@@ -1,0 +1,41 @@
+{%- macro input(params) -%}
+<input class="{{ params.class }}" id="{{ params.name }}" 
+type=" 
+{%- if params.type === 'number-text' -%}
+    text
+{%- else -%}
+    {{ params.type }}
+{%- endif -%}
+" 
+name="{{ params.name | lower }}" 
+{%- if params.autocomplete -%}
+    autocomplete="{{ params.name }}"
+{%- elif params.hint -%}
+    aria-describedby="hint- {{ params.hint }}"
+{%- elif params.autocapitalize === "off" -%}
+    autocapitalize="none"
+{%- elif params.autocorrect === "off" -%}
+    autocorrect="off"
+{%- elif params.spellcheck === "off" -%}
+    spellcheck="false"
+{%- elif params.inputmode -%}
+    inputmode="{{ params.name }}"
+{%- elif params.maxlength -%}
+    {%- if params.type === "number" or params.type === "number-text" -%}
+    pattern="[0 - {{ params.maxlength + 1 }}]"
+    {%- endif -%}
+    maxlength="8"
+{%- elif params.type === "number" and not params.maxlength -%}
+    pattern="[0 - 9]"
+{%- elif params.initialValue -%}
+    value="{{ params.initialValue }}"
+{%- elif params.minNum -%}
+    min="{{ params.minNum }}"
+{%- elif params.minNum -%}
+    max="{{ params.maxNum }}"
+{%- elif params.appearance -%}
+    appearance="{{ params.appearance }}"
+{%- elif params.checked -%}
+    checked
+{%- endif -%}>
+{%- endmacro -%}

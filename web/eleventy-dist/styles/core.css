@@ -1,0 +1,3374 @@
+/*------------------------------------*\
+    #Amplify: core styles for all browsers
+\*------------------------------------*/
+/*------------------------------------*\
+    #Settings
+\*------------------------------------*/
+/*------------------------------------*\
+    #Breakpoints
+
+    The measurements presented here are for guidance only
+    and should be updated to reflect the design/content needs.
+
+    1. Sets a max-width for improved readability
+\*------------------------------------*/
+/* 1 */
+/*------------------------------------*\
+    #Colors
+
+    Review and edit these default colours, then add further colors
+    as required for your project.
+
+    The ideal color contrast range for meeting WCAG AAA is 7:1 - 15:1
+
+    1. A contrast higher than 15:1 can be triggering, which is why we
+    avoid using pure white with pure black.
+\*------------------------------------*/
+/**
+Brand
+ */
+/**
+Neutrals
+ */
+/* 1 */
+/* 1 */
+/**
+Links
+ */
+/**
+Focus
+ */
+/**
+Borders
+ */
+/**
+Contextual colours (meets WCAG AA for regular text against $off-white,
+so also safe for borders)
+ */
+/*------------------------------------*\
+    #Fonts
+\*------------------------------------*/
+/* nunito-regular - latin */
+@font-face {
+  font-display: fallback;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/nunito-v20-latin-regular.woff2") format("woff2"), url("../fonts/nunito-v20-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* nunito-700 - latin */
+@font-face {
+  font-display: fallback;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/nunito-v20-latin-700.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* nunito-italic - latin */
+@font-face {
+  font-display: fallback;
+  font-family: "Nunito";
+  font-style: italic;
+  font-weight: 400;
+  src: local(""), url("../fonts/nunito-v20-latin-italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* nunito-700italic - latin */
+@font-face {
+  font-display: fallback;
+  font-family: "Nunito";
+  font-style: italic;
+  font-weight: 700;
+  src: local(""), url("../fonts/nunito-v20-latin-700italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/*------------------------------------*\
+    #Typesetting
+\*------------------------------------*/
+/**
+Use https://www.cssfontstack.com/ and https://meowni.ca/font-style-matcher/ to pick
+system fonts that are reasonably close to any web fonts needed for the project.
+
+This improves performance, avoids Flash Of Invisible Text (FOIT) and minimises
+Flash of Unstyled Text (FOUT) - see https://www.filamentgroup.com/lab/font-events.html
+
+Be sure to include fonts for both Mac OS and Windows. Use quote marks around
+fonts with white space in their name.
+
+When Font Face Observer has detected that the @font-face files are loaded, then we
+can safely use the web fonts instead of the system fonts.
+ */
+/*------------------------------------*\
+    #Functions
+\*------------------------------------*/
+/*------------------------------------*\
+    #CSS unit functions
+\*------------------------------------*/
+/**
+ #em
+ */
+/**
+ #rem
+ */
+/**
+ #px
+ */
+/**
+ #Return a number without a unit
+ */
+/**
+ #Remove any unit present to return a unitless number
+ */
+/*------------------------------------*\
+    #Mixins
+\*------------------------------------*/
+/*------------------------------------*\
+    #Font sizes
+
+    Base sizes use the Major Third scale from https://type-scale.com/
+\*------------------------------------*/
+/*------------------------------------*\
+    #Media query
+\*------------------------------------*/
+/*------------------------------------*\
+    #Stack
+\*------------------------------------*/
+/**
+This mixin allows us to add vertical spacing between a container's direct children,
+much like the 'axiomatic owl' technique but limited to specific use cases.
+
+By applying Flexbox to the parent container, we can use auto margin on a specific
+child element. This way, we can choose to group elements inside the stack to the
+top/bottom of the vertical space, which is useful for card-like components.
+
+Use with a specific measure, or without for the default measure, e.g.
+
+main {
+	@include stack(4rem);
+}
+
+article {
+	@include stack;
+}
+ */
+/*------------------------------------*\
+    #Base
+
+    Normalize comes first for the cascade
+\*------------------------------------*/
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type=search] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+  display: none;
+}
+
+/*------------------------------------*\
+    #Box sizing
+\*------------------------------------*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: inherit;
+  margin: 0;
+  overflow-wrap: break-word;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+/*------------------------------------*\
+    #Body
+
+    1. Needed for sticky footer
+    2. Because autoprefixer does not cover IE grid
+\*------------------------------------*/
+html {
+  height: 100%;
+}
+
+/**
+ Typographical styles for fonts are in 30-base/_typography.scss
+ */
+body {
+  background-color: #fcfcfc;
+  color: #252525;
+  display: grid; /* 1 */
+  display: -ms-grid; /* 2 */
+  grid-template-columns: 100%;
+  -ms-grid-columns: 100%; /* 2 */
+  grid-template-rows: 1fr auto; /* 1 */
+  -ms-grid-rows: 1fr auto; /* 2 */
+  min-height: 100%;
+  overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*------------------------------------*\
+    #Typography
+
+    1. Equivalent to 16px browser default.
+    2. This generous line-height allows space for borders on the bottom of
+    links but will need to be set explicitly on many elements.
+\*------------------------------------*/
+body {
+  font-family: "Arial MT Rounded Bold", Arial, sans-serif;
+  font-size: 1rem; /* 1 */
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.7; /* 2 */
+}
+
+p + * {
+  margin-top: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin: 0;
+}
+
+h1,
+.text-48 {
+  font-size: 3rem;
+  line-height: 1.3;
+}
+@media screen and (min-width: 64em) {
+  h1,
+  .text-48 {
+    font-size: 4rem;
+  }
+}
+h1 + *,
+.text-48 + * {
+  margin-top: 1.5rem;
+}
+
+h2,
+.text-39 {
+  font-size: 2.4375rem;
+  line-height: 1.3;
+}
+h2 + *,
+.text-39 + * {
+  margin-top: 0.5rem;
+}
+
+h3,
+.text-31 {
+  font-size: 1.9375rem;
+  line-height: 1.3;
+}
+h3 + *,
+.text-31 + * {
+  margin-top: 0.5rem;
+}
+
+h4,
+.text-25 {
+  font-size: 1.5625rem;
+  line-height: 1.3;
+}
+h4 + *,
+.text-25 + * {
+  margin-top: 0.5rem;
+}
+
+h5,
+.text-20 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+h5 + *,
+.text-20 + * {
+  margin-top: 0.25rem;
+}
+
+h6,
+.text-16 {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+h6 + *,
+.text-16 + * {
+  margin-top: 0.25rem;
+}
+
+.text-14 {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+* + h2,
+.text-39,
+* + h3,
+.text-31,
+* + h4,
+.text-25,
+* + h5,
+.text-20,
+* + h6,
+.text-16 {
+  margin-top: 1.5rem;
+}
+
+.lead {
+  font-size: 1.9375rem;
+  line-height: 1.3;
+}
+.lead + * {
+  margin-top: 3rem;
+}
+
+/**
+When Font Face Observer has detected that the @font-face files are loaded, then we
+can safely use the web fonts instead of the system fonts.
+ */
+.fonts-loaded body {
+  font-family: "Nunito", "Arial MT Rounded Bold", Arial, sans-serif;
+}
+
+/*------------------------------------*\
+    #Hide and show items inclusively
+
+    See https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+\*------------------------------------*/
+/*
+ * Hide from everybody and remove from the document flow, using the hidden
+ * attribute.
+ *
+ * Use if a component should remain hidden regardless of CSS being
+ * available or not (the style below provides support for legacy browsers).
+ */
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide from everybody and remove from the document flow, using the %hidden
+ * placeholder (extend the placeholder with Sass to avoid it appearing
+ * repeatedly in your markup).
+ *
+ * Use if a component requires a basic show and hide interaction, and the
+ * content should become available were CSS to fail.
+ */
+/*
+ * Hide from everybody while maintaining layout, using the %invisible
+ * placeholder (extend the placeholder with Sass to avoid it appearing
+ * repeatedly in your markup).
+ *
+ * Use if a more complex transition is required, like when transitioning an
+ * off-screen navigation into the viewport. Best paired with other CSS
+ * properties that negate its position in the DOM e.g. `position: absolute;`
+ */
+/*
+ * Hide visually only - remains available to Assistive Technology -
+ * using the %visually-hidden placeholder (extend the placeholder with
+ * Sass to avoid it appearing repeatedly in your markup).
+ */
+.visuallyhidden:not(:focus):not(:active), .skip-link:not(:focus):not(:active) {
+  border: 0;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/*
+ *The :not portions of the following selector allow a means for any
+ * focusable element to become visible when focused/active by a user.
+ */
+br {
+  margin-top: 0;
+}
+
+/*
+ * Restore an element that has been visually hidden, using the %visually-hidden
+ * placeholder (extend the placeholder with Sass to avoid it appearing
+ * repeatedly in your markup).
+ */
+/*------------------------------------*\
+    #Flow elements
+\*------------------------------------*/
+abbr {
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+dfn {
+  font-style: normal;
+  font-weight: 600;
+}
+
+b,
+strong,
+.bold {
+  font-weight: 600;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+small,
+.small,
+.small-caps {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.small-caps {
+  text-shadow: 0 0 0 #252525;
+  text-transform: uppercase;
+}
+
+hr,
+pre {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: Monaco, "Lucida Console", "Courier New", monospace;
+  -webkit-hyphens: none;
+          hyphens: none;
+  orphans: 3;
+  page-break-before: avoid;
+  text-transform: none;
+  widows: 3;
+}
+
+code,
+kbd,
+samp {
+  font-size: 0.9em;
+}
+
+samp kbd {
+  font-size: 1em;
+}
+
+code,
+kbd {
+  background-color: #252525;
+  border-radius: 0.25rem;
+  color: #fcfcfc;
+  padding: 0.125rem 0.25rem;
+}
+
+/*------------------------------------*\
+    #Buttons and links
+
+    1. Don't rely on colour alone for styling links - see
+    https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html
+
+    2. Remove outline on focused links when they're also active/hovered.
+
+    3. Remove text underline from links styled as buttons.
+
+    4. Prevent `.button` going full-width if a child of a flex column.
+
+    5. Meet WCAG AAA target size requirements - see
+    https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
+\*------------------------------------*/
+a:not([class]),
+a.with-icon--before,
+a.with-icon--after {
+  border: none;
+  color: #0d599b;
+  cursor: pointer;
+  text-decoration: underline; /* 1 */
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+a:not([class]):visited,
+a.with-icon--before:visited,
+a.with-icon--after:visited {
+  color: #920ba6;
+}
+a:not([class]):hover,
+a.with-icon--before:hover,
+a.with-icon--after:hover {
+  color: #001f3f;
+  outline-width: 0; /* 2 */
+}
+a:not([class]):active,
+a.with-icon--before:active,
+a.with-icon--after:active {
+  color: #252525;
+  outline-width: 0; /* 2 */
+}
+a:not([class]):focus,
+a.with-icon--before:focus,
+a.with-icon--after:focus {
+  background-color: #ffdc00;
+  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
+  color: #000;
+  text-decoration: none;
+}
+
+.button {
+  text-decoration: none; /* 3 */
+}
+
+button,
+.button,
+input[type=submit].button {
+  align-items: center;
+  align-self: start; /* 4 */
+  background-color: #0d599b;
+  border: solid 2px #0d599b;
+  border-radius: 0.375rem;
+  color: #fcfcfc;
+  display: inline-flex;
+  justify-content: center;
+  min-width: 10ch;
+  min-height: 2.75rem; /* 5 */
+  padding: 0.25em 0.75em;
+}
+button:hover,
+.button:hover,
+input[type=submit].button:hover {
+  background-color: #001f3f;
+  border-color: #001f3f;
+  color: #fcfcfc;
+}
+button:active, button:focus,
+.button:active,
+.button:focus,
+input[type=submit].button:active,
+input[type=submit].button:focus {
+  color: #000;
+  background-color: #ffdc00;
+  background-image: none;
+  border-color: #000;
+}
+
+.button--wide.button--wide {
+  width: 100%;
+}
+
+.button--alt.button--alt {
+  background-color: transparent;
+  color: #0d599b;
+}
+.button--alt.button--alt:hover {
+  background-color: #001f3f;
+  color: #fcfcfc;
+}
+.button--alt.button--alt:active, .button--alt.button--alt:focus {
+  background-color: #ffdc00;
+  color: #000;
+  outline: 2px solid #000;
+  outline-offset: -3px;
+}
+
+.button--ghost.button--ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: #000;
+  min-width: 2.75rem; /* 5 */
+  padding: 0;
+}
+.button--ghost.button--ghost:hover {
+  background-color: transparent;
+  border-color: transparent;
+}
+.button--ghost.button--ghost:active, .button--ghost.button--ghost:focus {
+  color: #000;
+  background-color: #ffdc00;
+  background-image: none;
+  border-color: #000;
+}
+
+button[disabled],
+.button[disabled],
+.button.js-disabled {
+  background-color: #bdbdbd;
+  border-color: #bdbdbd;
+  box-shadow: none;
+  color: #303030;
+  cursor: not-allowed;
+}
+button[disabled]:hover, button[disabled]:focus, button[disabled]:active,
+.button[disabled]:hover,
+.button[disabled]:focus,
+.button[disabled]:active,
+.button.js-disabled:hover,
+.button.js-disabled:focus,
+.button.js-disabled:active {
+  background-color: #bdbdbd;
+  color: #303030;
+  outline: 0;
+}
+
+/*------------------------------------*\
+    #Skip link
+\*------------------------------------*/
+.skip-link {
+  background-color: #ffdc00;
+  border: solid 3px #000;
+  color: #000;
+  padding: 0.625em 0.9375em;
+  text-decoration: none;
+}
+.skip-link:active, .skip-link:focus {
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+}
+.skip-link:active span, .skip-link:focus span {
+  box-shadow: 0 -1px 0 0 inset;
+}
+
+.skip-link [dir=rtl]:active, .skip-link [dir=rtl]:focus {
+  left: auto;
+  right: 0;
+}
+
+/*------------------------------------*\
+    #Focus
+\*------------------------------------*/
+:focus {
+  /**
+  Ideally we would specify the background-color here to cover all circumstances.
+  Unfortunately, this does not work at all well for Internet Explorer, so we can't.
+
+  High contrast themes tend to eliminate background-color. If no border is set, we
+  need to apply a transparent outline to maintain the button shape. The negative
+  outline-offset moves the outline inside the perimeter to behaves like a border.
+   */
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+}
+
+/**
+Where focus is moved to the target via JavaScript, it
+is acceptable not to show a focus outline.
+ */
+main:focus,
+#main:focus,
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
+/*------------------------------------*\
+    #Details and summary elements
+\*------------------------------------*/
+details {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+summary {
+  color: #0d599b;
+  cursor: pointer;
+  display: inline-block;
+  padding-left: 1.5625rem;
+  position: relative;
+}
+summary::before {
+  border-color: transparent;
+  border-left-color: inherit;
+  border-style: solid;
+  border-width: 7px 0 7px 12.124px;
+  bottom: 0;
+  -webkit-clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+          clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+  content: "";
+  display: block;
+  height: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  top: -0.0625rem;
+  width: 0;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+summary:hover {
+  color: #001f3f;
+}
+summary span {
+  display: inline-block;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+  text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+summary:focus {
+  background-color: #ffdc00;
+  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
+  color: #000;
+}
+summary:focus span {
+  text-decoration: none;
+}
+
+details[open] > summary {
+  margin-bottom: 1rem;
+}
+
+details[open] > summary::before {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+[dir=rtl] summary {
+  padding-left: 0;
+  padding-right: 1.5625rem;
+}
+[dir=rtl] summary::before {
+  left: auto;
+  right: 0;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+/*------------------------------------*\
+    #Icons
+\*------------------------------------*/
+/**
+Icons are sized relative to font size, thanks to the em unit.
+ */
+.icon {
+  height: 0.75em;
+  width: 0.75em;
+}
+
+.icon--24 {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+/**
+Use the `with-icon--before` or `with-icon--after` class
+on the icon's parent if there is a need to specify the spacing
+between text and icon. Pay attention to whether the icon comes
+before the text or after.
+
+2. Logical property creates spacing irrespective of text direction
+ */
+.with-icon--before,
+.with-icon--after {
+  align-items: center;
+  display: inline-flex;
+}
+.with-icon--before .icon,
+.with-icon--after .icon {
+  flex: 0 0 auto;
+}
+
+.with-icon--before .icon {
+  margin-right: 0.625rem;
+}
+@supports ((-webkit-margin-end: 1em) or (margin-inline-end: 1em)) {
+  .with-icon--before .icon {
+    margin-right: 0;
+    -webkit-margin-end: 0.625rem;
+            margin-inline-end: 0.625rem; /* 2 */
+  }
+}
+
+.with-icon--after .icon {
+  margin-left: 0.625rem;
+}
+@supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
+  .with-icon--after .icon {
+    margin-left: 0;
+    -webkit-margin-start: 0.625rem;
+            margin-inline-start: 0.625rem; /* 2 */
+  }
+}
+
+[dir=rtl] .with-icon--before .icon {
+  margin-left: 0.625rem;
+  margin-right: 0;
+}
+@supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
+  [dir=rtl] .with-icon--before .icon {
+    margin-left: 0;
+    -webkit-margin-end: 0.625rem;
+            margin-inline-end: 0.625rem; /* 2 */
+  }
+}
+[dir=rtl] .with-icon--after .icon {
+  margin-left: 0;
+  margin-right: 0.625rem;
+}
+@supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
+  [dir=rtl] .with-icon--after .icon {
+    margin-right: 0;
+    -webkit-margin-start: 0.625rem;
+            margin-inline-start: 0.625rem; /* 2 */
+  }
+}
+
+/*------------------------------------*\
+    #Images
+\*------------------------------------*/
+img {
+  display: block;
+  max-width: 100%;
+}
+
+svg {
+  fill: currentColor;
+  height: auto;
+  width: 100%;
+}
+
+/*------------------------------------*\
+    #Lists
+\*------------------------------------*/
+ul,
+ol {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  padding-left: 2rem;
+}
+ul li,
+ol li {
+  padding-left: 0.25rem;
+}
+ul > * + *,
+ul li ul,
+ul li ol,
+ol > * + *,
+ol li ul,
+ol li ol {
+  margin-top: 0.75rem;
+}
+
+[dir=rtl] ul,
+[dir=rtl] ol {
+  padding-left: 0;
+  padding-right: 2rem;
+}
+
+ol ::marker {
+  content: counters(list-item, ".") ". ";
+}
+
+/**
+List without bullets, numbers or indentation. Bear in mind that this
+removes list semantics in some WebKit browsers. If it's important that
+the number of items in a list is announced, add role="list" to the <ul>
+ */
+.clean-list {
+  list-style: none;
+  padding: 0;
+}
+
+/**
+Description lists / Definition lists
+ */
+dl {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+dl dt {
+  font-weight: bold;
+}
+dl dd + dt {
+  margin-top: 0.5rem;
+}
+dl dt + dd,
+dl dd + dd {
+  margin-top: 0.25rem;
+}
+
+@supports (grid-row-start: auto) {
+  dl.grid {
+    -webkit-column-gap: 1rem;
+            column-gap: 1rem;
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: -webkit-max-content;
+    grid-template-columns: max-content;
+    -ms-grid-columns: max-content;
+    grid-template-rows: 1fr;
+    -ms-grid-rows: 1fr;
+    row-gap: 1rem;
+  }
+  dl.grid dd + dt,
+  dl.grid dt + dd,
+  dl.grid dd + dd {
+    margin-top: 0;
+  }
+  dl.grid dt {
+    grid-column-start: 1;
+    -ms-grid-column: 1;
+    grid-column-end: 2;
+    -ms-grid-column-span: 1;
+  }
+  dl.grid dd {
+    grid-column-start: 2;
+    -ms-grid-column: 2;
+    grid-column-end: 3;
+    -ms-grid-column-span: 1;
+  }
+}
+
+/*------------------------------------*\
+    #Quotes
+\*------------------------------------*/
+blockquote {
+  margin: 1rem 0;
+  padding: 0 2.5rem;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+blockquote > * + * {
+  margin-top: 1rem;
+}
+blockquote > * {
+  font-weight: bold;
+}
+blockquote cite {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: normal;
+}
+
+/*------------------------------------*\
+    #Tables
+
+    1. Logical property allows text-direction to change with 'dir'
+\*------------------------------------*/
+table {
+  border: 1px solid #bdbdbd;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(206, 205, 205, 0.5);
+}
+
+th,
+td,
+table caption {
+  padding: 0.75rem;
+  text-align: left;
+  text-align: start; /* 1 */
+}
+
+[dir=rtl] th,
+[dir=rtl] td,
+[dir=rtl] table caption {
+  text-align: right;
+  text-align: start; /* 1 */
+}
+
+th,
+td {
+  vertical-align: text-top;
+}
+
+th {
+  vertical-align: bottom;
+}
+th[scope=col] {
+  background-color: #252525;
+  color: #fcfcfc;
+}
+
+td {
+  vertical-align: text-top;
+}
+
+/**
+Responsive tables:
+https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
+ */
+@media screen {
+  [data-component=table-wrap] {
+    border: 1px solid #bdbdbd;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    max-width: 100% !important;
+  }
+  [data-component=table-wrap][role][aria-labelledby][tabindex] {
+    overflow: auto;
+  }
+  [data-component=table-wrap] table {
+    border: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  [data-component=table-wrap]:focus {
+    border-color: #000;
+    box-shadow: inset 0 0 0 4px;
+    outline: 3px solid #ffdc00;
+  }
+}
+/*------------------------------------*\
+    #Animation
+\*------------------------------------*/
+/*
+ * Respect the choices of users who do not want animations.
+ */
+@media screen and (prefers-reduced-motion: reduce), (update: slow) {
+  *,
+  ::before,
+  ::after {
+    -webkit-animation-delay: -1ms !important;
+            animation-delay: -1ms !important;
+    -webkit-animation-duration: 1ms !important;
+            animation-duration: 1ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0s !important;
+  }
+}
+/*------------------------------------*\
+    #Forms
+\*------------------------------------*/
+/*------------------------------------*\
+    #Forms
+\*------------------------------------*/
+/**
+Start of resets for the fieldset element
+https://thatemil.com/blog/2015/01/03/reset-your-fieldset/
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  min-width: 0;
+  padding: 0.01em 0 0 0;
+}
+
+body:not(:-moz-handler-blocked) fieldset {
+  display: table-cell;
+}
+
+/**
+End of resets for the fieldset element
+ */
+form > * + *,
+.field-group > * + * {
+  margin-top: 1.75rem;
+}
+
+.field-group + .field-group {
+  margin-top: 2.5rem;
+}
+
+.field-group__heading {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  font-weight: bold;
+}
+
+/**
+Group inputs to line up side-by-side
+ */
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group > * + * {
+  margin-left: 1.875rem;
+}
+
+[dir=rtl] .input-group > * + * {
+  margin-left: 0;
+  margin-right: 1.875rem;
+}
+
+.field {
+  max-width: 41.25rem;
+}
+
+label,
+.field-label,
+.field-hint,
+.field-error-msg,
+.faux-label {
+  display: block;
+}
+
+.field-label,
+.faux-label {
+  margin-bottom: 0.25rem;
+}
+
+.field-label,
+.group-legend {
+  font-weight: bold;
+}
+.field-label + .field-hint,
+.group-legend + .field-hint {
+  margin-top: 0.25rem;
+}
+
+.field-hint {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #545454;
+  margin-bottom: 0.25rem;
+  max-width: 41.25rem;
+}
+
+.required {
+  color: #545454;
+  font-weight: normal;
+}
+
+textarea,
+[type=date],
+[type=email],
+[type=file],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=text],
+[type=time],
+[type=url] {
+  -webkit-appearance: none;
+          appearance: none;
+  background-color: #fcfcfc;
+  border: 2px solid #545454;
+  border-radius: 0;
+  line-height: 1.25;
+  padding: 0.3125rem;
+  width: 100%;
+}
+textarea:focus,
+[type=date]:focus,
+[type=email]:focus,
+[type=file]:focus,
+[type=number]:focus,
+[type=password]:focus,
+[type=search]:focus,
+[type=tel]:focus,
+[type=text]:focus,
+[type=time]:focus,
+[type=url]:focus {
+  box-shadow: inset 0 0 0 2px;
+  outline: solid 3px #ffdc00;
+  outline-offset: 0;
+}
+
+[type=date],
+[type=email],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=text],
+[type=time],
+[type=url] {
+  height: 2.75rem;
+}
+
+[type=file] {
+  border-color: transparent;
+}
+[type=file]:focus {
+  border-color: currentColor;
+  box-shadow: inset 0 0 0 4px;
+  margin-left: -0.3125rem;
+  margin-right: -0.3125rem;
+  outline: 3px solid #ffdc00;
+  padding-left: 0.3125rem;
+  padding-right: 0.3125rem;
+}
+
+/**
+Search
+ */
+[type=search]::-webkit-search-decoration,
+[type=search]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
+
+/**
+Textarea
+ */
+textarea {
+  height: 10em;
+  resize: vertical;
+}
+
+/**
+Fixed input widths
+ */
+.input-width-30 {
+  max-width: 59ex;
+}
+
+.input-width-20 {
+  max-width: 41ex;
+}
+
+.input-width-10 {
+  max-width: 23ex;
+}
+
+.input-width-5 {
+  max-width: 10.8ex;
+}
+
+.input-width-4 {
+  max-width: 9ex;
+}
+
+.input-width-3 {
+  max-width: 7.2ex;
+}
+
+.input-width-2 {
+  max-width: 5.4ex;
+}
+
+/**
+Error styles
+ */
+[data-component=error-summary] li a {
+  color: #b83123;
+  display: inline-block;
+  font-weight: bold;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+}
+[data-component=error-summary] li a:hover, [data-component=error-summary] li a:visited {
+  color: #b83123;
+}
+[data-component=error-summary] li a:focus {
+  color: #252525;
+}
+
+.field--error {
+  border-left: solid 0.3125rem #b83123;
+  padding-left: 0.9375rem;
+}
+.field--error input:not([type=file]),
+.field--error textarea:not(:focus) {
+  border-color: #b83123;
+}
+.field--error input:focus,
+.field--error textarea:focus {
+  border-color: inherit;
+}
+
+[dir=rtl] .field--error {
+  border-left: none;
+  border-right: solid 0.3125rem #b83123;
+  padding-left: 0;
+  padding-right: 0.9375rem;
+}
+
+.field-error-msg {
+  color: #b83123;
+  font-weight: bold;
+  margin-top: 0.9375rem;
+}
+
+/*------------------------------------*\
+    #Forms - checkbox and radio inputs
+\*------------------------------------*/
+.radio-item,
+.checkbox-item {
+  clear: left;
+  float: left;
+  margin-top: 0.25rem;
+  padding-left: 2.125rem;
+  position: relative;
+}
+.radio-item::after,
+.checkbox-item::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+[dir=rtl] .radio-item,
+[dir=rtl] .checkbox-item {
+  clear: right;
+  float: right;
+  padding-left: 0;
+  padding-right: 2.125rem;
+}
+
+.radio-item input,
+.checkbox-item input {
+  cursor: pointer;
+  height: 2.75rem;
+  left: -0.625rem;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  top: -0.125rem;
+  width: 2.75rem;
+  z-index: 1;
+}
+
+[dir=rtl] .radio-item input,
+[dir=rtl] .checkbox-item input {
+  left: auto;
+  right: -0.625rem;
+}
+
+.radio-item label,
+.checkbox-item label {
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 0;
+  margin-top: -0.125rem;
+  padding: 0.6875rem 0.9375rem 0.625rem 0.0625rem;
+  touch-action: manipulation;
+}
+.radio-item label::before, .radio-item label::after,
+.checkbox-item label::before,
+.checkbox-item label::after {
+  content: "";
+  position: absolute;
+}
+.radio-item label::before,
+.checkbox-item label::before {
+  background: transparent;
+  border: 2px solid;
+  height: 1.5rem;
+  left: 0;
+  top: 0.5rem;
+  width: 1.5rem;
+}
+
+[dir=rtl] .radio-item label,
+[dir=rtl] .checkbox-item label {
+  padding: 0.6875rem 0.0625rem 0.625rem 0.9375rem;
+}
+[dir=rtl] .radio-item label::before,
+[dir=rtl] .checkbox-item label::before {
+  left: auto;
+  right: 0;
+}
+
+.radio-item label::before, .radio-item label::after {
+  border-radius: 50%;
+}
+.radio-item label::after {
+  background: currentColor;
+  border: 5px solid;
+  height: 0;
+  left: 0.4375rem;
+  opacity: 0;
+  top: 0.9375rem;
+  width: 0;
+}
+
+[dir=rtl] .radio-item label::after {
+  left: auto;
+  right: 0.4375rem;
+}
+
+.checkbox-item label::after {
+  background: transparent;
+  border: solid;
+  border-top-color: transparent;
+  border-width: 0 0 3px 3px;
+  height: 0.40625rem;
+  left: 0.375rem;
+  opacity: 0;
+  top: 0.9375rem;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  width: 0.75rem;
+}
+
+[dir=rtl] .checkbox-item label::after {
+  left: auto;
+  right: 0.375rem;
+}
+
+.checkbox-group--cluster .checkbox-item {
+  clear: none;
+  margin-right: 0.75rem;
+}
+
+.radio-item:hover input:not(:disabled) + label::before,
+.checkbox-item:hover input:not(:disabled) + label::before {
+  box-shadow: 0 0 0 4px #235bd1;
+}
+
+.radio-item input:focus + label::before,
+.checkbox-item input:focus + label::before {
+  border-width: 4px;
+  box-shadow: 0 0 0 4px #ffdc00;
+}
+
+.radio-item:hover input:focus + label::before,
+.checkbox-item:hover input:focus + label::before {
+  box-shadow: 0 0 0 4px #ffdc00;
+}
+
+.radio-item input:checked + label::after,
+.checkbox-item input:checked + label::after {
+  opacity: 1;
+}
+
+[type=radio]:disabled,
+[type=radio]:disabled + label,
+[type=checkbox]:disabled,
+[type=checkbox]:disabled + label {
+  cursor: default;
+}
+
+[type=radio]:disabled + label,
+[type=checkbox]:disabled + label {
+  opacity: 0.5;
+}
+
+/*------------------------------------*\
+    #Memorable dates (e.g. date of birth)
+\*------------------------------------*/
+.memorable-date {
+  display: inline-block;
+  margin-top: 0;
+}
+
+.memorable-date + .memorable-date {
+  margin-left: 1rem;
+}
+
+[dir=rtl] .memorable-date + .memorable-date {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+/*------------------------------------*\
+    #Forms - segmented options
+
+    Can use either radio or checkbox inputs.
+    The purpose is to show all available options outright,
+    rather than hide them behind a <select>
+\*------------------------------------*/
+.segmented-group-wrapper {
+  max-width: none;
+}
+
+.segmented-group.l-switcher {
+  margin-top: 0;
+}
+.segmented-group.l-switcher > * > * {
+  max-width: 100%;
+  min-width: 33.333%;
+  position: relative;
+}
+.segmented-group.l-switcher label {
+  border: 2px solid;
+  cursor: pointer;
+  display: block;
+  margin: 0.125rem;
+}
+.segmented-group.l-switcher label:before, .segmented-group.l-switcher label:after {
+  content: "";
+  position: absolute;
+}
+.segmented-group.l-switcher label::before {
+  background: transparent;
+  height: 1.5rem;
+  right: 0.625rem;
+  top: 0.625rem;
+  width: 1.5rem;
+}
+.segmented-group.l-switcher label::after {
+  background: transparent;
+  border: solid;
+  border-top-color: transparent;
+  border-width: 0 0 3px 3px;
+  height: 0.40625rem;
+  right: 1rem;
+  opacity: 0;
+  top: 1.0625rem;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  width: 0.75rem;
+}
+.segmented-group.l-switcher input {
+  cursor: pointer;
+  height: 2.75rem;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2.75rem;
+  z-index: 1;
+}
+.segmented-group.l-switcher .segmented-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  display: block;
+  padding: 0.625rem;
+  padding-right: 2.75rem;
+}
+.segmented-group.l-switcher .segmented-label > * + * {
+  margin-top: 0.5em;
+}
+.segmented-group.l-switcher .segmented-label span {
+  display: block;
+}
+.segmented-group.l-switcher .segmented-label span:first-of-type {
+  font-weight: bold;
+}
+.segmented-group.l-switcher > * > *:hover label {
+  background-color: #bdbdbd;
+}
+.segmented-group.l-switcher input:focus + label {
+  border-color: #ffdc00;
+  box-shadow: inset 0 0 0 4px;
+  outline: solid 2px #ffdc00;
+}
+.segmented-group.l-switcher input:checked + label::after {
+  opacity: 1;
+}
+
+[dir=rtl] .segmented-group label::before {
+  left: 0.625rem;
+  right: auto;
+}
+[dir=rtl] .segmented-group label::after {
+  left: 1rem;
+  right: auto;
+}
+[dir=rtl] .segmented-group input {
+  left: 0;
+  right: auto;
+}
+[dir=rtl] .segmented-group .segmented-label {
+  padding: 0.625rem;
+  padding-left: 2.75rem;
+}
+
+/*------------------------------------*\
+    #Select
+\*------------------------------------*/
+select {
+  background-color: #fcfcfc;
+  border: 2px solid;
+  border-radius: 0;
+  height: 2.75rem;
+  line-height: 1.25;
+  padding: 0.3125rem;
+  width: 100%;
+}
+select:focus {
+  box-shadow: inset 0 0 0 2px;
+  outline: solid 3px #ffdc00;
+  outline-offset: 0;
+}
+
+/**
+Optional select with custom arrow icon matching the SVG used for accessible autocomplete
+ */
+@supports ((-webkit-appearance: none) or (appearance: none)) {
+  select {
+    -webkit-appearance: none;
+            appearance: none;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="none" d="M0 0h24v24H0z"/%3E%3Cpath d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"/%3E%3C/svg%3E');
+    background-position: center right 0.3125rem;
+    background-repeat: no-repeat;
+    padding-right: 2.125rem;
+  }
+  [dir=rtl] select {
+    background-position: center left 0.3125rem;
+    padding-left: 2.125rem;
+    padding-right: 0.3125rem;
+  }
+}
+/*------------------------------------*\
+    #Layout helpers
+\*------------------------------------*/
+/*------------------------------------*\
+    #Box layout helper
+
+    From https://absolutely.every-layout.dev/layouts/box/
+
+    `.l-box` should have borders and/or padding on all sides, or
+    none at all. Otherwise it's not a box, but something more specific.
+
+    1. High contrast themes tend to eliminate background-color. If no
+    border is set on the box, we need to apply a transparent outline to
+    maintain the box shape. The negative outline-offset moves the outline
+    inside the perimeter so it behaves like a border and doesn't add to
+    the overall size.
+\*------------------------------------*/
+.l-box {
+  border: 1px solid;
+  display: block;
+  padding: 1.5rem;
+}
+
+.l-box--no-padding {
+  padding: 0;
+}
+
+.l-box--no-border {
+  border: none;
+  outline: 1px solid transparent; /* 1 */
+  outline-offset: -1px; /* 1 */
+}
+
+/*------------------------------------*\
+    #Center layout helper
+
+    From https://absolutely.every-layout.dev/layouts/center/
+
+    `.l-center` creates a horizontally centered container.
+
+    1. We use left and right padding to add some minimum space between the
+    contents of `.l-center` and the edges of the parent element or viewport.
+    To avoid making the content narrower than intended, we add an exception
+    to our global box-sizing rule (defined in 30-base/_box-sizing.scss).
+\*------------------------------------*/
+.l-center {
+  box-sizing: content-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70rem;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+/*------------------------------------*\
+    #Cover layout helper
+
+    From https://absolutely.every-layout.dev/layouts/cover/
+
+    `.l-cover` uses Flexbox to vertically center a principal item
+    of content. It is given a min-height value to achieve this
+    which could be 100vh, or less.
+
+    Horizontal centering of content can be achieved using the `.l-center`
+    layout within `.l-cover`, or with the `.u-center` utility found in
+    /90-utilities/layout
+\*------------------------------------*/
+.l-cover {
+  display: flex;
+  flex-direction: column;
+  min-height: 30vh;
+  padding: 1rem;
+}
+
+.l-cover > * {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.l-cover > .principal {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/**
+These styles space out an optional header/footer area without
+disturbing the vertically centered element.
+ */
+.l-cover > :first-child:not(.principal) {
+  margin-top: 0;
+}
+
+.l-cover > :last-child:not(.principal) {
+  margin-bottom: 0;
+}
+
+/*------------------------------------*\
+    #Cluster layout helper
+
+    From https://absolutely.every-layout.dev/layouts/cluster/
+
+    `.l-cluster` suits any groups of elements that differ in length and
+    are liable to wrap. Use the Cluster to align any groups of horizontally
+    laid out elements to the left or right, or in the center, with even
+    spacing between elements.
+\*------------------------------------*/
+/**
+Suppress horizontal scrolling caused by the negative margin
+in some circumstances.
+ */
+.l-cluster {
+  overflow: hidden;
+}
+
+/**
+We use flexbox to configure the elements into clusters without creating
+white space. We can control how we align items within the cluster,
+by using 'align-items` and `justify-content`.
+ */
+.l-cluster > * {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: -0.625rem;
+}
+
+/**
+We apply an even, symmetrical margin to the elements that we wish to space
+out, but halve it to to account for 'doubling up' at the edges.
+ */
+.l-cluster.l-cluster > * > * {
+  margin: 0.625rem;
+}
+
+/*------------------------------------*\
+    #Frame layout helper
+
+    From https://absolutely.every-layout.dev/layouts/frame/
+
+    `.l-frame` is most useful for cropping media (images
+    and video) to a specific aspect ratio.
+
+    It is not recommended to apply the `.l-frame` class to the
+    <figure> element, as it will interfere with the <figcaption>.
+    Instead, place it on <picture> or a <div> inside of <figure>.
+\*------------------------------------*/
+.l-frame {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.l-frame > * {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.l-frame > iframe,
+.l-frame > img,
+.l-frame > video {
+  height: 100%;
+  width: 100%;
+}
+
+.l-frame > iframe {
+  border: 0;
+}
+
+.l-frame > img,
+.l-frame > video {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* Common aspect ratios */
+.l-frame--16-9 {
+  padding-bottom: 56.25%;
+}
+
+.l-frame--3-2 {
+  padding-bottom: 66.67%;
+}
+
+.l-frame--4-3 {
+  padding-bottom: 75%;
+}
+
+.l-frame--square {
+  padding-bottom: 100%;
+}
+
+/*------------------------------------*\
+    #Sidebar layout helper
+
+    From https://absolutely.every-layout.dev/layouts/sidebar/
+
+    `.l-sidebar` creates a container for a larger panel next to
+    a smaller - sidebar - panel.
+
+    When there is enough horizontal space for them to sit alongside
+    each other, they do so. Otherwise they stack vertically. The
+    point at which this happens is determined by setting a flex-basis
+    on the sidebar panel and a min-width on the other panel.
+
+    N.B: because this layout uses Flexbox, we can use the `order`
+    property on either `.not-sidebar` or `.sidebar` (depending upon
+    the source order of the HTML) to determine whether the sidebar
+    sits on the left or right side.
+\*------------------------------------*/
+/**
+Suppress horizontal scrolling caused by the negative margin
+in some circumstances.
+ */
+.l-sidebar {
+  overflow: hidden;
+}
+
+/**
+We target the intermediary wrapper and give it a negative margin
+to create a gutter between the `.sidebar` and `.not-sidebar`.
+ */
+.l-sidebar > * {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: -0.75rem;
+}
+
+/**
+We apply an even, symmetrical margin to `.sidebar` and `.not-sidebar`,
+but halve it to to account for 'doubling up' at the edges.
+ */
+.l-sidebar > * > * {
+  margin: 0.75rem;
+}
+
+/**
+Flex-basis determines the ideal width of the `.sidebar`. This can be
+omitted to let the contents of `.sidebar` determine the width of
+`.sidebar` (e.g. an image with a specified max-width).
+ */
+.l-sidebar .sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-basis: 20rem;
+  flex-grow: 1;
+}
+.l-sidebar .sidebar > * + * {
+  margin-top: 1em;
+}
+
+/**
+Min-width determines the point at which `.sidebar` and `.not-sidebar`
+will sit side-by-side rather than vertically. This negates the use of
+a viewport media query.
+ */
+.l-sidebar .not-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-basis: 0;
+  flex-grow: 999;
+  min-width: calc(55% - 1.5rem);
+}
+.l-sidebar .not-sidebar > * + * {
+  margin-top: 1em;
+}
+
+.l-sidebar--expanded {
+  width: 100%;
+}
+
+.l-sidebar .sidebar.sidebar--compact {
+  flex-basis: 11.25rem;
+}
+
+/*------------------------------------*\
+    #Switcher layout helper
+
+    Uses this to switch between vertical and horizontal layouts:
+    https://www.freecodecamp.org/news/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848/
+
+    `.l-switcher` switches a Flexbox context between a horizontal and a
+    vertical layout at a given, CONTAINER-BASED breakpoint, rather than
+    using viewport media queries.
+
+    The child elements in the horizontal configuration will be of equal
+	width.
+
+	For gutter spacing, apply padding to the flex items and an equal
+    negative margin to the flex container. This will double up,
+    so use half the intended value.
+\*------------------------------------*/
+.l-switcher {
+  overflow: hidden;
+}
+
+.l-switcher > * {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/**
+1. Determines the item width in the single column, vertical configuration
+
+2. Determines how many items will be in a row in the horizontal configuration
+
+3. The 690 value matches the desired breakpoint value. The 100% corresponds to
+the width of the columns' parent container. This calculation will create a
+value that's either bigger than the max-width or smaller than the min-width,
+so that either of these properties is applied instead.
+ */
+.l-switcher > * > * {
+  max-width: 100%; /* 1 */
+  min-width: 50%; /* 2 */
+  width: calc(476100px - 69000%); /* 3 */
+}
+
+/*------------------------------------*\
+    #Core components
+\*------------------------------------*/
+/*------------------------------------*\
+    #Global header
+\*------------------------------------*/
+/*------------------------------------*\
+    #Logo
+\*------------------------------------*/
+/*------------------------------------*\
+    #Navigation core
+\*------------------------------------*/
+/*------------------------------------*\
+    #Breadcrumbs
+    See: https://scottaohara.github.io/a11y_breadcrumbs/
+\*------------------------------------*/
+.breadcrumbs {
+  padding-bottom: 0.9375rem;
+  padding-top: 0.625rem;
+}
+.breadcrumbs .l-cluster > * {
+  margin: 0 -0.6875rem;
+}
+.breadcrumbs .l-cluster > * > * {
+  margin: 0 0 0 0.6875rem;
+  padding-right: 1em;
+  position: relative;
+}
+
+[dir=rtl] .breadcrumbs .l-cluster > * > * {
+  margin: 0 0.6875rem 0 0;
+  padding-left: 1em;
+  padding-right: 0;
+}
+
+.breadcrumbs ol ::marker {
+  content: "" !important;
+}
+
+.breadcrumbs a {
+  color: #252525;
+  display: block;
+  padding-bottom: 0.6875rem;
+  padding-top: 0.6875rem;
+}
+.breadcrumbs a:visited, .breadcrumbs a:hover, .breadcrumbs a:active {
+  color: #252525;
+}
+
+.breadcrumbs [aria-current] {
+  font-weight: 600;
+  text-decoration: none;
+}
+.breadcrumbs [aria-current]:hover, .breadcrumbs [aria-current]:focus {
+  outline-color: #252525;
+}
+
+/**
+Separator chevron - see https://codepen.io/jonneal/pen/kptBs
+*/
+.breadcrumbs li:not(:last-child)::after {
+  border-style: solid;
+  border-width: 0.1em 0.1em 0 0;
+  content: "";
+  display: block;
+  height: 0.5em;
+  position: absolute;
+  right: 0.4em;
+  top: 50%;
+  -webkit-transform: rotate(45deg) translateY(-50%);
+          transform: rotate(45deg) translateY(-50%);
+  width: 0.5em;
+}
+
+[dir=rtl] .breadcrumbs li:not(:last-child)::after {
+  border-width: 0 0 0.1em 0.1em;
+  left: 0.1em;
+  right: auto;
+}
+
+/*------------------------------------*\
+    #Main
+\*------------------------------------*/
+/**
+1. We use left and right padding to add some minimum space between the
+contents of <main> and the edges of the parent element or viewport.
+To avoid making the content narrower than intended, we add an exception
+to our global box-sizing rule.
+ */
+main,
+#main {
+  box-sizing: content-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70rem;
+  padding: 1.5rem 5vw 6.25rem;
+}
+
+.component + .component {
+  margin-top: 1.5rem;
+}
+@media screen and (min-width: 48em) {
+  .component + .component {
+    margin-top: 3rem;
+  }
+}
+
+/*------------------------------------*\
+    #Text component
+\*------------------------------------*/
+.component--text > * {
+  max-width: 41.25rem;
+}
+
+/*------------------------------------*\
+    #Quotes
+\*------------------------------------*/
+.component--quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  -webkit-margin-start: 0.625rem;
+          margin-inline-start: 0.625rem;
+  padding: 1.25rem;
+  position: relative;
+}
+.component--quote > * + * {
+  margin-top: 1rem;
+}
+.component--quote::before {
+  background-color: #0d599b;
+  border-radius: 0.3125rem;
+  content: "";
+  height: 100%;
+  left: -0.625rem;
+  position: absolute;
+  top: 0;
+  width: 0.625rem;
+}
+.component--quote blockquote {
+  color: #0d599b;
+  margin: 0;
+  padding: 0;
+}
+
+[dir=rtl] .component--quote::before {
+  left: auto;
+  right: -0.625rem;
+}
+
+/*------------------------------------*\
+    #Image component
+\*------------------------------------*/
+.component--image {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.component--image > * + * {
+  margin-top: 1em;
+}
+.component--image figcaption {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.component--image figcaption > * + * {
+  margin-top: 1em;
+}
+.component--image figcaption > * {
+  max-width: 33.75rem;
+}
+.component--image figcaption > a {
+  align-self: flex-start;
+  display: inline-block;
+  margin: 0;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+}
+
+/*------------------------------------*\
+    #Avatars
+\*------------------------------------*/
+.avatar {
+  background-color: #fcfcfc;
+  border: solid 1px #0d599b;
+  border-radius: 50%;
+  height: 6.25rem;
+  overflow: hidden;
+  position: relative;
+  width: 6.25rem;
+}
+.avatar img {
+  height: auto;
+  margin-top: -0.625rem;
+  width: 100%;
+}
+
+.avatar--med {
+  height: 3.125rem;
+  width: 3.125rem;
+}
+.avatar--med img {
+  margin-top: 0;
+}
+
+.avatar--small {
+  height: 2rem;
+  width: 2rem;
+}
+.avatar--small img {
+  margin-top: 0;
+}
+
+/*------------------------------------*\
+    #Video component
+\*------------------------------------*/
+.component--video iframe {
+  border: 0;
+}
+.component--video figcaption {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
+}
+.component--video figcaption > * + * {
+  margin-top: 1em;
+}
+.component--video figcaption > * {
+  max-width: 33.75rem;
+}
+.component--video figcaption > a {
+  align-self: flex-start;
+  display: inline-block;
+  margin: 0;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+}
+
+/*------------------------------------*\
+    #Notes
+
+    1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent things like buttons and links
+    from stretching horizontally
+\*------------------------------------*/
+.note {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; /* 1 */
+  border-width: 0.3125rem;
+}
+.note > * + * {
+  margin-top: 1em;
+}
+.note > * {
+  max-width: 41.25rem;
+}
+
+.note--error {
+  border-color: #b83123;
+}
+
+.note--info {
+  border-color: #235bd1;
+}
+
+.note--success {
+  border-color: #17731d;
+}
+
+.note--warning {
+  border-color: #965203;
+}
+
+/*------------------------------------*\
+    #Cards
+
+    1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent things like buttons and links
+    from stretching horizontally
+\*------------------------------------*/
+.card {
+  background-color: #fcfcfc;
+  border-radius: 0.25rem;
+  box-shadow: -1px 1px 4px 0 rgba(55, 70, 95, 0.12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 1;
+  order: 1;
+  padding-top: 1rem;
+}
+.card__text > * + * {
+  margin-top: 1em;
+}
+
+/**
+"Neat cards": for a row of cards of equal height and with the last item
+(e.g. CTA or tag list) always pushed to the bottom edge.
+ */
+.card--neat {
+  height: 100%;
+}
+
+.card--neat .card__text > :nth-last-child(2) {
+  margin-bottom: 1em;
+}
+.card--neat .card__text > :last-child {
+  margin-top: auto;
+}
+
+.card__text > a:not([class]) {
+  align-self: flex-start; /* 1 */
+  margin-top: 0.375rem;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+}
+
+.card__heading {
+  font-size: 1.5625rem;
+  line-height: 1.3;
+}
+
+.card__link {
+  border: 0;
+  color: #252525;
+  text-decoration: none;
+}
+.card__link:hover {
+  text-decoration: underline; /* 1 */
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+.card__link:focus {
+  background-color: #ffdc00;
+  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
+  color: #000;
+  text-decoration: none;
+}
+
+/*------------------------------------*\
+    #Shelves
+    (Used for organising groups of cards, etc.)
+\*------------------------------------*/
+.component--shelves {
+  overflow: hidden;
+}
+
+.component--shelves__intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 1.875rem;
+  max-width: 41.25rem;
+}
+.component--shelves__intro > * + * {
+  margin-top: 1rem;
+}
+
+@media screen and (min-width: 48em) {
+  .component--shelves__items {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1.5%;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  .component--shelves__items > * {
+    flex: 1 0 33%;
+    max-width: 50%;
+    padding: 1.5%;
+  }
+}
+
+.component--shelves__items > * + * {
+  margin-top: 1.25rem;
+}
+@media screen and (min-width: 48em) {
+  .component--shelves__items > * + * {
+    margin-top: 0;
+  }
+}
+
+/*------------------------------------*\
+    #Progress bar
+
+    Typically used on multi-step forms
+\*------------------------------------*/
+.progress-list {
+  margin-bottom: 1.875rem;
+}
+@media screen and (min-width: 48em) {
+  .progress-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.progress-list ::marker {
+  content: "" !important;
+}
+
+.progress-list li {
+  position: relative;
+}
+.progress-list li::after {
+  background-color: #545454;
+  bottom: -1rem;
+  content: "";
+  height: 0.8125rem;
+  left: 1.1875rem;
+  position: absolute;
+  width: 0.1875rem;
+}
+@media screen and (min-width: 48em) {
+  .progress-list li::after {
+    bottom: auto;
+    height: 0.1875rem;
+    left: 50%;
+    top: 2rem;
+    width: 100%;
+    z-index: -1;
+  }
+}
+.progress-list li + li {
+  margin-top: 1.25rem;
+}
+@media screen and (min-width: 48em) {
+  .progress-list li + li {
+    margin-top: 0;
+  }
+}
+
+[dir=rtl] .progress-list li::after {
+  left: auto;
+  right: 1.1875rem;
+}
+@media screen and (min-width: 48em) {
+  [dir=rtl] .progress-list li::after {
+    left: auto;
+    right: 50%;
+  }
+}
+
+.progress-list li.complete::after {
+  background-color: #235bd1;
+}
+
+.progress-list li:last-child::after {
+  display: none;
+}
+
+.progress-step__inner {
+  align-items: center;
+  display: flex;
+}
+@media screen and (min-width: 48em) {
+  .progress-step__inner {
+    flex-direction: column;
+    padding-top: 0.625rem;
+    text-align: center;
+  }
+}
+.progress-step__inner > span {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  padding: 0.625rem;
+}
+@media screen and (min-width: 48em) {
+  .progress-step__inner > span {
+    width: 9.375rem;
+  }
+}
+
+.progress-step__marker {
+  align-items: center;
+  background-color: #fcfcfc;
+  border: solid 3px #545454;
+  border-radius: 50%;
+  display: flex;
+  height: 2.75rem;
+  justify-content: center;
+  width: 2.75rem;
+}
+@media screen and (min-width: 48em) {
+  .progress-step__marker {
+    box-shadow: 0 0 0 0.625rem #fcfcfc;
+  }
+}
+
+.progress-step__marker.complete {
+  background-color: #235bd1;
+  border-color: #235bd1;
+  color: #fcfcfc;
+  position: relative;
+}
+.progress-step__marker.complete::before, .progress-step__marker.complete::after {
+  background-color: #235bd1;
+  content: "";
+  position: absolute;
+}
+.progress-step__marker.complete::before {
+  border-radius: 50%;
+  height: 2.375rem;
+  left: 0;
+  top: 0;
+  width: 2.375rem;
+}
+.progress-step__marker.complete::after {
+  border: solid;
+  border-top-color: transparent;
+  border-width: 0 0 3px 3px;
+  height: 0.5625rem;
+  left: 0.625rem;
+  top: 0.8125rem;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  width: 1.125rem;
+}
+
+.progress-list a {
+  color: #545454;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+.progress-list a:visited {
+  color: #920ba6;
+}
+.progress-list a:hover {
+  color: #001f3f;
+}
+.progress-list a:focus {
+  box-shadow: 0 0 0 2px;
+  color: #000;
+  outline: solid 3px #ffdc00;
+  outline-offset: 2px;
+  text-decoration: none;
+}
+.progress-list a:active {
+  color: #000;
+}
+
+/*------------------------------------*\
+    #Tag list
+
+    1. High contrast themes tend to eliminate background-color. If there is no
+    border set, we need to apply a transparent outline to maintain the
+    the shape. The negative outline-offset moves the outline inside the
+    perimeter so it behaves like a border and doesn't add to the overall size.
+
+    2. Meet WCAG AAA target size requirements for this font size - see
+    https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
+\*------------------------------------*/
+.tag-list.tag-list {
+  margin: -0.625rem;
+}
+.tag-list.tag-list li {
+  margin: 0.625rem;
+}
+
+.tag {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  background-color: #bdbdbd;
+  border-radius: 0.25rem;
+  color: #252525;
+  display: inline-block;
+  outline: 1px solid transparent; /* 1 */
+  outline-offset: -1px; /* 1 */
+  padding: 0.6875rem; /* 2 */
+  text-decoration: none;
+}
+.tag:hover {
+  text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+.tag:focus {
+  background-color: #ffdc00;
+  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
+  color: #000;
+}
+
+/*------------------------------------*\
+    #Collapsible sections
+
+    1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent things like buttons and links
+    from stretching horizontally
+
+    2. Restrict line-length for readability
+\*------------------------------------*/
+.component--collapsibles,
+[data-heading=collapsibles] + * {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.component--collapsibles > * + *,
+[data-heading=collapsibles] + * > * + * {
+  margin-top: 1em;
+}
+
+[data-heading=collapsibles] {
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.component--collapsibles__panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #fcfcfc;
+  border-radius: 0.375rem;
+  box-shadow: -0.0625rem 0.0625rem 0.25rem rgba(55, 70, 95, 0.12);
+  padding: 1.5625rem;
+}
+.component--collapsibles__panel > * + * {
+  margin-top: 1em;
+}
+
+.component--collapsibles__panel__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.component--collapsibles__panel__content > * + * {
+  margin-top: 1em;
+}
+.component--collapsibles__panel__content > * {
+  max-width: 41.25rem; /* 2 */
+}
+.component--collapsibles__panel__content a,
+.component--collapsibles__panel__content button {
+  align-self: flex-start; /* 1 */
+}
+
+/*------------------------------------*\
+    #Carousel - no-js customisation of Splide
+\*------------------------------------*/
+/*
+ Splide hides the entire carousel if there is no JS.
+ Amplify prefers to keep the slides visible and stacked vertically.
+ */
+.no-js .splide {
+  visibility: visible;
+}
+.no-js .splide__list {
+  display: block;
+}
+.no-js .splide__list > * + * {
+  margin-top: 1rem;
+}
+
+/*------------------------------------*\
+    #Tabbed sections
+
+    1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent things like buttons and links
+    from stretching horizontally
+\*------------------------------------*/
+.no-js .component--tabs {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; /* 1 */
+}
+.no-js .component--tabs > * + * {
+  margin-top: 1em;
+}
+.no-js .component--tabs section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; /* 1 */
+}
+.no-js .component--tabs section > * + * {
+  margin-top: 1em;
+}
+
+/*------------------------------------*\
+    #Search
+\*------------------------------------*/
+input[type=search] {
+  max-width: none;
+  position: relative;
+  z-index: 1;
+}
+
+.l-sidebar.search {
+  overflow: visible;
+}
+
+.l-sidebar.search > * {
+  margin: -0.75rem;
+}
+
+.l-sidebar.search > * > * {
+  margin: 0.75rem;
+}
+
+.l-sidebar.search form .sidebar {
+  flex-basis: auto;
+}
+
+.l-sidebar.search form .not-sidebar {
+  min-width: 70%;
+}
+
+.l-sidebar.search input[type=search] {
+  max-width: none;
+}
+
+@supports ((-webkit-padding-start: 1em) or (padding-inline-start: 1em)) {
+  input[type=search] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs/%3E%3Cpath d='M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z'/%3E%3C/svg%3E");
+    background-position: center left 0.5em;
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    -webkit-padding-start: 2.5rem;
+            padding-inline-start: 2.5rem;
+  }
+  [dir=rtl] input[type=search] {
+    background-position: center right 0.5em;
+  }
+}
+/*------------------------------------*\
+    #Pagination
+\*------------------------------------*/
+.pagination {
+  margin-top: 2.5rem;
+}
+
+.l-cluster.pagination > * {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.l-cluster.pagination > * > * {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.pagination__list a {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #000;
+  display: block;
+  text-decoration: none;
+  padding: 0.6875rem 1.125rem;
+}
+.pagination__list a:visited {
+  color: #000;
+}
+.pagination__list a:focus {
+  background-color: #ffdc00;
+  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
+  color: #000;
+  text-decoration: none;
+}
+.pagination__list a[href]:hover {
+  text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+.pagination__list a[href][aria-current] {
+  background-color: #0d599b;
+  color: #fcfcfc;
+  font-weight: bold;
+}
+.pagination__list a[href][aria-current]:hover {
+  color: #fcfcfc;
+  text-decoration: none;
+}
+.pagination__list a[href][aria-current]:focus {
+  color: #000;
+}
+
+/*------------------------------------*\
+    #Global footer
+
+    1. Needed for sticky footer
+    2. Because autoprefixer does not cover IE grid
+
+    Amplify uses the grid implementation of the sticky footer
+    from https://css-tricks.com/couple-takes-sticky-footer/ -
+
+   The footer isn't sticky in IE, but the flexbox alternative
+   results in display issues, caused by components with overflow
+   not set to visible (e.g. carousels) if used within the sidebar layout.
+
+\*------------------------------------*/
+.global-footer {
+  grid-row-start: 2; /* 1 */
+  -ms-grid-row: 2; /* 2 */
+  grid-row-end: 3; /* 1 */
+  -ms-grid-row-span: 1; /* 2 */
+  padding: 1.25rem 0 1.5625rem;
+}
+.global-footer .l-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.global-footer .l-center > * + * {
+  margin-top: 1rem;
+}
+.global-footer a,
+.global-footer .copyright {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.global-footer a {
+  color: #252525;
+}
+.global-footer a:visited, .global-footer a:hover, .global-footer a:active {
+  color: #252525;
+}
+.global-footer a:focus {
+  background-color: #ffdc00;
+  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
+}
+
+/*------------------------------------*\
+    #Templates
+\*------------------------------------*/
+/*------------------------------------*\
+    #Amplify
+
+    1. Used purely for the static Amplify site
+\*------------------------------------*/
+/*------------------------------------*\
+    #Amplify guide
+
+    Used purely for the static Amplify site
+\*------------------------------------*/
+.amplify .global-header {
+  background-color: #252525;
+  color: #fcfcfc;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+}
+
+.amplify .global-header__link {
+  font-size: 1.5625rem;
+  line-height: 1.3;
+  color: #fcfcfc;
+  padding-bottom: 0.3125rem;
+  padding-top: 0.3125rem;
+  text-decoration: none;
+}
+.amplify .global-header__link:hover, .amplify .global-header__link:visited {
+  color: #fcfcfc;
+}
+.amplify .global-header__link:hover {
+  text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+.amplify .global-header__link:focus {
+  background-color: #ffdc00;
+  color: #252525;
+}
+
+.amplify .global-nav {
+  border-bottom: solid 2px #bdbdbd;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+}
+
+.amplify .global-nav__link {
+  border-bottom: solid 4px transparent;
+  color: #0d599b;
+  display: block;
+  font-size: 1.125rem;
+  font-weight: bold;
+  padding: 0.3125rem;
+  text-decoration: none;
+}
+.amplify .global-nav__link:hover, .amplify .global-nav__link:visited {
+  color: #0d599b;
+}
+.amplify .global-nav__link:hover {
+  text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+.amplify .global-nav__link:focus {
+  background-clip: padding-box;
+  background-color: #ffdc00;
+  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
+  color: #000;
+  text-decoration: none;
+}
+
+.amplify .current .global-nav__link {
+  border-bottom-color: #252525;
+  color: #252525;
+}
+.amplify .current .global-nav__link:hover {
+  text-decoration: none;
+}
+
+.amplify .nav-secondary__link {
+  color: #0d599b;
+  display: block;
+  padding-bottom: 0.5625rem;
+  padding-top: 0.5625rem;
+  position: relative;
+  text-decoration: none;
+}
+.amplify .nav-secondary__link:hover {
+  text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+.amplify .nav-secondary__link:focus {
+  background-color: #ffdc00;
+  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
+  color: #000;
+  text-decoration: none;
+}
+
+.amplify .nav-secondary__link[aria-current] {
+  color: #252525;
+}
+.amplify .nav-secondary__link[aria-current]::before {
+  background-color: #252525;
+  content: "";
+  height: 1.5rem;
+  left: -0.75rem;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 4px;
+}
+.amplify .nav-secondary__link[aria-current]:hover {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 64em) {
+  .amplify .content-wrap {
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: 25% 10% 65%;
+    -ms-grid-columns: 25% 10% 65%;
+    grid-template-rows: 1fr;
+    -ms-grid-rows: 1fr;
+  }
+}
+
+.amplify .content-wrap > *:first-child {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  -ms-grid-column: 1;
+  -ms-grid-row: 1;
+}
+
+.amplify .content-wrap > *:last-child {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  -ms-grid-column: 3;
+  -ms-grid-row: 1;
+  margin-top: 1.875rem;
+}
+@media screen and (min-width: 64em) {
+  .amplify .content-wrap > *:last-child {
+    margin-top: 0;
+  }
+}
+
+.amplify .example + .example {
+  margin-top: 1rem;
+}
+
+.amplify .l-switcher.teasers {
+  overflow: visible;
+}
+
+.amplify .l-switcher.teasers > * {
+  margin: -0.75rem;
+}
+
+.amplify .l-switcher.teasers > * > * {
+  min-width: 33%;
+  padding: 0.75rem;
+}
+
+.amplify .l-switcher.teasers .card {
+  padding: 1.5rem;
+}
+
+.amplify .search-bar .not-sidebar {
+  min-width: 70%;
+}
+
+.amplify .search-bar button {
+  flex-grow: 1;
+}
+
+/* 1 */
+/*------------------------------------*\
+    #Utilities
+\*------------------------------------*/
+/*------------------------------------*\
+    #Alignment utilities
+
+    1. Logical property allows text-direction to change with `ltr`
+\*------------------------------------*/
+.u-float-left {
+  float: left;
+  float: inline-start; /* 1 */
+}
+
+.u-float-right {
+  float: right;
+  float: inline-end; /* 1 */
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-text-left {
+  text-align: left;
+  text-align: start; /* 1 */
+}
+
+.u-text-right {
+  text-align: right;
+  text-align: end; /* 1 */
+}
+
+/**
+Change text-alignment at the "laptop" breakpoint,
+as defined in /10-settings/breakpoints
+
+1. Logical property allows text-direction to change with `ltr`
+ */
+@media screen and (min-width: 80em) {
+  .u-text-left-from-lap {
+    text-align: left;
+    text-align: start; /* 1 */
+  }
+}
+
+@media screen and (min-width: 80em) {
+  .u-text-center-from-lap {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 80em) {
+  .u-text-right-from-lap {
+    text-align: right;
+    text-align: end; /* 1 */
+  }
+}
+
+/*------------------------------------*\
+    #Clearfix utility
+
+    https://css-tricks.com/snippets/css/clear-fix/
+
+    Extend the clearfix placeholder with Sass to avoid
+    having it appear over and over in your markup.
+\*------------------------------------*/
+/*------------------------------------*\
+    #Layout utilities
+\*------------------------------------*/
+/**
+For a full-viewport-width element inside a limited width parent.
+The parent must be exactly centered in the browser in order for this
+to work - see https://css-tricks.com/full-width-containers-limited-width-parents/
+ */
+.u-full-width {
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+  right: 50%;
+  width: 100vw;
+}
+
+/**
+To horizontally center a block-level item
+ */
+.u-center {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+/*------------------------------------*\
+    #Margin utilities
+
+    Double specificity in classname avoids use of !important
+\*------------------------------------*/
+.u-no-margin.u-no-margin {
+  margin: 0;
+}
+
+.u-no-margin-top.u-no-margin-top {
+  margin-top: 0;
+}

@@ -1,0 +1,4 @@
+{%- from "./system/component.njk" import component -%}
+{%- for key, item in components -%}
+    {{ component(item.type, item.name, item.data) }}
+{%- endfor -%}

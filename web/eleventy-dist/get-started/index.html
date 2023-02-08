@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Get Started - Amplify</title>
+
+	<link rel="stylesheet" href="/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="/styles/print.css" media="print"/>
+
+	<script src="/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="not-footer">
+    <a href="#main" class="skip-link">Skip to content</a><header class="global-header">
+    <div class="l-center">
+        <a class="global-header__link" href="/">Amplify from Studio 24</a>
+    </div>
+</header><nav class="global-nav" aria-label="Main">
+    <div class="l-center">
+        <div class="l-cluster">
+            <ul class="clean-list">
+                
+                <li 
+                    class="current"
+                >
+                <a class="global-nav__link" href="/get-started/" 
+                    
+                        aria-current="page"
+                    >
+                    Get Started
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/fundamentals/" 
+                    >
+                    Fundamentals
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/core-components/" 
+                    >
+                    Core components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/advanced-components/" 
+                    >
+                    Advanced components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/design/" 
+                    >
+                    Design handover &amp; standards
+                </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav><main id="main">
+		<div class="content-wrap"><nav class="sidebar nav-secondary" aria-label="Secondary">
+    <ul class="clean-list" role="list"><li>
+                <a href="/get-started/css/" class="nav-secondary__link">
+                    CSS
+                </a>
+            </li><li>
+                <a href="/get-started/browser-support/" class="nav-secondary__link">
+                    Browser Support
+                </a>
+            </li><li>
+                <a href="/get-started/javascript/" class="nav-secondary__link">
+                    JavaScript
+                </a>
+            </li></ul>
+</nav><div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+    <div>
+        <h1>Get Started</h1>
+        <div class="component component--text">
+            <ol>
+<li>Grab an up-to-date copy of Amplify from <a href="https://github.com/studio24/amplify">GitHub</a></li>
+<li>Copy the following items from Amplify into your project (probably into the theme directory, but it will depend on your project setup):
+<ul>
+<li><code>/assets-src</code> directory</li>
+<li><code>.nvmrc</code> file - update to the current LTS version</li>
+<li><code>package.json</code> and <code>package-lock.json</code> files</li>
+<li><code>svgo.config.js</code> file</li>
+<li><code>webpack.config.js</code> file</li>
+</ul>
+</li>
+<li>Check that the config <code>from</code> and <code>to</code> paths in <code>package.json</code> are correct for your project setup</li>
+<li>Check the <code>context</code> and <code>output</code> paths in <code>webpack.config.js</code> are correct for your project setup</li>
+<li>Optional: copy the <code>/amplify</code> directory into the webroot</li>
+<li>Follow the command line instructions to <a href="https://github.com/studio24/amplify">install project dependencies</a> and check there are no errors when building the front-end assets</li>
+<li>Make sure the <code>html</code> element in your web page template has an appropriate <code>lang</code> attribute and the <code>no-js</code> class</li>
+<li>Make sure your web page template includes the following (which can be copied from any of the example pages in the <code>/amplify</code> directory):
+<ul>
+<li>link to the core stylesheet</li>
+<li>link to the advanced stylesheet, including the media query to determine which browsers it will be served to</li>
+<li>link to the print stylesheet</li>
+<li><code>script</code> for the Font Face Observer library in the <code>head</code></li>
+<li>another <code>script</code> in the <code>head</code>, which checks when the desired web font is loaded, adds the <code>fonts-loaded</code> class to <code>html</code>, adds the main JavaScript file to the <code>head</code> and switches the <code>no-js</code> class to <code>js</code></li>
+</ul>
+</li>
+</ol>
+
+        </div>
+    </div>
+</div>
+	</main>
+</div><footer class="global-footer">
+    <div class="l-center">
+        &copy; Studio 24
+    </div>
+</footer><script>
+    if (document.documentElement.classList.contains('js')) {
+        var jsAutocompleteCountry = document.createElement('script');
+        jsAutocompleteCountry.src = '/js/country-Autocomplete.js';
+        document.querySelector('body').appendChild(jsAutocompleteCountry);
+    }
+</script>
+
+</body>
+
+</html>

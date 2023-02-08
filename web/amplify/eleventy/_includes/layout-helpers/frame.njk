@@ -1,0 +1,18 @@
+{%- if params.aspectRatio === "16:9" -%}
+    {% set aspectRatio = " l-frame--16-9" %}
+{%- elif params.aspectRatio === "3:2" -%}
+    {% set aspectRatio = " l-frame--3-2" %}
+{%- elif params.aspectRatio === "4:3" -%}
+    {% set aspectRatio = " l-frame--4-3" %}
+{%- elif params.aspectRatio === "square" -%}
+    {% set aspectRatio = " l-frame--square" %}
+{%- endif -%}
+{%- if params.example -%}
+    <h2>{{ params.title }}</h2>
+{%- endif -%}
+<figure>
+    <div class="l-frame{{ aspectRatio }}">
+        <img src="{{ params.image.url }}" alt="{{ params.image.altText }}">
+    </div>
+    <figcaption>{{ params.image.caption }}</figcaption>
+</figure>

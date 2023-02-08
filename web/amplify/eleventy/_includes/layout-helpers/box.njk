@@ -1,0 +1,11 @@
+{%- if params.noPadding -%}
+    {% set noPadding = " l-box--no-padding" %}
+{%- endif -%}
+{%- if params.title -%}
+    <h2>{{ params.title }}</h2>
+{%- endif -%}
+{%- if params.noBorder -%}
+    <div class="l-box l-box--no-border{{ noPadding }}">{{ params.text | safe }}</div>
+{%- else -%}
+    <div class="l-box{{ noPadding }}">{{ params.text | safe }}</div>
+{%- endif -%}

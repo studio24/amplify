@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>JS - Amplify</title>
+
+	<link rel="stylesheet" href="/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="/styles/print.css" media="print"/>
+
+	<script src="/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="not-footer">
+    <a href="#main" class="skip-link">Skip to content</a>
+    <header class="global-header">
+    <div class="l-center">
+        <a class="global-header__link" href="/">Amplify from Studio 24</a>
+    </div>
+</header>
+<nav class="global-nav" aria-label="Main">
+    <div class="l-center">
+        <div class="l-cluster">
+            <ul class="clean-list">
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/get-started/" 
+                    >
+                    Get Started
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/fundamentals/" 
+                    >
+                    Fundamentals
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/layout-helpers/" 
+                    >
+                    Layout helpers
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/core-components/" 
+                    >
+                    Core components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/advanced-components/" 
+                    >
+                    Advanced components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/design/" 
+                    >
+                    Design &amp; Handover Standards
+                </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+	<main id="main">
+		<div class="content-wrap">
+    <nav class="sidebar nav-secondary" aria-label="Secondary">
+    <ul class="clean-list" role="list">
+        
+        
+            <li>
+                <a href="/get-started/js/" class="nav-secondary__link"
+                
+                    aria-current="page"
+                >
+                    JS
+                </a>
+            </li>
+        
+            <li>
+                <a href="/get-started/browser-support/" class="nav-secondary__link"
+                >
+                    Browser Support
+                </a>
+            </li>
+        
+            <li>
+                <a href="/get-started/css/" class="nav-secondary__link"
+                >
+                    CSS
+                </a>
+            </li>
+        
+        
+    </ul>
+</nav>
+    <div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+    <div>
+        <h1>JS</h1>
+        
+
+        <div class="component component--text">
+            <h1>JavaScript</h1>
+<h2>Architecture</h2>
+<p>The architecture takes inspiration from Chris Ferdinandi's <a href="https://gomakethings.com/how-i-structure-my-vanilla-js-projects/">How I structure my vanilla JS projects</a>. Rather than keeping all JavaScript within a single file, code is split across a series of individual files and subdirectories within <code>src/js</code> directory. This approach offers two main benefits:</p>
+<ul>
+<li>It makes the code easier to understand for developers</li>
+<li>We don't have to load all JavaScript on all pages</li>
+</ul>
+<p><a href="https://github.com/studio24/amplify/blob/main/docs/javascript.md#javascript-architecture">JS architecture details for developers</a>.</p>
+<h2>Compiling and transpiling</h2>
+<p><a href="https://webpack.js.org/">Webpack</a> concatenates and minifies the JS needed for the project into <code>web/dist/js</code>. <a href="https://babeljs.io/">Babel</a> is used for transpiling the JS into code for our <a href="https://amplify.studio24.net/amplify/get-started/browser-support.html">supported browsers</a>.</p>
+<p><a href="https://github.com/studio24/amplify/blob/main/docs/javascript.md#javascript-build-tools">JS build tool details for developers</a>.</p>
+
+        </div>
+    </div>
+</div>
+	</main>
+</div>
+<footer class="global-footer">
+    <div class="l-center">
+        &copy; Studio 24
+    </div>
+</footer>
+<script>
+    if (document.documentElement.classList.contains('js')) {
+        var jsAutocompleteCountry = document.createElement('script');
+        jsAutocompleteCountry.src = '/js/country-Autocomplete.js';
+        document.querySelector('body').appendChild(jsAutocompleteCountry);
+    }
+</script>
+
+</body>
+
+</html>

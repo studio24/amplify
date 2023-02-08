@@ -1,0 +1,31 @@
+{%- if not params.isExample -%}
+<a href="{{ params.url }}"
+{%- if params.type -%}
+    class="
+    {%- if params.type === 'button' -%}
+    button
+    {%- elif params.type === 'button-alt' -%}
+    button button--alt
+    {%- endif -%}
+    "
+{%- endif -%}
+>
+{{ params.text }}
+</a>
+{%- else -%}
+<div class="example">
+    <a href="{{ params.url }}"
+    {%- if params.type -%}
+        class="
+        {%- if params.type === 'button' -%}
+        button
+        {%- elif params.type === 'button-alt' -%}
+        button button--alt
+        {%- endif -%}
+        "
+    {%- endif -%}
+    >
+    {{ params.text }}
+    </a>
+</div>
+{%- endif -%}

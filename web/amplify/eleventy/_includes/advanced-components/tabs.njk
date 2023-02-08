@@ -1,0 +1,13 @@
+<ul data-tabs>
+    {%- for key, tab in params.tabs -%}
+    <li>
+        <a {% if tab.default %}data-tabby-default{% endif %} href="#{{ tab.id }}">{{ tab.title }}</a>
+    </li>
+    {%- endfor -%}
+</ul>
+{%- for key, section in params.tabs -%}
+<section id="{{ section.id }}">
+    <h2>{{ section.title }}</h2>
+    {{ section.body | safe }}
+</section>
+{%- endfor -%}

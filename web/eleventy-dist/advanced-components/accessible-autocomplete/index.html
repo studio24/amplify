@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Accessible auto-complete - Amplify</title>
+
+	<link rel="stylesheet" href="/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="/styles/print.css" media="print"/>
+
+	<script src="/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="not-footer">
+    <a href="#main" class="skip-link">Skip to content</a><header class="global-header">
+    <div class="l-center">
+        <a class="global-header__link" href="/">Amplify from Studio 24</a>
+    </div>
+</header><nav class="global-nav" aria-label="Main">
+    <div class="l-center">
+        <div class="l-cluster">
+            <ul class="clean-list">
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/get-started/" 
+                    >
+                    Get Started
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/fundamentals/" 
+                    >
+                    Fundamentals
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/core-components/" 
+                    >
+                    Core components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/advanced-components/" 
+                    >
+                    Advanced components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/design/" 
+                    >
+                    Design handover &amp; standards
+                </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav><main id="main">
+		<div class="content-wrap"><nav class="sidebar nav-secondary" aria-label="Secondary">
+    <ul class="clean-list" role="list"><li>
+                <a href="/advanced-components/tabs/" class="nav-secondary__link">
+                    Tabbed sections
+                </a>
+            </li><li>
+                <a href="/advanced-components/disclosure-widget/" class="nav-secondary__link">
+                    Disclosure widget
+                </a>
+            </li><li>
+                <a href="/advanced-components/collapsibles/" class="nav-secondary__link">
+                    Collapsible containers
+                </a>
+            </li><li>
+                <a href="/advanced-components/cards/" class="nav-secondary__link">
+                    Block link cards
+                </a>
+            </li><li>
+                <a href="/advanced-components/accessible-autocomplete/" class="nav-secondary__link"aria-current="page">
+                    Accessible auto-complete
+                </a>
+            </li></ul>
+</nav><div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+    <div>
+        <h1>Accessible auto-complete</h1>
+        <div class="component component--text">
+            <p>A <code>select</code> can be enhanced into an accessible auto-complete via JavaScript. Amplify uses the <a href="https://github.com/alphagov/accessible-autocomplete">Accessible autocomplete</a> NPM package, and there are a number of <a href="https://alphagov.github.io/accessible-autocomplete/examples/">example customisations</a> which can be followed.</p>
+<p>Follow the default markup for a <code>select</code>, making sure to give it a unique ID which can be referenced in the JavaScript.</p>
+<p>Country</p>
+<h2>Considerations</h2>
+<p>Note the link to a specific JavaScript file for the auto-complete functionality.</p>
+
+        </div>
+    </div>
+</div>
+	</main>
+</div><footer class="global-footer">
+    <div class="l-center">
+        &copy; Studio 24
+    </div>
+</footer><script>
+    if (document.documentElement.classList.contains('js')) {
+        var jsAutocompleteCountry = document.createElement('script');
+        jsAutocompleteCountry.src = '/js/country-Autocomplete.js';
+        document.querySelector('body').appendChild(jsAutocompleteCountry);
+    }
+</script>
+
+</body>
+
+</html>

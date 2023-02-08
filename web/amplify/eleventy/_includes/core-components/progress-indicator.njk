@@ -1,0 +1,23 @@
+<section>
+    <h2 class="visuallyhidden">Form progress</h2>
+    <ol class="clean-list progress-list" role="list">
+        {%- for key, item in params.steps -%}
+            <li class="progress-step {% if item.complete %}complete{% endif %}" {% if item.current %}aria-current="step"{% endif %}>
+                {%- if item.complete -%}
+                <span class="visuallyhidden">Completed: </span>
+                <a href="" class="progress-step__inner">
+                    <div class="progress-step__marker complete" aria-hidden="true">{{ item.number }}</div>
+                    <span>{{ item.name }}</span>
+                </a>
+                {%- else -%}
+                <div class="progress-step__inner">
+                    <div class="progress-step__marker" aria-hidden="true">
+                        {{ item.number }}
+                    </div>
+                    <span>{{ item.name }}</span>
+                </div>
+                {%- endif -%}
+            </li>
+        {%- endfor -%}
+    </ol>
+</section>

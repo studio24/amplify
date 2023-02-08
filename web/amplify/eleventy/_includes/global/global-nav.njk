@@ -1,0 +1,20 @@
+<nav class="global-nav" aria-label="Main">
+    <div class="l-center">
+        <div class="l-cluster">
+            <ul class="clean-list">
+                {% for item in collections.navItems | reverse %}
+                <li 
+                    {% if page.url === item.url or item.url in page.url %}class="current"{% endif %}
+                >
+                <a class="global-nav__link" href="{{ item.url }}" 
+                    {% if page.url === item.url or item.url in page.url %}
+                        aria-current="page"
+                    {% endif %}>
+                    {{ item.data.title }}
+                </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Shelves - Amplify</title>
+
+	<link rel="stylesheet" href="/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="/styles/print.css" media="print"/>
+
+	<script src="/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="not-footer">
+    <a href="#main" class="skip-link">Skip to content</a>
+    <header class="global-header">
+    <div class="l-center">
+        <a class="global-header__link" href="/">Amplify from Studio 24</a>
+    </div>
+</header>
+<nav class="global-nav" aria-label="Main">
+    <div class="l-center">
+        <div class="l-cluster">
+            <ul class="clean-list">
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/get-started/" 
+                    >
+                    Get Started
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/fundamentals/" 
+                    >
+                    Fundamentals
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/layout-helpers/" 
+                    >
+                    Layout helpers
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/core-components/" 
+                    >
+                    Core components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/advanced-components/" 
+                    >
+                    Advanced components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/design/" 
+                    >
+                    Design &amp; Handover Standards
+                </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+	<main id="main">
+		<div class="content-wrap">
+    <nav class="sidebar nav-secondary" aria-label="Secondary">
+    <ul class="clean-list" role="list">
+        
+        
+            <li>
+                <a href="/layout-helpers/quote-component/" class="nav-secondary__link"
+                >
+                    Quote component
+                </a>
+            </li>
+        
+            <li>
+                <a href="/layout-helpers/shelves/" class="nav-secondary__link"
+                
+                    aria-current="page"
+                >
+                    Shelves
+                </a>
+            </li>
+        
+            <li>
+                <a href="/layout-helpers/simple-search/" class="nav-secondary__link"
+                >
+                    Simple search form
+                </a>
+            </li>
+        
+            <li>
+                <a href="/layout-helpers/sticky-footer/" class="nav-secondary__link"
+                >
+                    Sticky footer
+                </a>
+            </li>
+        
+            <li>
+                <a href="/layout-helpers/box/" class="nav-secondary__link"
+                >
+                    
+                </a>
+            </li>
+        
+            <li>
+                <a href="/layout-helpers/center/" class="nav-secondary__link"
+                >
+                    Center
+                </a>
+            </li>
+        
+            <li>
+                <a href="/layout-helpers/cluster/" class="nav-secondary__link"
+                >
+                    Cluster
+                </a>
+            </li>
+        
+            <li>
+                <a href="/layout-helpers/cover/" class="nav-secondary__link"
+                >
+                    Cover
+                </a>
+            </li>
+        
+            <li>
+                <a href="/layout-helpers/frame/" class="nav-secondary__link"
+                >
+                    Frame
+                </a>
+            </li>
+        
+            <li>
+                <a href="/layout-helpers/sidebar/" class="nav-secondary__link"
+                >
+                    Sidebar
+                </a>
+            </li>
+        
+            <li>
+                <a href="/layout-helpers/switcher/" class="nav-secondary__link"
+                >
+                    Switcher
+                </a>
+            </li>
+        
+        
+    </ul>
+</nav>
+    <div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+    <div>
+        <h1>Shelves</h1>
+        
+
+        <div class="component component--text">
+            <p>Shelves provide a flexbox framework for arranging groups of items such as <a href="https://amplify.studio24.net/amplify/core-components/cards.html">cards</a>. You might choose to use shelves instead of the <a href="https://amplify.studio24.net/amplify/layout-helpers/switcher.html">switcher layout helper</a> if:</p>
+<ul>
+<li>you want to specify the number of items on each shelf in relation to the viewport width rather than the width of the parent container</li>
+<li>you want to change how many items can fit on a shelf depending on the total number of items, using <a href="https://alistapart.com/article/quantity-queries-for-css/">CSS quantity queries</a> - use <a href="https://quantityqueries.com/">Quantity Queries Builder</a> to roll your own quantity queries</li>
+<li>items don't have to follow a rigid grid pattern and can grow horizontally to fill up the space on a shelf when there are fewer than the maximum possible (much like a cat taking up all the available space)</li>
+</ul>
+<h2>Heading for the shelves component</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+<ul>
+<li>
+<h3>Cats and the Internet</h3>
+<p>Examining the popularity of cat-related media content online.</p>
+<p><a href="https://en.wikipedia.org/wiki/Cats_and_the_Internet">Cats and the Internet: Read more</a></p>
+<p><img src="https://amplify.studio24.net/dist/images/jpg-cat-1.jpg" alt=""></p>
+</li>
+<li>
+<h3>Cats and the Internet</h3>
+<p>Examining the popularity of cat-related media content online.</p>
+<p><a href="https://en.wikipedia.org/wiki/Cats_and_the_Internet">Cats and the Internet: Read more</a></p>
+<p><img src="https://amplify.studio24.net/dist/images/jpg-cat-1.jpg" alt=""></p>
+</li>
+<li>
+<h3>Cats and the Internet</h3>
+<p>Examining the popularity of cat-related media content online.</p>
+<p><a href="https://en.wikipedia.org/wiki/Cats_and_the_Internet">Cats and the Internet: Read more</a></p>
+<p><img src="https://amplify.studio24.net/dist/images/jpg-cat-1.jpg" alt=""></p>
+</li>
+<li>
+<h3>Cats and the Internet</h3>
+<p>Examining the popularity of cat-related media content online.</p>
+<p><a href="https://en.wikipedia.org/wiki/Cats_and_the_Internet">Cats and the Internet: Read more</a></p>
+<p><img src="https://amplify.studio24.net/dist/images/jpg-cat-1.jpg" alt=""></p>
+</li>
+<li>
+<h3>Cats and the Internet</h3>
+<p>Examining the popularity of cat-related media content online.</p>
+<p><a href="https://en.wikipedia.org/wiki/Cats_and_the_Internet">Cats and the Internet: Read more</a></p>
+<p><img src="https://amplify.studio24.net/dist/images/jpg-cat-1.jpg" alt=""></p>
+</li>
+</ul>
+<h2>Considerations</h2>
+<p>The example above uses an unordered list to hold the cards. Because the <a href="https://amplify.studio24.net/amplify/core-components/cards.html">cards</a> pattern uses headings that fit in with the surrounding page hierarchy, <code>role=&quot;presentaton&quot;</code> is added to the unordered list to reduce the verbosity of announcements for assitive technology users.</p>
+
+        </div>
+    </div>
+</div>
+	</main>
+</div>
+<footer class="global-footer">
+    <div class="l-center">
+        &copy; Studio 24
+    </div>
+</footer>
+<script>
+    if (document.documentElement.classList.contains('js')) {
+        var jsAutocompleteCountry = document.createElement('script');
+        jsAutocompleteCountry.src = '/js/country-Autocomplete.js';
+        document.querySelector('body').appendChild(jsAutocompleteCountry);
+    }
+</script>
+
+</body>
+
+</html>

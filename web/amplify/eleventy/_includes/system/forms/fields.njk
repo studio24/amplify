@@ -1,0 +1,6 @@
+{%- macro fields(target, params) -%}
+{%- from "./field.njk" import field -%}
+{%- for key, field in target -%}
+    {{ field(field) }}
+{%- endfor -%}
+{%- endmacro -%}

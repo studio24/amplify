@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Typography test - Amplify</title>
+
+	<link rel="stylesheet" href="/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="/styles/print.css" media="print"/>
+
+	<script src="/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="not-footer">
+    <a href="#main" class="skip-link">Skip to content</a><header class="global-header">
+    <div class="l-center">
+        <a class="global-header__link" href="/">Amplify from Studio 24</a>
+    </div>
+</header><nav class="global-nav" aria-label="Main">
+    <div class="l-center">
+        <div class="l-cluster">
+            <ul class="clean-list">
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/get-started/" 
+                    >
+                    Get Started
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/fundamentals/" 
+                    >
+                    Fundamentals
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/core-components/" 
+                    >
+                    Core components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/advanced-components/" 
+                    >
+                    Advanced components
+                </a>
+                </li>
+                
+                <li 
+                    
+                >
+                <a class="global-nav__link" href="/design/" 
+                    >
+                    Design handover &amp; standards
+                </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav><main id="main">
+		<div class="content-wrap"><nav class="sidebar nav-secondary" aria-label="Secondary">
+    <ul class="clean-list" role="list"><li>
+                <a href="/design/typography-test/" class="nav-secondary__link"aria-current="page">
+                    Typography test
+                </a>
+            </li></ul>
+</nav><div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+    <div>
+        <h1>Typography test</h1>
+        <div class="component component--text">
+            <p>Use this test page to provide visual feedback of the state and flow of typographical styles.</p>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
+<h2>Horizontal rule</h2>
+<p>You can use horizontal rules, like the one below, to add emphasis to section breaks on a page. These lines should be used sparingly as headings should usually provide enough division between sections for the reader.</p>
+<hr>
+<p>A <a href="https://en.wikipedia.org/wiki/Paragraph">paragraph</a> is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+<h2>Describing a paragraph H2</h2>
+<p>A <a href="https://en.wikipedia.org/wiki/Paragraph">paragraph</a> is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+<p>A <a href="https://en.wikipedia.org/wiki/Paragraph">paragraph</a> is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+<h3>Describing a paragraph H3</h3>
+<p>A <a href="https://en.wikipedia.org/wiki/Paragraph">paragraph</a> is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+<blockquote>
+<p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
+<p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
+<p><em>Said no one, ever.</em></p>
+</blockquote>
+<p>A <a href="https://en.wikipedia.org/wiki/Paragraph">paragraph</a> is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+<h4>Describing a paragraph H4</h4>
+<p>A <a href="https://en.wikipedia.org/wiki/Paragraph">paragraph</a> is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+<ul>
+<li>First item in an unordered list</li>
+<li>Second item in an unordered list
+<ul>
+<li>First item in second level</li>
+<li>Second item in second level</li>
+</ul>
+</li>
+<li>Third item in an unordered list</li>
+</ul>
+<ol>
+<li>First item in an ordered list</li>
+<li>Second item in an ordered list
+<ol>
+<li>First item in second level</li>
+<li>Second item in second level</li>
+</ol>
+</li>
+<li>Third item in an ordered list</li>
+</ol>
+<p>A <a href="https://en.wikipedia.org/wiki/Paragraph">paragraph</a> is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+<h5>Describing a paragraph H5</h5>
+<p>A <a href="https://en.wikipedia.org/wiki/Paragraph">paragraph</a> is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+<p>A <a href="https://en.wikipedia.org/wiki/Paragraph">paragraph</a> is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+<h6>Describing a paragraph H6</h6>
+<p>A <a href="https://en.wikipedia.org/wiki/Paragraph">paragraph</a> is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+<p>Example table</p>
+<table>
+<thead>
+<tr>
+<th>Column header 1</th>
+<th>Column header 2</th>
+<th>Column header 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Row 1 header</td>
+<td>Row 1, cell 2</td>
+<td>Row 1, cell 3</td>
+</tr>
+<tr>
+<td>Row 2 header</td>
+<td>Row 2, cell 2</td>
+<td>Row 2, cell 3</td>
+</tr>
+</tbody>
+</table>
+<p>A <a href="https://en.wikipedia.org/wiki/Paragraph">paragraph</a> is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+
+        </div>
+    </div>
+</div>
+	</main>
+</div><footer class="global-footer">
+    <div class="l-center">
+        &copy; Studio 24
+    </div>
+</footer><script>
+    if (document.documentElement.classList.contains('js')) {
+        var jsAutocompleteCountry = document.createElement('script');
+        jsAutocompleteCountry.src = '/js/country-Autocomplete.js';
+        document.querySelector('body').appendChild(jsAutocompleteCountry);
+    }
+</script>
+
+</body>
+
+</html>

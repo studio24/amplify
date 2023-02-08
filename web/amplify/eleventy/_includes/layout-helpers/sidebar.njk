@@ -1,0 +1,16 @@
+{%- if params.example -%}
+    <h2>{{ params.title }}</h2>
+{%- endif -%}
+{%- if params.nested -%}
+    <div class="not-sidebar">
+        <div class="l-box l-box--no-border">{{ params.notSidebar }}</div>
+    </div>
+    <div class="sidebar">
+        <div class="l-box l-box--no-border">{{ params.sidebarContent }}</div>
+    </div>
+{%- else -%}
+    <div>
+        <div class="not-sidebar">{{ params.notSidebar }}</div>
+        <div class="sidebar">{{ params.sidebarContent }}</div>
+    </div>
+{%- endif -%}

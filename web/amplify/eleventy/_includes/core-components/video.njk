@@ -1,0 +1,6 @@
+<div class="l-frame l-frame--16-9">
+    <iframe title="{{ params.iframe.title }}" loading="lazy" width="{{ params.iframe.width }}" height="{{ params.iframe.height }}" src="{{ params.iframe.src }}" {% if params.iframe.fullscreen %}allowfullscreen{% endif %}></iframe>
+</div>
+<figcaption>
+    {{ params.iframe.caption | safe }}
+</figcaption>

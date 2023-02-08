@@ -1,0 +1,130 @@
+{%- if params.image.aspectRatio === "16:9" -%}
+    {% set aspectRatio = " l-frame--16-9" %}
+{%- elif params.image.aspectRatio === "3:2" -%}
+    {% set aspectRatio = " l-frame--3-2" %}
+{%- elif params.image.aspectRatio === "4:3" -%}
+    {% set aspectRatio = " l-frame--4-3" %}
+{%- elif params.image.aspectRatio === "square" -%}
+    {% set aspectRatio = " l-frame--square" %}
+{%- endif -%}
+{%- if params.example -%}
+    <h2>{{ params.sectionTitle }}</h2>
+{%- endif -%}
+{%- if params.cards -%}
+    {%- if params.componentType === "shelves" -%}
+        <ul class="component--shelves__items clean-list" role="presentation">
+            {%- for key, card in params.cards -%}
+                <li>
+                    <div class="card{% if params.type %} card--{{ params.type }}{% endif %}">
+                        {%- if card.heading or card.body -%}
+                        <div class="{% if card.boxType %}l-box l-box--{{ card.boxType }} {% endif %}card__text">
+                            <h2 class="card__heading">{{ card.heading }}</h2>
+                            {{ card.body | safe }}
+                            {%- if card.link -%}
+                            <a href="{{ card.link.url }}" 
+                            {%- if card.link.type -%}
+                                class="{{ card.link.type }}"
+                            {%- endif -%}
+                            >
+                                {%- if card.link.name -%}
+                                    <span class="visuallyhidden">{{ card.link.name }}:</span>
+                                {%- endif -%}
+                                {{ card.link.text }}
+                            </a>
+                            {%- endif -%}
+                        </div>
+                        {%- endif -%}
+                        {%- if card.image -%}
+                        <div class="{% if card.image.frameType %}l-frame l-frame--{{ card.image.frameType }}{% endif %} card__image">
+                            <img src="{{ card.image.url }}" alt="{{ card.image.altText }}" loading="lazy">
+                        </div>
+                        {%- endif -%}
+                    </div>
+                </li>
+            {%- endfor -%}
+        </ul>
+    {%- else -%}
+        <div class="l-switcher{% if params.extraClass %} {{ params.extraClass }}{% endif %}">
+            <div>
+                {%- for key, card in params.cards -%}
+                <div>
+                    <div class="card{% if params.type %} card--{{ params.type }}{% endif %}">
+                        {%- if card.heading or card.body -%}
+                        <div class="{% if card.boxType %}l-box l-box--{{ card.boxType }} {% endif %}card__text">
+                            <h2 class="card__heading">{{ card.heading }}</h2>
+                            {{ card.body | safe }}
+                            {%- if card.link -%}
+                            <a href="{{ card.link.url }}" 
+                            {%- if card.link.type -%}
+                                class="{{ card.link.type }}"
+                            {%- endif -%}
+                            >
+                                {%- if card.link.name -%}
+                                    <span class="visuallyhidden">{{ card.link.name }}:</span>
+                                {%- endif -%}
+                                {{ card.link.text }}
+                            </a>
+                            {%- endif -%}
+                            {%- if card.tags -%}
+                                <div class="l-cluster">
+                                    <ul class="clean-list tag-list">
+                                        {%- for key, tag in card.tags -%}
+                                        <li>
+                                            <a href="{{ tag.link }}" class="tag"><span class="visuallyhidden">Content tagged with</span> {{ tag.title }}</a>
+                                        </li>
+                                        {%- endfor -%}
+                                    </ul>
+                                </div>
+                            {%- endif -%}
+                        </div>
+                        {%- endif -%}
+                        {%- if card.image -%}
+                        <div class="{% if card.image.frameType %}l-frame l-frame--{{ card.image.frameType }}{% endif %}card__image">
+                            <img src="{{ card.image.url }}" alt="{{ card.image.altText }}" loading="lazy">
+                        </div>
+                        {%- endif -%}
+                    </div>
+                </div>
+                {%- endfor -%}
+            </div>
+        </div>
+    {%- endif -%}
+{%- else -%}
+<div class="card{% if params.type %} card--{{ params.type }}{% endif %}">
+    {%- if params.heading or params.body -%}
+        <div class="{% if params.boxType %}l-box l-box--{{ params.boxType }} {% endif %} card__text">
+            {%- if params.heading -%}
+                <h3 class="card__heading">{{ params.heading }}</h3>
+            {%- endif -%}
+            {%- if params.body -%}
+                {{ params.body | safe }}
+            {%- endif -%}
+            {%- if params.link -%}
+            <a class="button" href="{{ params.link.url }}">{{ params.link.text }}</a>
+            {%- endif -%}
+            {%- if params.tags -%}
+                <div class="l-cluster">
+                    <ul class="clean-list tag-list">
+                        {%- for key, tag in params.tags -%}
+                        <li>
+                            <a href="{{ tag.link }}" class="tag"><span class="visuallyhidden">Content tagged with</span> {{ tag.title }}</a>
+                        </li>
+                        {%- endfor -%}
+                    </ul>
+                </div>
+            {%- endif -%}
+        </div>
+        {%- if params.image -%}
+            {%- if params.image.inFrame -%}
+                <div class="l-frame{{ aspectRatio }} card__image">
+                    <img src="{{ params.image.url }}" alt="{{ params.image.altText }}" loading="lazy" />
+                </div>
+            {%- else -%}
+                <div class="card__image">
+                    <img src="{{ params.image.url }}" alt="{{ params.image.altText }}" loading="lazy" />
+                </div>
+            {%- endif -%}
+        {%- endif -%}
+    {%- endif -%}
+</div>
+{%- endif -%}

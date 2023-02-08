@@ -1,0 +1,49 @@
+{%- if params.hasWrapper -%}
+<div data-component="table-wrap">
+    <table>
+        <caption id="{{ params.captionId }}">{{ params.title }}</caption>
+        <thead>
+        <tr>
+            {%- for key, heading in params.headings -%}
+                <th scope="col">{{ heading.text }}</th>
+            {%- endfor -%}
+        </tr>
+        </thead>
+        <tbody>
+        {%- for key, row in params.rows -%}
+            <tr>
+                {%- if row.heading -%}
+                    <th scope="row">{{ row.heading }}</th>
+                {%- endif -%}
+                {%- for key, column in row.columns -%}
+                    <td>{{ column.text }}</td>
+                {%- endfor -%}
+            </tr>
+        {%- endfor -%}
+        </tbody>
+    </table>
+</div>
+{%- else -%}
+<table>
+    <caption>
+        <h2>{{ params.title }}</h2>
+    </caption>
+    <thead>
+    <tr>
+        {%- for key, heading in params.headings -%}
+            <th scope="col">{{ heading.text }}</th>
+        {%- endfor -%}
+    </tr>
+    </thead>
+    <tbody>
+    {%- for key, row in params.rows -%}
+    <tr>
+        <th scope="row">{{ row.heading }}</th>
+        {%- for key, column in row.columns -%}
+            <td>{{ column.text }}</td>
+        {%- endfor -%}
+    </tr>
+    {%- endfor -%}
+    </tbody>
+</table>
+{%- endif -%}
