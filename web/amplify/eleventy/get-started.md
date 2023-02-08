@@ -13,9 +13,14 @@ components:
             message: | 
                 <p>This is a living guide, running off your project Sass and JavaScript. It starts as the default, clean starter kit. <em>It is not meant to be styled nicely.</em></p>
                 <p>As you write your project's Sass and JavaScript, this guide will pick up those changes.</p>
-                <p>You can delete this directory <code>(`/amplify`)</code> if you don't need to refer to these docs or don't want to include it in your finished project.</p>
+                <p>You can delete this directory <code>(/amplify)</code> if you don't need to refer to these docs or don't want to include it in your finished project.</p>
             type: info
 ---
+
+{{ pageComponents(components) }}
+
+<div class="component component--text">
+
 1.  Grab an up-to-date copy of Amplify from [GitHub](https://github.com/studio24/amplify)
 2.  Copy the following items from Amplify into your project (probably into the theme directory, but it will depend on your project setup):
     -   `/assets-src` directory
@@ -34,3 +39,5 @@ components:
     -   link to the print stylesheet
     -   `script` for the Font Face Observer library in the `head`
     -   another `script` in the `head`, which checks when the desired web font is loaded, adds the `fonts-loaded` class to `html`, adds the main JavaScript file to the `head` and switches the `no-js` class to `js`
+    
+</div>

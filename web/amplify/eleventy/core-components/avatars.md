@@ -1,9 +1,16 @@
 ---
 title: Avatars
+components:
+    avatar:
+        type: core-components
+        name: avatar
+        data:
+            image:
+                url: https://www.w3.org/2006/05/u/1682ihk1hqqo-sm.jpg
 ---
 Wrap a square or portrait image inside a `div` or `span` with the class `avatar` to apply a circular mask to the image.
 
-![](https://www.w3.org/2006/05/u/1682ihk1hqqo-sm.jpg)
+{{ pageComponents(components) }}
 
 Considerations
 --------------

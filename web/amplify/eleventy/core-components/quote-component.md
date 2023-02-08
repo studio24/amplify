@@ -1,6 +1,16 @@
 ---
 title: Quote component
+components:
+    quote:
+        type: core-components
+        name: quote
+        data:
+            quote: I think all cats are wild. They only act tame if there's a saucer of milk in it for them.
+            author: Douglas Adams
 ---
+
+{{ pageComponents(components) }}
+
 Considerations
 --------------
 

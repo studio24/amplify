@@ -1,5 +1,56 @@
 ---
 title: Block link cards
+components:
+    blockLink:
+        type: core-components
+        name: cards
+        data:
+            sectionTitle: A block link card
+            boxType: no-border
+            heading: Cats and the internet
+            body: <p>Examining the popularity of cat-related media content online</p>
+            image:
+                frameType: 3-2
+                url: https://amplify.studio24.net/dist/images/jpg-cat-1.jpg
+                altText: A cat with green eyes looking directly at the camera
+    blockLinkCTA:
+        type: core-components
+        name: cards
+        data:
+            sectionTitle: Block link card with call-to-action (CTA)
+            boxType: no-border
+            heading: Cats and the internet
+            body: <p>Examining the popularity of cat-related media content online</p>
+            link:
+                url: javascript:;
+                type: button
+                text: Read more
+            image:
+                frameType: 3-2
+                url: https://amplify.studio24.net/dist/images/jpg-cat-1.jpg
+                altText: A cat with green eyes looking directly at the camera
+    blockLinkTags:
+        type: core-components
+        name: cards
+        data:
+            sectionTitle: A block link card with tag links
+            boxType: no-border
+            heading: Cats and the internet
+            body: <p>Examining the popularity of cat-related media content online</p>
+            image:
+                frameType: 3-2
+                url: https://amplify.studio24.net/dist/images/jpg-cat-1.jpg
+                altText: A cat with green eyes looking directly at the camera
+            tags:
+                tag1:
+                    link: https://www.studio24.net/work-sector/arts-and-culture/
+                    title: Arts and culture
+                tag2:
+                    link: https://www.studio24.net/work-sector/education/
+                    title: Education
+                tag3:
+                    link: https://www.studio24.net/work-sector/charity-and-not-for-profit/
+                    title: Charity and not-for-profit
 ---
 Cards are used in multiple places. Although the visual appearance may vary, they share two general patterns:
 
@@ -14,38 +65,7 @@ Do not wrap the contents of a card inside a singular `a` element. This can resul
 
 For arranging groups of cards you can use the [switcher layout helper](https://amplify.studio24.net/amplify/layout-helpers/switcher.html) or [shelves component](https://amplify.studio24.net/amplify/core-components/shelves.html) depending on your requirements.
 
-A block link card
------------------
-
-### [Cats and the Internet](https://en.wikipedia.org/wiki/Cats_and_the_Internet)
-
-Examining the popularity of cat-related media content online.
-
-![](https://amplify.studio24.net/dist/images/jpg-cat-1.jpg)
-
-Block link card with call-to-action (CTA)
------------------------------------------
-
-### [Cats and the Internet](https://en.wikipedia.org/wiki/Cats_and_the_Internet)
-
-Examining the popularity of cat-related media content online.
-
-Read more
-
-![](https://amplify.studio24.net/dist/images/jpg-cat-1.jpg)
-
-A block link card with tag links
---------------------------------
-
-### [Cats and the Internet](https://en.wikipedia.org/wiki/Cats_and_the_Internet)
-
-Examining the popularity of cat-related media content online.
-
--   [Content tagged with Arts and culture](https://www.studio24.net/work-sector/arts-and-culture/)
--   [Content tagged with Education](https://www.studio24.net/work-sector/education/)
--   [Content tagged with Charity and not-for-profit](https://www.studio24.net/work-sector/charity-and-not-for-profit/)
-
-![](https://amplify.studio24.net/dist/images/jpg-cat-1.jpg)
+{{ pageComponents(components) }}
 
 Considerations
 --------------

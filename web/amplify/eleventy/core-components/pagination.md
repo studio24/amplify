@@ -1,6 +1,23 @@
 ---
 title: Pagination
 ---
+
+<nav aria-label="Pagination" class="l-cluster pagination">
+    <ul class="pagination__list clean-list">
+        <li><a href="javascript:;"><span aria-hidden="true">&lt;&lt;</span><span class="visuallyhidden">First page</span></a></li>
+        <li><a href="javascript:;">Previous <span class="visuallyhidden">page</span></a></li>
+        <li><a href="javascript:;"><span class="visuallyhidden">page</span> 1</a></li>
+        <li><a href="#" aria-label="page 2" aria-current="page">2</a></li>
+        <li><a href="javascript:;"><span class="visuallyhidden">page</span> 3</a></li>
+        <li><a href="javascript:;"><span class="visuallyhidden">page</span> 4</a></li>
+        <li><a href="javascript:;"><span class="visuallyhidden">page</span> 5</a></li>
+        <li><a class="ellipsis">&#8230;</a></li>
+        <li><a href="javascript:;"><span class="visuallyhidden">page</span> 20</a></li>
+        <li><a href="javascript:;">Next <span class="visuallyhidden">page</span></a></li>
+        <li><a href="javascript:;"><span aria-hidden="true">&gt;&gt;</span><span class="visuallyhidden">Last page</span></a></li>
+    </ul>
+</nav>
+
 Considerations
 --------------
 

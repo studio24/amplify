@@ -1,5 +1,11 @@
 ---
 title: Center
+components:
+    center:
+        type: layout-helpers
+        name: center
+        data:
+            text: Center layout in action
 ---
 The center layout helper creates a vertical strip of content inside a given container element, with equal spacing on either side. It uses the class `l-center`. This technique is used on the `main` element (albeit without using the `l-center` class).
 
@@ -7,4 +13,4 @@ Padding on the sides of the center layout helper maintains a space between its c
 
 The center layout helper uses an exception to the global `box-sizing: border-box;` declaration. It uses `box-sizing: content-box;` to prevent the padding from making the content narrower than intended.
 
-Center layout in action
+{{ pageComponents(components) }}

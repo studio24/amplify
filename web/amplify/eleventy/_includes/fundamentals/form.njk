@@ -1,7 +1,9 @@
 {%- from "../system/forms/field.njk" import field -%}
 <form {% if params.action %} action="{{ params.action }}" {% else %} novalidate=""{% endif %}{% if params.method %} method="{{ params.method }}" {% endif %}>
     {%- for key, item in params.fields -%}
-    {{ field(item) }}
+        {{ field(item) }}
     {%- endfor -%}
-    <button class="button" type="submit">Submit</button>
+    {%- if not params.example -%}
+        <button class="button" type="submit">Submit</button>
+    {%- endif -%}
 </form>

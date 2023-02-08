@@ -1,6 +1,27 @@
 ---
 title: Tag list
+components:
+    tagList:
+        type: layout-helpers
+        name: cluster
+        data:
+            extraClasses: tag-list
+            itemClass: tag
+            items:
+                item1:
+                    link: javascript:;
+                    title: Arts and culture
+                item2:
+                    link: javascript:;
+                    title: Education
+                item3:
+                    link: javascript:;
+                    title: Charity and not-for-profit
+
 ---
+
+{{ pageComponents(components) }}
+
 Considerations
 --------------
 

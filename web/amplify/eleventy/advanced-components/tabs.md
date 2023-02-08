@@ -1,16 +1,29 @@
 ---
 title: Tabbed sections
+components:
+    tabbedSections:
+        type: advanced-components
+        name: tabs
+        data:
+            tabs:
+                grumpyCat:
+                    id: grumpy-cat
+                    default: true
+                    title: Grumpy Cat
+                    body: <p><a href="https://en.wikipedia.org/wiki/Grumpy_Cat">Grumpy Cat</a> was a notable Internet cat, known and nicknamed for her permanently grumpy facial features.</p>
+                lilBub:
+                    id: lil-bub
+                    title: Lil Bub
+                    body: <p>Lil Bub was an American celebrity cat known for her unique physical appearance. Born the runt of the litter and with several genetic mutations, she had to be bottle-fed.</p>
+                maru:
+                    id: maru
+                    title: Grumpy Cat
+                    body: <p><a href="https://en.wikipedia.org/wiki/Maru_(cat)">Maru</a> is a popular YouTube cat. He previously held the Guiness World Record for the most YouTube video views of an individual animal.</p>
+
 ---
 We use the [Tabby](https://github.com/cferdinandi/tabby) NPM package to generate tabbed content sections (not because it sounds like a type of cat). It progressively enhances a linked list of content into tabbed navigation.
 
--   [Grumpy Cat](https://amplify.studio24.net/amplify/advanced-components/tabs.html#grumpy-cat)
--   [Lil Bub](https://amplify.studio24.net/amplify/advanced-components/tabs.html#lil-bub)
--   [Maru](https://amplify.studio24.net/amplify/advanced-components/tabs.html#maru)
-
-Grumpy Cat
-----------
-
-[Grumpy Cat](https://en.wikipedia.org/wiki/Grumpy_Cat) was a notable Internet cat, known and nicknamed for her permanently grumpy facial features.
+{{ pageComponents(components) }}
 
 Considerations
 --------------

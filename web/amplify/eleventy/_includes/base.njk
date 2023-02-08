@@ -66,11 +66,19 @@
 <script>
     if (document.documentElement.classList.contains('js')) {
         var jsAutocompleteCountry = document.createElement('script');
-        jsAutocompleteCountry.src = '/js/country-Autocomplete.js';
+        jsAutocompleteCountry.src = '/js/countryAutocomplete.js';
         document.querySelector('body').appendChild(jsAutocompleteCountry);
     }
 </script>
-
+{%- if "tabs" in page.url -%}
+<script>
+	if (document.documentElement.classList.contains('js')) {
+		var tabs = document.createElement('script');
+		tabs.src = '/js/tabs.js';
+		document.querySelector('body').appendChild(tabs);
+	}
+</script>
+{%- endif -%}
 </body>
 
 </html>

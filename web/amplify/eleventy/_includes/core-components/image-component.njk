@@ -1,0 +1,17 @@
+{%- if params.aspectRatio === "16:9" -%}
+    {% set aspectRatio = " l-frame--16-9" %}
+{%- elif params.aspectRatio === "3:2" -%}
+    {% set aspectRatio = " l-frame--3-2" %}
+{%- elif params.aspectRatio === "4:3" -%}
+    {% set aspectRatio = " l-frame--4-3" %}
+{%- elif params.aspectRatio === "square" -%}
+    {% set aspectRatio = " l-frame--square" %}
+{%- endif -%}
+<figure class="component component--image">
+    <div class="l-frame{{ aspectRatio }}">
+        <img src="{{ params.url }}" loading="lazy" alt="{{ params.url }}" />
+    </div>
+    <figcaption>
+        {{ params.caption | safe }}
+    </figcaption>
+</figure>

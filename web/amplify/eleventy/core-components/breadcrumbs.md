@@ -1,6 +1,24 @@
 ---
 title: Breadcrumbs
+components:
+    breadcrumbs:
+        type: core-components
+        name: breadcrumbs
+        data:
+            items:
+                page1:
+                    link: javascript:;
+                    text: Home
+                page2:
+                    link: javascript:;
+                    text: Second Page
+                page3:
+                    link: javascript:;
+                    text: This Page
 ---
+
+{{ pageComponents(components) }}
+
 Considerations
 --------------
 

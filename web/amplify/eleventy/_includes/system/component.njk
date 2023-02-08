@@ -1,3 +1,14 @@
 {%- macro component(type, name, params) -%}
-    {%- include '../' + type + '/' + name + '.njk' -%}
+{%- if params.componentType -%}
+    {% set componentClass = params.componentType %}
+{%- endif -%}
+    {%- if name === "quote" or name === "video" -%}
+    <figure class="component component--{{ name }}">
+        {%- include '../' + type + '/' + name + '.njk' -%}
+    </figure>
+    {%- else -%}
+    <div class="component component--{{ name }} {% if componentClass %}component--{{ componentClass }}{% endif %}">
+        {%- include '../' + type + '/' + name + '.njk' -%}
+    </div>
+    {%- endif -%}
 {%- endmacro -%}

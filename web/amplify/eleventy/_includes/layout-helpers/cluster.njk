@@ -1,0 +1,13 @@
+<div class="l-cluster">
+    <ul class="clean-list {{ params.extraClasses }}">
+        {%- for key, item in params.items -%}
+        <li>
+            {%- if item.link -%}
+                <a {% if params.itemClass %}class="{{ params.itemClass }}"{% endif %} href="{{ item.link }}">{{ item.title }}</a>
+            {%- else -%}
+                {{ item.title }}
+            {%- endif -%}
+        </li>
+        {%- endfor -%}
+    </ul>
+</div>

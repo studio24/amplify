@@ -7,7 +7,8 @@ components:
     cover:
         type: layout-helpers
         name: cover
-        data: 
+        data:
+            lead: true
             title: Amplify
             body: Welcome to the Studio 24 starter kit for design and front-end development
     cards:

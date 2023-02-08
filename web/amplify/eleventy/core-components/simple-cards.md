@@ -1,5 +1,22 @@
 ---
 title: Simple cards
+components:
+    card:
+        type: core-components
+        name: cards
+        data:
+            heading: Cats and the internet
+            body: Examining the popularity of cat-related media content online
+            boxType: no-border
+            link:
+                url: https://en.wikipedia.org/wiki/Cats_and_the_Internet
+                text: Read more
+            image:
+                url: https://amplify.studio24.net/dist/images/jpg-cat-1.jpg
+                altText: A cat with green eyes looking directly at the camera
+                inFrame: true
+                aspectRatio: "3:2"
+
 ---
 Cards are used in multiple places. Although the visual appearance may vary, they share two general patterns:
 
@@ -15,11 +32,7 @@ A simple card
 
 ### Cats and the Internet
 
-Examining the popularity of cat-related media content online.
-
-[Cats and the Internet: Read more](https://en.wikipedia.org/wiki/Cats_and_the_Internet)
-
-![](https://amplify.studio24.net/dist/images/jpg-cat-1.jpg)
+{{ pageComponents(components) }}
 
 Considerations
 --------------

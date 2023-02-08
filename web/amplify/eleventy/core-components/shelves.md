@@ -1,5 +1,73 @@
 ---
 title: Shelves
+components:
+    cards:
+        type: core-components
+        name: cards
+        data:
+            componentType: shelves
+            cards:
+                card1:
+                    boxType: no-border
+                    heading: Cats and the internet
+                    body: <p>Examining the popularity of cat-related media content online</p>
+                    link:
+                        url: javascript:;
+                        type: button
+                        text: Read more
+                    image:
+                        frameType: 3-2
+                        url: https://amplify.studio24.net/dist/images/jpg-cat-1.jpg
+                        altText: A cat with green eyes looking directly at the camera
+                card2:
+                    boxType: no-border
+                    heading: Cats and the internet
+                    body: <p>Examining the popularity of cat-related media content online</p>
+                    link:
+                        url: javascript:;
+                        type: button
+                        text: Read more
+                    image:
+                        frameType: 3-2
+                        url: https://amplify.studio24.net/dist/images/jpg-cat-1.jpg
+                        altText: A cat with green eyes looking directly at the camera
+                card3:
+                    boxType: no-border
+                    heading: Cats and the internet
+                    body: <p>Examining the popularity of cat-related media content online</p>
+                    link:
+                        url: javascript:;
+                        type: button
+                        text: Read more
+                    image:
+                        frameType: 3-2
+                        url: https://amplify.studio24.net/dist/images/jpg-cat-1.jpg
+                        altText: A cat with green eyes looking directly at the camera
+                card4:
+                    boxType: no-border
+                    heading: Cats and the internet
+                    body: <p>Examining the popularity of cat-related media content online</p>
+                    link:
+                        url: javascript:;
+                        type: button
+                        text: Read more
+                    image:
+                        frameType: 3-2
+                        url: https://amplify.studio24.net/dist/images/jpg-cat-1.jpg
+                        altText: A cat with green eyes looking directly at the camera
+                card5:
+                    boxType: no-border
+                    heading: Cats and the internet
+                    body: <p>Examining the popularity of cat-related media content online</p>
+                    link:
+                        url: javascript:;
+                        type: button
+                        text: Read more
+                    image:
+                        frameType: 3-2
+                        url: https://amplify.studio24.net/dist/images/jpg-cat-1.jpg
+                        altText: A cat with green eyes looking directly at the camera
+                
 ---
 Shelves provide a flexbox framework for arranging groups of items such as [cards](https://amplify.studio24.net/amplify/core-components/cards.html). You might choose to use shelves instead of the [switcher layout helper](https://amplify.studio24.net/amplify/layout-helpers/switcher.html) if:
 
@@ -10,47 +78,7 @@ Shelves provide a flexbox framework for arranging groups of items such as [cards
 Heading for the shelves component
 ---------------------------------
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-
--   ### Cats and the Internet
-
-    Examining the popularity of cat-related media content online.
-
-    [Cats and the Internet: Read more](https://en.wikipedia.org/wiki/Cats_and_the_Internet)
-
-    ![](https://amplify.studio24.net/dist/images/jpg-cat-1.jpg)
-
--   ### Cats and the Internet
-
-    Examining the popularity of cat-related media content online.
-
-    [Cats and the Internet: Read more](https://en.wikipedia.org/wiki/Cats_and_the_Internet)
-
-    ![](https://amplify.studio24.net/dist/images/jpg-cat-1.jpg)
-
--   ### Cats and the Internet
-
-    Examining the popularity of cat-related media content online.
-
-    [Cats and the Internet: Read more](https://en.wikipedia.org/wiki/Cats_and_the_Internet)
-
-    ![](https://amplify.studio24.net/dist/images/jpg-cat-1.jpg)
-
--   ### Cats and the Internet
-
-    Examining the popularity of cat-related media content online.
-
-    [Cats and the Internet: Read more](https://en.wikipedia.org/wiki/Cats_and_the_Internet)
-
-    ![](https://amplify.studio24.net/dist/images/jpg-cat-1.jpg)
-
--   ### Cats and the Internet
-
-    Examining the popularity of cat-related media content online.
-
-    [Cats and the Internet: Read more](https://en.wikipedia.org/wiki/Cats_and_the_Internet)
-
-    ![](https://amplify.studio24.net/dist/images/jpg-cat-1.jpg)
+{{ pageComponents(components) }}
 
 Considerations
 --------------

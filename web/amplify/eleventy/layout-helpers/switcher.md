@@ -1,5 +1,17 @@
 ---
 title: Switcher
+components:
+    switcher:
+        type: layout-helpers
+        name: switcher
+        data:
+            items:
+                item1:
+                    text: Item 1
+                item2:
+                    text: Item 2
+                item3:
+                    text: Item 3
 ---
 The switcher layout helper switches the alignment of items from horizontal to vertical at a given, container-based breakpoint. It's a good choice for situations where each child item should be considered of equal importance and has an equal width. You will find an example of the switcher on the [Amplify home page](https://amplify.studio24.net/amplify/index.html).
 
@@ -7,11 +19,7 @@ As with the [cluster](https://amplify.studio24.net/amplify/layout-helpers/cluste
 
 As there are **no viewport media queries**, the switcher will nest nicely inside other containers.
 
-Item 1
-
-Item 2
-
-Item 3
+{{ pageComponents(components) }}
 
 Considerations
 --------------

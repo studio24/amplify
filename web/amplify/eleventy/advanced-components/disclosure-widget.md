@@ -1,9 +1,17 @@
 ---
 title: Disclosure widget
+components:
+    disclosure:
+        type: advanced-components
+        name: disclosure
+        data:
+            hiddenContent: <p>This text should be hidden if <a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> is available and the preceding button has the <code>data-toggle="true"</code> attribute.</p>
 ---
 A simple control whose sole purpose is to hide or show content, this component is inspired by Adrian Roselli's post about [disclosure widgets](https://adrianroselli.com/2020/05/disclosure-widgets.html).
 
 The basic principles demonstrated here can be expanded upon and applied to e.g. off-canvas navigation and [dropdown](https://adrianroselli.com/2019/06/link-disclosure-widget-navigation.html) [site navigation](https://css-tricks.com/in-praise-of-the-unambiguous-click-menu/).
+
+{{ pageComponents(components) }}
 
 Considerations
 --------------

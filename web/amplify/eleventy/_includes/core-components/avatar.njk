@@ -1,0 +1,8 @@
+{%- if params.size === "med" -%}
+    {% set avatarSize = "avatar--med" %}
+{%- elif params.size === "small" -%}
+    {% set avatarSize = "avatar--small" %}
+{%- endif -%}
+<div class="avatar">
+    <img src="{{ params.image.url }}" alt="{{ params.image.altText }}">
+</div>

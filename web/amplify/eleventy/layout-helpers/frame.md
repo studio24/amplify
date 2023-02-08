@@ -1,35 +1,54 @@
 ---
 title: Frame
+components:
+    frame16-9:
+        type: layout-helpers
+        name: frame
+        data:
+            example: true
+            title: "16:9 aspect ratio"
+            aspectRatio: "16:9"
+            image:
+                url: https://amplify.studio24.net/dist/images/jpg-cat-1.jpg
+                altText: A cat with green eyes looking directly at the camera
+                caption: "An example of the 16:9 frame modifier"
+    frame3-2:
+        type: layout-helpers
+        name: frame
+        data:
+            example: true
+            title: "3:2 aspect ratio"
+            aspectRatio: "3:2"
+            image:
+                url: https://amplify.studio24.net/dist/images/jpg-cat-1.jpg
+                altText: A cat with green eyes looking directly at the camera
+                caption: "An example of the 3:2 frame modifier"
+    frame4-3:
+        type: layout-helpers
+        name: frame
+        data:
+            example: true
+            title: "4:3 aspect ratio"
+            aspectRatio: "4:3"
+            image:
+                url: https://amplify.studio24.net/dist/images/jpg-cat-1.jpg
+                altText: A cat with green eyes looking directly at the camera
+                caption: "An example of the 4:3 frame modifier"
+    frameSquare:
+        type: layout-helpers
+        name: frame
+        data:
+            example: true
+            title: square aspect ratio
+            aspectRatio: square
+            image:
+                url: https://amplify.studio24.net/dist/images/jpg-cat-1.jpg
+                altText: A cat with green eyes looking directly at the camera
+                caption: An example of the square frame modifier
 ---
 The frame layout helper is useful for cropping media (images and video) to a specific aspect ratio. It uses the class `l-frame` and additional modifier classes for pre-defined aspect ratios. These modifier classes determine the amount of vertical padding on the frame, which then acts as a window onto the content inside.
 
-16:9 aspect ratio
------------------
-
-![](https://amplify.studio24.net/dist/images/jpg-cat-1.jpg)
-
-An example of the 16:9 frame modifier
-
-3:2 aspect ratio
-----------------
-
-![](https://amplify.studio24.net/dist/images/jpg-cat-1.jpg)
-
-An example of the 3:2 frame modifier
-
-4:3 aspect ratio
-----------------
-
-![](https://amplify.studio24.net/dist/images/jpg-cat-1.jpg)
-
-An example of the 4:3 frame modifier
-
-Square aspect ratio
--------------------
-
-![](https://amplify.studio24.net/dist/images/jpg-cat-1.jpg)
-
-An example of the square frame modifier
+{{ pageComponents(components) }}
 
 Considerations
 --------------

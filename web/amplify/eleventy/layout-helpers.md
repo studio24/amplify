@@ -1,6 +1,8 @@
 ---
 title: Layout helpers
+navItem: true
 root: true
+markdown: true
 navOrder: 3
 ---
 Influenced by [Every Layout](https://every-layout.dev/), these are basic layout helper styles.

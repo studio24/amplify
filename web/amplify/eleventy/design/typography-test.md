@@ -1,5 +1,33 @@
 ---
 title: Typography test
+components:
+    table:
+        type: fundamentals
+        name: table
+        data:
+            title: Example table
+            headings:
+                header1:
+                    text: Column header 1
+                header2:
+                    text: Column header 2
+                header3:
+                    text: Column header 3
+            rows:
+                row1:
+                    heading: Row 1 header
+                    columns:
+                        col1:
+                            text: Row 1, Cell 2
+                        col2:
+                            text: Row 1, Cell 3
+                row2:
+                    heading: Row 2 header
+                    columns:
+                        col1:
+                            text: Row 2, Cell 2
+                        col2:
+                            text: Row 2, Cell 3
 ---
 Use this test page to provide visual feedback of the state and flow of typographical styles.
 
@@ -71,9 +99,6 @@ A [paragraph](https://en.wikipedia.org/wiki/Paragraph) is a self-contained unit 
 A [paragraph](https://en.wikipedia.org/wiki/Paragraph) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.
 
 Example table
-| Column header 1 | Column header 2 | Column header 3 |
-| --- | --- | --- |
-| Row 1 header | Row 1, cell 2 | Row 1, cell 3 |
-| Row 2 header | Row 2, cell 2 | Row 2, cell 3 |
+{{ pageComponents(components) }}
 
 A [paragraph](https://en.wikipedia.org/wiki/Paragraph) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.

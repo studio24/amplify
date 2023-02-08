@@ -1,13 +1,118 @@
 ---
 title: Tables
----
-Example table
--------------
+components:
+    exampleTable:
+        table:
+            type: fundamentals
+            name: table
+            data:
+                title: Example table
+                headings:
+                    header1:
+                        text: Column header 1
+                    header2:
+                        text: Column header 2
+                    header3:
+                        text: Column header 3
+                rows:
+                    row1:
+                        heading: Row 1 header
+                        columns:
+                            col1:
+                                text: Row 1, Cell 2
+                            col2:
+                                text: Row 1, Cell 3
+                    row2:
+                        heading: Row 2 header
+                        columns:
+                            col1:
+                                text: Row 2, Cell 2
+                            col2:
+                                text: Row 2, Cell 3
+    spiceTable:
+        table:
+            type: fundamentals
+            name: table
+            data:
+                hasWrapper: true
+                captionId: unique-caption-id
+                title: Member of the Spice Girls
+                headings:
+                    firstName:
+                        text: First name
+                    lastName:
+                        text: Last name
+                    bandName:
+                        text: Band name
+                    dateOfBirth:
+                        text: Date of birth
+                    placeOfBirth:
+                        text: Place of birth
+                rows:
+                    emma:
+                        columns:
+                            firstName:
+                                text: Emma
+                            lastName:
+                                text: Bunton
+                            bandName:
+                                text: Baby
+                            dateOfBirth:
+                                text: 21 January 1976
+                            placeOfBirth:
+                                text: Watford, Hertfordshire
+                    geri:
+                        columns:
+                            firstName:
+                                text: Geri
+                            lastName:
+                                text: Halliwell
+                            bandName:
+                                text: Ginger
+                            dateOfBirth:
+                                text: 21 January 1972
+                            placeOfBirth:
+                                text: London
+                    victoria:
+                        columns:
+                            firstName:
+                                text: Victoria
+                            lastName:
+                                text: Beckham
+                            bandName:
+                                text: Posh
+                            dateOfBirth:
+                                text: 17 April 1974
+                            placeOfBirth:
+                                text: Harlow, Essex
+                    melb:
+                        columns:
+                            firstName:
+                                text: Melanie
+                            lastName:
+                                text: Brown
+                            bandName:
+                                text: Scary
+                            dateOfBirth:
+                                text: 29 May 1975
+                            placeOfBirth:
+                                text: Leeds, Yorkshire
+                    melc:
+                        columns:
+                            firstName:
+                                text: Melanie
+                            lastName:
+                                text: Chisholm
+                            bandName:
+                                text: Sporty
+                            dateOfBirth:
+                                text: 12 January 1974
+                            placeOfBirth:
+                                text: Whiston, Merseyside
 
-| Column header 1 | Column header 2 | Column header 3 |
-| --- | --- | --- |
-| Row 1 header | Row 1, cell 2 | Row 1, cell 3 |
-| Row 2 header | Row 2, cell 2 | Row 2, cell 3 |
+---
+
+{{ pageComponents(components.exampleTable) }}
 
 Considerations
 --------------
@@ -33,14 +138,7 @@ The grid structure of data tables must remain intact, no matter the available sp
 
 -   A JavaScript enhancement checks whether the wrapper has any overflow. If there is no overflow, the `tabindex`, `role` and `aria-labelledby` attributes are all removed; but they need to exist in the base markup in case JavaScript is not available.
 
-Members of the Spice Girls
-| First name | Last name | Band name | Date of birth | Place of birth |
-| --- | --- | --- | --- | --- |
-| Emma | Bunton | Baby | 21 January 1976 | Watford, Hertfordshire |
-| Geri | Halliwell | Ginger | 6 August 1972 | London |
-| Victoria | Beckham | Posh | 17 April 1974 | Harlow, Essex |
-| Melanie | Brown | Scary | 29 May 1975 | Leeds, Yorkshire |
-| Melanie | Chisholm | Sporty | 12 January 1974 | Whiston, Merseyside |
+{{ pageComponents(components.spiceTable) }}
 
 ### Notes on responsive tables
 

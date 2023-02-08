@@ -1,5 +1,421 @@
 ---
 title: Forms
+components:
+    formBasic:
+        inputs:
+            type: fundamentals
+            name: form
+            data:
+                example: true
+                fields:
+                    fullName:
+                        label: Name
+                        name: name
+                        type: text
+                        required: true
+                        hint: E.g Robin Smith
+                        autocomplete: true
+                    emailAddress:
+                        label: Email
+                        name: email
+                        type: email
+                        hint: E.g robin.smith@example.co.uk
+                        autocomplete: true
+                        autocapitalize: off
+                        autocorrect: off
+                        spellcheck: off
+                        inputmode: email
+                    websiteAddress:
+                        label: Website address
+                        name: website
+                        type: url
+                        autocomplete: true
+                        autocapitalize: off
+                        autocorrect: off
+                        spellcheck: off
+                        inputmode: url
+                    password:
+                        label: Password
+                        name: password
+                        type: password
+                        hint: Must contain 8+ characters with at least 1 number.
+                        autocapitalize: off
+                        autocorrect: off
+                        spellcheck: off
+                    message:
+                        label: Your message
+                        name: message
+                        type: textarea
+    formNumbers:
+        inputs:
+            type: fundamentals
+            name: form
+            data:
+                example: true
+                fields:
+                    accountNumber:
+                        label: Account number
+                        hint: Must be between 6 and 8 numbers long
+                        name: account-number
+                        type: text
+                        class: input-width-10
+                        maxlength: 8
+                        inputmode: numeric
+                    phoneNumber:
+                        label: Phone number
+                        hint: Please include your country code
+                        class: input-width-20
+                        type: tel
+                        name: telephone-number
+                        autocomplete: true
+                        inputmode: tel
+                    guestNumber:
+                        label: Number of guest tickets required
+                        name: guests
+                        type: number
+                        class: input-width-3
+                        initialValue: 0
+    formDates:
+        inputs:
+            type: fundamentals
+            name: form
+            data:
+                example: true
+                fields:
+                    arrivalDate:
+                        label: Date of arrival
+                        hint: For example 30/05/2021
+                        name: arrival-date
+                        type: text
+                        class: input-width-10
+                    dateOfBirth:
+                        label: Date of birth (an example of a memorable date)
+                        hint: For example 20 07 1972
+                        hintClass: u-no-margin-top
+                        type: fieldset
+                        itemWrapClass: memorable-date
+                        fields:
+                            day:
+                                label: Day
+                                name: bday-day
+                                type: text
+                                class: input-width-2
+                                autocomplete: true
+                                inputmode: numeric
+                                minNum: 0
+                                maxNum: 31
+                            month:
+                                label: Month
+                                name: bday-month
+                                type: text
+                                class: input-width-2
+                                autocomplete: true
+                                inputmode: numeric
+                                minNum: 1
+                                maxNum: 12
+                            year:
+                                label: Year
+                                name: bday-year
+                                type: text
+                                class: input-width-4
+                                autocomplete: true
+                                inputmode: numeric
+                                minNum: 1900
+                                maxNum: 2050
+                    meetingTime:
+                        label: Specify a start time for your meeting
+                        hint: Use UTC and your local time
+                        hintClass: u-no-margin-top
+                        type: fieldset
+                        itemWrapClass: memorable-date
+                        isGroup: true
+                        fields:
+                            time:
+                                label: Start Time
+                                name: meeting-time
+                                class: input-width-5
+                                type: text
+                            timeZone:
+                                label: Time zone
+                                name: timezone
+                                type: select
+                                options:
+                                    option1:
+                                        value: UTC-12:00
+                                        title: UTC-12:00
+                                    option2:
+                                        value: UTC-11:00
+                                        title: UTC-11:00
+                                    option3:
+                                        value: UTC-10:00
+                                        title: UTC-10:00
+                                    option4:
+                                        value: UTC-09:30
+                                        title: UTC-09:30
+                                    option5:
+                                        value: UTC-09:00
+                                        title: UTC-09:00
+                                    option6:
+                                        value: UTC-08:00
+                                        title: UTC-08:00
+                                    option7:
+                                        value: UTC-07:00
+                                        title: UTC-07:00
+                                    option8:
+                                        value: UTC-06:00
+                                        title: UTC-06:00
+                                    option9:
+                                        value: UTC-05:00
+                                        title: UTC-05:00
+                                    option10:
+                                        value: UTC-04:00
+                                        title: UTC-04:00
+                                    option11:
+                                        value: UTC-03:30
+                                        title: UTC-03:30
+                                    option12:
+                                        value: UTC-03:00
+                                        title: UTC-03:00
+                                    option13:
+                                        value: UTC-02:00
+                                        title: UTC-02:00
+                                    option14:
+                                        value: UTC-01:00
+                                        title: UTC-01:00
+                                    option15:
+                                        value: UTC-00:00
+                                        title: UTC-00:00
+                                        selected: true
+                                    option16:
+                                        value: UTC+01:00
+                                        title: UTC+01:00
+                                    option17:
+                                        value: UTC+02:00
+                                        title: UTC+02:00
+                                    option18:
+                                        value: UTC+03:00
+                                        title: UTC+03:00
+                                    option19:
+                                        value: UTC+03:30
+                                        title: UTC+03:30
+                                    option20:
+                                        value: UTC+04:00
+                                        title: UTC+04:00
+                                    option21:
+                                        value: UTC+04:30
+                                        title: UTC+04:30
+                                    option22:
+                                        value: UTC+05:00
+                                        title: UTC+05:00
+                                    option23:
+                                        value: UTC+05:30
+                                        title: UTC+05:30
+                                    option24:
+                                        value: UTC+05:45
+                                        title: UTC+05:45
+                                    option25:
+                                        value: UTC+06:00
+                                        title: UTC+06:00
+                                    option26:
+                                        value: UTC+07:00
+                                        title: UTC+07:00
+                                    option27:
+                                        value: UTC+08:00
+                                        title: UTC+08:00
+                                    option28:
+                                        value: UTC+08:45
+                                        title: UTC+08:45
+                                    option29:
+                                        value: UTC+09:30
+                                        title: UTC+09:30
+                                    option30:
+                                        value: UTC+10:00
+                                        title: UTC+10:00
+                                    option31:
+                                        value: UTC+10:30
+                                        title: UTC+10:30
+                                    option32:
+                                        value: UTC+11:00
+                                        title: UTC+11:00
+                                    option33:
+                                        value: UTC+12:00
+                                        title: UTC+12:00
+                                    option34:
+                                        value: UTC+12:45
+                                        title: UTC+12:45
+                                    option35:
+                                        value: UTC+13:00
+                                        title: UTC+13:00
+                                    option36:
+                                        value: UTC+14:00
+                                        title: UTC+14:00
+    formFiles:
+        inputs:
+            type: fundamentals
+            name: form
+            data:
+                example: true
+                fields:
+                    file:
+                        label: Choose a file
+                        name: file
+                        type: file
+    formCheckboxes:
+        inputs:
+            type: fundamentals
+            name: form
+            data:
+                example: true
+                fields:
+                    checkboxes:
+                        type: fieldset
+                        label: Things you like
+                        hint: Select all that apply
+                        name: things-you-like
+                        fields:
+                            chocolate:
+                                label: Chocolate
+                                name: chocolate
+                                type: checkbox
+                                appearance: base
+                            coffee:
+                                label: Coffee
+                                name: coffee
+                                type: checkbox
+                                appearance: base
+                            cake:
+                                label: Cake
+                                name: cake
+                                type: checkbox
+                                appearance: base
+                            chips:
+                                label: Chips
+                                name: chips
+                                type: checkbox
+                                appearance: base
+    formRadios:
+        inputs:
+            type: fundamentals
+            name: form
+            data:
+                example: true
+                fields:
+                    radios:
+                        type: fieldset
+                        label: Have you changed your name?
+                        hint: This includes changing your family name or spelling your name differently.
+                        name: name-change
+                        fields:
+                            yes:
+                                label: Yes
+                                name: name-change_yes
+                                type: radio
+                                initialValue: yes
+                            no:
+                                label: No
+                                name: name-change_no
+                                type: radio
+                                initialValue: no
+    formSegments:
+        inputs:
+            type: fundamentals
+            name: form
+            data:
+                example: true
+                fields:
+                    segments:
+                        type: fieldset
+                        label: Segmented options (Radio)
+                        name: segmented-options
+                        hint: We understand that different people enjoy books in differeny ways, which is why we're giving you lots of options.
+                        isSegmentedGroup: true
+                        fields:
+                            segment1:
+                                name: segmented-option-1
+                                class: input--radio
+                                type: radio
+                                segmentTitle: Budget option
+                                segmentBody: Copy to explain this option in more detail
+                            segment2:
+                                name: segmented-option-2
+                                class: input--radio
+                                type: radio
+                                checked: true
+                                segmentTitle: Value option
+                                segmentBody: Copy to explain this option in more detail
+                            segment3:
+                                name: segmented-option-3
+                                class: input--radio
+                                type: radio
+                                segmentTitle: Expensive option
+                                segmentBody: Copy to explain this option in more detail
+    formSelect:
+        inputs:
+            type: fundamentals
+            name: form
+            data:
+                example: true
+                fields:
+                    sortBy:
+                        type: select
+                        label: Sort by
+                        name: sort
+                        options:
+                            option1:
+                                value: published
+                                title: Recently published
+                            option2:
+                                value: updated
+                                title: Recently updated
+                            option3:
+                                value: views
+                                title: Most views
+                            option4:
+                                value: comments
+                                title: Most comments
+    formFixedWidth:
+        inputs:
+            type: fundamentals
+            name: form
+            data:
+                example: true
+                fields:
+                    30char:
+                        label: 30 character width
+                        type: text
+                        name: width-30
+                        class: input-width-30
+                    20char:
+                        label: 20 character width
+                        type: text
+                        name: width-20
+                        class: input-width-20
+                    10char:
+                        label: 10 character width
+                        type: text
+                        name: width-10
+                        class: input-width-10
+                    5char:
+                        label: 5 character width
+                        type: text
+                        name: width-5
+                        class: input-width-5
+                    4char:
+                        label: 4 character width
+                        type: text
+                        name: width-4
+                        class: input-width-4
+                    3char:
+                        label: 3 character width
+                        type: text
+                        name: width-3
+                        class: input-width-3
+                    2char:
+                        label: 2 character width
+                        type: text
+                        name: width-2
+                        class: input-width-2
+                    
 ---
 The examples on this page show how we manage forms and their fields, and their default styles. Recommendations are based on Adam Silver's article [Form design: from zero to hero all in one blog post](https://adamsilver.io/blog/form-design-from-zero-to-hero-all-in-one-blog-post/) and the [GOV.UK design system](https://design-system.service.gov.uk/components/).
 
@@ -37,21 +453,7 @@ Provide hint text when users are more likely to make a mistake, such as when hav
 Dealing with text
 -----------------
 
-Name (Required)
-
-E.g. Robin Smith
-
-Email
-
-E.g. robin.smith@example.co.uk
-
-Website address
-
-Password
-
-Must contain 8+ characters with at least 1 number
-
-Your message
+{{ pageComponents(components.formBasic) }}
 
 ### How to make filling in text fields easier
 
@@ -64,15 +466,7 @@ Use `autocapitalize="none"`, `autocorrect="off"` and `spellcheck="false"` to sto
 Dealing with numbers
 --------------------
 
-Account number
-
-Must be between 6 and 8 numbers long
-
-Phone number
-
-Please include your country code
-
-Number of guest tickets required
+{{ pageComponents(components.formNumbers) }}
 
 ### How to make filling in number fields easier
 
@@ -85,27 +479,7 @@ When asking for payment details, including the `autocomplete` attribute can help
 Dealing with dates and times
 ----------------------------
 
-Date of arrival
-
-For example 30/05/2021
-
-Date of birth (an example of a memorable date)
-
-For example 20 07 1972
-
-Day
-
-Month
-
-Year
-
-Specify a start time for your meeting
-
-Use UTC and your local time zone
-
-Start time
-
-Time zone
+{{ pageComponents(components.formDates) }}
 
 ### How to make providing dates and times easier
 
@@ -118,24 +492,12 @@ Again, due to inconsistencies with how different browsers and Assistive Technolo
 File input
 ----------
 
-Choose a file
+{{ pageComponents(components.formFiles) }}
 
 Checkboxes
 ----------
 
-Things you like
-
-Select all that apply.
-
- Chocolate
-
- Coffee
-
- Cake
-
- Chips
-
-Fries or frites, not crisps.
+{{ pageComponents(components.formCheckboxes) }}
 
 ### How to make checkboxes easier to use
 
@@ -146,15 +508,7 @@ If required, hint text can be added for the entire checkbox group and/or for ind
 Radios
 ------
 
-Have you changed your name?
-
-This includes changing your family name or spelling your name differently.
-
- Yes
-
- No
-
-Hint text for this radio item would go here.
+{{ pageComponents(components.formRadios) }}
 
 ### How to make radios easier to use
 
@@ -167,15 +521,7 @@ If required, hint text can be added for the entire radio group and/or for indivi
 Segmented options
 -----------------
 
-Segmented options (Radio)
-
-We understand that different people enjoy books in different ways, which is why we're giving you lots of options.
-
- Budget option Copy to explain this option in more detail.
-
- Value option Copy to explain this option in more detail.
-
- Expensive option Copy to explain this option in more detail.
+{{ pageComponents(components.formSegments) }}
 
 The purpose of segmented options is to show all available options outright, rather than hiding them behind a `select`. It can be used with either checkboxes, or with radio buttons as in the preceding example.
 
@@ -184,7 +530,7 @@ The basis of this pattern is the [switcher layout](https://amplify.studio24.net/
 Select
 ------
 
-Sort by
+{{ pageComponents(components.formSelect) }}
 
 ### Considerations
 
@@ -210,19 +556,7 @@ Fixed-width inputs
 
 There is a collection of CSS classes prefixed with `input-width-` which, when added to an `input`, will reduce the maximum width of the input field to better suit the intended contents:
 
-30 character width
-
-20 character width
-
-10 character width
-
-5 character width
-
-4 character width
-
-3 character width
-
-2 character width
+{{ pageComponents(components.formFixedWidth) }}
 
 Form validation
 ---------------

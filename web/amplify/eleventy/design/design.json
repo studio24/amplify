@@ -1,5 +1,6 @@
 {
     "layout": "page.njk",
     "tags": "design",
-    "templateEngineOverride": "njk, md"
+    "templateEngineOverride": "njk, md",
+    "subpage": true
 }

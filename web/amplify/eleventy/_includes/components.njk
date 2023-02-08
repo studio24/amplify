@@ -2,17 +2,23 @@
 {%- for key, item in components -%}
 
     {%- if item.type and item.name and item.data  -%}
-    {{ component(item.type, item.name, item.data) }}
+    <div class="component component--{{ item.name }}">
+        {{ component(item.type, item.name, item.data) }}
+    </div>
 
     {%- if item | length <= 1 -%}
         {%- for childKey, child in item -%}
+        <div class="component component--{{ item.name }}">
             {{ component(child.type, child.name, child.data) }}
+        </div>
         {%- endfor -%}
     {%- endif -%}
 
     {%- else -%}
         {%- for childKey, child in item -%}
+        <div class="component component--{{ item.name }}">
             {{ component(child.type, child.name, child.data) }}
+        </div>
         {%- endfor -%}
     {%- endif -%}
     

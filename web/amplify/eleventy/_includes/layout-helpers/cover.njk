@@ -1,6 +1,23 @@
-{%- block cover -%}
+{%- if params.example -%}
+    <h2>{{ params.title }}</h2>
+{%- endif -%}
 <div class="l-cover">
-    <h1>{{ params.title }}</h1>
-    <p class="lead">{{ params.body }}</p>
+    {%- if params.lead -%}
+        <h1>{{ params.title }}</h1>
+        <p class="lead">{{ params.body }}</p>
+    {%- elif params.nested -%}
+        <div class="{{ params.nestClasses }}">
+            <div class="{{ params.extraClasses }}">
+                {{ params.body }}
+            </div>
+        </div>
+    {%- elif params.headerFooter -%}
+        <div>{{ params.headerContent | safe }}</div>
+        <div class="{{ params.extraClasses }}">{{ params.body }}</div>
+        <div>{{ params.footerContent | safe }}</div>
+    {%- else -%}
+        <div class="{{ params.extraClasses }}">
+            {{ params.body }}
+        </div>
+    {%- endif -%}
 </div>
-{%- endblock cover -%}

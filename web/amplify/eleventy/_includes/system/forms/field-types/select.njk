@@ -1,0 +1,13 @@
+{%- macro select(params) -%}
+<select name="{{ params.name }}" id="{{ params.name }}">
+{%- for key, option in params.options -%}
+    <option 
+    value="{{ option.value }}" 
+    {%- if option.selected -%}
+    selected
+    {%- endif -%}>
+    {{ option.title }}
+    </option>
+{%- endfor -%}
+</select>
+{%- endmacro -%}

@@ -1,9 +1,17 @@
 ---
 title: Image Component
+components:
+    image:
+        type: core-components
+        name: image-component
+        data:
+            url: https://amplify.studio24.net/dist/images/jpg-cat-1.jpg
+            altText: A cat with green eyes looking directly at the camera
+            aspectRatio: "16:9"
+            caption: <p>The figcaption is not a replacement for the image's <code>alt</code> attribute. It should be used for providing relevant supporting content.</p>
 ---
-![](https://amplify.studio24.net/dist/images/jpg-cat-1.jpg)
 
-The figcaption is not a replacement for the image's `alt` attribute. It should be used for providing relevant supporting content.
+{{ pageComponents(components) }}
 
 Considerations
 --------------
