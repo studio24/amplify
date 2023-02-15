@@ -189,6 +189,9 @@ br {
     For JS enhancements
 \*------------------------------------*/
 /*------------------------------------*\
+    #Navigation advanced
+\*------------------------------------*/
+/*------------------------------------*\
     #Cards advanced
 \*------------------------------------*/
 .js [data-component=card] {
@@ -295,6 +298,51 @@ br {
 
 [data-toggle=true] + * {
   margin-top: 1rem;
+}
+
+.amplify.amplify-table .content-wrap {
+  grid-template-columns: 15% 5% 90%;
+}
+
+th[data-type] span:first-child {
+  margin-right: 8px;
+}
+
+.arrow-wrapper {
+  margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+th > button {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  padding: 0.25em 0.5em 0.25em 1em;
+  white-space: nowrap;
+  width: 100%;
+  min-width: 4.5em;
+  justify-content: space-between;
+}
+
+th[aria-sort=ascending] button:focus > .arrow-wrapper svg.asc {
+  stroke: black;
+  stroke-width: 3.125rem;
+}
+th[aria-sort=ascending] button:focus > .arrow-wrapper svg.desc {
+  opacity: 0.2;
+}
+
+th[aria-sort=descending] button:focus > .arrow-wrapper svg.asc {
+  opacity: 0.3;
+}
+th[aria-sort=descending] button:focus > .arrow-wrapper svg.desc {
+  stroke: black;
+  stroke-width: 3.125rem;
 }
 
 /*------------------------------------*\
