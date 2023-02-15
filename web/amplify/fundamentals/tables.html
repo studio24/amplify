@@ -27,7 +27,6 @@
 	<link rel="stylesheet" href="../../dist/styles/print.css" media="print"/>
 
 	<script src="../../dist/js/libraries/fontfaceobserver.js"></script>
-
 	<script>
 		let myFont = new FontFaceObserver('Nunito');
 
@@ -53,7 +52,7 @@
 
 </head>
 
-<body class="amplify">
+<body class="amplify amplify-table">
 	<div class="not-footer">
 		<a href="#main" class="skip-link">Skip to content</a>
 		<header class="global-header">
@@ -99,32 +98,29 @@
 					</ul>
 				</nav>
 				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
-				<div class="content">
+				<div class="content content-table">
 					<div class="component component--text">
 						<h1>Tables</h1>
 					</div>
-					<div class="component">
-						<table>
+					<div class="component ">
+						<table data-component="sortable-table">
 							<caption>
 								<h2>Example table</h2>
 							</caption>
 							<thead>
 							<tr>
-								<th scope="col">Column header 1</th>
-								<th scope="col">Column header 2</th>
-								<th scope="col">Column header 3</th>
+								<th data-type="string" scope="col">Column header 1</th>
+								<th data-type="string" scope="col">Column header 2</th>
 							</tr>
 							</thead>
 							<tbody>
 							<tr>
-								<th scope="row">Row 1 header</th>
-								<td>Row 1, cell 2</td>
-								<td>Row 1, cell 3</td>
+								<td>AAA</td>
+								<td>AAA</td>
 							</tr>
 							<tr>
-								<th scope="row">Row 2 header</th>
-								<td>Row 2, cell 2</td>
-								<td>Row 2, cell 3</td>
+								<td>BBB</td>
+								<td>BBB</td>
 							</tr>
 							</tbody>
 						</table>
@@ -152,21 +148,23 @@
 							</li>
 						</ul>
 					</div>
-					<div class="component">
+					<div class="component component--table">
 						<div role="region" aria-labelledby="unique-caption-id" tabindex="0" data-component="table-wrap">
-							<table>
+							<table data-component="sortable-table">
 								<caption id="unique-caption-id">Members of the Spice Girls</caption>
 								<thead>
 								<tr>
-									<th scope="col">First name</th>
-									<th scope="col">Last name</th>
-									<th scope="col">Band name</th>
-									<th scope="col">Date of birth</th>
-									<th scope="col">Place of birth</th>
+									<th data-type="number" scope="col">Id</th>
+									<th data-type="string" scope="col">First name</th>
+									<th data-type="string" scope="col">Last name</th>
+									<th data-type="string" scope="col">Band name</th>
+									<th data-type="date" scope="col">Date of birth</th>
+									<th data-type="string" scope="col">Place of birth</th>
 								</tr>
 								</thead>
 								<tbody>
 								<tr>
+									<td>1</td>
 									<td>Emma</td>
 									<td>Bunton</td>
 									<td>Baby</td>
@@ -174,6 +172,7 @@
 									<td>Watford, Hertfordshire</td>
 								</tr>
 								<tr>
+									<td>2</td>
 									<td>Geri</td>
 									<td>Halliwell</td>
 									<td>Ginger</td>
@@ -181,6 +180,7 @@
 									<td>London</td>
 								</tr>
 								<tr>
+									<td>3</td>
 									<td>Victoria</td>
 									<td>Beckham</td>
 									<td>Posh</td>
@@ -188,6 +188,7 @@
 									<td>Harlow, Essex</td>
 								</tr>
 								<tr>
+									<td>4</td>
 									<td>Melanie</td>
 									<td>Brown</td>
 									<td>Scary</td>
@@ -195,6 +196,7 @@
 									<td>Leeds, Yorkshire</td>
 								</tr>
 								<tr>
+									<td>5</td>
 									<td>Melanie</td>
 									<td>Chisholm</td>
 									<td>Sporty</td>
