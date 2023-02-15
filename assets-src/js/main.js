@@ -1,8 +1,10 @@
+import {exists} from "./main/_exists.helper";
 import {cardEnhancement} from "./main/cards";
 import {collapsibles} from "./main/collapsibles";
 import {disclosureWidget} from "./main/disclosure-widget";
 import {formErrorSummary} from "./main/form-error-summary";
 import {responsiveTables} from "./main/responsive-tables";
+import {sortTable} from "./main/sortable-tables";
 
 function domLoadedActions() {
 	cardEnhancement();
@@ -10,6 +12,12 @@ function domLoadedActions() {
 	disclosureWidget();
 	formErrorSummary();
 	responsiveTables();
+	
+	/* Create sortable table */ 
+	const tables = [...document.querySelectorAll('table[data-component="sortable-table"]')];
+	if (exists(tables)) {
+		tables.forEach(table => sortTable(table));
+	}
 }
 
 if (document.readyState === 'loading') {
