@@ -303,18 +303,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "sortTable": function() { return /* binding */ sortTable; }
 /* harmony export */ });
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 var sortTable = function sortTable(table) {
-  var headers = Array.prototype.slice.call(table.querySelectorAll('th'));
+  var headers = _toConsumableArray(table.querySelectorAll('th')).filter(function (header) {
+    return header.dataset.type !== 'no-sort';
+  });
   var tableBody = table.querySelector('tbody');
   var rows = tableBody.querySelectorAll('tr');
-  var arrow = table.querySelector('.arrow');
-  var headingButtons = Array.from(headers).map(function (header) {
+  Array.from(headers).map(function (header) {
     header.setAttribute('aria-sort', 'descending');
     convertThToBtn(header);
   });
+
+  // directions array
   var directions = Array.from(headers).map(function (header) {
     return '';
   });
+
+  // convert table headings to clickable buttons 
   function convertThToBtn(heading) {
     var btn = document.createElement('button');
     var appendArrows = function appendArrows(btn) {
@@ -330,17 +341,12 @@ var sortTable = function sortTable(table) {
     heading.textContent = "";
     heading.appendChild(btn);
   }
-  var toTimestamp = function toTimestamp(strDate) {
-    var dt = Date.parse(strDate);
-    return dt / 1000;
-  };
   var transform = function transform(index, content) {
     var type = headers[index].getAttribute('data-type');
     switch (type) {
       case 'number':
-        return parseFloat(content);
       case 'date':
-        return toTimestamp(content);
+        return parseFloat(content);
       case 'string':
       default:
         return content;
@@ -352,8 +358,15 @@ var sortTable = function sortTable(table) {
     var multiplier = direction === 'ascending' ? 1 : -1;
     header.setAttribute('aria-sort', direction === 'ascending' ? 'descending' : 'ascending');
     newRows.sort(function (rowA, rowB) {
-      var cellA = rowA.querySelectorAll('td')[index].innerHTML;
-      var cellB = rowB.querySelectorAll('td')[index].innerHTML;
+      var cellA;
+      var cellB;
+      if (header.matches('[data-type="date"]')) {
+        cellA = rowA.querySelectorAll('td')[index].getAttribute('data-date');
+        cellB = rowB.querySelectorAll('td')[index].getAttribute('data-date');
+      } else {
+        cellA = rowA.querySelectorAll('td')[index].innerHTML;
+        cellB = rowB.querySelectorAll('td')[index].innerHTML;
+      }
       var a = transform(index, cellA);
       var b = transform(index, cellB);
       switch (true) {

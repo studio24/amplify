@@ -1,14 +1,17 @@
 const sortTable = (table) => {
-  const headers = Array.prototype.slice.call(table.querySelectorAll('th'));
+  const headers = [...table.querySelectorAll('th')].filter(header => header.dataset.type !== 'no-sort');
   const tableBody = table.querySelector('tbody');
   const rows = tableBody.querySelectorAll('tr');
-  const arrow = table.querySelector('.arrow');
-  const headingButtons = Array.from(headers).map(header => {
+  
+  Array.from(headers).map(header => {
     header.setAttribute('aria-sort', 'descending');
     convertThToBtn(header);
   });
+
+  // directions array
   const directions = Array.from(headers).map(header => '');
 
+  // convert table headings to clickable buttons 
   function convertThToBtn (heading) {
     const btn = document.createElement('button');
     const appendArrows = (btn) => {
@@ -35,19 +38,12 @@ const sortTable = (table) => {
 
 }
 
-const toTimestamp = (strDate) => {  
-  const dt = Date.parse(strDate);  
-  return dt / 1000;  
-}  
-
-
 const transform = (index, content) => {
   const type = headers[index].getAttribute('data-type');
   switch (type) {
       case 'number':
-          return parseFloat(content);
       case 'date':
-          return toTimestamp(content);
+          return parseFloat(content);
       case 'string':
       default:
           return content;
@@ -61,9 +57,16 @@ const transform = (index, content) => {
     header.setAttribute('aria-sort', (direction === 'ascending') ? 'descending' : 'ascending');
 
     newRows.sort((rowA, rowB) => {
-      const cellA = rowA.querySelectorAll('td')[index].innerHTML;
-      const cellB = rowB.querySelectorAll('td')[index].innerHTML;
+      let cellA;
+      let cellB;
 
+      if (header.matches('[data-type="date"]')) {
+        cellA = rowA.querySelectorAll('td')[index].getAttribute('data-date');
+        cellB = rowB.querySelectorAll('td')[index].getAttribute('data-date');
+      } else {
+        cellA = rowA.querySelectorAll('td')[index].innerHTML;
+        cellB = rowB.querySelectorAll('td')[index].innerHTML;
+      }
       const a = transform(index, cellA);
       const b = transform(index, cellB);
 
@@ -76,12 +79,12 @@ const transform = (index, content) => {
           return 0;
       }
     });
-
+    
     rows.forEach(row => tableBody.removeChild(row));
     directions[index] = direction === 'ascending' ? 'descending' : 'ascending';
     newRows.forEach(newRow => tableBody.appendChild(newRow));
   }
-
+    
     // loop over heders add click event
     headers.forEach((header, index) => {
       header.addEventListener('click', () => {
