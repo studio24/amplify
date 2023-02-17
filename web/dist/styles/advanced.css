@@ -300,33 +300,28 @@ br {
   margin-top: 1rem;
 }
 
-.amplify.amplify-table .content-wrap {
-  grid-template-columns: 15% 5% 90%;
-}
-
-th[data-type] span:first-child {
-  margin-right: 8px;
-}
-
-.arrow-wrapper {
-  margin-left: 12px;
+table[data-component=sortable-table] .arrow-wrapper {
+  margin-left: 0.75rem;
   display: flex;
   flex-direction: column;
 }
 
 th > button {
-  align-self: flex-start;
-  background: transparent;
-  border: 1px solid transparent;
-  color: inherit;
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-  padding: 0.25em 0.5em 0.25em 1em;
   white-space: nowrap;
-  width: 100%;
-  min-width: 4.5em;
-  justify-content: space-between;
+  background: transparent;
+  border: 0.0625rem solid transparent;
+  font: inherit;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+th > button > * {
+  pointer-events: none;
+}
+th > button:hover {
+  background-color: #ffdc00;
+  border-color: #ffdc00;
+  color: #000;
 }
 
 th[aria-sort=ascending] button:focus > .arrow-wrapper svg.asc {
@@ -343,6 +338,19 @@ th[aria-sort=descending] button:focus > .arrow-wrapper svg.asc {
 th[aria-sort=descending] button:focus > .arrow-wrapper svg.desc {
   stroke: black;
   stroke-width: 3.125rem;
+}
+
+td.active {
+  border-left: 0.1875rem solid #ffdc00;
+  border-right: 0.1875rem solid #ffdc00;
+}
+
+tr:first-child td.active {
+  border-top: 0.1875rem solid #ffdc00;
+}
+
+tr:last-child td.active {
+  border-bottom: 0.1875rem solid #ffdc00;
 }
 
 /*------------------------------------*\

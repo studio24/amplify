@@ -309,23 +309,35 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+/**
+ * Table sort function
+ *
+ * @param {Element} table - the top level table with data-component="sortable-table"
+ */
+
 var sortTable = function sortTable(table) {
+  // All clickable table th / filtered out those with data-type="no-sort" attributes 
   var headers = _toConsumableArray(table.querySelectorAll('th')).filter(function (header) {
     return header.dataset.type !== 'no-sort';
   });
   var tableBody = table.querySelector('tbody');
   var rows = tableBody.querySelectorAll('tr');
-  Array.from(headers).map(function (header) {
+
+  // Setting default sorting order to descending for all th with data-type="*" attribute
+  headers.map(function (header) {
     header.setAttribute('aria-sort', 'descending');
     convertThToBtn(header);
   });
 
-  // directions array
-  var directions = Array.from(headers).map(function (header) {
+  // Creates an array of th each represented as empty '';
+  var directions = headers.map(function (header) {
     return '';
   });
 
-  // convert table headings to clickable buttons 
+  /**
+   * Converts all table headers to clickable buttons and append svg arrows
+   * @param {Element} heading - table th element 
+   */
   function convertThToBtn(heading) {
     var btn = document.createElement('button');
     var appendArrows = function appendArrows(btn) {
@@ -351,6 +363,11 @@ var sortTable = function sortTable(table) {
       default:
         return content;
     }
+  };
+  var removeActiveClasses = function removeActiveClasses(elementsToIterate) {
+    elementsToIterate.forEach(function (field) {
+      field.classList.remove('active');
+    });
   };
   var sortCol = function sortCol(header, index) {
     var newRows = Array.from(rows);
@@ -389,9 +406,34 @@ var sortTable = function sortTable(table) {
 
   // loop over heders add click event
   headers.forEach(function (header, index) {
-    header.addEventListener('click', function () {
+    header.addEventListener('click', function (e) {
       sortCol(header, index);
+      var currentActiveFields = tableBody.querySelectorAll('.active');
+      removeActiveClasses(currentActiveFields);
+      var fieldsToHighlight = _toConsumableArray(rows).map(function (row) {
+        return row.querySelectorAll('td')[index];
+      });
+      if (document.activeElement === e.target) {
+        fieldsToHighlight.forEach(function (field) {
+          field.classList.add('active');
+        });
+      } else {
+        removeActiveClasses(fieldsToHighlight);
+      }
     });
+  });
+  table.addEventListener('keyup', function (e) {
+    var key = e.key;
+    if (key === 'Escape' || key === 'Esc' || key === 27) {
+      var currentActiveFields = tableBody.querySelectorAll('.active');
+      removeActiveClasses(currentActiveFields);
+    }
+  });
+  document.body.addEventListener('click', function (event) {
+    if (!event.target.closest('[data-component="sortable-table"]')) {
+      var currentActiveFields = tableBody.querySelectorAll('.active');
+      removeActiveClasses(currentActiveFields);
+    }
   });
 };
 
@@ -495,7 +537,6 @@ function domLoadedActions() {
   (0,_main_collapsibles__WEBPACK_IMPORTED_MODULE_2__.collapsibles)();
   (0,_main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__.disclosureWidget)();
   (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__.formErrorSummary)();
-  (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_5__.responsiveTables)();
 
   /* Create sortable table */
   var tables = _toConsumableArray(document.querySelectorAll('table[data-component="sortable-table"]'));
@@ -504,6 +545,9 @@ function domLoadedActions() {
       return (0,_main_sortable_tables__WEBPACK_IMPORTED_MODULE_6__.sortTable)(table);
     });
   }
+  // Needs to fire last as sortTable func may change table width
+  // Otherwise, only resize event create responsive table 
+  (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_5__.responsiveTables)();
 }
 if (document.readyState === 'loading') {
   // Loading hasn't finished yet

@@ -1292,9 +1292,6 @@ td {
   vertical-align: text-top;
 }
 
-th {
-  vertical-align: bottom;
-}
 th[scope=col] {
   background-color: #252525;
   color: #fcfcfc;
