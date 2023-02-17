@@ -1,17 +1,31 @@
+
+/**
+ * Table sort function
+ *
+ * @param {Element} table - the top level table with data-component="sortable-table"
+ */
+
+
 const sortTable = (table) => {
+  // All clickable table th / filtered out those with data-type="no-sort" attributes 
   const headers = [...table.querySelectorAll('th')].filter(header => header.dataset.type !== 'no-sort');
+
   const tableBody = table.querySelector('tbody');
   const rows = tableBody.querySelectorAll('tr');
-  
-  Array.from(headers).map(header => {
+
+  // Setting default sorting order to descending for all th with data-type="*" attribute
+  headers.map(header => {
     header.setAttribute('aria-sort', 'descending');
     convertThToBtn(header);
   });
 
-  // directions array
-  const directions = Array.from(headers).map(header => '');
+  // Creates an array of th each represented as empty '';
+  const directions = headers.map(header => '');
 
-  // convert table headings to clickable buttons 
+  /**
+   * Converts all table headers to clickable buttons and append svg arrows
+   * @param {Element} heading - table th element 
+   */
   function convertThToBtn (heading) {
     const btn = document.createElement('button');
     const appendArrows = (btn) => {
@@ -35,7 +49,6 @@ const sortTable = (table) => {
     appendArrows(btn);
     heading.textContent = ``;
     heading.appendChild(btn);
-
 }
 
 const transform = (index, content) => {
@@ -48,6 +61,12 @@ const transform = (index, content) => {
       default:
           return content;
   }
+};
+
+const removeActiveClasses = (elementsToIterate) => {
+  elementsToIterate.forEach(field => {
+    field.classList.remove('active')
+  });
 };
 
   const sortCol = (header, index) => {
@@ -85,12 +104,43 @@ const transform = (index, content) => {
     newRows.forEach(newRow => tableBody.appendChild(newRow));
   }
     
-    // loop over heders add click event
-    headers.forEach((header, index) => {
-      header.addEventListener('click', () => {
-        sortCol(header, index);
+  // loop over heders add click event
+  headers.forEach((header, index) => {
+    header.addEventListener('click', (e) => {
+      sortCol(header, index);
+      
+      let currentActiveFields = tableBody.querySelectorAll('.active');
+      removeActiveClasses(currentActiveFields);
+      
+      let fieldsToHighlight = [...rows].map(row => {
+        return row.querySelectorAll('td')[index];
       });
-    })
+
+      if (document.activeElement === e.target) {
+        fieldsToHighlight.forEach(field => {
+          field.classList.add('active');
+        });
+      } else {
+        removeActiveClasses(fieldsToHighlight);
+      }
+
+    });
+  });
+
+  table.addEventListener('keyup', (e) => {
+    let key = e.key;
+    if (key === 'Escape' || key === 'Esc' || key === 27) {
+      let currentActiveFields = tableBody.querySelectorAll('.active');
+      removeActiveClasses(currentActiveFields);
+    }
+  });
+
+  document.body.addEventListener('click', (event) => {
+    if(!event.target.closest('[data-component="sortable-table"]')) {
+      let currentActiveFields = tableBody.querySelectorAll('.active');
+      removeActiveClasses(currentActiveFields);
+    }
+  });
 }
 
 export { sortTable };
