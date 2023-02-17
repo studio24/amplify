@@ -11,13 +11,15 @@ function domLoadedActions() {
 	collapsibles();
 	disclosureWidget();
 	formErrorSummary();
-	responsiveTables();
 	
 	/* Create sortable table */ 
 	const tables = [...document.querySelectorAll('table[data-component="sortable-table"]')];
 	if (exists(tables)) {
 		tables.forEach(table => sortTable(table));
 	}
+	// Needs to fire last as sortTable func may change table width
+	// Otherwise, only resize event create responsive table 
+	responsiveTables();
 }
 
 if (document.readyState === 'loading') {
