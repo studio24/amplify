@@ -1,30 +1,30 @@
 
 /**
  * Table sort function
- *
  * @param {Element} table - the top level table with data-component="sortable-table"
  */
 
 
 const sortTable = (table) => {
-  // All clickable table th / filtered out those with data-type="no-sort" attributes 
+  /*  All clickable table th / filtered out those with data-type="no-sort" attributes */  
   const headers = [...table.querySelectorAll('th')].filter(header => header.dataset.type !== 'no-sort');
 
   const tableBody = table.querySelector('tbody');
   const rows = tableBody.querySelectorAll('tr');
 
-  // Setting default sorting order to descending for all th with data-type="*" attribute
+  /*  Setting default sorting order to descending for all th with data-type="*" attribute */ 
   headers.map(header => {
     header.setAttribute('aria-sort', 'descending');
     convertThToBtn(header);
   });
 
-  // Creates an array of th each represented as empty '';
+  /*  Creates an array of th each represented as empty ''; */ 
   const directions = headers.map(header => '');
 
   /**
    * Converts all table headers to clickable buttons and append svg arrows
    * @param {Element} heading - table th element 
+   * @returns {Element} button - button created from table th element with wrapper which contains svg arrows
    */
   function convertThToBtn (heading) {
     const btn = document.createElement('button');
@@ -50,7 +50,10 @@ const sortTable = (table) => {
     heading.textContent = ``;
     heading.appendChild(btn);
 }
-
+/**
+ * @param {*} index - index of selected column to sort
+ * @param {*} content - content to sort
+ */ 
 const transform = (index, content) => {
   const type = headers[index].getAttribute('data-type');
   switch (type) {
@@ -62,13 +65,18 @@ const transform = (index, content) => {
           return content;
   }
 };
-
+/**
+ * @param {Element} elementsToIterate - list of all active table cells in selected column 
+ */ 
 const removeActiveClasses = (elementsToIterate) => {
   elementsToIterate.forEach(field => {
     field.classList.remove('active')
   });
 };
-
+/**
+ * @param {Element} header - table th converted to button
+ * @param {Element} index  - index of selected column to sort
+ */ 
   const sortCol = (header, index) => {
     const newRows = Array.from(rows);
     const direction = directions[index] || 'ascending';
@@ -104,7 +112,10 @@ const removeActiveClasses = (elementsToIterate) => {
     newRows.forEach(newRow => tableBody.appendChild(newRow));
   }
     
-  // loop over heders add click event
+  /**
+   * @param {Element} header - table th converted to button
+   * @param {Element} index - index of selected column to sort
+  */  
   headers.forEach((header, index) => {
     header.addEventListener('click', (e) => {
       sortCol(header, index);
@@ -126,6 +137,8 @@ const removeActiveClasses = (elementsToIterate) => {
 
     });
   });
+
+  /*  Remove active class from table cells when events are triggered  */ 
 
   table.addEventListener('keyup', (e) => {
     let key = e.key;

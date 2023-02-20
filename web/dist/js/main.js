@@ -311,25 +311,24 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 /**
  * Table sort function
- *
  * @param {Element} table - the top level table with data-component="sortable-table"
  */
 
 var sortTable = function sortTable(table) {
-  // All clickable table th / filtered out those with data-type="no-sort" attributes 
+  /*  All clickable table th / filtered out those with data-type="no-sort" attributes */
   var headers = _toConsumableArray(table.querySelectorAll('th')).filter(function (header) {
     return header.dataset.type !== 'no-sort';
   });
   var tableBody = table.querySelector('tbody');
   var rows = tableBody.querySelectorAll('tr');
 
-  // Setting default sorting order to descending for all th with data-type="*" attribute
+  /*  Setting default sorting order to descending for all th with data-type="*" attribute */
   headers.map(function (header) {
     header.setAttribute('aria-sort', 'descending');
     convertThToBtn(header);
   });
 
-  // Creates an array of th each represented as empty '';
+  /*  Creates an array of th each represented as empty ''; */
   var directions = headers.map(function (header) {
     return '';
   });
@@ -337,6 +336,7 @@ var sortTable = function sortTable(table) {
   /**
    * Converts all table headers to clickable buttons and append svg arrows
    * @param {Element} heading - table th element 
+   * @returns {Element} button - button created from table th element with wrapper which contains svg arrows
    */
   function convertThToBtn(heading) {
     var btn = document.createElement('button');
@@ -353,6 +353,10 @@ var sortTable = function sortTable(table) {
     heading.textContent = "";
     heading.appendChild(btn);
   }
+  /**
+   * @param {*} index - index of selected column to sort
+   * @param {*} content - content to sort
+   */
   var transform = function transform(index, content) {
     var type = headers[index].getAttribute('data-type');
     switch (type) {
@@ -364,11 +368,18 @@ var sortTable = function sortTable(table) {
         return content;
     }
   };
+  /**
+   * @param {Element} elementsToIterate - list of all active table cells in selected column 
+   */
   var removeActiveClasses = function removeActiveClasses(elementsToIterate) {
     elementsToIterate.forEach(function (field) {
       field.classList.remove('active');
     });
   };
+  /**
+   * @param {Element} header - table th converted to button
+   * @param {Element} index  - index of selected column to sort
+   */
   var sortCol = function sortCol(header, index) {
     var newRows = Array.from(rows);
     var direction = directions[index] || 'ascending';
@@ -404,7 +415,10 @@ var sortTable = function sortTable(table) {
     });
   };
 
-  // loop over heders add click event
+  /**
+   * @param {Element} header - table th converted to button
+   * @param {Element} index - index of selected column to sort
+  */
   headers.forEach(function (header, index) {
     header.addEventListener('click', function (e) {
       sortCol(header, index);
@@ -422,6 +436,9 @@ var sortTable = function sortTable(table) {
       }
     });
   });
+
+  /*  Remove active class from table cells when events are triggered  */
+
   table.addEventListener('keyup', function (e) {
     var key = e.key;
     if (key === 'Escape' || key === 'Esc' || key === 27) {
