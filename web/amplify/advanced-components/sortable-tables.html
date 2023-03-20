@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Sortable-tables - Amplify</title>
+
+	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="../../dist/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="../../dist/styles/print.css" media="print"/>
+
+	<script src="../../dist/js/libraries/fontfaceobserver.js"></script>
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '../../dist/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+	<div class="not-footer">
+		<a href="#main" class="skip-link">Skip to content</a>
+		<header class="global-header">
+			<div class="l-center">
+				<a class="global-header__link" href="../index.html">Amplify from Studio 24</a>
+			</div>
+		</header>
+		<nav class="global-nav" aria-label="Main">
+			<div class="l-center">
+				<div class="l-cluster">
+					<ul class="clean-list">
+						<li><a class="global-nav__link" href="../get-started">Get started</a></li>
+						<li><a class="global-nav__link" href="../fundamentals">Fundamentals</a></li>
+						<li><a class="global-nav__link" href="../layout-helpers">Layout helpers</a></li>
+						<li><a class="global-nav__link" href="../core-components">Core components</a></li>
+						<li class="current"><a class="global-nav__link" href="../advanced-components">Advanced components</a></li>
+						<li><a class="global-nav__link" href="../design">Design handover &amp; standards</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<main id="main">
+			<div class="content-wrap">
+				<nav class="nav-secondary" aria-label="Secondary">
+					<ul class="clean-list" role="list">
+						<li><a class="nav-secondary__link" href="accessible-autocomplete.html">Accessible auto-complete</a></li>
+						<li><a class="nav-secondary__link" href="cards.html">Cards</a></li>
+						<li><a class="nav-secondary__link" href="carousel.html">Carousels</a></li>
+						<li><a class="nav-secondary__link" href="collapsibles.html">Collapsible containers</a></li>
+						<li><a class="nav-secondary__link" href="disclosure-widget.html">Disclosure widget</a></li>
+						<li><a class="nav-secondary__link" href="tabs.html">Tabbed sections</a></li>
+						<li><a class="nav-secondary__link" href="sortable-tables.html" aria-current="">Sortable table</a></li>
+					</ul>
+				</nav>
+				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+				<div class="content content-table">
+					<div class="component component--text">
+						<h1>Sortable-tables</h1>
+					</div>
+					<div class="component ">
+						<table data-component="sortable-table">
+							<caption>
+								<h2>Example table</h2>
+							</caption>
+							<thead>
+							<tr>
+								<th data-type="string" scope="col">Column header 1</th>
+								<th data-type="string" scope="col">Column header 2</th>
+								<th data-type="no-sort" scope="col">No sort is allowed</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>AAA</td>
+								<td>AAA</td>
+								<td>PLEASE DO NOT SORT ME</td>
+							</tr>
+							<tr>
+								<td>BBB</td>
+								<td>BBB</td>
+								<td>PLEASE DO NOT SORT ME</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="component component--text">
+						<h2>Considerations</h2>
+						<p>The table markup must include column and/or row headers (<code>th</code>). Some screen readers that encounter a table without headers will treat it as a ‘layout table’ and communicate it quite differently.</p>
+						<p>Use the attributes <code>scope="col"</code> and <code>scope="row"</code> to differentiate between column and row headers respectively.</p>
+						<p>Where there are both column and row headers, do not leave the first header cell empty as this can produce unexpected behaviour.</p>
+						<p>Use a <code>caption</code> to label the table correctly. A heading element can be used within the caption if desired.</p>
+						<h2>Responsive tables</h2>
+						<p>The grid structure of data tables must remain intact, no matter the available space. If there are many columns, the result may be horizontal scrolling. Based on the advice in Adrian Roselli's article <a href="https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html">Under-Engineered Responsive Tables</a>, the basic table markup then needs to be amended as follows:</p>
+						<ul>
+							<li>
+								<p>Wrap the table in a <code>div</code> with the data-attribute <code>data-component="table-wrap"</code>, and the attribute <code>tabindex="0"</code> so that keyboard users can scroll it.</p>
+							</li>
+							<li>
+								<p>Add the following attributes to the wrapping <code>div</code>: <code>tabindex="0"</code> and <code>role="region"</code></p>
+							</li>
+							<li>
+								<p>Add a unique ID to the <code>caption</code> and add <code>aria-labelledby</code> to the wrapping <code>div</code> with the caption ID as the value. This will correctly label what is now an interactive <code>div</code>.</p>
+							</li>
+							<li>
+								<p>A JavaScript enhancement checks whether the wrapper has any overflow. If there is no overflow, the <code>tabindex</code>, <code>role</code> and <code>aria-labelledby</code> attributes are all removed; but they need to exist in the base markup in case JavaScript is not available.</p>
+							</li>
+						</ul>
+					</div>
+					<div class="component component--table">
+						<div role="region" aria-labelledby="unique-caption-id" tabindex="0" data-component="table-wrap">
+							<table data-component="sortable-table">
+								<caption id="unique-caption-id">Members of the Spice Girls</caption>
+								<thead>
+								<tr>
+									<th data-type="number" scope="col">Id</th>
+									<th data-type="string" scope="col">First name</th>
+									<th data-type="string" scope="col">Last name</th>
+									<th data-type="string" scope="col">Band name</th>
+									<th data-type="date" scope="col">Date of birth</th>
+									<th data-type="string" scope="col">Place of birth</th>
+									<th data-type="no-sort" scope="col">No sort</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>1</td>
+									<td>Emma</td>
+									<td>Bunton</td>
+									<td>Baby</td>
+									<td data-date="191030400">21 January 1976</td>
+									<td>Watford, Hertfordshire</td>
+									<td>5424353</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>Geri</td>
+									<td>Halliwell</td>
+									<td>Ginger</td>
+									<td data-date="81903600">6 August 1972</td>
+									<td>London</td>
+									<td>554</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>Victoria</td>
+									<td>Beckham</td>
+									<td>Posh</td>
+									<td data-date="135385200">17 April 1974</td>
+									<td>Harlow, Essex</td>
+									<td>23535</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td>Melanie</td>
+									<td>Brown</td>
+									<td>Scary</td>
+									<td data-date="170550000">29 May 1975</td>
+									<td>Leeds, Yorkshire</td>
+									<td>234</td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td>Melanie</td>
+									<td>Chisholm</td>
+									<td>Sporty</td>
+									<td data-date="127180800">12 January 1974</td>
+									<td>Whiston, Merseyside</td>
+									<td>232</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<footer class="global-footer">
+		<div class="l-center">
+			&copy; Studio 24
+		</div>
+	</footer>
+</body>
+
+</html>
