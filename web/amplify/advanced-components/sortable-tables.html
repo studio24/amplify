@@ -101,14 +101,14 @@
 							<tr>
 								<th data-type="string" scope="col">Column header 1</th>
 								<th data-type="string" scope="col">Column header 2</th>
-								<th data-type="no-sort" scope="col">No sort is allowed</th>
+								<th data-type="no-sort" scope="col">Sorting is not allowed</th>
 							</tr>
 							</thead>
 							<tbody>
 							<tr>
 								<td>AAA</td>
 								<td>AAA</td>
-								<td>PLEASE DO NOT SORT ME</td>
+								<td>NO SOTRING HERE</td>
 							</tr>
 							<tr>
 								<td>BBB</td>
@@ -140,6 +140,10 @@
 								<p>A JavaScript enhancement checks whether the wrapper has any overflow. If there is no overflow, the <code>tabindex</code>, <code>role</code> and <code>aria-labelledby</code> attributes are all removed; but they need to exist in the base markup in case JavaScript is not available.</p>
 							</li>
 						</ul>
+						<h2>Sortable tables</h2>
+						<p>The (<code>table</code>) element must include (<code>data-component="sortable-table"</code>) attribute to allow each column be sortable.</p>
+						<p>Each table header must include (<code>data-type=""</code>) which specifies what type of data is in each column, e.g. (<code>number</code>), (<code>string</code>), (<code>date</code>) or (<code>no-sort</code>) when sorting functionality should be disallowed. </p>
+						<p>Each (<code>td</code>) in (<code>date</code>) column should contain (<code>data-date</code>) attribute with a date converted into UNIX timestamp e.g. (<code> data-date="191030400"</code>).</p>
 					</div>
 					<div class="component component--table">
 						<div role="region" aria-labelledby="unique-caption-id" tabindex="0" data-component="table-wrap">
