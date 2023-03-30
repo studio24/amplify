@@ -21,8 +21,8 @@ a.with-icon--after {
 	color: $link-color;
 	cursor: pointer;
 	text-decoration: underline; /* 1 */
+	text-decoration-skip: auto; // Supported by Safari
 	text-decoration-skip-ink: auto; // Not supported by Safari
-	text-underline-offset: 0.25em; // Supported by Safari
 
 	&:visited {
 		color: $link-color--visited;

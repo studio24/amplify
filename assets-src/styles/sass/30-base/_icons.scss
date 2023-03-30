@@ -4,15 +4,10 @@
 
 /**
 Icons are sized relative to font size, thanks to the em unit.
-
-1. When the cap unit is supported this will make it easier to match icon
-size to text size.
  */
 .icon {
 	height: 0.75em;
-	height: 1cap; /* 1 */
 	width: 0.75em;
-	width: 1cap; /* 1 */
 }
 
 

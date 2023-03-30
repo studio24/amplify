@@ -189,215 +189,6 @@ br {
     For JS enhancements
 \*------------------------------------*/
 /*------------------------------------*\
-    #Navigation advanced
-
-    N.B. aria-expanded attribute is managed by JS
-\*------------------------------------*/
-[data-trigger=mobile-nav] > * {
-  pointer-events: none;
-}
-[data-trigger=mobile-nav] .close {
-  display: none;
-}
-[data-trigger=mobile-nav] .open {
-  display: block;
-}
-[data-trigger=mobile-nav][aria-expanded=true] .close {
-  display: block;
-}
-[data-trigger=mobile-nav][aria-expanded=true] .open {
-  display: none;
-}
-
-.js .nav {
-  /* Prevent offscreen-submenus */
-}
-.js .nav [aria-expanded=false] + * {
-  display: none;
-}
-.js .nav > ul {
-  background-color: #fcfcfc;
-}
-@media screen and (min-width: 48em) {
-  .js .nav > ul {
-    align-items: center;
-    display: flex;
-  }
-}
-@media screen and (min-width: 48em) {
-  .js .nav > ul > li + li {
-    margin-left: 0.3125rem;
-  }
-}
-.js .nav [data-trigger=sub-nav] {
-  position: relative;
-  justify-content: space-between;
-  width: 100%;
-}
-.js .nav [data-trigger=sub-nav] > * {
-  pointer-events: none;
-}
-.js .nav [data-nav=submenu] {
-  background-color: #fcfcfc;
-  min-height: 100%;
-  padding-left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 5;
-}
-@media screen and (min-width: 48em) {
-  .js .nav [data-nav=submenu] {
-    min-height: auto;
-    top: auto;
-    width: auto;
-  }
-}
-.js .nav [data-nav=submenu].js-sub-menu-right {
-  left: auto;
-  right: 0;
-}
-
-/* Styles for simple double-level navigation */
-#js-click-nav-vertical > ul {
-  left: 0;
-  position: absolute;
-  width: 100%;
-  z-index: 5;
-}
-@media screen and (min-width: 48em) {
-  #js-click-nav-vertical > ul {
-    position: relative;
-  }
-}
-@media screen and (min-width: 48em) {
-  #js-click-nav-vertical > ul > li {
-    position: relative;
-  }
-}
-#js-click-nav-vertical [data-trigger=sub-nav] .control-horizontal {
-  display: none;
-}
-#js-click-nav-vertical [data-trigger=sub-nav][aria-expanded=true] svg {
-  -webkit-transform: scaleY(-1);
-          transform: scaleY(-1);
-}
-@media screen and (min-width: 48em) {
-  #js-click-nav-vertical [data-nav=submenu] {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
-  }
-}
-
-/* Styles for double-navigation with back button in sub menus */
-#js-click-nav-horizontal > ul {
-  left: 0;
-  position: absolute;
-  width: 100%;
-  z-index: 5;
-}
-@media screen and (min-width: 48em) {
-  #js-click-nav-horizontal > ul {
-    position: relative;
-  }
-}
-@media screen and (min-width: 48em) {
-  #js-click-nav-horizontal > ul > li {
-    position: relative;
-  }
-}
-@media screen and (min-width: 48em) {
-  #js-click-nav-horizontal [data-trigger=sub-nav] .control-horizontal {
-    display: none;
-  }
-}
-#js-click-nav-horizontal [data-trigger=sub-nav] .control-vertical {
-  display: none;
-}
-@media screen and (min-width: 48em) {
-  #js-click-nav-horizontal [data-trigger=sub-nav] .control-vertical {
-    display: block;
-  }
-}
-@media screen and (min-width: 48em) {
-  #js-click-nav-horizontal [data-trigger=sub-nav][aria-expanded=true] svg {
-    -webkit-transform: scaleY(-1);
-            transform: scaleY(-1);
-  }
-}
-@media screen and (min-width: 48em) {
-  #js-click-nav-horizontal [data-nav=submenu] {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
-  }
-}
-@media screen and (min-width: 48em) {
-  #js-click-nav-horizontal [data-button=mobile-back] {
-    display: none;
-  }
-}
-#js-click-nav-horizontal [data-button=mobile-back] svg {
-  -webkit-transform: scaleX(-1);
-          transform: scaleX(-1);
-}
-#js-click-nav-horizontal [data-button=mobile-back] svg .control-vertical {
-  display: none;
-}
-
-/* Styles for double-navigation with intro text and back button in sub menus */
-@media screen and (min-width: 48em) {
-  .js-nav-with-intro > ul > li {
-    position: static !important;
-  }
-}
-.js-nav-with-intro [data-nav=submenu] {
-  border-bottom: solid 3px;
-  padding: 1.25rem 0;
-}
-@media screen and (min-width: 48em) {
-  .js-nav-with-intro [data-nav=submenu] {
-    left: 50%;
-    min-height: auto;
-    padding: 3.125rem 1.25rem;
-    top: 100%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-    width: 100vw !important;
-  }
-}
-@media screen and (min-width: 48em) {
-  .js-nav-with-intro [data-nav=submenu] .l-center {
-    display: flex;
-    justify-content: space-between;
-  }
-}
-@media screen and (min-width: 48em) {
-  .js-nav-with-intro [data-button=mobile-back] {
-    display: none;
-  }
-}
-@media screen and (min-width: 48em) {
-  .js-nav-with-intro [data-nav=submenu] .nav__intro {
-    width: 40%;
-  }
-}
-.js-nav-with-intro .nav__intro p {
-  display: none;
-}
-@media screen and (min-width: 48em) {
-  .js-nav-with-intro .nav__intro p {
-    display: block;
-  }
-}
-@media screen and (min-width: 48em) {
-  .js-nav-with-intro [data-nav=submenu] ul {
-    -webkit-column-gap: 2.5rem;
-            column-gap: 2.5rem;
-    -webkit-columns: 2;
-            columns: 2;
-    width: 50%;
-  }
-}
-
-/*------------------------------------*\
     #Cards advanced
 \*------------------------------------*/
 .js [data-component=card] {
@@ -405,9 +196,10 @@ br {
 }
 .js [data-component=card]:hover .card__link {
   text-decoration: underline; /* 1 */
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 
 /*------------------------------------*\
@@ -441,9 +233,10 @@ br {
 }
 .js [data-heading=collapsibles] button:hover .js-collapsible-label {
   text-decoration: underline;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em;
 }
 .js [data-heading=collapsibles] button:focus {
   background-color: #ffdc00;
@@ -502,62 +295,6 @@ br {
 
 [data-toggle=true] + * {
   margin-top: 1rem;
-}
-
-/*------------------------------------*\
-    #Tabbed sections advanced
-    All roles are added via JavaScript
-
-    1. The `stack` mixin applies flexbox in the column direction,
-    so we need to prevent things like buttons and links
-    from stretching horizontally
-\*------------------------------------*/
-.component--tabs [role=tablist] {
-  border-bottom: solid 1px #bdbdbd;
-  display: flex;
-  flex-flow: row nowrap;
-  max-width: 100%;
-  overflow-x: auto;
-  padding: 0 1.5rem;
-}
-.component--tabs [role=tablist] li {
-  flex-shrink: 0;
-  list-style: none;
-  margin-top: 0;
-  padding: 0;
-}
-.component--tabs [role=tablist] li + li {
-  margin-left: 1.5rem;
-}
-
-[dir=rtl] .component--tabs [role=tablist] li + li {
-  margin-left: 0;
-  margin-right: 1.5rem;
-}
-
-.component--tabs a[role=tab] {
-  background-color: #bdbdbd;
-  border: 0;
-  border-bottom: solid 0.1875rem transparent;
-  color: #252525;
-  display: block;
-  padding: 0.625em 0.9375em;
-}
-.component--tabs a[role=tab]:focus, .component--tabs a[role=tab][aria-selected=true] {
-  border-color: #235bd1;
-  outline: none;
-  text-decoration: none;
-}
-
-.component--tabs [role=tabpanel] {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start; /* 1 */
-  padding: 1.5rem;
-}
-.component--tabs [role=tabpanel] > * + * {
-  margin-top: 1em;
 }
 
 /*------------------------------------*\
@@ -800,4 +537,375 @@ br {
     line-height: 1.5;
     line-height: 1.25;
   }
+}
+@-webkit-keyframes splide-loading {
+  0% {
+    -webkit-transform: rotateZ(0);
+            transform: rotateZ(0);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+  }
+}
+@keyframes splide-loading {
+  0% {
+    -webkit-transform: rotateZ(0);
+            transform: rotateZ(0);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+  }
+}
+.splide__track--draggable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+          user-select: none;
+}
+
+.splide__track--fade > .splide__list {
+  display: block;
+}
+
+.splide__track--fade > .splide__list > .splide__slide {
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+
+.splide__track--fade > .splide__list > .splide__slide.is-active {
+  opacity: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.splide--rtl {
+  direction: rtl;
+}
+
+.splide__track--ttb > .splide__list {
+  display: block;
+}
+
+.splide__container {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.splide__list {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  display: flex;
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.splide.is-initialized:not(.is-active) .splide__list {
+  display: block;
+}
+
+.splide__pagination {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  pointer-events: none;
+}
+
+.splide__pagination li {
+  display: inline-block;
+  line-height: 1;
+  list-style-type: none;
+  margin: 0;
+  pointer-events: auto;
+}
+
+.splide__progress__bar {
+  width: 0;
+}
+
+.splide {
+  position: relative;
+  visibility: hidden;
+}
+
+.splide.is-initialized, .splide.is-rendered {
+  visibility: visible;
+}
+
+.splide__slide {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  list-style-type: none !important;
+  margin: 0;
+  position: relative;
+}
+
+.splide__slide img {
+  vertical-align: bottom;
+}
+
+.splide__spinner {
+  -webkit-animation: splide-loading 1s infinite linear;
+          animation: splide-loading 1s infinite linear;
+  border: 2px solid #999;
+  border-left-color: transparent;
+  border-radius: 50%;
+  bottom: 0;
+  contain: strict;
+  display: inline-block;
+  height: 20px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20px;
+}
+
+.splide__sr {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.splide__toggle__pause {
+  display: none;
+}
+
+.splide__toggle.is-active .splide__toggle__play {
+  display: none;
+}
+
+.splide__toggle.is-active .splide__toggle__pause {
+  display: inline;
+}
+
+.splide__track {
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+/*------------------------------------*\
+    #S24 customisation of Splide carousel
+\*------------------------------------*/
+[data-component=carousel] {
+  margin-bottom: 6rem;
+}
+
+.splide__arrow {
+  min-width: auto;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 1;
+}
+
+.splide__arrow--prev {
+  left: 0;
+}
+.splide__arrow--prev svg {
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+.splide__arrow--next {
+  right: 0;
+}
+
+.splide__arrow svg {
+  height: 2rem;
+  width: 2rem;
+}
+
+.splide__pagination {
+  bottom: -3.125rem;
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 100%;
+}
+
+.splide__pagination__page {
+  background-color: transparent;
+  border-color: transparent;
+  height: 2.75rem;
+  min-width: auto;
+  position: relative;
+  width: 2.75rem;
+}
+.splide__pagination__page:hover, .splide__pagination__page:focus {
+  background-color: transparent;
+  border-color: transparent;
+}
+.splide__pagination__page:focus-visible {
+  background-color: #ffdc00;
+  background-image: none;
+  border-color: #000;
+}
+.splide__pagination__page::after {
+  background-color: #0d599b;
+  border-radius: 50%;
+  content: "";
+  height: 0.875rem;
+  position: absolute;
+  width: 0.875rem;
+}
+.splide__pagination__page[aria-selected=true]::after {
+  background-color: transparent;
+  border: solid 2px #0d599b;
+}
+
+/**
+ * The tablist
+ */
+[role=tablist] {
+  border-bottom: 1px solid lightgray;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+[role=tablist] * {
+  box-sizing: border-box;
+}
+
+/**
+ * The tablist item
+ */
+@media (min-width: 30em) {
+  [role=tablist] li {
+    display: inline-block;
+  }
+}
+
+/**
+ * The tabs
+ */
+[role=tab] {
+  border: 1px solid transparent;
+  border-top-color: lightgray;
+  display: block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  /**
+   * Active tab styling
+   */
+  /**
+   * Tabs on hover
+   */
+}
+@media (min-width: 30em) {
+  [role=tab] {
+    border-top-color: transparent;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    display: inline-block;
+    margin-bottom: -1px;
+  }
+}
+[role=tab][aria-selected=true] {
+  background-color: lightgray;
+}
+@media (min-width: 30em) {
+  [role=tab][aria-selected=true] {
+    background-color: transparent;
+    border: 1px solid lightgray;
+    border-bottom-color: #ffffff;
+  }
+}
+[role=tab]:hover:not([aria-selected=true]) {
+  background-color: #f7f7f7;
+}
+@media (min-width: 30em) {
+  [role=tab]:hover:not([aria-selected=true]) {
+    border: 1px solid lightgray;
+  }
+}
+
+/**
+ * [hidden] fallback for IE10 and lower
+ */
+[hidden] {
+  display: none;
+}
+
+/*------------------------------------*\
+    #S24 tabby overrides
+
+	1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent things like buttons and links
+    from stretching horizontally
+\*------------------------------------*/
+.component--tabs [role=tablist] {
+  border-bottom: solid 1px #bdbdbd;
+  display: flex;
+  flex-flow: row nowrap;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 0 1.5rem;
+}
+.component--tabs [role=tablist] li {
+  flex-shrink: 0;
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+}
+.component--tabs [role=tablist] li + li {
+  margin-left: 1.5rem;
+}
+
+[dir=rtl] .component--tabs [role=tablist] li + li {
+  margin-left: 0;
+  margin-right: 1.5rem;
+}
+
+.component--tabs a[role=tab] {
+  background-color: #bdbdbd;
+  border: 0;
+  border-radius: 0;
+  border-bottom: solid 0.1875rem transparent;
+  color: #252525;
+  display: block;
+  margin-bottom: 0;
+  padding: 0.625em 0.9375em;
+}
+.component--tabs a[role=tab]:hover {
+  background-color: #bdbdbd;
+  border: 0;
+  border-bottom: solid 0.1875rem #bdbdbd;
+  color: #252525;
+}
+.component--tabs a[role=tab]:focus, .component--tabs a[role=tab][aria-selected=true] {
+  background-color: #bdbdbd;
+  border-bottom: solid 0.1875rem #235bd1;
+  outline: none;
+  text-decoration: none;
+}
+
+.component--tabs [role=tabpanel] {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; /* 1 */
+  padding: 1.5rem;
+}
+.component--tabs [role=tabpanel] > * + * {
+  margin-top: 1em;
 }

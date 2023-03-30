@@ -1,8 +1,7 @@
 /*------------------------------------*\
-    #Tabbed sections advanced
-    All roles are added via JavaScript
+    #S24 tabby overrides
 
-    1. The `stack` mixin applies flexbox in the column direction,
+	1. The `stack` mixin applies flexbox in the column direction,
     so we need to prevent things like buttons and links
     from stretching horizontally
 \*------------------------------------*/
@@ -38,14 +37,24 @@
 .component--tabs a[role="tab"] {
 	background-color: $twiki-gray;
 	border: 0;
+	border-radius: 0;
 	border-bottom: solid rem(3) transparent;
 	color: $off-black;
 	display: block;
+	margin-bottom: 0;
 	padding: em(10) em(15);
+
+	&:hover {
+		background-color: $twiki-gray;
+		border: 0;
+		border-bottom: solid rem(3) $twiki-gray;
+		color: $off-black;
+	}
 
 	&:focus,
 	&[aria-selected="true"] {
-		border-color: $info-color;
+		background-color: $twiki-gray;
+		border-bottom: solid rem(3) $info-color;
 		outline: none;
 		text-decoration: none;
 	}
