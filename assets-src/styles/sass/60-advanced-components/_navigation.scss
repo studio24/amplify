@@ -5,7 +5,7 @@
 \*------------------------------------*/
 
 [data-trigger="mobile-nav"] {
-    svg {
+    > * {
         pointer-events: none;
     }
 
@@ -52,7 +52,7 @@
         justify-content: space-between;
         width: 100%;
 
-        svg {
+        > * {
             pointer-events: none;
         }
     }

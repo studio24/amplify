@@ -193,7 +193,7 @@ br {
 
     N.B. aria-expanded attribute is managed by JS
 \*------------------------------------*/
-[data-trigger=mobile-nav] svg {
+[data-trigger=mobile-nav] > * {
   pointer-events: none;
 }
 [data-trigger=mobile-nav] .close {
@@ -234,7 +234,7 @@ br {
   justify-content: space-between;
   width: 100%;
 }
-.js .nav [data-trigger=sub-nav] svg {
+.js .nav [data-trigger=sub-nav] > * {
   pointer-events: none;
 }
 .js .nav [data-nav=submenu] {
@@ -404,8 +404,7 @@ br {
   cursor: pointer;
 }
 .js [data-component=card]:hover .card__link {
-  text-decoration: underline;
-  /* 1 */
+  text-decoration: underline; /* 1 */
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
   text-underline-offset: 0.25em;
@@ -554,8 +553,7 @@ br {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
-  /* 1 */
+  align-items: flex-start; /* 1 */
   padding: 1.5rem;
 }
 .component--tabs [role=tabpanel] > * + * {
@@ -576,13 +574,11 @@ br {
 .autocomplete__input {
   -webkit-appearance: none;
   border: 2px solid #0b0c0c;
-  border-radius: 0;
-  /* Safari 10 on iOS adds implicit border rounding. */
+  border-radius: 0; /* Safari 10 on iOS adds implicit border rounding. */
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  margin-bottom: 0;
-  /* BUG: Safari 10 on macOS seems to add an implicit margin. */
+  margin-bottom: 0; /* BUG: Safari 10 on macOS seems to add an implicit margin. */
   width: 100%;
 }
 
@@ -607,8 +603,7 @@ br {
 }
 
 .autocomplete__input--show-all-values {
-  padding: 5px 34px 5px 5px;
-  /* Space for arrow. Other padding should match .autocomplete__input--default. */
+  padding: 5px 34px 5px 5px; /* Space for arrow. Other padding should match .autocomplete__input--default. */
   cursor: pointer;
 }
 
@@ -687,6 +682,27 @@ br {
   outline: none;
 }
 
+@media (-ms-high-contrast: active), (forced-colors: active) {
+  .autocomplete__menu {
+    border-color: FieldText;
+  }
+  .autocomplete__option {
+    background-color: Field;
+    color: FieldText;
+  }
+  .autocomplete__option--focused,
+  .autocomplete__option:hover {
+    forced-color-adjust: none; /* prevent backplate from obscuring text */
+    background-color: Highlight;
+    border-color: Highlight;
+    color: HighlightText;
+    /* Prefer SelectedItem / SelectedItemText in browsers that support it */
+    background-color: SelectedItem;
+    border-color: SelectedItem;
+    color: SelectedItemText;
+    outline-color: SelectedItemText;
+  }
+}
 .autocomplete__option--no-results {
   background-color: #FAFAFA;
   color: #646b6f;
@@ -707,8 +723,8 @@ br {
 
 @media (min-width: 641px) {
   .autocomplete__hint,
-.autocomplete__input,
-.autocomplete__option {
+  .autocomplete__input,
+  .autocomplete__option {
     font-size: 19px;
     line-height: 1.31579;
   }
@@ -778,8 +794,8 @@ br {
 
 @media (min-width: 641px) {
   .autocomplete__hint,
-.autocomplete__input,
-.autocomplete__option {
+  .autocomplete__input,
+  .autocomplete__option {
     font-size: 1rem;
     line-height: 1.5;
     line-height: 1.25;
