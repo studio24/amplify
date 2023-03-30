@@ -51,7 +51,7 @@ const navSingleLevel = function(menu, options) {
 		let key = event.key || event.keyCode;
 
 		if (key === 'Escape' || key === 'Esc' || key === 27) {
-			if (mobileToggle.style.display === 'block') {
+			if (mobileToggle.style.display === 'inline-flex') {
 				mobileToggle.setAttribute('aria-expanded', 'false');
 			}
 		}
@@ -60,7 +60,7 @@ const navSingleLevel = function(menu, options) {
 	function mobileToggleSetup() {
 		mobileToggle.innerHTML += settings.mobileIcon;
 		mobileToggle.setAttribute('aria-expanded', 'false');
-		mobileToggle.style.display = 'block';
+		mobileToggle.style.display = 'inline-flex';
 
 		let mqValue = settings.breakpoint / 16;
 		let mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
@@ -71,7 +71,7 @@ const navSingleLevel = function(menu, options) {
 		function WidthChange(mq) {
 			if (!(mq.matches)) {
 				mobileToggle.setAttribute('aria-expanded', 'false');
-				mobileToggle.style.display = 'block';
+				mobileToggle.style.display = 'inline-flex';
 			} else {
 				mobileToggle.setAttribute('aria-expanded', 'true');
 				mobileToggle.style.display = 'none';
