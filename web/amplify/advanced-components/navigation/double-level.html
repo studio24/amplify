@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Demo: double-level navigation - Amplify</title>
+
+    <link rel="stylesheet" href="../../../dist/styles/core.css" media="screen"/>
+
+    <!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+    <link rel="stylesheet" id="advanced-stylesheet" href="../../../dist/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+    <link rel="stylesheet" href="../../../dist/styles/print.css" media="print"/>
+
+    <script src="../../../dist/js/libraries/fontfaceobserver.js"></script>
+
+    <script>
+        let myFont = new FontFaceObserver('Nunito');
+
+        Promise.all([myFont.load()]).then(function () {
+            document.documentElement.className += " fonts-loaded";
+        });
+
+        (function() {
+            let linkEl = document.getElementById('advanced-stylesheet');
+            if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+                let head = document.querySelector('head');
+                // Add main JS
+                let jsMain = document.createElement('script');
+                jsMain.src = '../../../dist/js/main.js';
+                jsMain.defer = true;
+                head.appendChild(jsMain);
+                // Update classname to show JS is available
+                (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+            }
+        })();
+    </script>
+
+
+</head>
+
+<body class="amplify">
+<div class="not-footer">
+    <a href="#main" class="skip-link">Skip to content</a>
+    <header class="global-header">
+        <div class="l-center">
+            <a class="global-header__link" href="../../index.html">Amplify from Studio 24</a>
+        </div>
+    </header>
+    <nav class="global-nav" aria-label="Main">
+        <div class="l-center">
+            <div class="l-cluster">
+                <ul class="clean-list" >
+                    <li><a class="global-nav__link" href="../../get-started">Get started</a></li>
+                    <li><a class="global-nav__link" href="../../fundamentals">Fundamentals</a></li>
+                    <li><a class="global-nav__link" href="../../layout-helpers">Layout helpers</a></li>
+                    <li><a class="global-nav__link" href="../../core-components">Core components</a></li>
+                    <li class="current"><a class="global-nav__link" href="../../advanced-components">Advanced components</a></li>
+                    <li><a class="global-nav__link" href="../../design">Design handover &amp; standards</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main id="main">
+        <h1>Demo: double-level navigation</h1>
+        <div class="component">
+            <nav class="nav" aria-label="Advanced navigation demonstration">
+                <button class="button button--ghost" data-trigger="mobile-nav" style="display: none;">
+                    <span class="visuallyhidden">Menu</span>
+                </button>
+                <ul class="clean-list" role="list" data-component="nav-double">
+                    <li>
+                        <a class="nav-link" href="javascript;">Home</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="javascript;">
+                            Services
+                        </a>
+                        <div data-nav="submenu">
+                            <ul class="clean-list" role="list">
+                                <li><a class="nav-link" href="javascript;">Design</a></li>
+                                <li><a class="nav-link" href="javascript;">Development</a></li>
+                                <li><a class="nav-link" href="javascript;">Accessibility</a></li>
+                                <li><a class="nav-link" href="javascript;">Content Strategy</a></li>
+                                <li><a class="nav-link" href="javascript;">Training</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="javascript;">
+                            Portfolio
+                        </a>
+                        <div data-nav="submenu">
+                            <ul class="clean-list" role="list">
+                                <li><a class="nav-link" href="javascript;">Nonprofits</a></li>
+                                <li><a class="nav-link" href="javascript;">Higher Education</a></li>
+                                <li><a class="nav-link" href="javascript;">Associations</a></li>
+                                <li><a class="nav-link" href="javascript;">Consultants</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="javascript;">
+                            About us
+                        </a>
+                        <div data-nav="submenu">
+                            <ul class="clean-list" role="list">
+                                <li><a class="nav-link" href="javascript;">Mission</a></li>
+                                <li><a class="nav-link" href="javascript;">History</a></li>
+                                <li><a class="nav-link" href="javascript;">Contact</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="component component--text">
+            <a href="index.html">Back to navigation index</a>
+        </div>
+        <div class="component component--text">
+            <h2>Considerations</h2>
+            <ul>
+                <li>This navigation pattern uses minimal CSS and JavaScript, so as not to be too opinionated and require lots of overrides and adjustments within projects. Expect to have to make some modifications yourself - though hopefully not too many for the script.</li>
+                <li>It uses the same script as the <a href="double-level-intro.html">double-level navigation with intro text</a> pattern but with differences in the options (more below) and the initial HTML markup.</li>
+                <li>The <code>nav</code> element is only wrapped in a <code>div</code> container with the classname <code>component</code> for styling this demo version.</li>
+                <li>If you use more than one <code>nav</code> element on a page make sure to add the <code>aria-label</code> attribute with a unique descriptive value for each instance.</li>
+            </ul>
+            <h3>Naming the small screen navigation toggle button</h3>
+            <p>Buttons must always have an accessible name. To allow for an icon-only button design, Amplify uses a <code>span</code> element with the <code>visuallyhidden</code> class for naming the button (`Menu` in the preceding example). It could just as easily be made visible by removing that class, which may be more user-friendly.</p>
+            <p>JavaScript adds the <code>aria-expanded</code> attribute to this toggle button, and other buttons needed for this navigation pattern, to convey the open/closed state to Assistive Technology users.</p>
+            <p>Changes to the accessible name are not always conveyed to Assistive Technology. If we were to change both the accessible name of the button and its <code>aria-expanded</code> state, there is a risk that a user will hear a confusing announcement such as &quot;Open menu expanded&quot;.</p>
+            <p>Keep the accessible name simple and use it only to tell users what the button is/does, not its state - in other words, avoid using words such as `open` or `close` in the accessible name.</p>
+            <h3>Notes on the JavaScript</h3>
+            <p>The following configuration options are available:</p>
+            <dl>
+                <dt>breakpoint</dt>
+                <dd>A unitless number, indicating the viewport width in pixels at which the small screen navigation toggle button is no longer required. It is converted to <code>em</code> units in the script. Make sure that this ties up with the breakpoint values used in the Sass.</dd>
+                <dt>cloneTopLevelLink</dt>
+                <dd>The script converts all top-level links that are followed by a nested sub menu into buttons that will toggle the sub menu. This boolean option determines whether to copy these links and add them to the relevant sub menu. For this pattern it is recommended to stick with the default setting of <code>true</code></dd>
+                <dt>mobileIcon</dt>
+                <dd>The code for the SVG icon used in the small screen navigation toggle button. It is strongly recommended to follow the existing pattern, which uses two <code>path</code> elements, one for the open icon and one for the close icon, and retain the existing classes. CSS is used to change the icon depending on its <code>aria-expanded</code> state.</dd>
+                <dt>submenuDirection</dt>
+                <dd>A string to determine the direction in which the sub menus will appear to operate on small screens (`vertical` or `horizontal`). This ties in with the preceding <code>submenuicon</code> option. The `horizontal` wraps the sub menu in a <code>div</code> and inserts a `Back` button.</dd>
+                <dt>submenuIcon</dt>
+                <dd>The code for the SVG icon used in the sub menu toggle buttons (and the `Back` button, where relevant). It is strongly recommended to follow the existing pattern, which uses two <code>path</code> elements, one a vertical indicator and one for a horizontal indicator, and retain the existing classes. CSS is used to change the icon direction depending on the button type and its <code>aria-expanded</code> state.</dd>
+                <dt>submenuIntro</dt>
+                <dd>Whether or not the sub menus include introductory text and an additional landing page link. This boolean option adds a class to the <code>nav</code> for specific styling, and inserts the `Back` button into a different place in the DOM. Stick with the default setting of <code>false</code> for this pattern.</dd>
+            </dl>
+        </div>
+    </main>
+</div>
+<footer class="global-footer">
+    <div class="l-center">
+        &copy; Studio 24
+    </div>
+</footer>
+</body>
+
+</html>

@@ -551,7 +551,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 function domLoadedActions() {
   (0,_main_cards__WEBPACK_IMPORTED_MODULE_1__.cardEnhancement)();
-  (0,_main_collapsibles__WEBPACK_IMPORTED_MODULE_2__.collapsibles)();
   (0,_main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__.disclosureWidget)();
   (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__.formErrorSummary)();
 
@@ -565,6 +564,37 @@ function domLoadedActions() {
   // Needs to fire last as sortTable func may change table width
   // Otherwise, only resize event create responsive table 
   (0,_main_responsive_tables__WEBPACK_IMPORTED_MODULE_5__.responsiveTables)();
+
+  /* Create a navSingleLevel object and initiate single-level navigation for a <ul> with the correct data-component attribute */
+  var navExampleSingle = document.querySelector('ul[data-component="nav-single"]');
+  if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleSingle)) {
+    var siteNav = new navSingleLevel(navExampleSingle, {
+      breakpoint: 768
+    });
+    siteNav.init();
+  }
+
+  /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
+  var navExampleDouble = document.querySelector('ul[data-component="nav-double"]');
+  if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleDouble)) {
+    var _siteNav = new navDoubleLevel(navExampleDouble, {
+      breakpoint: 768,
+      submenuDirection: 'horizontal'
+    });
+    _siteNav.init();
+  }
+
+  /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
+  var navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');
+  if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navDoubleIntro)) {
+    var _siteNav2 = new navDoubleLevel(navDoubleIntro, {
+      breakpoint: 768,
+      cloneTopLevelLink: false,
+      submenuDirection: 'horizontal',
+      submenuIntro: true
+    });
+    _siteNav2.init();
+  }
 }
 if (document.readyState === 'loading') {
   // Loading hasn't finished yet

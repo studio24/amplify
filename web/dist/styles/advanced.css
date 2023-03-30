@@ -190,7 +190,213 @@ br {
 \*------------------------------------*/
 /*------------------------------------*\
     #Navigation advanced
+
+    N.B. aria-expanded attribute is managed by JS
 \*------------------------------------*/
+[data-trigger=mobile-nav] > * {
+  pointer-events: none;
+}
+[data-trigger=mobile-nav] .close {
+  display: none;
+}
+[data-trigger=mobile-nav] .open {
+  display: block;
+}
+[data-trigger=mobile-nav][aria-expanded=true] .close {
+  display: block;
+}
+[data-trigger=mobile-nav][aria-expanded=true] .open {
+  display: none;
+}
+
+.js .nav {
+  /* Prevent offscreen-submenus */
+}
+.js .nav [aria-expanded=false] + * {
+  display: none;
+}
+.js .nav > ul {
+  background-color: #fcfcfc;
+}
+@media screen and (min-width: 48em) {
+  .js .nav > ul {
+    align-items: center;
+    display: flex;
+  }
+}
+@media screen and (min-width: 48em) {
+  .js .nav > ul > li + li {
+    margin-left: 0.3125rem;
+  }
+}
+.js .nav [data-trigger=sub-nav] {
+  position: relative;
+  justify-content: space-between;
+  width: 100%;
+}
+.js .nav [data-trigger=sub-nav] > * {
+  pointer-events: none;
+}
+.js .nav [data-nav=submenu] {
+  background-color: #fcfcfc;
+  min-height: 100%;
+  padding-left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+@media screen and (min-width: 48em) {
+  .js .nav [data-nav=submenu] {
+    min-height: auto;
+    top: auto;
+    width: auto;
+  }
+}
+.js .nav [data-nav=submenu].js-sub-menu-right {
+  left: auto;
+  right: 0;
+}
+
+/* Styles for simple double-level navigation */
+#js-click-nav-vertical > ul {
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-vertical > ul {
+    position: relative;
+  }
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-vertical > ul > li {
+    position: relative;
+  }
+}
+#js-click-nav-vertical [data-trigger=sub-nav] .control-horizontal {
+  display: none;
+}
+#js-click-nav-vertical [data-trigger=sub-nav][aria-expanded=true] svg {
+  -webkit-transform: scaleY(-1);
+          transform: scaleY(-1);
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-vertical [data-nav=submenu] {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* Styles for double-navigation with back button in sub menus */
+#js-click-nav-horizontal > ul {
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-horizontal > ul {
+    position: relative;
+  }
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-horizontal > ul > li {
+    position: relative;
+  }
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-horizontal [data-trigger=sub-nav] .control-horizontal {
+    display: none;
+  }
+}
+#js-click-nav-horizontal [data-trigger=sub-nav] .control-vertical {
+  display: none;
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-horizontal [data-trigger=sub-nav] .control-vertical {
+    display: block;
+  }
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-horizontal [data-trigger=sub-nav][aria-expanded=true] svg {
+    -webkit-transform: scaleY(-1);
+            transform: scaleY(-1);
+  }
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-horizontal [data-nav=submenu] {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-horizontal [data-button=mobile-back] {
+    display: none;
+  }
+}
+#js-click-nav-horizontal [data-button=mobile-back] svg {
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+#js-click-nav-horizontal [data-button=mobile-back] svg .control-vertical {
+  display: none;
+}
+
+/* Styles for double-navigation with intro text and back button in sub menus */
+@media screen and (min-width: 48em) {
+  .js-nav-with-intro > ul > li {
+    position: static !important;
+  }
+}
+.js-nav-with-intro [data-nav=submenu] {
+  border-bottom: solid 3px;
+  padding: 1.25rem 0;
+}
+@media screen and (min-width: 48em) {
+  .js-nav-with-intro [data-nav=submenu] {
+    left: 50%;
+    min-height: auto;
+    padding: 3.125rem 1.25rem;
+    top: 100%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 100vw !important;
+  }
+}
+@media screen and (min-width: 48em) {
+  .js-nav-with-intro [data-nav=submenu] .l-center {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 48em) {
+  .js-nav-with-intro [data-button=mobile-back] {
+    display: none;
+  }
+}
+@media screen and (min-width: 48em) {
+  .js-nav-with-intro [data-nav=submenu] .nav__intro {
+    width: 40%;
+  }
+}
+.js-nav-with-intro .nav__intro p {
+  display: none;
+}
+@media screen and (min-width: 48em) {
+  .js-nav-with-intro .nav__intro p {
+    display: block;
+  }
+}
+@media screen and (min-width: 48em) {
+  .js-nav-with-intro [data-nav=submenu] ul {
+    -webkit-column-gap: 2.5rem;
+            column-gap: 2.5rem;
+    -webkit-columns: 2;
+            columns: 2;
+    width: 50%;
+  }
+}
+
 /*------------------------------------*\
     #Cards advanced
 \*------------------------------------*/

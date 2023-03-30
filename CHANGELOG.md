@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.2.1](https://github.com/studio24/amplify/compare/v1.2.0...v1.2.1) (2023-03-30)
+
+
+### Bug Fixes
+
+* update NPM packages ([a27f8c1](https://github.com/studio24/amplify/commit/a27f8c1819a405a2551c13c1bba462b4b6148873))
+
+## [1.2.0](https://github.com/studio24/amplify/compare/v1.1.0...v1.2.0) (2023-03-30)
+
+
+### Features
+
+* add navigation patterns ([#14](https://github.com/studio24/amplify/issues/14)) ([caeb922](https://github.com/studio24/amplify/commit/caeb922277c29b82c036f058a74c67e074c22606))
+
 ## [1.1.0](https://github.com/studio24/amplify/compare/v1.0.1...v1.1.0) (2022-12-21)
 
 
