@@ -2249,6 +2249,35 @@ so that either of these properties is applied instead.
 /*------------------------------------*\
     #Navigation core
 \*------------------------------------*/
+.nav ul,
+.nav ul * + * {
+  margin: 0;
+}
+
+[data-nav=submenu] {
+  padding-left: 1.25rem;
+}
+
+a.nav-link {
+  display: block;
+  line-height: normal;
+  padding: 0.6875rem 0.875rem;
+}
+a.nav-link:hover {
+  color: #001f3f;
+  outline-width: 0; /* 2 */
+}
+a.nav-link:active {
+  color: #252525;
+  outline-width: 0; /* 2 */
+}
+a.nav-link:focus {
+  background-color: #ffdc00;
+  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
+  color: #000;
+  text-decoration: none;
+}
+
 /*------------------------------------*\
     #Breadcrumbs
     See: https://scottaohara.github.io/a11y_breadcrumbs/
