@@ -14,7 +14,7 @@ const sortTable = (table) => {
 
   /*  Setting default sorting order to descending for all th with data-type="*" attribute */ 
   headers.map(header => {
-    header.setAttribute('aria-sort', 'descending');
+    // header.setAttribute('aria-sort', 'ascending');
     convertThToBtn(header);
   });
 
@@ -32,11 +32,11 @@ const sortTable = (table) => {
         const wrapper = document.createElement('div');
         const arrowsWrapper = `
         <svg fill="currentColor" focusable="false"
-        aria-hidden="true" class="desc icon icon--32" viewBox="0 0 407.436 407.436">
+        aria-hidden="true" class="asc icon icon--32" viewBox="0 0 407.436 407.436">
           <polygon points="203.718,91.567 0,294.621 21.179,315.869 203.718,133.924 386.258,315.869 407.436,294.621 "/>
         </svg>
         <svg fill="currentColor" focusable="false"
-        aria-hidden="true" class="asc icon icon--32" viewBox="0 0 407.437 407.437">
+        aria-hidden="true" class="desc icon icon--32" viewBox="0 0 407.437 407.437">
           <polygon points="386.258,91.567 203.718,273.512 21.179,91.567 0,112.815 203.718,315.87 407.437,112.815 "/>
         </svg>
             `;
@@ -65,22 +65,15 @@ const transform = (index, content) => {
           return content;
   }
 };
-/**
- * @param {Element} elementsToIterate - list of all active table cells in selected column 
- */ 
-const removeActiveClasses = (elementsToIterate) => {
-  elementsToIterate.forEach(field => {
-    field.classList.remove('active')
-  });
-};
+
 /**
  * @param {Element} header - table th converted to button
  * @param {Element} index  - index of selected column to sort
  */ 
   const sortCol = (header, index) => {
     const newRows = Array.from(rows);
-    const direction = directions[index] || 'ascending';
-    const multiplier = (direction === 'ascending') ? 1 : -1;
+    const direction = directions[index] || 'descending';
+    const multiplier = (direction === 'descending') ? 1 : -1;
     header.setAttribute('aria-sort', (direction === 'ascending') ? 'descending' : 'ascending');
 
     newRows.sort((rowA, rowB) => {
@@ -115,9 +108,10 @@ const removeActiveClasses = (elementsToIterate) => {
   /**
    * @param {Element} header - table th converted to button
    * @param {Element} index - index of selected column to sort
-  */  
-  headers.forEach((header, index) => {
-    header.addEventListener('click', (e) => {
+  */ 
+
+ headers.forEach((header, index) => {
+   header.addEventListener('click', (e) => {
       sortCol(header, index);
       
       let currentActiveFields = tableBody.querySelectorAll('.active');
@@ -126,33 +120,71 @@ const removeActiveClasses = (elementsToIterate) => {
       let fieldsToHighlight = [...rows].map(row => {
         return row.querySelectorAll('td')[index];
       });
-
+    
       if (document.activeElement === e.target) {
+
+        headers.forEach(header => {
+          if (header.firstChild !== e.target) {
+            header.removeAttribute('aria-sort')
+          }
+        });
         fieldsToHighlight.forEach(field => {
           field.classList.add('active');
         });
-      } else {
-        removeActiveClasses(fieldsToHighlight);
-      }
-
+      } 
     });
   });
+
+
+
+
+  /**
+ * @param {Array} elementsToIterate - list of all active table cells in selected column 
+ */ 
+const removeActiveClasses = (elementsToIterate) => {
+  elementsToIterate.forEach(field => {
+    field.classList.remove('active')
+  });
+};
+  /**
+ * @param {Array} elementsToIterate - list of all table headers with aria-sort attribure 
+ */ 
+const removeSortAttributes = (elements) => {
+  if(elements) {
+    elements.forEach(element => element.removeAttribute('aria-sort'));
+  } 
+}
 
   /*  Remove active class from table cells when events are triggered  */ 
 
   table.addEventListener('keyup', (e) => {
     let key = e.key;
     if (key === 'Escape' || key === 'Esc' || key === 27) {
+
       let currentActiveFields = tableBody.querySelectorAll('.active');
       removeActiveClasses(currentActiveFields);
+
+
+      let currentActiveHeader = document.querySelector('th[aria-sort]');
+      if(currentActiveHeader.hasAttribute('aria-sort')) {
+        currentActiveHeader.removeAttribute('aria-sort');
+      } 
+
     }
   });
 
   document.body.addEventListener('click', (event) => {
-    if(!event.target.closest('[data-component="sortable-table"]')) {
+
+    if(!event.target.closest('table[data-component="sortable-table"]')) {
+
       let currentActiveFields = tableBody.querySelectorAll('.active');
       removeActiveClasses(currentActiveFields);
+
+      let currentAriaSortHeaders = document.querySelectorAll('th[aria-sort]');
+      removeSortAttributes(currentAriaSortHeaders)
+
     }
+
   });
 }
 

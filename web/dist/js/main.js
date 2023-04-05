@@ -324,7 +324,7 @@ var sortTable = function sortTable(table) {
 
   /*  Setting default sorting order to descending for all th with data-type="*" attribute */
   headers.map(function (header) {
-    header.setAttribute('aria-sort', 'descending');
+    // header.setAttribute('aria-sort', 'ascending');
     convertThToBtn(header);
   });
 
@@ -342,7 +342,7 @@ var sortTable = function sortTable(table) {
     var btn = document.createElement('button');
     var appendArrows = function appendArrows(btn) {
       var wrapper = document.createElement('div');
-      var arrowsWrapper = "\n        <svg fill=\"currentColor\" focusable=\"false\"\n        aria-hidden=\"true\" class=\"desc icon icon--32\" viewBox=\"0 0 407.436 407.436\">\n          <polygon points=\"203.718,91.567 0,294.621 21.179,315.869 203.718,133.924 386.258,315.869 407.436,294.621 \"/>\n        </svg>\n        <svg fill=\"currentColor\" focusable=\"false\"\n        aria-hidden=\"true\" class=\"asc icon icon--32\" viewBox=\"0 0 407.437 407.437\">\n          <polygon points=\"386.258,91.567 203.718,273.512 21.179,91.567 0,112.815 203.718,315.87 407.437,112.815 \"/>\n        </svg>\n            ";
+      var arrowsWrapper = "\n        <svg fill=\"currentColor\" focusable=\"false\"\n        aria-hidden=\"true\" class=\"asc icon icon--32\" viewBox=\"0 0 407.436 407.436\">\n          <polygon points=\"203.718,91.567 0,294.621 21.179,315.869 203.718,133.924 386.258,315.869 407.436,294.621 \"/>\n        </svg>\n        <svg fill=\"currentColor\" focusable=\"false\"\n        aria-hidden=\"true\" class=\"desc icon icon--32\" viewBox=\"0 0 407.437 407.437\">\n          <polygon points=\"386.258,91.567 203.718,273.512 21.179,91.567 0,112.815 203.718,315.87 407.437,112.815 \"/>\n        </svg>\n            ";
       wrapper.classList.add('arrow-wrapper');
       btn.textContent = heading.textContent;
       wrapper.innerHTML = arrowsWrapper;
@@ -368,22 +368,15 @@ var sortTable = function sortTable(table) {
         return content;
     }
   };
-  /**
-   * @param {Element} elementsToIterate - list of all active table cells in selected column 
-   */
-  var removeActiveClasses = function removeActiveClasses(elementsToIterate) {
-    elementsToIterate.forEach(function (field) {
-      field.classList.remove('active');
-    });
-  };
+
   /**
    * @param {Element} header - table th converted to button
    * @param {Element} index  - index of selected column to sort
    */
   var sortCol = function sortCol(header, index) {
     var newRows = Array.from(rows);
-    var direction = directions[index] || 'ascending';
-    var multiplier = direction === 'ascending' ? 1 : -1;
+    var direction = directions[index] || 'descending';
+    var multiplier = direction === 'descending' ? 1 : -1;
     header.setAttribute('aria-sort', direction === 'ascending' ? 'descending' : 'ascending');
     newRows.sort(function (rowA, rowB) {
       var cellA;
@@ -419,6 +412,7 @@ var sortTable = function sortTable(table) {
    * @param {Element} header - table th converted to button
    * @param {Element} index - index of selected column to sort
   */
+
   headers.forEach(function (header, index) {
     header.addEventListener('click', function (e) {
       sortCol(header, index);
@@ -428,14 +422,36 @@ var sortTable = function sortTable(table) {
         return row.querySelectorAll('td')[index];
       });
       if (document.activeElement === e.target) {
+        headers.forEach(function (header) {
+          if (header.firstChild !== e.target) {
+            header.removeAttribute('aria-sort');
+          }
+        });
         fieldsToHighlight.forEach(function (field) {
           field.classList.add('active');
         });
-      } else {
-        removeActiveClasses(fieldsToHighlight);
       }
     });
   });
+
+  /**
+  * @param {Array} elementsToIterate - list of all active table cells in selected column 
+  */
+  var removeActiveClasses = function removeActiveClasses(elementsToIterate) {
+    elementsToIterate.forEach(function (field) {
+      field.classList.remove('active');
+    });
+  };
+  /**
+  * @param {Array} elementsToIterate - list of all table headers with aria-sort attribure 
+  */
+  var removeSortAttributes = function removeSortAttributes(elements) {
+    if (elements) {
+      elements.forEach(function (element) {
+        return element.removeAttribute('aria-sort');
+      });
+    }
+  };
 
   /*  Remove active class from table cells when events are triggered  */
 
@@ -444,12 +460,18 @@ var sortTable = function sortTable(table) {
     if (key === 'Escape' || key === 'Esc' || key === 27) {
       var currentActiveFields = tableBody.querySelectorAll('.active');
       removeActiveClasses(currentActiveFields);
+      var currentActiveHeader = document.querySelector('th[aria-sort]');
+      if (currentActiveHeader.hasAttribute('aria-sort')) {
+        currentActiveHeader.removeAttribute('aria-sort');
+      }
     }
   });
   document.body.addEventListener('click', function (event) {
-    if (!event.target.closest('[data-component="sortable-table"]')) {
+    if (!event.target.closest('table[data-component="sortable-table"]')) {
       var currentActiveFields = tableBody.querySelectorAll('.active');
       removeActiveClasses(currentActiveFields);
+      var currentAriaSortHeaders = document.querySelectorAll('th[aria-sort]');
+      removeSortAttributes(currentAriaSortHeaders);
     }
   });
 };
