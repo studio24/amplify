@@ -99,18 +99,14 @@
 							<tr>
 								<th data-type="string" scope="col">Column header 1</th>
 								<th data-type="string" scope="col">Column header 2</th>
-								<th data-type="no-sort" scope="col">Sorting not allowed</th>
+								<th data-type="no-sort" scope="col">Sorting disabled</th>
 							</tr>
 							</thead>
 							<tbody>
 							<tr>
 								<td>AAA</td>
 								<td>AAA</td>
-<<<<<<< Updated upstream
-								<td>NO SORTING HERE</td>
-=======
 								<td>CCC</td>
->>>>>>> Stashed changes
 							</tr>
 							<tr>
 								<td>BBB</td>
@@ -121,22 +117,15 @@
 						</table>
 					</div>
 					<div class="component component--text">
-<<<<<<< Updated upstream
-						<h2>Considerations</h2>
-						<p>The <code>table</code> element must include the <code>data-component="sortable-table"</code> data attribute to allow each column to be sortable.</p>
-						<p>Each table header must include the <code>data-type="..."</code> data attribute, which specifies the type of data in each column, e.g. <code>data-type="number"</code>, <code>data-type="string"</code> or <code>data-type="date"</code>. Use <code>data-type="no-sort"</code> when sorting functionality should be disallowed.</p>
-						<p>Where a table cell is holding a date, it must have a <code>data-date</code> attribute holding the date converted into UNIX timestamp, e.g. <code> data-date="191030400"</code>.</p>
-=======
 						<h2>Sortable tables</h2>
 						<p>The (<code>table</code>) element must include (<code>data-component="sortable-table"</code>) attribute to allow each column be sortable.</p>
 						<p>Each table header must include (<code>data-type=""</code>) which specifies what type of data is in each column, e.g. (<code>number</code>), (<code>string</code>), (<code>date</code>) or (<code>no-sort</code>) when sorting functionality should be disallowed. </p>
 						<p>Each (<code>td</code>) in (<code>date</code>) column should contain (<code>data-date</code>) attribute with a date converted into UNIX timestamp e.g. (<code> data-date="191030400"</code>).</p>
->>>>>>> Stashed changes
 					</div>
 					<div class="component component--table">
 						<div role="region" aria-labelledby="unique-caption-id" tabindex="0" data-component="table-wrap">
 							<table data-component="sortable-table">
-								<caption id="unique-caption-id">Members of the Spice Girls</caption>
+								<caption id="unique-caption-id">Use column header buttons to sort</caption>
 								<thead>
 								<tr>
 									<th data-type="number" scope="col">ID</th>
@@ -145,11 +134,7 @@
 									<th data-type="string" scope="col">Band name</th>
 									<th data-type="date" scope="col">Date of birth</th>
 									<th data-type="string" scope="col">Place of birth</th>
-<<<<<<< Updated upstream
 									<th data-type="no-sort" scope="col">Random number</th>
-=======
-									<th data-type="no-sort" scope="col">Random numbers</th>
->>>>>>> Stashed changes
 								</tr>
 								</thead>
 								<tbody>

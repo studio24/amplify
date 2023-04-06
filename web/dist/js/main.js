@@ -314,7 +314,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
  * @param {Element} table - the top level table with data-component="sortable-table"
  */
 
-var sortTable = function sortTable(table) {
+function sortTable(table) {
   /*  All clickable table th / filtered out those with data-type="no-sort" attributes */
   var headers = _toConsumableArray(table.querySelectorAll('th')).filter(function (header) {
     return header.dataset.type !== 'no-sort';
@@ -324,8 +324,7 @@ var sortTable = function sortTable(table) {
 
   /*  Setting default sorting order to descending for all th with data-type="*" attribute */
   headers.map(function (header) {
-    // header.setAttribute('aria-sort', 'ascending');
-    convertThToBtn(header);
+    return convertThToBtn(header);
   });
 
   /*  Creates an array of th each represented as empty ''; */
@@ -337,12 +336,12 @@ var sortTable = function sortTable(table) {
    * Converts all table headers to clickable buttons and append svg arrows
    * @param {Element} heading - table th element 
    * @returns {Element} button - button created from table th element with wrapper which contains svg arrows
-   */
+  */
   function convertThToBtn(heading) {
     var btn = document.createElement('button');
     var appendArrows = function appendArrows(btn) {
       var wrapper = document.createElement('div');
-      var arrowsWrapper = "\n        <svg fill=\"currentColor\" focusable=\"false\"\n        aria-hidden=\"true\" class=\"asc icon icon--32\" viewBox=\"0 0 407.436 407.436\">\n          <polygon points=\"203.718,91.567 0,294.621 21.179,315.869 203.718,133.924 386.258,315.869 407.436,294.621 \"/>\n        </svg>\n        <svg fill=\"currentColor\" focusable=\"false\"\n        aria-hidden=\"true\" class=\"desc icon icon--32\" viewBox=\"0 0 407.437 407.437\">\n          <polygon points=\"386.258,91.567 203.718,273.512 21.179,91.567 0,112.815 203.718,315.87 407.437,112.815 \"/>\n        </svg>\n            ";
+      var arrowsWrapper = "\n        <svg fill=\"currentColor\" focusable=\"false\"\n        aria-hidden=\"true\" class=\"asc icon icon--32\" viewBox=\"0 0 407.436 407.436\">\n          <polygon points=\"203.718,91.567 0,294.621 21.179,315.869 203.718,133.924 386.258,315.869 407.436,294.621 \"/>\n        </svg>\n        <svg fill=\"currentColor\" focusable=\"false\"\n        aria-hidden=\"true\" class=\"desc icon icon--32\" viewBox=\"0 0 407.437 407.437\">\n          <polygon points=\"386.258,91.567 203.718,273.512 21.179,91.567 0,112.815 203.718,315.87 407.437,112.815 \"/>\n        </svg>";
       wrapper.classList.add('arrow-wrapper');
       btn.textContent = heading.textContent;
       wrapper.innerHTML = arrowsWrapper;
@@ -353,11 +352,12 @@ var sortTable = function sortTable(table) {
     heading.textContent = "";
     heading.appendChild(btn);
   }
+
   /**
    * @param {*} index - index of selected column to sort
    * @param {*} content - content to sort
-   */
-  var transform = function transform(index, content) {
+  */
+  function transform(index, content) {
     var type = headers[index].getAttribute('data-type');
     switch (type) {
       case 'number':
@@ -367,13 +367,14 @@ var sortTable = function sortTable(table) {
       default:
         return content;
     }
-  };
+  }
+  ;
 
   /**
    * @param {Element} header - table th converted to button
    * @param {Element} index  - index of selected column to sort
-   */
-  var sortCol = function sortCol(header, index) {
+  */
+  function sortCol(header, index) {
     var newRows = Array.from(rows);
     var direction = directions[index] || 'descending';
     var multiplier = direction === 'descending' ? 1 : -1;
@@ -406,13 +407,12 @@ var sortTable = function sortTable(table) {
     newRows.forEach(function (newRow) {
       return tableBody.appendChild(newRow);
     });
-  };
+  }
 
   /**
    * @param {Element} header - table th converted to button
    * @param {Element} index - index of selected column to sort
   */
-
   headers.forEach(function (header, index) {
     header.addEventListener('click', function (e) {
       sortCol(header, index);
@@ -429,32 +429,33 @@ var sortTable = function sortTable(table) {
         });
         fieldsToHighlight.forEach(function (field) {
           field.classList.add('active');
+          field.setAttribute('scope', 'row');
         });
       }
     });
   });
 
   /**
-  * @param {Array} elementsToIterate - list of all active table cells in selected column 
+    * @param {Array} elementsToIterate - list of all active table cells in selected column 
   */
-  var removeActiveClasses = function removeActiveClasses(elementsToIterate) {
+  function removeActiveClasses(elementsToIterate) {
     elementsToIterate.forEach(function (field) {
-      field.classList.remove('active');
+      return field.classList.remove('active');
     });
-  };
+  }
+  ;
   /**
-  * @param {Array} elementsToIterate - list of all table headers with aria-sort attribure 
+    * @param {Array} elements - list of all table headers with aria-sort attribure 
   */
-  var removeSortAttributes = function removeSortAttributes(elements) {
+  function removeSortAttributes(elements) {
     if (elements) {
       elements.forEach(function (element) {
         return element.removeAttribute('aria-sort');
       });
     }
-  };
+  }
 
   /*  Remove active class from table cells when events are triggered  */
-
   table.addEventListener('keyup', function (e) {
     var key = e.key;
     if (key === 'Escape' || key === 'Esc' || key === 27) {
@@ -466,15 +467,15 @@ var sortTable = function sortTable(table) {
       }
     }
   });
-  document.body.addEventListener('click', function (event) {
-    if (!event.target.closest('table[data-component="sortable-table"]')) {
+  document.body.addEventListener('click', function (e) {
+    if (!e.target.closest('table[data-component="sortable-table"]')) {
       var currentActiveFields = tableBody.querySelectorAll('.active');
       removeActiveClasses(currentActiveFields);
       var currentAriaSortHeaders = document.querySelectorAll('th[aria-sort]');
       removeSortAttributes(currentAriaSortHeaders);
     }
   });
-};
+}
 
 
 /***/ })

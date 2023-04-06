@@ -512,17 +512,21 @@ table[data-component=sortable-table] .arrow-wrapper {
   flex-direction: column;
 }
 
-th > button {
+table[data-component=sortable-table] th[scope=col] {
   white-space: nowrap;
+}
+
+td.active {
+  background-color: rgba(255, 255, 0, 0.15);
+}
+
+th > button {
   background: transparent;
   border: 0.0625rem solid transparent;
-  font: inherit;
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
-}
-th > button > * {
-  pointer-events: none;
+  font-weight: bolder;
 }
 th > button:hover {
   background-color: #ffdc00;
@@ -530,33 +534,28 @@ th > button:hover {
   color: #000;
 }
 
-th[aria-sort=ascending] button:focus > .arrow-wrapper svg.asc {
+th[data-type=no-sort]:hover {
+  cursor: not-allowed;
+}
+
+th button .arrow-wrapper {
+  pointer-events: none;
+}
+
+th[aria-sort=ascending] button:focus > .arrow-wrapper .asc {
   stroke: black;
   stroke-width: 3.125rem;
 }
-th[aria-sort=ascending] button:focus > .arrow-wrapper svg.desc {
+th[aria-sort=ascending] button:focus > .arrow-wrapper .desc {
   opacity: 0.2;
 }
 
-th[aria-sort=descending] button:focus > .arrow-wrapper svg.asc {
+th[aria-sort=descending] button:focus > .arrow-wrapper .asc {
   opacity: 0.3;
 }
-th[aria-sort=descending] button:focus > .arrow-wrapper svg.desc {
+th[aria-sort=descending] button:focus > .arrow-wrapper .desc {
   stroke: black;
   stroke-width: 3.125rem;
-}
-
-td.active {
-  border-left: 0.1875rem solid #ffdc00;
-  border-right: 0.1875rem solid #ffdc00;
-}
-
-tr:first-child td.active {
-  border-top: 0.1875rem solid #ffdc00;
-}
-
-tr:last-child td.active {
-  border-bottom: 0.1875rem solid #ffdc00;
 }
 
 /*------------------------------------*\
