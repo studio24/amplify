@@ -1,23 +1,16 @@
 import {exists} from "./main/_exists.helper";
 import {cardEnhancement} from "./main/cards";
-import {collapsibles} from "./main/collapsibles";
 import {disclosureWidget} from "./main/disclosure-widget";
 import {formErrorSummary} from "./main/form-error-summary";
 import {responsiveTables} from "./main/responsive-tables";
-import {sortTable} from "./main/sortable-tables";
+import {sortableTable} from "./main/sortable-tables";
+
 function domLoadedActions() {
 	cardEnhancement();
 	disclosureWidget();
 	formErrorSummary();
-	
-	/* Create sortable table */ 
-	const tables = [...document.querySelectorAll('table[data-component="sortable-table"]')];
-	if (exists(tables)) {
-		tables.forEach(table => sortTable(table));
-	}
-	// Needs to fire last as sortTable func may change table width
-	// Otherwise, only resize event create responsive table 
 	responsiveTables();
+	sortableTable();
 
 	/* Create a navSingleLevel object and initiate single-level navigation for a <ul> with the correct data-component attribute */
 	const navExampleSingle = document.querySelector('ul[data-component="nav-single"]');

@@ -1,3 +1,6 @@
+/*------------------------------------*\
+    #Sortable table
+\*------------------------------------*/
 table[data-component="sortable-table"] {
   & .arrow-wrapper {
     margin-left: rem(12);
@@ -5,15 +8,21 @@ table[data-component="sortable-table"] {
     flex-direction: column;
   } 
 }
-th > button {
-  > * {
-    pointer-events: none;
-  }
+table[data-component="sortable-table"] th[scope=col] {
   white-space: nowrap;
+}
+
+td.active {
+  background-color: $off-focus-color;
+}
+
+th > button {
   background: transparent;
-  border: rem(1) solid transparent;
-  font: inherit;
+  border-width: rem(1);
+  border-style: solid;
+  border-color: transparent;
   min-width: fit-content;
+  font-weight: bolder;
   &:hover {
     background-color: $focus-color;
     border-color: $focus-color;
@@ -21,43 +30,32 @@ th > button {
   }
 }
 
-th[aria-sort="ascending"] {
-  & button:focus {
-    & > .arrow-wrapper {
-      svg.asc {
-        stroke: black;
-        stroke-width: rem(50);
-      }
-      svg.desc {
-        opacity: 0.2
-      }
-    }
+th[data-type="no-sort"] {
+  &:hover {
+    cursor: not-allowed;
   }
 }
 
-th[aria-sort="descending"] {
-  & button:focus {
-    & > .arrow-wrapper {
-      svg.asc {
-        opacity: 0.3
-      }
-      svg.desc {
-        stroke: black;
-        stroke-width: rem(50);
-      }
-    }
+th > button > .arrow-wrapper {
+  pointer-events: none;
+}
+
+th[aria-sort="ascending"] button:focus > .arrow-wrapper {
+  & .asc {
+    stroke: $black;
+    stroke-width: rem(50);
+  }
+  & .desc {
+    opacity: 0.2
   }
 }
 
-td.active {
-  border-left: rem(3) solid $focus-color;
-  border-right: rem(3) solid $focus-color;
-}
-
-tr:first-child td.active {
-  border-top: rem(3) solid $focus-color;;
-}
-
-tr:last-child td.active {
-  border-bottom: rem(3) solid $focus-color;;
+th[aria-sort="descending"] button:focus > .arrow-wrapper {
+  & .asc {
+    opacity: 0.3
+  }
+  & .desc {
+    stroke: $black;
+    stroke-width: rem(50);
+  }
 }
