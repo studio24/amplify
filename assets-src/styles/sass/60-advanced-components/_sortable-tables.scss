@@ -1,3 +1,6 @@
+/*------------------------------------*\
+    #Sortable table
+\*------------------------------------*/
 table[data-component="sortable-table"] {
   & .arrow-wrapper {
     margin-left: rem(12);
@@ -10,12 +13,14 @@ table[data-component="sortable-table"] th[scope=col] {
 }
 
 td.active {
-  background-color: rgba(255, 255, 0, 0.15);
+  background-color: $off-focus-color;
 }
 
 th > button {
   background: transparent;
-  border: rem(1) solid transparent;
+  border-width: rem(1);
+  border-style: solid;
+  border-color: transparent;
   min-width: fit-content;
   font-weight: bolder;
   &:hover {
@@ -31,13 +36,13 @@ th[data-type="no-sort"] {
   }
 }
 
-th button .arrow-wrapper {
+th > button > .arrow-wrapper {
   pointer-events: none;
 }
 
 th[aria-sort="ascending"] button:focus > .arrow-wrapper {
   & .asc {
-    stroke: black;
+    stroke: $black;
     stroke-width: rem(50);
   }
   & .desc {
@@ -50,7 +55,7 @@ th[aria-sort="descending"] button:focus > .arrow-wrapper {
     opacity: 0.3
   }
   & .desc {
-    stroke: black;
+    stroke: $black;
     stroke-width: rem(50);
   }
 }

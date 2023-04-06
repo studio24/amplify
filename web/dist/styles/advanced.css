@@ -506,6 +506,9 @@ br {
   margin-top: 1rem;
 }
 
+/*------------------------------------*\
+    #Sortable table
+\*------------------------------------*/
 table[data-component=sortable-table] .arrow-wrapper {
   margin-left: 0.75rem;
   display: flex;
@@ -517,12 +520,14 @@ table[data-component=sortable-table] th[scope=col] {
 }
 
 td.active {
-  background-color: rgba(255, 255, 0, 0.15);
+  background-color: rgba(255, 220, 0, 0.1490196078);
 }
 
 th > button {
   background: transparent;
-  border: 0.0625rem solid transparent;
+  border-width: 0.0625rem;
+  border-style: solid;
+  border-color: transparent;
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
@@ -538,12 +543,12 @@ th[data-type=no-sort]:hover {
   cursor: not-allowed;
 }
 
-th button .arrow-wrapper {
+th > button > .arrow-wrapper {
   pointer-events: none;
 }
 
 th[aria-sort=ascending] button:focus > .arrow-wrapper .asc {
-  stroke: black;
+  stroke: #000;
   stroke-width: 3.125rem;
 }
 th[aria-sort=ascending] button:focus > .arrow-wrapper .desc {
@@ -554,7 +559,7 @@ th[aria-sort=descending] button:focus > .arrow-wrapper .asc {
   opacity: 0.3;
 }
 th[aria-sort=descending] button:focus > .arrow-wrapper .desc {
-  stroke: black;
+  stroke: #000;
   stroke-width: 3.125rem;
 }
 
