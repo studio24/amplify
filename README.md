@@ -27,6 +27,7 @@ Also see more [detailed project documentation](docs/README.md).
 
 ### Staging
 * https://amplify-staging.studio24.net
+* * https://amplify-staging.studio24.net/_build_summary.json
 
 ### Development
 * http://local.amplify.studio24.net/
