@@ -7,7 +7,8 @@ module.exports = [{
 		'main': './main.js',
 		'countryAutocomplete': './country-autocomplete.js',
 		'tabs': './package-extensions/s24-tabby-polyfills.js',
-		'splide': './package-extensions/s24-splide.js'
+		'splide': './package-extensions/s24-splide.js',
+		'sortable-tables': './sortable-tables.js',
 	},
 	mode: 'none',
 	module: {
@@ -47,7 +48,8 @@ module.exports = [{
 			'main': './main.js',
 			'country-autocomplete': './country-autocomplete.js',
 			'tabs': './package-extensions/s24-tabby-polyfills.js',
-            'splide': './package-extensions/s24-splide.js'
+            'splide': './package-extensions/s24-splide.js',
+			'sortable-tables': './sortable-tables.js',
 		},
 		mode: 'none',
 		module: {

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Sortable-tables - Amplify</title>
+
+	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
+
+	<!--
+    Print (Edge doesn't apply to print otherwise)
+    IE 10, 11
+    Edge
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    FF 29+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="../../dist/styles/advanced.css" media="
+    only print, screen and (min-width: 1vm),
+    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	">
+
+	<link rel="stylesheet" href="../../dist/styles/print.css" media="print"/>
+
+	<script src="../../dist/js/libraries/fontfaceobserver.js"></script>
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '../../dist/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+	<div class="not-footer">
+		<a href="#main" class="skip-link">Skip to content</a>
+		<header class="global-header">
+			<div class="l-center">
+				<a class="global-header__link" href="../index.html">Amplify from Studio 24</a>
+			</div>
+		</header>
+		<nav class="global-nav" aria-label="Main">
+			<div class="l-center">
+				<div class="l-cluster">
+					<ul class="clean-list">
+						<li><a class="global-nav__link" href="../get-started">Get started</a></li>
+						<li><a class="global-nav__link" href="../fundamentals">Fundamentals</a></li>
+						<li><a class="global-nav__link" href="../layout-helpers">Layout helpers</a></li>
+						<li><a class="global-nav__link" href="../core-components">Core components</a></li>
+						<li class="current"><a class="global-nav__link" href="../advanced-components">Advanced components</a></li>
+						<li><a class="global-nav__link" href="../design">Design handover &amp; standards</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<main id="main">
+			<div class="content-wrap">
+				<nav class="nav-secondary" aria-label="Secondary">
+					<ul class="clean-list" role="list">
+						<li><a class="nav-secondary__link" href="accessible-autocomplete.html">Accessible auto-complete</a></li>
+						<li><a class="nav-secondary__link" href="cards.html">Cards</a></li>
+						<li><a class="nav-secondary__link" href="carousel.html">Carousels</a></li>
+						<li><a class="nav-secondary__link" href="collapsibles.html">Collapsible containers</a></li>
+						<li><a class="nav-secondary__link" href="disclosure-widget.html">Disclosure widget</a></li>
+						<li><a class="nav-secondary__link" href="navigation/index.html">Navigation</a></li>
+						<li><a class="nav-secondary__link" href="tabs.html">Tabbed sections</a></li>
+						<li><a class="nav-secondary__link" href="sortable-tables.html" aria-current="">Sortable table</a></li>
+					</ul>
+				</nav>
+				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+				<div class="content content-table">
+					<div class="component component--text">
+						<h1>Sortable tables</h1>
+					</div>
+					<div class="component">
+						<table data-component="sortable-table">
+							<caption>A sortable table, use column header buttons to sort</caption>
+							<thead>
+							<tr>
+								<th data-type="string" scope="col">Column header 1</th>
+								<th data-type="string" scope="col">Column header 2</th>
+								<th data-type="no-sort" scope="col">Sorting disabled</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>AAA</td>
+								<td>BBB</td>
+								<td>CCC</td>
+							</tr>
+							<tr>
+								<td>BBB</td>
+								<td>AAA</td>
+								<td>CCC</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="component component--text">
+						<h2>Considerations</h2>
+						<p>The <code>table</code> element must include the <code>data-component="sortable-table"</code> data attribute to allow each column to be sortable.</p>
+						<p>Each table header must include the <code>data-type="..."</code> data attribute, which specifies the type of data in each column, e.g. <code>data-type="number"</code>, <code>data-type="string"</code> or <code>data-type="date"</code>. Use <code>data-type="no-sort"</code> when sorting functionality should be disallowed.</p>
+						<p>Where a table cell is holding a date, it must have a <code>data-date</code> attribute holding the date converted into UNIX timestamp, e.g. <code> data-date="191030400"</code>.</p>
+					</div>
+					<div class="component component--table">
+						<div role="region" aria-labelledby="unique-caption-id" tabindex="0" data-component="table-wrap">
+							<table data-component="sortable-table">
+								<caption id="unique-caption-id">Members of the Spice Girls, use column header buttons to sort</caption>
+								<thead>
+								<tr>
+									<th data-type="number" scope="col">ID</th>
+									<th data-type="string" scope="col">First name</th>
+									<th data-type="string" scope="col">Last name</th>
+									<th data-type="string" scope="col">Band name</th>
+									<th data-type="date" scope="col">Date of birth</th>
+									<th data-type="string" scope="col">Place of birth</th>
+									<th data-type="no-sort" scope="col">Random number</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>1</td>
+									<td>Emma</td>
+									<td>Bunton</td>
+									<td>Baby</td>
+									<td data-date="191030400">21 January 1976</td>
+									<td>Watford, Hertfordshire</td>
+									<td>5424353</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>Geri</td>
+									<td>Halliwell</td>
+									<td>Ginger</td>
+									<td data-date="81903600">6 August 1972</td>
+									<td>London</td>
+									<td>554</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>Victoria</td>
+									<td>Beckham</td>
+									<td>Posh</td>
+									<td data-date="135385200">17 April 1974</td>
+									<td>Harlow, Essex</td>
+									<td>23535</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td>Melanie</td>
+									<td>Brown</td>
+									<td>Scary</td>
+									<td data-date="170550000">29 May 1975</td>
+									<td>Leeds, Yorkshire</td>
+									<td>234</td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td>Melanie</td>
+									<td>Chisholm</td>
+									<td>Sporty</td>
+									<td data-date="127180800">12 January 1974</td>
+									<td>Whiston, Merseyside</td>
+									<td>232</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<footer class="global-footer">
+		<div class="l-center">
+			&copy; Studio 24
+		</div>
+	</footer>
+</body>
+
+<script>
+	if (document.documentElement.classList.contains('js')) {
+		const sortableTables = document.createElement('script');
+		sortableTables.src = '../../dist/js/sortable-tables.js';
+		document.querySelector('body').appendChild(sortableTables);
+	}
+</script>
+
+</html>
