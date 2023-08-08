@@ -4,14 +4,14 @@ import {cardEnhancement} from "./main/cards";
 import {collapsibles} from "./main/collapsibles";
 import {disclosureWidget} from "./main/disclosure-widget";
 import {formErrorSummary} from "./main/form-error-summary";
-import {responsiveTables} from "./main/responsive-tables";
+import {navSingleLevel} from "./main/nav-single-level";
+import {navDoubleLevel} from "./main/nav-double-level";
 
 function domLoadedActions() {
 	cardEnhancement();
 	collapsibles();
 	disclosureWidget();
 	formErrorSummary();
-	responsiveTables();
 
 	/* Create a navSingleLevel object and initiate single-level navigation for a <ul> with the correct data-component attribute */
 	const navExampleSingle = document.querySelector('ul[data-component="nav-single"]');
