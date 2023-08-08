@@ -1,7 +1,7 @@
 /*------------------------------------*\
     #Alignment utilities
 
-    1. Logical property allows text-direction to change with `ltr`
+    1. Allows text-direction to change with writing direction
 \*------------------------------------*/
 
 .u-float-left {
@@ -37,29 +37,21 @@ as defined in /10-settings/breakpoints
 1. Logical property allows text-direction to change with `ltr`
  */
 .u-text-left-from-lap {
-
 	@include mq($bp-lap) {
-		text-align: left; // IE fallback for next rule - only works for ltr languages
-		text-align: start; /* 1 */
+		text-align: start;
 	}
-
 }
 
 
 .u-text-center-from-lap {
-
 	@include mq($bp-lap) {
 		text-align: center;
 	}
-
 }
 
 
 .u-text-right-from-lap {
-
 	@include mq($bp-lap) {
-		text-align: right; // IE fallback for next rule - only works for ltr languages
-		text-align: end; /* 1 */
+		text-align: end;
 	}
-	
 }

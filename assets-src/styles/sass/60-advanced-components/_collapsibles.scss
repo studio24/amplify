@@ -11,13 +11,13 @@
 .js [data-heading="collapsibles"] button {
 	align-items: flex-start;
 	flex-direction: column;
+	inline-size: 100%;
 	padding: rem(25);
-	width: 100%;
 
 	.js-collapsible-heading {
 		@include text-20;
 		font-weight: $emphasis;
-		text-align: left;
+		text-align: start;
 	}
 
 
@@ -66,7 +66,8 @@
 
 
 .js .component--collapsibles__panel__content {
-	padding: 0 rem(25) rem(25);
+	padding: rem(25);
+	padding-block-start: 0;
 
 	&[aria-hidden="true"] {
 		display: none;

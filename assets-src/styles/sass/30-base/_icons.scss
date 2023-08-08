@@ -6,14 +6,14 @@
 Icons are sized relative to font size, thanks to the em unit.
  */
 .icon {
-	height: 0.75em;
-	width: 0.75em;
+	block-size: 0.75em;
+	inline-size: 0.75em;
 }
 
 
 .icon--24 {
-	height: rem(24);
-	width: rem(24);
+	block-size: rem(24);
+	inline-size: rem(24);
 }
 
 
@@ -38,51 +38,13 @@ before the text or after.
 
 .with-icon--before {
 	.icon {
-		margin-right: rem(10); // IE fallback for next rule - only works for ltr languages
-
-		@supports (margin-inline-end: 1em) {
-			margin-right: 0;
-			margin-inline-end: rem(10); /* 2 */
-		}
+		margin-inline-end: rem(10);
 	}
 }
 
 
 .with-icon--after {
 	.icon {
-		margin-left: rem(10); // IE fallback for next rule - only works for ltr languages
-
-		@supports (margin-inline-start: 1em) {
-			margin-left: 0;
-			margin-inline-start: rem(10); /* 2 */
-		}
-	}
-}
-
-
-[dir="rtl"] {
-	.with-icon--before {
-		.icon {
-			margin-left: rem(10); // IE fallback for next rule - only works for ltr languages
-			margin-right: 0;
-
-			@supports (margin-inline-start: 1em) {
-				margin-left: 0;
-				margin-inline-end: rem(10); /* 2 */
-			}
-		}
-	}
-
-
-	.with-icon--after {
-		.icon {
-			margin-left: 0;
-			margin-right: rem(10); // IE fallback for next rule - only works for ltr languages
-
-			@supports (margin-inline-start: 1em) {
-				margin-right: 0;
-				margin-inline-start: rem(10); /* 2 */
-			}
-		}
+		margin-inline-start: rem(10);
 	}
 }

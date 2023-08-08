@@ -6,7 +6,7 @@
 \*------------------------------------*/
 
 html {
-	height: 100%;
+	block-size: 100%;
 }
 
 
@@ -22,8 +22,8 @@ body {
 	-ms-grid-columns: 100%; /* 2 */
 	grid-template-rows: 1fr auto; /* 1 */
 	-ms-grid-rows: 1fr auto; /* 2 */
-	min-height: 100%;
-	overflow-x: hidden;
+	min-block-size: 100%;
+	overflow-inline: hidden;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 }

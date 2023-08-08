@@ -10,8 +10,9 @@ fieldset {
 	// If you want a border etc., apply this to a wrapping container for the fieldset
 	border: 0;
 	margin: 0;
-	min-width: 0;
-	padding: 0.01em 0 0 0;
+	min-inline-size: 0;
+	padding: 0;
+	padding-block-start: 0.01em;
 }
 
 
@@ -25,12 +26,12 @@ End of resets for the fieldset element
 
 form > * + *,
 .field-group > * + * {
-	margin-top: 1.75rem;
+	margin-block-start: 1.75rem;
 }
 
 
 .field-group + .field-group {
-	margin-top: 2.5rem;
+	margin-block-start: 2.5rem;
 }
 
 
@@ -50,20 +51,12 @@ Group inputs to line up side-by-side
 
 
 .input-group > * + * {
-	margin-left: rem(30);
-}
-
-
-[dir="rtl"] {
-	.input-group > * + * {
-		margin-left: 0;
-		margin-right: rem(30);
-	}
+	margin-inline-start: rem(30);
 }
 
 
 .field {
-	max-width: rem($text-measure);
+	max-inline-size: rem($text-measure);
 }
 
 
@@ -78,7 +71,7 @@ label,
 
 .field-label,
 .faux-label {
-	margin-bottom: 0.25rem;
+	margin-block-end: 0.25rem;
 }
 
 
@@ -87,7 +80,7 @@ label,
 	font-weight: bold;
 
 	+ .field-hint {
-		margin-top: 0.25rem;
+		margin-block-start: 0.25rem;
 	}
 
 }
@@ -96,8 +89,8 @@ label,
 .field-hint {
 	@include text-14;
 	color: $storm-gray;
-	margin-bottom: 0.25rem;
-	max-width: rem($text-measure);
+	margin-block-end: 0.25rem;
+	max-inline-size: rem($text-measure);
 }
 
 
@@ -122,9 +115,9 @@ textarea,
 	background-color: $off-white;
 	border: 2px solid $input-border-color;
 	border-radius: 0;
+	inline-size: 100%;
 	line-height: 1.25;
 	padding: rem(5);
-	width: 100%;
 
 	&:focus {
 		box-shadow: inset 0 0 0 2px;
@@ -143,7 +136,7 @@ textarea,
 [type=text],
 [type=time],
 [type=url] {
-	height: rem(44); // To match button height
+	block-size: rem(44); // To match button height
 }
 
 
@@ -153,11 +146,9 @@ textarea,
 	&:focus {
 		border-color: currentColor;
 		box-shadow: inset 0 0 0 4px;
-		margin-left: rem(-5);
-		margin-right: rem(-5);
+		margin-inline: rem(-5);
 		outline: 3px solid $focus-color;
-		padding-left: rem(5);
-		padding-right: rem(5);
+		padding-inline: rem(5);
 	}
 }
 
@@ -175,7 +166,7 @@ Search
 Textarea
  */
 textarea {
-	height: 10em;
+	block-size: 10em;
 	resize: vertical;
 }
 
@@ -184,31 +175,31 @@ textarea {
 Fixed input widths
  */
 .input-width-30 {
-	max-width: 59ex;
+	max-inline-size: 59ex;
 }
 
 .input-width-20 {
-	max-width: 41ex;
+	max-inline-size: 41ex;
 }
 
 .input-width-10 {
-	max-width: 23ex;
+	max-inline-size: 23ex;
 }
 
 .input-width-5 {
-	max-width: 10.8ex;
+	max-inline-size: 10.8ex;
 }
 
 .input-width-4 {
-	max-width: 9ex;
+	max-inline-size: 9ex;
 }
 
 .input-width-3 {
-	max-width: 7.2ex;
+	max-inline-size: 7.2ex;
 }
 
 .input-width-2 {
-	max-width: 5.4ex;
+	max-inline-size: 5.4ex;
 }
 
 
@@ -219,8 +210,8 @@ Error styles
 	color: $error-color;
 	display: inline-block;
 	font-weight: bold;
-	padding-bottom: rem(10);
-	padding-top: rem(10);
+	padding-block-end: rem(10);
+	padding-block-start: rem(10);
 
 	&:hover,
 	&:visited {
@@ -234,8 +225,8 @@ Error styles
 }
 
 .field--error {
-	border-left: solid rem(5) $error-color;
-	padding-left: rem(15);
+	border-inline-start: solid rem(5) $error-color;
+	padding-inline-start: rem(15);
 
 	input:not([type="file"]),
 	textarea:not(:focus) {
@@ -248,17 +239,8 @@ Error styles
 	}
 }
 
-[dir="rtl"] {
-	.field--error {
-		border-left: none;
-		border-right: solid rem(5) $error-color;
-		padding-left: 0;
-		padding-right: rem(15);
-	}
-}
-
 .field-error-msg {
 	color: $error-color;
 	font-weight: bold;
-	margin-top: rem(15);
+	margin-block-start: rem(15);
 }

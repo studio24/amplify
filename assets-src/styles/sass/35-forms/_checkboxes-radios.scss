@@ -6,8 +6,8 @@
 .checkbox-item {
     clear: left;
     float: left;
-    margin-top: 0.25rem;
-    padding-left: rem(34);
+    margin-block-start: 0.25rem;
+    padding-inline-start: rem(34);
     position: relative;
 
     &::after {
@@ -23,40 +23,33 @@
     .checkbox-item {
         clear: right;
         float: right;
-        padding-left: 0;
-        padding-right: rem(34);
     }
 }
 
 .radio-item input,
 .checkbox-item input {
     cursor: pointer;
-    height: rem(44);
-    left: rem(-10);
+    block-size: rem(44);
+    inset-inline-start: rem(-10);
     margin: 0;
     opacity: 0;
     position: absolute;
-    top: rem(-2);
-    width: rem(44);
+    inset-block-start: rem(-2);
+    inline-size: rem(44);
     z-index: 1;
 }
 
-
-[dir="rtl"] {
-    .radio-item input,
-    .checkbox-item input {
-        left: auto;
-        right: rem(-10);
-    }
-}
 
 .radio-item label,
 .checkbox-item label {
     cursor: pointer;
     display: inline-block;
     margin-bottom: 0;
-    margin-top: rem(-2);
-    padding: rem(11) rem(15) rem(10) rem(1);
+    margin-block-start: rem(-2);
+	padding-block-end: rem(10);
+	padding-block-start: rem(11);
+	padding-inline-end: rem(15);
+	padding-inline-start: rem(1);
     touch-action: manipulation;
 
     &::before,
@@ -68,22 +61,10 @@
     &::before {
         background: transparent;
         border: 2px solid;
-        height: rem(24);
-        left: 0;
-        top: rem(8);
-        width: rem(24);
-    }
-}
-
-[dir="rtl"] {
-    .radio-item label,
-    .checkbox-item label {
-        padding: rem(11) rem(1) rem(10) rem(15);
-
-        &::before {
-            left: auto;
-            right: 0;
-        }
+        block-size: rem(24);
+		inline-size: rem(24);
+		inset-block-start: rem(8);
+        inset-inline-start: 0;
     }
 }
 
@@ -97,18 +78,11 @@
     &::after {
         background: currentColor;
         border: 5px solid;
-        height: 0;
-        left: rem(7);
+        block-size: 0;
+		inline-size: 0;
+		inset-block-start: rem(15);
+        inset-inline-start: rem(7);
         opacity: 0;
-        top: rem(15);
-        width: 0;
-    }
-}
-
-[dir="rtl"] {
-    .radio-item label::after {
-        left: auto;
-        right: rem(7);
     }
 }
 
@@ -116,29 +90,22 @@
 .checkbox-item label {
     &::after {
         background: transparent;
+		block-size: rem(6.5);
         border: solid;
-        border-top-color: transparent;
+        border-block-start-color: transparent;
         border-width: 0 0 3px 3px;
-        height: rem(6.5);
-        left: rem(6);
+		inline-size: rem(12);
+		inset-block-start: rem(15);
+        inset-inline-start: rem(6);
         opacity: 0;
-        top: rem(15);
         transform: rotate(-45deg);
-        width: rem(12);
-    }
-}
-
-[dir="rtl"] {
-    .checkbox-item label::after {
-        left: auto;
-        right: rem(6);
     }
 }
 
 
 .checkbox-group--cluster .checkbox-item {
     clear: none;
-    margin-right: rem(12);
+    margin-inline-end: rem(12);
 }
 
 // Radio/checkbox input with hover

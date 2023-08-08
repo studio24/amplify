@@ -4,7 +4,7 @@
     The measurements presented here are for guidance only
     and should be updated to reflect the design/content needs.
 
-    1. Sets a max-width for improved readability
+    1. Sets a max-inline-size for improved readability
 \*------------------------------------*/
 
 $bp-palm:               320;
@@ -13,6 +13,6 @@ $bp-tab-landscape:      1024;
 $bp-lap:                1280;
 $bp-desk:               1440;
 
-$max-width:				1120;
+$max-inline-size:				1120;
 
 $text-measure:          660; /* 1 */

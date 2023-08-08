@@ -4,27 +4,18 @@
 
 ul,
 ol {
-	margin-bottom: 1rem;
-	margin-top: 1rem;
-	padding-left: 2rem;
+	margin-block-end: 1rem;
+	margin-block-start: 1rem;
+	padding-inline-start: 2rem;
 
 	li {
-		padding-left: 0.25rem;
+		padding-inline-start: 0.25rem;
 	}
 
 	> * + *,
 	li ul,
 	li ol {
-		margin-top: 0.75rem;
-	}
-}
-
-
-[dir="rtl"] {
-	ul,
-	ol {
-		padding-left: 0;
-		padding-right: 2rem;
+		margin-block-start: 0.75rem;
 	}
 }
 
@@ -42,6 +33,12 @@ the number of items in a list is announced, add role="list" to the <ul>
 .clean-list {
 	list-style: none;
 	padding: 0;
+
+	li,
+	ol,
+	ul {
+		padding: 0;
+	}
 }
 
 
@@ -49,20 +46,20 @@ the number of items in a list is announced, add role="list" to the <ul>
 Description lists / Definition lists
  */
 dl {
-	margin-bottom: 1rem;
-	margin-top: 1rem;
+	margin-block-end: 1rem;
+	margin-block-start: 1rem;
 
 	dt {
 		font-weight: bold;
 	}
 
 	dd + dt {
-		margin-top: 0.5rem;
+		margin-block-start: 0.5rem;
 	}
 
 	dt + dd,
 	dd + dd {
-		margin-top: 0.25rem;
+		margin-block-start: 0.25rem;
 	}
 }
 
@@ -82,7 +79,7 @@ dl.grid {
 		dd + dt,
 		dt + dd,
 		dd + dd {
-			margin-top: 0;
+			margin-block-start: 0;
 		}
 
 		dt {

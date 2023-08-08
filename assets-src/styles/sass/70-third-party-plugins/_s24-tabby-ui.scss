@@ -10,7 +10,7 @@
 	border-bottom: solid 1px $twiki-gray;
 	display: flex;
 	flex-flow: row nowrap;
-	max-width: 100%;
+	max-inline-size: 100%;
 	overflow-x: auto;
 	padding: 0 rem(24);
 

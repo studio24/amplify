@@ -34,11 +34,11 @@
 
 3. The 690 value matches the desired breakpoint value. The 100% corresponds to
 the width of the columns' parent container. This calculation will create a
-value that's either bigger than the max-width or smaller than the min-width,
-so that either of these properties is applied instead.
+value that's either bigger than the max-inline-size or smaller than the
+min-inline-size, so that either of these properties is applied instead.
  */
 .l-switcher > * > * {
-	max-width: 100%; /* 1 */
-	min-width: 50%; /* 2 */
-	width: calc(690px * 690 - 100% * 690); /* 3 */
+	max-inline-size: 100%; /* 1 */
+	min-inline-size: 50%; /* 2 */
+	inline-size: calc(690px * 690 - 100% * 690); /* 3 */
 }

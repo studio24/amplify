@@ -10,7 +10,7 @@
     The measurements presented here are for guidance only
     and should be updated to reflect the design/content needs.
 
-    1. Sets a max-width for improved readability
+    1. Sets a max-inline-size for improved readability
 \*------------------------------------*/
 /* 1 */
 /*------------------------------------*\
@@ -158,16 +158,16 @@ article {
  * Sass to avoid it appearing repeatedly in your markup).
  */
 .visuallyhidden:not(:focus):not(:active) {
+  block-size: 1px;
   border: 0;
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(100%);
           clip-path: inset(100%);
-  height: 1px;
+  inline-size: 1px;
   overflow: hidden;
   padding: 0;
   position: absolute;
   white-space: nowrap;
-  width: 1px;
 }
 
 /*
@@ -175,7 +175,8 @@ article {
  * focusable element to become visible when focused/active by a user.
  */
 br {
-  margin-top: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
 
 /*
@@ -421,14 +422,14 @@ br {
 .js [data-heading=collapsibles] button {
   align-items: flex-start;
   flex-direction: column;
+  inline-size: 100%;
   padding: 1.5625rem;
-  width: 100%;
 }
 .js [data-heading=collapsibles] button .js-collapsible-heading {
   font-size: 1.25rem;
   line-height: 1.3;
   font-weight: 600;
-  text-align: left;
+  text-align: start;
 }
 .js [data-heading=collapsibles] button .js-collapsible-toggle {
   color: #0d599b;
@@ -462,7 +463,9 @@ br {
 }
 
 .js .component--collapsibles__panel__content {
-  padding: 0 1.5625rem 1.5625rem;
+  padding: 1.5625rem;
+  -webkit-padding-before: 0;
+          padding-block-start: 0;
 }
 .js .component--collapsibles__panel__content[aria-hidden=true] {
   display: none;
@@ -503,35 +506,33 @@ br {
 }
 
 [data-toggle=true] + * {
-  margin-top: 1rem;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
 }
 
 /*------------------------------------*\
     #Sortable table
 \*------------------------------------*/
-table[data-component=sortable-table] .arrow-wrapper {
-  margin-left: 0.75rem;
+.js [data-component=sortable-table] .arrow-wrapper {
   display: flex;
   flex-direction: column;
+  -webkit-margin-start: 0.75rem;
+          margin-inline-start: 0.75rem;
+  pointer-events: none;
 }
 
-table[data-component=sortable-table] th[scope=col] {
+.js [data-component=sortable-table] th {
   white-space: nowrap;
 }
 
-td.active {
-  background-color: rgba(255, 220, 0, 0.1490196078);
+.js th[data-type=no-sort]:hover {
+  cursor: not-allowed;
 }
 
 th > button {
   background: transparent;
-  border-width: 0.0625rem;
-  border-style: solid;
-  border-color: transparent;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-  font-weight: bolder;
+  border: solid 0.0625rem transparent;
+  font-weight: bold;
 }
 th > button:hover {
   background-color: #ffdc00;
@@ -539,28 +540,24 @@ th > button:hover {
   color: #000;
 }
 
-th[data-type=no-sort]:hover {
-  cursor: not-allowed;
-}
-
-th > button > .arrow-wrapper {
-  pointer-events: none;
-}
-
-th[aria-sort=ascending] button:focus > .arrow-wrapper .asc {
-  stroke: #000;
+.js [aria-sort=ascending] button:focus > .arrow-wrapper .asc {
+  stroke: currentColor;
   stroke-width: 3.125rem;
 }
-th[aria-sort=ascending] button:focus > .arrow-wrapper .desc {
-  opacity: 0.2;
-}
-
-th[aria-sort=descending] button:focus > .arrow-wrapper .asc {
+.js [aria-sort=ascending] button:focus > .arrow-wrapper .desc {
   opacity: 0.3;
 }
-th[aria-sort=descending] button:focus > .arrow-wrapper .desc {
-  stroke: #000;
+
+.js [aria-sort=descending] button:focus > .arrow-wrapper .asc {
+  opacity: 0.3;
+}
+.js [aria-sort=descending] button:focus > .arrow-wrapper .desc {
+  stroke: currentColor;
   stroke-width: 3.125rem;
+}
+
+td.active {
+  background-color: rgba(255, 220, 0, 0.1490196078);
 }
 
 /*------------------------------------*\
@@ -830,21 +827,14 @@ th[aria-sort=descending] button:focus > .arrow-wrapper .desc {
           user-select: none;
 }
 
-.splide__track--fade > .splide__list {
-  display: block;
-}
-
 .splide__track--fade > .splide__list > .splide__slide {
-  left: 0;
+  margin: 0 !important;
   opacity: 0;
-  position: absolute;
-  top: 0;
   z-index: 0;
 }
 
 .splide__track--fade > .splide__list > .splide__slide.is-active {
   opacity: 1;
-  position: relative;
   z-index: 1;
 }
 
@@ -889,6 +879,10 @@ th[aria-sort=descending] button:focus > .arrow-wrapper .desc {
   list-style-type: none;
   margin: 0;
   pointer-events: auto;
+}
+
+.splide:not(.is-overflow) .splide__pagination {
+  display: none;
 }
 
 .splide__progress__bar {
@@ -1123,7 +1117,7 @@ th[aria-sort=descending] button:focus > .arrow-wrapper .desc {
   border-bottom: solid 1px #bdbdbd;
   display: flex;
   flex-flow: row nowrap;
-  max-width: 100%;
+  max-inline-size: 100%;
   overflow-x: auto;
   padding: 0 1.5rem;
 }
@@ -1173,5 +1167,6 @@ th[aria-sort=descending] button:focus > .arrow-wrapper .desc {
   padding: 1.5rem;
 }
 .component--tabs [role=tabpanel] > * + * {
-  margin-top: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }

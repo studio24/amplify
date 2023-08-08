@@ -3,8 +3,8 @@
 \*------------------------------------*/
 
 details {
-	margin-bottom: rem(16);
-	margin-top: rem(16);
+	margin-block-end: rem(16);
+	margin-block-start: rem(16);
 }
 
 
@@ -12,24 +12,24 @@ summary {
 	color: $link-color;
 	cursor: pointer;
 	display: inline-block;
-	padding-left: rem(25);
+	padding-inline-start: rem(25);
 	position: relative;
 
 	&::before {
+		block-size: 0;
 		border-color: transparent;
-		border-left-color: inherit;
+		border-inline-start-color: inherit;
 		border-style: solid;
 		border-width: 7px 0 7px 12.124px;
-		bottom: 0;
 		clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
 		content: '';
 		display: block;
-		height: 0;
-		left: 0;
+		inline-size: 0;
+		inset-block-end: 0;
+		inset-block-start: rem(-1);
+		inset-inline-start: 0;
 		margin: auto;
 		position: absolute;
-		top: rem(-1);
-		width: 0;
 	}
 
 	&::-webkit-details-marker {
@@ -42,8 +42,8 @@ summary {
 
 	span {
 		display: inline-block;
-		padding-bottom: rem(10);
-		padding-top: rem(10);
+		padding-block-end: rem(10);
+		padding-block-start: rem(10);
 		text-decoration: underline;
 		text-decoration-skip: auto; // Supported by Safari
 		text-decoration-skip-ink: auto; // Not supported by Safari
@@ -62,7 +62,7 @@ summary {
 
 
 details[open] > summary {
-	margin-bottom: rem(16);
+	margin-block-end: rem(16);
 }
 
 
@@ -72,14 +72,7 @@ details[open] > summary::before {
 
 
 [dir="rtl"] {
-	summary {
-		padding-left: 0;
-		padding-right: rem(25);
-
-		&::before {
-			left: auto;
-			right: 0;
-			transform: rotate(180deg);
-		}
+	summary::before {
+		transform: rotate(180deg);
 	}
 }

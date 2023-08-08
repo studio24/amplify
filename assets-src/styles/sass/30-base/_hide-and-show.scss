@@ -49,15 +49,15 @@
  * Sass to avoid it appearing repeatedly in your markup).
  */
 %visuallyhidden {
+	block-size: 1px;
 	border: 0;
 	clip: rect(0 0 0 0);
 	clip-path: inset(100%);
-	height: 1px;
+	inline-size: 1px;
 	overflow: hidden;
 	padding: 0;
 	position: absolute;
 	white-space: nowrap;
-	width: 1px;
 }
 
 
@@ -71,7 +71,7 @@
 
 
 br {
-	margin-top: 0; // Firefox adds margins to <br> elements
+	margin-block-start: 0; // Firefox adds margins to <br> elements
 }
 
 
@@ -84,11 +84,11 @@ br {
 	border: initial;
 	clip: auto;
 	clip-path: none;
-	height: auto;
+	block-size: auto;
+	inline-size: auto;
 	margin: initial;
 	overflow: initial;
 	padding: initial;
 	position: static;
 	white-space: initial;
-	width: auto;
 }

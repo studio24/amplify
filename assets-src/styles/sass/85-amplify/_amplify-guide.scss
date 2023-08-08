@@ -7,15 +7,15 @@
 .amplify .global-header {
 	background-color: $off-black;
 	color: $off-white;
-	padding-bottom: rem(10);
-	padding-top: rem(10);
+	padding-block-end: rem(10);
+	padding-block-start: rem(10);
 }
 
 .amplify .global-header__link {
 	@include text-25;
 	color: $off-white;
-	padding-bottom: rem(5);
-	padding-top: rem(5);
+	padding-block-end: rem(5);
+	padding-block-start: rem(5);
 	text-decoration: none;
 
 	&:hover,
@@ -37,13 +37,13 @@
 
 
 .amplify .global-nav {
-	border-bottom: solid 2px $twiki-gray;
-	padding-bottom: rem(10);
-	padding-top: rem(10);
+	border-block-end: solid 2px $twiki-gray;
+	padding-block-end: rem(10);
+	padding-block-start: rem(10);
 }
 
 .amplify .global-nav__link {
-	border-bottom: solid 4px transparent;
+	border-block-end: solid 4px transparent;
 	color: $link-color;
 	display: block;
 	font-size: rem(18);
@@ -72,7 +72,7 @@
 }
 
 .amplify .current .global-nav__link {
-	border-bottom-color: $off-black;
+	border-block-end-color: $off-black;
 	color: $off-black;
 
 	&:hover {
@@ -84,8 +84,8 @@
 .amplify .nav-secondary__link {
 	color: $link-color;
 	display: block;
-	padding-bottom: rem(9);
-	padding-top: rem(9);
+	padding-block-end: rem(9);
+	padding-block-start: rem(9);
 	position: relative;
 	text-decoration: none;
 
@@ -108,13 +108,13 @@
 
 	&::before {
 		background-color: $off-black;
+		block-size: 1.5rem;
 		content: '';
-		height: 1.5rem;
-		left: rem(-12);
+		inline-size: 4px;
+		inset-block-start: 50%;
+		inset-inline-start: rem(-12);
 		position: absolute;
-		top: 50%;
 		transform: translateY(-50%);
-		width: 4px;
 	}
 
 	&:hover {
@@ -146,16 +146,16 @@
 	grid-column-end:4;
 	-ms-grid-column: 3;
 	-ms-grid-row: 1;
-	margin-top: rem(30);
+	margin-block-start: rem(30);
 
 	@include mq($bp-tab-landscape) {
-		margin-top: 0;
+		margin-block-start: 0;
 	}
 }
 
 
 .amplify .example + .example {
-	margin-top: 1rem;
+	margin-block-start: 1rem;
 }
 
 
@@ -168,7 +168,7 @@
 }
 
 .amplify .l-switcher.teasers > * > * {
-	min-width: 33%;
+	min-inline-size: 33%;
 	padding: rem(12);
 }
 
@@ -178,7 +178,7 @@
 
 
 .amplify .search-bar .not-sidebar {
-	min-width: 70%;
+	min-inline-size: 70%;
 }
 
 // To omit the `flex-basis` in this example we haven't used the `.sidebar` class
