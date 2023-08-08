@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/studio24/amplify/compare/v1.2.1...v1.3.0) (2023-08-08)
+
+
+### Features
+
+* add sortable tables ([#28](https://github.com/studio24/amplify/issues/28)) ([1a22590](https://github.com/studio24/amplify/commit/1a22590f6adfcd880eb043cf544d9ea641305de0))
+
 ## [1.2.1](https://github.com/studio24/amplify/compare/v1.2.0...v1.2.1) (2023-03-30)
 
 
