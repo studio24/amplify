@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/studio24/amplify/compare/v1.3.0...v1.3.1) (2023-08-08)
+
+
+### Bug Fixes
+
+* update advanced components site nav ([6f9a6c6](https://github.com/studio24/amplify/commit/6f9a6c697f7d6f2415f16233ca9fbd8d8104fab2))
+
 ## [1.3.0](https://github.com/studio24/amplify/compare/v1.2.1...v1.3.0) (2023-08-08)
 
 
