@@ -1269,9 +1269,6 @@ td {
   vertical-align: text-top;
 }
 
-th {
-  vertical-align: bottom;
-}
 th[scope=col] {
   background-color: #252525;
   color: #fcfcfc;
@@ -2198,6 +2195,35 @@ min-inline-size, so that either of these properties is applied instead.
 /*------------------------------------*\
     #Navigation core
 \*------------------------------------*/
+.nav ul,
+.nav ul * + * {
+  margin: 0;
+}
+
+[data-nav=submenu] {
+  padding-left: 1.25rem;
+}
+
+a.nav-link {
+  display: block;
+  line-height: normal;
+  padding: 0.6875rem 0.875rem;
+}
+a.nav-link:hover {
+  color: #001f3f;
+  outline-width: 0; /* 2 */
+}
+a.nav-link:active {
+  color: #252525;
+  outline-width: 0; /* 2 */
+}
+a.nav-link:focus {
+  background-color: #ffdc00;
+  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
+  color: #000;
+  text-decoration: none;
+}
+
 /*------------------------------------*\
     #Breadcrumbs
     See: https://scottaohara.github.io/a11y_breadcrumbs/
@@ -2850,6 +2876,23 @@ main,
 .component--collapsibles__panel__content a,
 .component--collapsibles__panel__content button {
   align-self: flex-start; /* 1 */
+}
+
+/*------------------------------------*\
+    #Carousel - no-js customisation of Splide
+\*------------------------------------*/
+/*
+ Splide hides the entire carousel if there is no JS.
+ Amplify prefers to keep the slides visible and stacked vertically.
+ */
+.no-js .splide {
+  visibility: visible;
+}
+.no-js .splide__list {
+  display: block;
+}
+.no-js .splide__list > * + * {
+  margin-top: 1rem;
 }
 
 /*------------------------------------*\

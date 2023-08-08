@@ -1,3 +1,35 @@
 /*------------------------------------*\
     #Navigation core
 \*------------------------------------*/
+
+.nav ul,
+.nav ul * + * {
+    margin: 0;
+}
+
+[data-nav="submenu"] {
+    padding-left: rem(20);
+}
+
+a.nav-link {
+    display: block;
+    line-height: normal;
+    padding: rem(11) rem(14);
+
+    &:hover {
+        color: $link-color--hover;
+        outline-width: 0; /* 2 */
+    }
+
+    &:active {
+        color: $off-black;
+        outline-width: 0; /* 2 */
+    }
+
+    &:focus {
+        background-color: $focus-color;
+        background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+        color: $black;
+        text-decoration: none;
+    }
+}
