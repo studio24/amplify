@@ -513,29 +513,26 @@ br {
 /*------------------------------------*\
     #Sortable table
 \*------------------------------------*/
-table[data-component=sortable-table] .arrow-wrapper {
-  margin-left: 0.75rem;
+.js [data-component=sortable-table] .arrow-wrapper {
   display: flex;
   flex-direction: column;
+  -webkit-margin-start: 0.75rem;
+          margin-inline-start: 0.75rem;
+  pointer-events: none;
 }
 
-table[data-component=sortable-table] th[scope=col] {
+.js [data-component=sortable-table] th {
   white-space: nowrap;
 }
 
-td.active {
-  background-color: rgba(255, 220, 0, 0.1490196078);
+.js th[data-type=no-sort]:hover {
+  cursor: not-allowed;
 }
 
 th > button {
   background: transparent;
-  border-width: 0.0625rem;
-  border-style: solid;
-  border-color: transparent;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-  font-weight: bolder;
+  border: solid 0.0625rem transparent;
+  font-weight: bold;
 }
 th > button:hover {
   background-color: #ffdc00;
@@ -543,28 +540,24 @@ th > button:hover {
   color: #000;
 }
 
-th[data-type=no-sort]:hover {
-  cursor: not-allowed;
-}
-
-th > button > .arrow-wrapper {
-  pointer-events: none;
-}
-
-th[aria-sort=ascending] button:focus > .arrow-wrapper .asc {
-  stroke: #000;
+.js [aria-sort=ascending] button:focus > .arrow-wrapper .asc {
+  stroke: currentColor;
   stroke-width: 3.125rem;
 }
-th[aria-sort=ascending] button:focus > .arrow-wrapper .desc {
-  opacity: 0.2;
-}
-
-th[aria-sort=descending] button:focus > .arrow-wrapper .asc {
+.js [aria-sort=ascending] button:focus > .arrow-wrapper .desc {
   opacity: 0.3;
 }
-th[aria-sort=descending] button:focus > .arrow-wrapper .desc {
-  stroke: #000;
+
+.js [aria-sort=descending] button:focus > .arrow-wrapper .asc {
+  opacity: 0.3;
+}
+.js [aria-sort=descending] button:focus > .arrow-wrapper .desc {
+  stroke: currentColor;
   stroke-width: 3.125rem;
+}
+
+td.active {
+  background-color: rgba(255, 220, 0, 0.1490196078);
 }
 
 /*------------------------------------*\
