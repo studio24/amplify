@@ -198,4 +198,12 @@
 	</footer>
 </body>
 
+<script>
+	if (document.documentElement.classList.contains('js')) {
+		const sortableTables = document.createElement('script');
+		sortableTables.src = '../../dist/js/sortable-tables.js';
+		document.querySelector('body').appendChild(sortableTables);
+	}
+</script>
+
 </html>
