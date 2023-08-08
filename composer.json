@@ -1,5 +1,5 @@
 {
     "require": {
-        "studio24/deployer-recipes": "^1.1"
+        "studio24/deployer-recipes": "dev-update-to-deployer-7"
     }
 }
