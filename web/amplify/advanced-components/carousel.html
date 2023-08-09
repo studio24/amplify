@@ -9,19 +9,15 @@
 
     <link rel="stylesheet" href="../../dist/styles/core.css" media="screen"/>
 
-    <!--
-    Print (Edge doesn't apply to print otherwise)
-    IE 10, 11
-    Edge
-    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
-    FF 29+
-    -->
-    <link rel="stylesheet" id="advanced-stylesheet" href="../../dist/styles/advanced.css" media="
-    only print, screen and (min-width: 1vm),
-    only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
-    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
-    only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
-    only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+	<!--
+	Print (Edge doesn't apply to print otherwise)
+	Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
+	FF 47+
+	-->
+	<link rel="stylesheet" id="advanced-stylesheet" href="../../dist/styles/advanced.min.css" media="
+	only print,
+	only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+	only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
 	">
 
     <link rel="stylesheet" href="../../dist/styles/print.css" media="print"/>
