@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/studio24/amplify/compare/v1.3.1...v2.0.0) (2023-08-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* update Amplify docs to remove IE11 support
+
+### Features
+
+* update Amplify docs to remove IE11 support ([a73cade](https://github.com/studio24/amplify/commit/a73cade8599420e30d983c578030f213bb4aa3ea))
+
 ## [1.3.1](https://github.com/studio24/amplify/compare/v1.3.0...v1.3.1) (2023-08-08)
 
 
