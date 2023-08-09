@@ -2,8 +2,6 @@
 
 Front-End starter kit by Studio 24.
 
-All merge request need to be authorised by a Code Owner
-
 ## Getting started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for how to deploy the project to staging and live environments. 
@@ -138,7 +136,7 @@ You can now add the script to the `assets-src/js/libraries` folder and run the f
 
 ## Making changes
 
-Create a new branch for your work, when you are ready for your changes to be integrated into the main branch, create a new release commit (if you haven't done so already), push to the repo, and issue a PR into main.
+Create a new branch for your work, when you are ready for your changes to be integrated into the main branch, create a new release commit (if you haven't done so already), push to the repo, and issue a PR into main. **All merge requests need to be authorised by a Code Owner**
 
 Once the PR is accepted, you can merge your branch into main. A new release will then be automatically generated.
 
