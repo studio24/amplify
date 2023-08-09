@@ -5,7 +5,7 @@
 
 ### ⚠ BREAKING CHANGES
 
-* update Amplify docs to remove IE11 support
+* update Amplify docs to remove IE11 support, following introduction of CSS logical properties
 
 ### Features
 
