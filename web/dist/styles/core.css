@@ -1223,21 +1223,27 @@ blockquote {
   flex-direction: column;
   justify-content: flex-start;
   margin-block: 1rem;
-  margin-inline: 0;
-  padding-block: 0;
-  padding-inline: 2.5rem;
+  -webkit-margin-start: 1.5625rem;
+          margin-inline-start: 1.5625rem;
+  padding: 0.625rem;
+  position: relative;
 }
 blockquote > * + * {
   -webkit-margin-before: 1rem;
           margin-block-start: 1rem;
 }
-blockquote > * {
-  font-weight: bold;
+blockquote::before {
+  background-color: #bdbdbd;
+  block-size: 100%;
+  content: "";
+  inline-size: 0.1875rem;
+  inset-block-start: 0;
+  inset-inline-start: -0.1875rem;
+  position: absolute;
 }
 blockquote cite {
   font-size: 1rem;
   font-style: normal;
-  font-weight: normal;
 }
 
 /*------------------------------------*\
@@ -2339,17 +2345,12 @@ main,
     #Quotes
 \*------------------------------------*/
 .component--quote {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  -webkit-margin-start: 0.625rem;
-          margin-inline-start: 0.625rem;
+  -webkit-margin-start: 0;
+          margin-inline-start: 0;
   padding: 1.25rem;
+  -webkit-padding-start: 1.875rem;
+          padding-inline-start: 1.875rem;
   position: relative;
-}
-.component--quote > * + * {
-  -webkit-margin-before: 1rem;
-          margin-block-start: 1rem;
 }
 .component--quote::before {
   background-color: #0d599b;
@@ -2357,14 +2358,17 @@ main,
   border-radius: 0.3125rem;
   content: "";
   inline-size: 0.625rem;
-  inset-inline-start: -0.625rem;
-  position: absolute;
   inset-block-start: 0;
+  inset-inline-start: 0;
+  position: absolute;
 }
-.component--quote blockquote {
+.component--quote > *:not(footer) {
   color: #0d599b;
-  margin: 0;
-  padding: 0;
+  font-weight: bold;
+}
+.component--quote footer {
+  font-size: 1rem;
+  font-style: normal;
 }
 
 /*------------------------------------*\

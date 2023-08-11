@@ -7,17 +7,22 @@ blockquote {
 	@include stack(1rem);
 
 	margin-block: rem(16);
-	margin-inline: 0;
-	padding-block: 0;
-	padding-inline: rem(40);
+	margin-inline-start: rem(25);
+	padding: rem(10);
+	position: relative;
 
-	> * {
-		font-weight: bold;
+	&::before {
+		background-color: $twiki-gray;
+		block-size: 100%;
+		content: "";
+		inline-size: rem(3);
+		inset-block-start: 0;
+		inset-inline-start: rem(-3);
+		position: absolute;
 	}
 
 	cite {
 		font-size: 1rem;
 		font-style: normal;
-		font-weight: normal;
 	}
 }
