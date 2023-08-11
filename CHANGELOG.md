@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/studio24/amplify/compare/v2.0.0...v2.1.0) (2023-08-11)
+
+
+### Features
+
+* update blockquote and quote component patterns ([58f0155](https://github.com/studio24/amplify/commit/58f01557158fb4bcdaa0bce4a09ac1ac3bd6b4bd))
+
 ## [2.0.0](https://github.com/studio24/amplify/compare/v1.3.1...v2.0.0) (2023-08-09)
 
 
