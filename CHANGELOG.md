@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/studio24/amplify/compare/v2.1.0...v2.1.1) (2023-10-12)
+
+
+### Bug Fixes
+
+* update npm packages ([05ea856](https://github.com/studio24/amplify/commit/05ea85611780b52689497bbe8ae630754f4010db))
+
 ## [2.1.0](https://github.com/studio24/amplify/compare/v2.0.0...v2.1.0) (2023-08-11)
 
 
