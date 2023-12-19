@@ -2,12 +2,12 @@
 <html lang="en" class="no-js">
 
 <head>
-	<meta charset="utf-8"/>
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Website title</title>
 
-	<link rel="stylesheet" href="dist/styles/core.min.css" media="screen"/>
+	<link rel="stylesheet" href="dist/styles/core.min.css" media="screen">
 
 	<!--
     Print (Edge doesn't apply to print otherwise)
@@ -24,7 +24,7 @@
     only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
 	">
 
-	<link rel="stylesheet" href="dist/styles/print.min.css" media="print"/>
+	<link rel="stylesheet" href="dist/styles/print.min.css" media="print">
 
 	<script src="dist/js/libraries/fontfaceobserver.js"></script>
 
