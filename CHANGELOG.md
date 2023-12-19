@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/studio24/amplify/compare/v2.1.2...v2.2.0) (2023-12-19)
+
+
+### Features
+
+* update typographic styles ([a9265d9](https://github.com/studio24/amplify/commit/a9265d9a7de061ba1d8efb0ec827ff8813c1fd59))
+
 ## [2.1.2](https://github.com/studio24/amplify/compare/v2.1.1...v2.1.2) (2023-12-19)
 
 
