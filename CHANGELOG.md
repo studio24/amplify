@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/studio24/amplify/compare/v2.1.1...v2.1.2) (2023-12-19)
+
+
+### Bug Fixes
+
+* remove trailing slash from void html elems ([8481cde](https://github.com/studio24/amplify/commit/8481cde16eb2878bf73ab2098f52e210bb9227cc))
+
 ## [2.1.1](https://github.com/studio24/amplify/compare/v2.1.0...v2.1.1) (2023-10-12)
 
 
