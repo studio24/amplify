@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*------------------------------------*\
     #Amplify: advanced styles for browsers selected by mustard cut
 \*------------------------------------*/
@@ -88,8 +89,19 @@ can safely use the web fonts instead of the system fonts.
 /*------------------------------------*\
     #Font sizes
 
-    Base sizes use the Major Third scale from https://type-scale.com/
+    Base uses a Major Second scale
+    Fluid type calculations generated using https://utopia.fyi/type/calculator at 320px and 1120px widths
+
+    1. Fallback for browsers not supporting clamp().
 \*------------------------------------*/
+/* 32px → 40px */
+/* 28px → 36px */
+/* 25px → 32px */
+/* 22px → 28px */
+/* 20px → 25px */
+/* 18px → 22px */
+/* 16px → 20px */
+/* 14px → 17px */
 /*------------------------------------*\
     #Media query
 \*------------------------------------*/
@@ -426,8 +438,9 @@ br {
   padding: 1.5625rem;
 }
 .js [data-heading=collapsibles] button .js-collapsible-heading {
-  font-size: 1.25rem;
-  line-height: 1.3;
+  font-size: 1.375rem; /* 1 */
+  font-size: clamp(1.125rem, 1.025rem + 0.5vw, 1.375rem);
+  line-height: 1.5;
   font-weight: 600;
   text-align: start;
 }
@@ -435,7 +448,8 @@ br {
   color: #0d599b;
 }
 .js [data-heading=collapsibles] button .js-collapsible-label {
-  font-size: 1rem;
+  font-size: 1.0625rem; /* 1 */
+  font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
 }
 .js [data-heading=collapsibles] button:hover .js-collapsible-heading {
@@ -787,7 +801,8 @@ td.active {
 .autocomplete__hint,
 .autocomplete__input,
 .autocomplete__option {
-  font-size: 1rem;
+  font-size: 1.0625rem; /* 1 */
+  font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
   line-height: 1.25;
 }
@@ -796,7 +811,8 @@ td.active {
   .autocomplete__hint,
   .autocomplete__input,
   .autocomplete__option {
-    font-size: 1rem;
+    font-size: 1.0625rem; /* 1 */
+    font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
     line-height: 1.5;
     line-height: 1.25;
   }
@@ -1108,10 +1124,6 @@ td.active {
 
 /*------------------------------------*\
     #S24 tabby overrides
-
-	1. The `stack` mixin applies flexbox in the column direction,
-    so we need to prevent things like buttons and links
-    from stretching horizontally
 \*------------------------------------*/
 .component--tabs [role=tablist] {
   border-bottom: solid 1px #bdbdbd;
@@ -1160,13 +1172,9 @@ td.active {
 }
 
 .component--tabs [role=tabpanel] {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start; /* 1 */
   padding: 1.5rem;
 }
-.component--tabs [role=tabpanel] > * + * {
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
+.component--tabs [role=tabpanel] > *:first-child {
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }

@@ -1,9 +1,5 @@
 /*------------------------------------*\
     #S24 tabby overrides
-
-	1. The `stack` mixin applies flexbox in the column direction,
-    so we need to prevent things like buttons and links
-    from stretching horizontally
 \*------------------------------------*/
 
 .component--tabs [role="tablist"] {
@@ -62,7 +58,9 @@
 
 
 .component--tabs [role="tabpanel"] {
-	@include stack;
-	align-items: flex-start; /* 1 */
 	padding: rem(24);
+
+    > *:first-child {
+        margin-block-start: 0;
+    }
 }

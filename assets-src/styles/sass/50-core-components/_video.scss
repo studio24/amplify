@@ -9,16 +9,15 @@
 	}
 
 	figcaption {
-		@include text-14;
-		@include stack;
+		@include text-17;
 		margin-block-start: 1em;
 
 		> * {
+            margin-block-start: 0;
 			max-inline-size: rem(540);
 		}
 
 		> a {
-			align-self: flex-start;
 			display: inline-block;
 			margin: 0;
 			padding-block: rem(10);

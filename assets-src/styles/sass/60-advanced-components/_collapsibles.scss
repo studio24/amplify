@@ -15,7 +15,7 @@
 	padding: rem(25);
 
 	.js-collapsible-heading {
-		@include text-20;
+		@include text-22;
 		font-weight: $emphasis;
 		text-align: start;
 	}
@@ -27,7 +27,7 @@
 
 
 	.js-collapsible-label {
-		@include text-16;
+		@include text-17;
 	}
 
 	&:hover {
