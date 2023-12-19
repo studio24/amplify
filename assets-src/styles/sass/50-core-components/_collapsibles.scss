@@ -1,41 +1,27 @@
 /*------------------------------------*\
     #Collapsible sections
 
-    1. The `stack` mixin applies flexbox in the column direction,
-    so we need to prevent things like buttons and links
-    from stretching horizontally
-
-    2. Restrict line-length for readability
+    1. Restrict line-length for readability
 \*------------------------------------*/
 
-.component--collapsibles,
-[data-heading="collapsibles"] + * {
+.component--collapsibles {
 	@include stack;
 }
 
 
 [data-heading="collapsibles"] {
-	@include text-20;
+	@include text-22;
+    margin: 0;
 }
 
 
 .component--collapsibles__panel {
-	@include stack;
 	background-color: $off-white;
 	border-radius: rem(6);
 	box-shadow: rem(-1) rem(1) rem(4) rgba(55, 70, 95, 0.12);
 	padding: rem(25);
 }
 
-.component--collapsibles__panel__content {
-	@include stack;
-
-	> * {
-		max-inline-size: rem($text-measure); /* 2 */
-	}
-
-	a,
-	button {
-		align-self: flex-start; /* 1 */
-	}
+.component--collapsibles__panel__content > * {
+    max-inline-size: rem($text-measure); /* 1 */
 }

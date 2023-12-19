@@ -35,3 +35,12 @@
 .note--warning {
 	border-color: $warning-color;
 }
+
+
+.note__heading {
+    margin-block-start: 0;
+}
+
+.note > *:last-child {
+    margin-block-end: 0;
+}

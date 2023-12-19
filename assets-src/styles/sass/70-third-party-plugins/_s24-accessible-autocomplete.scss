@@ -70,7 +70,7 @@
 .autocomplete__hint,
 .autocomplete__input,
 .autocomplete__option {
-	@include text-16;
+	@include text-17;
 	line-height: 1.25;
 }
 
@@ -79,7 +79,7 @@
 	.autocomplete__hint,
 	.autocomplete__input,
 	.autocomplete__option {
-		@include text-16;
+		@include text-17;
 		line-height: 1.25;
 	}
 }

@@ -3,9 +3,7 @@
 \*------------------------------------*/
 
 blockquote {
-	@include text-20;
-	@include stack(1rem);
-
+	@include text-25;
 	margin-block: rem(16);
 	margin-inline-start: rem(25);
 	padding: rem(10);
@@ -21,8 +19,13 @@ blockquote {
 		position: absolute;
 	}
 
-	cite {
-		font-size: 1rem;
-		font-style: normal;
-	}
+    > *:first-child {
+        margin-block-start: 0;
+    }
+
+    cite {
+        @include text-17;
+        font-style: normal;
+        font-weight: normal;
+    }
 }

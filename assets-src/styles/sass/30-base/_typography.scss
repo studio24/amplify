@@ -1,110 +1,77 @@
 /*------------------------------------*\
     #Typography
 
-    1. Equivalent to 16px browser default.
+    1. Fallback for browsers not supporting clamp().
     2. This generous line-height allows space for borders on the bottom of
     links but will need to be set explicitly on many elements.
 \*------------------------------------*/
 
 body {
+    @include text-body;
 	font-family: $font-family;
-	font-size: 1rem; /* 1 */
 	font-style: $font-style;
 	font-weight: $font-weight;
 	line-height: 1.7; /* 2 */
 }
 
 
-p + * {
-	margin-block-start: rem(16);
+p {
+    margin: rem(16) 0; /* 1 */
+    margin: clamp(0.5rem, calc(0.3rem + 1vw), 1rem) 0;
 }
 
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: $emphasis;
 	margin: 0;
+    margin-block-end: rem(16); /* 1 */
+    margin-block-end: clamp(0.5rem, calc(0.3rem + 1vw), 1rem);
+}
+
+h2, h3, h4, h5, h6 {
+    margin-block-start: rem(32);
 }
 
 h1,
-.text-48 {
-	@include text-48;
-
-	+ * {
-		margin-block-start: rem(24);
-	}
+.text-40 {
+	@include text-40;
 }
 
 h2,
-.text-39 {
-	@include text-39;
-
-	+ * {
-		margin-block-start: rem(8);
-	}
+.text-36 {
+    @include text-36;
 }
 
 h3,
-.text-31 {
-	@include text-31;
-
-	+ * {
-		margin-block-start: rem(8);
-	}
+.text-32 {
+    @include text-32;
 }
 
 h4,
-.text-25 {
-	@include text-25;
-
-	+ * {
-		margin-block-start: rem(8);
-	}
+.text-28 {
+    @include text-28;
 }
 
 h5,
-.text-20 {
-	@include text-20;
-
-	+ * {
-		margin-block-start: rem(4);
-	}
+.text-25 {
+    @include text-25;
 }
 
 h6,
-.text-16 {
-	@include text-16;
-
-	+ * {
-		margin-block-start: rem(4);
-	}
+.text-22 {
+    @include text-22;
 }
 
-.text-14 {
-	@include text-14;
-	margin-block-start: rem(16);
-}
-
-
-* + h2,
-.text-39,
-* + h3,
-.text-31,
-* + h4,
-.text-25,
-* + h5,
-.text-20,
-* + h6,
-.text-16{
-	margin-block-start: rem(24);
+.text-17 {
+    @include text-17;
+    margin-top: 1rem;
 }
 
 
 .lead {
-	@include lead;
-
-	+ * {
-		margin-block-start: rem(48);
-	}
+    @include text-28;
+    margin-block-end: rem(48); /* 1 */
+    margin-block-end: clamp(2.5rem, calc(2.3rem + 1vw), 3rem);
 }
 
 

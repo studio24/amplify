@@ -8,6 +8,17 @@ abbr {
 }
 
 
+address {
+    @include stack(1rem);
+    margin: rem(16) 0; /* 1 */
+    margin: clamp(0.5rem, calc(0.3rem + 1vw), 1rem) 0;
+
+    > * {
+        font-style: normal;
+    }
+}
+
+
 dfn {
 	font-style: normal;
 	font-weight: $emphasis;
@@ -30,7 +41,7 @@ i {
 small,
 .small,
 .small-caps {
-	@include text-14;
+	@include text-17;
 }
 
 
@@ -40,7 +51,13 @@ small,
 }
 
 
-hr,
+hr {
+    border: 0;
+    border-top: 1px solid $twiki-gray;
+    margin: rem(32) 0;
+}
+
+
 pre {
 	margin-block: rem(16);
 }
