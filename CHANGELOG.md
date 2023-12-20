@@ -6,6 +6,8 @@
 ### ⚠ BREAKING CHANGES
 
 * drop normalize css reset
+* review which reset styles still appropriate
+* new _media.scss partial for image and other media resets, replaces _images.scss
 
 ### Features
 
