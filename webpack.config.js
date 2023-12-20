@@ -5,7 +5,7 @@ module.exports = [{
 	context: path.resolve(__dirname, 'assets-src/js'),
 	entry: {
 		'main': './main.js',
-		'countryAutocomplete': './country-autocomplete.js',
+		'country-autocomplete': './country-autocomplete.js',
 		'tabs': './package-extensions/s24-tabby-polyfills.js',
 		'splide': './package-extensions/s24-splide.js',
 		'sortable-tables': './sortable-tables.js',
