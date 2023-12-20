@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.0.0](https://github.com/studio24/amplify/compare/v2.2.0...v3.0.0) (2023-12-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* drop normalize css reset
+* review which reset styles still appropriate
+* new _media.scss partial for image and other media resets, replaces _images.scss
+
+### Features
+
+* drop normalize css reset ([5e12001](https://github.com/studio24/amplify/commit/5e12001828509943190695439bd1cbfd796e1227))
+
 ## [2.2.0](https://github.com/studio24/amplify/compare/v2.1.2...v2.2.0) (2023-12-19)
 
 
