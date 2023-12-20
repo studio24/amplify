@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/studio24/amplify/compare/v3.0.0...v3.0.1) (2023-12-20)
+
+
+### Bug Fixes
+
+* fix accessible autocomplete ([4078e34](https://github.com/studio24/amplify/commit/4078e3466b06956e9100c947042796a8c66af797))
+
 ## [3.0.0](https://github.com/studio24/amplify/compare/v2.2.0...v3.0.0) (2023-12-20)
 
 
