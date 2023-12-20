@@ -4,10 +4,6 @@
 
 .component--video {
 
-	iframe {
-		border: 0;
-	}
-
 	figcaption {
 		@include text-17;
 		margin-block-start: 1em;

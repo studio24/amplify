@@ -23,7 +23,7 @@ on the icon's parent if there is a need to specify the spacing
 between text and icon. Pay attention to whether the icon comes
 before the text or after.
 
-2. Logical property creates spacing irrespective of text direction
+Use `margin-inline-end` for spacing irrespective of text direction
  */
 .with-icon--before,
 .with-icon--after {
