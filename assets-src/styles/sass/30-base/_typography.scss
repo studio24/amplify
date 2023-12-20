@@ -2,8 +2,9 @@
     #Typography
 
     1. Fallback for browsers not supporting clamp().
-    2. This generous line-height allows space for borders on the bottom of
-    links but will need to be set explicitly on many elements.
+    2. A minimum line-height of 1.5 is needed for accessibility.
+    A generous line-height of 1.7 allows space for borders on the bottom of
+    links, but will need to be set explicitly on many elements.
 \*------------------------------------*/
 
 body {
@@ -26,6 +27,10 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
     margin-block-end: rem(16); /* 1 */
     margin-block-end: clamp(0.5rem, calc(0.3rem + 1vw), 1rem);
+}
+
+h1, h2, h3, h4 {
+    text-wrap: balance;
 }
 
 h2, h3, h4, h5, h6 {

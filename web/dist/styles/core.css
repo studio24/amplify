@@ -163,341 +163,34 @@ article {
  */
 /*------------------------------------*\
     #Base
-
-    Normalize comes first for the cascade
 \*------------------------------------*/
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-/* Document
-   ========================================================================== */
-/**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in iOS.
- */
-html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-}
-
-/* Sections
-   ========================================================================== */
-/**
- * Remove the margin in all browsers.
- */
-body {
-  margin: 0;
-}
-
-/**
- * Render the `main` element consistently in IE.
- */
-main {
-  display: block;
-}
-
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-/* Grouping content
-   ========================================================================== */
-/**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
- */
-hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
-}
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
-/* Text-level semantics
-   ========================================================================== */
-/**
- * Remove the gray background on active links in IE 10.
- */
-a {
-  background-color: transparent;
-}
-
-/**
- * 1. Remove the bottom border in Chrome 57-
- * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
- */
-abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted; /* 2 */
-}
-
-/**
- * Add the correct font weight in Chrome, Edge, and Safari.
- */
-b,
-strong {
-  font-weight: bolder;
-}
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-code,
-kbd,
-samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
-/**
- * Add the correct font size in all browsers.
- */
-small {
-  font-size: 80%;
-}
-
-/**
- * Prevent `sub` and `sup` elements from affecting the line height in
- * all browsers.
- */
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
-/* Embedded content
-   ========================================================================== */
-/**
- * Remove the border on images inside links in IE 10.
- */
-img {
-  border-style: none;
-}
-
-/* Forms
-   ========================================================================== */
-/**
- * 1. Change the font styles in all browsers.
- * 2. Remove the margin in Firefox and Safari.
- */
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
-}
-
-/**
- * Show the overflow in IE.
- * 1. Show the overflow in Edge.
- */
-button,
-input { /* 1 */
-  overflow: visible;
-}
-
-/**
- * Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 1. Remove the inheritance of text transform in Firefox.
- */
-button,
-select { /* 1 */
-  text-transform: none;
-}
-
-/**
- * Correct the inability to style clickable types in iOS and Safari.
- */
-button,
-[type=button],
-[type=reset],
-[type=submit] {
-  -webkit-appearance: button;
-}
-
-/**
- * Remove the inner border and padding in Firefox.
- */
-button::-moz-focus-inner,
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-/**
- * Restore the focus styles unset by the previous rule.
- */
-button:-moz-focusring,
-[type=button]:-moz-focusring,
-[type=reset]:-moz-focusring,
-[type=submit]:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
-/**
- * Correct the padding in Firefox.
- */
-fieldset {
-  padding: 0.35em 0.75em 0.625em;
-}
-
-/**
- * 1. Correct the text wrapping in Edge and IE.
- * 2. Correct the color inheritance from `fieldset` elements in IE.
- * 3. Remove the padding so developers are not caught out when they zero out
- *    `fieldset` elements in all browsers.
- */
-legend {
-  box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
-}
-
-/**
- * Add the correct vertical alignment in Chrome, Firefox, and Opera.
- */
-progress {
-  vertical-align: baseline;
-}
-
-/**
- * Remove the default vertical scrollbar in IE 10+.
- */
-textarea {
-  overflow: auto;
-}
-
-/**
- * 1. Add the correct box sizing in IE 10.
- * 2. Remove the padding in IE 10.
- */
-[type=checkbox],
-[type=radio] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
-}
-
-/**
- * Correct the cursor style of increment and decrement buttons in Chrome.
- */
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-/**
- * 1. Correct the odd appearance in Chrome and Safari.
- * 2. Correct the outline style in Safari.
- */
-[type=search] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
-}
-
-/**
- * Remove the inner padding in Chrome and Safari on macOS.
- */
-[type=search]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/**
- * 1. Correct the inability to style clickable types in iOS and Safari.
- * 2. Change font properties to `inherit` in Safari.
- */
-::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
-}
-
-/* Interactive
-   ========================================================================== */
-/*
- * Add the correct display in Edge, IE 10+, and Firefox.
- */
-details {
-  display: block;
-}
-
-/*
- * Add the correct display in all browsers.
- */
-summary {
-  display: list-item;
-}
-
-/* Misc
-   ========================================================================== */
-/**
- * Add the correct display in IE 10+.
- */
-template {
-  display: none;
-}
-
-/**
- * Add the correct display in IE 10.
- */
-[hidden] {
-  display: none;
-}
-
 /*------------------------------------*\
-    #Box sizing
+    #Box-sizing resets
+
+    1. Use a more intuitive box-sizing model
+    2. Ensure elements use font styles as defined in Amplify
+    3. Reset margins
+    4. Avoid text overflows
 \*------------------------------------*/
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  font-family: inherit;
-  margin: 0;
-  overflow-wrap: break-word;
-  padding: 0;
-  word-wrap: break-word;
+*, *::before, *::after {
+  box-sizing: border-box; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+  overflow-wrap: break-word; /* 4 */
 }
 
 /*------------------------------------*\
     #Body
 
-    1. Needed for sticky footer
-    2. Because autoprefixer does not cover IE grid
+    1. Prevent font size inflation with change of orientation
+    2. Needed for sticky footer
+    3. Because autoprefixer does not cover IE grid
 \*------------------------------------*/
 html {
   block-size: 100%;
+  -moz-text-size-adjust: none; /* 1 */
+  -webkit-text-size-adjust: none; /* 1 */
+  text-size-adjust: none; /* 1 */
 }
 
 /**
@@ -506,12 +199,12 @@ html {
 body {
   background-color: #fcfcfc;
   color: #252525;
-  display: grid; /* 1 */
-  display: -ms-grid; /* 2 */
+  display: grid; /* 2 */
+  display: -ms-grid; /* 3 */
   grid-template-columns: 100%;
-  -ms-grid-columns: 100%; /* 2 */
-  grid-template-rows: 1fr auto; /* 1 */
-  -ms-grid-rows: 1fr auto; /* 2 */
+  -ms-grid-columns: 100%; /* 3 */
+  grid-template-rows: 1fr auto; /* 2 */
+  -ms-grid-rows: 1fr auto; /* 3 */
   min-block-size: 100%;
   overflow-inline: hidden;
   -moz-osx-font-smoothing: grayscale;
@@ -522,8 +215,9 @@ body {
     #Typography
 
     1. Fallback for browsers not supporting clamp().
-    2. This generous line-height allows space for borders on the bottom of
-    links but will need to be set explicitly on many elements.
+    2. A minimum line-height of 1.5 is needed for accessibility.
+    A generous line-height of 1.7 allows space for borders on the bottom of
+    links, but will need to be set explicitly on many elements.
 \*------------------------------------*/
 body {
   font-size: 1.25rem; /* 1 */
@@ -546,6 +240,10 @@ h1, h2, h3, h4, h5, h6 {
           margin-block-end: 1rem; /* 1 */
   -webkit-margin-after: clamp(0.5rem, 0.3rem + 1vw, 1rem);
           margin-block-end: clamp(0.5rem, 0.3rem + 1vw, 1rem);
+}
+
+h1, h2, h3, h4 {
+  text-wrap: balance;
 }
 
 h2, h3, h4, h5, h6 {
@@ -618,6 +316,24 @@ can safely use the web fonts instead of the system fonts.
  */
 .fonts-loaded body {
   font-family: "Nunito", "Arial MT Rounded Bold", Arial, sans-serif;
+}
+
+/*------------------------------------*\
+    #Media
+
+    Resets for consistent base display
+\*------------------------------------*/
+audio, canvas, embed, iframe, img, object, picture, video {
+  display: block;
+}
+
+audio, canvas, img, picture, svg, video {
+  block-size: auto;
+  max-inline-size: 100%;
+}
+
+iframe {
+  border: 0;
 }
 
 /*------------------------------------*\
@@ -741,12 +457,35 @@ small,
 
 hr {
   border: 0;
-  border-top: 1px solid #bdbdbd;
+  -webkit-border-before: 1px solid #bdbdbd;
+          border-block-start: 1px solid #bdbdbd;
+  block-size: 0;
   margin: 2rem 0;
+  overflow: visible;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  inset-block-end: -0.25em;
+}
+
+sup {
+  inset-block-start: -0.5em;
 }
 
 pre {
-  margin-block: 1rem;
+  margin-block: 2rem;
+  white-space: pre-wrap;
 }
 
 code,
@@ -765,7 +504,7 @@ pre {
 code,
 kbd,
 samp {
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 samp kbd {
@@ -774,11 +513,27 @@ samp kbd {
 
 code,
 kbd {
+  padding-block: 0.125rem;
+  padding-inline: 0.25rem;
+}
+
+code {
   background-color: #252525;
   border-radius: 0.25rem;
   color: #fcfcfc;
-  padding-block: 0.125rem;
-  padding-inline: 0.25rem;
+}
+
+kbd {
+  border: solid 0.0625rem;
+}
+
+pre code {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+  -o-tab-size: 4;
+     tab-size: 4;
+  white-space: pre;
 }
 
 /*------------------------------------*\
@@ -832,6 +587,10 @@ a.with-icon--after:focus {
   background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
   color: #000;
   text-decoration: none;
+}
+
+button {
+  line-height: 1.15;
 }
 
 .button {
@@ -1055,6 +814,13 @@ details[open] > summary::before {
 }
 
 /*------------------------------------*\
+    #SVG
+\*------------------------------------*/
+svg {
+  fill: currentColor;
+}
+
+/*------------------------------------*\
     #Icons
 \*------------------------------------*/
 /**
@@ -1076,7 +842,7 @@ on the icon's parent if there is a need to specify the spacing
 between text and icon. Pay attention to whether the icon comes
 before the text or after.
 
-2. Logical property creates spacing irrespective of text direction
+Use `margin-inline-end` for spacing irrespective of text direction
  */
 .with-icon--before,
 .with-icon--after {
@@ -1096,20 +862,6 @@ before the text or after.
 .with-icon--after .icon {
   -webkit-margin-start: 0.625rem;
           margin-inline-start: 0.625rem;
-}
-
-/*------------------------------------*\
-    #Images
-\*------------------------------------*/
-img {
-  display: block;
-  max-inline-size: 100%;
-}
-
-svg {
-  block-size: auto;
-  fill: currentColor;
-  inline-size: 100%;
 }
 
 /*------------------------------------*\
@@ -1434,6 +1186,10 @@ label,
 .required {
   color: #545454;
   font-weight: normal;
+}
+
+input, optgroup {
+  line-height: 1.15;
 }
 
 textarea,
@@ -1846,6 +1602,10 @@ select:focus {
   outline-offset: 0;
 }
 
+optgroup {
+  line-height: 1.25;
+}
+
 /**
 Optional select with custom arrow icon matching the SVG used for accessible autocomplete
  */
@@ -1906,7 +1666,7 @@ Optional select with custom arrow icon matching the SVG used for accessible auto
     1. We use left and right padding to add some minimum space between the
     contents of `.l-center` and the edges of the parent element or viewport.
     To avoid making the content narrower than intended, we add an exception
-    to our global box-sizing rule (defined in 30-base/_box-sizing.scss).
+    to our global box-sizing rule (defined in 30-base/_reset.scss).
 \*------------------------------------*/
 .l-center {
   box-sizing: content-box;
@@ -2433,9 +2193,6 @@ main,
 /*------------------------------------*\
     #Video component
 \*------------------------------------*/
-.component--video iframe {
-  border: 0;
-}
 .component--video figcaption {
   font-size: 1.0625rem; /* 1 */
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
