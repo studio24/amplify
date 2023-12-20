@@ -48,6 +48,9 @@
 	border: 2px solid inherit;
 }
 
+.autocomplete__option {
+    margin-block-start: 0;
+}
 
 .autocomplete__option--odd {
 	background-color: $twiki-gray;
