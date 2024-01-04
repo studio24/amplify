@@ -32,7 +32,7 @@ echo "Removing amplify-eleventy-module folder"
 rm -rf amplify-eleventy-module
 
 echo "Adding Eleventy passthrough folder to gitignore..."
-echo "\n #Eleventy - Ignore passhtrough folder \n assets-src/passthrough" >> .gitignore
+echo "\n #Eleventy - Ignore passthrough folder \n assets-src/passthrough" >> .gitignore
 
 echo "Successfully installed Eleventy!"
 echo "See docs/eleventy.md for things to do next"
