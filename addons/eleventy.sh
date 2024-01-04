@@ -10,6 +10,7 @@ Steps:
 '
 # Install Eleventy and relevant dependencies
 echo "Installing Eleventy with image, twig and sass plugins..."
+nvm use
 npm install @11ty/eleventy @11ty/eleventy-img @factorial/eleventy-plugin-twig
 npm install @grimlink/eleventy-plugin-sass --save-dev
 
@@ -20,9 +21,9 @@ git clone git@github.com:studio24/amplify-eleventy-module.git
 # Move new files from repo folder to 
 echo "Extracting relevant files and moving them into the root folder..."
 cd amplify-eleventy-module
-mv ./assets-src/* ../assets-src
-mv _data configs eleventy.js ./
-mv README.md ./docs/eleventy.md
+mv ./assets-src/_includes ../assets-src
+mv _data configs .eleventy.js ../
+mv README.md ../docs/eleventy.md
 
 echo "Moving back to root folder"
 cd ../
@@ -31,5 +32,7 @@ echo "Removing amplify-eleventy-module folder"
 rm -rf amplify-eleventy-module
 
 echo "Adding Eleventy passthrough folder to gitignore..."
-echo "#Eleventy" >> .gitignore
-echo "assets-src/passthroughs"
+echo "\n #Eleventy - Ignore passhtrough folder \n assets-src/passthrough" >> .gitignore
+
+echo "Successfully installed Eleventy!"
+echo "See docs/eleventy.md for things to do next"
