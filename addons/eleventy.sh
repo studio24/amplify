@@ -28,11 +28,19 @@ mv README.md ../docs/eleventy.md
 echo "Moving back to root folder"
 cd ../
 
-echo "Removing amplify-eleventy-module folder"
+echo "Removing amplify-eleventy-module folder..."
 rm -rf amplify-eleventy-module
 
+# Amend existing code to work with Eleventy
 echo "Adding Eleventy passthrough folder to gitignore..."
 echo "\n #Eleventy - Ignore passthrough folder \n assets-src/passthrough" >> .gitignore
+
+echo "Amending 'to' parameter in package.json config..."
+replace '"to": "dist"' '"to": "assets-src/passthroughs"' -- package.json
+
+echo "Amending start and build scripts in package.json to be compatible with Eleventy..."
+replace '"build": "npm-run-all --parallel fonts images svgs js styles"' '"build": "npm-run-all --parallel fonts images svgs js eleventy"' -- package.json
+replace '"watch": "npm-run-all --parallel watch:*"' '"start": "npm-run-all --parallel watch:* & eleventy --serve"' -- package.json
 
 echo "Successfully installed Eleventy!"
 echo "See docs/eleventy.md for things to do next"
