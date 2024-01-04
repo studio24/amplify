@@ -21,9 +21,9 @@
 
 .tag {
 	@include text-17;
-	background-color: $twiki-gray;
+	background-color: $neutral-60;
 	border-radius: rem(4);
-	color: $off-black;
+	color: $white;
 	display: inline-block;
 	outline: 1px solid transparent; /* 1 */
 	outline-offset: -1px; /* 1 */

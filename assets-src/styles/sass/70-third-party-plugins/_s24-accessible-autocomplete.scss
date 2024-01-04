@@ -10,7 +10,7 @@
 
 
 .autocomplete__hint {
-	color: $twiki-gray;
+    color: $neutral-30;
 }
 
 
@@ -53,7 +53,7 @@
 }
 
 .autocomplete__option--odd {
-	background-color: $twiki-gray;
+	background-color: $neutral-20;
 }
 
 
@@ -65,7 +65,7 @@
 
 
 .autocomplete__option--no-results {
-	background-color: $twiki-gray;
+	background-color:  $neutral-30;
 	color: $off-black;
 }
 

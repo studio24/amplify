@@ -9,7 +9,7 @@
 	position: relative;
 
 	&::before {
-		background-color: $blue;
+		background-color: $brand-60;
 		block-size: 100%;
 		border-radius: rem(5);
 		content: '';
@@ -20,7 +20,7 @@
 	}
 
 	> *:not(footer) {
-		color: $blue;
+		color: $brand-60;
 		font-weight: bold;
 	}
 

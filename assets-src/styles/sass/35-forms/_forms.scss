@@ -25,6 +25,7 @@ End of resets for the fieldset element
 
 
 form > * + *,
+fieldset > * + *,
 .field-group > * + * {
 	margin-block-start: 1.75rem;
 }
@@ -35,9 +36,10 @@ form > * + *,
 }
 
 
+legend,
 .field-group__heading {
 	@include text-22;
-	font-weight: bold;
+	font-weight: $emphasis;
 }
 
 
@@ -88,14 +90,14 @@ label,
 
 .field-hint {
 	@include text-17;
-	color: $storm-gray;
+	color: $neutral-70;
 	margin-block-end: 0.25rem;
 	max-inline-size: rem($text-measure);
 }
 
 
 .required {
-	color: $storm-gray;
+	color: $neutral-70;
 	font-weight: normal;
 }
 

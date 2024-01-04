@@ -24,7 +24,7 @@
 	position: relative;
 
 	&::after {
-		background-color: $storm-gray;
+		background-color: $neutral-70;
 		block-size: rem(13);
 		inline-size: rem(3);
 		inset-block-end: rem(-16);
@@ -91,7 +91,7 @@
 	align-items: center;
 	background-color: $off-white;
 	block-size: rem(44);
-	border: solid 3px $storm-gray;
+	border: solid 3px $neutral-70;
 	border-radius: 50%;
 	display: flex;
 	inline-size: rem(44);
@@ -138,7 +138,7 @@
 
 
 .progress-list a {
-	color: $storm-gray;
+	color: $neutral-70;
 	text-decoration-skip: auto; // Supported by Safari
 	text-decoration-skip-ink: auto; // Not supported by Safari
 

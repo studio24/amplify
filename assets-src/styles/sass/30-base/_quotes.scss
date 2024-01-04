@@ -10,7 +10,7 @@ blockquote {
 	position: relative;
 
 	&::before {
-		background-color: $twiki-gray;
+		background-color: $neutral-50;
 		block-size: 100%;
 		content: "";
 		inline-size: rem(3);

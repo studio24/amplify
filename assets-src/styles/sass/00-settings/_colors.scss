@@ -13,21 +13,53 @@
 /**
 Brand
  */
-$blue: #0d599b;
-$navy: #001f3f;
-$purple: #920ba6;
+$brand-100: #01172e;
+$brand-90: #032749;
+$brand-80: #063a69;
+$brand-70: #0c5492;
+$brand-60: #1371c2;
+$brand-55: #0b80e5;
+$brand-50: #1b90f4;
+$brand-40: #6faafc;
+$brand-30: #a9c7fd;
+$brand-20: #c9e3fe;
+$brand-10: #e9f6ff;
+
+
+
+/**
+Accent
+ */
+$accent-100: #350014;
+$accent-90: #530023;
+$accent-80: #760035;
+$accent-70: #a4004c;
+$accent-65: #bf0059;
+$accent-60: #da0067;
+$accent-50: #ff4085;
+$accent-40: #ff7fa3;
+$accent-30: #ffb1c3;
+$accent-20: #ffd6df;
+$accent-10: #fff1f4;
 
 
 
 /**
 Neutrals
  */
+$neutral-100: #161616;
+$neutral-90: #262626;
+$neutral-80: #393939;
+$neutral-70: #525252;
+$neutral-60: #6f6f6f;
+$neutral-50: #8d8d8d;
+$neutral-40: #a8a8a8;
+$neutral-30: #c6c6c6;
+$neutral-20: #e0e0e0;
+$neutral-10: #f4f4f4;
+
 $off-black: #252525; /* 1 */
 $off-white: #fcfcfc; /* 1 */
-$storm-gray: #545454;
-$twiki-gray: #bdbdbd;
-$light-gray: #cecdcd;
-$disable-gray: #303030; // Disabled button text colour, where $twiki-gray is the background colour
 
 $black: #000;
 $white: #fff;
@@ -37,9 +69,14 @@ $white: #fff;
 /**
 Links
  */
-$link-color:                    $blue;
-$link-color--hover:             $navy;
-$link-color--visited:           $purple;
+$link-color:                    $brand-60;
+$link-color--active:			$brand-70;
+$link-color--hover:             $brand-55;
+$link-color--visited:           $brand-80;
+
+$accent-color:					$accent-60;
+$accent-color--hover:			$accent-65;
+$accent-color--active:			$accent-80;
 
 
 
@@ -54,16 +91,23 @@ $off-focus-color:               #ffdc0026;
 /**
 Borders
  */
-$border-color:                  $twiki-gray;
-$input-border-color:            $storm-gray;
+$border-color:                  $neutral-30;
+$input-border-color:            $neutral-50;
 
 
 
 /**
-Contextual colours (meets WCAG AA for regular text against $off-white,
-so also safe for borders)
+Semantics - used sparingly and purposefully
  */
-$error-color:                   #b83123;
-$info-color:                    #235bd1;
-$success-color:                 #17731d;
-$warning-color:                 #965203;
+$error-bg-color:                #fef1f1;
+$error-border-color:			#f85156;
+$error-color:					#a4141b;
+$info-bg-color:                 #e9f6ff;
+$info-border-color:				#1b90f4;
+$info-color:					#063a69;
+$success-bg-color:              #d6fedc;
+$success-border-color:			#2dc158;
+$success-color:					#115f28;
+$warning-bg-color:              #fef3da;
+$warning-border-color:			#c3a62c;
+$warning-color:					#605111;

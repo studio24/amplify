@@ -62,8 +62,8 @@ button,
 input[type="submit"].button {
 	align-items: center;
 	align-self: start; /* 4 */
-	background-color: $link-color;
-	border: solid 2px $link-color;
+	background-color: $accent-color;
+	border: solid 2px $accent-color;
 	border-radius: rem(6);
 	color: $off-white;
 	display: inline-flex;
@@ -74,9 +74,8 @@ input[type="submit"].button {
 	padding-inline: 0.75em;
 
 	&:hover {
-		background-color: $link-color--hover;
-		border-color: $link-color--hover;
-		color: $off-white;
+		background-color: $accent-color--hover;
+		border-color: $accent-color--hover;
 	}
 
 	&:active,
@@ -98,10 +97,10 @@ input[type="submit"].button {
 // Alternative button style with a visible border
 .button--alt.button--alt {
 	background-color: transparent;
-	color: $link-color;
+	color: $accent-color;
 
 	&:hover {
-		background-color: $link-color--hover;
+		background-color: $accent-color--hover;
 		color: $off-white;
 	}
 
@@ -142,17 +141,16 @@ input[type="submit"].button {
 button[disabled],
 .button[disabled],
 .button.js-disabled {
-	background-color: $twiki-gray;
-	border-color: $twiki-gray;
-	box-shadow: none;
-	color: $disable-gray;
-	cursor: not-allowed;
+    background-color: $neutral-50;
+    border-color: $neutral-50;
+    color: $off-black;
+    cursor: not-allowed;
 
 	&:hover,
 	&:focus,
 	&:active {
-		background-color: $twiki-gray;
-		color: $disable-gray;
+		background-color: $neutral-50;
+        color: $off-black;
 		outline: 0;
 	}
 }
