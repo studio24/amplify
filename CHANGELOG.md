@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/studio24/amplify/compare/v3.0.1...v3.1.0) (2024-01-04)
+
+
+### Features
+
+* Update starting colour variables ([594681c](https://github.com/studio24/amplify/commit/594681c1567952562fe7163e8eb8ae454f532c48))
+
 ## [3.0.1](https://github.com/studio24/amplify/compare/v3.0.0...v3.0.1) (2023-12-20)
 
 
