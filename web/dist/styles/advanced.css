@@ -29,6 +29,9 @@
 Brand
  */
 /**
+Accent
+ */
+/**
 Neutrals
  */
 /* 1 */
@@ -43,8 +46,7 @@ Focus
 Borders
  */
 /**
-Contextual colours (meets WCAG AA for regular text against $off-white,
-so also safe for borders)
+Semantics - used sparingly and purposefully
  */
 /*------------------------------------*\
     #Typesetting
@@ -445,7 +447,7 @@ br {
   text-align: start;
 }
 .js [data-heading=collapsibles] button .js-collapsible-toggle {
-  color: #0d599b;
+  color: #1371c2;
 }
 .js [data-heading=collapsibles] button .js-collapsible-label {
   font-size: 1.0625rem; /* 1 */
@@ -453,7 +455,7 @@ br {
   line-height: 1.5;
 }
 .js [data-heading=collapsibles] button:hover .js-collapsible-heading {
-  color: #0d599b;
+  color: #1371c2;
 }
 .js [data-heading=collapsibles] button:hover .js-collapsible-label {
   text-decoration: underline;
@@ -754,7 +756,7 @@ td.active {
 }
 
 .autocomplete__hint {
-  color: #bdbdbd;
+  color: #c6c6c6;
 }
 
 .autocomplete__input--focused {
@@ -789,17 +791,17 @@ td.active {
 }
 
 .autocomplete__option--odd {
-  background-color: #bdbdbd;
+  background-color: #e0e0e0;
 }
 
 .autocomplete__option--focused,
 .autocomplete__option:hover {
-  background-color: #235bd1;
-  border-color: #235bd1;
+  background-color: #063a69;
+  border-color: #063a69;
 }
 
 .autocomplete__option--no-results {
-  background-color: #bdbdbd;
+  background-color: #c6c6c6;
   color: #252525;
 }
 
@@ -1042,7 +1044,7 @@ td.active {
   border-color: #000;
 }
 .splide__pagination__page::after {
-  background-color: #0d599b;
+  background-color: #1371c2;
   border-radius: 50%;
   content: "";
   height: 0.875rem;
@@ -1051,7 +1053,7 @@ td.active {
 }
 .splide__pagination__page[aria-selected=true]::after {
   background-color: transparent;
-  border: solid 2px #0d599b;
+  border: solid 2px #1371c2;
 }
 
 /**
@@ -1131,7 +1133,7 @@ td.active {
     #S24 tabby overrides
 \*------------------------------------*/
 .component--tabs [role=tablist] {
-  border-bottom: solid 1px #bdbdbd;
+  border-bottom: solid 1px #c6c6c6;
   display: flex;
   flex-flow: row nowrap;
   max-inline-size: 100%;
@@ -1154,7 +1156,7 @@ td.active {
 }
 
 .component--tabs a[role=tab] {
-  background-color: #bdbdbd;
+  background-color: #c6c6c6;
   border: 0;
   border-radius: 0;
   border-bottom: solid 0.1875rem transparent;
@@ -1164,14 +1166,14 @@ td.active {
   padding: 0.625em 0.9375em;
 }
 .component--tabs a[role=tab]:hover {
-  background-color: #bdbdbd;
+  background-color: #c6c6c6;
   border: 0;
-  border-bottom: solid 0.1875rem #bdbdbd;
+  border-bottom: solid 0.1875rem #c6c6c6;
   color: #252525;
 }
 .component--tabs a[role=tab]:focus, .component--tabs a[role=tab][aria-selected=true] {
-  background-color: #bdbdbd;
-  border-bottom: solid 0.1875rem #235bd1;
+  background-color: #c6c6c6;
+  border-bottom: solid 0.1875rem #063a69;
   outline: none;
   text-decoration: none;
 }

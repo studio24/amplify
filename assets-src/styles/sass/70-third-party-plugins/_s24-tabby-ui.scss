@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 .component--tabs [role="tablist"] {
-	border-bottom: solid 1px $twiki-gray;
+	border-bottom: solid 1px $neutral-30;
 	display: flex;
 	flex-flow: row nowrap;
 	max-inline-size: 100%;
@@ -31,7 +31,7 @@
 
 
 .component--tabs a[role="tab"] {
-	background-color: $twiki-gray;
+	background-color: $neutral-30;
 	border: 0;
 	border-radius: 0;
 	border-bottom: solid rem(3) transparent;
@@ -41,15 +41,15 @@
 	padding: em(10) em(15);
 
 	&:hover {
-		background-color: $twiki-gray;
+		background-color: $neutral-30;
 		border: 0;
-		border-bottom: solid rem(3) $twiki-gray;
+		border-bottom: solid rem(3) $neutral-30;
 		color: $off-black;
 	}
 
 	&:focus,
 	&[aria-selected="true"] {
-		background-color: $twiki-gray;
+		background-color: $neutral-30;
 		border-bottom: solid rem(3) $info-color;
 		outline: none;
 		text-decoration: none;

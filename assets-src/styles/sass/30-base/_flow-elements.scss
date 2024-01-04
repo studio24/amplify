@@ -53,7 +53,7 @@ small,
 
 hr {
     border: 0;
-    border-block-start: 1px solid $twiki-gray;
+    border-block-start: 1px solid $neutral-30;
     block-size: 0;
     margin: rem(32) 0;
     overflow: visible;
@@ -115,9 +115,9 @@ kbd {
 }
 
 code {
-    background-color: $off-black;
+    background-color: $neutral-90;
     border-radius: rem(4);
-    color: $off-white;
+    color: $neutral-10;
 }
 
 kbd {
