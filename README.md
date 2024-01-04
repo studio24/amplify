@@ -2,6 +2,8 @@
 
 Front-End starter kit by Studio 24.
 
+**TODO - Add bits about Eleventy**
+
 ## Getting started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for how to deploy the project to staging and live environments. 
