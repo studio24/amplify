@@ -1,5 +1,8 @@
 /*------------------------------------*\
     #Icons
+
+    1. Make SVG using currentColor pick up correct Windows High Contrast Mode color
+    See: https://www.smashingmagazine.com/2022/06/guide-windows-high-contrast-mode/
 \*------------------------------------*/
 
 /**
@@ -8,6 +11,10 @@ Icons are sized relative to font size, thanks to the em unit.
 .icon {
 	block-size: 0.75em;
 	inline-size: 0.75em;
+
+    svg {
+        forced-color-adjust: auto; /* 1 */
+    }
 }
 
 

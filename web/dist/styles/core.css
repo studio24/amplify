@@ -2215,50 +2215,56 @@ main,
 
 /*------------------------------------*\
     #Notes
-
-    1. The `stack` mixin applies flexbox in the column direction,
-    so we need to prevent things like buttons and links
-    from stretching horizontally
 \*------------------------------------*/
 .note {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start; /* 1 */
-  border-width: 0.3125rem;
-}
-.note > * + * {
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
+  background-position: 1.5rem 1.5rem;
+  background-repeat: no-repeat;
+  background-size: 2rem;
+  border: solid 1px;
+  border-inline-start-width: 4px;
+  padding: 1.5rem;
+  -webkit-padding-start: 4.5rem;
+          padding-inline-start: 4.5rem;
 }
 .note > * {
   max-inline-size: 41.25rem;
 }
-
-.note--error {
-  border-color: #f85156;
-}
-
-.note--info {
-  border-color: #1b90f4;
-}
-
-.note--success {
-  border-color: #2dc158;
-}
-
-.note--warning {
-  border-color: #c3a62c;
-}
-
-.note__heading {
+.note > *:first-child {
   -webkit-margin-before: 0;
           margin-block-start: 0;
 }
-
-.note > *:last-child {
+.note > *:last-child,
+.note > * li:last-child {
   -webkit-margin-after: 0;
           margin-block-end: 0;
+}
+
+.note--error {
+  background-color: #fef1f1;
+  background-image: url(../svg/note-bg-error.svg);
+  border-color: #f85156;
+  color: #a4141b;
+}
+
+.note--info {
+  background-color: #e9f6ff;
+  background-image: url(../svg/note-bg-info.svg);
+  border-color: #1b90f4;
+  color: #063a69;
+}
+
+.note--success {
+  background-color: #d6fedc;
+  background-image: url(../svg/note-bg-success.svg);
+  border-color: #2dc158;
+  color: #115f28;
+}
+
+.note--warning {
+  background-color: #fef3da;
+  background-image: url(../svg/note-bg-warning.svg);
+  border-color: #c3a62c;
+  color: #605111;
 }
 
 /*------------------------------------*\
