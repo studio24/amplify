@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/studio24/amplify/compare/v3.1.0...v3.2.0) (2024-01-05)
+
+
+### Features
+
+* Add bg image to notes component, update styles and advice ([93a5e3d](https://github.com/studio24/amplify/commit/93a5e3d444c2da3bf02163b114bce0bbba298e46))
+
 ## [3.1.0](https://github.com/studio24/amplify/compare/v3.0.1...v3.1.0) (2024-01-04)
 
 
