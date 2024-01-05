@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.0](https://github.com/studio24/amplify/compare/v3.2.0...v3.3.0) (2024-01-05)
+
+
+### Features
+
+* Introduce global focus style with focus-visible support ([e9a8337](https://github.com/studio24/amplify/commit/e9a8337919bf99fd9fd1e2bf91d9ecaddf904700))
+
 ## [3.2.0](https://github.com/studio24/amplify/compare/v3.1.0...v3.2.0) (2024-01-05)
 
 
