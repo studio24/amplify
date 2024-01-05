@@ -5,7 +5,7 @@
 .autocomplete__hint,
 .autocomplete__input {
 	appearance: none;
-	border: 2px solid inherit;
+	border: 2px solid $input-border-color;
 }
 
 
@@ -16,9 +16,9 @@
 
 .autocomplete__input--focused {
 	background-color: $off-white;
-	outline: 3px solid $focus-color;
-	outline-offset: 0;
-	box-shadow: inset 0 0 0 2px;
+    box-shadow: 0 0 0 4px $black;
+    outline: 2px solid $focus-color; /* 2 */
+    outline-offset: 0; /* 2 */
 }
 
 
@@ -45,7 +45,11 @@
 
 
 .autocomplete__menu {
-	border: 2px solid inherit;
+	border: 2px solid $input-border-color;
+}
+
+.autocomplete__menu--overlay {
+    top: calc(100% + 4px);
 }
 
 .autocomplete__option {

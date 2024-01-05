@@ -1,27 +1,37 @@
 /*------------------------------------*\
-    #Focus
+    #Global focus styles incorporating a reset for :focus-visible
+
+    1. If a link breaks over multiple lines, copy focus styles over all lines.
+    See https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break
+    2. Windows High Contrast/forced-color modes tend to eliminate background-color and box-shadow.
+    We retain an outline - even if it's transparent - to ensure an accessible focus indicator.
 \*------------------------------------*/
 
 :focus {
-	/**
-	Ideally we would specify the background-color here to cover all circumstances.
-	Unfortunately, this does not work at all well for Internet Explorer, so we can't.
+    box-decoration-break: clone; /* 1 */
+    -webkit-box-decoration-break: clone; /* 1 */
+    box-shadow: 0 0 0 4px $black;
+    outline: 2px solid $focus-color; /* 2 */
+    outline-offset: 0; /* 2 */
+    text-decoration: none;
+}
 
-	High contrast themes tend to eliminate background-color. If no border is set, we
-	need to apply a transparent outline to maintain the button shape. The negative
-	outline-offset moves the outline inside the perimeter to behaves like a border.
-	 */
-	outline: 2px solid transparent;
-	outline-offset: -2px;
+/**
+Unset focus styles (apart from transparent outline) where the browser wouldn't set a visible focus
+ */
+:focus:not(:focus-visible) {
+    box-shadow: none;
+    outline-color: transparent;
 }
 
 
 /**
-Where focus is moved to the target via JavaScript, it
-is acceptable not to show a focus outline.
+Where focus is programmatically moved to a target element that is not interactive, we
+suppress the focus styles. See https://github.com/twbs/bootstrap/issues/29875#issuecomment-582648069
  */
 main:focus,
 #main:focus,
 [tabindex="-1"]:focus {
-	outline: none;
+    box-shadow: none;
+    outline: none;
 }

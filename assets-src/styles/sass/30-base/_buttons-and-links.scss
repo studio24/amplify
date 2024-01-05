@@ -30,20 +30,16 @@ a.with-icon--after {
 
 	&:hover {
 		color: $link-color--hover;
-		outline-width: 0; /* 2 */
+		// outline-width: 0; /* 2 */
 	}
 
-	&:active {
-		color: $off-black;
-		outline-width: 0; /* 2 */
-	}
-
-	&:focus {
-		background-color: $focus-color;
-		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
-		color: $black;
-		text-decoration: none;
-	}
+    &:active {
+        color: $link-color--active;
+        outline: none; /* 2 */
+        text-decoration: underline; /* 1 */
+        text-decoration-skip: auto; // Supported by Safari
+        text-decoration-skip-ink: auto; // Not supported by Safari
+    }
 }
 
 
@@ -78,13 +74,11 @@ input[type="submit"].button {
 		border-color: $accent-color--hover;
 	}
 
-	&:active,
-	&:focus {
-		background-color: $focus-color;
-		background-image: none;
-		border-color: $black;
-		color: $black;
-	}
+    &:active {
+        color: $off-white;
+        background-color: $accent-color--active;
+        border-color: $accent-color--active;
+    }
 }
 
 
@@ -94,9 +88,9 @@ input[type="submit"].button {
 }
 
 
-// Alternative button style with a visible border
+// Alternative button style with a distinct border
 .button--alt.button--alt {
-	background-color: transparent;
+	background-color: $off-white;
 	color: $accent-color;
 
 	&:hover {
@@ -104,13 +98,11 @@ input[type="submit"].button {
 		color: $off-white;
 	}
 
-	&:active,
-	&:focus {
-		background-color: $focus-color;
-		color: $black;
-		outline: 2px solid $black;
-		outline-offset: -3px;
-	}
+    &:active {
+        color: $off-white;
+        background-color: $accent-color--active;
+        border-color: $accent-color--active;
+    }
 }
 
 
@@ -126,14 +118,6 @@ input[type="submit"].button {
 		background-color: transparent;
 		border-color: transparent;
 	}
-
-	&:active,
-	&:focus {
-		color: $black;
-		background-color: $focus-color;
-		background-image: none;
-		border-color: $black;
-	}
 }
 
 
@@ -145,12 +129,4 @@ button[disabled],
     border-color: $neutral-50;
     color: $off-black;
     cursor: not-allowed;
-
-	&:hover,
-	&:focus,
-	&:active {
-		background-color: $neutral-50;
-        color: $off-black;
-		outline: 0;
-	}
 }

@@ -2,24 +2,19 @@
     #Skip link
 \*------------------------------------*/
 
-.skip-link {
+.skip-link.skip-link {
 	@extend .visuallyhidden;
 	background-color: $focus-color;
-	border: solid 3px $black;
+    box-shadow: inset 0 0 0 2px $black;
 	color: $black;
 	padding-block: em(10);
 	padding-inline: em(15);
+    position: absolute;
 	text-decoration: none;
+    z-index: 999;
 
-	&:active,
 	&:focus {
-		inset-block-start: 0;
-		inset-inline-start: 0;
-		position: absolute;
-		z-index: 999;
-
-		span {
-			box-shadow: 0 -1px 0 0 inset;
-		}
+		inset-block-start: 2px;
+		inset-inline-start: 2px;
 	}
 }

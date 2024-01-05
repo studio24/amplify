@@ -1,5 +1,8 @@
 /*------------------------------------*\
     #Forms - checkbox and radio inputs
+
+    1. Windows High Contrast/forced-color modes tend to eliminate background-color and box-shadow.
+    We retain an outline - even if it's transparent - to ensure an accessible focus indicator.
 \*------------------------------------*/
 
 .radio-item,
@@ -60,7 +63,7 @@
 
     &::before {
         background: transparent;
-        border: 2px solid;
+        border: 2px solid $input-border-color;
         block-size: rem(24);
 		inline-size: rem(24);
 		inset-block-start: rem(8);
@@ -121,8 +124,9 @@
 .radio-item input:focus + label,
 .checkbox-item input:focus + label {
     &::before {
-        border-width: 4px;
-        box-shadow: 0 0 0 4px $focus-color;
+        box-shadow: 0 0 0 4px $black;
+        outline: 2px solid $focus-color; /* 1 */
+        outline-offset: 0; /* 1 */
     }
 }
 
@@ -131,7 +135,9 @@
 .radio-item:hover input:focus + label,
 .checkbox-item:hover input:focus + label {
     &::before {
-        box-shadow: 0 0 0 4px $focus-color;
+        box-shadow: 0 0 0 4px $black;
+        outline: 2px solid $focus-color; /* 1 */
+        outline-offset: 0; /* 1 */
     }
 }
 

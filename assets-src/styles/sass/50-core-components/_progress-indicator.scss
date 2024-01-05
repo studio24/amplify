@@ -150,14 +150,6 @@
 		color: $link-color--hover;
 	}
 
-	&:focus {
-		box-shadow: 0 0 0 2px;
-		color: $black;
-		outline: solid 3px $focus-color;
-		outline-offset: 2px;
-		text-decoration: none;
-	}
-
 	&:active {
 		color: $black;
 	}

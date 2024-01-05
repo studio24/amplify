@@ -574,21 +574,17 @@ a:not([class]):hover,
 a.with-icon--before:hover,
 a.with-icon--after:hover {
   color: #0b80e5;
-  outline-width: 0; /* 2 */
 }
 a:not([class]):active,
 a.with-icon--before:active,
 a.with-icon--after:active {
-  color: #252525;
-  outline-width: 0; /* 2 */
-}
-a:not([class]):focus,
-a.with-icon--before:focus,
-a.with-icon--after:focus {
-  background-color: #ffdc00;
-  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
-  color: #000;
-  text-decoration: none;
+  color: #0c5492;
+  outline: none; /* 2 */
+  text-decoration: underline; /* 1 */
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
 }
 
 button {
@@ -621,15 +617,12 @@ input[type=submit].button:hover {
   background-color: #bf0059;
   border-color: #bf0059;
 }
-button:active, button:focus,
+button:active,
 .button:active,
-.button:focus,
-input[type=submit].button:active,
-input[type=submit].button:focus {
-  background-color: #ffdc00;
-  background-image: none;
-  border-color: #000;
-  color: #000;
+input[type=submit].button:active {
+  color: #fcfcfc;
+  background-color: #760035;
+  border-color: #760035;
 }
 
 .button--wide.button--wide {
@@ -637,18 +630,17 @@ input[type=submit].button:focus {
 }
 
 .button--alt.button--alt {
-  background-color: transparent;
+  background-color: #fcfcfc;
   color: #da0067;
 }
 .button--alt.button--alt:hover {
   background-color: #bf0059;
   color: #fcfcfc;
 }
-.button--alt.button--alt:active, .button--alt.button--alt:focus {
-  background-color: #ffdc00;
-  color: #000;
-  outline: 2px solid #000;
-  outline-offset: -3px;
+.button--alt.button--alt:active {
+  color: #fcfcfc;
+  background-color: #760035;
+  border-color: #760035;
 }
 
 .button--ghost.button--ghost {
@@ -662,12 +654,6 @@ input[type=submit].button:focus {
   background-color: transparent;
   border-color: transparent;
 }
-.button--ghost.button--ghost:active, .button--ghost.button--ghost:focus {
-  color: #000;
-  background-color: #ffdc00;
-  background-image: none;
-  border-color: #000;
-}
 
 button[disabled],
 .button[disabled],
@@ -677,63 +663,23 @@ button[disabled],
   color: #252525;
   cursor: not-allowed;
 }
-button[disabled]:hover, button[disabled]:focus, button[disabled]:active,
-.button[disabled]:hover,
-.button[disabled]:focus,
-.button[disabled]:active,
-.button.js-disabled:hover,
-.button.js-disabled:focus,
-.button.js-disabled:active {
-  background-color: #8d8d8d;
-  color: #252525;
-  outline: 0;
-}
 
 /*------------------------------------*\
     #Skip link
 \*------------------------------------*/
-.skip-link {
+.skip-link.skip-link {
   background-color: #ffdc00;
-  border: solid 3px #000;
+  box-shadow: inset 0 0 0 2px #000;
   color: #000;
   padding-block: 0.625em;
   padding-inline: 0.9375em;
-  text-decoration: none;
-}
-.skip-link:active, .skip-link:focus {
-  inset-block-start: 0;
-  inset-inline-start: 0;
   position: absolute;
+  text-decoration: none;
   z-index: 999;
 }
-.skip-link:active span, .skip-link:focus span {
-  box-shadow: 0 -1px 0 0 inset;
-}
-
-/*------------------------------------*\
-    #Focus
-\*------------------------------------*/
-:focus {
-  /**
-  Ideally we would specify the background-color here to cover all circumstances.
-  Unfortunately, this does not work at all well for Internet Explorer, so we can't.
-
-  High contrast themes tend to eliminate background-color. If no border is set, we
-  need to apply a transparent outline to maintain the button shape. The negative
-  outline-offset moves the outline inside the perimeter to behaves like a border.
-   */
-  outline: 2px solid transparent;
-  outline-offset: -2px;
-}
-
-/**
-Where focus is moved to the target via JavaScript, it
-is acceptable not to show a focus outline.
- */
-main:focus,
-#main:focus,
-[tabindex="-1"]:focus {
-  outline: none;
+.skip-link.skip-link:focus {
+  inset-block-start: 2px;
+  inset-inline-start: 2px;
 }
 
 /*------------------------------------*\
@@ -789,14 +735,6 @@ summary span {
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
 }
-summary:focus {
-  background-color: #ffdc00;
-  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
-  color: #000;
-}
-summary:focus span {
-  text-decoration: none;
-}
 
 details[open] > summary {
   -webkit-margin-after: 1rem;
@@ -822,6 +760,9 @@ svg {
 
 /*------------------------------------*\
     #Icons
+
+    1. Make SVG using currentColor pick up correct Windows High Contrast Mode color
+    See: https://www.smashingmagazine.com/2022/06/guide-windows-high-contrast-mode/
 \*------------------------------------*/
 /**
 Icons are sized relative to font size, thanks to the em unit.
@@ -829,6 +770,9 @@ Icons are sized relative to font size, thanks to the em unit.
 .icon {
   block-size: 0.75em;
   inline-size: 0.75em;
+}
+.icon svg {
+  forced-color-adjust: auto; /* 1 */
 }
 
 .icon--24 {
@@ -1060,11 +1004,6 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
     -webkit-margin-before: 0;
             margin-block-start: 0;
   }
-  [data-component=table-wrap]:focus {
-    border-color: #000;
-    box-shadow: inset 0 0 0 4px;
-    outline: 3px solid #ffdc00;
-  }
 }
 /*------------------------------------*\
     #Animation
@@ -1088,6 +1027,42 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
     transition-delay: 0s !important;
   }
 }
+/*------------------------------------*\
+    #Global focus styles incorporating a reset for :focus-visible
+
+    1. If a link breaks over multiple lines, copy focus styles over all lines.
+    See https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break
+    2. Windows High Contrast/forced-color modes tend to eliminate background-color and box-shadow.
+    We retain an outline - even if it's transparent - to ensure an accessible focus indicator.
+\*------------------------------------*/
+:focus {
+  box-decoration-break: clone; /* 1 */
+  -webkit-box-decoration-break: clone; /* 1 */
+  box-shadow: 0 0 0 4px #000;
+  outline: 2px solid #ffdc00; /* 2 */
+  outline-offset: 0; /* 2 */
+  text-decoration: none;
+}
+
+/**
+Unset focus styles (apart from transparent outline) where the browser wouldn't set a visible focus
+ */
+:focus:not(:focus-visible) {
+  box-shadow: none;
+  outline-color: transparent;
+}
+
+/**
+Where focus is programmatically moved to a target element that is not interactive, we
+suppress the focus styles. See https://github.com/twbs/bootstrap/issues/29875#issuecomment-582648069
+ */
+main:focus,
+#main:focus,
+[tabindex="-1"]:focus {
+  box-shadow: none;
+  outline: none;
+}
+
 /*------------------------------------*\
     #Forms
 \*------------------------------------*/
@@ -1214,21 +1189,6 @@ textarea,
   line-height: 1.25;
   padding: 0.3125rem;
 }
-textarea:focus,
-[type=date]:focus,
-[type=email]:focus,
-[type=file]:focus,
-[type=number]:focus,
-[type=password]:focus,
-[type=search]:focus,
-[type=tel]:focus,
-[type=text]:focus,
-[type=time]:focus,
-[type=url]:focus {
-  box-shadow: inset 0 0 0 2px;
-  outline: solid 3px #ffdc00;
-  outline-offset: 0;
-}
 
 [type=date],
 [type=email],
@@ -1244,13 +1204,6 @@ textarea:focus,
 
 [type=file] {
   border-color: transparent;
-}
-[type=file]:focus {
-  border-color: currentColor;
-  box-shadow: inset 0 0 0 4px;
-  margin-inline: -0.3125rem;
-  outline: 3px solid #ffdc00;
-  padding-inline: 0.3125rem;
 }
 
 /**
@@ -1316,9 +1269,6 @@ Error styles
 [data-component=error-summary] li a:hover, [data-component=error-summary] li a:visited {
   color: #a4141b;
 }
-[data-component=error-summary] li a:focus {
-  color: #252525;
-}
 
 .field--error {
   -webkit-border-start: solid 0.3125rem #a4141b;
@@ -1332,7 +1282,7 @@ Error styles
 }
 .field--error input:focus,
 .field--error textarea:focus {
-  border-color: inherit;
+  border-color: #8d8d8d;
 }
 
 .field-error-msg {
@@ -1344,6 +1294,9 @@ Error styles
 
 /*------------------------------------*\
     #Forms - checkbox and radio inputs
+
+    1. Windows High Contrast/forced-color modes tend to eliminate background-color and box-shadow.
+    We retain an outline - even if it's transparent - to ensure an accessible focus indicator.
 \*------------------------------------*/
 .radio-item,
 .checkbox-item {
@@ -1407,7 +1360,7 @@ Error styles
 .radio-item label::before,
 .checkbox-item label::before {
   background: transparent;
-  border: 2px solid;
+  border: 2px solid #8d8d8d;
   block-size: 1.5rem;
   inline-size: 1.5rem;
   inset-block-start: 0.5rem;
@@ -1454,13 +1407,16 @@ Error styles
 
 .radio-item input:focus + label::before,
 .checkbox-item input:focus + label::before {
-  border-width: 4px;
-  box-shadow: 0 0 0 4px #ffdc00;
+  box-shadow: 0 0 0 4px #000;
+  outline: 2px solid #ffdc00; /* 1 */
+  outline-offset: 0; /* 1 */
 }
 
 .radio-item:hover input:focus + label::before,
 .checkbox-item:hover input:focus + label::before {
-  box-shadow: 0 0 0 4px #ffdc00;
+  box-shadow: 0 0 0 4px #000;
+  outline: 2px solid #ffdc00; /* 1 */
+  outline-offset: 0; /* 1 */
 }
 
 .radio-item input:checked + label::after,
@@ -1515,7 +1471,7 @@ Error styles
   position: relative;
 }
 .segmented-group.l-switcher label {
-  border: 2px solid;
+  border: 2px solid #8d8d8d;
   cursor: pointer;
   display: block;
   margin: 0.125rem;
@@ -1578,9 +1534,10 @@ Error styles
   background-color: #c6c6c6;
 }
 .segmented-group.l-switcher input:focus + label {
-  border-color: #ffdc00;
-  box-shadow: inset 0 0 0 4px;
-  outline: solid 2px #ffdc00;
+  border-color: #000;
+  box-shadow: inset 0 0 0 4px #8d8d8d;
+  outline: 2px solid #ffdc00; /* 1 */
+  outline-offset: -4px; /* 1 */
 }
 .segmented-group.l-switcher input:checked + label::after {
   opacity: 1;
@@ -1592,16 +1549,11 @@ Error styles
 select {
   background-color: #fcfcfc;
   block-size: 2.75rem;
-  border: 2px solid;
+  border: 2px solid #8d8d8d;
   border-radius: 0;
   inline-size: 100%;
   line-height: 1.25;
   padding: 0.3125rem;
-}
-select:focus {
-  box-shadow: inset 0 0 0 2px;
-  outline: solid 3px #ffdc00;
-  outline-offset: 0;
 }
 
 optgroup {
@@ -1975,10 +1927,15 @@ min-inline-size, so that either of these properties is applied instead.
   padding-left: 1.25rem;
 }
 
+/**
+Using a.nav-link rather than just .nav-link is deliberate here to avoid unwanted styles
+on buttons created via JS for toggling dropdown navigation (they retain the nav-link class)
+ */
 a.nav-link {
+  color: #1371c2;
   display: block;
   line-height: normal;
-  padding: 0.6875rem 0.875rem;
+  padding: 0.5625rem 0.875rem;
 }
 a.nav-link:hover {
   color: #0b80e5;
@@ -1987,12 +1944,6 @@ a.nav-link:hover {
 a.nav-link:active {
   color: #252525;
   outline-width: 0; /* 2 */
-}
-a.nav-link:focus {
-  background-color: #ffdc00;
-  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
-  color: #000;
-  text-decoration: none;
 }
 
 /*------------------------------------*\
@@ -2025,10 +1976,10 @@ a.nav-link:focus {
 .breadcrumbs a {
   color: #252525;
   display: block;
-  -webkit-padding-after: 0.6875rem;
-          padding-block-end: 0.6875rem;
-  -webkit-padding-before: 0.6875rem;
-          padding-block-start: 0.6875rem;
+  -webkit-padding-after: 0.3125rem;
+          padding-block-end: 0.3125rem;
+  -webkit-padding-before: 0.3125rem;
+          padding-block-start: 0.3125rem;
 }
 .breadcrumbs a:visited, .breadcrumbs a:hover, .breadcrumbs a:active {
   color: #252525;
@@ -2038,7 +1989,7 @@ a.nav-link:focus {
   font-weight: 600;
   text-decoration: none;
 }
-.breadcrumbs [aria-current]:hover, .breadcrumbs [aria-current]:focus {
+.breadcrumbs [aria-current]:focus {
   outline-color: #252525;
 }
 
@@ -2344,12 +2295,6 @@ main,
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
 }
-.card__link:focus {
-  background-color: #ffdc00;
-  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
-  color: #000;
-  text-decoration: none;
-}
 
 /*------------------------------------*\
     #Shelves
@@ -2543,13 +2488,6 @@ main,
 .progress-list a:hover {
   color: #0b80e5;
 }
-.progress-list a:focus {
-  box-shadow: 0 0 0 2px;
-  color: #000;
-  outline: solid 3px #ffdc00;
-  outline-offset: 2px;
-  text-decoration: none;
-}
 .progress-list a:active {
   color: #000;
 }
@@ -2557,10 +2495,9 @@ main,
 /*------------------------------------*\
     #Tag list
 
-    1. High contrast themes tend to eliminate background-color. If there is no
-    border set, we need to apply a transparent outline to maintain the
-    the shape. The negative outline-offset moves the outline inside the
-    perimeter so it behaves like a border and doesn't add to the overall size.
+    1. High contrast themes tend to eliminate background-color, so we need a border
+    to mark the shape and boundaries of each tag. Match the border-color to the
+    background-color if you do not want the border to be obvious.
 
     2. Meet WCAG AAA target size requirements for this font size - see
     https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
@@ -2577,12 +2514,11 @@ main,
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
   background-color: #6f6f6f;
+  border: solid 1px #6f6f6f; /* 1 */
   border-radius: 0.25rem;
   color: #fff;
   display: inline-block;
-  outline: 1px solid transparent; /* 1 */
-  outline-offset: -1px; /* 1 */
-  padding: 0.6875rem; /* 2 */
+  padding: 0.5625rem; /* 2 */
   text-decoration: none;
 }
 .tag:hover {
@@ -2591,11 +2527,6 @@ main,
           text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-}
-.tag:focus {
-  background-color: #ffdc00;
-  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
-  color: #000;
 }
 
 /*------------------------------------*\
@@ -2723,12 +2654,6 @@ input[type=search] {
 .pagination__list a:visited {
   color: #000;
 }
-.pagination__list a:focus {
-  background-color: #ffdc00;
-  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
-  color: #000;
-  text-decoration: none;
-}
 .pagination__list a[href]:hover {
   text-decoration: underline;
   -webkit-text-decoration-skip: auto;
@@ -2744,9 +2669,6 @@ input[type=search] {
 .pagination__list a[href][aria-current]:hover {
   color: #fcfcfc;
   text-decoration: none;
-}
-.pagination__list a[href][aria-current]:focus {
-  color: #000;
 }
 
 /*------------------------------------*\
@@ -2795,10 +2717,6 @@ input[type=search] {
 .global-footer a:visited, .global-footer a:hover, .global-footer a:active {
   color: #252525;
 }
-.global-footer a:focus {
-  background-color: #ffdc00;
-  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
-}
 
 /*------------------------------------*\
     #Templates
@@ -2843,10 +2761,6 @@ input[type=search] {
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
 }
-.amplify .global-header__link:focus {
-  background-color: #ffdc00;
-  color: #252525;
-}
 
 .amplify .global-nav {
   -webkit-border-after: solid 2px #c6c6c6;
@@ -2877,13 +2791,6 @@ input[type=search] {
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
 }
-.amplify .global-nav__link:focus {
-  background-clip: padding-box;
-  background-color: #ffdc00;
-  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
-  color: #000;
-  text-decoration: none;
-}
 
 .amplify .current .global-nav__link {
   border-block-end-color: #252525;
@@ -2909,12 +2816,6 @@ input[type=search] {
           text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
-}
-.amplify .nav-secondary__link:focus {
-  background-color: #ffdc00;
-  background-image: linear-gradient(to top, #000 3px, #ffdc00 3px, #ffdc00);
-  color: #000;
-  text-decoration: none;
 }
 
 .amplify .nav-secondary__link[aria-current] {

@@ -30,8 +30,8 @@
 .breadcrumbs a {
 	color: $off-black;
 	display: block;
-	padding-block-end: rem(11);
-	padding-block-start: rem(11);
+	padding-block-end: rem(5);
+	padding-block-start: rem(5);
 
 	&:visited,
 	&:hover,
@@ -45,7 +45,6 @@
 	font-weight: $emphasis;
 	text-decoration: none;
 
-	&:hover,
 	&:focus {
 		outline-color: $off-black;
 	}

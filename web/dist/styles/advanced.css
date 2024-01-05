@@ -464,13 +464,6 @@ br {
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
 }
-.js [data-heading=collapsibles] button:focus {
-  background-color: #ffdc00;
-}
-.js [data-heading=collapsibles] button:focus .js-collapsible-heading,
-.js [data-heading=collapsibles] button:focus .js-collapsible-toggle {
-  color: #000;
-}
 .js [data-heading=collapsibles] button[aria-expanded=false] .circle-up {
   display: none;
 }
@@ -499,14 +492,6 @@ br {
 
 [data-toggle=true] svg {
   pointer-events: none;
-}
-[data-toggle=true]:hover {
-  box-shadow: 0 0 4px 2px rgba(84, 84, 84, 0.25);
-}
-[data-toggle=true]:focus {
-  background-color: #ffdc00;
-  border-color: #000;
-  box-shadow: none;
 }
 [data-toggle=true][aria-expanded=false] .expand-less {
   display: none;
@@ -752,7 +737,7 @@ td.active {
 .autocomplete__input {
   -webkit-appearance: none;
           appearance: none;
-  border: 2px solid inherit;
+  border: 2px solid #8d8d8d;
 }
 
 .autocomplete__hint {
@@ -761,9 +746,9 @@ td.active {
 
 .autocomplete__input--focused {
   background-color: #fcfcfc;
-  outline: 3px solid #ffdc00;
-  outline-offset: 0;
-  box-shadow: inset 0 0 0 2px;
+  box-shadow: 0 0 0 4px #000;
+  outline: 2px solid #ffdc00; /* 2 */
+  outline-offset: 0; /* 2 */
 }
 
 [dir=rtl] .autocomplete__input--show-all-values {
@@ -782,7 +767,11 @@ td.active {
 }
 
 .autocomplete__menu {
-  border: 2px solid inherit;
+  border: 2px solid #8d8d8d;
+}
+
+.autocomplete__menu--overlay {
+  top: calc(100% + 4px);
 }
 
 .autocomplete__option {
@@ -1164,6 +1153,9 @@ td.active {
   display: block;
   margin-bottom: 0;
   padding: 0.625em 0.9375em;
+  /**
+  Unset focus styles (apart from transparent outline) where the browser wouldn't set a visible focus
+   */
 }
 .component--tabs a[role=tab]:hover {
   background-color: #c6c6c6;
@@ -1171,11 +1163,17 @@ td.active {
   border-bottom: solid 0.1875rem #c6c6c6;
   color: #252525;
 }
-.component--tabs a[role=tab]:focus, .component--tabs a[role=tab][aria-selected=true] {
+.component--tabs a[role=tab][aria-selected=true] {
   background-color: #c6c6c6;
   border-bottom: solid 0.1875rem #063a69;
-  outline: none;
   text-decoration: none;
+}
+.component--tabs a[role=tab]:focus {
+  box-shadow: inset 0 0 0 4px #000;
+  outline-offset: -4px;
+}
+.component--tabs a[role=tab]:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
 .component--tabs [role=tabpanel] {

@@ -42,15 +42,6 @@
 		}
 	}
 
-	&:focus {
-		background-color: $focus-color;
-
-		.js-collapsible-heading,
-		.js-collapsible-toggle {
-			color: $black;
-		}
-	}
-
 	&[aria-expanded="false"] {
 		.circle-up {
 			display: none;
