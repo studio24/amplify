@@ -1,46 +1,58 @@
 /*------------------------------------*\
     #Notes
-
-    1. The `stack` mixin applies flexbox in the column direction,
-    so we need to prevent things like buttons and links
-    from stretching horizontally
 \*------------------------------------*/
 
 .note {
-	@include stack;
-	align-items: flex-start; /* 1 */
-	border-width: rem(5);
+    background-position: rem(24) rem(24);
+    background-repeat: no-repeat;
+    background-size: rem(32);
+    border: solid 1px;
+    border-inline-start-width: 4px;
+    padding: rem(24);
+    padding-inline-start: rem(72);
 
 	> * {
 		max-inline-size: rem($text-measure);
+
+        &:first-child {
+            margin-block-start: 0;
+        }
+
+        &:last-child,
+        li:last-child {
+            margin-block-end: 0;
+        }
 	}
 }
 
 
 .note--error {
-	border-color: $error-border-color;
+    background-color: $error-bg-color;
+    background-image: url(../svg/note-bg-error.svg);
+    border-color: $error-border-color;
+    color: $error-color;
 }
 
 
 .note--info {
-	border-color: $info-border-color;
+    background-color: $info-bg-color;
+    background-image: url(../svg/note-bg-info.svg);
+    border-color: $info-border-color;
+    color: $info-color;
 }
 
 
 .note--success {
-	border-color: $success-border-color;
+    background-color: $success-bg-color;
+    background-image: url(../svg/note-bg-success.svg);
+    border-color: $success-border-color;
+    color: $success-color;
 }
 
 
 .note--warning {
-	border-color: $warning-border-color;
-}
-
-
-.note__heading {
-    margin-block-start: 0;
-}
-
-.note > *:last-child {
-    margin-block-end: 0;
+    background-color: $warning-bg-color;
+    background-image: url(../svg/note-bg-warning.svg);
+    border-color: $warning-border-color;
+    color: $warning-color;
 }
