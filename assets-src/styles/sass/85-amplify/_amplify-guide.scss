@@ -28,11 +28,6 @@
 		text-decoration-skip: auto; // Supported by Safari
 		text-decoration-skip-ink: auto; // Not supported by Safari
 	}
-
-	&:focus {
-		background-color: $focus-color;
-		color: $off-black;
-	}
 }
 
 
@@ -61,14 +56,6 @@
 		text-decoration-skip: auto; // Supported by Safari
 		text-decoration-skip-ink: auto; // Not supported by Safari
 	}
-
-	&:focus {
-		background-clip: padding-box;
-		background-color: $focus-color;
-		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
-		color: $black;
-		text-decoration: none;
-	}
 }
 
 .amplify .current .global-nav__link {
@@ -93,13 +80,6 @@
 		text-decoration: underline;
 		text-decoration-skip: auto; // Supported by Safari
 		text-decoration-skip-ink: auto; // Not supported by Safari
-	}
-
-	&:focus {
-		background-color: $focus-color;
-		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
-		color: $black;
-		text-decoration: none;
 	}
 }
 

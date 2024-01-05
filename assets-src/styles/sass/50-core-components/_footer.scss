@@ -39,10 +39,5 @@
 		&:active {
 			color: $off-black;
 		}
-
-		&:focus {
-			background-color: $focus-color;
-			background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
-		}
 	}
 }

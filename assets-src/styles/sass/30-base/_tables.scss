@@ -63,11 +63,5 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
             margin-block-end: 0;
             margin-block-start: 0;
         }
-
-        &:focus {
-            border-color: $black;
-            box-shadow: inset 0 0 0 4px;
-            outline: 3px solid $focus-color;
-        }
     }
 }
