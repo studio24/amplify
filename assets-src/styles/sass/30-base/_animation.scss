@@ -1,5 +1,7 @@
 /*------------------------------------*\
     #Animation
+
+    'scroll-shadow-inset' improves visual affordance of horizontally scrolling tables
 \*------------------------------------*/
 
 /*
@@ -17,5 +19,17 @@
         scroll-behavior: auto !important;
         transition-duration: 0.001ms !important;
         transition-delay: 0s !important;
+    }
+}
+
+@keyframes scroll-shadow-inset {
+    /* start with inset shadow on right */
+    from {
+        box-shadow: inset -10px -10px 15px 0px rgb(0 0 0 / 0.3);
+    }
+
+    /* end with inset shadow on left */
+    to {
+        box-shadow: inset 10px -10px 15px 0px rgb(0 0 0 / 0.3);
     }
 }
