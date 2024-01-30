@@ -517,6 +517,7 @@ br {
 .js [data-component=sortable-table] .arrow-wrapper {
   display: flex;
   flex-direction: column;
+  inline-size: 0.9375rem;
   -webkit-margin-start: 0.75rem;
           margin-inline-start: 0.75rem;
   pointer-events: none;
@@ -557,7 +558,7 @@ th > button:hover {
   stroke-width: 3.125rem;
 }
 
-td.active {
+col.js-sorted {
   background-color: rgba(255, 220, 0, 0.1490196078);
 }
 

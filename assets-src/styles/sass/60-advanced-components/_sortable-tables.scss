@@ -5,6 +5,7 @@
 .js [data-component="sortable-table"] .arrow-wrapper {
 	display: flex;
 	flex-direction: column;
+    inline-size: rem(15);
 	margin-inline-start: rem(12);
 	pointer-events: none;
 }
@@ -53,6 +54,6 @@ th > button {
 	}
 }
 
-td.active {
-	background-color: $off-focus-color;
+col.js-sorted {
+	background-color: $focus-color--rgba;
 }

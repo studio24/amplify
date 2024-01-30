@@ -92,37 +92,52 @@
 					<div class="component">
 						<table data-component="sortable-table">
 							<caption>A sortable table, use column header buttons to sort</caption>
+							<colgroup>
+								<col>
+								<col>
+								<col>
+							</colgroup>
 							<thead>
-							<tr>
-								<th data-type="string" scope="col">Column header 1</th>
-								<th data-type="string" scope="col">Column header 2</th>
-								<th data-type="no-sort" scope="col">Sorting disabled</th>
-							</tr>
+								<tr>
+									<th data-type="string" scope="col">Column header 1</th>
+									<th data-type="string" scope="col">Column header 2</th>
+									<th data-type="no-sort" scope="col">Sorting disabled</th>
+								</tr>
 							</thead>
 							<tbody>
-							<tr>
-								<td>AAA</td>
-								<td>BBB</td>
-								<td>CCC</td>
-							</tr>
-							<tr>
-								<td>BBB</td>
-								<td>AAA</td>
-								<td>CCC</td>
-							</tr>
+								<tr>
+									<td>AAA</td>
+									<td>BBB</td>
+									<td>CCC</td>
+								</tr>
+								<tr>
+									<td>BBB</td>
+									<td>AAA</td>
+									<td>CCC</td>
+								</tr>
 							</tbody>
 						</table>
 					</div>
 					<div class="component component--text">
 						<h2>Considerations</h2>
 						<p>The <code>table</code> element must include the <code>data-component="sortable-table"</code> data attribute to allow each column to be sortable.</p>
-						<p>Each table header must include the <code>data-type="..."</code> data attribute, which specifies the type of data in each column, e.g. <code>data-type="number"</code>, <code>data-type="string"</code> or <code>data-type="date"</code>. Use <code>data-type="no-sort"</code> when sorting functionality should be disallowed.</p>
+						<p>The <code>table</code> markup must include a <code>colgroup</code> element with the same number of child <code>col</code> elements as there are <code>th</code> elements.</p>
+						<p>Each <code>th</code> element must include the <code>data-type="..."</code> data attribute, which specifies the type of data in each column, e.g. <code>data-type="number"</code>, <code>data-type="string"</code> or <code>data-type="date"</code>. Use <code>data-type="no-sort"</code> when sorting functionality should be disallowed.</p>
 						<p>Where a table cell is holding a date, it must have a <code>data-date</code> attribute holding the date converted into UNIX timestamp, e.g. <code> data-date="191030400"</code>.</p>
 					</div>
 					<div class="component component--table">
 						<div role="region" aria-labelledby="unique-caption-id" tabindex="0" data-component="table-wrap">
 							<table data-component="sortable-table">
 								<caption id="unique-caption-id">Members of the Spice Girls, use column header buttons to sort</caption>
+								<colgroup>
+									<col>
+									<col>
+									<col>
+									<col>
+									<col>
+									<col>
+									<col>
+								</colgroup>
 								<thead>
 								<tr>
 									<th data-type="number" scope="col">ID</th>
