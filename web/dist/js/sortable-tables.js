@@ -7,22 +7,21 @@ function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symb
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 /**
- * Table sort function
- * @param {Element} table - the top level table with data-component="sortable-table"
- */
+* Table sort function
+* @param {Element} table - the top level table with data-component="sortable-table"
+*/
 function sortTable(table) {
   // All clickable table th / filtered out those with data-type="no-sort" attributes
   var headers = _toConsumableArray(table.querySelectorAll('th')).filter(function (header) {
     return header.dataset.type !== 'no-sort';
   });
-  // Table body
+  var cols = _toConsumableArray(table.querySelectorAll('col'));
   var tableBody = table.querySelector('tbody');
-  // All table rows
   var rows = tableBody.querySelectorAll('tr');
 
   // Setting default sorting order to descending for all th with data-type="*" attribute
   headers.map(function (header) {
-    return convertThToBtn(header);
+    return addBtnToTh(header);
   });
 
   // Creates an array of th each represented as empty '';
@@ -31,15 +30,15 @@ function sortTable(table) {
   });
 
   /**
-   * Converts all table headers to clickable buttons and append svg arrows
+   * Inserts a button into table headers for sorting columns
    * @param {Element} heading - table th element
-   * @returns {Element} button - button created from table th element with wrapper which contains svg arrows
+   * @returns {Element} button - button created for table th element with wrapper which contains svg arrows
    */
-  function convertThToBtn(heading) {
+  function addBtnToTh(heading) {
     var btn = document.createElement('button');
     var appendArrows = function appendArrows(btn) {
       var wrapper = document.createElement('div');
-      var arrowsWrapper = "\n          <svg fill=\"currentColor\" focusable=\"false\"\n          aria-hidden=\"true\" class=\"asc icon icon--32\" viewBox=\"0 0 407.436 407.436\">\n            <polygon points=\"203.718,91.567 0,294.621 21.179,315.869 203.718,133.924 386.258,315.869 407.436,294.621 \"/>\n          </svg>\n          <svg fill=\"currentColor\" focusable=\"false\"\n          aria-hidden=\"true\" class=\"desc icon icon--32\" viewBox=\"0 0 407.437 407.437\">\n            <polygon points=\"386.258,91.567 203.718,273.512 21.179,91.567 0,112.815 203.718,315.87 407.437,112.815 \"/>\n          </svg>";
+      var arrowsWrapper = "<svg fill=\"currentColor\" focusable=\"false\" aria-hidden=\"true\" class=\"asc icon\" viewBox=\"0 0 407.436 407.436\" width=\"15\" height=\"15\">\n\t\t<polygon points=\"203.718,91.567 0,294.621 21.179,315.869 203.718,133.924 386.258,315.869 407.436,294.621 \"/></svg>\n\t\t<svg fill=\"currentColor\" focusable=\"false\" aria-hidden=\"true\" class=\"desc icon\" viewBox=\"0 0 407.437 407.437\" width=\"15\" height=\"15\">\n\t\t<polygon points=\"386.258,91.567 203.718,273.512 21.179,91.567 0,112.815 203.718,315.87 407.437,112.815 \"/></svg>";
       wrapper.classList.add('arrow-wrapper');
       btn.textContent = heading.textContent;
       wrapper.innerHTML = arrowsWrapper;
@@ -58,6 +57,7 @@ function sortTable(table) {
   function transform(index, content) {
     // Get data type from table header
     var type = headers[index].getAttribute('data-type');
+
     // Transform data if data-type="number" attribute is present on table header
     switch (type) {
       case 'number':
@@ -105,10 +105,12 @@ function sortTable(table) {
           return 0;
       }
     });
+
     // Remove all rows from table body
     rows.forEach(function (row) {
       return tableBody.removeChild(row);
     });
+
     // Change direction to opposite for next sort
     directions[index] = direction === 'ascending' ? 'descending' : 'ascending';
 
@@ -123,44 +125,26 @@ function sortTable(table) {
       // Sort table when clicked on table header
       sortCol(header, index);
 
-      // Remove active class from table cells when clicked on table header
-      var currentActiveFields = tableBody.querySelectorAll('.active');
-      removeActiveClasses(currentActiveFields);
-
-      // Remove aria-sort attribute from table headers when clicked on table header
-      var fieldsToHighlight = _toConsumableArray(rows).map(function (row) {
-        return row.querySelectorAll('td')[index];
+      // Add .js-sorted class to appropriate <col> when button in table header is clicked
+      cols.forEach(function (col) {
+        col.classList.remove('js-sorted');
       });
+      var colToHighlight = cols[index];
+      colToHighlight.classList.add('js-sorted');
 
-      // Add active class to table cells when clicked on table header
+      // Add aria-sort attribute to table headers when clicked on table header
       if (document.activeElement === e.target) {
         headers.forEach(function (header) {
           if (header.firstChild !== e.target) {
             header.removeAttribute('aria-sort');
           }
         });
-
-        // Add aria-sort attribute to table headers when clicked on table header
-        fieldsToHighlight.forEach(function (field) {
-          field.classList.add('active');
-          field.setAttribute('scope', 'row');
-        });
       }
     });
   });
 
   /**
-   * @param {Array} elementsToIterate - list of all active table cells in selected column
-   */
-  function removeActiveClasses(elementsToIterate) {
-    // Remove active class from table cells when clicked on table header
-    elementsToIterate.forEach(function (field) {
-      return field.classList.remove('active');
-    });
-  }
-
-  /**
-   * @param {Array} elements - list of all table headers with aria-sort attribure
+   * @param {Array} elements - list of all table headers with aria-sort attribute
    */
   function removeSortAttributes(elements) {
     if (elements) {
@@ -174,17 +158,18 @@ function sortTable(table) {
   table.addEventListener('keyup', function (e) {
     // Remove active class from table cells when clicked on Escape key
     var key = e.key;
+
     // Check if clicked key is Escape key and remove active class from table cells
     if (key === 'Escape' || key === 'Esc' || key === 27) {
-      // Remove active class from table cells when clicked on Escape key or outside of table body
-      var currentActiveFields = tableBody.querySelectorAll('.active');
-      removeActiveClasses(currentActiveFields);
-
       // Remove aria-sort attribute from table headers when clicked on Escape key or outside of table body
       var currentActiveHeader = document.querySelector('th[aria-sort]');
       if (currentActiveHeader) {
         currentActiveHeader.removeAttribute('aria-sort');
       }
+
+      // Remove .js-sorted class from table col when clicked on Escape key
+      var sortedCol = table.querySelector('.js-sorted');
+      sortedCol.classList.remove('js-sorted');
     }
   });
 
@@ -196,15 +181,17 @@ function sortTable(table) {
       if (currentActiveHeader) {
         currentActiveHeader.removeAttribute('aria-sort');
       }
-      // Remove active class from table cells when clicked outside of table body
-      var currentActiveFields = document.querySelectorAll('.active');
-      removeActiveClasses(currentActiveFields);
+
+      // Remove .js-sorted class from table col when clicked outside of table body
+      var sortedCol = table.querySelector('.js-sorted');
+      sortedCol.classList.remove('js-sorted');
     }
   });
 }
 
 // Create sortable table
 var tables = _toConsumableArray(document.querySelectorAll('table[data-component="sortable-table"]'));
+
 // Sort all tables on page load
 if (tables) {
   tables.forEach(function (table) {
