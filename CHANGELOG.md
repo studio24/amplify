@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.1](https://github.com/studio24/amplify/compare/v3.3.0...v3.3.1) (2024-01-30)
+
+
+### Bug Fixes
+
+* Replace logical property for overflow on &lt;body&gt; ([85344cc](https://github.com/studio24/amplify/commit/85344cca62c267837c8c49ec73a9e0b8dea810c0))
+
 ## [3.3.0](https://github.com/studio24/amplify/compare/v3.2.0...v3.3.0) (2024-01-05)
 
 
