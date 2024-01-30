@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0](https://github.com/studio24/amplify/compare/v3.3.2...v4.0.0) (2024-01-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* Refactor sortable tables
+
+### Bug Fixes
+
+* Refactor sortable tables ([31d11cd](https://github.com/studio24/amplify/commit/31d11cd5aa68a595f44000e69985e00e54b1dd55))
+
 ## [3.3.2](https://github.com/studio24/amplify/compare/v3.3.1...v3.3.2) (2024-01-30)
 
 
