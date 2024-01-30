@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.1](https://github.com/studio24/amplify/compare/v4.1.0...v4.1.1) (2024-01-30)
+
+
+### Bug Fixes
+
+* Use responsive pattern for both examples of sortable tables ([df9fab0](https://github.com/studio24/amplify/commit/df9fab0c2c4ca7d5da73b73d2c252e26573fb676))
+
 ## [4.1.0](https://github.com/studio24/amplify/compare/v4.0.0...v4.1.0) (2024-01-30)
 
 
