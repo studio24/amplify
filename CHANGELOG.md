@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.0](https://github.com/studio24/amplify/compare/v4.0.0...v4.1.0) (2024-01-30)
+
+
+### Features
+
+* Improve visual affordance of horizontally scrolling tables ([54ff92f](https://github.com/studio24/amplify/commit/54ff92fd1798bc3ffaa945dd7326378a023018f1))
+
 ## [4.0.0](https://github.com/studio24/amplify/compare/v3.3.2...v4.0.0) (2024-01-30)
 
 
