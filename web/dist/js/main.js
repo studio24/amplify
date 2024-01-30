@@ -53,10 +53,15 @@ var cardEnhancement = function cardEnhancement() {
           });
         });
       }
-      card.addEventListener('click', function () {
+      card.addEventListener('click', function (event) {
+        if (event.redispatched || event.target === mainLink) {
+          return;
+        }
         var noTextSelected = !window.getSelection().toString();
         if (noTextSelected) {
-          mainLink.click();
+          var event2 = new MouseEvent("click", event);
+          event2.redispatched = true;
+          mainLink.dispatchEvent(event2);
         }
       });
     });
