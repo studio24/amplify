@@ -23,11 +23,17 @@ var cardEnhancement = function () {
 				});
 			}
 
-			card.addEventListener('click', function() {
-				var noTextSelected = !window.getSelection().toString();
+			card.addEventListener('click', function(event) {
+				if (event.redispatched || event.target === mainLink) {
+					return;
+				}
+
+				let noTextSelected = !window.getSelection().toString();
 
 				if (noTextSelected) {
-					mainLink.click();
+					const event2 = new MouseEvent("click", event);
+					event2.redispatched = true;
+					mainLink.dispatchEvent(event2);
 				}
 			});
 		});
