@@ -942,6 +942,8 @@ blockquote cite {
 
 /*------------------------------------*\
     #Tables
+
+    1. See https://daverupert.com/2023/08/animation-timeline-scroll-shadows/
 \*------------------------------------*/
 table {
   border: 1px solid #c6c6c6;
@@ -992,6 +994,9 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
     max-inline-size: 100% !important;
   }
   [data-component=table-wrap][role][aria-labelledby][tabindex] {
+    -webkit-animation: scroll-shadow-inset linear;
+            animation: scroll-shadow-inset linear; /* 1 */
+    animation-timeline: scroll(self inline); /* 1 */
     overflow: auto;
   }
   [data-component=table-wrap] table {
@@ -1004,6 +1009,8 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
 }
 /*------------------------------------*\
     #Animation
+
+    'scroll-shadow-inset' improves visual affordance of horizontally scrolling tables
 \*------------------------------------*/
 /*
  * Respect the choices of users who do not want animations.
@@ -1022,6 +1029,26 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
     scroll-behavior: auto !important;
     transition-duration: 0.001ms !important;
     transition-delay: 0s !important;
+  }
+}
+@-webkit-keyframes scroll-shadow-inset {
+  /* start with inset shadow on right */
+  from {
+    box-shadow: inset -10px -10px 15px 0px rgba(0, 0, 0, 0.3);
+  }
+  /* end with inset shadow on left */
+  to {
+    box-shadow: inset 10px -10px 15px 0px rgba(0, 0, 0, 0.3);
+  }
+}
+@keyframes scroll-shadow-inset {
+  /* start with inset shadow on right */
+  from {
+    box-shadow: inset -10px -10px 15px 0px rgba(0, 0, 0, 0.3);
+  }
+  /* end with inset shadow on left */
+  to {
+    box-shadow: inset 10px -10px 15px 0px rgba(0, 0, 0, 0.3);
   }
 }
 /*------------------------------------*\
