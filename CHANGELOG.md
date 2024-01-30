@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.2](https://github.com/studio24/amplify/compare/v3.3.1...v3.3.2) (2024-01-30)
+
+
+### Bug Fixes
+
+* Handle click modifiers on cards ([c01b2b6](https://github.com/studio24/amplify/commit/c01b2b60ad1245ba9a825bf1d93802e82bf74c95))
+
 ## [3.3.1](https://github.com/studio24/amplify/compare/v3.3.0...v3.3.1) (2024-01-30)
 
 
