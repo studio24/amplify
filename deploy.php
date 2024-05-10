@@ -20,6 +20,9 @@ set('repository', 'git@github.com:studio24/amplify.git');
 // Filesystem volume we're deploying to
 set('disk_space_filesystem', '/data');
 
+// Required for this project as the server doesn't support openssh v7.6
+set('git_ssh_command', 'ssh');
+
 // Shared directories that need to persist between deployments
 set('shared_dirs', [
     '.well-known',
