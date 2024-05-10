@@ -58,6 +58,3 @@ host('staging')
  *
  * Any custom deployment tasks to run
  */
-
-// PHP-FPM reload
-after('deploy', 'php-fpm:reload');
