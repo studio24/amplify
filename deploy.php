@@ -4,29 +4,34 @@ namespace Deployer;
 /**
  * 1. Deployer recipes we are using for this website
  */
-require 'recipe/common.php';
-require 'vendor/studio24/deployer-recipes/recipe/common.php';
+require_once 'vendor/studio24/deployer-recipes/recipe/default.php';
+
 
 /**
  * 2. Deployment configuration variables
  */
 
-// Friendly project name
+// Project name
 set('application', 'Amplify');
 
-// The repo for the project
-set('repository', 'git@github.com:studio24/amplify.git');;
+// Git repo
+set('repository', 'git@github.com:studio24/amplify.git');
 
-// Shared directories that are not in git and need to persist between deployments (e.g. uploaded images)
-add ('shared_directories', [
-    '.well-known'
-]);
+// Filesystem volume we're deploying to
+set('disk_space_filesystem', '/data');
 
-set('webroot', 'web');
+// Required for this project as the server doesn't support openssh v7.6
 set('git_ssh_command', 'ssh');
 
-// Default stage - prevents accidental deploying to production with dep deploy
-set('default_stage', 'staging');
+// Shared directories that need to persist between deployments
+set('shared_dirs', [
+    '.well-known',
+]);
+
+// Writable directories
+set('writable_dirs', [
+]);
+
 
 /**
  * 3. Hosts
@@ -35,11 +40,19 @@ set('default_stage', 'staging');
 host('production')
     ->set('hostname', '63.34.69.8')
     ->set('deploy_path', '/data/var/www/vhosts/amplify/production')
+    ->set('log_files', [
+        '/data/logs/amplify.access.log',
+        '/data/logs/amplify.error.log',
+    ])
     ->set('url', 'https://amplify.studio24.net');
 
 host('staging')
     ->set('hostname', '63.34.69.8')
     ->set('deploy_path', '/data/var/www/vhosts/amplify/staging')
+    ->set('log_files', [
+        '/data/logs/amplify-staging.access.log',
+        '/data/logs/amplify-staging.error.log',
+    ])
     ->set('url', 'https://amplify-staging.studio24.net');
 
 
@@ -48,4 +61,3 @@ host('staging')
  *
  * Any custom deployment tasks to run
  */
-
