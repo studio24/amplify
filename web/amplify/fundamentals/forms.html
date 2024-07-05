@@ -105,16 +105,19 @@
 						<h2>Top tips</h2>
 						<ul>
 							<li>Every <code>input</code> needs a <code>label</code>. Do not wrap inputs in labels, put labels above the input.</li>
-							<li>Do not use the <code>placeholder</code> attribute on <code>input</code> fields.</li>
+							<li><a href="https://adamsilver.io/blog/the-problem-with-placeholders-and-what-to-do-instead/">Placeholders are problematic</a>, so avoid using the <code>placeholder</code> attribute, especially for providing any meaningful instructions. Do not use it to replace a label.</li>
 							<li>Use <a href="#fixed-width-inputs">fixed width inputs</a> for content that has a specific, known length. Postcode inputs should be postcode-sized, telephone number inputs should be telephone number-sized.</li>
-							<li>Make form fields look like form fields: apply a border and make sure they are empty to begin with. A minimum height of 44 pixels makes them easy to tap on touch screen devices.</li>
-							<li>Make sure any <code>button</code> looks like a button. Align them to the left edge of the last input (the right edge for right-to-left languages) where users naturally look for them. Use a verb for button text because the user is doing something, and relate it to what they are doing - avoid generic ‘Submit’ buttons.</li>
+							<li>Make form fields look like form fields: apply a border and make sure that fields are empty to begin with. A minimum height of 44 pixels makes them easy to tap on touch screen devices.</li>
+							<li>Make sure any <code>button</code> looks like a button. Align them to the left edge of the last input (the right edge for right-to-left languages) where users naturally look for them. Use a <a href="https://www.merriam-webster.com/grammar/what-is-a-verb">verb</a> for button text because the user is doing something, and relate it to what they are doing - avoid generic ‘Submit’ buttons.</li>
 							<li><a href="https://www.youtube.com/watch?v=CUkMCQR4TpY">The <code>select</code> element should be a last resort</a> as they’re really hard to use. Try radio buttons instead. If there’s a long list of options, use JavaScript to enhance the <code>select</code> into an <a href="../advanced-components/accessible-autocomplete.html">accessible auto-complete field</a> (not to be confused with the <code>autocomplete</code> attribute).</li>
-							<li>If you have to use a <code>select</code>, don't submit a form when its value changes. Select boxes that submit the form automatically when the user selects an option cause problems for keyboard and screen reader users.</li>
+							<li>If you have to use a <code>select</code> and selecting an option will result in a <a href="https://www.w3.org/WAI/WCAG22/Understanding/on-input#dfn-changes-of-context">change of context</a> (e.g. a page reload/refresh causing a change in focus), that change must be triggered by an accompanying confirmatory button, not by the change to the <code>select</code> value. Note that <code>select</code> works very differently outside the MacOS environment - using the arrow keys in Windows automatically switches between options, while on MacOS it first brings up the list of options.</li>
 						</ul>
 						<h3>Required fields</h3>
-						<p>It is best practice to only ask questions that are strictly necessary.</p>
-						<p>In the event that a form contains both optional and required fields, to clearly identify the required fields to all users add <code>span class="required"&gt;(Required)&lt;/span</code> within the <code>label</code>.</p>
+						<p>Well-designed forms usually avoid optional fields (one way is with <a href="https://adamsilver.io/blog/how-to-avoid-optional-form-fields-with-branching-questions/">branching questions</a>). This means optional fields should be rare, and we want to highlight them to people:</p>
+						<ul>
+							<li>Add the <code>required</code> attribute to mandatory input fields (or <code>aria-required="true"</code> if for some reason you have to use a non-native element as an input).</li>
+							<li><a href="https://adamsilver.io/blog/how-to-highlight-required-and-optional-form-fields/">Highlight optional fields only</a>, by adding (optional) to the end of the visible <code>label</code> text for fields that are not required.</li>
+						</ul>
 						<h3 id="how-to-add-hint-text">How to add hint text</h3>
 						<p>To provide hint text advising how to complete a field, add a <code>div class="field-hint"</code>. Check the examples that follow to see where this should be added. The pattern differs slightly for checkbox and radio inputs compared to other input types.</p>
 						<p>Each instance of <code>div class="field-hint"</code> must have a unique ID that is used as the value of the <code>aria-describedby</code> attribute that must be added to the associated <code>input</code>.</p>

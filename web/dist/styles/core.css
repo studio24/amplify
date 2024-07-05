@@ -1184,11 +1184,6 @@ label,
   max-inline-size: 41.25rem;
 }
 
-.required {
-  color: #525252;
-  font-weight: normal;
-}
-
 input, optgroup {
   line-height: 1.15;
 }
