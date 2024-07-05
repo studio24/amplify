@@ -97,15 +97,6 @@
 				</nav>
 				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
 				<div class="content">
-					<div class="component component--text">
-						<h1>Form error messages</h1>
-						<p>To notify a user of an error with their form submission:</p>
-						<ol>
-							<li>Prefix the word “Error:” to the document’s <code>title</code>. It’s the first thing announced by screen readers when the page loads.</li>
-							<li>Place an error summary at the top of the page</li>
-							<li>Add an error message to each problematic input</li>
-						</ol>
-					</div>
 					<div class="component">
 						<div class="l-box note note--error" role="alert" aria-labelledby="error-summary-title" tabindex="-1" data-component="error-summary">
 							<h2 id="error-summary-title" class="note__heading">There is a problem</h2>
@@ -145,8 +136,24 @@
 								</li>
 							</ul>
 						</div>
+					</div>
 
-						<h1>Page title</h1>
+					<div class="component component--text">
+						<h1>Form error messages</h1>
+						<p>To notify a user of an error with their form submission:</p>
+						<ol>
+							<li>Prefix the word “Error:” to the document’s <code>title</code>. It’s the first thing announced by screen readers when the page loads.</li>
+							<li>Place an error summary at the top of the page</li>
+							<li>Add an error message to each problematic input</li>
+						</ol>
+					</div>
+					<div class="component component--text">
+						<h2>Error summary considerations</h2>
+						<p>The error summary should be at the top of the <code>main</code> element. If the page includes <a href="../core-components/breadcrumbs.html">breadcrumbs</a> or a back link, place it after these, but before the <code>h1</code>. The error summary must contain the heading ‘There is a problem’.</p>
+						<p>Keyboard focus needs to move to the error summary, hence the addition of <code>tabindex="-1"</code>. JavaScript is included to shift focus if an error summary is present.</p>
+						<p>Each item in the summary list should link to the field with the validation error. Use the same wording for the error in both the error summary and the problematic field.</p>
+					</div>
+					<div class="component">
 						<h2>Example form showcasing error messages</h2>
 						<form novalidate>
 							<div class="field-group">
@@ -398,10 +405,6 @@
 						</form>
 					</div>
 					<div class="component component--text">
-						<h2>Error summary considerations</h2>
-						<p>The error summary should be at the top of the <code>main</code> element. If the page includes breadcrumbs or a back link, place it after these, but before the <code>h1</code>. The error summary must contain the heading ‘There is a problem’.</p>
-						<p>Keyboard focus needs to move to the error summary, hence the addition of <code>tabindex="-1"</code>. JavaScript is included to shift focus if an error summary is present.</p>
-						<p>Each item in the summary list must link to the field with the validation error. Use the same wording for the error in both the error summary and the problematic field.</p>
 						<h2>Error message considerations</h2>
 						<p>In the event of a validation error, the error message should explain what went wrong and how to fix it. Keep the wording clear and concise.</p>
 						<p>To help screen reader users, the error message includes a visually hidden ‘Error:’ before the error message.</p>
