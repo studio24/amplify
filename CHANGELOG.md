@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.2](https://github.com/studio24/amplify/compare/v4.1.1...v4.1.2) (2024-07-05)
+
+
+### Bug Fixes
+
+* update documentation about forms and errors ([aca5b64](https://github.com/studio24/amplify/commit/aca5b6495d32c69f19e289d5f0ff3d3e618cf5f2))
+
 ## [4.1.1](https://github.com/studio24/amplify/compare/v4.1.0...v4.1.1) (2024-01-30)
 
 
