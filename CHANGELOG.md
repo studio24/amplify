@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.3](https://github.com/studio24/amplify/compare/v4.1.2...v4.1.3) (2024-07-09)
+
+
+### Bug Fixes
+
+* correct numbering of ordered lists ([9ae3005](https://github.com/studio24/amplify/commit/9ae30058a95e0d068780ec9bc5e6f27d903dfb61))
+
 ## [4.1.2](https://github.com/studio24/amplify/compare/v4.1.1...v4.1.2) (2024-07-05)
 
 
