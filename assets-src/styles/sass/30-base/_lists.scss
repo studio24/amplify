@@ -19,6 +19,13 @@ ol {
 	}
 }
 
+ol:not([start]) {
+    counter-reset: list-item;
+}
+
+ol li {
+    counter-increment: list-item;
+}
 
 ol ::marker {
 	content: counters(list-item, ".") ". ";

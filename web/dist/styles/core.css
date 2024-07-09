@@ -832,6 +832,14 @@ ol li ol {
           margin-block-start: 0.75rem;
 }
 
+ol:not([start]) {
+  counter-reset: list-item;
+}
+
+ol li {
+  counter-increment: list-item;
+}
+
 ol ::marker {
   content: counters(list-item, ".") ". ";
 }
