@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.0](https://github.com/studio24/amplify/compare/v4.1.3...v4.2.0) (2024-09-18)
+
+
+### Features
+
+* refactor table styles ([e75429a](https://github.com/studio24/amplify/commit/e75429a11d8d7c5b295e300c0c6bb0e1df550755))
+
 ## [4.1.3](https://github.com/studio24/amplify/compare/v4.1.2...v4.1.3) (2024-07-09)
 
 
