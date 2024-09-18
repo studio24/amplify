@@ -142,10 +142,7 @@
 								<p>Add the following attributes to the wrapping <code>div</code>: <code>tabindex="0"</code> and <code>role="region"</code></p>
 							</li>
 							<li>
-								<p>Add a unique ID to the <code>caption</code> and add <code>aria-labelledby</code> to the wrapping <code>div</code> with the caption ID as the value. This will correctly label what is now an interactive <code>div</code>.</p>
-							</li>
-							<li>
-								<p>A JavaScript enhancement checks whether the wrapper has any overflow. If there is no overflow, the <code>tabindex</code>, <code>role</code> and <code>aria-labelledby</code> attributes are all removed; but they need to exist in the base markup in case JavaScript is not available.</p>
+								<p>Where possible, add a unique ID to the <code>caption</code> and add <code>aria-labelledby</code> to the wrapping <code>div</code> with the caption ID as the value. This will correctly label what is now a keyboard-interactive <code>div</code>.</p>
 							</li>
 						</ul>
 					</div>
