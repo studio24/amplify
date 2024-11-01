@@ -514,7 +514,7 @@ br {
 /*------------------------------------*\
     #Sortable table
 \*------------------------------------*/
-.js [data-component=sortable-table] .arrow-wrapper {
+amplify-table-sort .arrow-wrapper {
   display: flex;
   flex-direction: column;
   inline-size: 0.9375rem;
@@ -523,42 +523,34 @@ br {
   pointer-events: none;
 }
 
-.js [data-component=sortable-table] th {
+amplify-table-sort th {
   white-space: nowrap;
 }
 
-.js th[data-type=no-sort]:hover {
+amplify-table-sort th[data-type=no-sort]:hover {
   cursor: not-allowed;
 }
 
-th > button {
-  background: transparent;
-  border: solid 0.0625rem transparent;
-  font-weight: bold;
-}
-th > button:hover {
-  background-color: #ffdc00;
-  border-color: #ffdc00;
-  color: #000;
+amplify-table-sort th button svg {
+  stroke: currentColor;
+  stroke-width: 1.25rem;
 }
 
-.js [aria-sort=ascending] button:focus > .arrow-wrapper .asc {
-  stroke: currentColor;
+amplify-table-sort [aria-sort=ascending] button:focus > .arrow-wrapper .asc {
   stroke-width: 3.125rem;
 }
-.js [aria-sort=ascending] button:focus > .arrow-wrapper .desc {
+amplify-table-sort [aria-sort=ascending] button:focus > .arrow-wrapper .desc {
   opacity: 0.3;
 }
 
-.js [aria-sort=descending] button:focus > .arrow-wrapper .asc {
+amplify-table-sort [aria-sort=descending] button:focus > .arrow-wrapper .asc {
   opacity: 0.3;
 }
-.js [aria-sort=descending] button:focus > .arrow-wrapper .desc {
-  stroke: currentColor;
+amplify-table-sort [aria-sort=descending] button:focus > .arrow-wrapper .desc {
   stroke-width: 3.125rem;
 }
 
-col.js-sorted {
+amplify-table-sort col.js-sorted {
   background-color: rgba(255, 220, 0, 0.1490196078);
 }
 

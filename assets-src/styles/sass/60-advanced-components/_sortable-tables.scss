@@ -2,7 +2,7 @@
     #Sortable table
 \*------------------------------------*/
 
-.js [data-component="sortable-table"] .arrow-wrapper {
+amplify-table-sort .arrow-wrapper {
 	display: flex;
 	flex-direction: column;
     inline-size: rem(15);
@@ -10,31 +10,23 @@
 	pointer-events: none;
 }
 
-.js [data-component="sortable-table"] th {
+amplify-table-sort th {
 	white-space: nowrap;
 }
 
-.js th[data-type="no-sort"] {
+amplify-table-sort th[data-type="no-sort"] {
 	&:hover {
 		cursor: not-allowed;
 	}
 }
 
-th > button {
-	background: transparent;
-	border: solid rem(1) transparent;
-	font-weight: bold;
-
-	&:hover {
-		background-color: $focus-color;
-		border-color: $focus-color;
-		color: $black;
-	}
+amplify-table-sort th button svg {
+    stroke: currentColor;
+    stroke-width: rem(20);
 }
 
-.js [aria-sort="ascending"] button:focus > .arrow-wrapper {
+amplify-table-sort [aria-sort="ascending"] button:focus > .arrow-wrapper {
 	.asc {
-		stroke: currentColor;
 		stroke-width: rem(50);
 	}
 
@@ -43,17 +35,16 @@ th > button {
 	}
 }
 
-.js [aria-sort="descending"] button:focus > .arrow-wrapper {
+amplify-table-sort [aria-sort="descending"] button:focus > .arrow-wrapper {
 	.asc {
 		opacity: 0.3
 	}
 
 	.desc {
-		stroke: currentColor;
 		stroke-width: rem(50);
 	}
 }
 
-col.js-sorted {
+amplify-table-sort col.js-sorted {
 	background-color: $focus-color--rgba;
 }
