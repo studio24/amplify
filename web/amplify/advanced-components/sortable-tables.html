@@ -88,24 +88,26 @@
 				<div class="content content-table">
 					<div class="component component--text">
 						<h1>Sortable tables</h1>
+						<p>A web component for holding tables with sortable columns.</p>
 					</div>
-					<div class="component">
-						<div role="region" aria-labelledby="caption1" tabindex="0" data-component="table-wrap">
-							<table data-component="sortable-table">
-								<caption id="caption1">A sortable table, use column header buttons to sort</caption>
-								<colgroup>
-									<col>
-									<col>
-									<col>
-								</colgroup>
-								<thead>
+					<div class="component component--table">
+						<amplify-table-sort>
+							<div role="region" aria-labelledby="caption1" tabindex="0" data-component="table-wrap">
+								<table data-component="sortable-table">
+									<caption id="caption1">A sortable table, use column header buttons to sort</caption>
+									<colgroup>
+										<col>
+										<col>
+										<col>
+									</colgroup>
+									<thead>
 									<tr>
 										<th data-type="string" scope="col">Column header 1</th>
 										<th data-type="string" scope="col">Column header 2</th>
 										<th data-type="no-sort" scope="col">Sorting disabled</th>
 									</tr>
-								</thead>
-								<tbody>
+									</thead>
+									<tbody>
 									<tr>
 										<td>AAA</td>
 										<td>BBB</td>
@@ -116,90 +118,94 @@
 										<td>AAA</td>
 										<td>CCC</td>
 									</tr>
-								</tbody>
-							</table>
-						</div>
+									</tbody>
+								</table>
+							</div>
+						</amplify-table-sort>
 					</div>
 					<div class="component component--text">
 						<h2>Considerations</h2>
-						<p>The <code>table</code> element must include the <code>data-component="sortable-table"</code> data attribute to allow each column to be sortable.</p>
+						<p>The <code>table</code> element (and its wrapping <code>div</code> to support horizontal scrolling, if used) must be wrapped in the <code>&lt;amplify-table-sort&gt;</code> custom HTML element.</p>
 						<p>The <code>table</code> markup must include a <code>colgroup</code> element with the same number of child <code>col</code> elements as there are <code>th</code> elements.</p>
+						<p>The <code>th</code> elements must sit within the <code>thead</code> element and the sortable data must sit within the <code>tbody</code> element.</p>
 						<p>Each <code>th</code> element must include the <code>data-type="..."</code> data attribute, which specifies the type of data in each column, e.g. <code>data-type="number"</code>, <code>data-type="string"</code> or <code>data-type="date"</code>. Use <code>data-type="no-sort"</code> when sorting functionality should be disallowed.</p>
 						<p>Where a table cell is holding a date, it must have a <code>data-date</code> attribute holding the date converted into UNIX timestamp, e.g. <code> data-date="191030400"</code>.</p>
 					</div>
 					<div class="component component--table">
-						<div role="region" aria-labelledby="caption2" tabindex="0" data-component="table-wrap">
-							<table data-component="sortable-table">
-								<caption id="caption2">Members of the Spice Girls, use column header buttons to sort</caption>
-								<colgroup>
-									<col>
-									<col>
-									<col>
-									<col>
-									<col>
-									<col>
-									<col>
-								</colgroup>
-								<thead>
-								<tr>
-									<th data-type="number" scope="col">ID</th>
-									<th data-type="string" scope="col">First name</th>
-									<th data-type="string" scope="col">Last name</th>
-									<th data-type="string" scope="col">Band name</th>
-									<th data-type="date" scope="col">Date of birth</th>
-									<th data-type="string" scope="col">Place of birth</th>
-									<th data-type="no-sort" scope="col">Random number</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr>
-									<td>1</td>
-									<td>Emma</td>
-									<td>Bunton</td>
-									<td>Baby</td>
-									<td data-date="191030400">21 January 1976</td>
-									<td>Watford, Hertfordshire</td>
-									<td>5424353</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>Geri</td>
-									<td>Halliwell</td>
-									<td>Ginger</td>
-									<td data-date="81903600">6 August 1972</td>
-									<td>London</td>
-									<td>554</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Victoria</td>
-									<td>Beckham</td>
-									<td>Posh</td>
-									<td data-date="135385200">17 April 1974</td>
-									<td>Harlow, Essex</td>
-									<td>23535</td>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>Melanie</td>
-									<td>Brown</td>
-									<td>Scary</td>
-									<td data-date="170550000">29 May 1975</td>
-									<td>Leeds, Yorkshire</td>
-									<td>234</td>
-								</tr>
-								<tr>
-									<td>5</td>
-									<td>Melanie</td>
-									<td>Chisholm</td>
-									<td>Sporty</td>
-									<td data-date="127180800">12 January 1974</td>
-									<td>Whiston, Merseyside</td>
-									<td>232</td>
-								</tr>
-								</tbody>
-							</table>
-						</div>
+						<amplify-table-sort>
+							<div role="region" aria-labelledby="caption2" tabindex="0" data-component="table-wrap">
+								<table data-component="sortable-table">
+									<caption id="caption2">Members of the Spice Girls, use column header buttons to sort</caption>
+									<colgroup>
+										<col>
+										<col>
+										<col>
+										<col>
+										<col>
+										<col>
+										<col>
+									</colgroup>
+									<thead>
+									<tr>
+										<th data-type="number" scope="col">ID</th>
+										<th data-type="string" scope="col">First name</th>
+										<th data-type="string" scope="col">Last name</th>
+										<th data-type="string" scope="col">Band name</th>
+										<th data-type="date" scope="col">Date of birth</th>
+										<th data-type="string" scope="col">Place of birth</th>
+										<th data-type="no-sort" scope="col">Random number</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<td>1</td>
+										<td>Emma</td>
+										<td>Bunton</td>
+										<td>Baby</td>
+										<td data-date="191030400">21 January 1976</td>
+										<td>Watford, Hertfordshire</td>
+										<td>5424353</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>Geri</td>
+										<td>Halliwell</td>
+										<td>Ginger</td>
+										<td data-date="81903600">6 August 1972</td>
+										<td>London</td>
+										<td>554</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>Victoria</td>
+										<td>Beckham</td>
+										<td>Posh</td>
+										<td data-date="135385200">17 April 1974</td>
+										<td>Harlow, Essex</td>
+										<td>23535</td>
+									</tr>
+									<tr>
+										<td>4</td>
+										<td>Melanie</td>
+										<td>Brown</td>
+										<td>Scary</td>
+										<td data-date="170550000">29 May 1975</td>
+										<td>Leeds, Yorkshire</td>
+										<td>234</td>
+									</tr>
+									<tr>
+										<td>5</td>
+										<td>Melanie</td>
+										<td>Chisholm</td>
+										<td>Sporty</td>
+										<td data-date="127180800">12 January 1974</td>
+										<td>Whiston, Merseyside</td>
+										<td>232</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+						</amplify-table-sort>
 					</div>
 				</div>
 			</div>
