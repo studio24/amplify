@@ -125,8 +125,9 @@
 					</div>
 					<div class="component component--text">
 						<h2>Considerations</h2>
-						<p>The <code>table</code> element must include the <code>data-component="sortable-table"</code> data attribute to allow each column to be sortable.</p>
+						<p>The <code>table</code> element (and its wrapping <code>div</code> to support horizontal scrolling, if used) must be wrapped in the <code>&lt;amplify-table-sort&gt;</code> custom HTML element.</p>
 						<p>The <code>table</code> markup must include a <code>colgroup</code> element with the same number of child <code>col</code> elements as there are <code>th</code> elements.</p>
+						<p>The <code>th</code> elements must sit within the <code>thead</code> element and the sortable data must sit within the <code>tbody</code> element.</p>
 						<p>Each <code>th</code> element must include the <code>data-type="..."</code> data attribute, which specifies the type of data in each column, e.g. <code>data-type="number"</code>, <code>data-type="string"</code> or <code>data-type="date"</code>. Use <code>data-type="no-sort"</code> when sorting functionality should be disallowed.</p>
 						<p>Where a table cell is holding a date, it must have a <code>data-date</code> attribute holding the date converted into UNIX timestamp, e.g. <code> data-date="191030400"</code>.</p>
 					</div>
