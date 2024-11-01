@@ -1,5 +1,16 @@
 # Changelog
 
+## [5.0.0](https://github.com/studio24/amplify/compare/v4.2.0...v5.0.0) (2024-11-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* convert sortable tables to web component
+
+### Features
+
+* convert sortable tables to web component ([22a2a5b](https://github.com/studio24/amplify/commit/22a2a5b98d52e160e8aa28df193fec39ecddd339))
+
 ## [4.2.0](https://github.com/studio24/amplify/compare/v4.1.3...v4.2.0) (2024-09-18)
 
 
