@@ -138,31 +138,59 @@
 	margin-block-start: 1rem;
 }
 
-
-.amplify .l-switcher.teasers {
-	overflow: visible;
-}
-
-.amplify .l-switcher.teasers > * {
-	margin: rem(-12);
-}
-
-.amplify .l-switcher.teasers > * > * {
-	min-inline-size: 33%;
-	padding: rem(12);
-}
-
-.amplify .l-switcher.teasers .card {
+.amplify .l-switcher-gap.teasers .card {
 	padding: rem(24);
 }
 
 
-.amplify .search-bar .not-sidebar {
-	min-inline-size: 70%;
+/**
+Styling examples shown on the Amplify website
+ */
+.amplify .component .l-box,
+.amplify .component .l-center,
+.amplify .component .l-cover {
+    background-color: $neutral-30;
 }
 
-// To omit the `flex-basis` in this example we haven't used the `.sidebar` class
-// on this element. So we must manually re-apply the required `flex-grow` property.
-.amplify .search-bar button {
-	flex-grow: 1;
+.amplify .component .l-sidebar > * {
+    background-color: $accent-20;
+}
+
+.amplify .box-custom .l-box {
+    @include cssvar(box-padding, 0);
+}
+
+.amplify .center-custom .l-center {
+    @include cssvar(center-width-max, rem(500));
+}
+
+.amplify .cluster-custom .l-cluster {
+    @include cssvar(cluster-gap, rem(24));
+}
+
+.amplify .frame-example {
+    max-inline-size: rem(400);
+}
+
+.amplify .frame-example .ratio-1-1 {
+    @include cssvar(frame-x, 1);
+    @include cssvar(frame-y, 1);
+}
+
+.amplify .frame-example .ratio-3-2 {
+    @include cssvar(frame-x, 3);
+    @include cssvar(frame-y, 2);
+}
+
+.amplify .frame-example .ratio-4-3 {
+    @include cssvar(frame-x, 4);
+    @include cssvar(frame-y, 3);
+}
+
+.amplify .search-bar.l-sidebar > * {
+    background-color: transparent;
+}
+
+.amplify .search-bar .content {
+	min-inline-size: 70%;
 }
