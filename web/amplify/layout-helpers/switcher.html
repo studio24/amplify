@@ -88,35 +88,47 @@
 				<div class="content">
 					<div class="component component--text">
 						<h1>Switcher</h1>
-						<p>The switcher layout helper switches the alignment of items from horizontal to vertical at a given, container-based breakpoint. It's a good choice for situations where each child item should be considered of equal importance and has an equal width. You will find an example of the switcher on the <a href="../index.html">Amplify home page</a>.</p>
-						<p>As with the <a href="cluster.html">cluster</a> and <a href="sidebar.html">sidebar</a> layouts, an inner flexbox container holds the switcher items, and the negative margin technique to create gutter spacing between items.</p>
+						<p>There are two types of switcher layout helper, applied using different classes (see the examples which follow). Both of them switch the alignment of items from horizontal to vertical at a given, container-based breakpoint. They are a good choice for situations where each child item should be considered of equal importance and has an equal width.</p>
 						<p>As there are <strong>no viewport media queries</strong>, the switcher will nest nicely inside other containers.</p>
 					</div>
 					<div class="component">
+						<h2>Switcher with no spacing between items</h2>
+						<p>Use the <code>l-switcher</code> class. A <a href="box.html">box layout helper</a> has been nested in each child item.</p>
 						<div class="l-switcher">
 							<div>
-								<div>
-									<div class="l-box l-box">Item 1</div>
-								</div>
-								<div>
-									<div class="l-box">Item 2</div>
-								</div>
-								<div>
-									<div class="l-box">Item 3</div>
-								</div>
+								<div class="l-box l-box">Item 1</div>
+							</div>
+							<div>
+								<div class="l-box">Item 2</div>
+							</div>
+							<div>
+								<div class="l-box">Item 3</div>
+							</div>
+						</div>
+					</div>
+					<div class="component">
+						<h2>Switcher with spacing between items</h2>
+						<p>Use the <code>l-switcher-gap</code> class. A <a href="box.html">box layout helper</a> has been nested in each child item.</p>
+						<div class="l-switcher-gap">
+							<div>
+								<div class="l-box l-box">Item 1</div>
+							</div>
+							<div>
+								<div class="l-box">Item 2</div>
+							</div>
+							<div>
+								<div class="l-box">Item 3</div>
 							</div>
 						</div>
 					</div>
 					<div class="component component--text">
 						<h2>Considerations</h2>
-						<p>The default switcher layout behaves as follows:</p>
+						<p>The default switcher behaviour is as follows:</p>
 						<ul>
-							<li>When the inner flexbox container is less than 690px wide, the child items sit vertically.</li>
-							<li>Otherwise, the child items sit horizontally.</li>
-							<li>The number of columns in a row is two (determined by the <code>min-width</code> percentage used on the child items).</li>
+							<li>When the parent container is less than 690px wide, child items of switcher stack vertically.</li>
+							<li>Otherwise, child items sit horizontally in rows.</li>
+							<li>The maximum number of children per row is two.</li>
 						</ul>
-						<p>For gutter spacing, apply padding to the flex items and an equal negative margin to the flex container. This will double up, so use half the intended value.</p>
-						<p>Use an additional class to override the default behaviour.</p>
 					</div>
 				</div>
 			</div>
