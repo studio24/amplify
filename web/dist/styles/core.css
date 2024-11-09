@@ -121,8 +121,107 @@ can safely use the web fonts instead of the system fonts.
  #Remove any unit present to return a unitless number
  */
 /*------------------------------------*\
+    #Get CSS custom properties
+
+    Function for retrieving automatically prefixed CSS custom properties
+    (CSS variables) to ensure they are handled in a consistent, scalable manner.
+
+    See https://dev.to/felipperegazio/css-custom-properties-vars-with-sass-scss-a-practical-architecture-strategy-1m88
+\*------------------------------------*/
+/**
+ * Basic usage:
+ *
+ * .selector {
+ *   color: cssvar(primary-color);
+ * }
+ *
+ * will result in
+ *
+ * .selector {
+ *    color: var(--amplify-primary-color);
+ * }
+ *
+ * Overriding the default prefix:
+ *
+ * .selector {
+ *   color: cssvar(primary-color, s24);
+ * }
+ *
+ * will result in
+ *
+ * .selector {
+ *    color: var(--s24-primary-color);
+ * }
+ */
+/*------------------------------------*\
     #Mixins
 \*------------------------------------*/
+/*------------------------------------*\
+    #Set and override CSS custom properties
+
+    Mixins for setting and overriding automatically prefixed CSS custom properties
+    (CSS variables) to ensure they are handled in a consistent, scalable manner.
+
+    See https://dev.to/felipperegazio/css-custom-properties-vars-with-sass-scss-a-practical-architecture-strategy-1m88
+\*------------------------------------*/
+/**
+ * Declare a group of CSS custom properties.
+ * Each variable in the $css_variables map will be correctly prefixed.
+ * Double brackets are needed when using the mixin:
+ *  - the first for the @include statement itself,
+ *  - the second to pass the $css_variables map as the first argument
+ *
+ * Basic usage:
+ *
+ * @include cssvars((
+ *  font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif,
+ *  primary-color: #33b5e5,
+ *  secondary-color: #ff500a,
+ *  max-width: rem(20)
+ * ));
+ *
+ * will result in
+ *
+ * --amplify-font-family: value;
+ * --amplify-primary-color: value;
+ * --amplify-secondary-color: value;
+ * --amplify-max-width: value;
+ *
+ * Overriding the default prefix:
+ *
+ * @include cssvars((
+ *  font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif,
+ *  primary-color: #33b5e5,
+ *  secondary-color: #ff500a,
+ *  max-width: rem(20)
+ * ), s24);
+ *
+ * will result in
+ *
+ * --s24-font-family: value;
+ * --s24-primary-color: value;
+ * --s24-secondary-color: value;
+ * --s24-max-width: value;
+ */
+/**
+ * Override a CSS custom property value.
+ *
+ * Basic usage:
+ *
+ * @include cssvar(primary-color, #ff69b4);
+ *
+ * will result in
+ *
+ * --amplify-max-width: newvalue;
+ *
+ * Overriding the default prefix as well as the custom property value:
+ *
+ * @include cssvar(primary-color, #ff69b4, s24);
+ *
+ * will result in
+ *
+ * --s24-max-width: newvalue;
+ */
 /*------------------------------------*\
     #Font sizes
 
@@ -851,11 +950,13 @@ the number of items in a list is announced, add role="list" to the <ul>
  */
 .clean-list {
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 .clean-list li,
 .clean-list ol,
 .clean-list ul {
+  margin: 0;
   padding: 0;
 }
 
@@ -1631,26 +1732,24 @@ Optional select with custom arrow icon matching the SVG used for accessible auto
     `.l-box` should have borders and/or padding on all sides, or
     none at all. Otherwise it's not a box, but something more specific.
 
-    1. High contrast themes tend to eliminate background-color. If no
-    border is set on the box, we need to apply a transparent outline to
-    maintain the box shape. The negative outline-offset moves the outline
-    inside the perimeter so it behaves like a border and doesn't add to
-    the overall size.
+    1. Forced colors mode (e.g. Windows High Contrast mode) may eliminate
+    background-color. In this mode, if a box has no border the edges of the box
+    may not be apparent. The transparent outline imitates a border, but it is
+    only visible when in forced colors mode. The negative outline-offset moves
+    the outline inside the perimeter of the box so it acts like a border and
+    doesn't add to its overall size.
 \*------------------------------------*/
 .l-box {
-  border: 1px solid;
+  --amplify-box-padding: 1.5rem;
+  border: solid 2px;
   display: block;
-  padding: 1.5rem;
-}
-
-.l-box--no-padding {
-  padding: 0;
+  padding: var(--amplify-box-padding);
 }
 
 .l-box--no-border {
   border: none;
-  outline: 1px solid transparent; /* 1 */
-  outline-offset: -1px; /* 1 */
+  outline: 2px solid transparent; /* See note 1 above */
+  outline-offset: -2px; /* See note 1 above */
 }
 
 /*------------------------------------*\
@@ -1658,18 +1757,20 @@ Optional select with custom arrow icon matching the SVG used for accessible auto
 
     From https://absolutely.every-layout.dev/layouts/center/
 
-    `.l-center` creates a horizontally centered container.
+    `.l-center` creates a horizontally centered container for holding content.
 
     1. We use left and right padding to add some minimum space between the
     contents of `.l-center` and the edges of the parent element or viewport.
     To avoid making the content narrower than intended, we add an exception
-    to our global box-sizing rule (defined in 30-base/_reset.scss).
+    to our global box-sizing rule (defined in 30-base/_box-sizing.scss).
 \*------------------------------------*/
 .l-center {
-  box-sizing: content-box;
+  --amplify-center-width-max: 70rem;
+  --amplify-center-padding-x: 5vw;
+  box-sizing: content-box; /* See note 1 above */
   margin-inline: auto;
-  max-inline-size: 70rem;
-  padding-inline: 5vw;
+  max-inline-size: var(--amplify-center-width-max);
+  padding-inline: var(--amplify-center-padding-x);
 }
 
 /*------------------------------------*\
@@ -1678,22 +1779,25 @@ Optional select with custom arrow icon matching the SVG used for accessible auto
     From https://absolutely.every-layout.dev/layouts/cover/
 
     `.l-cover` uses Flexbox to vertically center a principal item
-    of content. It is given a min-block-size value to achieve this
-    which could be 100vh, or less.
+    of content. It is given a min-block-size (minimum height) value
+    to achieve this which could be 100vh, or less.
 
-    Horizontal centering of content can be achieved using the `.l-center`
-    layout within `.l-cover`, or with the `.u-center` utility found in
-    /90-utilities/layout
+    Horizontal centering of content inside can be achieved by placing
+    an element with the `.l-center` class inside of `.l-cover` or by
+    using the `.u-center` utility class found in /90-utilities/layout
 \*------------------------------------*/
 .l-cover {
+  --amplify-cover-min-height: 30vh;
+  --amplify-cover-padding: 1.25rem;
+  --amplify-cover-margin-inner-y: 1.25rem;
   display: flex;
   flex-direction: column;
-  min-block-size: 30vh;
-  padding: 1rem;
+  min-block-size: var(--amplify-cover-min-height);
+  padding: var(--amplify-cover-padding);
 }
 
 .l-cover > * {
-  margin-block: 1rem;
+  margin-block: var(--amplify-cover-margin-inner-y);
 }
 
 .l-cover > .principal {
@@ -1723,33 +1827,19 @@ disturbing the vertically centered element.
     are liable to wrap. Use the Cluster to align any groups of horizontally
     laid out elements to the left or right, or in the center, with even
     spacing between elements.
+
+    Note: There is no spacing in browsers that don't support the flexbox gap property.
 \*------------------------------------*/
 /**
-Suppress horizontal scrolling caused by the negative margin
-in some circumstances.
+We use flexbox to configure the elements into clusters without creating white space.
+The gap property specifies the spacing. We can control how we align items within
+the cluster by optionally using 'align-items` and/or `justify-content`.
  */
 .l-cluster {
-  overflow: hidden;
-}
-
-/**
-We use flexbox to configure the elements into clusters without creating
-white space. We can control how we align items within the cluster,
-by using 'align-items` and `justify-content`.
- */
-.l-cluster > * {
+  --amplify-cluster-gap: 0.625rem;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  margin: -0.625rem;
-}
-
-/**
-We apply an even, symmetrical margin to the elements that we wish to space
-out, but halve it to to account for 'doubling up' at the edges.
- */
-.l-cluster.l-cluster > * > * {
-  margin: 0.625rem;
+  gap: var(--amplify-cluster-gap);
 }
 
 /*------------------------------------*\
@@ -1758,11 +1848,17 @@ out, but halve it to to account for 'doubling up' at the edges.
     From https://absolutely.every-layout.dev/layouts/frame/
 
     `.l-frame` is most useful for cropping media (images
-    and video) to a specific aspect ratio.
+    and video) to a specific aspect ratio. It uses the modern
+    CSS property `aspect-ratio` rather than the old padding hack.
 
     It is not recommended to apply the `.l-frame` class to the
     <figure> element, as it will interfere with the <figcaption>.
-    Instead, place it on <picture> or a <div> inside of <figure>.
+    Instead, place it on a <div> (or <picture>, if employing art
+    direction to change not just image dimensions but also aspect
+    ratio) inside of <figure>.
+
+    See https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#art_direction
+    to learn more about when to use the <picture> element.
 \*------------------------------------*/
 .l-frame {
   display: block;
@@ -1770,15 +1866,14 @@ out, but halve it to to account for 'doubling up' at the edges.
   position: relative;
 }
 
-.l-frame > * {
+.l-frame {
+  --amplify-frame-x: 16;
+  --amplify-frame-y: 9;
   align-items: center;
+  aspect-ratio: var(--amplify-frame-x)/var(--amplify-frame-y);
   display: flex;
-  inset-block-end: 0;
-  inset-block-start: 0;
-  inset-inline-end: 0;
-  inset-inline-start: 0;
   justify-content: center;
-  position: absolute;
+  overflow: hidden;
 }
 
 .l-frame > iframe,
@@ -1788,35 +1883,10 @@ out, but halve it to to account for 'doubling up' at the edges.
   inline-size: 100%;
 }
 
-.l-frame > iframe {
-  border: 0;
-}
-
 .l-frame > img,
 .l-frame > video {
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-/* Common aspect ratios */
-.l-frame--16-9 {
-  -webkit-padding-after: 56.25%;
-          padding-block-end: 56.25%;
-}
-
-.l-frame--3-2 {
-  -webkit-padding-after: 66.67%;
-          padding-block-end: 66.67%;
-}
-
-.l-frame--4-3 {
-  -webkit-padding-after: 75%;
-          padding-block-end: 75%;
-}
-
-.l-frame--square {
-  -webkit-padding-after: 100%;
-          padding-block-end: 100%;
 }
 
 /*------------------------------------*\
@@ -1832,36 +1902,27 @@ out, but halve it to to account for 'doubling up' at the edges.
     point at which this happens is determined by setting a flex-basis
     on the sidebar panel and a min-inline-size on the other panel.
 
-    N.B: because this layout uses Flexbox, we can use the `order`
+    Because this layout uses Flexbox, we can use the `order`
     property on either `.not-sidebar` or `.sidebar` (depending upon
     the source order of the HTML) to determine whether the sidebar
     sits on the left or right side.
+
+    We can add a gutter between the children of `.l-sidebar` using
+    the flexbox gap property. Note: There is no spacing in browsers
+    that don't support the flexbox gap property.
 \*------------------------------------*/
-/**
-Suppress horizontal scrolling caused by the negative margin
-in some circumstances.
- */
 .l-sidebar {
-  overflow: hidden;
-}
-
-/**
-We target the intermediary wrapper and give it a negative margin
-to create a gutter between the `.sidebar` and `.not-sidebar`.
- */
-.l-sidebar > * {
+  --amplify-sidebar-content-width: 60%;
+  --amplify-sidebar-bar-width: 20rem;
+  --amplify-sidebar-gap: 1.25rem;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  margin: -0.75rem;
+  gap: var(--amplify-sidebar-gap);
+  /* Acts as an override for how spacing is handled inside forms,
+   in case a <form> uses the `.l-sidebar` class directly. */
 }
-
-/**
-We apply an even, symmetrical margin to `.sidebar` and `.not-sidebar`,
-but halve it to to account for 'doubling up' at the edges.
- */
-.l-sidebar > * > * {
-  margin: 0.75rem;
+.l-sidebar > * + * {
+  margin-top: 0;
 }
 
 /**
@@ -1873,7 +1934,7 @@ omitted to let the contents of `.sidebar` determine the width of
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  flex-basis: 20rem;
+  flex-basis: var(--amplify-sidebar-bar-width);
   flex-grow: 1;
 }
 .l-sidebar .sidebar > * + * {
@@ -1882,71 +1943,87 @@ omitted to let the contents of `.sidebar` determine the width of
 }
 
 /**
+Optional modifier class: unset the flex-basis to let the`.sidebar`
+contents determine the width of `.sidebar` (e.g. a button, or
+an image with a specified width or maximum width).
+ */
+.l-sidebar .sidebar--intrinsic {
+  flex-basis: unset;
+}
+
+/**
 The min-inline-size determines the point at which `.sidebar` and `.not-sidebar`
 will sit side-by-side rather than vertically. This negates the use of a viewport
 media query.
  */
-.l-sidebar .not-sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+.l-sidebar .content {
   flex-basis: 0;
   flex-grow: 999;
-  min-inline-size: calc(55% - 1.5rem);
-}
-.l-sidebar .not-sidebar > * + * {
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
-}
-
-.l-sidebar--expanded {
-  inline-size: 100%;
-}
-
-.l-sidebar .sidebar.sidebar--compact {
-  flex-basis: 11.25rem;
+  min-inline-size: var(--amplify-sidebar-content-width);
 }
 
 /*------------------------------------*\
-    #Switcher layout helper
+    #Switcher layout helpers
 
-    Uses this to switch between vertical and horizontal layouts:
-    https://www.freecodecamp.org/news/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848/
+    There are two types of switcher layout. Both types switch a
+    Flexbox context between a horizontal and a vertical layout
+    at a given, CONTAINER-BASED breakpoint, rather than using
+    viewport media queries. Child elements are always of equal width.
 
-    `.l-switcher` switches a Flexbox context between a horizontal and a
-    vertical layout at a given, CONTAINER-BASED breakpoint, rather than
-    using viewport media queries.
+    Use `.l-switcher` if you do not want any spacing between children.
 
-    The child elements in the horizontal configuration will be of equal
-	width.
+	Use `.l-switcher-gap` if you do want spacing between children, which
+	incorporates flexbox gap in the formula. Note: There is no spacing
+	in browsers that don't support the flexbox gap property.
 
-	For gutter spacing, apply padding to the flex items and an equal
-    negative margin to the flex container. This will double up,
-    so use half the intended value.
+	1. The default value of 690 corresponds to the desired breakpoint value,
+	while 100% corresponds to the width of the parent container.
+	This calculation results in a value that's either bigger than
+	the max-inline-size or smaller than the min-inline-size,
+	so that either of these properties is applied instead.
+	See https://www.freecodecamp.org/news/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848/
+
+	2. Determines child width in the single column, vertical configuration
+
+	3. Determines how many children in a row in the horizontal configuration
 \*------------------------------------*/
+/**
+Switcher without spacing - make sure that the numbers used in the
+switcher-breakpoint and temp variables always match.
+ */
 .l-switcher {
-  overflow: hidden;
-}
-
-.l-switcher > * {
+  --amplify-switcher-row-qty: 2;
+  --amplify-switcher-breakpoint: 690;
+  --amplify-temp: 690px;
   display: flex;
   flex-flow: row wrap;
 }
 
+.l-switcher > * {
+  inline-size: calc(var(--amplify-temp) * var(--amplify-switcher-breakpoint) - 100% * var(--amplify-switcher-breakpoint)); /* See note 1 above */
+  max-inline-size: 100%; /* See note 2 above */
+  min-inline-size: calc(100% / var(--amplify-switcher-row-qty)); /* See note 3 above */
+}
+
 /**
-1. Determines the item width in the single column, vertical configuration
-
-2. Determines how many items will be in a row in the horizontal configuration
-
-3. The 690 value matches the desired breakpoint value. The 100% corresponds to
-the width of the columns' parent container. This calculation will create a
-value that's either bigger than the max-inline-size or smaller than the
-min-inline-size, so that either of these properties is applied instead.
+Switcher with spacing - make sure that the numbers used in the
+switcher-breakpoint and temp variables always match.
  */
-.l-switcher > * > * {
-  max-inline-size: 100%; /* 1 */
-  min-inline-size: 50%; /* 2 */
-  inline-size: calc(476100px - 69000%); /* 3 */
+.l-switcher-gap {
+  --amplify-switcher-row-qty: 2;
+  --amplify-switcher-gap-qty: 1;
+  --amplify-switcher-gap: 1.25rem;
+  --amplify-switcher-breakpoint: 690;
+  --amplify-temp: 690px;
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--amplify-switcher-gap);
+}
+
+.l-switcher-gap > * {
+  inline-size: calc(var(--amplify-temp) * var(--amplify-switcher-breakpoint) - 100% * var(--amplify-switcher-breakpoint)); /* See note 1 above */
+  max-inline-size: 100%; /* See note 2 above */
+  min-inline-size: calc((100% - var(--amplify-switcher-gap-qty) * var(--amplify-switcher-gap)) / var(--amplify-switcher-row-qty)); /* See note 3 above */
 }
 
 /*------------------------------------*\
@@ -2917,29 +2994,60 @@ input[type=search] {
           margin-block-start: 1rem;
 }
 
-.amplify .l-switcher.teasers {
-  overflow: visible;
-}
-
-.amplify .l-switcher.teasers > * {
-  margin: -0.75rem;
-}
-
-.amplify .l-switcher.teasers > * > * {
-  min-inline-size: 33%;
-  padding: 0.75rem;
-}
-
-.amplify .l-switcher.teasers .card {
+.amplify .l-switcher-gap.teasers .card {
   padding: 1.5rem;
 }
 
-.amplify .search-bar .not-sidebar {
-  min-inline-size: 70%;
+/**
+Styling examples shown on the Amplify website
+ */
+.amplify .component .l-box,
+.amplify .component .l-center,
+.amplify .component .l-cover {
+  background-color: #c6c6c6;
 }
 
-.amplify .search-bar button {
-  flex-grow: 1;
+.amplify .component .l-sidebar > * {
+  background-color: #ffd6df;
+}
+
+.amplify .box-custom .l-box {
+  --amplify-box-padding: 0;
+}
+
+.amplify .center-custom .l-center {
+  --amplify-center-width-max: 31.25rem;
+}
+
+.amplify .cluster-custom .l-cluster {
+  --amplify-cluster-gap: 1.5rem;
+}
+
+.amplify .frame-example {
+  max-inline-size: 25rem;
+}
+
+.amplify .frame-example .ratio-1-1 {
+  --amplify-frame-x: 1;
+  --amplify-frame-y: 1;
+}
+
+.amplify .frame-example .ratio-3-2 {
+  --amplify-frame-x: 3;
+  --amplify-frame-y: 2;
+}
+
+.amplify .frame-example .ratio-4-3 {
+  --amplify-frame-x: 4;
+  --amplify-frame-y: 3;
+}
+
+.amplify .search-bar.l-sidebar > * {
+  background-color: transparent;
+}
+
+.amplify .search-bar .content {
+  min-inline-size: 70%;
 }
 
 /* 1 */
