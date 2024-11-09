@@ -122,7 +122,7 @@
 					</div>
 					<div class="component component--text">
 						<h2>Considerations</h2>
-						<p>Because the icons are background images, they may not display well in Windows High Contrast Mode. So make sure that the heading text clearly indicates the nature of the note: is it giving a warning? Has there been an error? Or is it confirming something?</p>
+						<p>Because the icons are background images, they may not display well in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors">forced colors mode</a> (e.g. Windows High Contrast mode). So make sure that the heading text clearly indicates the nature of the note: is it giving a warning? Has there been an error? Or is it confirming something?</p>
 						<h3>ARIA live regions</h3>
 						<p>Note the use of <code>role="status"</code> and <code>role="alert"</code>. Both create an ARIA live region.</p>
 						<p>If the content of the note is advisory information not important enough to justify an alert, use <code>role="status"</code>. When added to an element, the browser will send out an accessible status event to assistive technologies, which can then notify the user about it.</p>
