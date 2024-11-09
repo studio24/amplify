@@ -1,0 +1,88 @@
+/*------------------------------------*\
+    #Set and override CSS custom properties
+
+    Mixins for setting and overriding automatically prefixed CSS custom properties
+    (CSS variables) to ensure they are handled in a consistent, scalable manner.
+
+    See https://dev.to/felipperegazio/css-custom-properties-vars-with-sass-scss-a-practical-architecture-strategy-1m88
+\*------------------------------------*/
+
+/**
+ * Declare a group of CSS custom properties.
+ * Each variable in the $css_variables map will be correctly prefixed.
+ * Double brackets are needed when using the mixin:
+ *  - the first for the @include statement itself,
+ *  - the second to pass the $css_variables map as the first argument
+ *
+ * Basic usage:
+ *
+ * @include cssvars((
+ *  font-family: #{"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif},
+ *  primary-color: #33b5e5,
+ *  secondary-color: #ff500a,
+ *  max-width: rem(20)
+ * ));
+ *
+ * will result in
+ *
+ * --amplify-font-family: value;
+ * --amplify-primary-color: value;
+ * --amplify-secondary-color: value;
+ * --amplify-max-width: value;
+ *
+ * Overriding the default prefix:
+ *
+ * @include cssvars((
+ *  font-family: #{"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif},
+ *  primary-color: #33b5e5,
+ *  secondary-color: #ff500a,
+ *  max-width: rem(20)
+ * ), s24);
+ *
+ * will result in
+ *
+ * --s24-font-family: value;
+ * --s24-primary-color: value;
+ * --s24-secondary-color: value;
+ * --s24-max-width: value;
+ */
+
+@mixin cssvars($css_variables, $prefix: amplify) {
+    @each $name, $value in $css_variables {
+        --#{$prefix}-#{$name}: #{$value};
+    }
+}
+
+
+/**
+ * Override a CSS custom property value.
+ *
+ * Basic usage:
+ *
+ * @include cssvar(primary-color, #ff69b4);
+ *
+ * will result in
+ *
+ * --amplify-max-width: newvalue;
+ *
+ * Overriding the default prefix as well as the custom property value:
+ *
+ * @include cssvar(primary-color, #ff69b4, s24);
+ *
+ * will result in
+ *
+ * --s24-max-width: newvalue;
+ */
+
+// @mixin cssvar ($name, $value: '', $prefix: amplify) {
+//     --#{$prefix}-#{$name}: #{$value};
+// }
+
+@mixin cssvar($name, $value: null, $prefix: amplify, $fallback: null) {
+    @if $value != null {
+        --#{$prefix}-#{$name}: #{$value};
+    }
+    @else if $fallback != null {
+        --#{$prefix}-#{$name}: #{$fallback};
+    }
+}

@@ -5,98 +5,100 @@
 /*------------------------------------*\
     #Settings
 \*------------------------------------*/
-@import "sass/00-settings/breakpoints";
-@import "sass/00-settings/colors";
-//@import "sass/00-settings/debug";
-@import "sass/00-settings/fonts";
-@import "sass/00-settings/typesetting";
+@import 'sass/00-settings/breakpoints';
+@import 'sass/00-settings/colors';
+//@import 'sass/00-settings/debug';
+@import 'sass/00-settings/fonts';
+@import 'sass/00-settings/typesetting';
 
 
 /*------------------------------------*\
     #Functions
 \*------------------------------------*/
-@import "sass/10-functions/units";
+@import 'sass/10-functions/units';
+@import 'sass/10-functions/css-custom-props';
 
 
 /*------------------------------------*\
     #Mixins
 \*------------------------------------*/
-@import "sass/20-mixins/font-sizes";
-@import "sass/20-mixins/media-query";
-@import "sass/20-mixins/stack";
+@import 'sass/20-mixins/css-custom-props';
+@import 'sass/20-mixins/font-sizes';
+@import 'sass/20-mixins/media-query';
+@import 'sass/20-mixins/stack';
 
 
 /*------------------------------------*\
     #Base
 \*------------------------------------*/
-@import "sass/30-base/box-sizing";
-@import "sass/30-base/body";
-@import "sass/30-base/typography";
-@import "sass/30-base/media";
-@import "sass/30-base/hide-and-show";
-@import "sass/30-base/flow-elements";
-@import "sass/30-base/buttons-and-links";
-@import "sass/30-base/skip-link";
-@import "sass/30-base/details-and-summary";
-@import "sass/30-base/svg";
-@import "sass/30-base/icons";
-@import "sass/30-base/lists";
-@import "sass/30-base/quotes";
-@import "sass/30-base/tables";
-@import "sass/30-base/animation";
-@import "sass/30-base/focus";
+@import 'sass/30-base/box-sizing';
+@import 'sass/30-base/body';
+@import 'sass/30-base/typography';
+@import 'sass/30-base/media';
+@import 'sass/30-base/hide-and-show';
+@import 'sass/30-base/flow-elements';
+@import 'sass/30-base/buttons-and-links';
+@import 'sass/30-base/skip-link';
+@import 'sass/30-base/details-and-summary';
+@import 'sass/30-base/svg';
+@import 'sass/30-base/icons';
+@import 'sass/30-base/lists';
+@import 'sass/30-base/quotes';
+@import 'sass/30-base/tables';
+@import 'sass/30-base/animation';
+@import 'sass/30-base/focus';
 
 
 /*------------------------------------*\
     #Forms
 \*------------------------------------*/
-@import "sass/35-forms/forms";
-@import "sass/35-forms/checkboxes-radios";
-@import "sass/35-forms/memorable-dates";
-@import "sass/35-forms/segmented-options";
-@import "sass/35-forms/select";
+@import 'sass/35-forms/forms';
+@import 'sass/35-forms/checkboxes-radios';
+@import 'sass/35-forms/memorable-dates';
+@import 'sass/35-forms/segmented-options';
+@import 'sass/35-forms/select';
 
 
 /*------------------------------------*\
     #Layout helpers
 \*------------------------------------*/
-@import "sass/40-layout-helpers/box";
-@import "sass/40-layout-helpers/center";
-@import "sass/40-layout-helpers/cover";
-@import "sass/40-layout-helpers/cluster";
-@import "sass/40-layout-helpers/frame";
-@import "sass/40-layout-helpers/sidebar";
-@import "sass/40-layout-helpers/switcher";
+@import 'sass/40-layout-helpers/box';
+@import 'sass/40-layout-helpers/center';
+@import 'sass/40-layout-helpers/cover';
+@import 'sass/40-layout-helpers/cluster';
+@import 'sass/40-layout-helpers/frame';
+@import 'sass/40-layout-helpers/sidebar';
+@import 'sass/40-layout-helpers/switcher';
 
 
 /*------------------------------------*\
     #Core components
 \*------------------------------------*/
-@import "sass/50-core-components/header";
-@import "sass/50-core-components/logo";
-@import "sass/50-core-components/navigation";
-@import "sass/50-core-components/breadcrumbs";
-@import "sass/50-core-components/main";
+@import 'sass/50-core-components/header';
+@import 'sass/50-core-components/logo';
+@import 'sass/50-core-components/navigation';
+@import 'sass/50-core-components/breadcrumbs';
+@import 'sass/50-core-components/main';
 //@import "sass/50-core-components/hero";
-@import "sass/50-core-components/text";
-@import "sass/50-core-components/quotes";
-@import "sass/50-core-components/images";
-@import "sass/50-core-components/avatars";
-@import "sass/50-core-components/video";
-@import "sass/50-core-components/notes";
+@import 'sass/50-core-components/text';
+@import 'sass/50-core-components/quotes';
+@import 'sass/50-core-components/images';
+@import 'sass/50-core-components/avatars';
+@import 'sass/50-core-components/video';
+@import 'sass/50-core-components/notes';
 //@import "sass/50-core-components/social";
-@import "sass/50-core-components/cards";
-@import "sass/50-core-components/shelves";
-@import "sass/50-core-components/progress-indicator";
+@import 'sass/50-core-components/cards';
+@import 'sass/50-core-components/shelves';
+@import 'sass/50-core-components/progress-indicator';
 //@import "sass/50-core-components/payment-details";
-@import "sass/50-core-components/tag-list";
+@import 'sass/50-core-components/tag-list';
 //@import "sass/50-core-components/fifty-fifty";
-@import "sass/50-core-components/collapsibles";
-@import "sass/50-core-components/carousel";
-@import "sass/50-core-components/search";
+@import 'sass/50-core-components/collapsibles';
+@import 'sass/50-core-components/carousel';
+@import 'sass/50-core-components/search';
 //@import "sass/50-core-components/meta-info";
-@import "sass/50-core-components/pagination";
-@import "sass/50-core-components/footer";
+@import 'sass/50-core-components/pagination';
+@import 'sass/50-core-components/footer';
 
 
 /*------------------------------------*\
@@ -110,13 +112,13 @@
 
     1. Used purely for the static Amplify site
 \*------------------------------------*/
-@import "sass/85-amplify/amplify-guide"; /* 1 */
+@import 'sass/85-amplify/amplify-guide'; /* 1 */
 
 
 /*------------------------------------*\
     #Utilities
 \*------------------------------------*/
-@import "sass/90-utilities/alignments";
-@import "sass/90-utilities/clearfix";
-@import "sass/90-utilities/layout";
-@import "sass/90-utilities/margins";
+@import 'sass/90-utilities/alignments';
+@import 'sass/90-utilities/clearfix';
+@import 'sass/90-utilities/layout';
+@import 'sass/90-utilities/margins';
