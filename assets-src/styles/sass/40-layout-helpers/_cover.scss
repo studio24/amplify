@@ -4,24 +4,29 @@
     From https://absolutely.every-layout.dev/layouts/cover/
 
     `.l-cover` uses Flexbox to vertically center a principal item
-    of content. It is given a min-block-size value to achieve this
-    which could be 100vh, or less.
+    of content. It is given a min-block-size (minimum height) value
+    to achieve this which could be 100vh, or less.
 
-    Horizontal centering of content can be achieved using the `.l-center`
-    layout within `.l-cover`, or with the `.u-center` utility found in
-    /90-utilities/layout
+    Horizontal centering of content inside can be achieved by placing
+    an element with the `.l-center` class inside of `.l-cover` or by
+    using the `.u-center` utility class found in /90-utilities/layout
 \*------------------------------------*/
 
 .l-cover {
+    @include cssvars((
+        cover-min-height: 30vh,
+        cover-padding: rem(20),
+        cover-margin-inner-y: rem(20)
+    ));
 	display: flex;
 	flex-direction: column;
-	min-block-size: 30vh;
-	padding: 1rem;
+	min-block-size: cssvar(cover-min-height);
+	padding: cssvar(cover-padding);
 }
 
 
 .l-cover > * {
-	margin-block: 1rem;
+    margin-block: cssvar(cover-margin-inner-y);
 }
 
 
