@@ -6,27 +6,25 @@
     `.l-box` should have borders and/or padding on all sides, or
     none at all. Otherwise it's not a box, but something more specific.
 
-    1. High contrast themes tend to eliminate background-color. If no
-    border is set on the box, we need to apply a transparent outline to
-    maintain the box shape. The negative outline-offset moves the outline
-    inside the perimeter so it behaves like a border and doesn't add to
-    the overall size.
+    1. Forced colors mode (e.g. Windows High Contrast mode) may eliminate
+    background-color. In this mode, if a box has no border the edges of the box
+    may not be apparent. The transparent outline imitates a border, but it is
+    only visible when in forced colors mode. The negative outline-offset moves
+    the outline inside the perimeter of the box so it acts like a border and
+    doesn't add to its overall size.
 \*------------------------------------*/
 
 .l-box {
-	border: 1px solid;
+    @include cssvars((
+        box-padding: rem(24)
+    ));
+	border: solid 2px;
 	display: block;
-	padding: rem(24);
+    padding: cssvar(box-padding);
 }
-
-
-.l-box--no-padding {
-	padding: 0;
-}
-
 
 .l-box--no-border {
 	border: none;
-	outline: 1px solid transparent; /* 1 */
-	outline-offset: -1px; /* 1 */
+	outline: 2px solid transparent; /* See note 1 above */
+	outline-offset: -2px; /* See note 1 above */
 }

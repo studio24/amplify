@@ -91,26 +91,27 @@
 						<p>The box layout helper is a simple container for grouping content within a defined region. It uses the class <code>l-box</code>.</p>
 						<p>Box deliberately treats padding and borders <em>equally on all sides</em>.</p>
 						<p>If your container needs asymmetrical styling, then it's a container with a more specific purpose and <em>not</em> a box.</p>
+						<p>Note: the background colour is purely for the examples on this site and is not part of the default styling.</p>
 					</div>
 					<div class="component">
-						<h2>Default box</h2>
+						<h2>Default box layout</h2>
 						<div class="l-box">Default box, with padding and border</div>
 					</div>
-					<div class="component">
+					<div class="component box-custom">
 						<h2>Box without padding</h2>
-						<div class="l-box l-box--no-padding">Box with no padding</div>
+						<div class="l-box">Box with no padding</div>
 					</div>
 					<div class="component">
 						<h2>Box without border</h2>
-						<div class="l-box l-box--no-border">Box with no border</div>
+						<div class="l-box l-box--no-border">Box with no border: note the use of the <code>l-box--no-border</code> helper class</div>
 					</div>
-					<div class="component">
+					<div class="component box-custom">
 						<h2>Box without padding or border</h2>
-						<div class="l-box l-box--no-padding l-box--no-border">Box with no padding and no border</div>
+						<div class="l-box l-box--no-border">Box with no padding and no border: note the use of the <code>l-box--no-border</code> helper class</div>
 					</div>
 					<div class="component component--text">
 						<h2>Considerations</h2>
-						<p>Because high contrast themes can eliminate <code>background-color</code>, the <code>l-box--no-border</code> modifier class adds a transparent outline so that the shape of the box remains apparent. Negative <code>outline-offset</code> moves the outline inside the box perimeter so that it doesn't impact its overall size.</p>
+						<p>Because <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors">forced colors mode</a> (e.g. Windows High Contrast mode) may eliminate <code>background-color</code>, the <code>l-box--no-border</code> helper class adds a transparent outline so that the edges of the box are still visible. Negative <code>outline-offset</code> moves the outline inside the box perimeter so that it doesn't impact its overall size.</p>
 					</div>
 				</div>
 			</div>
