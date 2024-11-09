@@ -4,11 +4,17 @@
     From https://absolutely.every-layout.dev/layouts/frame/
 
     `.l-frame` is most useful for cropping media (images
-    and video) to a specific aspect ratio.
+    and video) to a specific aspect ratio. It uses the modern
+    CSS property `aspect-ratio` rather than the old padding hack.
 
     It is not recommended to apply the `.l-frame` class to the
     <figure> element, as it will interfere with the <figcaption>.
-    Instead, place it on <picture> or a <div> inside of <figure>.
+    Instead, place it on a <div> (or <picture>, if employing art
+    direction to change not just image dimensions but also aspect
+    ratio) inside of <figure>.
+
+    See https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#art_direction
+    to learn more about when to use the <picture> element.
 \*------------------------------------*/
 
 .l-frame {
@@ -17,18 +23,17 @@
 	position: relative;
 }
 
-
-.l-frame > * {
-	align-items: center;
-	display: flex;
-	inset-block-end: 0;
-	inset-block-start: 0;
-	inset-inline-end: 0;
-	inset-inline-start: 0;
-	justify-content: center;
-	position: absolute;
+.l-frame {
+    @include cssvars((
+        frame-x: 16,
+        frame-y: 9,
+    ));
+    align-items: center;
+    aspect-ratio: cssvar(frame-x) / cssvar(frame-y);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
 }
-
 
 .l-frame > iframe,
 .l-frame > img,
@@ -37,34 +42,7 @@
 	inline-size: 100%;
 }
 
-
-.l-frame > iframe {
-	border: 0;
-}
-
-
 .l-frame > img,
 .l-frame > video {
 	object-fit: cover;
-}
-
-
-/* Common aspect ratios */
-.l-frame--16-9 {
-	padding-block-end: 56.25%;
-}
-
-
-.l-frame--3-2 {
-	padding-block-end: 66.67%;
-}
-
-
-.l-frame--4-3 {
-	padding-block-end: 75%;
-}
-
-
-.l-frame--square {
-	padding-block-end: 100%;
 }

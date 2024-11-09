@@ -89,50 +89,51 @@
 					<div class="component component--text">
 						<h1>Frame</h1>
 						<p>The frame layout helper is useful for cropping media (images and video) to a specific aspect ratio. It uses the class <code>l-frame</code> and additional modifier classes for pre-defined aspect ratios. These modifier classes determine the amount of vertical padding on the frame, which then acts as a window onto the content inside.</p>
+						<p>Note: the figures that follow have a maximum width applied purely for the examples on this site.</p>
 					</div>
 					<div class="component">
 						<h2>16:9 aspect ratio</h2>
-						<figure>
-							<div class="l-frame l-frame--16-9">
-								<img src="../../dist/images/jpg-cat-1.jpg" alt>
+						<figure class="frame-example">
+							<div class="l-frame">
+								<img src="../../dist/images/jpg-cat-1.jpg" width="640" height="491" alt="Tabby cat">
 							</div>
-							<figcaption>An example of the 16:9 frame modifier</figcaption>
+							<figcaption>The default aspect ratio for the frame layout</figcaption>
 						</figure>
 					</div>
 					<div class="component">
 						<h2>3:2 aspect ratio</h2>
-						<figure>
-							<div class="l-frame l-frame--3-2">
-								<img src="../../dist/images/jpg-cat-1.jpg" alt>
+						<figure class="frame-example">
+							<div class="l-frame ratio-3-2">
+								<img src="../../dist/images/jpg-cat-1.jpg" width="640" height="491" alt="Tabby cat">
 							</div>
-							<figcaption>An example of the 3:2 frame modifier</figcaption>
+							<figcaption>Modified to a 3:2 aspect ratio</figcaption>
 						</figure>
 					</div>
 					<div class="component">
 						<h2>4:3 aspect ratio</h2>
-						<figure>
-							<div class="l-frame l-frame--4-3">
-								<img src="../../dist/images/jpg-cat-1.jpg" alt>
+						<figure class="frame-example">
+							<div class="l-frame ratio-4-3">
+								<img src="../../dist/images/jpg-cat-1.jpg" width="640" height="491" alt="Tabby cat">
 							</div>
-							<figcaption>An example of the 4:3 frame modifier</figcaption>
+							<figcaption>Modified to a 4:3 aspect ratio</figcaption>
 						</figure>
 					</div>
 					<div class="component">
-						<h2>Square aspect ratio</h2>
-						<figure>
-							<div class="l-frame l-frame--square">
-								<img src="../../dist/images/jpg-cat-1.jpg" alt>
+						<h2>1:1 aspect ratio</h2>
+						<figure class="frame-example">
+							<div class="l-frame ratio-1-1">
+								<img src="../../dist/images/jpg-cat-1.jpg" width="640" height="491" alt="Tabby cat">
 							</div>
-							<figcaption>An example of the square frame modifier</figcaption>
+							<figcaption>A 1:1 aspect ratio results in a square image</figcaption>
 						</figure>
 					</div>
 					<div class="component component--text">
 						<h2>Considerations</h2>
 						<h3>Figure/figcaption use</h3>
-						<p>If using <code>figure</code> with <code>figcaption</code>, make sure to apply the <code>l-frame</code> class to an inner <code>div</code> or <code>picture</code> rather than directly to the <code>figure</code> to avoid obscuring the <code>figcaption</code>.</p>
-						<h3>Internet Explorer/non-Chromium Edge</h3>
-						<p>The default frame layout uses <code>object-fit: cover</code> for images and videos. This is not supported in Internet Explorer or Edge prior to version 16 and in Edge 16-18 it is only supported on images. However, the Chromium Edge browser, which does support object-fit, is now available to systems as far back as Windows 7.</p>
-						<p>If you need broader support you may prefer to forgo <code>object-fit</code> and adapt your instance of the frame to rely on absolute positioning of the contents and hiding any overflow.</p>
+						<p>If using <code>figure</code> with <code>figcaption</code>, make sure to apply the <code>l-frame</code> class to an inner <code>div</code> (or to <code>picture</code>, if employing <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#art_direction">art direction</a> to serve multiple images with both different image dimensions and aspect ratios) inside the figure rather than directly to the <code>figure</code> to avoid obscuring the caption.</p>
+						<h3>Older browsers</h3>
+						<p>The default frame layout uses <code>object-fit: cover</code> for images and videos. This is not supported in Edge prior to version 16 and in Edge 16-18 it is only supported on images. However, the Chromium Edge browser, which does support object-fit, is available to systems as far back as Windows 7.</p>
+						<p>If you need broader support you may prefer to forgo <code>object-fit</code> and adapt your instance of the frame layout to rely on absolute positioning of the contents and hiding any overflow.</p>
 					</div>
 				</div>
 			</div>
