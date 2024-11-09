@@ -7,34 +7,20 @@
     are liable to wrap. Use the Cluster to align any groups of horizontally
     laid out elements to the left or right, or in the center, with even
     spacing between elements.
+
+    Note: There is no spacing in browsers that don't support the flexbox gap property.
 \*------------------------------------*/
 
 /**
-Suppress horizontal scrolling caused by the negative margin
-in some circumstances.
+We use flexbox to configure the elements into clusters without creating white space.
+The gap property specifies the spacing. We can control how we align items within
+the cluster by optionally using 'align-items` and/or `justify-content`.
  */
 .l-cluster {
-	overflow: hidden;
-}
-
-
-/**
-We use flexbox to configure the elements into clusters without creating
-white space. We can control how we align items within the cluster,
-by using 'align-items` and `justify-content`.
- */
-.l-cluster > * {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	margin: rem(-10);
-}
-
-
-/**
-We apply an even, symmetrical margin to the elements that we wish to space
-out, but halve it to to account for 'doubling up' at the edges.
- */
-.l-cluster.l-cluster > * > * {
-	margin: rem(10);
+    @include cssvars((
+        cluster-gap: rem(10)
+    ));
+    display: flex;
+    flex-wrap: wrap;
+    gap: cssvar(cluster-gap);
 }
