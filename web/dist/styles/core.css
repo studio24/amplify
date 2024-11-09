@@ -3001,7 +3001,7 @@ input[type=search] {
 /**
 Styling examples shown on the Amplify website
  */
-.amplify .component .l-box,
+.amplify .component .l-box:not(.note),
 .amplify .component .l-center,
 .amplify .component .l-cover {
   background-color: #c6c6c6;

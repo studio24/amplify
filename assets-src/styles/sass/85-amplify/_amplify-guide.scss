@@ -146,7 +146,7 @@
 /**
 Styling examples shown on the Amplify website
  */
-.amplify .component .l-box,
+.amplify .component .l-box:not(.note),
 .amplify .component .l-center,
 .amplify .component .l-cover {
     background-color: $neutral-30;
