@@ -11,39 +11,31 @@
     point at which this happens is determined by setting a flex-basis
     on the sidebar panel and a min-inline-size on the other panel.
 
-    N.B: because this layout uses Flexbox, we can use the `order`
+    Because this layout uses Flexbox, we can use the `order`
     property on either `.not-sidebar` or `.sidebar` (depending upon
     the source order of the HTML) to determine whether the sidebar
     sits on the left or right side.
+
+    We can add a gutter between the children of `.l-sidebar` using
+    the flexbox gap property. Note: There is no spacing in browsers
+    that don't support the flexbox gap property.
 \*------------------------------------*/
 
-/**
-Suppress horizontal scrolling caused by the negative margin
-in some circumstances.
- */
 .l-sidebar {
-	overflow: hidden;
-}
+    @include cssvars((
+        sidebar-content-width: 60%,
+        sidebar-bar-width: rem(320),
+        sidebar-gap: rem(20)
+    ));
+    display: flex;
+    flex-wrap: wrap;
+    gap: cssvar(sidebar-gap);
 
-
-/**
-We target the intermediary wrapper and give it a negative margin
-to create a gutter between the `.sidebar` and `.not-sidebar`.
- */
-.l-sidebar > * {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	margin: -0.75rem;
-}
-
-
-/**
-We apply an even, symmetrical margin to `.sidebar` and `.not-sidebar`,
-but halve it to to account for 'doubling up' at the edges.
- */
-.l-sidebar > * > * {
-	margin: 0.75rem;
+    /* Acts as an override for how spacing is handled inside forms,
+     in case a <form> uses the `.l-sidebar` class directly. */
+    > * + * {
+        margin-top: 0;
+    }
 }
 
 
@@ -54,8 +46,17 @@ omitted to let the contents of `.sidebar` determine the width of
  */
 .l-sidebar .sidebar {
 	@include stack;
-	flex-basis: rem(320);
+	flex-basis: cssvar(sidebar-bar-width);
 	flex-grow: 1;
+}
+
+/**
+Optional modifier class: unset the flex-basis to let the`.sidebar`
+contents determine the width of `.sidebar` (e.g. a button, or
+an image with a specified width or maximum width).
+ */
+.l-sidebar .sidebar--intrinsic {
+    flex-basis: unset;
 }
 
 
@@ -64,19 +65,8 @@ The min-inline-size determines the point at which `.sidebar` and `.not-sidebar`
 will sit side-by-side rather than vertically. This negates the use of a viewport
 media query.
  */
-.l-sidebar .not-sidebar {
-	@include stack;
-	flex-basis: 0;
-	flex-grow: 999;
-	min-inline-size: calc(55% - 1.5rem);
-}
-
-
-.l-sidebar--expanded {
-	inline-size: 100%;
-}
-
-
-.l-sidebar .sidebar.sidebar--compact {
-	flex-basis: rem(180);
+.l-sidebar .content {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: cssvar(sidebar-content-width);
 }

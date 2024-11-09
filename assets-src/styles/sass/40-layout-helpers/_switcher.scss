@@ -1,44 +1,69 @@
 /*------------------------------------*\
-    #Switcher layout helper
+    #Switcher layout helpers
 
-    Uses this to switch between vertical and horizontal layouts:
-    https://www.freecodecamp.org/news/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848/
+    There are two types of switcher layout. Both types switch a
+    Flexbox context between a horizontal and a vertical layout
+    at a given, CONTAINER-BASED breakpoint, rather than using
+    viewport media queries. Child elements are always of equal width.
 
-    `.l-switcher` switches a Flexbox context between a horizontal and a
-    vertical layout at a given, CONTAINER-BASED breakpoint, rather than
-    using viewport media queries.
+    Use `.l-switcher` if you do not want any spacing between children.
 
-    The child elements in the horizontal configuration will be of equal
-	width.
+	Use `.l-switcher-gap` if you do want spacing between children, which
+	incorporates flexbox gap in the formula. Note: There is no spacing
+	in browsers that don't support the flexbox gap property.
 
-	For gutter spacing, apply padding to the flex items and an equal
-    negative margin to the flex container. This will double up,
-    so use half the intended value.
+	1. The default value of 690 corresponds to the desired breakpoint value,
+	while 100% corresponds to the width of the parent container.
+	This calculation results in a value that's either bigger than
+	the max-inline-size or smaller than the min-inline-size,
+	so that either of these properties is applied instead.
+	See https://www.freecodecamp.org/news/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848/
+
+	2. Determines child width in the single column, vertical configuration
+
+	3. Determines how many children in a row in the horizontal configuration
 \*------------------------------------*/
 
+/**
+Switcher without spacing - make sure that the numbers used in the
+switcher-breakpoint and temp variables always match.
+ */
 .l-switcher {
-	overflow: hidden;
+    @include cssvars((
+        switcher-row-qty: 2,
+        switcher-breakpoint: 690,
+        temp: 690px
+    ));
+    display: flex;
+    flex-flow: row wrap;
 }
 
-
 .l-switcher > * {
-	display: flex;
-	flex-flow: row wrap;
+    inline-size: calc(#{cssvar(temp)} * cssvar(switcher-breakpoint) - 100% * cssvar(switcher-breakpoint)); /* See note 1 above */
+    max-inline-size: 100%; /* See note 2 above */
+    min-inline-size: calc(100% / #{cssvar(switcher-row-qty)}); /* See note 3 above */
 }
 
 
 /**
-1. Determines the item width in the single column, vertical configuration
-
-2. Determines how many items will be in a row in the horizontal configuration
-
-3. The 690 value matches the desired breakpoint value. The 100% corresponds to
-the width of the columns' parent container. This calculation will create a
-value that's either bigger than the max-inline-size or smaller than the
-min-inline-size, so that either of these properties is applied instead.
+Switcher with spacing - make sure that the numbers used in the
+switcher-breakpoint and temp variables always match.
  */
-.l-switcher > * > * {
-	max-inline-size: 100%; /* 1 */
-	min-inline-size: 50%; /* 2 */
-	inline-size: calc(690px * 690 - 100% * 690); /* 3 */
+.l-switcher-gap {
+    @include cssvars((
+        switcher-row-qty: 2,
+        switcher-gap-qty: 1,
+        switcher-gap: rem(20),
+        switcher-breakpoint: 690,
+        temp: 690px
+    ));
+    display: flex;
+    flex-flow: row wrap;
+    gap: cssvar(switcher-gap);
+}
+
+.l-switcher-gap > * {
+    inline-size: calc(#{cssvar(temp)} * cssvar(switcher-breakpoint) - 100% * cssvar(switcher-breakpoint)); /* See note 1 above */
+    max-inline-size: 100%; /* See note 2 above */
+    min-inline-size: calc( ( 100% - (#{cssvar(switcher-gap-qty)} * #{cssvar(switcher-gap)}) ) / #{cssvar(switcher-row-qty)} ); /* See note 3 above */
 }

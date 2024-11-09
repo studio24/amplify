@@ -1,0 +1,47 @@
+/*------------------------------------*\
+    #Get CSS custom properties
+
+    Function for retrieving automatically prefixed CSS custom properties
+    (CSS variables) to ensure they are handled in a consistent, scalable manner.
+
+    See https://dev.to/felipperegazio/css-custom-properties-vars-with-sass-scss-a-practical-architecture-strategy-1m88
+\*------------------------------------*/
+
+/**
+ * Basic usage:
+ *
+ * .selector {
+ *   color: cssvar(primary-color);
+ * }
+ *
+ * will result in
+ *
+ * .selector {
+ *    color: var(--amplify-primary-color);
+ * }
+ *
+ * Overriding the default prefix:
+ *
+ * .selector {
+ *   color: cssvar(primary-color, s24);
+ * }
+ *
+ * will result in
+ *
+ * .selector {
+ *    color: var(--s24-primary-color);
+ * }
+ */
+
+// @function cssvar($name, $prefix: amplify) {
+//     @return var(--#{$prefix}-#{$name});
+// }
+
+@function cssvar($name, $prefix: amplify, $fallback: null) {
+    @if $fallback != null {
+        @return var(--#{$prefix}-#{$name}, #{$fallback});
+    }
+    @else {
+        @return var(--#{$prefix}-#{$name});
+    }
+}
