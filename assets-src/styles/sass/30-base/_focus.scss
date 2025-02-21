@@ -9,7 +9,6 @@
 
 :focus {
     box-decoration-break: clone; /* 1 */
-    -webkit-box-decoration-break: clone; /* 1 */
     box-shadow: 0 0 0 4px $black;
     outline: 2px solid $focus-color; /* 2 */
     outline-offset: 0; /* 2 */

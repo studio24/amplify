@@ -65,7 +65,7 @@
  *The :not portions of the following selector allow a means for any
  * focusable element to become visible when focused/active by a user.
  */
-.visuallyhidden:not(:focus):not(:active) {
+.visuallyhidden:not(:focus, :active) {
 	@extend %visuallyhidden;
 }
 

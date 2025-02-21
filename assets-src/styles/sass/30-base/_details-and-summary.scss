@@ -3,8 +3,7 @@
 \*------------------------------------*/
 
 details {
-	margin-block-end: rem(16);
-	margin-block-start: rem(16);
+	margin-block: rem(16);
 }
 
 
@@ -21,12 +20,10 @@ summary {
 		border-inline-start-color: inherit;
 		border-style: solid;
 		border-width: 7px 0 7px 12.124px;
-		clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
 		content: '';
 		display: block;
 		inline-size: 0;
-		inset-block-end: 0;
-		inset-block-start: rem(-1);
+		inset-block: rem(-1) 0;
 		inset-inline-start: 0;
 		margin: auto;
 		position: absolute;
@@ -42,12 +39,15 @@ summary {
 
 	span {
 		display: inline-block;
-		padding-block-end: rem(10);
-		padding-block-start: rem(10);
+		padding-block: rem(10);
 		text-decoration: underline;
 		text-decoration-skip: auto; // Supported by Safari
 		text-decoration-skip-ink: auto; // Not supported by Safari
 	}
+}
+
+[dir="rtl"] summary::before {
+    border-width: 7px 12.124px 7px 0;
 }
 
 
@@ -60,9 +60,6 @@ details[open] > summary::before {
 	transform: rotate(90deg);
 }
 
-
-[dir="rtl"] {
-	summary::before {
-		transform: rotate(180deg);
-	}
+[dir="rtl"] details[open] > summary::before {
+    transform: rotate(-90deg);
 }

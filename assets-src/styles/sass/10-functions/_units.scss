@@ -26,7 +26,7 @@ $browser-context: 16; // Default
  #px
  */
 @function px($target, $context: $browser-context) {
-	@return #{$target*$context}px;
+	@return #{$target * $context}px;
 }
 
 
@@ -41,6 +41,6 @@ $browser-context: 16; // Default
 /**
  #Remove any unit present to return a unitless number
  */
-@function unitless($number) {
+@function no-units($number) {
 	@return math.div($number, ($number * 0 + 1));
 }

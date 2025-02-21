@@ -9,6 +9,7 @@
 
 body {
     @include text-body;
+
 	font-family: $font-family;
 	font-style: $font-style;
 	font-weight: $font-weight;
@@ -69,12 +70,14 @@ h6,
 
 .text-17 {
     @include text-17;
+
     margin-top: 1rem;
 }
 
 
 .lead {
     @include text-28;
+
     margin-block-end: rem(48); /* 1 */
     margin-block-end: clamp(2.5rem, calc(2.3rem + 1vw), 3rem);
 }

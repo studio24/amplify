@@ -25,11 +25,11 @@
 @keyframes scroll-shadow-inset {
     /* start with inset shadow on right */
     from {
-        box-shadow: inset -10px -10px 15px 0px rgb(0 0 0 / 0.3);
+        box-shadow: inset -10px -10px 15px 0 rgb(0 0 0 / 30%);
     }
 
     /* end with inset shadow on left */
     to {
-        box-shadow: inset 10px -10px 15px 0px rgb(0 0 0 / 0.3);
+        box-shadow: inset 10px -10px 15px 0 rgb(0 0 0 / 30%);
     }
 }

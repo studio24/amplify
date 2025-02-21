@@ -25,8 +25,8 @@
         display: block;
         margin: rem(2);
 
-        &:before,
-        &:after {
+        &::before,
+        &::after {
             content: '';
             position: absolute;
         }
@@ -67,6 +67,7 @@
 
     .segmented-label {
         @include stack(.5em);
+
         display: block;
         padding: rem(10);
         padding-inline-end: rem(44);

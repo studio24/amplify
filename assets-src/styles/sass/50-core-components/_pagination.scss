@@ -20,6 +20,7 @@
 .pagination__list {
 	a {
 		@include text-17;
+
 		color: $black;
 		display: block;
 		text-decoration: none;

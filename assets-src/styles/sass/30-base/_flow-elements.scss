@@ -10,6 +10,7 @@ abbr {
 
 address {
     @include stack(1rem);
+
     margin: rem(16) 0; /* 1 */
     margin: clamp(0.5rem, calc(0.3rem + 1vw), 1rem) 0;
 
@@ -99,19 +100,15 @@ pre {
 }
 
 code,
-kbd,
-samp {
-    font-size: .8em;
-}
-
-samp kbd {
-    font-size: 1em;
-}
-
-code,
 kbd {
     padding-block: rem(2);
     padding-inline: rem(4);
+}
+
+code,
+kbd,
+samp {
+    font-size: .8em;
 }
 
 code {
@@ -122,6 +119,10 @@ code {
 
 kbd {
     border: solid rem(1);
+}
+
+samp kbd {
+    font-size: 1em;
 }
 
 pre code {

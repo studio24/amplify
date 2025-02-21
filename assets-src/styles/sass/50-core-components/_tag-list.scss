@@ -20,6 +20,7 @@
 
 .tag {
 	@include text-17;
+
 	background-color: $neutral-60;
     border: solid 1px $neutral-60; /* 1 */
 	border-radius: rem(4);

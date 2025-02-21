@@ -19,6 +19,7 @@ fieldset {
 body:not(:-moz-handler-blocked) fieldset {
 	display: table-cell; // Deal with fieldset width in Firefox
 }
+
 /**
 End of resets for the fieldset element
  */
@@ -39,6 +40,7 @@ fieldset > * + *,
 legend,
 .field-group__heading {
 	@include text-22;
+
 	font-weight: $emphasis;
 }
 
@@ -77,6 +79,15 @@ label,
 }
 
 
+.field-hint {
+    @include text-17;
+
+    color: $neutral-70;
+    margin-block-end: 0.25rem;
+    max-inline-size: rem($text-measure);
+}
+
+
 .field-label,
 .group-legend {
 	font-weight: bold;
@@ -88,30 +99,22 @@ label,
 }
 
 
-.field-hint {
-	@include text-17;
-	color: $neutral-70;
-	margin-block-end: 0.25rem;
-	max-inline-size: rem($text-measure);
-}
-
-
 input, optgroup, {
     line-height: 1.15;
 }
 
 
 textarea,
-[type=date],
-[type=email],
-[type=file],
-[type=number],
-[type=password],
-[type=search],
-[type=tel],
-[type=text],
-[type=time],
-[type=url] {
+[type="date"],
+[type="email"],
+[type="file"],
+[type="number"],
+[type="password"],
+[type="search"],
+[type="tel"],
+[type="text"],
+[type="time"],
+[type="url"] {
 	appearance: none;
 	background-color: $off-white;
 	border: 2px solid $input-border-color;
@@ -122,15 +125,15 @@ textarea,
 }
 
 
-[type=date],
-[type=email],
-[type=number],
-[type=password],
-[type=search],
-[type=tel],
-[type=text],
-[type=time],
-[type=url] {
+[type="date"],
+[type="email"],
+[type="number"],
+[type="password"],
+[type="search"],
+[type="tel"],
+[type="text"],
+[type="time"],
+[type="url"] {
 	block-size: rem(44); // To match button height
 }
 
@@ -197,8 +200,7 @@ Error styles
 	color: $error-color;
 	display: inline-block;
 	font-weight: bold;
-	padding-block-end: rem(10);
-	padding-block-start: rem(10);
+	padding-block: rem(10);
 
 	&:hover,
 	&:visited {
