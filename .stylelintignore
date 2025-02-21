@@ -1,0 +1,10 @@
+##
+# Files that we want stylelint to ignore can be added here
+# The node_modules directory is ignored by default
+##
+
+# Print stylesheet
+assets-src/styles/sass/30-base/_print.scss
+
+# Style for the Amplify website
+assets-src/styles/sass/85-amplify/*.scss
