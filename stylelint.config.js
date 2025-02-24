@@ -45,5 +45,6 @@ export default {
 			"font-size": ["px"],
 			"line-height": ["px"]
 		},
+		"max-nesting-depth": 3
 	}
 };
