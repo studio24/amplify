@@ -74,10 +74,10 @@ dl.grid {
 	@supports (grid-row-start: auto) {
 		display: grid;
         gap: 1rem;
-		grid-template-columns: min-content;
 		-ms-grid-columns: min-content;
-		grid-template-rows: 1fr;
 		-ms-grid-rows: 1fr;
+		grid-template-columns: min-content;
+		grid-template-rows: 1fr;
 
 		dt {
 			grid-column: 1 / 2;

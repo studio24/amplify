@@ -26,9 +26,9 @@
 	&::after {
 		background-color: $neutral-70;
 		block-size: rem(13);
+		content:'';
 		inline-size: rem(3);
 		inset-block-end: rem(-16);
-		content:'';
 		inset-inline-start: rem(19);
 		position: absolute;
 
@@ -117,8 +117,8 @@
 	}
 
 	&::before {
-		border-radius: 50%;
 		block-size: rem(38);
+		border-radius: 50%;
 		inline-size: rem(38);
 		inset-block-start: 0;
 		inset-inline-start: 0;

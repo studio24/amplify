@@ -10,7 +10,7 @@
 /* 32px → 40px */
 @mixin text-40 {
     font-size: rem(40); /* 1 */
-    font-size: clamp(2rem, 1.8rem + 1vw, 2.5rem);;
+    font-size: clamp(2rem, 1.8rem + 1vw, 2.5rem);
     line-height: 1.3;
 }
 

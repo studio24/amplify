@@ -31,14 +31,14 @@
 
 .radio-item input,
 .checkbox-item input {
-    cursor: pointer;
     block-size: rem(44);
+    cursor: pointer;
+    inline-size: rem(44);
+    inset-block-start: rem(-2);
     inset-inline-start: rem(-10);
     margin: 0;
     opacity: 0;
     position: absolute;
-    inset-block-start: rem(-2);
-    inline-size: rem(44);
     z-index: 1;
 }
 
@@ -47,8 +47,8 @@
 .checkbox-item label {
     cursor: pointer;
     display: inline-block;
-    margin-bottom: 0;
     margin-block-start: rem(-2);
+    margin-bottom: 0;
 	padding-block: rem(6);
     padding-inline: rem(1) rem(15);
     touch-action: manipulation;
@@ -61,8 +61,8 @@
 
     &::before {
         background: transparent;
-        border: 2px solid $input-border-color;
         block-size: rem(24);
+        border: 2px solid $input-border-color;
 		inline-size: rem(24);
 		inset-block-start: rem(8);
         inset-inline-start: 0;
@@ -78,8 +78,8 @@
 
     &::after {
         background: currentcolor;
-        border: 5px solid;
         block-size: 0;
+        border: 5px solid;
 		inline-size: 0;
 		inset-block-start: rem(15);
         inset-inline-start: rem(7);
