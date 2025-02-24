@@ -9,9 +9,9 @@
  * comment-whitespace-inside (Require or disallow whitespace on the inside of comment markers)
  *
  * The following SCSS rules have been completely disabled:
- * scss/at-extend-no-missing-placeholder (Disallow at-extends (@extend) with missing placeholders)
+ * scss/at-extend-no-missing-placeholder (Disallow @extend with missing placeholders)
  * scss/dollar-variable-colon-space-after (Require or disallow whitespace after the colon in $-variable declarations)
- * scss/dollar-variable-empty-line-before (Require an empty line or disallow empty lines before $-variable declarations.)
+ * scss/dollar-variable-empty-line-before (Require an empty line or disallow empty lines before $-variable declarations)
  * scss/dollar-variable-pattern (Specify a pattern for Sass-like variables)
  * scss/double-slash-comment-empty-line-before (Require or disallow an empty line before //-comments)
  *
@@ -41,5 +41,9 @@ export default {
 				},
 			},
 		],
+		"declaration-property-unit-disallowed-list": {
+			"font-size": ["px"],
+			"line-height": ["px"]
+		},
 	}
 };
