@@ -18,7 +18,7 @@ Sass files sit at `assets-src/styles/sass` and are split across a series of numb
 
 ### 10-functions
 
-[Sass functions](https://sass-lang.com/documentation/values/functions) such as em/rem calculation, unit stripping
+[Sass functions](https://sass-lang.com/documentation/values/functions) such as em/rem calculation, removing units to return a plain number value.
 
 ### 20-mixins
 
@@ -52,11 +52,21 @@ Styles for any functionality that comes from external sources.
 
 ### 80-templates
 
-Styles required for specific page templates and/or content types. Note the sub-directory `85-amplify` which holds all the styles needed specifically for the Amplify website.
+Styles required for specific page templates and/or content types. Note the sub-directory `85-amplify` which holds all the styles needed specifically for the Amplify website. 
 
 ### 90-utilities
 
 Overrides or helper classes.
+
+## Linting Sass
+
+Amplify uses [Stylelint](https://stylelint.io/) to help us avoid errors and enforce conventions in our CSS. Visit that site for detailed documentation.
+
+If Stylelint encounters any errors that it cannot automatically fix, they will be highlighted in the terminal window and the Sass compilation step will not run. You must then either manually resolve the errors (preferred), or tell Stylelint to [ignore the problematic code](https://stylelint.io/user-guide/ignore-code).
+
+**If you have to ignore code for a valid reason, you _must_ specify the reason within the ignore comment.** You are encouraged to discuss with another developer before ignoring code.
+
+**Do not modify the underlying Stylelint rulesets** found in the `stylelint.config.js` config file without first discussing with the developers responsible for maintaining Amplify.
 
 ## Compiling Sass to CSS
 
@@ -70,7 +80,7 @@ Amplify uses the Node implementation of [Dart Sass](https://sass-lang.com/dart-s
 
 Both `core.css` and `print.css` are served to all browsers. `advanced.css` is only served to supported browsers.
 
-The files `core.scss`, `print.scss` and `advanced.scss` within `assets-src/styles` determine which Sass files will be compiled into the relevant CSS stylesheet. The individual Sass partials are included using the [@import directive](https://sass-lang.com/documentation/at-rules/import#partials) in the order denoted by the level in which they reside, remembering the impact of the [CSS cascade](https://wattenberger.com/blog/css-cascade).
+The files `core.scss`, `print.scss` and `advanced.scss` within `assets-src/styles` determine which Sass files will be compiled into the relevant CSS stylesheet. The individual Sass partials are included using the [@import directive](https://sass-lang.com/documentation/at-rules/import#partials) in the order denoted by the level in which they reside, remembering the impact of the [CSS cascade](https://wattenberger.com/blog/css-cascade). Any partials found to be unnecessary for a specific project - such as those needed for the Amplify site - should be commented out, to reduce the size of the compiled CSS files.
 
 ### Contents of `core.scss`
 
