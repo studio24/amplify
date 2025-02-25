@@ -26,10 +26,9 @@ Sass files sit at `assets-src/styles/sass` and are split across a series of numb
 
 ### 30-base
 
-Default styles forming the base of your project, including things like:
+Default styles forming the base of your project, including global styles like:
 
-* [Normalize](https://necolas.github.io/normalize.css/) reset
-* typography
+* typography and spacing
 * buttons and links
 * lists
 * forms and form error messages
