@@ -111,6 +111,10 @@ If needed, update the `package.json` file in the project root to specify [which 
 
 [SVG Optimizer](https://github.com/svg/svgo) is used to optimise SVG files. There is a `svgo.config.js` file in the project root to determine optimisation settings.
 
+#### Stylelint
+
+[Stylelint](https://stylelint.io/) is used to help avoid errors and enforce conventions in our CSS. There is a `stylelint.config.js` file in the project root which controls this process. [Linting Sass in Amplify](docs/css.md#linting-sass).
+
 #### Webpack
 
 [Webpack](https://webpack.js.org/) is used to compile, transpile and minify JavaScript files. There is a `webpack.config.js` file in the project root which controls this process.
