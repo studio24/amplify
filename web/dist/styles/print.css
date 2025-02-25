@@ -168,38 +168,32 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 24pt;
-  -webkit-margin-before: 36pt;
-          margin-block-start: 36pt;
+  margin-block-start: 36pt;
 }
 
 h2 {
   font-size: 20pt;
-  -webkit-margin-before: 30pt;
-          margin-block-start: 30pt;
+  margin-block-start: 30pt;
 }
 
 h3 {
   font-size: 18pt;
-  -webkit-margin-before: 27pt;
-          margin-block-start: 27pt;
+  margin-block-start: 27pt;
 }
 
 h4 {
   font-size: 16pt;
-  -webkit-margin-before: 24pt;
-          margin-block-start: 24pt;
+  margin-block-start: 24pt;
 }
 
 h5 {
   font-size: 15pt;
-  -webkit-margin-before: 22pt;
-          margin-block-start: 22pt;
+  margin-block-start: 22pt;
 }
 
 h6 {
   font-size: 14pt;
-  -webkit-margin-before: 21pt;
-          margin-block-start: 21pt;
+  margin-block-start: 21pt;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -222,8 +216,7 @@ ol:not([class]) li ol,
 .clean-list > * + *,
 .clean-list li ul,
 .clean-list li ol {
-  -webkit-margin-before: 8pt;
-          margin-block-start: 8pt;
+  margin-block-start: 8pt;
 }
 
 .clean-list {
@@ -233,16 +226,14 @@ ol:not([class]) li ol,
 ol:not([class]) {
   counter-reset: count;
   list-style-type: none;
-  -webkit-padding-start: 15pt;
-          padding-inline-start: 15pt;
+  padding-inline-start: 15pt;
 }
 ol:not([class]) > li {
   counter-increment: count;
 }
 ol:not([class]) > li::before {
   content: counters(count, ".") " ";
-  -webkit-padding-end: 6pt;
-          padding-inline-end: 6pt;
+  padding-inline-end: 6pt;
 }
 
 a:link, a:visited, a {
@@ -298,8 +289,7 @@ form > * + *,
 .radio-item + .radio-item,
 .checkbox-item + .checkbox-item,
 .segmented-group > * > * + * {
-  -webkit-margin-before: 8pt;
-          margin-block-start: 8pt;
+  margin-block-start: 8pt;
 }
 
 fieldset {
@@ -307,8 +297,7 @@ fieldset {
   margin: 0;
   min-inline-size: 0;
   padding: 0;
-  -webkit-padding-before: 0.12pt;
-          padding-block-start: 0.12pt;
+  padding-block-start: 0.12pt;
 }
 
 .field {
@@ -360,8 +349,7 @@ textarea {
 .memorable-date,
 .input-group > * {
   display: inline-block;
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
+  margin-block-start: 0;
 }
 
 .memorable-date .faux-label,
@@ -435,8 +423,7 @@ Layouts
 }
 .avatar img {
   block-size: 100%;
-  -webkit-margin-before: -8pt;
-          margin-block-start: -8pt;
+  margin-block-start: -8pt;
 }
 
 .logo {
@@ -445,8 +432,7 @@ Layouts
 }
 
 .component + .component {
-  -webkit-margin-before: 42pt;
-          margin-block-start: 42pt;
+  margin-block-start: 42pt;
 }
 
 .component--image,
@@ -457,10 +443,8 @@ Layouts
 }
 
 .component--quote {
-  -webkit-border-start: solid 4pt;
-          border-inline-start: solid 4pt;
-  -webkit-padding-start: 8pt;
-          padding-inline-start: 8pt;
+  border-inline-start: solid 4pt;
+  padding-inline-start: 8pt;
 }
 .component--quote blockquote {
   font-size: 14pt;
@@ -495,8 +479,7 @@ Layouts
 }
 
 footer {
-  -webkit-margin-before: 36pt;
-          margin-block-start: 36pt;
+  margin-block-start: 36pt;
 }
 
 .skip-link,

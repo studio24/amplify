@@ -189,8 +189,7 @@ article {
  * focusable element to become visible when focused/active by a user.
  */
 br {
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
+  margin-block-start: 0;
 }
 
 /*
@@ -467,8 +466,7 @@ br {
 
 .js .component--collapsibles__panel__content {
   padding: 1.5625rem;
-  -webkit-padding-before: 0;
-          padding-block-start: 0;
+  padding-block-start: 0;
 }
 .js .component--collapsibles__panel__content[aria-hidden=true] {
   display: none;
@@ -481,8 +479,7 @@ br {
   pointer-events: none;
 }
 [data-toggle=true] + * {
-  -webkit-margin-before: 1rem;
-          margin-block-start: 1rem;
+  margin-block-start: 1rem;
 }
 [data-toggle=true][aria-expanded=false] .expand-less {
   display: none;
@@ -511,8 +508,7 @@ amplify-table-sort .arrow-wrapper {
   display: flex;
   flex-direction: column;
   inline-size: 0.9375rem;
-  -webkit-margin-start: 0.75rem;
-          margin-inline-start: 0.75rem;
+  margin-inline-start: 0.75rem;
   pointer-events: none;
 }
 
@@ -762,8 +758,7 @@ amplify-table-sort col.js-sorted {
 }
 
 .autocomplete__option {
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
+  margin-block-start: 0;
 }
 
 .autocomplete__option--odd {
@@ -1152,6 +1147,5 @@ amplify-table-sort col.js-sorted {
   padding: 1.5rem;
 }
 .component--tabs [role=tabpanel] > *:first-child {
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
+  margin-block-start: 0;
 }

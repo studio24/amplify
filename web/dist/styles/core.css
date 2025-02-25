@@ -236,10 +236,8 @@ p {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   margin: 0;
-  -webkit-margin-after: 1rem;
-          margin-block-end: 1rem; /* 1 */
-  -webkit-margin-after: clamp(0.5rem, 0.3rem + 1vw, 1rem);
-          margin-block-end: clamp(0.5rem, 0.3rem + 1vw, 1rem);
+  margin-block-end: 1rem; /* 1 */
+  margin-block-end: clamp(0.5rem, 0.3rem + 1vw, 1rem);
 }
 
 h1, h2, h3, h4 {
@@ -247,8 +245,7 @@ h1, h2, h3, h4 {
 }
 
 h2, h3, h4, h5, h6 {
-  -webkit-margin-before: 2rem;
-          margin-block-start: 2rem;
+  margin-block-start: 2rem;
 }
 
 h1,
@@ -304,10 +301,8 @@ h6,
   font-size: 1.75rem; /* 1 */
   font-size: clamp(1.375rem, 1.225rem + 0.75vw, 1.75rem);
   line-height: 1.3;
-  -webkit-margin-after: 3rem;
-          margin-block-end: 3rem; /* 1 */
-  -webkit-margin-after: clamp(2.5rem, 2.3rem + 1vw, 3rem);
-          margin-block-end: clamp(2.5rem, 2.3rem + 1vw, 3rem);
+  margin-block-end: 3rem; /* 1 */
+  margin-block-end: clamp(2.5rem, 2.3rem + 1vw, 3rem);
 }
 
 /**
@@ -392,8 +387,7 @@ iframe {
  * focusable element to become visible when focused/active by a user.
  */
 br {
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
+  margin-block-start: 0;
 }
 
 /*
@@ -419,8 +413,7 @@ address {
   margin: clamp(0.5rem, 0.3rem + 1vw, 1rem) 0;
 }
 address > * + * {
-  -webkit-margin-before: 1rem;
-          margin-block-start: 1rem;
+  margin-block-start: 1rem;
 }
 address > * {
   font-style: normal;
@@ -458,8 +451,7 @@ small,
 hr {
   block-size: 0;
   border: 0;
-  -webkit-border-before: 1px solid #c6c6c6;
-          border-block-start: 1px solid #c6c6c6;
+  border-block-start: 1px solid #c6c6c6;
   margin: 2rem 0;
   overflow: visible;
 }
@@ -691,8 +683,7 @@ summary {
   color: #1371c2;
   cursor: pointer;
   display: inline-block;
-  -webkit-padding-start: 1.5625rem;
-          padding-inline-start: 1.5625rem;
+  padding-inline-start: 1.5625rem;
   position: relative;
 }
 summary::before {
@@ -730,8 +721,7 @@ summary span {
 }
 
 details[open] > summary {
-  -webkit-margin-after: 1rem;
-          margin-block-end: 1rem;
+  margin-block-end: 1rem;
 }
 
 details[open] > summary::before {
@@ -790,13 +780,11 @@ Use `margin-inline-end` for spacing irrespective of text direction
 }
 
 .with-icon--before .icon {
-  -webkit-margin-end: 0.625rem;
-          margin-inline-end: 0.625rem;
+  margin-inline-end: 0.625rem;
 }
 
 .with-icon--after .icon {
-  -webkit-margin-start: 0.625rem;
-          margin-inline-start: 0.625rem;
+  margin-inline-start: 0.625rem;
 }
 
 /*------------------------------------*\
@@ -805,13 +793,11 @@ Use `margin-inline-end` for spacing irrespective of text direction
 ul,
 ol {
   margin-block: 1rem;
-  -webkit-padding-start: 2rem;
-          padding-inline-start: 2rem;
+  padding-inline-start: 2rem;
 }
 ul li,
 ol li {
-  -webkit-padding-start: 0.25rem;
-          padding-inline-start: 0.25rem;
+  padding-inline-start: 0.25rem;
 }
 ul > * + *,
 ul li ul,
@@ -819,8 +805,7 @@ ul li ol,
 ol > * + *,
 ol li ul,
 ol li ol {
-  -webkit-margin-before: 0.75rem;
-          margin-block-start: 0.75rem;
+  margin-block-start: 0.75rem;
 }
 
 ol:not([start]) {
@@ -860,13 +845,11 @@ dl dt {
   font-weight: bold;
 }
 dl dd + dt {
-  -webkit-margin-before: 0.5rem;
-          margin-block-start: 0.5rem;
+  margin-block-start: 0.5rem;
 }
 dl dt + dd,
 dl dd + dd {
-  -webkit-margin-before: 0.25rem;
-          margin-block-start: 0.25rem;
+  margin-block-start: 0.25rem;
 }
 
 @supports (grid-row-start: auto) {
@@ -890,8 +873,7 @@ dl dd + dd {
   dl.grid dd + dt,
   dl.grid dt + dd,
   dl.grid dd + dd {
-    -webkit-margin-before: 0;
-            margin-block-start: 0;
+    margin-block-start: 0;
   }
 }
 
@@ -903,8 +885,7 @@ blockquote {
   font-size: clamp(1.25rem, 1.125rem + 0.625vw, 1.5625rem);
   line-height: 1.3;
   margin-block: 1rem;
-  -webkit-margin-start: 1.5625rem;
-          margin-inline-start: 1.5625rem;
+  margin-inline-start: 1.5625rem;
   padding: 0.625rem;
   position: relative;
 }
@@ -918,8 +899,7 @@ blockquote::before {
   position: absolute;
 }
 blockquote > *:first-child {
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
+  margin-block-start: 0;
 }
 blockquote cite {
   font-size: 1.0625rem; /* 1 */
@@ -1084,8 +1064,7 @@ fieldset {
   margin: 0;
   min-inline-size: 0;
   padding: 0;
-  -webkit-padding-before: 0.01em;
-          padding-block-start: 0.01em;
+  padding-block-start: 0.01em;
 }
 
 body:not(:-moz-handler-blocked) fieldset {
@@ -1098,13 +1077,11 @@ End of resets for the fieldset element
 form > * + *,
 fieldset > * + *,
 .field-group > * + * {
-  -webkit-margin-before: 1.75rem;
-          margin-block-start: 1.75rem;
+  margin-block-start: 1.75rem;
 }
 
 .field-group + .field-group {
-  -webkit-margin-before: 2.5rem;
-          margin-block-start: 2.5rem;
+  margin-block-start: 2.5rem;
 }
 
 legend,
@@ -1124,8 +1101,7 @@ Group inputs to line up side-by-side
 }
 
 .input-group > * + * {
-  -webkit-margin-start: 1.875rem;
-          margin-inline-start: 1.875rem;
+  margin-inline-start: 1.875rem;
 }
 
 .field {
@@ -1142,8 +1118,7 @@ label,
 
 .field-label,
 .faux-label {
-  -webkit-margin-after: 0.25rem;
-          margin-block-end: 0.25rem;
+  margin-block-end: 0.25rem;
 }
 
 .field-hint {
@@ -1151,8 +1126,7 @@ label,
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
   color: #525252;
-  -webkit-margin-after: 0.25rem;
-          margin-block-end: 0.25rem;
+  margin-block-end: 0.25rem;
   max-inline-size: 41.25rem;
 }
 
@@ -1162,8 +1136,7 @@ label,
 }
 .field-label + .field-hint,
 .group-legend + .field-hint {
-  -webkit-margin-before: 0.25rem;
-          margin-block-start: 0.25rem;
+  margin-block-start: 0.25rem;
 }
 
 input, optgroup {
@@ -1269,10 +1242,8 @@ Error styles
 }
 
 .field--error {
-  -webkit-border-start: solid 0.3125rem #a4141b;
-          border-inline-start: solid 0.3125rem #a4141b;
-  -webkit-padding-start: 0.9375rem;
-          padding-inline-start: 0.9375rem;
+  border-inline-start: solid 0.3125rem #a4141b;
+  padding-inline-start: 0.9375rem;
 }
 .field--error input:not([type=file]),
 .field--error textarea:not(:focus) {
@@ -1286,8 +1257,7 @@ Error styles
 .field-error-msg {
   color: #a4141b;
   font-weight: bold;
-  -webkit-margin-before: 0.9375rem;
-          margin-block-start: 0.9375rem;
+  margin-block-start: 0.9375rem;
 }
 
 /*------------------------------------*\
@@ -1300,10 +1270,8 @@ Error styles
 .checkbox-item {
   clear: left;
   float: left;
-  -webkit-margin-before: 0.25rem;
-          margin-block-start: 0.25rem;
-  -webkit-padding-start: 2.125rem;
-          padding-inline-start: 2.125rem;
+  margin-block-start: 0.25rem;
+  padding-inline-start: 2.125rem;
   position: relative;
 }
 .radio-item::after,
@@ -1336,8 +1304,7 @@ Error styles
 .checkbox-item label {
   cursor: pointer;
   display: inline-block;
-  -webkit-margin-before: -0.125rem;
-          margin-block-start: -0.125rem;
+  margin-block-start: -0.125rem;
   margin-bottom: 0;
   padding-block: 0.375rem;
   padding-inline: 0.0625rem 0.9375rem;
@@ -1387,8 +1354,7 @@ Error styles
 
 .checkbox-group--cluster .checkbox-item {
   clear: none;
-  -webkit-margin-end: 0.75rem;
-          margin-inline-end: 0.75rem;
+  margin-inline-end: 0.75rem;
 }
 
 .radio-item:hover input:not(:disabled) + label::before,
@@ -1434,13 +1400,11 @@ Error styles
 \*------------------------------------*/
 .memorable-date {
   display: inline-block;
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
+  margin-block-start: 0;
 }
 
 .memorable-date + .memorable-date {
-  -webkit-margin-start: 1rem;
-          margin-inline-start: 1rem;
+  margin-inline-start: 1rem;
 }
 
 /*------------------------------------*\
@@ -1455,8 +1419,7 @@ Error styles
 }
 
 .segmented-group.l-switcher {
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
+  margin-block-start: 0;
 }
 .segmented-group.l-switcher > * > * {
   max-inline-size: 100%;
@@ -1509,12 +1472,10 @@ Error styles
   justify-content: flex-start;
   display: block;
   padding: 0.625rem;
-  -webkit-padding-end: 2.75rem;
-          padding-inline-end: 2.75rem;
+  padding-inline-end: 2.75rem;
 }
 .segmented-group.l-switcher .segmented-label > * + * {
-  -webkit-margin-before: 0.5em;
-          margin-block-start: 0.5em;
+  margin-block-start: 0.5em;
 }
 .segmented-group.l-switcher .segmented-label span {
   display: block;
@@ -1562,8 +1523,7 @@ Optional select with custom arrow icon matching the SVG used for accessible auto
     background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="none" d="M0 0h24v24H0z"/%3E%3Cpath d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"/%3E%3C/svg%3E');
     background-position: center right 0.3125rem;
     background-repeat: no-repeat;
-    -webkit-padding-end: 2.125rem;
-            padding-inline-end: 2.125rem;
+    padding-inline-end: 2.125rem;
   }
   [dir=rtl] select {
     background-position: center left 0.3125rem;
@@ -1654,13 +1614,11 @@ These styles space out an optional header/footer area without
 disturbing the vertically centered element.
  */
 .l-cover > :first-child:not(.principal) {
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
+  margin-block-start: 0;
 }
 
 .l-cover > :last-child:not(.principal) {
-  -webkit-margin-after: 0;
-          margin-block-end: 0;
+  margin-block-end: 0;
 }
 
 /*------------------------------------*\
@@ -1745,23 +1703,19 @@ out, but halve it to to account for 'doubling up' at the edges.
 
 /* Common aspect ratios */
 .l-frame--16-9 {
-  -webkit-padding-after: 56.25%;
-          padding-block-end: 56.25%;
+  padding-block-end: 56.25%;
 }
 
 .l-frame--3-2 {
-  -webkit-padding-after: 66.67%;
-          padding-block-end: 66.67%;
+  padding-block-end: 66.67%;
 }
 
 .l-frame--4-3 {
-  -webkit-padding-after: 75%;
-          padding-block-end: 75%;
+  padding-block-end: 75%;
 }
 
 .l-frame--square {
-  -webkit-padding-after: 100%;
-          padding-block-end: 100%;
+  padding-block-end: 100%;
 }
 
 /*------------------------------------*\
@@ -1822,8 +1776,7 @@ omitted to let the contents of `.sidebar` determine the width of
   flex-grow: 1;
 }
 .l-sidebar .sidebar > * + * {
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
+  margin-block-start: 1em;
 }
 
 /**
@@ -1840,8 +1793,7 @@ media query.
   min-inline-size: calc(55% - 1.5rem);
 }
 .l-sidebar .not-sidebar > * + * {
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
+  margin-block-start: 1em;
 }
 
 .l-sidebar--expanded {
@@ -2014,13 +1966,11 @@ main,
 }
 
 .component + .component {
-  -webkit-margin-before: 1.5rem;
-          margin-block-start: 1.5rem;
+  margin-block-start: 1.5rem;
 }
 @media screen and (min-width: 48em) {
   .component + .component {
-    -webkit-margin-before: 3rem;
-            margin-block-start: 3rem;
+    margin-block-start: 3rem;
   }
 }
 
@@ -2035,11 +1985,9 @@ main,
     #Quotes
 \*------------------------------------*/
 .component--quote {
-  -webkit-margin-start: 0;
-          margin-inline-start: 0;
+  margin-inline-start: 0;
   padding: 1.25rem;
-  -webkit-padding-start: 1.875rem;
-          padding-inline-start: 1.875rem;
+  padding-inline-start: 1.875rem;
   position: relative;
 }
 .component--quote::before {
@@ -2070,8 +2018,7 @@ main,
   justify-content: flex-start;
 }
 .component--image > * + * {
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
+  margin-block-start: 1em;
 }
 .component--image figcaption {
   font-size: 1.0625rem; /* 1 */
@@ -2079,8 +2026,7 @@ main,
   line-height: 1.5;
 }
 .component--image figcaption > * {
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
+  margin-block-start: 0;
   max-inline-size: 33.75rem;
 }
 .component--image figcaption > a {
@@ -2123,12 +2069,10 @@ main,
   font-size: 1.0625rem; /* 1 */
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
+  margin-block-start: 1em;
 }
 .component--video figcaption > * {
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
+  margin-block-start: 0;
   max-inline-size: 33.75rem;
 }
 .component--video figcaption > a {
@@ -2147,20 +2091,17 @@ main,
   border: solid 1px;
   border-inline-start-width: 4px;
   padding: 1.5rem;
-  -webkit-padding-start: 4.5rem;
-          padding-inline-start: 4.5rem;
+  padding-inline-start: 4.5rem;
 }
 .note > * {
   max-inline-size: 41.25rem;
 }
 .note > *:first-child {
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
+  margin-block-start: 0;
 }
 .note > *:last-child,
 .note > * li:last-child {
-  -webkit-margin-after: 0;
-          margin-block-end: 0;
+  margin-block-end: 0;
 }
 
 .note--error {
@@ -2213,12 +2154,10 @@ main,
   justify-content: flex-start;
   flex-grow: 1;
   order: 1;
-  -webkit-padding-before: 1rem;
-          padding-block-start: 1rem;
+  padding-block-start: 1rem;
 }
 .card__text > * + * {
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
+  margin-block-start: 1em;
 }
 
 /**
@@ -2230,18 +2169,15 @@ main,
 }
 
 .card--neat .card__text > :nth-last-child(2) {
-  -webkit-margin-after: 1em;
-          margin-block-end: 1em;
+  margin-block-end: 1em;
 }
 .card--neat .card__text > :last-child {
-  -webkit-margin-before: auto;
-          margin-block-start: auto;
+  margin-block-start: auto;
 }
 
 .card__text > a:not([class]) {
   align-self: flex-start; /* 1 */
-  -webkit-margin-before: 0.375rem;
-          margin-block-start: 0.375rem;
+  margin-block-start: 0.375rem;
   padding-block: 0.625rem;
 }
 
@@ -2249,8 +2185,7 @@ main,
   font-size: 1.5625rem; /* 1 */
   font-size: clamp(1.25rem, 1.125rem + 0.625vw, 1.5625rem);
   line-height: 1.3;
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
+  margin-block-start: 0;
 }
 
 .card__link {
@@ -2278,13 +2213,11 @@ main,
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  -webkit-margin-after: 1.875rem;
-          margin-block-end: 1.875rem;
+  margin-block-end: 1.875rem;
   max-inline-size: 41.25rem;
 }
 .component--shelves__intro > * + * {
-  -webkit-margin-before: 1rem;
-          margin-block-start: 1rem;
+  margin-block-start: 1rem;
 }
 
 @media screen and (min-width: 48em) {
@@ -2304,13 +2237,11 @@ main,
 }
 
 .component--shelves__items > * + * {
-  -webkit-margin-before: 1.25rem;
-          margin-block-start: 1.25rem;
+  margin-block-start: 1.25rem;
 }
 @media screen and (min-width: 48em) {
   .component--shelves__items > * + * {
-    -webkit-margin-before: 0;
-            margin-block-start: 0;
+    margin-block-start: 0;
   }
 }
 
@@ -2320,8 +2251,7 @@ main,
     Typically used on multi-step forms
 \*------------------------------------*/
 .progress-list {
-  -webkit-margin-after: 1.875rem;
-          margin-block-end: 1.875rem;
+  margin-block-end: 1.875rem;
 }
 @media screen and (min-width: 48em) {
   .progress-list {
@@ -2356,13 +2286,11 @@ main,
   }
 }
 .progress-list li + li {
-  -webkit-margin-before: 1.25rem;
-          margin-block-start: 1.25rem;
+  margin-block-start: 1.25rem;
 }
 @media screen and (min-width: 48em) {
   .progress-list li + li {
-    -webkit-margin-before: 0;
-            margin-block-start: 0;
+    margin-block-start: 0;
   }
 }
 
@@ -2381,8 +2309,7 @@ main,
 @media screen and (min-width: 48em) {
   .progress-step__inner {
     flex-direction: column;
-    -webkit-padding-before: 0.625rem;
-            padding-block-start: 0.625rem;
+    padding-block-start: 0.625rem;
     text-align: center;
   }
 }
@@ -2508,8 +2435,7 @@ main,
   justify-content: flex-start;
 }
 .component--collapsibles > * + * {
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
+  margin-block-start: 1em;
 }
 
 [data-heading=collapsibles] {
@@ -2580,14 +2506,13 @@ input[type=search] {
   max-inline-size: none;
 }
 
-@supports ((-webkit-padding-start: 1em) or (padding-inline-start: 1em)) {
+@supports (padding-inline-start: 1em) {
   input[type=search] {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs/%3E%3Cpath d='M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z'/%3E%3C/svg%3E");
     background-position: center left 0.5em;
     background-repeat: no-repeat;
     background-size: 1.25rem;
-    -webkit-padding-start: 2.5rem;
-            padding-inline-start: 2.5rem;
+    padding-inline-start: 2.5rem;
   }
   [dir=rtl] input[type=search] {
     background-position: center right 0.5em;
@@ -2597,8 +2522,7 @@ input[type=search] {
     #Pagination
 \*------------------------------------*/
 .pagination {
-  -webkit-margin-before: 2.5rem;
-          margin-block-start: 2.5rem;
+  margin-block-start: 2.5rem;
 }
 
 .l-cluster.pagination > * {
@@ -2665,8 +2589,7 @@ input[type=search] {
   justify-content: flex-start;
 }
 .global-footer .l-center > * + * {
-  -webkit-margin-before: 1rem;
-          margin-block-start: 1rem;
+  margin-block-start: 1rem;
 }
 .global-footer a,
 .global-footer .copyright {
@@ -2720,14 +2643,12 @@ input[type=search] {
 }
 
 .amplify .global-nav {
-  -webkit-border-after: solid 2px #c6c6c6;
-          border-block-end: solid 2px #c6c6c6;
+  border-block-end: solid 2px #c6c6c6;
   padding-block: 0.625rem;
 }
 
 .amplify .global-nav__link {
-  -webkit-border-after: solid 4px transparent;
-          border-block-end: solid 4px transparent;
+  border-block-end: solid 4px transparent;
   color: #1371c2;
   display: block;
   font-size: 1.125rem;
@@ -2806,19 +2727,16 @@ input[type=search] {
   grid-column: 3/4;
   grid-column: 3;
   grid-row: 1;
-  -webkit-margin-before: 1.875rem;
-          margin-block-start: 1.875rem;
+  margin-block-start: 1.875rem;
 }
 @media screen and (min-width: 64em) {
   .amplify .content-wrap > *:last-child {
-    -webkit-margin-before: 0;
-            margin-block-start: 0;
+    margin-block-start: 0;
   }
 }
 
 .amplify .example + .example {
-  -webkit-margin-before: 1rem;
-          margin-block-start: 1rem;
+  margin-block-start: 1rem;
 }
 
 .amplify .l-switcher.teasers {
@@ -2944,6 +2862,5 @@ To horizontally center a block-level item
 }
 
 .u-no-margin-top.u-no-margin-top {
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
+  margin-block-start: 0;
 }
