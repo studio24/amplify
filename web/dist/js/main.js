@@ -1,13 +1,13 @@
-/******/ (function() { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ([
 /* 0 */,
 /* 1 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   exists: function() { return /* binding */ exists; }
+/* harmony export */   exists: () => (/* binding */ exists)
 /* harmony export */ });
 /**
  * Check whether an element exists in the DOM
@@ -22,14 +22,13 @@ var exists = function exists(elem) {
 
 /***/ }),
 /* 2 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   cardEnhancement: function() { return /* binding */ cardEnhancement; }
+/* harmony export */   cardEnhancement: () => (/* binding */ cardEnhancement)
 /* harmony export */ });
-/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _exists_helper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
 
 /**
@@ -39,7 +38,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var cardEnhancement = function cardEnhancement() {
   var cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
-  if ((0,_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(cardsArray)) {
+  if ((0,_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(cardsArray)) {
     // Loop through cards adding a click event and identifying the main link
     cardsArray.forEach(function (card) {
       var mainLink = card.querySelector('.card__link');
@@ -57,9 +56,9 @@ var cardEnhancement = function cardEnhancement() {
         if (event.redispatched || event.target === mainLink) {
           return;
         }
-        var noTextSelected = !window.getSelection().toString();
+        let noTextSelected = !window.getSelection().toString();
         if (noTextSelected) {
-          var event2 = new MouseEvent("click", event);
+          const event2 = new MouseEvent("click", event);
           event2.redispatched = true;
           mainLink.dispatchEvent(event2);
         }
@@ -71,14 +70,13 @@ var cardEnhancement = function cardEnhancement() {
 
 /***/ }),
 /* 3 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   collapsibles: function() { return /* binding */ collapsibles; }
+/* harmony export */   collapsibles: () => (/* binding */ collapsibles)
 /* harmony export */ });
-/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _exists_helper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
 
 /**
@@ -90,7 +88,7 @@ __webpack_require__.r(__webpack_exports__);
 var collapsibles = function collapsibles() {
   // Get all the collapsible containers
   var collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsibles"]'));
-  if ((0,_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(collapseArray)) {
+  if ((0,_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(collapseArray)) {
     // Loop through containers
     collapseArray.forEach(function (item) {
       // Get headings inside a collapsible container
@@ -132,19 +130,16 @@ var collapsibles = function collapsibles() {
 };
 
 
-
 /***/ }),
 /* 4 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   disclosureWidget: function() { return /* binding */ disclosureWidget; }
+/* harmony export */   disclosureWidget: () => (/* binding */ disclosureWidget)
 /* harmony export */ });
-/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _exists_helper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
-/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
@@ -162,7 +157,7 @@ var disclosureWidget = function disclosureWidget() {
       }
     });
   };
-  if ((0,_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(toggleButtonArray)) {
+  if ((0,_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(toggleButtonArray)) {
     toggleButtonArray.forEach(function (btn) {
       btn.removeAttribute('style');
       btn.setAttribute('aria-expanded', 'false');
@@ -189,7 +184,7 @@ var disclosureWidget = function disclosureWidget() {
       if (event.defaultPrevented) {
         return;
       }
-      var key = event.key || event.keyCode;
+      let key = event.key || event.keyCode;
       if (key === 'Escape' || key === 'Esc' || key === 27) {
         closeDisclosures();
       }
@@ -200,8 +195,9 @@ var disclosureWidget = function disclosureWidget() {
 
 /***/ }),
 /* 5 */
-/***/ (function() {
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+__webpack_require__.r(__webpack_exports__);
 /**
  * Element.closest polyfill for IE
  * Needed for disclosure widget
@@ -225,14 +221,13 @@ if (!Element.prototype.closest) {
 
 /***/ }),
 /* 6 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   formErrorSummary: function() { return /* binding */ formErrorSummary; }
+/* harmony export */   formErrorSummary: () => (/* binding */ formErrorSummary)
 /* harmony export */ });
-/* harmony import */ var _exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _exists_helper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
 
 /**
@@ -241,7 +236,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 var formErrorSummary = function formErrorSummary() {
   var errorSummary = document.querySelector('[data-component="error-summary"]');
-  if ((0,_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(errorSummary)) {
+  if ((0,_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(errorSummary)) {
     errorSummary.focus();
   }
 };
@@ -249,15 +244,13 @@ var formErrorSummary = function formErrorSummary() {
 
 /***/ }),
 /* 7 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   navSingleLevel: function() { return /* binding */ navSingleLevel; }
+/* harmony export */   navSingleLevel: () => (/* binding */ navSingleLevel)
 /* harmony export */ });
-/* harmony import */ var _object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
-/* harmony import */ var _object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _object_assign_polyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 
 
 /**
@@ -271,18 +264,18 @@ __webpack_require__.r(__webpack_exports__);
  * @param {string} [options.mobileIcon] - SVG icon used for the button to show/hide the navigation on mobile.
  */
 
-var navSingleLevel = function navSingleLevel(menu, options) {
-  var container = menu.parentElement;
-  var mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
+const navSingleLevel = function navSingleLevel(menu, options) {
+  let container = menu.parentElement;
+  let mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
 
   // Default settings
-  var defaults = {
+  let defaults = {
     breakpoint: 1024,
     mobileIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true" fill="currentColor">' + '<path class="open" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>' + '<path class="close" d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>' + '</svg>'
   };
 
   // Merge user options into defaults
-  var settings = Object.assign({}, defaults, options);
+  let settings = Object.assign({}, defaults, options);
   this.init = function () {
     mobileToggleSetup();
     document.addEventListener('click', clickHandler);
@@ -301,7 +294,7 @@ var navSingleLevel = function navSingleLevel(menu, options) {
     if (event.defaultPrevented) {
       return;
     }
-    var key = event.key || event.keyCode;
+    let key = event.key || event.keyCode;
     if (key === 'Escape' || key === 'Esc' || key === 27) {
       if (mobileToggle.style.display === 'inline-flex') {
         mobileToggle.setAttribute('aria-expanded', 'false');
@@ -312,8 +305,8 @@ var navSingleLevel = function navSingleLevel(menu, options) {
     mobileToggle.innerHTML += settings.mobileIcon;
     mobileToggle.setAttribute('aria-expanded', 'false');
     mobileToggle.style.display = 'inline-flex';
-    var mqValue = settings.breakpoint / 16;
-    var mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
+    let mqValue = settings.breakpoint / 16;
+    let mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
     mq.addListener(WidthChange);
     WidthChange(mq);
 
@@ -333,8 +326,9 @@ var navSingleLevel = function navSingleLevel(menu, options) {
 
 /***/ }),
 /* 8 */
-/***/ (function() {
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+__webpack_require__.r(__webpack_exports__);
 /**
  * Object.assign() polyfill for IE
  * Needed for navigation
@@ -373,17 +367,14 @@ if (typeof Object.assign != 'function') {
 
 /***/ }),
 /* 9 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   navDoubleLevel: function() { return /* binding */ navDoubleLevel; }
+/* harmony export */   navDoubleLevel: () => (/* binding */ navDoubleLevel)
 /* harmony export */ });
-/* harmony import */ var _object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
-/* harmony import */ var _object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_object_assign_polyfill__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _object_assign_polyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 /* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
-/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
@@ -403,12 +394,12 @@ __webpack_require__.r(__webpack_exports__);
  * @param {boolean} [options.submenuIntro=false] - whether the sub menu includes introductory text.
  */
 
-var navDoubleLevel = function navDoubleLevel(menu, options) {
-  var container = menu.parentElement;
-  var mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
+const navDoubleLevel = function navDoubleLevel(menu, options) {
+  let container = menu.parentElement;
+  let mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
 
   // Default settings
-  var defaults = {
+  let defaults = {
     breakpoint: 1024,
     cloneTopLevelLink: true,
     mobileIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true" fill="currentColor">' + '<path class="open" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>' + '<path class="close" d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>' + '</svg>',
@@ -418,7 +409,7 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
   };
 
   // Merge user options into defaults
-  var settings = Object.assign({}, defaults, options);
+  let settings = Object.assign({}, defaults, options);
   this.init = function () {
     mobileToggleSetup();
     menuSetup();
@@ -426,7 +417,7 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
     document.addEventListener('keyup', closeOnEscKey);
   };
   function closeSubmenus() {
-    var subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger="sub-nav"]'));
+    let subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger="sub-nav"]'));
     subNavTriggers.forEach(function (trigger) {
       trigger.setAttribute('aria-expanded', 'false');
     });
@@ -440,8 +431,8 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
         event.target.setAttribute('aria-expanded', 'true');
       }
     } else if (event.target.matches('[data-trigger="sub-nav"]')) {
-      var button = event.target;
-      var submenu = button.nextElementSibling;
+      const button = event.target;
+      const submenu = button.nextElementSibling;
       if (event.target.matches('[aria-expanded="true"]')) {
         event.target.setAttribute('aria-expanded', 'false');
       } else {
@@ -461,11 +452,11 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
     if (event.defaultPrevented) {
       return;
     }
-    var key = event.key || event.keyCode;
+    let key = event.key || event.keyCode;
     if (key === 'Escape' || key === 'Esc' || key === 27) {
-      var subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger="sub-nav"]'));
-      var result = true;
-      for (var i = 0; i < subNavTriggers.length; i++) {
+      let subNavTriggers = Array.prototype.slice.call(menu.querySelectorAll('[data-trigger="sub-nav"]'));
+      let result = true;
+      for (let i = 0; i < subNavTriggers.length; i++) {
         if (subNavTriggers[i].getAttribute('aria-expanded') === 'true') {
           result = false;
           break;
@@ -479,10 +470,10 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
     }
   }
   function preventOffScreenSubmenu(submenu) {
-    var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    var parent = submenu.parentElement;
-    var menuLeftEdge = parent.getBoundingClientRect().left;
-    var menuRightEdge = menuLeftEdge + submenu.offsetWidth;
+    const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    const parent = submenu.parentElement;
+    const menuLeftEdge = parent.getBoundingClientRect().left;
+    const menuRightEdge = menuLeftEdge + submenu.offsetWidth;
     if (menuRightEdge + 32 > screenWidth) {
       // adding 32 so it's not too close
       submenu.classList.add('js-sub-menu-right');
@@ -492,8 +483,8 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
     mobileToggle.innerHTML += settings.mobileIcon;
     mobileToggle.setAttribute('aria-expanded', 'false');
     mobileToggle.style.display = 'inline-flex';
-    var mqValue = settings.breakpoint / 16;
-    var mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
+    let mqValue = settings.breakpoint / 16;
+    let mq = window.matchMedia('(min-width: ' + mqValue + 'em)');
     mq.addListener(WidthChange);
     WidthChange(mq);
 
@@ -513,11 +504,11 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
     if (settings.submenuIntro === true) {
       container.classList.add('js-nav-with-intro');
     }
-    var subMenuWrappers = Array.prototype.slice.call(menu.querySelectorAll('[data-nav="submenu"]'));
+    const subMenuWrappers = Array.prototype.slice.call(menu.querySelectorAll('[data-nav="submenu"]'));
     subMenuWrappers.forEach(function (wrapper) {
-      var menuItem = wrapper.parentElement;
+      const menuItem = wrapper.parentElement;
       if ('undefined' !== typeof wrapper) {
-        var button = convertLinkToButton(menuItem);
+        let button = convertLinkToButton(menuItem);
         setUpAria(wrapper, button);
       }
     });
@@ -527,27 +518,27 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
    * Why do this? See https://justmarkup.com/articles/2019-01-21-the-link-to-button-enhancement/
    */
   function convertLinkToButton(menuItem) {
-    var link = menuItem.getElementsByTagName('a')[0];
-    var linkHTML = link.innerHTML;
-    var linkAtts = link.attributes;
-    var icon = settings.submenuIcon;
-    var button = document.createElement('button');
+    const link = menuItem.getElementsByTagName('a')[0];
+    const linkHTML = link.innerHTML;
+    const linkAtts = link.attributes;
+    const icon = settings.submenuIcon;
+    const button = document.createElement('button');
     button.setAttribute('data-trigger', 'sub-nav');
-    var li = document.createElement('li');
-    var subMenu = link.nextElementSibling.querySelector('ul');
+    const li = document.createElement('li');
+    let subMenu = link.nextElementSibling.querySelector('ul');
     if (null !== link) {
       // copy button attributes and content from link
       button.innerHTML = linkHTML.trim();
       button.innerHTML = button.innerHTML + icon;
-      for (var i = 0, length = linkAtts.length; i < length; i++) {
-        var attr = linkAtts[i];
+      for (let i = 0, length = linkAtts.length; i < length; i++) {
+        let attr = linkAtts[i];
         if ('href' !== attr.name) {
           button.setAttribute(attr.name, attr.value);
         }
       }
       if (settings.cloneTopLevelLink === true) {
         // insert cloned link as first item of submenu list
-        var linkClone = link.cloneNode(true);
+        const linkClone = link.cloneNode(true);
         li.appendChild(linkClone);
         subMenu.insertBefore(li, subMenu.children[0]);
       }
@@ -555,7 +546,7 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
     }
     if (settings.submenuDirection === 'horizontal') {
       // Insert a "back" button
-      var backButton = document.createElement('button');
+      const backButton = document.createElement('button');
       backButton.setAttribute('data-button', 'mobile-back');
       backButton.setAttribute('class', 'button button--ghost');
       backButton.innerHTML = icon + ' Back';
@@ -566,8 +557,8 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
     return button;
   }
   function setUpAria(submenu, button) {
-    var submenuId = submenu.getAttribute('id');
-    var id;
+    const submenuId = submenu.getAttribute('id');
+    let id;
     if (null === submenuId) {
       id = 'js-' + button.textContent.trim().replace(/\s+/g, '-').toLowerCase() + '-submenu';
     } else {
@@ -612,59 +603,46 @@ var navDoubleLevel = function navDoubleLevel(menu, options) {
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	!function() {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = function(module) {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				function() { return module['default']; } :
-/******/ 				function() { return module; };
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	}();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
-/******/ 	!function() {
+/******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 		__webpack_require__.d = (exports, definition) => {
 /******/ 			for(var key in definition) {
 /******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
 /******/ 		};
-/******/ 	}();
+/******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	!function() {
-/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
-/******/ 	}();
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
-/******/ 	!function() {
+/******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = function(exports) {
+/******/ 		__webpack_require__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	}();
+/******/ 	})();
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
-!function() {
-"use strict";
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
+(() => {
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _main_exists_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
-/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
-/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
-/* harmony import */ var _main_nav_single_level__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
-/* harmony import */ var _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(9);
+/* harmony import */ var _main_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _main_cards_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var _main_collapsibles_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var _main_disclosure_widget_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
+/* harmony import */ var _main_form_error_summary_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
+/* harmony import */ var _main_nav_single_level_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
+/* harmony import */ var _main_nav_double_level_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(9);
 
 
 
@@ -673,40 +651,40 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function domLoadedActions() {
-  (0,_main_cards__WEBPACK_IMPORTED_MODULE_1__.cardEnhancement)();
-  (0,_main_collapsibles__WEBPACK_IMPORTED_MODULE_2__.collapsibles)();
-  (0,_main_disclosure_widget__WEBPACK_IMPORTED_MODULE_3__.disclosureWidget)();
-  (0,_main_form_error_summary__WEBPACK_IMPORTED_MODULE_4__.formErrorSummary)();
+  (0,_main_cards_js__WEBPACK_IMPORTED_MODULE_1__.cardEnhancement)();
+  (0,_main_collapsibles_js__WEBPACK_IMPORTED_MODULE_2__.collapsibles)();
+  (0,_main_disclosure_widget_js__WEBPACK_IMPORTED_MODULE_3__.disclosureWidget)();
+  (0,_main_form_error_summary_js__WEBPACK_IMPORTED_MODULE_4__.formErrorSummary)();
 
   /* Create a navSingleLevel object and initiate single-level navigation for a <ul> with the correct data-component attribute */
-  var navExampleSingle = document.querySelector('ul[data-component="nav-single"]');
-  if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleSingle)) {
-    var siteNav = new _main_nav_single_level__WEBPACK_IMPORTED_MODULE_5__.navSingleLevel(navExampleSingle, {
+  const navExampleSingle = document.querySelector('ul[data-component="nav-single"]');
+  if ((0,_main_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleSingle)) {
+    let siteNav = new _main_nav_single_level_js__WEBPACK_IMPORTED_MODULE_5__.navSingleLevel(navExampleSingle, {
       breakpoint: 768
     });
     siteNav.init();
   }
 
   /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
-  var navExampleDouble = document.querySelector('ul[data-component="nav-double"]');
-  if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleDouble)) {
-    var _siteNav = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navExampleDouble, {
+  const navExampleDouble = document.querySelector('ul[data-component="nav-double"]');
+  if ((0,_main_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleDouble)) {
+    let siteNav = new _main_nav_double_level_js__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navExampleDouble, {
       breakpoint: 768,
       submenuDirection: 'horizontal'
     });
-    _siteNav.init();
+    siteNav.init();
   }
 
   /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
-  var navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');
-  if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_0__.exists)(navDoubleIntro)) {
-    var _siteNav2 = new _main_nav_double_level__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navDoubleIntro, {
+  const navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');
+  if ((0,_main_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(navDoubleIntro)) {
+    let siteNav = new _main_nav_double_level_js__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navDoubleIntro, {
       breakpoint: 768,
       cloneTopLevelLink: false,
       submenuDirection: 'horizontal',
       submenuIntro: true
     });
-    _siteNav2.init();
+    siteNav.init();
   }
 }
 if (document.readyState === 'loading') {
@@ -716,6 +694,7 @@ if (document.readyState === 'loading') {
   // `DOMContentLoaded` has already fired
   domLoadedActions();
 }
-}();
+})();
+
 /******/ })()
 ;

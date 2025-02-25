@@ -4,7 +4,7 @@
  */
 
 import Splide from "@splidejs/splide";
-import {exists} from '../main/_exists.helper';
+import {exists} from '../main/_exists.helper.js';
 
 // Get all carousel instances
 var splideArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="carousel"]'));

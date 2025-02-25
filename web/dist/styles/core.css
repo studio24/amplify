@@ -54,7 +54,7 @@ Semantics - used sparingly and purposefully
 /* nunito-regular - latin */
 @font-face {
   font-display: fallback;
-  font-family: "Nunito";
+  font-family: Nunito;
   font-style: normal;
   font-weight: 400;
   src: local(""), url("../fonts/nunito-v20-latin-regular.woff2") format("woff2"), url("../fonts/nunito-v20-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
@@ -62,7 +62,7 @@ Semantics - used sparingly and purposefully
 /* nunito-700 - latin */
 @font-face {
   font-display: fallback;
-  font-family: "Nunito";
+  font-family: Nunito;
   font-style: normal;
   font-weight: 700;
   src: local(""), url("../fonts/nunito-v20-latin-700.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
@@ -70,7 +70,7 @@ Semantics - used sparingly and purposefully
 /* nunito-italic - latin */
 @font-face {
   font-display: fallback;
-  font-family: "Nunito";
+  font-family: Nunito;
   font-style: italic;
   font-weight: 400;
   src: local(""), url("../fonts/nunito-v20-latin-italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
@@ -78,7 +78,7 @@ Semantics - used sparingly and purposefully
 /* nunito-700italic - latin */
 @font-face {
   font-display: fallback;
-  font-family: "Nunito";
+  font-family: Nunito;
   font-style: italic;
   font-weight: 700;
   src: local(""), url("../fonts/nunito-v20-latin-700italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
@@ -190,9 +190,10 @@ article {
 \*------------------------------------*/
 html {
   block-size: 100%;
-  -moz-text-size-adjust: none; /* 1 */
-  -webkit-text-size-adjust: none; /* 1 */
-  text-size-adjust: none; /* 1 */
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+          text-size-adjust: none; /* 1 */
 }
 
 /**
@@ -202,12 +203,12 @@ body {
   background-color: #fcfcfc;
   color: #252525;
   display: grid; /* 2 */
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   grid-template-columns: 100%;
   grid-template-rows: 1fr auto; /* 2 */
   min-block-size: 100%;
   overflow-x: hidden; /* 3 */
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
 }
 
 /*------------------------------------*\
@@ -221,7 +222,7 @@ body {
 body {
   font-size: 1.25rem; /* 1 */
   font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
-  font-family: "Arial MT Rounded Bold", Arial, sans-serif;
+  font-family: "Arial MT Rounded Bold", arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.7; /* 2 */
@@ -314,7 +315,7 @@ When Font Face Observer has detected that the @font-face files are loaded, then 
 can safely use the web fonts instead of the system fonts.
  */
 .fonts-loaded body {
-  font-family: "Nunito", "Arial MT Rounded Bold", Arial, sans-serif;
+  font-family: "Nunito", "Arial MT Rounded Bold", arial, sans-serif;
 }
 
 /*------------------------------------*\
@@ -373,7 +374,7 @@ iframe {
  * using the %visually-hidden placeholder (extend the placeholder with
  * Sass to avoid it appearing repeatedly in your markup).
  */
-.visuallyhidden:not(:focus):not(:active), .skip-link:not(:focus):not(:active) {
+.visuallyhidden:not(:focus, :active), .skip-link:not(:focus, :active) {
   block-size: 1px;
   border: 0;
   clip: rect(0 0 0 0);
@@ -455,10 +456,10 @@ small,
 }
 
 hr {
+  block-size: 0;
   border: 0;
   -webkit-border-before: 1px solid #c6c6c6;
           border-block-start: 1px solid #c6c6c6;
-  block-size: 0;
   margin: 2rem 0;
   overflow: visible;
 }
@@ -491,8 +492,9 @@ code,
 kbd,
 samp,
 pre {
-  font-family: Monaco, "Lucida Console", "Courier New", monospace;
+  font-family: monaco, "Lucida Console", "Courier New", monospace;
   -webkit-hyphens: none;
+      -ms-hyphens: none;
           hyphens: none;
   orphans: 3;
   page-break-before: avoid;
@@ -501,19 +503,15 @@ pre {
 }
 
 code,
-kbd,
-samp {
-  font-size: 0.8em;
-}
-
-samp kbd {
-  font-size: 1em;
-}
-
-code,
 kbd {
   padding-block: 0.125rem;
   padding-inline: 0.25rem;
+}
+
+code,
+kbd,
+samp {
+  font-size: 0.8em;
 }
 
 code {
@@ -526,12 +524,15 @@ kbd {
   border: solid 0.0625rem;
 }
 
+samp kbd {
+  font-size: 1em;
+}
+
 pre code {
   display: block;
   overflow-x: auto;
   padding: 1em;
-  -o-tab-size: 4;
-     tab-size: 4;
+  tab-size: 4;
   white-space: pre;
 }
 
@@ -617,9 +618,9 @@ input[type=submit].button:hover {
 button:active,
 .button:active,
 input[type=submit].button:active {
-  color: #fcfcfc;
   background-color: #760035;
   border-color: #760035;
+  color: #fcfcfc;
 }
 
 .button--wide.button--wide {
@@ -635,9 +636,9 @@ input[type=submit].button:active {
   color: #fcfcfc;
 }
 .button--alt.button--alt:active {
-  color: #fcfcfc;
   background-color: #760035;
   border-color: #760035;
+  color: #fcfcfc;
 }
 
 .button--ghost.button--ghost {
@@ -683,10 +684,7 @@ button[disabled],
     #Details and summary elements
 \*------------------------------------*/
 details {
-  -webkit-margin-after: 1rem;
-          margin-block-end: 1rem;
-  -webkit-margin-before: 1rem;
-          margin-block-start: 1rem;
+  margin-block: 1rem;
 }
 
 summary {
@@ -703,13 +701,10 @@ summary::before {
   border-inline-start-color: inherit;
   border-style: solid;
   border-width: 7px 0 7px 12.124px;
-  -webkit-clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-          clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
   content: "";
   display: block;
   inline-size: 0;
-  inset-block-end: 0;
-  inset-block-start: -0.0625rem;
+  inset-block: -0.0625rem 0;
   inset-inline-start: 0;
   margin: auto;
   position: absolute;
@@ -722,15 +717,16 @@ summary:hover {
 }
 summary span {
   display: inline-block;
-  -webkit-padding-after: 0.625rem;
-          padding-block-end: 0.625rem;
-  -webkit-padding-before: 0.625rem;
-          padding-block-start: 0.625rem;
+  padding-block: 0.625rem;
   text-decoration: underline;
   -webkit-text-decoration-skip: auto;
           text-decoration-skip: auto;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
+}
+
+[dir=rtl] summary::before {
+  border-width: 7px 12.124px 7px 0;
 }
 
 details[open] > summary {
@@ -739,20 +735,18 @@ details[open] > summary {
 }
 
 details[open] > summary::before {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
-[dir=rtl] summary::before {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+[dir=rtl] details[open] > summary::before {
+  transform: rotate(-90deg);
 }
 
 /*------------------------------------*\
     #SVG
 \*------------------------------------*/
 svg {
-  fill: currentColor;
+  fill: currentcolor;
 }
 
 /*------------------------------------*\
@@ -810,10 +804,7 @@ Use `margin-inline-end` for spacing irrespective of text direction
 \*------------------------------------*/
 ul,
 ol {
-  -webkit-margin-after: 1rem;
-          margin-block-end: 1rem;
-  -webkit-margin-before: 1rem;
-          margin-block-start: 1rem;
+  margin-block: 1rem;
   -webkit-padding-start: 2rem;
           padding-inline-start: 2rem;
 }
@@ -863,10 +854,7 @@ the number of items in a list is announced, add role="list" to the <ul>
 Description lists / Definition lists
  */
 dl {
-  -webkit-margin-after: 1rem;
-          margin-block-end: 1rem;
-  -webkit-margin-before: 1rem;
-          margin-block-start: 1rem;
+  margin-block: 1rem;
 }
 dl dt {
   font-weight: bold;
@@ -883,34 +871,27 @@ dl dd + dd {
 
 @supports (grid-row-start: auto) {
   dl.grid {
-    -webkit-column-gap: 1rem;
-            column-gap: 1rem;
     display: grid;
-    display: -ms-grid;
-    grid-template-columns: -webkit-max-content;
-    grid-template-columns: max-content;
-    -ms-grid-columns: max-content;
-    grid-template-rows: 1fr;
+    gap: 1rem;
+    -ms-grid-columns: min-content;
     -ms-grid-rows: 1fr;
-    row-gap: 1rem;
+    grid-template-columns: -webkit-min-content;
+    grid-template-columns: min-content;
+    grid-template-rows: 1fr;
+  }
+  dl.grid dt {
+    grid-column: 1/2;
+    -ms-grid-column-span: 1;
+  }
+  dl.grid dd {
+    grid-column: 2/3;
+    -ms-grid-column-span: 1;
   }
   dl.grid dd + dt,
   dl.grid dt + dd,
   dl.grid dd + dd {
     -webkit-margin-before: 0;
             margin-block-start: 0;
-  }
-  dl.grid dt {
-    grid-column-start: 1;
-    -ms-grid-column: 1;
-    grid-column-end: 2;
-    -ms-grid-column-span: 1;
-  }
-  dl.grid dd {
-    grid-column-start: 2;
-    -ms-grid-column: 2;
-    grid-column-end: 3;
-    -ms-grid-column-span: 1;
   }
 }
 
@@ -957,10 +938,7 @@ table {
   border: 1px solid #c6c6c6;
   border-collapse: collapse;
   inline-size: 100%;
-  -webkit-margin-after: 1rem;
-          margin-block-end: 1rem;
-  -webkit-margin-before: 1rem;
-          margin-block-start: 1rem;
+  margin-block: 1rem;
 }
 
 th,
@@ -991,36 +969,25 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
 @media screen {
   [data-component=table-wrap] {
     border: 1px solid #c6c6c6;
-    -webkit-margin-after: 1rem;
-            margin-block-end: 1rem;
-    -webkit-margin-before: 1rem;
-            margin-block-start: 1rem;
+    margin-block: 1rem;
     max-inline-size: 100% !important;
   }
   [data-component=table-wrap][role][tabindex] {
-    -webkit-animation: scroll-shadow-inset linear;
-            animation: scroll-shadow-inset linear; /* 1 */
+    animation: scroll-shadow-inset linear; /* 1 */
     animation-timeline: scroll(self inline); /* 1 */
     overflow: auto;
   }
   [data-component=table-wrap] table {
     border: 0;
-    -webkit-margin-after: 0;
-            margin-block-end: 0;
-    -webkit-margin-before: 0;
-            margin-block-start: 0;
+    margin-block: 0;
   }
   [data-component=table-wrap] table caption {
     border-bottom: 1px solid #c6c6c6;
   }
   [data-component=table-wrap] th,
-  [data-component=table-wrap] th[scope=row] ~ td,
-  [data-component=table-wrap] thead td {
+  [data-component=table-wrap] thead td,
+  [data-component=table-wrap] th[scope=row] ~ td {
     border-top: 0;
-  }
-  [data-component=table-wrap] tr:last-of-type th[scope=row],
-  [data-component=table-wrap] tbody tr:last-of-type td {
-    border-bottom: 0;
   }
   [data-component=table-wrap] tr th:first-child,
   [data-component=table-wrap] tr td:first-child {
@@ -1029,6 +996,10 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
   [data-component=table-wrap] tr th:last-child,
   [data-component=table-wrap] tr td:last-child {
     border-right: 0;
+  }
+  [data-component=table-wrap] tr:last-of-type th[scope=row],
+  [data-component=table-wrap] tbody tr:last-of-type td {
+    border-bottom: 0;
   }
 }
 /*------------------------------------*\
@@ -1043,36 +1014,23 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
   *,
   ::before,
   ::after {
-    -webkit-animation-delay: -1ms !important;
-            animation-delay: -1ms !important;
-    -webkit-animation-duration: 1ms !important;
-            animation-duration: 1ms !important;
-    -webkit-animation-iteration-count: 1 !important;
-            animation-iteration-count: 1 !important;
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
     background-attachment: initial !important;
     scroll-behavior: auto !important;
-    transition-duration: 0.001ms !important;
     transition-delay: 0s !important;
-  }
-}
-@-webkit-keyframes scroll-shadow-inset {
-  /* start with inset shadow on right */
-  from {
-    box-shadow: inset -10px -10px 15px 0px rgba(0, 0, 0, 0.3);
-  }
-  /* end with inset shadow on left */
-  to {
-    box-shadow: inset 10px -10px 15px 0px rgba(0, 0, 0, 0.3);
+    transition-duration: 0.001ms !important;
   }
 }
 @keyframes scroll-shadow-inset {
   /* start with inset shadow on right */
   from {
-    box-shadow: inset -10px -10px 15px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: inset -10px -10px 15px 0 rgba(0, 0, 0, 0.3);
   }
   /* end with inset shadow on left */
   to {
-    box-shadow: inset 10px -10px 15px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 10px -10px 15px 0 rgba(0, 0, 0, 0.3);
   }
 }
 /*------------------------------------*\
@@ -1084,8 +1042,8 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
     We retain an outline - even if it's transparent - to ensure an accessible focus indicator.
 \*------------------------------------*/
 :focus {
-  box-decoration-break: clone; /* 1 */
-  -webkit-box-decoration-break: clone; /* 1 */
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone; /* 1 */
   box-shadow: 0 0 0 4px #000;
   outline: 2px solid #ffdc00; /* 2 */
   outline-offset: 0; /* 2 */
@@ -1161,8 +1119,8 @@ legend,
 Group inputs to line up side-by-side
  */
 .input-group {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .input-group > * + * {
@@ -1188,16 +1146,6 @@ label,
           margin-block-end: 0.25rem;
 }
 
-.field-label,
-.group-legend {
-  font-weight: bold;
-}
-.field-label + .field-hint,
-.group-legend + .field-hint {
-  -webkit-margin-before: 0.25rem;
-          margin-block-start: 0.25rem;
-}
-
 .field-hint {
   font-size: 1.0625rem; /* 1 */
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
@@ -1206,6 +1154,16 @@ label,
   -webkit-margin-after: 0.25rem;
           margin-block-end: 0.25rem;
   max-inline-size: 41.25rem;
+}
+
+.field-label,
+.group-legend {
+  font-weight: bold;
+}
+.field-label + .field-hint,
+.group-legend + .field-hint {
+  -webkit-margin-before: 0.25rem;
+          margin-block-start: 0.25rem;
 }
 
 input, optgroup {
@@ -1304,10 +1262,7 @@ Error styles
   color: #a4141b;
   display: inline-block;
   font-weight: bold;
-  -webkit-padding-after: 0.625rem;
-          padding-block-end: 0.625rem;
-  -webkit-padding-before: 0.625rem;
-          padding-block-start: 0.625rem;
+  padding-block: 0.625rem;
 }
 [data-component=error-summary] li a:hover, [data-component=error-summary] li a:visited {
   color: #a4141b;
@@ -1366,14 +1321,14 @@ Error styles
 
 .radio-item input,
 .checkbox-item input {
-  cursor: pointer;
   block-size: 2.75rem;
+  cursor: pointer;
+  inline-size: 2.75rem;
+  inset-block-start: -0.125rem;
   inset-inline-start: -0.625rem;
   margin: 0;
   opacity: 0;
   position: absolute;
-  inset-block-start: -0.125rem;
-  inline-size: 2.75rem;
   z-index: 1;
 }
 
@@ -1381,17 +1336,11 @@ Error styles
 .checkbox-item label {
   cursor: pointer;
   display: inline-block;
-  margin-bottom: 0;
   -webkit-margin-before: -0.125rem;
           margin-block-start: -0.125rem;
-  -webkit-padding-after: 0.375rem;
-          padding-block-end: 0.375rem;
-  -webkit-padding-before: 0.375rem;
-          padding-block-start: 0.375rem;
-  -webkit-padding-end: 0.9375rem;
-          padding-inline-end: 0.9375rem;
-  -webkit-padding-start: 0.0625rem;
-          padding-inline-start: 0.0625rem;
+  margin-bottom: 0;
+  padding-block: 0.375rem;
+  padding-inline: 0.0625rem 0.9375rem;
   touch-action: manipulation;
 }
 .radio-item label::before, .radio-item label::after,
@@ -1403,8 +1352,8 @@ Error styles
 .radio-item label::before,
 .checkbox-item label::before {
   background: transparent;
-  border: 2px solid #8d8d8d;
   block-size: 1.5rem;
+  border: 2px solid #8d8d8d;
   inline-size: 1.5rem;
   inset-block-start: 0.5rem;
   inset-inline-start: 0;
@@ -1414,9 +1363,9 @@ Error styles
   border-radius: 50%;
 }
 .radio-item label::after {
-  background: currentColor;
-  border: 5px solid;
+  background: currentcolor;
   block-size: 0;
+  border: 5px solid;
   inline-size: 0;
   inset-block-start: 0.9375rem;
   inset-inline-start: 0.4375rem;
@@ -1433,8 +1382,7 @@ Error styles
   inset-block-start: 0.9375rem;
   inset-inline-start: 0.375rem;
   opacity: 0;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 .checkbox-group--cluster .checkbox-item {
@@ -1448,6 +1396,7 @@ Error styles
   box-shadow: 0 0 0 4px #063a69;
 }
 
+/* stylelint-disable no-descending-specificity */
 .radio-item input:focus + label::before,
 .checkbox-item input:focus + label::before {
   box-shadow: 0 0 0 4px #000;
@@ -1455,6 +1404,7 @@ Error styles
   outline-offset: 0; /* 1 */
 }
 
+/* stylelint-enable no-descending-specificity */
 .radio-item:hover input:focus + label::before,
 .checkbox-item:hover input:focus + label::before {
   box-shadow: 0 0 0 4px #000;
@@ -1519,7 +1469,7 @@ Error styles
   display: block;
   margin: 0.125rem;
 }
-.segmented-group.l-switcher label:before, .segmented-group.l-switcher label:after {
+.segmented-group.l-switcher label::before, .segmented-group.l-switcher label::after {
   content: "";
   position: absolute;
 }
@@ -1540,15 +1490,14 @@ Error styles
   inset-block-start: 1.0625rem;
   inset-inline-end: 1rem;
   opacity: 0;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 .segmented-group.l-switcher input {
-  cursor: pointer;
   block-size: 2.75rem;
+  cursor: pointer;
+  inline-size: 2.75rem;
   inset-block-start: 0;
   inset-inline-end: 0;
-  inline-size: 2.75rem;
   margin: 0;
   opacity: 0;
   position: absolute;
@@ -1739,8 +1688,7 @@ by using 'align-items` and `justify-content`.
  */
 .l-cluster > * {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   margin: -0.625rem;
 }
 
@@ -1773,10 +1721,8 @@ out, but halve it to to account for 'doubling up' at the edges.
 .l-frame > * {
   align-items: center;
   display: flex;
-  inset-block-end: 0;
-  inset-block-start: 0;
-  inset-inline-end: 0;
-  inset-inline-start: 0;
+  inset-block: 0;
+  inset-inline: 0;
   justify-content: center;
   position: absolute;
 }
@@ -1794,8 +1740,7 @@ out, but halve it to to account for 'doubling up' at the edges.
 
 .l-frame > img,
 .l-frame > video {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 /* Common aspect ratios */
@@ -1851,7 +1796,7 @@ to create a gutter between the `.sidebar` and `.not-sidebar`.
  */
 .l-sidebar > * {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   flex-wrap: wrap;
   margin: -0.75rem;
 }
@@ -1944,9 +1889,9 @@ value that's either bigger than the max-inline-size or smaller than the
 min-inline-size, so that either of these properties is applied instead.
  */
 .l-switcher > * > * {
+  inline-size: calc(476100px - 69000%); /* 3 */
   max-inline-size: 100%; /* 1 */
   min-inline-size: 50%; /* 2 */
-  inline-size: calc(476100px - 69000%); /* 3 */
 }
 
 /*------------------------------------*\
@@ -1994,10 +1939,7 @@ a.nav-link:active {
     See: https://scottaohara.github.io/a11y_breadcrumbs/
 \*------------------------------------*/
 .breadcrumbs {
-  -webkit-padding-after: 0.9375rem;
-          padding-block-end: 0.9375rem;
-  -webkit-padding-before: 0.625rem;
-          padding-block-start: 0.625rem;
+  padding-block: 0.625rem 0.9375rem;
 }
 .breadcrumbs .l-cluster > * {
   margin: 0;
@@ -2005,10 +1947,7 @@ a.nav-link:active {
 .breadcrumbs .l-cluster > * > * {
   margin-block: 0;
   margin-inline: 0;
-  -webkit-padding-end: 2em;
-          padding-inline-end: 2em;
-  -webkit-padding-start: 0;
-          padding-inline-start: 0;
+  padding-inline: 0 2em;
   position: relative;
 }
 
@@ -2019,10 +1958,7 @@ a.nav-link:active {
 .breadcrumbs a {
   color: #252525;
   display: block;
-  -webkit-padding-after: 0.3125rem;
-          padding-block-end: 0.3125rem;
-  -webkit-padding-before: 0.3125rem;
-          padding-block-start: 0.3125rem;
+  padding-block: 0.3125rem;
 }
 .breadcrumbs a:visited, .breadcrumbs a:hover, .breadcrumbs a:active {
   color: #252525;
@@ -2041,24 +1977,22 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 */
 .breadcrumbs li:not(:last-child)::after {
   block-size: 0.5em;
-  border-style: solid;
   border-block-end-width: 0;
   border-block-start-width: 0.1em;
   border-inline-end-width: 0.1em;
   border-inline-start-width: 0;
+  border-style: solid;
   content: "";
   display: block;
-  position: absolute;
   inline-size: 0.5em;
-  inset-inline-end: 1.25em;
   inset-block-start: 50%;
-  -webkit-transform: rotate(45deg) translateY(-50%);
-          transform: rotate(45deg) translateY(-50%);
+  inset-inline-end: 1.25em;
+  position: absolute;
+  transform: rotate(45deg) translateY(-50%);
 }
 
 [dir=rtl] .breadcrumbs li:not(:last-child)::after {
-  -webkit-transform: rotate(-45deg) translateY(-50%);
-          transform: rotate(-45deg) translateY(-50%);
+  transform: rotate(-45deg) translateY(-50%);
 }
 
 /*------------------------------------*\
@@ -2075,10 +2009,7 @@ main,
   box-sizing: content-box;
   margin-inline: auto;
   max-inline-size: 70rem;
-  -webkit-padding-after: 6.25rem;
-          padding-block-end: 6.25rem;
-  -webkit-padding-before: 1.5rem;
-          padding-block-start: 1.5rem;
+  padding-block: 1.5rem 6.25rem;
   padding-inline: 5vw;
 }
 
@@ -2172,8 +2103,7 @@ main,
 .avatar img {
   block-size: 100%;
   inline-size: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .avatar--med {
@@ -2235,28 +2165,28 @@ main,
 
 .note--error {
   background-color: #fef1f1;
-  background-image: url(../svg/note-bg-error.svg);
+  background-image: url("../svg/note-bg-error.svg");
   border-color: #f85156;
   color: #a4141b;
 }
 
 .note--info {
   background-color: #e9f6ff;
-  background-image: url(../svg/note-bg-info.svg);
+  background-image: url("../svg/note-bg-info.svg");
   border-color: #1b90f4;
   color: #063a69;
 }
 
 .note--success {
   background-color: #d6fedc;
-  background-image: url(../svg/note-bg-success.svg);
+  background-image: url("../svg/note-bg-success.svg");
   border-color: #2dc158;
   color: #115f28;
 }
 
 .note--warning {
   background-color: #fef3da;
-  background-image: url(../svg/note-bg-warning.svg);
+  background-image: url("../svg/note-bg-warning.svg");
   border-color: #c3a62c;
   color: #605111;
 }
@@ -2312,10 +2242,7 @@ main,
   align-self: flex-start; /* 1 */
   -webkit-margin-before: 0.375rem;
           margin-block-start: 0.375rem;
-  -webkit-padding-after: 0.625rem;
-          padding-block-end: 0.625rem;
-  -webkit-padding-before: 0.625rem;
-          padding-block-start: 0.625rem;
+  padding-block: 0.625rem;
 }
 
 .card__heading {
@@ -2413,9 +2340,9 @@ main,
 .progress-list li::after {
   background-color: #525252;
   block-size: 0.8125rem;
+  content: "";
   inline-size: 0.1875rem;
   inset-block-end: -1rem;
-  content: "";
   inset-inline-start: 1.1875rem;
   position: absolute;
 }
@@ -2423,8 +2350,7 @@ main,
   .progress-list li::after {
     block-size: 0.1875rem;
     inline-size: 100%;
-    inset-block-end: auto;
-    inset-block-start: 2rem;
+    inset-block: 2rem auto;
     inset-inline-start: 50%;
     z-index: -1;
   }
@@ -2500,8 +2426,8 @@ main,
   position: absolute;
 }
 .progress-step__marker.complete::before {
-  border-radius: 50%;
   block-size: 2.375rem;
+  border-radius: 50%;
   inline-size: 2.375rem;
   inset-block-start: 0;
   inset-inline-start: 0;
@@ -2514,8 +2440,7 @@ main,
   inline-size: 1.125rem;
   inset-block-start: 0.8125rem;
   inset-inline-start: 0.625rem;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 .progress-list a {
@@ -2690,9 +2615,9 @@ input[type=search] {
   line-height: 1.5;
   color: #000;
   display: block;
-  text-decoration: none;
   padding-block: 0.6875rem;
   padding-inline: 1.125rem;
+  text-decoration: none;
 }
 .pagination__list a:visited {
   color: #000;
@@ -2729,14 +2654,9 @@ input[type=search] {
 
 \*------------------------------------*/
 .global-footer {
-  grid-row-start: 2; /* 1 */
-  -ms-grid-row: 2; /* 2 */
-  grid-row-end: 3; /* 1 */
+  grid-row: 2/3; /* 1 */
   -ms-grid-row-span: 1; /* 2 */
-  -webkit-padding-after: 1.5625rem;
-          padding-block-end: 1.5625rem;
-  -webkit-padding-before: 1.25rem;
-          padding-block-start: 1.25rem;
+  padding-block: 1.25rem 1.5625rem;
   padding-inline: 0;
 }
 .global-footer .l-center {
@@ -2777,10 +2697,7 @@ input[type=search] {
 .amplify .global-header {
   background-color: #252525;
   color: #fcfcfc;
-  -webkit-padding-after: 0.625rem;
-          padding-block-end: 0.625rem;
-  -webkit-padding-before: 0.625rem;
-          padding-block-start: 0.625rem;
+  padding-block: 0.625rem;
 }
 
 .amplify .global-header__link {
@@ -2788,10 +2705,7 @@ input[type=search] {
   font-size: clamp(1.25rem, 1.125rem + 0.625vw, 1.5625rem);
   line-height: 1.3;
   color: #fcfcfc;
-  -webkit-padding-after: 0.3125rem;
-          padding-block-end: 0.3125rem;
-  -webkit-padding-before: 0.3125rem;
-          padding-block-start: 0.3125rem;
+  padding-block: 0.3125rem;
   text-decoration: none;
 }
 .amplify .global-header__link:hover, .amplify .global-header__link:visited {
@@ -2808,10 +2722,7 @@ input[type=search] {
 .amplify .global-nav {
   -webkit-border-after: solid 2px #c6c6c6;
           border-block-end: solid 2px #c6c6c6;
-  -webkit-padding-after: 0.625rem;
-          padding-block-end: 0.625rem;
-  -webkit-padding-before: 0.625rem;
-          padding-block-start: 0.625rem;
+  padding-block: 0.625rem;
 }
 
 .amplify .global-nav__link {
@@ -2846,10 +2757,7 @@ input[type=search] {
 .amplify .nav-secondary__link {
   color: #1371c2;
   display: block;
-  -webkit-padding-after: 0.5625rem;
-          padding-block-end: 0.5625rem;
-  -webkit-padding-before: 0.5625rem;
-          padding-block-start: 0.5625rem;
+  padding-block: 0.5625rem;
   position: relative;
   text-decoration: none;
 }
@@ -2872,8 +2780,7 @@ input[type=search] {
   inset-block-start: 50%;
   inset-inline-start: -0.75rem;
   position: absolute;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 .amplify .nav-secondary__link[aria-current]:hover {
   text-decoration: none;
@@ -2882,7 +2789,6 @@ input[type=search] {
 @media screen and (min-width: 64em) {
   .amplify .content-wrap {
     display: grid;
-    display: -ms-grid;
     grid-template-columns: 25% 10% 65%;
     -ms-grid-columns: 25% 10% 65%;
     grid-template-rows: 1fr;
@@ -2891,17 +2797,15 @@ input[type=search] {
 }
 
 .amplify .content-wrap > *:first-child {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  -ms-grid-column: 1;
-  -ms-grid-row: 1;
+  grid-column: 1/2;
+  grid-column: 1;
+  grid-row: 1;
 }
 
 .amplify .content-wrap > *:last-child {
-  grid-column-start: 3;
-  grid-column-end: 4;
-  -ms-grid-column: 3;
-  -ms-grid-row: 1;
+  grid-column: 3/4;
+  grid-column: 3;
+  grid-row: 1;
   -webkit-margin-before: 1.875rem;
           margin-block-start: 1.875rem;
 }
@@ -3016,8 +2920,8 @@ The parent must be exactly centered in the browser in order for this
 to work - see https://css-tricks.com/full-width-containers-limited-width-parents/
  */
 .u-full-width {
-  inset-inline: 50%;
   inline-size: 100vw;
+  inset-inline: 50%;
   margin-inline: -50vw;
   position: relative;
 }

@@ -2,6 +2,7 @@
 	"name": "amplify",
 	"version": "1.0.1",
 	"description": "Front-End starter kit for Studio 24",
+	"type": "module",
 	"main": "index.js",
 	"directories": {
 		"doc": "docs",

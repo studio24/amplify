@@ -1,88 +1,108 @@
-/******/ (function() { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 16:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ 1:
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   CLASSES: function() { return /* binding */ CLASSES; },
-/* harmony export */   CLASS_ACTIVE: function() { return /* binding */ CLASS_ACTIVE; },
-/* harmony export */   CLASS_ARROW: function() { return /* binding */ CLASS_ARROW; },
-/* harmony export */   CLASS_ARROWS: function() { return /* binding */ CLASS_ARROWS; },
-/* harmony export */   CLASS_ARROW_NEXT: function() { return /* binding */ CLASS_ARROW_NEXT; },
-/* harmony export */   CLASS_ARROW_PREV: function() { return /* binding */ CLASS_ARROW_PREV; },
-/* harmony export */   CLASS_CLONE: function() { return /* binding */ CLASS_CLONE; },
-/* harmony export */   CLASS_CONTAINER: function() { return /* binding */ CLASS_CONTAINER; },
-/* harmony export */   CLASS_FOCUS_IN: function() { return /* binding */ CLASS_FOCUS_IN; },
-/* harmony export */   CLASS_INITIALIZED: function() { return /* binding */ CLASS_INITIALIZED; },
-/* harmony export */   CLASS_LIST: function() { return /* binding */ CLASS_LIST; },
-/* harmony export */   CLASS_LOADING: function() { return /* binding */ CLASS_LOADING; },
-/* harmony export */   CLASS_NEXT: function() { return /* binding */ CLASS_NEXT; },
-/* harmony export */   CLASS_OVERFLOW: function() { return /* binding */ CLASS_OVERFLOW; },
-/* harmony export */   CLASS_PAGINATION: function() { return /* binding */ CLASS_PAGINATION; },
-/* harmony export */   CLASS_PAGINATION_PAGE: function() { return /* binding */ CLASS_PAGINATION_PAGE; },
-/* harmony export */   CLASS_PREV: function() { return /* binding */ CLASS_PREV; },
-/* harmony export */   CLASS_PROGRESS: function() { return /* binding */ CLASS_PROGRESS; },
-/* harmony export */   CLASS_PROGRESS_BAR: function() { return /* binding */ CLASS_PROGRESS_BAR; },
-/* harmony export */   CLASS_ROOT: function() { return /* binding */ CLASS_ROOT; },
-/* harmony export */   CLASS_SLIDE: function() { return /* binding */ CLASS_SLIDE; },
-/* harmony export */   CLASS_SPINNER: function() { return /* binding */ CLASS_SPINNER; },
-/* harmony export */   CLASS_SR: function() { return /* binding */ CLASS_SR; },
-/* harmony export */   CLASS_TOGGLE: function() { return /* binding */ CLASS_TOGGLE; },
-/* harmony export */   CLASS_TOGGLE_PAUSE: function() { return /* binding */ CLASS_TOGGLE_PAUSE; },
-/* harmony export */   CLASS_TOGGLE_PLAY: function() { return /* binding */ CLASS_TOGGLE_PLAY; },
-/* harmony export */   CLASS_TRACK: function() { return /* binding */ CLASS_TRACK; },
-/* harmony export */   CLASS_VISIBLE: function() { return /* binding */ CLASS_VISIBLE; },
-/* harmony export */   DEFAULTS: function() { return /* binding */ DEFAULTS; },
-/* harmony export */   EVENT_ACTIVE: function() { return /* binding */ EVENT_ACTIVE; },
-/* harmony export */   EVENT_ARROWS_MOUNTED: function() { return /* binding */ EVENT_ARROWS_MOUNTED; },
-/* harmony export */   EVENT_ARROWS_UPDATED: function() { return /* binding */ EVENT_ARROWS_UPDATED; },
-/* harmony export */   EVENT_AUTOPLAY_PAUSE: function() { return /* binding */ EVENT_AUTOPLAY_PAUSE; },
-/* harmony export */   EVENT_AUTOPLAY_PLAY: function() { return /* binding */ EVENT_AUTOPLAY_PLAY; },
-/* harmony export */   EVENT_AUTOPLAY_PLAYING: function() { return /* binding */ EVENT_AUTOPLAY_PLAYING; },
-/* harmony export */   EVENT_CLICK: function() { return /* binding */ EVENT_CLICK; },
-/* harmony export */   EVENT_DESTROY: function() { return /* binding */ EVENT_DESTROY; },
-/* harmony export */   EVENT_DRAG: function() { return /* binding */ EVENT_DRAG; },
-/* harmony export */   EVENT_DRAGGED: function() { return /* binding */ EVENT_DRAGGED; },
-/* harmony export */   EVENT_DRAGGING: function() { return /* binding */ EVENT_DRAGGING; },
-/* harmony export */   EVENT_END_INDEX_CHANGED: function() { return /* binding */ EVENT_END_INDEX_CHANGED; },
-/* harmony export */   EVENT_HIDDEN: function() { return /* binding */ EVENT_HIDDEN; },
-/* harmony export */   EVENT_INACTIVE: function() { return /* binding */ EVENT_INACTIVE; },
-/* harmony export */   EVENT_LAZYLOAD_LOADED: function() { return /* binding */ EVENT_LAZYLOAD_LOADED; },
-/* harmony export */   EVENT_MOUNTED: function() { return /* binding */ EVENT_MOUNTED; },
-/* harmony export */   EVENT_MOVE: function() { return /* binding */ EVENT_MOVE; },
-/* harmony export */   EVENT_MOVED: function() { return /* binding */ EVENT_MOVED; },
-/* harmony export */   EVENT_NAVIGATION_MOUNTED: function() { return /* binding */ EVENT_NAVIGATION_MOUNTED; },
-/* harmony export */   EVENT_OVERFLOW: function() { return /* binding */ EVENT_OVERFLOW; },
-/* harmony export */   EVENT_PAGINATION_MOUNTED: function() { return /* binding */ EVENT_PAGINATION_MOUNTED; },
-/* harmony export */   EVENT_PAGINATION_UPDATED: function() { return /* binding */ EVENT_PAGINATION_UPDATED; },
-/* harmony export */   EVENT_READY: function() { return /* binding */ EVENT_READY; },
-/* harmony export */   EVENT_REFRESH: function() { return /* binding */ EVENT_REFRESH; },
-/* harmony export */   EVENT_RESIZE: function() { return /* binding */ EVENT_RESIZE; },
-/* harmony export */   EVENT_RESIZED: function() { return /* binding */ EVENT_RESIZED; },
-/* harmony export */   EVENT_SCROLL: function() { return /* binding */ EVENT_SCROLL; },
-/* harmony export */   EVENT_SCROLLED: function() { return /* binding */ EVENT_SCROLLED; },
-/* harmony export */   EVENT_SHIFTED: function() { return /* binding */ EVENT_SHIFTED; },
-/* harmony export */   EVENT_SLIDE_KEYDOWN: function() { return /* binding */ EVENT_SLIDE_KEYDOWN; },
-/* harmony export */   EVENT_UPDATED: function() { return /* binding */ EVENT_UPDATED; },
-/* harmony export */   EVENT_VISIBLE: function() { return /* binding */ EVENT_VISIBLE; },
-/* harmony export */   EventBinder: function() { return /* binding */ EventBinder; },
-/* harmony export */   EventInterface: function() { return /* binding */ EventInterface; },
-/* harmony export */   FADE: function() { return /* binding */ FADE; },
-/* harmony export */   LOOP: function() { return /* binding */ LOOP; },
-/* harmony export */   LTR: function() { return /* binding */ LTR; },
-/* harmony export */   RTL: function() { return /* binding */ RTL; },
-/* harmony export */   RequestInterval: function() { return /* binding */ RequestInterval; },
-/* harmony export */   SLIDE: function() { return /* binding */ SLIDE; },
-/* harmony export */   STATUS_CLASSES: function() { return /* binding */ STATUS_CLASSES; },
-/* harmony export */   Splide: function() { return /* binding */ Splide; },
-/* harmony export */   SplideRenderer: function() { return /* binding */ SplideRenderer; },
-/* harmony export */   State: function() { return /* binding */ State; },
-/* harmony export */   TTB: function() { return /* binding */ TTB; },
-/* harmony export */   Throttle: function() { return /* binding */ Throttle; },
-/* harmony export */   "default": function() { return /* binding */ Splide; }
+/* harmony export */   exists: () => (/* binding */ exists)
+/* harmony export */ });
+/**
+ * Check whether an element exists in the DOM
+ * @param elem
+ * @return {boolean}
+ */
+
+var exists = function exists(elem) {
+  return elem !== 'undefined' && elem !== null && (elem.length >= 0 || elem.innerHTML.length >= 0);
+};
+
+
+/***/ }),
+
+/***/ 16:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CLASSES: () => (/* binding */ CLASSES),
+/* harmony export */   CLASS_ACTIVE: () => (/* binding */ CLASS_ACTIVE),
+/* harmony export */   CLASS_ARROW: () => (/* binding */ CLASS_ARROW),
+/* harmony export */   CLASS_ARROWS: () => (/* binding */ CLASS_ARROWS),
+/* harmony export */   CLASS_ARROW_NEXT: () => (/* binding */ CLASS_ARROW_NEXT),
+/* harmony export */   CLASS_ARROW_PREV: () => (/* binding */ CLASS_ARROW_PREV),
+/* harmony export */   CLASS_CLONE: () => (/* binding */ CLASS_CLONE),
+/* harmony export */   CLASS_CONTAINER: () => (/* binding */ CLASS_CONTAINER),
+/* harmony export */   CLASS_FOCUS_IN: () => (/* binding */ CLASS_FOCUS_IN),
+/* harmony export */   CLASS_INITIALIZED: () => (/* binding */ CLASS_INITIALIZED),
+/* harmony export */   CLASS_LIST: () => (/* binding */ CLASS_LIST),
+/* harmony export */   CLASS_LOADING: () => (/* binding */ CLASS_LOADING),
+/* harmony export */   CLASS_NEXT: () => (/* binding */ CLASS_NEXT),
+/* harmony export */   CLASS_OVERFLOW: () => (/* binding */ CLASS_OVERFLOW),
+/* harmony export */   CLASS_PAGINATION: () => (/* binding */ CLASS_PAGINATION),
+/* harmony export */   CLASS_PAGINATION_PAGE: () => (/* binding */ CLASS_PAGINATION_PAGE),
+/* harmony export */   CLASS_PREV: () => (/* binding */ CLASS_PREV),
+/* harmony export */   CLASS_PROGRESS: () => (/* binding */ CLASS_PROGRESS),
+/* harmony export */   CLASS_PROGRESS_BAR: () => (/* binding */ CLASS_PROGRESS_BAR),
+/* harmony export */   CLASS_ROOT: () => (/* binding */ CLASS_ROOT),
+/* harmony export */   CLASS_SLIDE: () => (/* binding */ CLASS_SLIDE),
+/* harmony export */   CLASS_SPINNER: () => (/* binding */ CLASS_SPINNER),
+/* harmony export */   CLASS_SR: () => (/* binding */ CLASS_SR),
+/* harmony export */   CLASS_TOGGLE: () => (/* binding */ CLASS_TOGGLE),
+/* harmony export */   CLASS_TOGGLE_PAUSE: () => (/* binding */ CLASS_TOGGLE_PAUSE),
+/* harmony export */   CLASS_TOGGLE_PLAY: () => (/* binding */ CLASS_TOGGLE_PLAY),
+/* harmony export */   CLASS_TRACK: () => (/* binding */ CLASS_TRACK),
+/* harmony export */   CLASS_VISIBLE: () => (/* binding */ CLASS_VISIBLE),
+/* harmony export */   DEFAULTS: () => (/* binding */ DEFAULTS),
+/* harmony export */   EVENT_ACTIVE: () => (/* binding */ EVENT_ACTIVE),
+/* harmony export */   EVENT_ARROWS_MOUNTED: () => (/* binding */ EVENT_ARROWS_MOUNTED),
+/* harmony export */   EVENT_ARROWS_UPDATED: () => (/* binding */ EVENT_ARROWS_UPDATED),
+/* harmony export */   EVENT_AUTOPLAY_PAUSE: () => (/* binding */ EVENT_AUTOPLAY_PAUSE),
+/* harmony export */   EVENT_AUTOPLAY_PLAY: () => (/* binding */ EVENT_AUTOPLAY_PLAY),
+/* harmony export */   EVENT_AUTOPLAY_PLAYING: () => (/* binding */ EVENT_AUTOPLAY_PLAYING),
+/* harmony export */   EVENT_CLICK: () => (/* binding */ EVENT_CLICK),
+/* harmony export */   EVENT_DESTROY: () => (/* binding */ EVENT_DESTROY),
+/* harmony export */   EVENT_DRAG: () => (/* binding */ EVENT_DRAG),
+/* harmony export */   EVENT_DRAGGED: () => (/* binding */ EVENT_DRAGGED),
+/* harmony export */   EVENT_DRAGGING: () => (/* binding */ EVENT_DRAGGING),
+/* harmony export */   EVENT_END_INDEX_CHANGED: () => (/* binding */ EVENT_END_INDEX_CHANGED),
+/* harmony export */   EVENT_HIDDEN: () => (/* binding */ EVENT_HIDDEN),
+/* harmony export */   EVENT_INACTIVE: () => (/* binding */ EVENT_INACTIVE),
+/* harmony export */   EVENT_LAZYLOAD_LOADED: () => (/* binding */ EVENT_LAZYLOAD_LOADED),
+/* harmony export */   EVENT_MOUNTED: () => (/* binding */ EVENT_MOUNTED),
+/* harmony export */   EVENT_MOVE: () => (/* binding */ EVENT_MOVE),
+/* harmony export */   EVENT_MOVED: () => (/* binding */ EVENT_MOVED),
+/* harmony export */   EVENT_NAVIGATION_MOUNTED: () => (/* binding */ EVENT_NAVIGATION_MOUNTED),
+/* harmony export */   EVENT_OVERFLOW: () => (/* binding */ EVENT_OVERFLOW),
+/* harmony export */   EVENT_PAGINATION_MOUNTED: () => (/* binding */ EVENT_PAGINATION_MOUNTED),
+/* harmony export */   EVENT_PAGINATION_UPDATED: () => (/* binding */ EVENT_PAGINATION_UPDATED),
+/* harmony export */   EVENT_READY: () => (/* binding */ EVENT_READY),
+/* harmony export */   EVENT_REFRESH: () => (/* binding */ EVENT_REFRESH),
+/* harmony export */   EVENT_RESIZE: () => (/* binding */ EVENT_RESIZE),
+/* harmony export */   EVENT_RESIZED: () => (/* binding */ EVENT_RESIZED),
+/* harmony export */   EVENT_SCROLL: () => (/* binding */ EVENT_SCROLL),
+/* harmony export */   EVENT_SCROLLED: () => (/* binding */ EVENT_SCROLLED),
+/* harmony export */   EVENT_SHIFTED: () => (/* binding */ EVENT_SHIFTED),
+/* harmony export */   EVENT_SLIDE_KEYDOWN: () => (/* binding */ EVENT_SLIDE_KEYDOWN),
+/* harmony export */   EVENT_UPDATED: () => (/* binding */ EVENT_UPDATED),
+/* harmony export */   EVENT_VISIBLE: () => (/* binding */ EVENT_VISIBLE),
+/* harmony export */   EventBinder: () => (/* binding */ EventBinder),
+/* harmony export */   EventInterface: () => (/* binding */ EventInterface),
+/* harmony export */   FADE: () => (/* binding */ FADE),
+/* harmony export */   LOOP: () => (/* binding */ LOOP),
+/* harmony export */   LTR: () => (/* binding */ LTR),
+/* harmony export */   RTL: () => (/* binding */ RTL),
+/* harmony export */   RequestInterval: () => (/* binding */ RequestInterval),
+/* harmony export */   SLIDE: () => (/* binding */ SLIDE),
+/* harmony export */   STATUS_CLASSES: () => (/* binding */ STATUS_CLASSES),
+/* harmony export */   Splide: () => (/* binding */ Splide),
+/* harmony export */   SplideRenderer: () => (/* binding */ SplideRenderer),
+/* harmony export */   State: () => (/* binding */ State),
+/* harmony export */   TTB: () => (/* binding */ TTB),
+/* harmony export */   Throttle: () => (/* binding */ Throttle),
+/* harmony export */   "default": () => (/* binding */ Splide)
 /* harmony export */ });
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
@@ -3762,26 +3782,6 @@ var SplideRenderer = /*#__PURE__*/function () {
 
 
 
-/***/ }),
-
-/***/ 1:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   exists: function() { return /* binding */ exists; }
-/* harmony export */ });
-/**
- * Check whether an element exists in the DOM
- * @param elem
- * @return {boolean}
- */
-
-var exists = function exists(elem) {
-  return elem !== 'undefined' && elem !== null && (elem.length >= 0 || elem.innerHTML.length >= 0);
-};
-
-
 /***/ })
 
 /******/ 	});
@@ -3812,40 +3812,40 @@ var exists = function exists(elem) {
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
-/******/ 	!function() {
+/******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 		__webpack_require__.d = (exports, definition) => {
 /******/ 			for(var key in definition) {
 /******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
 /******/ 		};
-/******/ 	}();
+/******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	!function() {
-/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
-/******/ 	}();
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
-/******/ 	!function() {
+/******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = function(exports) {
+/******/ 		__webpack_require__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	}();
+/******/ 	})();
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-!function() {
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
+(() => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _splidejs_splide__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
-/* harmony import */ var _main_exists_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
+/* harmony import */ var _main_exists_helper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
 /**
  * Customising the Splide carousel for Amplify
  * @see https://github.com/Splidejs/splide
@@ -3856,12 +3856,13 @@ __webpack_require__.r(__webpack_exports__);
 
 // Get all carousel instances
 var splideArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="carousel"]'));
-if ((0,_main_exists_helper__WEBPACK_IMPORTED_MODULE_1__.exists)(splideArray)) {
+if ((0,_main_exists_helper_js__WEBPACK_IMPORTED_MODULE_1__.exists)(splideArray)) {
   // Loop through them
   splideArray.forEach(function (carousel) {
     new _splidejs_splide__WEBPACK_IMPORTED_MODULE_0__["default"](carousel).mount();
   });
 }
-}();
+})();
+
 /******/ })()
 ;

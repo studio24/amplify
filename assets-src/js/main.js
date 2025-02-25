@@ -1,11 +1,11 @@
-import {exists} from "./main/_exists.helper";
+import {exists} from "./main/_exists.helper.js";
 
-import {cardEnhancement} from "./main/cards";
-import {collapsibles} from "./main/collapsibles";
-import {disclosureWidget} from "./main/disclosure-widget";
-import {formErrorSummary} from "./main/form-error-summary";
-import {navSingleLevel} from "./main/nav-single-level";
-import {navDoubleLevel} from "./main/nav-double-level";
+import {cardEnhancement} from "./main/cards.js";
+import {collapsibles} from "./main/collapsibles.js";
+import {disclosureWidget} from "./main/disclosure-widget.js";
+import {formErrorSummary} from "./main/form-error-summary.js";
+import {navSingleLevel} from "./main/nav-single-level.js";
+import {navDoubleLevel} from "./main/nav-double-level.js";
 
 function domLoadedActions() {
 	cardEnhancement();
