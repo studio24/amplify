@@ -6,5 +6,8 @@
 # Print stylesheet
 assets-src/styles/sass/30-base/_print.scss
 
-# Style for the Amplify website
+# Advanced styles for navigation (Temporary - Sass to be reviewed in separate branch)
+assets-src/styles/sass/60-advanced-components/_navigation.scss
+
+# Styles for the Amplify website
 assets-src/styles/sass/85-amplify/*.scss
