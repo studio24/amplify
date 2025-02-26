@@ -1,5 +1,16 @@
 # Changelog
 
+## [6.0.0](https://github.com/studio24/amplify/compare/v5.0.0...v6.0.0) (2025-02-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* Add Stylelint to Amplify
+
+### Features
+
+* Add Stylelint to Amplify ([146e427](https://github.com/studio24/amplify/commit/146e427a6632b48300ad2c30196d8917e5a9389f))
+
 ## [5.0.0](https://github.com/studio24/amplify/compare/v4.2.0...v5.0.0) (2024-11-01)
 
 
