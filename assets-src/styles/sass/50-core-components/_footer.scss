@@ -14,12 +14,9 @@
 \*------------------------------------*/
 
 .global-footer {
-	grid-row-start: 2; /* 1 */
-	-ms-grid-row: 2; /* 2 */
-	grid-row-end: 3; /* 1 */
+	grid-row: 2 / 3; /* 1 */
 	-ms-grid-row-span: 1; /* 2 */
-	padding-block-end: rem(25);
-	padding-block-start: rem(20);
+	padding-block: rem(20) rem(25);
 	padding-inline: 0;
 
 	.l-center {

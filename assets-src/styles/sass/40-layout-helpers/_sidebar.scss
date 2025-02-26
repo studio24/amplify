@@ -32,7 +32,7 @@ to create a gutter between the `.sidebar` and `.not-sidebar`.
  */
 .l-sidebar > * {
 	display: flex;
-	flex-direction: row;
+	flex-flow: row wrap;
 	flex-wrap: wrap;
 	margin: -0.75rem;
 }
@@ -54,6 +54,7 @@ omitted to let the contents of `.sidebar` determine the width of
  */
 .l-sidebar .sidebar {
 	@include stack;
+
 	flex-basis: rem(320);
 	flex-grow: 1;
 }
@@ -66,6 +67,7 @@ media query.
  */
 .l-sidebar .not-sidebar {
 	@include stack;
+
 	flex-basis: 0;
 	flex-grow: 999;
 	min-inline-size: calc(55% - 1.5rem);

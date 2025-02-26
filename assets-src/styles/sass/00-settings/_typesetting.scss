@@ -16,12 +16,12 @@ When Font Face Observer has detected that the @font-face files are loaded, then 
 can safely use the web fonts instead of the system fonts.
  */
 
-$font-family:						'Arial MT Rounded Bold', Arial, sans-serif;
-$font-loaded-family:                'Nunito', 'Arial MT Rounded Bold', Arial, sans-serif;
+$font-family:						"Arial MT Rounded Bold", arial, sans-serif;
+$font-loaded-family:                "Nunito", "Arial MT Rounded Bold", arial, sans-serif;
 $font-style:						normal;
 $font-weight:						400;
 
 $emphasis:      					600;
 $emphasis--more:                    800;
 
-$mono-family:						Monaco, 'Lucida Console', 'Courier New', monospace;
+$mono-family:						monaco, "Lucida Console", "Courier New", monospace;

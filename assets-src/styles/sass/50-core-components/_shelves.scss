@@ -10,6 +10,7 @@
 
 .component--shelves__intro {
 	@include stack(1rem);
+
 	margin-block-end: rem(30);
 	max-inline-size: rem($text-measure);
 }

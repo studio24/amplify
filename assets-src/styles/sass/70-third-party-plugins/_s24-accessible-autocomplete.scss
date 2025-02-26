@@ -22,11 +22,9 @@
 }
 
 
-[dir="rtl"] {
-	.autocomplete__input--show-all-values {
-		padding-left: 34px;
-		padding-right: 5px;
-	}
+[dir="rtl"] .autocomplete__input--show-all-values {
+    padding-left: 34px;
+    padding-right: 5px;
 }
 
 
@@ -36,11 +34,9 @@
 }
 
 
-[dir="rtl"] {
-	.autocomplete__dropdown-arrow-down {
-		right: auto;
-		left: 8px;
-	}
+[dir="rtl"] .autocomplete__dropdown-arrow-down {
+    left: 8px;
+    right: auto;
 }
 
 
@@ -61,13 +57,6 @@
 }
 
 
-.autocomplete__option--focused,
-.autocomplete__option:hover {
-	background-color: $info-color;
-	border-color: $info-color;
-}
-
-
 .autocomplete__option--no-results {
 	background-color:  $neutral-30;
 	color: $off-black;
@@ -78,15 +67,24 @@
 .autocomplete__input,
 .autocomplete__option {
 	@include text-17;
+
 	line-height: 1.25;
 }
 
 
-@media (min-width: 641px) {
+.autocomplete__option--focused,
+.autocomplete__option:hover {
+    background-color: $info-color;
+    border-color: $info-color;
+}
+
+
+@media (width >= 641px) {
 	.autocomplete__hint,
 	.autocomplete__input,
 	.autocomplete__option {
 		@include text-17;
+
 		line-height: 1.25;
 	}
 }

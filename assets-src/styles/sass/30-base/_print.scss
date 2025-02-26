@@ -29,11 +29,11 @@ https://css-tricks.com/can-you-view-print-stylesheets-applied-directly-in-the-br
 
 
 *,
-*:before,
-*:after,
-blockquote:first-line,
-li:first-line,
-p:first-line {
+*::before,
+*::after,
+blockquote::first-line,
+li::first-line,
+p::first-line {
 	background: transparent !important;
 	box-shadow: none !important;
 	color: #000 !important;
@@ -165,7 +165,8 @@ ol:not([class]) {
 
 	> li {
 		counter-increment: count;
-		&::before {
+
+        &::before {
 			content: counters(count, ".") " ";
 			padding-inline-end: 6pt;
 		}
@@ -264,18 +265,17 @@ fieldset {
 
 select,
 textarea,
-[type=date],
-[type=email],
-[type=file],
-[type=number],
-[type=password],
-[type=search],
-[type=tel],
-[type=text],
-[type=time],
-[type=url] {
+[type="date"],
+[type="email"],
+[type="file"],
+[type="number"],
+[type="password"],
+[type="search"],
+[type="tel"],
+[type="text"],
+[type="time"],
+[type="url"] {
 	appearance: none;
-	-webkit-appearance: none;
 	border: 2px solid;
 	border-radius: 0;
 	line-height: 1.25;
@@ -284,7 +284,7 @@ textarea,
 }
 
 
-[type=file] {
+[type="file"] {
 	border: 0;
 }
 
@@ -443,8 +443,7 @@ Layouts
 
 	a {
 		display: block;
-		margin-block-end: 18pt;
-		margin-block-start: -18pt;
+		margin-block: -18pt 18pt;
 		margin-inline: 0;
 		visibility: hidden;
 	}

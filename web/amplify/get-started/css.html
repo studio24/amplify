@@ -88,6 +88,10 @@
 					<h2>Architecture</h2>
 					<p>The architecture is split into a series of numbered levels in <code>src/styles/sass</code> with each level representing a directory that contains our Sass split out into different <a href="https://sass-lang.com/guide#topic-4">partial files</a>. More generic and wide-reaching styles sit within the lower numbered levels, with specificity increasing with each subsequent level.</p>
 					<p><a href="https://github.com/studio24/amplify/blob/main/docs/css.md#css-architecture">CSS architecture details for developers</a>.</p>
+					<h2>Linting Sass</h2>
+					<p>Amplify uses <a href="https://stylelint.io/">Stylelint</a> to help us avoid errors and enforce conventions in our CSS. Visit that site for detailed documentation.</p>
+					<p>If Stylelint encounters any errors that it cannot automatically fix, these errors will be highlighted in the terminal window and the NPM scripts in the <code>package.json</code> file will fail at the <code>styles</code> step. You must then either manually resolve the errors (preferred), or tell Stylelint to <a href="https://stylelint.io/user-guide/ignore-code">ignore the problematic code</a>. <strong>If you have to ignore code for a valid reason, you <em>must</em> specify the reason within the ignore comment.</strong> You are encouraged to discuss with another developer before ignoring code.</p>
+					<p><strong>Do not modify the underlying Stylelint rulesets</strong> found in the <code>stylelint.config.js</code> config file without first discussing with the developers responsible for maintaining Amplify.</p>
 					<h2>Compiling Sass to CSS</h2>
 					<p>As mentioned in <a href="browser-support.html">browser support</a>, the Sass is compiled into the following CSS stylesheets in <code>web/dist/styles</code>:</p>
 					<ul>

@@ -26,17 +26,16 @@
 	&::after {
 		background-color: $neutral-70;
 		block-size: rem(13);
+		content: '';
 		inline-size: rem(3);
 		inset-block-end: rem(-16);
-		content:'';
 		inset-inline-start: rem(19);
 		position: absolute;
 
 		@include mq($bp-tab-portrait) {
 			block-size: rem(3);
 			inline-size: 100%;
-			inset-block-end: auto;
-			inset-block-start: rem(32);
+			inset-block: rem(32) auto;
 			inset-inline-start: 50%;
 			z-index: -1;
 		}
@@ -78,6 +77,7 @@
 
 	> span {
 		@include text-17;
+
 		padding: rem(10);
 
 		@include mq($bp-tab-portrait) {
@@ -117,8 +117,8 @@
 	}
 
 	&::before {
-		border-radius: 50%;
 		block-size: rem(38);
+		border-radius: 50%;
 		inline-size: rem(38);
 		inset-block-start: 0;
 		inset-inline-start: 0;

@@ -65,7 +65,7 @@
  *The :not portions of the following selector allow a means for any
  * focusable element to become visible when focused/active by a user.
  */
-.visuallyhidden:not(:focus):not(:active) {
+.visuallyhidden:not(:focus, :active) {
 	@extend %visuallyhidden;
 }
 
@@ -81,10 +81,10 @@ br {
  * repeatedly in your markup).
  */
 %visible {
+	block-size: auto;
 	border: initial;
 	clip: auto;
 	clip-path: none;
-	block-size: auto;
 	inline-size: auto;
 	margin: initial;
 	overflow: initial;

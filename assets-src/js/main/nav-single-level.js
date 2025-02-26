@@ -1,4 +1,4 @@
-import './_object.assign.polyfill';
+import './_object.assign.polyfill.js';
 
 /**
  * Object for creating single-level navigation menus

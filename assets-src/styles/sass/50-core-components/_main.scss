@@ -13,8 +13,7 @@ main,
 	box-sizing: content-box /* 1 */;
 	margin-inline: auto;
 	max-inline-size: rem($max-inline-size);
-	padding-block-end: rem(100);
-	padding-block-start: rem(24);
+	padding-block: rem(24) rem(100);
 	padding-inline: 5vw;
 }
 

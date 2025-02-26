@@ -1,14 +1,15 @@
 /*------------------------------------*\
     #Layout utilities
 \*------------------------------------*/
+
 /**
 For a full-viewport-width element inside a limited width parent.
 The parent must be exactly centered in the browser in order for this
 to work - see https://css-tricks.com/full-width-containers-limited-width-parents/
  */
 .u-full-width {
-	inset-inline: 50%;
 	inline-size: 100vw;
+	inset-inline: 50%;
 	margin-inline: -50vw;
 	position: relative;
 }

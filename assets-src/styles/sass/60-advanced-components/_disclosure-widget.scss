@@ -2,20 +2,14 @@
     #Disclosure widget
 \*------------------------------------*/
 
-.no-js {
-	[data-toggle="true"] {
-		display: none;
-	}
-
-	[data-toggle="true"] + * {
-		display: initial;
-	}
-}
-
 [data-toggle="true"] {
 	svg {
 		pointer-events: none;
 	}
+
+    & + * {
+        margin-block-start: 1rem;
+    }
 
 	&[aria-expanded="false"] {
 		.expand-less {
@@ -38,6 +32,12 @@
 	}
 }
 
-[data-toggle="true"] + * {
-	margin-block-start: 1rem;
+.no-js {
+    [data-toggle="true"] {
+        display: none;
+    }
+
+    [data-toggle="true"] + * {
+        display: initial;
+    }
 }

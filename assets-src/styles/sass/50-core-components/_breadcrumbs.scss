@@ -4,8 +4,7 @@
 \*------------------------------------*/
 
 .breadcrumbs {
-	padding-block-end: rem(15);
-	padding-block-start: rem(10);
+	padding-block: rem(10) rem(15);
 
 	.l-cluster > * {
 		margin: 0;
@@ -14,8 +13,7 @@
 	.l-cluster > * > * {
 		margin-block: 0;
 		margin-inline: 0;
-		padding-inline-end: 2em;
-		padding-inline-start: 0;
+		padding-inline: 0 2em;
 		position: relative;
 	}
 }
@@ -30,8 +28,7 @@
 .breadcrumbs a {
 	color: $off-black;
 	display: block;
-	padding-block-end: rem(5);
-	padding-block-start: rem(5);
+	padding-block: rem(5);
 
 	&:visited,
 	&:hover,
@@ -57,17 +54,17 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 .breadcrumbs li:not(:last-child) {
 	&::after {
 		block-size: 0.5em;
-		border-style: solid;
 		border-block-end-width: 0;
 		border-block-start-width: 0.1em;
 		border-inline-end-width: 0.1em;
 		border-inline-start-width: 0;
+		border-style: solid;
 		content: '';
 		display: block;
-		position: absolute;
 		inline-size: 0.5em;
-		inset-inline-end: 1.25em;
 		inset-block-start: 50%;
+		inset-inline-end: 1.25em;
+		position: absolute;
 		transform: rotate(45deg) translateY(-50%);
 	}
 }

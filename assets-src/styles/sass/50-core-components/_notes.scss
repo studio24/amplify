@@ -28,7 +28,7 @@
 
 .note--error {
     background-color: $error-bg-color;
-    background-image: url(../svg/note-bg-error.svg);
+    background-image: url('../svg/note-bg-error.svg');
     border-color: $error-border-color;
     color: $error-color;
 }
@@ -36,7 +36,7 @@
 
 .note--info {
     background-color: $info-bg-color;
-    background-image: url(../svg/note-bg-info.svg);
+    background-image: url('../svg/note-bg-info.svg');
     border-color: $info-border-color;
     color: $info-color;
 }
@@ -44,7 +44,7 @@
 
 .note--success {
     background-color: $success-bg-color;
-    background-image: url(../svg/note-bg-success.svg);
+    background-image: url('../svg/note-bg-success.svg');
     border-color: $success-border-color;
     color: $success-color;
 }
@@ -52,7 +52,7 @@
 
 .note--warning {
     background-color: $warning-bg-color;
-    background-image: url(../svg/note-bg-warning.svg);
+    background-image: url('../svg/note-bg-warning.svg');
     border-color: $warning-border-color;
     color: $warning-color;
 }

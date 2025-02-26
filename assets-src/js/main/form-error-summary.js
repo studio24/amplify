@@ -1,4 +1,4 @@
-import {exists} from './_exists.helper';
+import {exists} from './_exists.helper.js';
 
 /**
  * Shift focus to form error summary, if present
