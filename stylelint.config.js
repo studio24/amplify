@@ -32,11 +32,12 @@ export default {
 		},
 		/** Limit CSS nesting */
 		"max-nesting-depth": 3,
-		/** Specify our preferred way of ordering things */
+		/** Specify our preferred way of ordering declarations */
 		"order/order": [
 			"custom-properties",
 			"declarations"
 		],
+		/** Follow A-Z ordering of properties */
 		"order/properties-alphabetical-order": true,
 		/** Selector class pattern must match [BEM CSS](https://en.bem.info/methodology/css) */
 		"selector-class-pattern": [
