@@ -1,0 +1,103 @@
+/*------------------------------------*\
+    #Navigation advanced: double level
+
+    There are styles for two versions of navigation here:
+
+    - A "simple" version, where sub menus expand vertically when opened
+    on smaller screens.
+
+    - A version where sub menus have a visible "back" button to close them
+     on smaller screens because when open they are absolutely positioned
+     to cover their parent control.
+
+    Make sure to comment out whichever version is not needed in your project.
+
+    N.B. aria-expanded attribute is managed by JS
+\*------------------------------------*/
+
+/* stylelint-disable no-descending-specificity */
+
+/* (Because the order reflects the DOM order, which Stylelint doesn't understand) */
+
+/* Simple double level nav with vertical expansion */
+#js-click-nav-vertical {
+    [data-trigger="sub-nav"] {
+        inline-size: 100%;
+        justify-content: space-between;
+    }
+
+    [data-trigger="sub-nav"] .control-horizontal {
+        display: none;
+    }
+
+    [data-trigger="sub-nav"][aria-expanded="true"] svg {
+        transform: scaleY(-1);
+    }
+
+    [data-nav="submenu"] {
+        @include mq($bp-tab-portrait) {
+            box-shadow: 0 2px 4px 0 rgba(0 0 0 / 25%);
+        }
+    }
+}
+
+/* Double level nav with a "back" button in each sub menu */
+#js-click-nav-horizontal {
+    [data-trigger="sub-nav"] {
+        inline-size: 100%;
+        justify-content: space-between;
+
+        &[aria-expanded="true"] svg {
+            @include mq($bp-tab-portrait) {
+                transform: scaleY(-1);
+            }
+        }
+    }
+
+    [data-trigger="sub-nav"] .control-horizontal {
+        @include mq($bp-tab-portrait) {
+            display: none;
+        }
+    }
+
+    [data-trigger="sub-nav"] .control-vertical {
+        display: none;
+
+        @include mq($bp-tab-portrait) {
+            display: block;
+        }
+    }
+
+    [data-nav="submenu"] {
+        inline-size: 100%;
+        inset-block-start: 0;
+        min-block-size: 100%;
+        position: absolute;
+        z-index: 5;
+
+        @include mq($bp-tab-portrait) {
+            box-shadow: 0 2px 4px 0 rgba(0 0 0 / 25%);
+            inline-size: auto;
+            inset-block-start: auto;
+            min-block-size: auto;
+        }
+    }
+
+    [data-button="mobile-back"] {
+        inline-size: 100%;
+        justify-content: flex-start;
+
+        @include mq($bp-tab-portrait) {
+            display: none;
+        }
+    }
+
+    [data-button="mobile-back"] svg {
+        transform: scaleX(-1);
+
+        .control-vertical {
+            display: none;
+        }
+    }
+}
+/* stylelint-enable no-descending-specificity */

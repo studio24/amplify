@@ -14,7 +14,7 @@ function domLoadedActions() {
 	formErrorSummary();
 
 	/* Create a navSingleLevel object and initiate single-level navigation for a <ul> with the correct data-component attribute */
-	const navExampleSingle = document.querySelector('ul[data-component="nav-single"]');
+	const navExampleSingle = document.querySelector('[data-component="nav-single"]');
 
 	if (exists(navExampleSingle)) {
 		let siteNav = new navSingleLevel(navExampleSingle, {
@@ -24,7 +24,7 @@ function domLoadedActions() {
 	}
 
 	/* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
-	const navExampleDouble = document.querySelector('ul[data-component="nav-double"]');
+	const navExampleDouble = document.querySelector('[data-component="nav-double"]');
 
 	if (exists(navExampleDouble)) {
 		let siteNav = new navDoubleLevel(navExampleDouble, {
@@ -35,7 +35,7 @@ function domLoadedActions() {
 	}
 
 	/* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
-	const navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');
+	const navDoubleIntro = document.querySelector('[data-component="nav-double-intro"]');
 
 	if (exists(navDoubleIntro)) {
 		let siteNav = new navDoubleLevel(navDoubleIntro, {

@@ -500,9 +500,10 @@ const navDoubleLevel = function navDoubleLevel(menu, options) {
     }
   }
   function menuSetup() {
-    container.setAttribute('id', 'js-click-nav-' + settings.submenuDirection);
     if (settings.submenuIntro === true) {
-      container.classList.add('js-nav-with-intro');
+      menu.setAttribute('id', 'js-click-nav-intro');
+    } else {
+      menu.setAttribute('id', 'js-click-nav-' + settings.submenuDirection);
     }
     const subMenuWrappers = Array.prototype.slice.call(menu.querySelectorAll('[data-nav="submenu"]'));
     subMenuWrappers.forEach(function (wrapper) {
@@ -657,7 +658,7 @@ function domLoadedActions() {
   (0,_main_form_error_summary_js__WEBPACK_IMPORTED_MODULE_4__.formErrorSummary)();
 
   /* Create a navSingleLevel object and initiate single-level navigation for a <ul> with the correct data-component attribute */
-  const navExampleSingle = document.querySelector('ul[data-component="nav-single"]');
+  const navExampleSingle = document.querySelector('[data-component="nav-single"]');
   if ((0,_main_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleSingle)) {
     let siteNav = new _main_nav_single_level_js__WEBPACK_IMPORTED_MODULE_5__.navSingleLevel(navExampleSingle, {
       breakpoint: 768
@@ -666,7 +667,7 @@ function domLoadedActions() {
   }
 
   /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
-  const navExampleDouble = document.querySelector('ul[data-component="nav-double"]');
+  const navExampleDouble = document.querySelector('[data-component="nav-double"]');
   if ((0,_main_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleDouble)) {
     let siteNav = new _main_nav_double_level_js__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navExampleDouble, {
       breakpoint: 768,
@@ -676,7 +677,7 @@ function domLoadedActions() {
   }
 
   /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
-  const navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');
+  const navDoubleIntro = document.querySelector('[data-component="nav-double-intro"]');
   if ((0,_main_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(navDoubleIntro)) {
     let siteNav = new _main_nav_double_level_js__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navDoubleIntro, {
       breakpoint: 768,

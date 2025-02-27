@@ -143,10 +143,12 @@ const navDoubleLevel = function(menu, options) {
     }
 
     function menuSetup() {
-        container.setAttribute('id', 'js-click-nav-' + settings.submenuDirection);
-        if (settings.submenuIntro === true) {
-            container.classList.add('js-nav-with-intro');
-        }
+		if (settings.submenuIntro === true) {
+			menu.setAttribute('id','js-click-nav-intro');
+		} else {
+			menu.setAttribute('id', 'js-click-nav-' + settings.submenuDirection);
+		}
+
         const subMenuWrappers = Array.prototype.slice.call(menu.querySelectorAll('[data-nav="submenu"]'));
 
         subMenuWrappers.forEach(function (wrapper) {

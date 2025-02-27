@@ -5,24 +5,24 @@
 /*------------------------------------*\
     #Settings
 \*------------------------------------*/
-@import "sass/00-settings/breakpoints";
-@import "sass/00-settings/colors";
+@import 'sass/00-settings/breakpoints';
+@import 'sass/00-settings/colors';
 //@import "sass/00-settings/debug";
-@import "sass/00-settings/typesetting";
+@import 'sass/00-settings/typesetting';
 
 
 /*------------------------------------*\
     #Functions
 \*------------------------------------*/
-@import "sass/10-functions/units";
+@import 'sass/10-functions/units';
 
 
 /*------------------------------------*\
     #Mixins
 \*------------------------------------*/
-@import "sass/20-mixins/font-sizes";
-@import "sass/20-mixins/media-query";
-@import "sass/20-mixins/stack";
+@import 'sass/20-mixins/font-sizes';
+@import 'sass/20-mixins/media-query';
+@import 'sass/20-mixins/stack';
 
 
 /*------------------------------------*\
@@ -30,7 +30,7 @@
 
     Repeated to allow for extending placeholders
 \*------------------------------------*/
-@import "sass/30-base/hide-and-show";
+@import 'sass/30-base/hide-and-show';
 
 
 /*------------------------------------*\
@@ -38,12 +38,21 @@
 
     For JS enhancements
 \*------------------------------------*/
-@import "sass/60-advanced-components/navigation";
-@import "sass/60-advanced-components/cards";
-@import "sass/60-advanced-components/collapsibles";
-@import "sass/60-advanced-components/disclosure-widget";
-@import "sass/60-advanced-components/sortable-tables";
-//@import "sass/60-advanced-components/slider";
+@import 'sass/60-advanced-components/cards';
+@import 'sass/60-advanced-components/collapsibles';
+@import 'sass/60-advanced-components/disclosure-widget';
+@import 'sass/60-advanced-components/sortable-tables';
+
+
+/*------------------------------------*\
+    #Advanced navigation
+
+    Where JS is involved
+\*------------------------------------*/
+@import 'sass/65-advanced-navigation/nav';
+@import 'sass/65-advanced-navigation/nav-double';
+@import 'sass/65-advanced-navigation/nav-double-with-intro';
+
 
 /*------------------------------------*\
     #Plugins
@@ -51,9 +60,9 @@
     Add third-party plugins here.
     Add custom styles directly after the original in a separate file
 \*------------------------------------*/
-@import "../../node_modules/accessible-autocomplete/src/autocomplete";
-@import "sass/70-third-party-plugins/s24-accessible-autocomplete";
-@import "../../node_modules/@splidejs/splide/src/css/core/index";
-@import "sass/70-third-party-plugins/s24-splide-carousel";
-@import "../../node_modules/tabbyjs/src/sass/tabby-ui";
-@import "sass/70-third-party-plugins/s24-tabby-ui";
+@import '../../node_modules/accessible-autocomplete/src/autocomplete';
+@import 'sass/70-third-party-plugins/s24-accessible-autocomplete';
+@import '../../node_modules/@splidejs/splide/src/css/core/index';
+@import 'sass/70-third-party-plugins/s24-splide-carousel';
+@import '../../node_modules/tabbyjs/src/sass/tabby-ui';
+@import 'sass/70-third-party-plugins/s24-tabby-ui';

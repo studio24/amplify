@@ -1,0 +1,113 @@
+/*------------------------------------*\
+    #Navigation advanced: double level with intro text
+
+    The introductory text is hidden on smaller screens.
+    On larger screens, the sub menus span the full viewport width.
+
+    N.B. aria-expanded attribute is managed by JS
+\*------------------------------------*/
+
+/* stylelint-disable no-descending-specificity */
+
+/* (Because the order reflects the DOM order, which Stylelint doesn't understand) */
+
+#js-click-nav-intro {
+    [data-trigger="sub-nav"] {
+        inline-size: 100%;
+        justify-content: space-between;
+    }
+
+    [data-trigger="sub-nav"] .control-horizontal {
+        @include mq($bp-tab-portrait) {
+            display: none;
+        }
+    }
+
+    [data-trigger="sub-nav"] .control-vertical {
+        display: none;
+
+        @include mq($bp-tab-portrait) {
+            display: block;
+        }
+    }
+
+    [data-trigger="sub-nav"][aria-expanded="true"] svg {
+        transform: scaleY(-1);
+    }
+
+    > ul > li {
+        @include mq($bp-tab-portrait) {
+            position: static;
+        }
+    }
+
+    [data-nav="submenu"] {
+        border-block-end: solid 3px;
+        inline-size: 100%;
+        inset-block-start: 0;
+        min-block-size: 100%;
+        padding: rem(20) 0;
+        position: absolute;
+        z-index: 5;
+
+        @include mq($bp-tab-portrait) {
+            inline-size: 100vw !important;
+            inset-block-start: auto;
+            inset-inline-start: 50%;
+            min-block-size: auto;
+            padding: rem(50) rem(20);
+            transform: translateX(-50%);
+        }
+    }
+
+    [data-nav="submenu"] .l-center {
+        @include mq($bp-tab-portrait) {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    [data-button="mobile-back"] {
+        inline-size: 100%;
+        justify-content: flex-start;
+
+        @include mq($bp-tab-portrait) {
+            display: none;
+        }
+    }
+
+    [data-button="mobile-back"] svg {
+        transform: scaleX(-1);
+
+        .control-vertical {
+            display: none;
+        }
+    }
+
+    [data-nav="submenu"] .nav__intro {
+        @include mq($bp-tab-portrait) {
+            inline-size: 40%;
+        }
+
+        + * {
+            margin-block-start: 0;
+        }
+    }
+
+    .nav__intro p {
+        display: none;
+
+        @include mq($bp-tab-portrait) {
+            display: block;
+        }
+    }
+
+    [data-nav="submenu"] ul {
+        @include mq($bp-tab-portrait) {
+            column-gap: rem(40);
+            columns: 2;
+            inline-size: 50%;
+        }
+    }
+}
+/* stylelint-enable no-descending-specificity */
