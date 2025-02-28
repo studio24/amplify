@@ -99,16 +99,15 @@
         </div>
         <div class="component component--text">
             <h2>Considerations</h2>
-            <ul>
-                <li>This navigation pattern uses minimal CSS and JavaScript, so as not to be too opinionated and require lots of overrides and adjustments within projects. Expect to have to make some modifications yourself - though hopefully not too many for the script.</li>
-                <li>The <code>nav</code> element is only wrapped in a <code>div</code> container with the classname <code>component</code> for styling this demo version.</li>
-                <li>If you use more than one <code>nav</code> element on a page make sure to add the <code>aria-label</code> attribute to them with a unique descriptive value.</li>
-            </ul>
+			<ul>
+				<li>The <code>nav</code> element is only wrapped in a <code>div</code> container with the classname <code>component</code> for the purposes of this demo.</li>
+				<li>If you have multiple <code>nav</code> landmarks on a page, consider giving each of them a unique label using the <code>aria-label</code> attribute with a brief descriptive value. This can be helpful for people using a screen reader. There is no need to include the word &lsquo;navigation&rsquo; in your text.</li>
+			</ul>
             <h3>Naming the small screen navigation toggle button</h3>
-            <p>Buttons must always have an accessible name. To allow for an icon-only button design, Amplify uses a <code>span</code> element with the <code>visuallyhidden</code> class for naming the button (`Menu` in the preceding example). It could just as easily be made visible by removing that class, which may be more user-friendly.</p>
+            <p>Buttons must always have an accessible name. To allow for an icon-only button design, Amplify uses a <code>span</code> element with the <code>visuallyhidden</code> class for naming the button (&lsquo;Menu&rsquo; in this demo). It could just as easily be made visible by removing that class, which may be more user-friendly.</p>
             <p>JavaScript adds the <code>aria-expanded</code> attribute to this toggle button to convey its open/closed state to Assistive Technology users.</p>
             <p>Changes to the accessible name are not always conveyed to Assistive Technology. If we were to change both the accessible name of the button and its <code>aria-expanded</code> state, there is a risk that a user will hear a confusing announcement such as &quot;Open menu expanded&quot;.</p>
-            <p>Keep the accessible name simple and use it only to tell users what the button is/does, not its state - in other words, avoid using words such as `open` or `close` in the accessible name.</p>
+            <p>Keep the accessible name simple and use it only to tell users what the button is/does, not its state - in other words, avoid using words such as &lsquo;open&rsquo; or &lsquo;close&rsquo; in the accessible name.</p>
             <h3>Notes on the JavaScript</h3>
             <p>The following configuration options are available:</p>
             <dl>
