@@ -508,6 +508,50 @@ amplify-table-sort col.js-sorted {
 
 /* stylelint-enable no-descending-specificity */
 /*------------------------------------*\
+    #Navigation advanced: double level with both links and buttons
+
+    A navigation where a button to toggle a sub menu is inserted directly after
+    each top level link.
+
+    N.B. aria-expanded attribute is managed by JS
+\*------------------------------------*/
+/* stylelint-disable no-descending-specificity */
+/* (Because the order reflects the DOM order, which Stylelint doesn't understand) */
+#js-click-nav-both [data-trigger=sub-nav] {
+  padding-inline: 0.5rem;
+}
+#js-click-nav-both [data-trigger=sub-nav] .control-horizontal {
+  display: none;
+}
+#js-click-nav-both [data-trigger=sub-nav][aria-expanded=true] svg {
+  transform: scaleY(-1);
+}
+#js-click-nav-both ul > li:has([data-nav=submenu]) {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#js-click-nav-both ul > li:has([data-nav=submenu]) a {
+  inline-size: calc(100% - 2.75rem);
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-both ul > li:has([data-nav=submenu]) a {
+    inline-size: auto;
+  }
+}
+#js-click-nav-both [data-nav=submenu] {
+  flex-basis: 100%;
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-both [data-nav=submenu] {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    inset-block-start: 100%;
+  }
+}
+
+/* stylelint-enable no-descending-specificity */
+/*------------------------------------*\
     #Navigation advanced: double level with intro text
 
     The introductory text is hidden on smaller screens.

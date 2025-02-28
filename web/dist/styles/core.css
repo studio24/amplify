@@ -597,7 +597,6 @@ input[type=submit].button {
   display: inline-flex;
   justify-content: center;
   min-block-size: 2.75rem; /* 5 */
-  min-inline-size: 10ch;
   padding-block: 0.25em;
   padding-inline: 0.75em;
 }

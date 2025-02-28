@@ -44,7 +44,19 @@ function domLoadedActions() {
 		siteNav.init();
 	}
 
-	/* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
+	/* Create a navDoubleLevel object and initiate double-level navigation with both links and buttons */
+	const navDoubleBoth = document.querySelector('[data-nav-example="dbl3"] [data-component="nav-double"]');
+
+	if (exists(navDoubleBoth)) {
+		let siteNav = new navDoubleLevel(navDoubleBoth, {
+			breakpoint: 768,
+			cloneTopLevelLink: false,
+			replaceTopLevelLinks: false
+		});
+		siteNav.init();
+	}
+
+	/* Create a navDoubleLevel object and initiate double-level navigation with intro text */
 	const navDoubleIntro = document.querySelector('[data-component="nav-double-intro"]');
 
 	if (exists(navDoubleIntro)) {
