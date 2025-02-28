@@ -6,5 +6,8 @@
 # Print stylesheet
 assets-src/styles/sass/30-base/_print.scss
 
+# Styles relating to third-party packages, where we might have less control
+assets-src/styles/sass/70-third-party-plugins/*.scss
+
 # Styles for the Amplify website
 assets-src/styles/sass/85-amplify/*.scss
