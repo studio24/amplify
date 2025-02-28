@@ -1,5 +1,3 @@
-import {exists} from './_exists.helper.js';
-
 /**
  * Collapsible panels
  * @see https://heydon.github.io/inclusive-components-demos/collapsible-sections/progressive.html
@@ -10,7 +8,7 @@ var collapsibles = function () {
 	// Get all the collapsible containers
 	var collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsibles"]'));
 
-	if (exists(collapseArray)) {
+	if (collapseArray) {
 		// Loop through containers
 		collapseArray.forEach(function (item) {
 			// Get headings inside a collapsible container

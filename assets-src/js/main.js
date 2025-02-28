@@ -1,5 +1,3 @@
-import {exists} from "./main/_exists.helper.js";
-
 import {cardEnhancement} from "./main/cards.js";
 import {collapsibles} from "./main/collapsibles.js";
 import {disclosureWidget} from "./main/disclosure-widget.js";
@@ -16,7 +14,7 @@ function domLoadedActions() {
 	/* Create a navSingleLevel object and initiate single-level navigation for a <ul> with the correct data-component attribute */
 	const navExampleSingle = document.querySelector('[data-component="nav-single"]');
 
-	if (exists(navExampleSingle)) {
+	if (navExampleSingle) {
 		let siteNav = new navSingleLevel(navExampleSingle, {
 			breakpoint: 768,
 		});
@@ -26,7 +24,7 @@ function domLoadedActions() {
 	/* Create a navDoubleLevel object and initiate double-level navigation */
 	const navExampleDoubleSimple = document.querySelector('[data-nav-example="dbl1"] [data-component="nav-double"]');
 
-	if (exists(navExampleDoubleSimple)) {
+	if (navExampleDoubleSimple) {
 		let siteNav = new navDoubleLevel(navExampleDoubleSimple, {
 			breakpoint: 768,
 		});
@@ -36,7 +34,7 @@ function domLoadedActions() {
 	/* Create a navDoubleLevel object and initiate double-level navigation */
 	const navExampleDoubleBack = document.querySelector('[data-nav-example="dbl2"] [data-component="nav-double"]');
 
-	if (exists(navExampleDoubleBack)) {
+	if (navExampleDoubleBack) {
 		let siteNav = new navDoubleLevel(navExampleDoubleBack, {
 			breakpoint: 768,
 			submenuDirection: 'horizontal',
@@ -47,7 +45,7 @@ function domLoadedActions() {
 	/* Create a navDoubleLevel object and initiate double-level navigation with both links and buttons */
 	const navDoubleBoth = document.querySelector('[data-nav-example="dbl3"] [data-component="nav-double"]');
 
-	if (exists(navDoubleBoth)) {
+	if (navDoubleBoth) {
 		let siteNav = new navDoubleLevel(navDoubleBoth, {
 			breakpoint: 768,
 			cloneTopLevelLink: false,
@@ -59,7 +57,7 @@ function domLoadedActions() {
 	/* Create a navDoubleLevel object and initiate double-level navigation with intro text */
 	const navDoubleIntro = document.querySelector('[data-component="nav-double-intro"]');
 
-	if (exists(navDoubleIntro)) {
+	if (navDoubleIntro) {
 		let siteNav = new navDoubleLevel(navDoubleIntro, {
 			breakpoint: 768,
 			cloneTopLevelLink: false,
