@@ -7,8 +7,6 @@
     N.B. aria-expanded attribute is managed by JS
 \*------------------------------------*/
 
-/* stylelint-disable no-descending-specificity */
-
 /* (Because the order reflects the DOM order, which Stylelint doesn't understand) */
 
 #js-click-nav-both {
@@ -50,4 +48,3 @@
         }
     }
 }
-/* stylelint-enable no-descending-specificity */

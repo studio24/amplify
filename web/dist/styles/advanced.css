@@ -515,7 +515,6 @@ amplify-table-sort col.js-sorted {
 
     N.B. aria-expanded attribute is managed by JS
 \*------------------------------------*/
-/* stylelint-disable no-descending-specificity */
 /* (Because the order reflects the DOM order, which Stylelint doesn't understand) */
 #js-click-nav-both [data-trigger=sub-nav] {
   padding-inline: 0.5rem;
@@ -550,7 +549,6 @@ amplify-table-sort col.js-sorted {
   }
 }
 
-/* stylelint-enable no-descending-specificity */
 /*------------------------------------*\
     #Navigation advanced: double level with intro text
 
