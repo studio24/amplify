@@ -666,10 +666,19 @@ function domLoadedActions() {
     siteNav.init();
   }
 
-  /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
-  const navExampleDouble = document.querySelector('[data-component="nav-double"]');
-  if ((0,_main_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleDouble)) {
-    let siteNav = new _main_nav_double_level_js__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navExampleDouble, {
+  /* Create a navDoubleLevel object and initiate double-level navigation */
+  const navExampleDoubleSimple = document.querySelector('[data-nav-example="dbl1"] [data-component="nav-double"]');
+  if ((0,_main_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleDoubleSimple)) {
+    let siteNav = new _main_nav_double_level_js__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navExampleDoubleSimple, {
+      breakpoint: 768
+    });
+    siteNav.init();
+  }
+
+  /* Create a navDoubleLevel object and initiate double-level navigation */
+  const navExampleDoubleBack = document.querySelector('[data-nav-example="dbl2"] [data-component="nav-double"]');
+  if ((0,_main_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleDoubleBack)) {
+    let siteNav = new _main_nav_double_level_js__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navExampleDoubleBack, {
       breakpoint: 768,
       submenuDirection: 'horizontal'
     });

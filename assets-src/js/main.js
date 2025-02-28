@@ -23,11 +23,21 @@ function domLoadedActions() {
 		siteNav.init();
 	}
 
-	/* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
-	const navExampleDouble = document.querySelector('[data-component="nav-double"]');
+	/* Create a navDoubleLevel object and initiate double-level navigation */
+	const navExampleDoubleSimple = document.querySelector('[data-nav-example="dbl1"] [data-component="nav-double"]');
 
-	if (exists(navExampleDouble)) {
-		let siteNav = new navDoubleLevel(navExampleDouble, {
+	if (exists(navExampleDoubleSimple)) {
+		let siteNav = new navDoubleLevel(navExampleDoubleSimple, {
+			breakpoint: 768,
+		});
+		siteNav.init();
+	}
+
+	/* Create a navDoubleLevel object and initiate double-level navigation */
+	const navExampleDoubleBack = document.querySelector('[data-nav-example="dbl2"] [data-component="nav-double"]');
+
+	if (exists(navExampleDoubleBack)) {
+		let siteNav = new navDoubleLevel(navExampleDoubleBack, {
 			breakpoint: 768,
 			submenuDirection: 'horizontal',
 		});
