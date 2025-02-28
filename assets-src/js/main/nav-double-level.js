@@ -18,7 +18,6 @@ import './_closest.polyfill.js';
  */
 
 const navDoubleLevel = function(menu, options) {
-    let	container = menu.parentElement;
     let mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
 
     // Default settings

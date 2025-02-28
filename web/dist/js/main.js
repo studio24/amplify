@@ -395,7 +395,6 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 const navDoubleLevel = function navDoubleLevel(menu, options) {
-  let container = menu.parentElement;
   let mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
 
   // Default settings
