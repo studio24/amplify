@@ -440,9 +440,6 @@ amplify-table-sort col.js-sorted {
   inline-size: 100%;
   justify-content: space-between;
 }
-#js-click-nav-vertical [data-trigger=sub-nav] .control-horizontal {
-  display: none;
-}
 #js-click-nav-vertical [data-trigger=sub-nav][aria-expanded=true] svg {
   transform: scaleY(-1);
 }
@@ -457,22 +454,17 @@ amplify-table-sort col.js-sorted {
   inline-size: 100%;
   justify-content: space-between;
 }
+#js-click-nav-horizontal [data-trigger=sub-nav] svg {
+  transform: rotate(-90deg);
+}
+@media screen and (min-width: 48em) {
+  #js-click-nav-horizontal [data-trigger=sub-nav] svg {
+    transform: none;
+  }
+}
 @media screen and (min-width: 48em) {
   #js-click-nav-horizontal [data-trigger=sub-nav][aria-expanded=true] svg {
     transform: scaleY(-1);
-  }
-}
-@media screen and (min-width: 48em) {
-  #js-click-nav-horizontal [data-trigger=sub-nav] .control-horizontal {
-    display: none;
-  }
-}
-#js-click-nav-horizontal [data-trigger=sub-nav] .control-vertical {
-  display: none;
-}
-@media screen and (min-width: 48em) {
-  #js-click-nav-horizontal [data-trigger=sub-nav] .control-vertical {
-    display: block;
   }
 }
 #js-click-nav-horizontal [data-nav=submenu] {
@@ -500,10 +492,7 @@ amplify-table-sort col.js-sorted {
   }
 }
 #js-click-nav-horizontal [data-button=mobile-back] svg {
-  transform: scaleX(-1);
-}
-#js-click-nav-horizontal [data-button=mobile-back] svg .control-vertical {
-  display: none;
+  transform: rotate(90deg);
 }
 
 /* stylelint-enable no-descending-specificity */
@@ -518,9 +507,6 @@ amplify-table-sort col.js-sorted {
 /* (Because the order reflects the DOM order, which Stylelint doesn't understand) */
 #js-click-nav-both [data-trigger=sub-nav] {
   padding-inline: 0.5rem;
-}
-#js-click-nav-both [data-trigger=sub-nav] .control-horizontal {
-  display: none;
 }
 #js-click-nav-both [data-trigger=sub-nav][aria-expanded=true] svg {
   transform: scaleY(-1);
@@ -563,21 +549,18 @@ amplify-table-sort col.js-sorted {
   inline-size: 100%;
   justify-content: space-between;
 }
-@media screen and (min-width: 48em) {
-  #js-click-nav-intro [data-trigger=sub-nav] .control-horizontal {
-    display: none;
-  }
-}
-#js-click-nav-intro [data-trigger=sub-nav] .control-vertical {
-  display: none;
+#js-click-nav-intro [data-trigger=sub-nav] svg {
+  transform: rotate(-90deg);
 }
 @media screen and (min-width: 48em) {
-  #js-click-nav-intro [data-trigger=sub-nav] .control-vertical {
-    display: block;
+  #js-click-nav-intro [data-trigger=sub-nav] svg {
+    transform: none;
   }
 }
-#js-click-nav-intro [data-trigger=sub-nav][aria-expanded=true] svg {
-  transform: scaleY(-1);
+@media screen and (min-width: 48em) {
+  #js-click-nav-intro [data-trigger=sub-nav][aria-expanded=true] svg {
+    transform: scaleY(-1);
+  }
 }
 @media screen and (min-width: 48em) {
   #js-click-nav-intro > ul > li {
@@ -619,10 +602,7 @@ amplify-table-sort col.js-sorted {
   }
 }
 #js-click-nav-intro [data-button=mobile-back] svg {
-  transform: scaleX(-1);
-}
-#js-click-nav-intro [data-button=mobile-back] svg .control-vertical {
-  display: none;
+  transform: rotate(90deg);
 }
 @media screen and (min-width: 48em) {
   #js-click-nav-intro [data-nav=submenu] .nav__intro {

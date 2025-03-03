@@ -31,8 +31,7 @@ const navDoubleLevel = function(menu, options) {
                     '<path class="close" d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>' +
                     '</svg>',
         submenuIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true" fill="currentColor">' +
-                     '<path class="control-vertical" d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z" />' +
-                     '<path class="control-horizontal" d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>' +
+                     '<path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z" />' +
                      '</svg>',
 		submenuDirection: 'vertical',
         submenuIntro: false,

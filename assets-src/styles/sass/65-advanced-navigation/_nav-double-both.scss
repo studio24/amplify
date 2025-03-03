@@ -14,10 +14,6 @@
         padding-inline: rem(8);
     }
 
-    [data-trigger="sub-nav"] .control-horizontal {
-        display: none;
-    }
-
     [data-trigger="sub-nav"][aria-expanded="true"] svg {
         transform: scaleY(-1);
     }
