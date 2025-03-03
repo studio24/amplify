@@ -129,33 +129,55 @@
 		</div>
 		<div class="component component--text">
 			<h2>Considerations</h2>
-			<ul>
-				<li>The <code>nav</code> element is only wrapped in a <code>div</code> container with the classname <code>component</code> for the purposes of this demo.</li>
-				<li>If you have multiple <code>nav</code> landmarks on a page, consider giving each of them a unique label using the <code>aria-label</code> attribute with a brief descriptive value. This can be helpful for people using a screen reader. There is no need to include the word &lsquo;navigation&rsquo; in your text.</li>
-			</ul>
-			<h3>Naming the minimum viewport navigation toggle button</h3>
-			<p>Buttons must always have an accessible name. To allow for an icon-only button design, Amplify uses a <code>span</code> element with the <code>visuallyhidden</code> class for naming the button (&lsquo;Menu&rsquo; in this demo). It could just as easily be made visible by removing that class, which may be more user-friendly.</p>
-			<p>JavaScript adds the <code>aria-expanded</code> attribute to this toggle button, and other buttons needed for this navigation pattern, to convey the open/closed state to Assistive Technology users.</p>
-			<p>Changes to the accessible name are not always conveyed to Assistive Technology. If we were to change both the accessible name of the button and its <code>aria-expanded</code> state, there is a risk that a user will hear a confusing announcement such as &quot;Open menu expanded&quot;.</p>
-			<p>Keep the accessible name simple and use it only to tell users what the button is/does, not its state - in other words, avoid using words such as &lsquo;open&rsquo; or &lsquo;close&rsquo; in the accessible name.</p>
-			<h3>Notes on the JavaScript</h3>
-			<p>The following configuration options are available:</p>
-			<dl>
-				<dt>breakpoint</dt>
-				<dd>A unitless number, indicating the viewport width in pixels at which the small screen navigation toggle button is no longer required. It is converted to <code>em</code> units in the script. Make sure that this ties up with the breakpoint values used in the Sass.</dd>
-				<dt>cloneTopLevelLink</dt>
-				<dd>This boolean option determines whether to copy each top level link and add it to the relevant sub menu. For this pattern it is recommended to use the <code>false</code> option.</dd>
-				<dt>replaceTopLevelLinks</dt>
-				<dd>This boolean option determines whether to swap the top level link for a button, or add a button after the link. For this pattern it is recommended to use the <code>false</code> option.</dd>
-				<dt>mobileIcon</dt>
-				<dd>The code for the SVG icon used in the small screen navigation toggle button. It is strongly recommended to follow the existing pattern, which uses two <code>path</code> elements, one for the open icon and one for the close icon, and retain the existing classes. CSS is used to change the icon depending on its <code>aria-expanded</code> state.</dd>
-				<dt>submenuIcon</dt>
-				<dd>The code for the SVG icon used in the sub menu toggle buttons (and the `Back` button, where relevant). It is strongly recommended to follow the existing pattern, which uses two <code>path</code> elements, one a vertical indicator and one for a horizontal indicator, and retain the existing classes. CSS is used to change the icon direction depending on the button type and its <code>aria-expanded</code> state.</dd>
-				<dt>submenuDirection</dt>
-				<dd>A string to determine the direction in which the sub menus will appear to operate on small screens (`vertical` or `horizontal`). This ties in with the preceding <code>submenuicon</code> option. The `horizontal` option inserts a &lsquo;Back&rsquo; button into the sub menus. For this pattern it is recommended to stick with the default setting of <code>vertical</code></dd>
-				<dt>submenuIntro</dt>
-				<dd>Whether or not the sub menus include introductory text and an additional landing page link. This boolean option adds a class to the <code>nav</code> for specific styling, and inserts the `Back` button into a different place in the DOM. For this pattern it is recommended to stick with the default setting of <code>false</code></dd>
-			</dl>
+		</div>
+		<div role="region" aria-labelledby="table-caption" tabindex="0" data-component="table-wrap">
+			<table>
+				<caption id="table-caption">Configuration of <code>nav-double-level.js</code> for this pattern:</caption>
+				<thead>
+				<tr>
+					<th scope="col">Setting</th>
+					<th scope="col" style="min-width: 18rem;">Description</th>
+					<th scope="col">Option used for this pattern</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>breakpoint</td>
+					<td>A number representing the viewport width in pixels at which the navigation toggle button will be hidden. Converted to <code>em</code> units in the script. Make sure that this ties up with the breakpoint values used in the CSS.</td>
+					<td>768</td>
+				</tr>
+				<tr>
+					<td>cloneTopLevelLink</td>
+					<td>Boolean determining whether to copy each top level link and add it to the relevant sub menu.</td>
+					<td><code>false</code></td>
+				</tr>
+				<tr>
+					<td>replaceTopLevelLinks</td>
+					<td>Boolean determining whether to replace each top level link with a button, or add a button after the link.</td>
+					<td><code>false</code></td>
+				</tr>
+				<tr>
+					<td>mobileIcon</td>
+					<td>String for the SVG icon code used in the small screen navigation toggle button. Contains two <code>path</code> elements, one for the &lsquo;open&rsquo; icon and one for the &lsquo;close&rsquo; icon. CSS is used to change which <code>path</code> is shown depending on the <code>aria-expanded</code> state of the button.</td>
+					<td>Default option</td>
+				</tr>
+				<tr>
+					<td>submenuIcon</td>
+					<td>String for the SVG icon code used for both the sub menu toggle buttons and the &lsquo;Back&rsquo; button (where applicable). CSS is used to change which way the icon points, depending on its <code>aria-expanded</code> state and other factors.</td>
+					<td>Default option</td>
+				</tr>
+				<tr>
+					<td>submenuDirection</td>
+					<td>String determining the direction in which the sub menus will appear to operate on small screens. Choosing the <code>horizontal</code> option results in a ‘Back’ button being added to sub menus, which is visible in the minimum viewport width configuration.</td>
+					<td>Default option (<code>vertical</code>)</td>
+				</tr>
+				<tr>
+					<td>submenuIntro</td>
+					<td>Boolean option determining whether sub menus need to include some introductory text (hidden in the minimum viewport width configuration) and a landing page link.</td>
+					<td>Default option (<code>false</code>)</td>
+				</tr>
+				</tbody>
+			</table>
 		</div>
 	</main>
 </div>

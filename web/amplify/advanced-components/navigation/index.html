@@ -89,6 +89,7 @@
             <div class="content">
                 <div class="component component--text">
                     <h1>Advanced navigation</h1>
+					<p>The starting point for these demos involves minimal CSS and JavaScript, to avoid being too opinionated and requiring lots of overrides and adjustments within projects. Be prepared to make some modifications yourself - hopefully not too many as far as the JavaScript is concerned.</p>
                     <h2>Demos</h2>
                     <ul>
                         <li><a href="single-level.html">Single-level navigation</a></li>
@@ -97,7 +98,18 @@
 						<li><a href="double-level-both.html">Double-level navigation - links and buttons in top level</a></li>
                         <li><a href="double-level-intro.html">Double-level navigation with intro text</a></li>
                     </ul>
-					<p>Note that all of these navigation patterns use minimal CSS and JavaScript, to avoid being too opinionated and requiring lots of overrides and adjustments within projects. Expect to have to make some modifications yourself - though hopefully not too many as far as the JavaScript is concerned.</p>
+					<h2>Considerations</h2>
+					<ul>
+						<li>Amplify includes scripts and styles for multiple navigation patterns - your project will probably only use one pattern. Remember: only import the Sass/JS files that you need for your project, to reduce the overall CSS and JS payload.</li>
+						<li>The <code>nav</code> element is only wrapped in a <code>div</code> container with the classname <code>component</code> for the purposes of each demo.</li>
+						<li>If you have multiple <code>nav</code> landmarks on a page, consider giving each one a unique label using the <code>aria-label</code> attribute with a brief descriptive value. This can be helpful for people using a screen reader. There is no need to include the word &lsquo;navigation&rsquo; in the label.</li>
+					</ul>
+					<h3>Naming the navigation toggle button</h3>
+					<p>In all the demos, the navigation is hidden behind a button in the minimum viewport width configuration. Beyond a specified viewport width, the button is hidden and the navigation is exposed.</p>
+					<p>Buttons must always have an accessible name. For an icon-only &quot;hamburger&quot; button, Amplify uses a <code>span</code> with the <code>visuallyhidden</code> class to provide the name (&lsquo;Menu&rsquo; in these demos). The name could just as easily be made visible by removing that class, which is more user-friendly than relying on an icon alone.</p>
+					<p>JavaScript adds the <code>aria-expanded</code> attribute to the toggle button to convey its open/closed state to people using Assistive Technology.</p>
+					<p>Changes to the accessible name are not always conveyed to Assistive Technology. If we were to change both the accessible name of the button and its <code>aria-expanded</code> state, there is a risk of creating a confusing announcement such as &quot;Open menu expanded&quot;.</p>
+					<p>Keep the accessible name simple and use it only to tell users what the button is/does - not its state. Avoid using words such as &lsquo;open&rsquo; or &lsquo;close&rsquo; in the accessible name.</p>
                 </div>
             </div>
         </div>
