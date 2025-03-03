@@ -46,6 +46,10 @@ The basic components available for use, un-enhanced by JavaScript.
 
 Components that are enhanced in some way with JavaScript.
 
+### 65-advanced-navigation
+
+Styles needed for the various JS-enhanced [navigation patterns provided by Amplify](https://amplify.studio24.net/amplify/advanced-components/navigation/).
+
 ### 70-third-party-plugins
 
 Styles for any functionality that comes from external sources.

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Demo: double-level navigation (with back button) - Amplify</title>
+
+	<link rel="stylesheet" href="../../../dist/styles/core.css" media="screen">
+
+	<!--
+	Print (Edge doesn't apply to print otherwise)
+	Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
+	FF 47+
+	-->
+	<link rel="stylesheet" id="advanced-stylesheet" href="../../../dist/styles/advanced.min.css" media="
+	only print,
+	only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+	only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
+	">
+
+	<link rel="stylesheet" href="../../../dist/styles/print.css" media="print">
+
+	<script src="../../../dist/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '../../../dist/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="not-footer">
+	<a href="#main" class="skip-link">Skip to content</a>
+	<header class="global-header">
+		<div class="l-center">
+			<a class="global-header__link" href="../../index.html">Amplify from Studio 24</a>
+		</div>
+	</header>
+	<nav class="global-nav" aria-label="Main">
+		<div class="l-center">
+			<div class="l-cluster">
+				<ul class="clean-list" >
+					<li><a class="global-nav__link" href="../../get-started">Get started</a></li>
+					<li><a class="global-nav__link" href="../../fundamentals">Fundamentals</a></li>
+					<li><a class="global-nav__link" href="../../layout-helpers">Layout helpers</a></li>
+					<li><a class="global-nav__link" href="../../core-components">Core components</a></li>
+					<li class="current"><a class="global-nav__link" href="../../advanced-components">Advanced components</a></li>
+					<li><a class="global-nav__link" href="../../design">Design handover &amp; standards</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<main id="main">
+		<h1>Demo: double-level navigation - with sub menu back button</h1>
+		<div class="component" data-nav-example="dbl2">
+			<nav class="global-nav" data-component="nav-double" aria-label="Double level demo">
+				<button class="button button--ghost" data-trigger="mobile-nav" style="display: none;">
+					<span class="visuallyhidden">Menu</span>
+				</button>
+				<ul class="clean-list" role="list">
+					<li>
+						<a class="nav-link" href="javascript;">Home</a>
+					</li>
+					<li>
+						<a class="nav-link" href="javascript;">
+							Services
+						</a>
+						<div data-nav="submenu">
+							<ul class="clean-list" role="list">
+								<li><a class="nav-link" href="javascript;">Design</a></li>
+								<li><a class="nav-link" href="javascript;">Development</a></li>
+								<li><a class="nav-link" href="javascript;">Accessibility</a></li>
+								<li><a class="nav-link" href="javascript;">Content Strategy</a></li>
+								<li><a class="nav-link" href="javascript;">Training</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a class="nav-link" href="javascript;">
+							Portfolio
+						</a>
+						<div data-nav="submenu">
+							<ul class="clean-list" role="list">
+								<li><a class="nav-link" href="javascript;">Nonprofits</a></li>
+								<li><a class="nav-link" href="javascript;">Higher Education</a></li>
+								<li><a class="nav-link" href="javascript;">Associations</a></li>
+								<li><a class="nav-link" href="javascript;">Consultants</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a class="nav-link" href="javascript;">
+							About us
+						</a>
+						<div data-nav="submenu">
+							<ul class="clean-list" role="list">
+								<li><a class="nav-link" href="javascript;">Mission</a></li>
+								<li><a class="nav-link" href="javascript;">History</a></li>
+								<li><a class="nav-link" href="javascript;">Contact</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="component component--text">
+			<a href="index.html">Back to navigation index</a>
+		</div>
+		<div class="component component--text">
+			<h2>Considerations</h2>
+		</div>
+		<div role="region" aria-labelledby="table-caption" tabindex="0" data-component="table-wrap">
+			<table>
+				<caption id="table-caption">Configuration of <code>nav-double-level.js</code> for this pattern:</caption>
+				<thead>
+				<tr>
+					<th scope="col">Setting</th>
+					<th scope="col" style="min-width: 18rem;">Description</th>
+					<th scope="col">Option used for this pattern</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>breakpoint</td>
+					<td>A number representing the viewport width in pixels at which the navigation toggle button will be hidden. Converted to <code>em</code> units in the script. Make sure that this ties up with the breakpoint values used in the CSS.</td>
+					<td>768</td>
+				</tr>
+				<tr>
+					<td>cloneTopLevelLink</td>
+					<td>Boolean determining whether to copy each top level link and add it to the relevant sub menu.</td>
+					<td>Default option (<code>true</code>)</td>
+				</tr>
+				<tr>
+					<td>replaceTopLevelLinks</td>
+					<td>Boolean determining whether to replace each top level link with a button, or add a button after the link.</td>
+					<td>Default option (<code>true</code>)</td>
+				</tr>
+				<tr>
+					<td>mobileIcon</td>
+					<td>String for the SVG icon code used in the small screen navigation toggle button. Contains two <code>path</code> elements, one for the &lsquo;open&rsquo; icon and one for the &lsquo;close&rsquo; icon. CSS is used to change which <code>path</code> is shown depending on the <code>aria-expanded</code> state of the button.</td>
+					<td>Default option</td>
+				</tr>
+				<tr>
+					<td>submenuIcon</td>
+					<td>String for the SVG icon code used for both the sub menu toggle buttons and the &lsquo;Back&rsquo; button (where applicable). CSS is used to change which way the icon points, depending on its <code>aria-expanded</code> state and other factors.</td>
+					<td>Default option</td>
+				</tr>
+				<tr>
+					<td>submenuDirection</td>
+					<td>String determining the direction in which the sub menus will appear to operate on small screens. Choosing the <code>horizontal</code> option results in a ‘Back’ button being added to sub menus, which is visible in the minimum viewport width configuration.</td>
+					<td><code>horizontal</code></td>
+				</tr>
+				<tr>
+					<td>submenuIntro</td>
+					<td>Boolean option determining whether sub menus need to include some introductory text (hidden in the minimum viewport width configuration) and a landing page link.</td>
+					<td>Default option (<code>false</code>)</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</main>
+</div>
+<footer class="global-footer">
+	<div class="l-center">
+		&copy; Studio 24
+	</div>
+</footer>
+</body>
+
+</html>

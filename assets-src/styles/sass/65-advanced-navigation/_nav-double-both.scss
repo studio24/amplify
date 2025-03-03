@@ -1,0 +1,46 @@
+/*------------------------------------*\
+    #Navigation advanced: double level with both links and buttons
+
+    A navigation where a button to toggle a sub menu is inserted directly after
+    each top level link.
+
+    N.B. aria-expanded attribute is managed by JS
+\*------------------------------------*/
+
+/* (Because the order reflects the DOM order, which Stylelint doesn't understand) */
+
+#js-click-nav-both {
+    [data-trigger="sub-nav"] {
+        padding-inline: rem(8);
+    }
+
+    [data-trigger="sub-nav"][aria-expanded="true"] svg {
+        transform: scaleY(-1);
+    }
+
+    // If concerned about browser support for :has(), add a 'has-children' class
+    // to the appropriate <li> elements in the markup and target that instead
+    ul > li:has([data-nav="submenu"]) {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        a {
+            inline-size: calc(100% - 2.75rem); // 100% minus button width
+
+            @include mq($bp-tab-portrait) {
+                inline-size: auto;
+            }
+        }
+    }
+
+    [data-nav="submenu"] {
+        flex-basis: 100%;
+
+        @include mq($bp-tab-portrait) {
+            box-shadow: 0 2px 4px 0 rgba(0 0 0 / 25%);
+            inset-block-start: 100%;
+        }
+    }
+}

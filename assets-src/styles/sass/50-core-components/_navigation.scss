@@ -2,20 +2,16 @@
     #Navigation core
 \*------------------------------------*/
 
-.nav ul,
-.nav ul * + * {
+nav ul,
+nav ul * + * {
     margin: 0;
 }
 
 [data-nav="submenu"] {
-    padding-left: rem(20);
+    padding-inline-start: rem(20);
 }
 
-/**
-Using a.nav-link rather than just .nav-link is deliberate here to avoid unwanted styles
-on buttons created via JS for toggling dropdown navigation (they retain the nav-link class)
- */
-a.nav-link {
+.global-nav a {
     color: $link-color;
     display: block;
     line-height: normal;

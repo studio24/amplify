@@ -2,27 +2,7 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 1:
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   exists: () => (/* binding */ exists)
-/* harmony export */ });
-/**
- * Check whether an element exists in the DOM
- * @param elem
- * @return {boolean}
- */
-
-var exists = function exists(elem) {
-  return elem !== 'undefined' && elem !== null && (elem.length >= 0 || elem.innerHTML.length >= 0);
-};
-
-
-/***/ }),
-
-/***/ 16:
+/***/ 15:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -3844,8 +3824,7 @@ var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _splidejs_splide__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
-/* harmony import */ var _main_exists_helper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
+/* harmony import */ var _splidejs_splide__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(15);
 /**
  * Customising the Splide carousel for Amplify
  * @see https://github.com/Splidejs/splide
@@ -3853,10 +3832,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 // Get all carousel instances
 var splideArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="carousel"]'));
-if ((0,_main_exists_helper_js__WEBPACK_IMPORTED_MODULE_1__.exists)(splideArray)) {
+if (splideArray) {
   // Loop through them
   splideArray.forEach(function (carousel) {
     new _splidejs_splide__WEBPACK_IMPORTED_MODULE_0__["default"](carousel).mount();
