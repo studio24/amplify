@@ -7,11 +7,10 @@ import './_closest.polyfill.js';
  * Uses event delegation to handle events for improved performance, and data attributes for targeting elements
  * Also manages button for toggling navigation on mobile
  *
- * @param {Element} menu - the top level <ul> navigation
+ * @param {Element} menu - the top level navigation <ul>
  * @param {Object} options - configuration options for the navigation
  * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden. Is converted to em (assumes 16px browser default).
- * @param {boolean} [options.cloneTopLevelLink=true] - whether to copy the link that will be replaced with a button, and add it to the sub menu.
- * @param {boolean} [options.replaceTopLevelLinks=true] - whether to swap the top level link for a button, or add a button after the link
+ * @param {boolean} [options.cloneTopLevelLink=true] - whether to copy the link to be replaced with a button and add it to the sub menu.
  * @param {string} [options.mobileIcon] - SVG icon used for the button to show/hide the navigation on mobile.
  * @param {string} [options.submenuIcon] - SVG icon used for sub menus and back button.
  * @param {string} [options.submenuDirection=vertical] - direction in which sub menus operate on mobile (vertical, or horizontal with a 'back' button).
@@ -19,21 +18,22 @@ import './_closest.polyfill.js';
  */
 
 const navDoubleLevel = function(menu, options) {
+    let	container = menu.parentElement;
     let mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
 
     // Default settings
     let defaults = {
         breakpoint: 1024,
         cloneTopLevelLink: true,
-		replaceTopLevelLinks: true,
         mobileIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true" fill="currentColor">' +
                     '<path class="open" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>' +
                     '<path class="close" d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>' +
                     '</svg>',
+        submenuDirection: 'vertical',
         submenuIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true" fill="currentColor">' +
-                     '<path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z" />' +
+                     '<path class="control-vertical" d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z" />' +
+                     '<path class="control-horizontal" d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>' +
                      '</svg>',
-		submenuDirection: 'vertical',
         submenuIntro: false,
     };
 
@@ -143,53 +143,22 @@ const navDoubleLevel = function(menu, options) {
     }
 
     function menuSetup() {
-		if (settings.submenuIntro === true) {
-			menu.setAttribute('id','js-click-nav-intro');
-		} else if (settings.replaceTopLevelLinks === false) {
-			menu.setAttribute('id','js-click-nav-both');
-		} else {
-			menu.setAttribute('id', 'js-click-nav-' + settings.submenuDirection);
-		}
-
+        container.setAttribute('id', 'js-click-nav-' + settings.submenuDirection);
+        if (settings.submenuIntro === true) {
+            container.classList.add('js-nav-with-intro');
+        }
         const subMenuWrappers = Array.prototype.slice.call(menu.querySelectorAll('[data-nav="submenu"]'));
 
         subMenuWrappers.forEach(function (wrapper) {
             const menuItem = wrapper.parentElement;
 
             if ('undefined' !== typeof wrapper) {
-				if (settings.replaceTopLevelLinks === true) {
-					let button = convertLinkToButton(menuItem);
-					setUpAria(wrapper, button);
-				} else {
-					let button = addButtonAfterLink(menuItem);
-					setUpAria(wrapper, button);
-				}
+                let button = convertLinkToButton(menuItem);
+
+                setUpAria(wrapper, button);
             }
         });
     }
-
-	function addButtonAfterLink(menuItem) {
-		const link = menuItem.getElementsByTagName('a')[0];
-		const icon = settings.submenuIcon;
-		const button = document.createElement('button');
-		let subMenu = link.nextElementSibling.querySelector('ul');
-		button.setAttribute('data-trigger', 'sub-nav');
-		button.innerHTML = icon + '<span class="visuallyhidden">' + link.textContent +' menu</span>';
-		link.after(button);
-
-		if (settings.submenuDirection === 'horizontal') {
-			// Insert a "back" button
-			const backButton = document.createElement('button');
-			backButton.setAttribute('data-button', 'mobile-back');
-			backButton.setAttribute('class', 'button button--ghost');
-			backButton.innerHTML = icon + ' Back';
-			if (settings.submenuIntro === true) {
-				subMenu.parentNode.insertBefore(backButton, subMenu.parentNode.children[0]);
-			} else subMenu.parentNode.insertBefore(backButton, subMenu);
-		}
-
-		return button;
-	}
 
     /**
      * Why do this? See https://justmarkup.com/articles/2019-01-21-the-link-to-button-enhancement/

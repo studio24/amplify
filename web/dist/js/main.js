@@ -7,8 +7,30 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   exists: () => (/* binding */ exists)
+/* harmony export */ });
+/**
+ * Check whether an element exists in the DOM
+ * @param elem
+ * @return {boolean}
+ */
+
+var exists = function exists(elem) {
+  return elem !== 'undefined' && elem !== null && (elem.length >= 0 || elem.innerHTML.length >= 0);
+};
+
+
+/***/ }),
+/* 2 */
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   cardEnhancement: () => (/* binding */ cardEnhancement)
 /* harmony export */ });
+/* harmony import */ var _exists_helper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+
+
 /**
  * Card enhancement to trigger the main link whenever the card area is clicked
  * @see https://css-tricks.com/block-links-the-search-for-a-perfect-solution/
@@ -16,7 +38,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var cardEnhancement = function cardEnhancement() {
   var cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
-  if (cardsArray) {
+  if ((0,_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(cardsArray)) {
     // Loop through cards adding a click event and identifying the main link
     cardsArray.forEach(function (card) {
       var mainLink = card.querySelector('.card__link');
@@ -47,13 +69,16 @@ var cardEnhancement = function cardEnhancement() {
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   collapsibles: () => (/* binding */ collapsibles)
 /* harmony export */ });
+/* harmony import */ var _exists_helper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+
+
 /**
  * Collapsible panels
  * @see https://heydon.github.io/inclusive-components-demos/collapsible-sections/progressive.html
@@ -63,7 +88,7 @@ __webpack_require__.r(__webpack_exports__);
 var collapsibles = function collapsibles() {
   // Get all the collapsible containers
   var collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsibles"]'));
-  if (collapseArray) {
+  if ((0,_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(collapseArray)) {
     // Loop through containers
     collapseArray.forEach(function (item) {
       // Get headings inside a collapsible container
@@ -106,14 +131,16 @@ var collapsibles = function collapsibles() {
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   disclosureWidget: () => (/* binding */ disclosureWidget)
 /* harmony export */ });
-/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
+/* harmony import */ var _exists_helper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
+
 
 
 /**
@@ -130,7 +157,7 @@ var disclosureWidget = function disclosureWidget() {
       }
     });
   };
-  if (toggleButtonArray) {
+  if ((0,_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(toggleButtonArray)) {
     toggleButtonArray.forEach(function (btn) {
       btn.removeAttribute('style');
       btn.setAttribute('aria-expanded', 'false');
@@ -167,7 +194,7 @@ var disclosureWidget = function disclosureWidget() {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -193,34 +220,37 @@ if (!Element.prototype.closest) {
 }
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   formErrorSummary: () => (/* binding */ formErrorSummary)
 /* harmony export */ });
+/* harmony import */ var _exists_helper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+
+
 /**
  * Shift focus to form error summary, if present
  * @see https://design-system.service.gov.uk/components/error-summary/#how-it-works
  */
 var formErrorSummary = function formErrorSummary() {
   var errorSummary = document.querySelector('[data-component="error-summary"]');
-  if (errorSummary) {
+  if ((0,_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(errorSummary)) {
     errorSummary.focus();
   }
 };
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   navSingleLevel: () => (/* binding */ navSingleLevel)
 /* harmony export */ });
-/* harmony import */ var _object_assign_polyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7);
+/* harmony import */ var _object_assign_polyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 
 
 /**
@@ -295,7 +325,7 @@ const navSingleLevel = function navSingleLevel(menu, options) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -336,15 +366,15 @@ if (typeof Object.assign != 'function') {
 }
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   navDoubleLevel: () => (/* binding */ navDoubleLevel)
 /* harmony export */ });
-/* harmony import */ var _object_assign_polyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7);
-/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
+/* harmony import */ var _object_assign_polyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
+/* harmony import */ var _closest_polyfill_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
 
 
 
@@ -354,11 +384,10 @@ __webpack_require__.r(__webpack_exports__);
  * Uses event delegation to handle events for improved performance, and data attributes for targeting elements
  * Also manages button for toggling navigation on mobile
  *
- * @param {Element} menu - the top level <ul> navigation
+ * @param {Element} menu - the top level navigation <ul>
  * @param {Object} options - configuration options for the navigation
  * @param {number} [options.breakpoint=1024] - pixel value at which the button for toggling the mobile navigation is hidden. Is converted to em (assumes 16px browser default).
- * @param {boolean} [options.cloneTopLevelLink=true] - whether to copy the link that will be replaced with a button, and add it to the sub menu.
- * @param {boolean} [options.replaceTopLevelLinks=true] - whether to swap the top level link for a button, or add a button after the link
+ * @param {boolean} [options.cloneTopLevelLink=true] - whether to copy the link to be replaced with a button and add it to the sub menu.
  * @param {string} [options.mobileIcon] - SVG icon used for the button to show/hide the navigation on mobile.
  * @param {string} [options.submenuIcon] - SVG icon used for sub menus and back button.
  * @param {string} [options.submenuDirection=vertical] - direction in which sub menus operate on mobile (vertical, or horizontal with a 'back' button).
@@ -366,16 +395,16 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 const navDoubleLevel = function navDoubleLevel(menu, options) {
+  let container = menu.parentElement;
   let mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
 
   // Default settings
   let defaults = {
     breakpoint: 1024,
     cloneTopLevelLink: true,
-    replaceTopLevelLinks: true,
     mobileIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true" fill="currentColor">' + '<path class="open" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>' + '<path class="close" d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>' + '</svg>',
-    submenuIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true" fill="currentColor">' + '<path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z" />' + '</svg>',
     submenuDirection: 'vertical',
+    submenuIcon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="icon icon--24" focusable="false" aria-hidden="true" fill="currentColor">' + '<path class="control-vertical" d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z" />' + '<path class="control-horizontal" d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>' + '</svg>',
     submenuIntro: false
   };
 
@@ -471,46 +500,18 @@ const navDoubleLevel = function navDoubleLevel(menu, options) {
     }
   }
   function menuSetup() {
+    container.setAttribute('id', 'js-click-nav-' + settings.submenuDirection);
     if (settings.submenuIntro === true) {
-      menu.setAttribute('id', 'js-click-nav-intro');
-    } else if (settings.replaceTopLevelLinks === false) {
-      menu.setAttribute('id', 'js-click-nav-both');
-    } else {
-      menu.setAttribute('id', 'js-click-nav-' + settings.submenuDirection);
+      container.classList.add('js-nav-with-intro');
     }
     const subMenuWrappers = Array.prototype.slice.call(menu.querySelectorAll('[data-nav="submenu"]'));
     subMenuWrappers.forEach(function (wrapper) {
       const menuItem = wrapper.parentElement;
       if ('undefined' !== typeof wrapper) {
-        if (settings.replaceTopLevelLinks === true) {
-          let button = convertLinkToButton(menuItem);
-          setUpAria(wrapper, button);
-        } else {
-          let button = addButtonAfterLink(menuItem);
-          setUpAria(wrapper, button);
-        }
+        let button = convertLinkToButton(menuItem);
+        setUpAria(wrapper, button);
       }
     });
-  }
-  function addButtonAfterLink(menuItem) {
-    const link = menuItem.getElementsByTagName('a')[0];
-    const icon = settings.submenuIcon;
-    const button = document.createElement('button');
-    let subMenu = link.nextElementSibling.querySelector('ul');
-    button.setAttribute('data-trigger', 'sub-nav');
-    button.innerHTML = icon + '<span class="visuallyhidden">' + link.textContent + ' menu</span>';
-    link.after(button);
-    if (settings.submenuDirection === 'horizontal') {
-      // Insert a "back" button
-      const backButton = document.createElement('button');
-      backButton.setAttribute('data-button', 'mobile-back');
-      backButton.setAttribute('class', 'button button--ghost');
-      backButton.innerHTML = icon + ' Back';
-      if (settings.submenuIntro === true) {
-        subMenu.parentNode.insertBefore(backButton, subMenu.parentNode.children[0]);
-      } else subMenu.parentNode.insertBefore(backButton, subMenu);
-    }
-    return button;
   }
 
   /**
@@ -635,12 +636,14 @@ var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _main_cards_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _main_collapsibles_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _main_disclosure_widget_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
-/* harmony import */ var _main_form_error_summary_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
-/* harmony import */ var _main_nav_single_level_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
-/* harmony import */ var _main_nav_double_level_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8);
+/* harmony import */ var _main_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _main_cards_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var _main_collapsibles_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var _main_disclosure_widget_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
+/* harmony import */ var _main_form_error_summary_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
+/* harmony import */ var _main_nav_single_level_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
+/* harmony import */ var _main_nav_double_level_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(9);
+
 
 
 
@@ -648,54 +651,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function domLoadedActions() {
-  (0,_main_cards_js__WEBPACK_IMPORTED_MODULE_0__.cardEnhancement)();
-  (0,_main_collapsibles_js__WEBPACK_IMPORTED_MODULE_1__.collapsibles)();
-  (0,_main_disclosure_widget_js__WEBPACK_IMPORTED_MODULE_2__.disclosureWidget)();
-  (0,_main_form_error_summary_js__WEBPACK_IMPORTED_MODULE_3__.formErrorSummary)();
+  (0,_main_cards_js__WEBPACK_IMPORTED_MODULE_1__.cardEnhancement)();
+  (0,_main_collapsibles_js__WEBPACK_IMPORTED_MODULE_2__.collapsibles)();
+  (0,_main_disclosure_widget_js__WEBPACK_IMPORTED_MODULE_3__.disclosureWidget)();
+  (0,_main_form_error_summary_js__WEBPACK_IMPORTED_MODULE_4__.formErrorSummary)();
 
   /* Create a navSingleLevel object and initiate single-level navigation for a <ul> with the correct data-component attribute */
-  const navExampleSingle = document.querySelector('[data-component="nav-single"]');
-  if (navExampleSingle) {
-    let siteNav = new _main_nav_single_level_js__WEBPACK_IMPORTED_MODULE_4__.navSingleLevel(navExampleSingle, {
+  const navExampleSingle = document.querySelector('ul[data-component="nav-single"]');
+  if ((0,_main_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleSingle)) {
+    let siteNav = new _main_nav_single_level_js__WEBPACK_IMPORTED_MODULE_5__.navSingleLevel(navExampleSingle, {
       breakpoint: 768
     });
     siteNav.init();
   }
 
-  /* Create a navDoubleLevel object and initiate double-level navigation */
-  const navExampleDoubleSimple = document.querySelector('[data-nav-example="dbl1"] [data-component="nav-double"]');
-  if (navExampleDoubleSimple) {
-    let siteNav = new _main_nav_double_level_js__WEBPACK_IMPORTED_MODULE_5__.navDoubleLevel(navExampleDoubleSimple, {
-      breakpoint: 768
-    });
-    siteNav.init();
-  }
-
-  /* Create a navDoubleLevel object and initiate double-level navigation */
-  const navExampleDoubleBack = document.querySelector('[data-nav-example="dbl2"] [data-component="nav-double"]');
-  if (navExampleDoubleBack) {
-    let siteNav = new _main_nav_double_level_js__WEBPACK_IMPORTED_MODULE_5__.navDoubleLevel(navExampleDoubleBack, {
+  /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
+  const navExampleDouble = document.querySelector('ul[data-component="nav-double"]');
+  if ((0,_main_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(navExampleDouble)) {
+    let siteNav = new _main_nav_double_level_js__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navExampleDouble, {
       breakpoint: 768,
       submenuDirection: 'horizontal'
     });
     siteNav.init();
   }
 
-  /* Create a navDoubleLevel object and initiate double-level navigation with both links and buttons */
-  const navDoubleBoth = document.querySelector('[data-nav-example="dbl3"] [data-component="nav-double"]');
-  if (navDoubleBoth) {
-    let siteNav = new _main_nav_double_level_js__WEBPACK_IMPORTED_MODULE_5__.navDoubleLevel(navDoubleBoth, {
-      breakpoint: 768,
-      cloneTopLevelLink: false,
-      replaceTopLevelLinks: false
-    });
-    siteNav.init();
-  }
-
-  /* Create a navDoubleLevel object and initiate double-level navigation with intro text */
-  const navDoubleIntro = document.querySelector('[data-component="nav-double-intro"]');
-  if (navDoubleIntro) {
-    let siteNav = new _main_nav_double_level_js__WEBPACK_IMPORTED_MODULE_5__.navDoubleLevel(navDoubleIntro, {
+  /* Create a navDoubleLevel object and initiate double-level navigation for a <ul> with the correct data-component attribute */
+  const navDoubleIntro = document.querySelector('ul[data-component="nav-double-intro"]');
+  if ((0,_main_exists_helper_js__WEBPACK_IMPORTED_MODULE_0__.exists)(navDoubleIntro)) {
+    let siteNav = new _main_nav_double_level_js__WEBPACK_IMPORTED_MODULE_6__.navDoubleLevel(navDoubleIntro, {
       breakpoint: 768,
       cloneTopLevelLink: false,
       submenuDirection: 'horizontal',

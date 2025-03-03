@@ -1,0 +1,234 @@
+/*------------------------------------*\
+    #Navigation advanced
+
+    N.B. aria-expanded attribute is managed by JS
+\*------------------------------------*/
+
+[data-trigger="mobile-nav"] {
+    > * {
+        pointer-events: none;
+    }
+
+    .close {
+        display: none;
+    }
+
+    .open {
+        display: block;
+    }
+
+    &[aria-expanded="true"]{
+        .close {
+            display: block;
+        }
+
+        .open {
+            display: none;
+        }
+    }
+}
+
+.js .nav {
+    [aria-expanded="false"] + * {
+        display: none;
+    }
+
+    > ul {
+        background-color: $off-white;
+
+        @include mq($bp-tab-portrait) {
+            align-items: center;
+            display: flex;
+        }
+    }
+
+    > ul > li + li {
+        @include mq($bp-tab-portrait) {
+            margin-left: rem(5);
+        }
+    }
+
+    [data-trigger="sub-nav"] {
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
+
+        > * {
+            pointer-events: none;
+        }
+    }
+
+    [data-nav="submenu"] {
+        background-color: $off-white;
+        min-height: 100%;
+        padding-left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 5;
+
+        @include mq($bp-tab-portrait) {
+            min-height: auto;
+            top: auto;
+            width: auto;
+        }
+    }
+
+    /* Prevent offscreen-submenus */
+    [data-nav="submenu"].js-sub-menu-right {
+        left: auto;
+        right: 0;
+    }
+}
+
+/* Styles for simple double-level navigation */
+#js-click-nav-vertical {
+    > ul {
+        left: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 5;
+
+        @include mq($bp-tab-portrait) {
+            position: relative;
+        }
+    }
+
+    > ul > li {
+        @include mq($bp-tab-portrait) {
+            position: relative;
+        }
+    }
+
+    [data-trigger="sub-nav"] .control-horizontal {
+        display: none;
+    }
+
+    [data-trigger="sub-nav"][aria-expanded="true"] svg {
+        transform: scaleY(-1);
+    }
+
+    [data-nav="submenu"] {
+        @include mq($bp-tab-portrait) {
+            box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%);
+        }
+    }
+}
+
+/* Styles for double-navigation with back button in sub menus */
+#js-click-nav-horizontal {
+    > ul {
+        left: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 5;
+
+        @include mq($bp-tab-portrait) {
+            position: relative;
+        }
+    }
+
+    > ul > li {
+        @include mq($bp-tab-portrait) {
+            position: relative;
+        }
+    }
+
+    [data-trigger="sub-nav"] .control-horizontal {
+        @include mq($bp-tab-portrait) {
+            display: none;
+        }
+    }
+
+    [data-trigger="sub-nav"] .control-vertical {
+        display: none;
+
+        @include mq($bp-tab-portrait) {
+            display: block;
+        }
+    }
+
+    [data-trigger="sub-nav"][aria-expanded="true"] svg {
+        @include mq($bp-tab-portrait) {
+            transform: scaleY(-1);
+        }
+    }
+
+    [data-nav="submenu"] {
+        @include mq($bp-tab-portrait) {
+            box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%);
+        }
+    }
+
+    [data-button="mobile-back"] {
+        @include mq($bp-tab-portrait) {
+            display: none;
+        }
+    }
+
+    [data-button="mobile-back"] svg {
+        transform: scaleX(-1);
+
+        .control-vertical {
+            display: none;
+        }
+    }
+}
+
+/* Styles for double-navigation with intro text and back button in sub menus */
+.js-nav-with-intro {
+    > ul > li {
+        @include mq($bp-tab-portrait) {
+            position: static !important;
+        }
+    }
+
+    [data-nav="submenu"] {
+        border-bottom: solid 3px;
+        padding: rem(20) 0;
+
+        @include mq($bp-tab-portrait) {
+            left: 50%;
+            min-height: auto;
+            padding: rem(50) rem(20);
+            top: 100%;
+            transform: translateX(-50%);
+            width: 100vw !important;
+        }
+    }
+
+    [data-nav="submenu"] .l-center {
+        @include mq($bp-tab-portrait) {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    [data-button="mobile-back"] {
+        @include mq($bp-tab-portrait) {
+            display: none;
+        }
+    }
+
+    [data-nav="submenu"] .nav__intro {
+        @include mq($bp-tab-portrait) {
+            width: 40%;
+        }
+    }
+
+    .nav__intro p {
+        display: none;
+
+        @include mq($bp-tab-portrait) {
+            display: block;
+        }
+    }
+
+    [data-nav="submenu"] ul {
+        @include mq($bp-tab-portrait) {
+            column-gap: rem(40);
+            columns: 2;
+            width: 50%;
+        }
+    }
+}

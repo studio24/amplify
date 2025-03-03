@@ -1,3 +1,5 @@
+import {exists} from './_exists.helper.js';
+
 /**
  * Card enhancement to trigger the main link whenever the card area is clicked
  * @see https://css-tricks.com/block-links-the-search-for-a-perfect-solution/
@@ -6,7 +8,7 @@
 var cardEnhancement = function () {
 	var cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
 
-	if (cardsArray) {
+	if (exists(cardsArray)) {
 		// Loop through cards adding a click event and identifying the main link
 		cardsArray.forEach(function (card) {
 			var mainLink = card.querySelector('.card__link');

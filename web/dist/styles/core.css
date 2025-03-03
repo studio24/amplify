@@ -597,6 +597,7 @@ input[type=submit].button {
   display: inline-flex;
   justify-content: center;
   min-block-size: 2.75rem; /* 5 */
+  min-inline-size: 10ch;
   padding-block: 0.25em;
   padding-inline: 0.75em;
 }
@@ -1857,26 +1858,30 @@ min-inline-size, so that either of these properties is applied instead.
 /*------------------------------------*\
     #Navigation core
 \*------------------------------------*/
-nav ul,
-nav ul * + * {
+.nav ul,
+.nav ul * + * {
   margin: 0;
 }
 
 [data-nav=submenu] {
-  padding-inline-start: 1.25rem;
+  padding-left: 1.25rem;
 }
 
-.global-nav a {
+/**
+Using a.nav-link rather than just .nav-link is deliberate here to avoid unwanted styles
+on buttons created via JS for toggling dropdown navigation (they retain the nav-link class)
+ */
+a.nav-link {
   color: #1371c2;
   display: block;
   line-height: normal;
   padding: 0.5625rem 0.875rem;
 }
-.global-nav a:hover {
+a.nav-link:hover {
   color: #0b80e5;
   outline-width: 0; /* 2 */
 }
-.global-nav a:active {
+a.nav-link:active {
   color: #252525;
   outline-width: 0; /* 2 */
 }
@@ -2637,7 +2642,7 @@ input[type=search] {
           text-decoration-skip-ink: auto;
 }
 
-.amplify .global-header + .global-nav {
+.amplify .global-nav {
   border-block-end: solid 2px #c6c6c6;
   padding-block: 0.625rem;
 }
@@ -2648,7 +2653,7 @@ input[type=search] {
   display: block;
   font-size: 1.125rem;
   font-weight: bold;
-  padding: 0.5rem 0.3125rem;
+  padding: 0.3125rem;
   text-decoration: none;
 }
 .amplify .global-nav__link:hover, .amplify .global-nav__link:visited {

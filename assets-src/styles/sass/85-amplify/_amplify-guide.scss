@@ -30,7 +30,7 @@
 }
 
 
-.amplify .global-header + .global-nav {
+.amplify .global-nav {
 	border-block-end: solid 2px $neutral-30;
 	padding-block: rem(10);
 }
@@ -41,7 +41,7 @@
 	display: block;
 	font-size: rem(18);
 	font-weight: bold;
-	padding: rem(8) rem(5);
+	padding: rem(5);
 	text-decoration: none;
 
 	&:hover,
