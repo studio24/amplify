@@ -1,4 +1,3 @@
-import {exists} from './_exists.helper.js';
 import './_closest.polyfill.js';
 
 /**
@@ -16,7 +15,7 @@ var disclosureWidget = function () {
 		});
 	}
 
-	if (exists(toggleButtonArray)) {
+	if (toggleButtonArray) {
 		toggleButtonArray.forEach(function (btn) {
 			btn.removeAttribute('style');
 			btn.setAttribute('aria-expanded', 'false');
