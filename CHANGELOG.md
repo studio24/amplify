@@ -1,5 +1,16 @@
 # Changelog
 
+## [7.0.0](https://github.com/studio24/amplify/compare/v6.0.0...v7.0.0) (2025-03-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* refactor navigation patterns
+
+### Features
+
+* refactor navigation patterns ([3b17366](https://github.com/studio24/amplify/commit/3b17366f11428f4f7d80ca55ae5fd2bce48a1d5f))
+
 ## [6.0.0](https://github.com/studio24/amplify/compare/v5.0.0...v6.0.0) (2025-02-26)
 
 
