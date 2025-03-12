@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.1](https://github.com/studio24/amplify/compare/v7.0.0...v7.0.1) (2025-03-12)
+
+
+### Bug Fixes
+
+* improve sample text in nav with intro demo ([a3b5c44](https://github.com/studio24/amplify/commit/a3b5c441ffb2c5f19f209cd706b6bd218ba725cc))
+
 ## [7.0.0](https://github.com/studio24/amplify/compare/v6.0.0...v7.0.0) (2025-03-07)
 
 
