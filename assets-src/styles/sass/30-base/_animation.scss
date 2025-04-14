@@ -4,8 +4,11 @@
     'scroll-shadow-inset' improves visual affordance of horizontally scrolling tables
 \*------------------------------------*/
 
-/*
- * Respect the choices of users who do not want animations.
+/**
+Respect the choices of users who do not want animations. The styles here:
+- Immediately jump any animation to its end point
+- Remove transitions and fixed background attachments
+See https://github.com/mozdevs/cssremedy/issues/11
  */
 @media screen and (prefers-reduced-motion: reduce),
 (update: slow) {

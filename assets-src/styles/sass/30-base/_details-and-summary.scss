@@ -2,11 +2,6 @@
     #Details and summary elements
 \*------------------------------------*/
 
-details {
-	margin-block: rem(16);
-}
-
-
 summary {
 	color: $link-color;
 	cursor: pointer;
@@ -36,23 +31,10 @@ summary {
 	&:hover {
 		color: $link-color--hover;
 	}
-
-	span {
-		display: inline-block;
-		padding-block: rem(10);
-		text-decoration: underline;
-		text-decoration-skip: auto; // Supported by Safari
-		text-decoration-skip-ink: auto; // Not supported by Safari
-	}
 }
 
 [dir="rtl"] summary::before {
     border-width: 7px 12.124px 7px 0;
-}
-
-
-details[open] > summary {
-	margin-block-end: rem(16);
 }
 
 

@@ -8,24 +8,20 @@ abbr {
 }
 
 
-address {
-    @include stack(1rem);
-
-    margin: rem(16) 0; /* 1 */
-    margin: clamp(0.5rem, calc(0.3rem + 1vw), 1rem) 0;
-
-    > * {
-        font-style: normal;
-    }
-}
 
 
+
+/* Remove default italics */
+address,
 dfn {
-	font-style: normal;
-	font-weight: $emphasis;
+    font-style: normal;
 }
 
 
+
+
+
+dfn,
 b,
 strong,
 .bold {
@@ -33,10 +29,16 @@ strong,
 }
 
 
+
+
+
 em,
 i {
 	font-style: italic;
 }
+
+
+
 
 
 small,
@@ -47,18 +49,12 @@ small,
 
 
 .small-caps {
-	text-shadow: 0 0 0 $off-black;
+	text-shadow: 0 0 0 $off-black; // Improve readability
 	text-transform: uppercase;
 }
 
 
-hr {
-    block-size: 0;
-    border: 0;
-    border-block-start: 1px solid $neutral-30;
-    margin: rem(32) 0;
-    overflow: visible;
-}
+
 
 
 /**
@@ -81,54 +77,48 @@ sup {
 }
 
 
-pre {
-	margin-block: rem(32);
-    white-space: pre-wrap;
-}
 
 
-code,
-kbd,
-samp,
-pre {
+:is(code, kbd, samp) {
+    box-decoration-break: clone;
     font-family: $mono-family;
     hyphens: none;
-    orphans: 3;
-    page-break-before: avoid;
-    text-transform: none;
-    widows: 3;
+    padding: 0.125em 0.25em;
+    tab-size: 4;
+    word-break: normal;
+    word-spacing: normal;
+    word-wrap: normal;
 }
 
-code,
-kbd {
-    padding-block: rem(2);
-    padding-inline: rem(4);
-}
-
-code,
-kbd,
-samp {
-    font-size: .8em;
+/* This is quite a new property, so we want to make sure code styles are not huge or tiny */
+@supports not (font-size-adjust: from-font) {
+    :is(code, kbd, samp) {
+        font-size: 0.8em;
+    }
 }
 
 code {
     background-color: $neutral-90;
-    border-radius: rem(4);
+    border-radius: rem(2);
     color: $neutral-10;
 }
 
 kbd {
     border: solid rem(1);
+    border-radius: rem(4);
 }
 
-samp kbd {
-    font-size: 1em;
+
+pre:has(code) {
+    background-color: $neutral-90;
+    inline-size: max-content;
+    max-inline-size: 100%;
+    overflow-x: auto; // Code blocks need to scroll
+    padding: 0.5em;
 }
 
 pre code {
-    display: block;
-    overflow-x: auto;
-    padding: 1em;
-    tab-size: 4;
-    white-space: pre;
+    background: none;
+    border: none;
+    padding: 0;
 }

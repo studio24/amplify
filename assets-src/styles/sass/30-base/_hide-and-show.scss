@@ -1,7 +1,9 @@
 /*------------------------------------*\
     #Hide and show items inclusively
 
-    See https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+    References:
+    - https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+    - https://www.tpgi.com/the-anatomy-of-visually-hidden/
 \*------------------------------------*/
 
 /*
@@ -51,8 +53,7 @@
 %visuallyhidden {
 	block-size: 1px;
 	border: 0;
-	clip: rect(0 0 0 0);
-	clip-path: inset(100%);
+	clip-path: inset(50%);
 	inline-size: 1px;
 	overflow: hidden;
 	padding: 0;

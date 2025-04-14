@@ -1,19 +1,13 @@
 /*------------------------------------*\
     #Buttons and links
-
-    1. Don't rely on colour alone for styling links - see
-    https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html
-
-    2. Remove outline on focused links when they're also active/hovered.
-
-    3. Remove text underline from links styled as buttons.
-
-    4. Prevent `.button` going full-width if a child of a flex column.
-
-    5. Meet WCAG AAA target size requirements - see
-    https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
 \*------------------------------------*/
 
+/**
+Basic link styles
+1: WCAG says don't rely on colour alone for styling links
+2: Supported by Safari
+3: Not supported by Safari
+ */
 a:not([class]),
 a.with-icon--before,
 a.with-icon--after {
@@ -21,8 +15,8 @@ a.with-icon--after {
 	color: $link-color;
 	cursor: pointer;
 	text-decoration: underline; /* 1 */
-	text-decoration-skip: auto; // Supported by Safari
-	text-decoration-skip-ink: auto; // Not supported by Safari
+	text-decoration-skip: auto; /* 2 */
+	text-decoration-skip-ink: auto; /* 3 */
 
 	&:visited {
 		color: $link-color--visited;
@@ -30,15 +24,10 @@ a.with-icon--after {
 
 	&:hover {
 		color: $link-color--hover;
-		// outline-width: 0; /* 2 */
 	}
 
     &:active {
         color: $link-color--active;
-        outline: none; /* 2 */
-        text-decoration: underline; /* 1 */
-        text-decoration-skip: auto; // Supported by Safari
-        text-decoration-skip-ink: auto; // Not supported by Safari
     }
 }
 
@@ -48,23 +37,29 @@ button {
 }
 
 
+/* Remove text underline from links styled as buttons */
 .button {
-	text-decoration: none; /* 3 */
+	text-decoration: none;
 }
 
 
+/**
+Buttons
+1: Prevent `.button` going full-width if a child of a flex column.
+2: Meet WCAG AAA target size requirements.
+ */
 button,
 .button,
 input[type="submit"].button {
 	align-items: center;
-	align-self: start; /* 4 */
+	align-self: start; /* 1 */
 	background-color: $accent-color;
 	border: solid 2px $accent-color;
 	border-radius: rem(6);
 	color: $off-white;
 	display: inline-flex;
 	justify-content: center;
-	min-block-size: rem(44); /* 5 */
+	min-block-size: rem(44); /* 2 */
 	padding-block: 0.25em;
 	padding-inline: 0.75em;
 
@@ -81,13 +76,13 @@ input[type="submit"].button {
 }
 
 
-// Full-width buttons
+/* Full-width buttons */
 .button--wide.button--wide {
 	inline-size: 100%;
 }
 
 
-// Alternative button style with a distinct border
+/* Alternative button style with a distinct border */
 .button--alt.button--alt {
 	background-color: $off-white;
 	color: $accent-color;
@@ -105,12 +100,15 @@ input[type="submit"].button {
 }
 
 
-// For buttons with no visible background or border
+/**
+ For buttons with no visible background or border
+ 1: Ghost button has no padding but we still want to meet WCAG AAA target size
+ */
 .button--ghost.button--ghost {
 	background-color: transparent;
 	border-color: transparent;
 	color: $black;
-	min-inline-size: rem(44); /* 5 */
+	min-inline-size: rem(44); /* 1 */
 	padding: 0;
 
 	&:hover {
@@ -120,7 +118,7 @@ input[type="submit"].button {
 }
 
 
-// Disabled buttons
+/* Disabled buttons */
 button[disabled],
 .button[disabled],
 .button.js-disabled {

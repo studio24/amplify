@@ -8,11 +8,6 @@
 	figcaption {
 		@include text-17;
 
-		> * {
-            margin-block-start: 0;
-			max-inline-size: rem(540);
-		}
-
 		> a {
 			display: inline-block;
 			margin: 0;

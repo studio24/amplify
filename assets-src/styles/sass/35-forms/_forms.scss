@@ -3,65 +3,62 @@
 \*------------------------------------*/
 
 /**
-Start of resets for the fieldset element
-https://thatemil.com/blog/2015/01/03/reset-your-fieldset/
+The default styles for fieldset and legend are weird, so we effectively hide the fieldset
+If you want a border etc. wrap the fieldset in a div with the class `.fieldset-wrap`
  */
 fieldset {
-	// If you want a border etc., apply this to a wrapping container for the fieldset
 	border: 0;
 	margin: 0;
 	min-inline-size: 0;
-	padding: 0;
-	padding-block-start: 0.01em;
+    padding: 0;
 }
 
 
-body:not(:-moz-handler-blocked) fieldset {
-	display: table-cell; // Deal with fieldset width in Firefox
-}
-
-/**
-End of resets for the fieldset element
- */
-
-
-form > * + *,
-fieldset > * + *,
-.field-group > * + * {
-	margin-block-start: 1.75rem;
+.fieldset-wrap {
+    border: solid 1px;
+    padding: 0.5rem;
 }
 
 
-.field-group + .field-group {
-	margin-block-start: 2.5rem;
+
+
+
+/* Set vertical spacing between direct children of a form, fieldset */
+:is(form, fieldset) > * + * {
+    margin-block-start: 1.75rem;
 }
 
 
-legend,
-.field-group__heading {
+/* Double vertical spacing around fieldset/.fieldset-wrap */
+fieldset:not(:first-child),
+fieldset + *,
+.fieldset-wrap:not(:first-child),
+.fieldset-wrap + * {
+	margin-block-start: 3rem;
+
+}
+
+
+
+
+
+legend {
 	@include text-22;
 
 	font-weight: $emphasis;
 }
 
 
-/**
-Group inputs to line up side-by-side
- */
-.input-group {
-	align-items: center;
-	display: flex;
-}
 
 
-.input-group > * + * {
-	margin-inline-start: rem(30);
-}
 
-
+/* A wrapper for an input and its label (but not checkboxes/radios, which have their own classes) */
 .field {
-	max-inline-size: rem($text-measure);
+    max-inline-size: rem($text-measure);
 }
+
+
+
 
 
 label,
@@ -73,9 +70,17 @@ label,
 }
 
 
+label,
 .field-label,
 .faux-label {
 	margin-block-end: 0.25rem;
+}
+
+
+label,
+.field-label,
+.group-legend {
+    font-weight: $emphasis;
 }
 
 
@@ -83,87 +88,82 @@ label,
     @include text-17;
 
     color: $neutral-70;
-    margin-block-end: 0.25rem;
+    margin-block: 0.25rem;
     max-inline-size: rem($text-measure);
 }
 
 
-.field-label,
-.group-legend {
-	font-weight: bold;
-
-	+ .field-hint {
-		margin-block-start: 0.25rem;
-	}
-
+.field-label + .field-hint,
+.group-legend + .field-hint {
+    margin-block-start: 0.25rem;
 }
 
 
-input, optgroup, {
-    line-height: 1.15;
-}
 
 
-textarea,
-[type="date"],
-[type="email"],
-[type="file"],
-[type="number"],
-[type="password"],
-[type="search"],
-[type="tel"],
-[type="text"],
-[type="time"],
-[type="url"] {
+
+:is(input:not([type="color"], [type="file"], [type="checkbox"], [type="radio"]), textarea) {
 	appearance: none;
-	background-color: $off-white;
+	background-color: inherit;
 	border: 2px solid $input-border-color;
 	border-radius: 0;
 	inline-size: 100%;
-	line-height: 1.25;
 	padding: rem(5);
 }
 
 
-[type="date"],
-[type="email"],
-[type="number"],
-[type="password"],
-[type="search"],
-[type="tel"],
-[type="text"],
-[type="time"],
-[type="url"] {
-	block-size: rem(44); // To match button height
+/* Make input height match button height */
+:is(input:not([type='checkbox'], [type='radio'])) {
+    min-block-size: rem(44);
 }
 
 
+/* Limit the maximum width to prevent unwanted horizontal scrolling */
 [type="file"] {
 	border-color: transparent;
+    max-inline-size: 100%;
 }
 
 
-/**
-Search
- */
-[type="search"]::-webkit-search-decoration,
-[type="search"]::-webkit-search-cancel-button {
-	appearance: none;
-}
-
-
-/**
-Textarea
- */
 textarea {
-	block-size: 10em;
 	resize: vertical;
 }
 
+textarea:not([rows]) {
+    min-height: 10em;
+}
 
-/**
-Fixed input widths
- */
+
+
+
+
+/* Disabled inputs - try to avoid using these to avoid accessibility issues */
+input[disabled] {
+    background-color: $neutral-20;
+}
+
+input[disabled],
+label input[disabled] + * {
+    cursor: not-allowed;
+}
+
+
+
+
+
+/* A wrapper to allow fields to sit side-by-side, if desired */
+.input-group {
+    align-items: center;
+    display: flex;
+    gap: rem(30);
+    margin-block-start: 0;
+}
+
+
+
+
+
+/* Fixed input widths */
 .input-width-30 {
 	max-inline-size: 59ex;
 }
@@ -193,9 +193,10 @@ Fixed input widths
 }
 
 
-/**
-Error styles
- */
+
+
+
+/* Error styles */
 [data-component="error-summary"] li a {
 	color: $error-color;
 	display: inline-block;
@@ -226,6 +227,6 @@ Error styles
 
 .field-error-msg {
 	color: $error-color;
-	font-weight: bold;
-	margin-block-start: rem(15);
+	font-weight: $emphasis;
+	margin-block: rem(15) 0;
 }

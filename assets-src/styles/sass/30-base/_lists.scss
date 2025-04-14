@@ -2,31 +2,25 @@
     #Lists
 \*------------------------------------*/
 
-ul,
-ol {
-	margin-block: 1rem;
-	padding-inline-start: 2rem;
-
-	li {
-		padding-inline-start: 0.25rem;
-	}
-
-	> * + *,
-	li ul,
-	li ol {
-		margin-block-start: 0.75rem;
-	}
+:is(ol, ul) li {
+    max-inline-size: 60ch;
+    text-wrap: pretty;
 }
 
-ol:not([start]) {
-    counter-reset: list-item;
+:is(ol, ul) :is(li, ol, ul) {
+    margin-block-start: 0.75rem;
 }
 
-ol li {
-    counter-increment: list-item;
+:is(ol, ul) :is(ol, ul) {
+    margin-block-end: 1rem;
 }
 
-ol ::marker {
+/* To have markers in nested ordered lists follow this pattern:
+ 1.
+ 1.1.
+ 1.1.1.
+ */
+ol ol ::marker {
 	content: counters(list-item, ".") ". ";
 }
 
@@ -34,15 +28,15 @@ ol ::marker {
 /**
 List without bullets, numbers or indentation. Bear in mind that this
 removes list semantics in some WebKit browsers. If it's important that
-the number of items in a list is announced, add role="list" to the <ul>
+the number of items in a list is announced, add role="list" to the list
  */
+nav :is(ul, ol),
 .clean-list {
 	list-style: none;
+    margin: 0;
 	padding: 0;
 
-	li,
-	ol,
-	ul {
+	:is(ul, ol, li) {
 		padding: 0;
 	}
 }
@@ -53,6 +47,8 @@ Description lists / Definition lists
  */
 dl {
 	margin-block: 1rem;
+    max-inline-size: 60ch;
+    text-wrap: pretty;
 
 	dt {
 		font-weight: bold;
@@ -81,12 +77,11 @@ dl.grid {
 
 		dt {
 			grid-column: 1 / 2;
-			-ms-grid-column-span: 1;
 		}
 
 		dd {
 			grid-column: 2 / 3;
-			-ms-grid-column-span: 1;
+            margin-inline-start: 0;
 		}
 
         dd + dt,

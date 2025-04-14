@@ -128,8 +128,6 @@ can safely use the web fonts instead of the system fonts.
 
     Base uses a Major Second scale
     Fluid type calculations generated using https://utopia.fyi/type/calculator at 320px and 1120px widths
-
-    1. Fallback for browsers not supporting clamp().
 \*------------------------------------*/
 /* 32px → 40px */
 /* 28px → 36px */
@@ -167,81 +165,230 @@ article {
     #Base
 \*------------------------------------*/
 /*------------------------------------*\
-    #Box-sizing resets
+    #Amplify CSS reset
 
-    1. Use a more intuitive box-sizing model
-    2. Ensure elements use font styles as defined in Amplify
-    3. Reset margins
-    4. Avoid text overflows
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
 \*------------------------------------*/
-*, *::before, *::after {
+/**
+Wildcard selector means these styles apply everywhere.
+1: Use a more intuitive box-sizing model
+2: Control hyphenation when used - see https://clagnut.com/blog/2395/
+3: Avoid text overflow
+ */
+*,
+*::before,
+*::after {
   box-sizing: border-box; /* 1 */
-  font: inherit; /* 2 */
-  margin: 0; /* 3 */
-  overflow-wrap: break-word; /* 4 */
+  hyphenate-limit-chars: 6 3 2; /* 2 */
+  overflow-wrap: break-word; /* 3 */
+}
+
+/**
+HTML or :root element.
+1: Prevent layout shift if a classic scrollbar is invoked
+2: Prevent font size inflation with change of orientation
+3: Enable keyword animations
+ */
+html {
+  scrollbar-gutter: stable; /* 1 */
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+          text-size-adjust: none; /* 2 */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords; /* 3 */
+  }
+}
+/**
+Set core body defaults.
+1: Improve text rendering
+2: A minimum line-height of 1.5 is needed for accessibility. A generous line-height of 1.7 allows space for borders on the bottom of links, but will need to be set explicitly on many elements.
+ */
+body {
+  -moz-osx-font-smoothing: grayscale; /* 1 */
+  -webkit-font-smoothing: antialiased; /* 1 */
+  line-height: 1.7; /* 2 */
+  margin: 0;
+  min-block-size: 100vh;
+}
+
+/* Inherit our preferred font settings */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+}
+
+/* Reduce the line-height for specific elements (headings are managed in 30-base/_typography.scss) */
+input,
+label,
+optgroup,
+select,
+textarea {
+  line-height: 1.25;
+}
+
+button {
+  line-height: 1.1;
+}
+
+/* Remove margins in favour of better control by our authored CSS */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+dl,
+dd {
+  margin-block: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+/* Improve default styles for horizontal rule */
+hr {
+  block-size: 0;
+  border: 0;
+  border-block-start: 1px solid #c6c6c6;
+  margin: 2rem 0;
+  overflow: visible;
+}
+
+/**
+ Improve media defaults.
+ 1: Block display is usually what we want
+ 2: Responsive by default
+ 3: Removes strange space-below in case authors overwrite the display value
+ */
+audio,
+canvas,
+embed,
+iframe,
+img,
+object,
+svg,
+video {
+  display: block; /* 1 */
+  max-inline-size: 100%; /* 2 */
+  vertical-align: middle; /* 3 */
+}
+
+/* There's no good reason the audio element defaults to 300px */
+audio {
+  inline-size: 100%;
+}
+
+/* Audio without `[controls]` remains hidden by default */
+audio:not([controls]) {
+  display: none;
+}
+
+/* Remove iframe border */
+iframe {
+  border: 0;
+}
+
+/* Maintain intrinsic aspect ratios when `max-inline-size` is applied */
+canvas,
+img,
+svg,
+video {
+  block-size: auto;
+}
+
+/* Remove the unnecessary wrapping `picture`, while maintaining contents */
+picture {
+  display: contents;
+}
+
+/* Source elements have nothing to display, so hide them entirely */
+source {
+  display: none;
+}
+
+/* Don't allow SVGs in flex contexts to shrink */
+svg {
+  flex-shrink: 0;
+}
+
+/* Make SVGs, especially icons, inherit the text colour of their parent element, to make sure they remain visible in high contrast themes/dark mode */
+svg:not([role=img]) {
+  fill: currentcolor;
+}
+
+video {
+  aspect-ratio: 16/9;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
 }
 
 /*------------------------------------*\
     #Body
 
-    1. Prevent font size inflation with change of orientation
-    2. Needed for sticky footer
-    3. Equivalent `overflow-inline` logical property not currently well supported
+    1. Needed for sticky footer
+    2. Equivalent `overflow-inline` logical property not currently well supported
 \*------------------------------------*/
-html {
-  block-size: 100%;
-  -webkit-text-size-adjust: none;
-     -moz-text-size-adjust: none;
-      -ms-text-size-adjust: none;
-          text-size-adjust: none; /* 1 */
-}
-
 /**
- Typographical styles for fonts are in 30-base/_typography.scss
+Typographical styles for fonts are in 30-base/_typography.scss
  */
 body {
   background-color: #fcfcfc;
   color: #252525;
-  display: grid; /* 2 */
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
+  display: grid; /* 1 */
   grid-template-columns: 100%;
-  grid-template-rows: 1fr auto; /* 2 */
-  min-block-size: 100%;
-  overflow-x: hidden; /* 3 */
+  grid-template-rows: 1fr auto; /* 1 */
+  overflow-x: hidden; /* 2 */
 }
 
 /*------------------------------------*\
     #Typography
 
-    1. Fallback for browsers not supporting clamp().
-    2. A minimum line-height of 1.5 is needed for accessibility.
-    A generous line-height of 1.7 allows space for borders on the bottom of
-    links, but will need to be set explicitly on many elements.
+    1: Makes elements like <code> a more in-proportion size based on our base font
 \*------------------------------------*/
 body {
-  font-size: 1.25rem; /* 1 */
   font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
   font-family: "Arial MT Rounded Bold", arial, sans-serif;
+  font-size-adjust: from-font; /* 1 */
   font-style: normal;
   font-weight: 400;
-  line-height: 1.7; /* 2 */
 }
 
 p {
-  margin: 1rem 0; /* 1 */
-  margin: clamp(0.5rem, 0.3rem + 1vw, 1rem) 0;
+  margin-block: clamp(0.5rem, 0.3rem + 1vw, 1rem);
+  max-inline-size: 60ch;
+  text-wrap: pretty;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  margin: 0;
-  margin-block-end: 1rem; /* 1 */
   margin-block-end: clamp(0.5rem, 0.3rem + 1vw, 1rem);
 }
 
 h1, h2, h3, h4 {
   text-wrap: balance;
+}
+
+h1, h2, h3 {
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
 }
 
 h2, h3, h4, h5, h6 {
@@ -250,59 +397,53 @@ h2, h3, h4, h5, h6 {
 
 h1,
 .text-40 {
-  font-size: 2.5rem; /* 1 */
   font-size: clamp(2rem, 1.8rem + 1vw, 2.5rem);
   line-height: 1.3;
+  max-inline-size: 20ch;
 }
 
 h2,
 .text-36 {
-  font-size: 2.25rem; /* 1 */
   font-size: clamp(1.75rem, 1.55rem + 1vw, 2.25rem);
   line-height: 1.3;
+  max-inline-size: 35ch;
 }
 
 h3,
 .text-32 {
-  font-size: 2rem; /* 1 */
   font-size: clamp(1.5625rem, 1.3875rem + 0.875vw, 2rem);
   line-height: 1.3;
+  max-inline-size: 35ch;
 }
 
 h4,
 .text-28 {
-  font-size: 1.75rem; /* 1 */
   font-size: clamp(1.375rem, 1.225rem + 0.75vw, 1.75rem);
   line-height: 1.3;
 }
 
 h5,
 .text-25 {
-  font-size: 1.5625rem; /* 1 */
   font-size: clamp(1.25rem, 1.125rem + 0.625vw, 1.5625rem);
   line-height: 1.3;
 }
 
 h6,
 .text-22 {
-  font-size: 1.375rem; /* 1 */
   font-size: clamp(1.125rem, 1.025rem + 0.5vw, 1.375rem);
   line-height: 1.5;
 }
 
 .text-17 {
-  font-size: 1.0625rem; /* 1 */
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
-  margin-top: 1rem;
 }
 
 .lead {
-  font-size: 1.75rem; /* 1 */
   font-size: clamp(1.375rem, 1.225rem + 0.75vw, 1.75rem);
   line-height: 1.3;
-  margin-block-end: 3rem; /* 1 */
   margin-block-end: clamp(2.5rem, 2.3rem + 1vw, 3rem);
+  text-wrap: balance;
 }
 
 /**
@@ -314,27 +455,11 @@ can safely use the web fonts instead of the system fonts.
 }
 
 /*------------------------------------*\
-    #Media
-
-    Resets for consistent base display
-\*------------------------------------*/
-audio, canvas, embed, iframe, img, object, picture, video {
-  display: block;
-}
-
-audio, canvas, img, picture, svg, video {
-  block-size: auto;
-  max-inline-size: 100%;
-}
-
-iframe {
-  border: 0;
-}
-
-/*------------------------------------*\
     #Hide and show items inclusively
 
-    See https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+    References:
+    - https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+    - https://www.tpgi.com/the-anatomy-of-visually-hidden/
 \*------------------------------------*/
 /*
  * Hide from everybody and remove from the document flow, using the hidden
@@ -372,9 +497,8 @@ iframe {
 .visuallyhidden:not(:focus, :active), .skip-link:not(:focus, :active) {
   block-size: 1px;
   border: 0;
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
   inline-size: 1px;
   overflow: hidden;
   padding: 0;
@@ -405,25 +529,13 @@ abbr {
           text-decoration-skip-ink: auto;
 }
 
-address {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin: 1rem 0; /* 1 */
-  margin: clamp(0.5rem, 0.3rem + 1vw, 1rem) 0;
-}
-address > * + * {
-  margin-block-start: 1rem;
-}
-address > * {
-  font-style: normal;
-}
-
+/* Remove default italics */
+address,
 dfn {
   font-style: normal;
-  font-weight: 600;
 }
 
+dfn,
 b,
 strong,
 .bold {
@@ -438,7 +550,6 @@ i {
 small,
 .small,
 .small-caps {
-  font-size: 1.0625rem; /* 1 */
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
 }
@@ -446,14 +557,6 @@ small,
 .small-caps {
   text-shadow: 0 0 0 #252525;
   text-transform: uppercase;
-}
-
-hr {
-  block-size: 0;
-  border: 0;
-  border-block-start: 1px solid #c6c6c6;
-  margin: 2rem 0;
-  overflow: visible;
 }
 
 /**
@@ -475,74 +578,61 @@ sup {
   inset-block-start: -0.5em;
 }
 
-pre {
-  margin-block: 2rem;
-  white-space: pre-wrap;
-}
-
-code,
-kbd,
-samp,
-pre {
+:is(code, kbd, samp) {
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
   font-family: monaco, "Lucida Console", "Courier New", monospace;
   -webkit-hyphens: none;
       -ms-hyphens: none;
           hyphens: none;
-  orphans: 3;
-  page-break-before: avoid;
-  text-transform: none;
-  widows: 3;
+  padding: 0.125em 0.25em;
+  tab-size: 4;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
 }
 
-code,
-kbd {
-  padding-block: 0.125rem;
-  padding-inline: 0.25rem;
+/* This is quite a new property, so we want to make sure code styles are not huge or tiny */
+@supports not (font-size-adjust: from-font) {
+  :is(code, kbd, samp) {
+    font-size: 0.8em;
+  }
 }
-
-code,
-kbd,
-samp {
-  font-size: 0.8em;
-}
-
 code {
   background-color: #262626;
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
   color: #f4f4f4;
 }
 
 kbd {
   border: solid 0.0625rem;
+  border-radius: 0.25rem;
 }
 
-samp kbd {
-  font-size: 1em;
+pre:has(code) {
+  background-color: #262626;
+  inline-size: -webkit-max-content;
+  inline-size: max-content;
+  max-inline-size: 100%;
+  overflow-x: auto;
+  padding: 0.5em;
 }
 
 pre code {
-  display: block;
-  overflow-x: auto;
-  padding: 1em;
-  tab-size: 4;
-  white-space: pre;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 /*------------------------------------*\
     #Buttons and links
-
-    1. Don't rely on colour alone for styling links - see
-    https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html
-
-    2. Remove outline on focused links when they're also active/hovered.
-
-    3. Remove text underline from links styled as buttons.
-
-    4. Prevent `.button` going full-width if a child of a flex column.
-
-    5. Meet WCAG AAA target size requirements - see
-    https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
 \*------------------------------------*/
+/**
+Basic link styles
+1: WCAG says don't rely on colour alone for styling links
+2: Supported by Safari
+3: Not supported by Safari
+ */
 a:not([class]),
 a.with-icon--before,
 a.with-icon--after {
@@ -551,9 +641,9 @@ a.with-icon--after {
   cursor: pointer;
   text-decoration: underline; /* 1 */
   -webkit-text-decoration-skip: auto;
-          text-decoration-skip: auto;
+          text-decoration-skip: auto; /* 2 */
   -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
+          text-decoration-skip-ink: auto; /* 3 */
 }
 a:not([class]):visited,
 a.with-icon--before:visited,
@@ -569,34 +659,34 @@ a:not([class]):active,
 a.with-icon--before:active,
 a.with-icon--after:active {
   color: #0c5492;
-  outline: none; /* 2 */
-  text-decoration: underline; /* 1 */
-  -webkit-text-decoration-skip: auto;
-          text-decoration-skip: auto;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
 }
 
 button {
   line-height: 1.15;
 }
 
+/* Remove text underline from links styled as buttons */
 .button {
-  text-decoration: none; /* 3 */
+  text-decoration: none;
 }
 
+/**
+Buttons
+1: Prevent `.button` going full-width if a child of a flex column.
+2: Meet WCAG AAA target size requirements.
+ */
 button,
 .button,
 input[type=submit].button {
   align-items: center;
-  align-self: start; /* 4 */
+  align-self: start; /* 1 */
   background-color: #da0067;
   border: solid 2px #da0067;
   border-radius: 0.375rem;
   color: #fcfcfc;
   display: inline-flex;
   justify-content: center;
-  min-block-size: 2.75rem; /* 5 */
+  min-block-size: 2.75rem; /* 2 */
   padding-block: 0.25em;
   padding-inline: 0.75em;
 }
@@ -614,10 +704,12 @@ input[type=submit].button:active {
   color: #fcfcfc;
 }
 
+/* Full-width buttons */
 .button--wide.button--wide {
   inline-size: 100%;
 }
 
+/* Alternative button style with a distinct border */
 .button--alt.button--alt {
   background-color: #fcfcfc;
   color: #da0067;
@@ -632,11 +724,15 @@ input[type=submit].button:active {
   color: #fcfcfc;
 }
 
+/**
+ For buttons with no visible background or border
+ 1: Ghost button has no padding but we still want to meet WCAG AAA target size
+ */
 .button--ghost.button--ghost {
   background-color: transparent;
   border-color: transparent;
   color: #000;
-  min-inline-size: 2.75rem; /* 5 */
+  min-inline-size: 2.75rem; /* 1 */
   padding: 0;
 }
 .button--ghost.button--ghost:hover {
@@ -644,6 +740,7 @@ input[type=submit].button:active {
   border-color: transparent;
 }
 
+/* Disabled buttons */
 button[disabled],
 .button[disabled],
 .button.js-disabled {
@@ -674,10 +771,6 @@ button[disabled],
 /*------------------------------------*\
     #Details and summary elements
 \*------------------------------------*/
-details {
-  margin-block: 1rem;
-}
-
 summary {
   color: #1371c2;
   cursor: pointer;
@@ -705,22 +798,9 @@ summary::-webkit-details-marker {
 summary:hover {
   color: #0b80e5;
 }
-summary span {
-  display: inline-block;
-  padding-block: 0.625rem;
-  text-decoration: underline;
-  -webkit-text-decoration-skip: auto;
-          text-decoration-skip: auto;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
-}
 
 [dir=rtl] summary::before {
   border-width: 7px 12.124px 7px 0;
-}
-
-details[open] > summary {
-  margin-block-end: 1rem;
 }
 
 details[open] > summary::before {
@@ -729,13 +809,6 @@ details[open] > summary::before {
 
 [dir=rtl] details[open] > summary::before {
   transform: rotate(-90deg);
-}
-
-/*------------------------------------*\
-    #SVG
-\*------------------------------------*/
-svg {
-  fill: currentcolor;
 }
 
 /*------------------------------------*\
@@ -787,50 +860,52 @@ Use `margin-inline-end` for spacing irrespective of text direction
 }
 
 /*------------------------------------*\
+    #Figure
+\*------------------------------------*/
+figcaption {
+  max-inline-size: 60ch;
+  padding-block-start: 0.5em;
+  text-wrap: pretty;
+}
+
+/*------------------------------------*\
     #Lists
 \*------------------------------------*/
-ul,
-ol {
-  margin-block: 1rem;
-  padding-inline-start: 2rem;
+:is(ol, ul) li {
+  max-inline-size: 60ch;
+  text-wrap: pretty;
 }
-ul li,
-ol li {
-  padding-inline-start: 0.25rem;
-}
-ul > * + *,
-ul li ul,
-ul li ol,
-ol > * + *,
-ol li ul,
-ol li ol {
+
+:is(ol, ul) :is(li, ol, ul) {
   margin-block-start: 0.75rem;
 }
 
-ol:not([start]) {
-  counter-reset: list-item;
+:is(ol, ul) :is(ol, ul) {
+  margin-block-end: 1rem;
 }
 
-ol li {
-  counter-increment: list-item;
-}
-
-ol ::marker {
+/* To have markers in nested ordered lists follow this pattern:
+ 1.
+ 1.1.
+ 1.1.1.
+ */
+ol ol ::marker {
   content: counters(list-item, ".") ". ";
 }
 
 /**
 List without bullets, numbers or indentation. Bear in mind that this
 removes list semantics in some WebKit browsers. If it's important that
-the number of items in a list is announced, add role="list" to the <ul>
+the number of items in a list is announced, add role="list" to the list
  */
+nav :is(ul, ol),
 .clean-list {
   list-style: none;
+  margin: 0;
   padding: 0;
 }
-.clean-list li,
-.clean-list ol,
-.clean-list ul {
+nav :is(ul, ol) :is(ul, ol, li),
+.clean-list :is(ul, ol, li) {
   padding: 0;
 }
 
@@ -839,6 +914,8 @@ Description lists / Definition lists
  */
 dl {
   margin-block: 1rem;
+  max-inline-size: 60ch;
+  text-wrap: pretty;
 }
 dl dt {
   font-weight: bold;
@@ -863,11 +940,10 @@ dl dd + dd {
   }
   dl.grid dt {
     grid-column: 1/2;
-    -ms-grid-column-span: 1;
   }
   dl.grid dd {
     grid-column: 2/3;
-    -ms-grid-column-span: 1;
+    margin-inline-start: 0;
   }
   dl.grid dd + dt,
   dl.grid dt + dd,
@@ -880,13 +956,13 @@ dl dd + dd {
     #Quotes
 \*------------------------------------*/
 blockquote {
-  font-size: 1.5625rem; /* 1 */
   font-size: clamp(1.25rem, 1.125rem + 0.625vw, 1.5625rem);
   line-height: 1.3;
-  margin-block: 1rem;
-  margin-inline-start: 1.5625rem;
+  margin-block: 2rem;
+  max-inline-size: 60ch;
   padding: 0.625rem;
   position: relative;
+  text-wrap: pretty;
 }
 blockquote::before {
   background-color: #8d8d8d;
@@ -900,35 +976,36 @@ blockquote::before {
 blockquote > *:first-child {
   margin-block-start: 0;
 }
-blockquote cite {
-  font-size: 1.0625rem; /* 1 */
+blockquote *:only-child {
+  margin-block-end: 0;
+}
+blockquote footer {
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
   font-style: normal;
   font-weight: normal;
+  margin-block-start: 1rem;
 }
 
 /*------------------------------------*\
     #Tables
-
-    1. See https://daverupert.com/2023/08/animation-timeline-scroll-shadows/
 \*------------------------------------*/
 table {
   border: 1px solid #c6c6c6;
   border-collapse: collapse;
   inline-size: 100%;
-  margin-block: 1rem;
 }
 
+caption {
+  border: 1px solid #c6c6c6;
+  border-block-end: 0;
+}
+
+caption,
 th,
-td,
-table caption {
+td {
   padding: 0.75rem;
   text-align: start;
-}
-
-tbody tr:nth-of-type(odd) {
-  background-color: rgba(198, 198, 198, 0.5);
 }
 
 th,
@@ -943,7 +1020,9 @@ th {
 
 /**
 Responsive tables:
-https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
+- https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
+- https://daverupert.com/2023/08/animation-timeline-scroll-shadows/
+
  */
 @media screen {
   [data-component=table-wrap] {
@@ -960,25 +1039,25 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
     border: 0;
     margin-block: 0;
   }
-  [data-component=table-wrap] table caption {
-    border-bottom: 1px solid #c6c6c6;
+  [data-component=table-wrap] caption {
+    border-block-end: 1px solid #c6c6c6;
+    border-block-start: 0;
+    border-inline: 0;
   }
   [data-component=table-wrap] th,
   [data-component=table-wrap] thead td,
   [data-component=table-wrap] th[scope=row] ~ td {
-    border-top: 0;
+    border-block-start: 0;
   }
-  [data-component=table-wrap] tr th:first-child,
-  [data-component=table-wrap] tr td:first-child {
-    border-left: 0;
+  [data-component=table-wrap] tr :is(th:first-child, td:first-child) {
+    border-inline-start: 0;
   }
-  [data-component=table-wrap] tr th:last-child,
-  [data-component=table-wrap] tr td:last-child {
-    border-right: 0;
+  [data-component=table-wrap] tr :is(th:last-child, td:last-child) {
+    border-inline-end: 0;
   }
   [data-component=table-wrap] tr:last-of-type th[scope=row],
   [data-component=table-wrap] tbody tr:last-of-type td {
-    border-bottom: 0;
+    border-block-end: 0;
   }
 }
 /*------------------------------------*\
@@ -986,8 +1065,11 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
 
     'scroll-shadow-inset' improves visual affordance of horizontally scrolling tables
 \*------------------------------------*/
-/*
- * Respect the choices of users who do not want animations.
+/**
+Respect the choices of users who do not want animations. The styles here:
+- Immediately jump any animation to its end point
+- Remove transitions and fixed background attachments
+See https://github.com/mozdevs/cssremedy/issues/11
  */
 @media screen and (prefers-reduced-motion: reduce), (update: slow) {
   *,
@@ -1055,54 +1137,41 @@ main:focus,
     #Forms
 \*------------------------------------*/
 /**
-Start of resets for the fieldset element
-https://thatemil.com/blog/2015/01/03/reset-your-fieldset/
+The default styles for fieldset and legend are weird, so we effectively hide the fieldset
+If you want a border etc. wrap the fieldset in a div with the class `.fieldset-wrap`
  */
 fieldset {
   border: 0;
   margin: 0;
   min-inline-size: 0;
   padding: 0;
-  padding-block-start: 0.01em;
 }
 
-body:not(:-moz-handler-blocked) fieldset {
-  display: table-cell;
+.fieldset-wrap {
+  border: solid 1px;
+  padding: 0.5rem;
 }
 
-/**
-End of resets for the fieldset element
- */
-form > * + *,
-fieldset > * + *,
-.field-group > * + * {
+/* Set vertical spacing between direct children of a form, fieldset */
+:is(form, fieldset) > * + * {
   margin-block-start: 1.75rem;
 }
 
-.field-group + .field-group {
-  margin-block-start: 2.5rem;
+/* Double vertical spacing around fieldset/.fieldset-wrap */
+fieldset:not(:first-child),
+fieldset + *,
+.fieldset-wrap:not(:first-child),
+.fieldset-wrap + * {
+  margin-block-start: 3rem;
 }
 
-legend,
-.field-group__heading {
-  font-size: 1.375rem; /* 1 */
+legend {
   font-size: clamp(1.125rem, 1.025rem + 0.5vw, 1.375rem);
   line-height: 1.5;
   font-weight: 600;
 }
 
-/**
-Group inputs to line up side-by-side
- */
-.input-group {
-  align-items: center;
-  display: flex;
-}
-
-.input-group > * + * {
-  margin-inline-start: 1.875rem;
-}
-
+/* A wrapper for an input and its label (but not checkboxes/radios, which have their own classes) */
 .field {
   max-inline-size: 41.25rem;
 }
@@ -1115,90 +1184,79 @@ label,
   display: block;
 }
 
+label,
 .field-label,
 .faux-label {
   margin-block-end: 0.25rem;
 }
 
+label,
+.field-label,
+.group-legend {
+  font-weight: 600;
+}
+
 .field-hint {
-  font-size: 1.0625rem; /* 1 */
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
   color: #525252;
-  margin-block-end: 0.25rem;
+  margin-block: 0.25rem;
   max-inline-size: 41.25rem;
 }
 
-.field-label,
-.group-legend {
-  font-weight: bold;
-}
 .field-label + .field-hint,
 .group-legend + .field-hint {
   margin-block-start: 0.25rem;
 }
 
-input, optgroup {
-  line-height: 1.15;
-}
-
-textarea,
-[type=date],
-[type=email],
-[type=file],
-[type=number],
-[type=password],
-[type=search],
-[type=tel],
-[type=text],
-[type=time],
-[type=url] {
+:is(input:not([type=color], [type=file], [type=checkbox], [type=radio]), textarea) {
   -webkit-appearance: none;
           appearance: none;
-  background-color: #fcfcfc;
+  background-color: inherit;
   border: 2px solid #8d8d8d;
   border-radius: 0;
   inline-size: 100%;
-  line-height: 1.25;
   padding: 0.3125rem;
 }
 
-[type=date],
-[type=email],
-[type=number],
-[type=password],
-[type=search],
-[type=tel],
-[type=text],
-[type=time],
-[type=url] {
-  block-size: 2.75rem;
+/* Make input height match button height */
+:is(input:not([type=checkbox], [type=radio])) {
+  min-block-size: 2.75rem;
 }
 
+/* Limit the maximum width to prevent unwanted horizontal scrolling */
 [type=file] {
   border-color: transparent;
+  max-inline-size: 100%;
 }
 
-/**
-Search
- */
-[type=search]::-webkit-search-decoration,
-[type=search]::-webkit-search-cancel-button {
-  -webkit-appearance: none;
-          appearance: none;
-}
-
-/**
-Textarea
- */
 textarea {
-  block-size: 10em;
   resize: vertical;
 }
 
-/**
-Fixed input widths
- */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Disabled inputs - try to avoid using these to avoid accessibility issues */
+input[disabled] {
+  background-color: #e0e0e0;
+}
+
+input[disabled],
+label input[disabled] + * {
+  cursor: not-allowed;
+}
+
+/* A wrapper to allow fields to sit side-by-side, if desired */
+.input-group {
+  align-items: center;
+  display: flex;
+  gap: 1.875rem;
+  margin-block-start: 0;
+}
+
+/* Fixed input widths */
 .input-width-30 {
   max-inline-size: 59ex;
 }
@@ -1227,9 +1285,7 @@ Fixed input widths
   max-inline-size: 5.4ex;
 }
 
-/**
-Error styles
- */
+/* Error styles */
 [data-component=error-summary] li a {
   color: #a4141b;
   display: inline-block;
@@ -1255,145 +1311,160 @@ Error styles
 
 .field-error-msg {
   color: #a4141b;
-  font-weight: bold;
-  margin-block-start: 0.9375rem;
+  font-weight: 600;
+  margin-block: 0.9375rem 0;
 }
 
+/*------------------------------------*\
+    #Search
+\*------------------------------------*/
+[type=search] {
+  max-inline-size: none;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hide these to make search input more uniform across browsers */
+[type=search]::-webkit-search-cancel-button,
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+          appearance: none;
+}
+
+/* Add a decorative icon to the search input */
+@supports (padding-inline-start: 1em) {
+  input[type=search] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs/%3E%3Cpath d='M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z'/%3E%3C/svg%3E");
+    background-position: center left 0.5em;
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    padding-inline-start: 2.5rem;
+  }
+  [dir=rtl] input[type=search] {
+    background-position: center right 0.5em;
+  }
+}
 /*------------------------------------*\
     #Forms - checkbox and radio inputs
 
     1. Windows High Contrast/forced-color modes tend to eliminate background-color and box-shadow.
     We retain an outline - even if it's transparent - to ensure an accessible focus indicator.
 \*------------------------------------*/
-.radio-item,
-.checkbox-item {
-  clear: left;
-  float: left;
-  margin-block-start: 0.25rem;
-  padding-inline-start: 2.125rem;
+/* stylelint-disable no-descending-specificity */
+form div:has(> :where([type=checkbox], [type=radio])) {
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
+  /* Reduce vertical space between adjacent checkbox/radio fields */
+  /* Use pointer cursor to increase visual affordance */
+  /* Disabled inputs - try to avoid using these to avoid accessibility issues */
+  /* The checkbox "tick" */
+  /* The radio "dot" */
+  /* Checkbox/radio input when not checked */
+  /* Checkbox/radio input when checked */
+  /* The hint text, if used */
+  /* Radio/checkbox input with focus */
 }
-.radio-item::after,
-.checkbox-item::after {
-  clear: both;
-  content: "";
-  display: block;
+form div:has(> :where([type=checkbox], [type=radio])) + div:has(> :where([type=checkbox], [type=radio])) {
+  margin-block-start: 0.5rem;
 }
-
-[dir=rtl] .radio-item,
-[dir=rtl] .checkbox-item {
-  clear: right;
-  float: right;
-}
-
-.radio-item input,
-.checkbox-item input {
-  block-size: 2.75rem;
+form div:has(> :where([type=checkbox], [type=radio])) input:not([disabled]),
+form div:has(> :where([type=checkbox], [type=radio])) input:not([disabled]) + label {
   cursor: pointer;
-  inline-size: 2.75rem;
-  inset-block-start: -0.125rem;
-  inset-inline-start: -0.625rem;
+}
+form div:has(> :where([type=checkbox], [type=radio])) input {
+  block-size: 44px;
+  inline-size: 44px;
   margin: 0;
+  margin-inline-start: -10px;
   opacity: 0;
-  position: absolute;
-  z-index: 1;
 }
-
-.radio-item label,
-.checkbox-item label {
-  cursor: pointer;
-  display: inline-block;
-  margin-block-start: -0.125rem;
-  margin-bottom: 0;
-  padding-block: 0.375rem;
-  padding-inline: 0.0625rem 0.9375rem;
+form div:has(> :where([type=checkbox], [type=radio])) input[disabled] + label {
+  cursor: not-allowed;
+}
+form div:has(> :where([type=checkbox], [type=radio])) input[disabled] + label::before {
+  background-color: #e0e0e0;
+}
+form div:has(> :where([type=checkbox], [type=radio])) label {
+  align-self: center;
+  margin-block-end: 0;
+  max-inline-size: calc(100% - 74px);
+  padding-block: 7px;
+  padding-inline: 15px;
+  padding-inline-start: 1px;
   touch-action: manipulation;
+  /* Shared styles for the checkbox square/radio circle */
 }
-.radio-item label::before, .radio-item label::after,
-.checkbox-item label::before,
-.checkbox-item label::after {
+form div:has(> :where([type=checkbox], [type=radio])) label::before, form div:has(> :where([type=checkbox], [type=radio])) label::after {
   content: "";
   position: absolute;
 }
-.radio-item label::before,
-.checkbox-item label::before {
-  background: transparent;
-  block-size: 1.5rem;
+form div:has(> :where([type=checkbox], [type=radio])) label::before {
+  block-size: 24px;
   border: 2px solid #8d8d8d;
-  inline-size: 1.5rem;
-  inset-block-start: 0.5rem;
+  inline-size: 24px;
+  inset-block-start: 10px;
   inset-inline-start: 0;
 }
-
-.radio-item label::before, .radio-item label::after {
-  border-radius: 50%;
-}
-.radio-item label::after {
-  background: currentcolor;
-  block-size: 0;
-  border: 5px solid;
-  inline-size: 0;
-  inset-block-start: 0.9375rem;
-  inset-inline-start: 0.4375rem;
-  opacity: 0;
-}
-
-.checkbox-item label::after {
+form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::before,
+form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::after {
   background: transparent;
-  block-size: 0.40625rem;
+}
+form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::after {
+  block-size: 6.5px;
   border: solid;
   border-block-start-color: transparent;
   border-width: 0 0 3px 3px;
-  inline-size: 0.75rem;
-  inset-block-start: 0.9375rem;
-  inset-inline-start: 0.375rem;
-  opacity: 0;
+  inline-size: 12px;
+  inset-block-start: 17px;
+  inset-inline-start: 6px;
   transform: rotate(-45deg);
 }
-
-.checkbox-group--cluster .checkbox-item {
-  clear: none;
-  margin-inline-end: 0.75rem;
+form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::before,
+form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::after {
+  border-radius: 50%;
 }
-
-.radio-item:hover input:not(:disabled) + label::before,
-.checkbox-item:hover input:not(:disabled) + label::before {
-  box-shadow: 0 0 0 4px #063a69;
+form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::after {
+  background-color: currentcolor;
+  block-size: 0;
+  border: 5px solid;
+  inline-size: 0;
+  inset-block-start: 17px;
+  inset-inline-start: 7px;
 }
-
-/* stylelint-disable no-descending-specificity */
-.radio-item input:focus + label::before,
-.checkbox-item input:focus + label::before {
+form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::after,
+form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::after {
+  opacity: 0;
+}
+form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox]:checked + label::after,
+form div:has(> :where([type=checkbox], [type=radio])) [type=radio]:checked + label::after {
+  opacity: 1;
+}
+form div:has(> :where([type=checkbox], [type=radio])) .field-hint {
+  inline-size: 100%;
+  margin-block: 0;
+  max-inline-size: none;
+  padding-inline: 36px 15px;
+}
+form div:has(> :where([type=checkbox], [type=radio])) input:focus + label::before {
   box-shadow: 0 0 0 4px #000;
   outline: 2px solid #ffdc00; /* 1 */
+  outline-offset: 0; /* 1 */
+}
+
+/* Radio/checkbox input with hover */
+:is(.radio-item, .checkbox-item):hover input:not([disabled]) + label::before {
+  box-shadow: 0 0 0 4px #8d8d8d;
+}
+
+/* Radio/checkbox input with focus and hover */
+:is(.radio-item, .checkbox-item):hover input:focus + label::before {
+  box-shadow: 0 0 0 4px #000;
+  outline: 2px solid #8d8d8d; /* 1 */
   outline-offset: 0; /* 1 */
 }
 
 /* stylelint-enable no-descending-specificity */
-.radio-item:hover input:focus + label::before,
-.checkbox-item:hover input:focus + label::before {
-  box-shadow: 0 0 0 4px #000;
-  outline: 2px solid #ffdc00; /* 1 */
-  outline-offset: 0; /* 1 */
-}
-
-.radio-item input:checked + label::after,
-.checkbox-item input:checked + label::after {
-  opacity: 1;
-}
-
-[type=radio]:disabled,
-[type=radio]:disabled + label,
-[type=checkbox]:disabled,
-[type=checkbox]:disabled + label {
-  cursor: default;
-}
-
-[type=radio]:disabled + label,
-[type=checkbox]:disabled + label {
-  opacity: 0.5;
-}
-
 /*------------------------------------*\
     #Memorable dates (e.g. date of birth)
 \*------------------------------------*/
@@ -1412,6 +1483,8 @@ Error styles
     Can use either radio or checkbox inputs.
     The purpose is to show all available options outright,
     rather than hide them behind a <select>
+
+    1. Modify this percentage according to the number of choices and what looks best
 \*------------------------------------*/
 .segmented-group-wrapper {
   max-inline-size: none;
@@ -1419,17 +1492,23 @@ Error styles
 
 .segmented-group.l-switcher {
   margin-block-start: 0;
+  /* Input with hover */
+  /* Input with focus - label carries focus styles */
 }
 .segmented-group.l-switcher > * > * {
+  display: block;
+  margin-block-start: 0;
   max-inline-size: 100%;
-  min-inline-size: 33.333%;
+  min-inline-size: 33.333%; /* 1 */
   position: relative;
 }
 .segmented-group.l-switcher label {
   border: 2px solid #8d8d8d;
-  cursor: pointer;
   display: block;
   margin: 0.125rem;
+  max-inline-size: none;
+  padding: 0;
+  /* The "tick" - even if it's a radio */
 }
 .segmented-group.l-switcher label::before, .segmented-group.l-switcher label::after {
   content: "";
@@ -1437,21 +1516,21 @@ Error styles
 }
 .segmented-group.l-switcher label::before {
   background: transparent;
-  block-size: 1.5rem;
-  inline-size: 1.5rem;
+  border: none;
+  border-radius: 0;
   inset-block-start: 0.625rem;
-  inset-inline-end: 0.625rem;
+  inset-inline: auto 0.625rem;
 }
 .segmented-group.l-switcher label::after {
   background: transparent;
-  block-size: 0.40625rem;
+  block-size: 6.5px;
   border: solid;
   border-block-start-color: transparent;
+  border-radius: 0;
   border-width: 0 0 3px 3px;
-  inline-size: 0.75rem;
+  inline-size: 12px;
   inset-block-start: 1.0625rem;
-  inset-inline-end: 1rem;
-  opacity: 0;
+  inset-inline: auto 1rem;
   transform: rotate(-45deg);
 }
 .segmented-group.l-switcher input {
@@ -1482,6 +1561,9 @@ Error styles
 .segmented-group.l-switcher .segmented-label span:first-of-type {
   font-weight: bold;
 }
+.segmented-group.l-switcher .segmented-label__copy {
+  font-weight: normal;
+}
 .segmented-group.l-switcher > * > *:hover label {
   background-color: #c6c6c6;
 }
@@ -1491,32 +1573,32 @@ Error styles
   outline: 2px solid #ffdc00; /* 1 */
   outline-offset: -4px; /* 1 */
 }
-.segmented-group.l-switcher input:checked + label::after {
-  opacity: 1;
+.segmented-group.l-switcher input:focus + label::before {
+  box-shadow: none;
+  outline: none;
 }
 
 /*------------------------------------*\
     #Select
 \*------------------------------------*/
 select {
-  background-color: #fcfcfc;
-  block-size: 2.75rem;
+  background-color: inherit;
   border: 2px solid #8d8d8d;
   border-radius: 0;
   inline-size: 100%;
-  line-height: 1.25;
   padding: 0.3125rem;
 }
 
-optgroup {
-  line-height: 1.25;
+/* Make select height match button height */
+select:not([multiple]) {
+  min-block-size: 2.75rem;
 }
 
 /**
 Optional select with custom arrow icon matching the SVG used for accessible autocomplete
  */
 @supports ((-webkit-appearance: none) or (appearance: none)) {
-  select {
+  select:not([multiple]) {
     -webkit-appearance: none;
             appearance: none;
     background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="none" d="M0 0h24v24H0z"/%3E%3Cpath d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"/%3E%3C/svg%3E');
@@ -1524,7 +1606,7 @@ Optional select with custom arrow icon matching the SVG used for accessible auto
     background-repeat: no-repeat;
     padding-inline-end: 2.125rem;
   }
-  [dir=rtl] select {
+  [dir=rtl] select:not([multiple]) {
     background-position: center left 0.3125rem;
   }
 }
@@ -1571,7 +1653,7 @@ Optional select with custom arrow icon matching the SVG used for accessible auto
     1. We use left and right padding to add some minimum space between the
     contents of `.l-center` and the edges of the parent element or viewport.
     To avoid making the content narrower than intended, we add an exception
-    to our global box-sizing rule (defined in 30-base/_reset.scss).
+    to our global box-sizing rule (defined in 30-base/_amplify-reset.scss).
 \*------------------------------------*/
 .l-center {
   box-sizing: content-box;
@@ -1980,7 +2062,7 @@ main,
     #Quotes
 \*------------------------------------*/
 .component--quote {
-  margin-inline-start: 0;
+  margin-inline: 0;
   padding: 1.25rem;
   padding-inline-start: 1.875rem;
   position: relative;
@@ -1995,7 +2077,7 @@ main,
   inset-inline-start: 0;
   position: absolute;
 }
-.component--quote > *:not(footer) {
+.component--quote *:not(footer) {
   color: #1371c2;
   font-weight: bold;
 }
@@ -2016,13 +2098,8 @@ main,
   margin-block-start: 1em;
 }
 .component--image figcaption {
-  font-size: 1.0625rem; /* 1 */
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
-}
-.component--image figcaption > * {
-  margin-block-start: 0;
-  max-inline-size: 33.75rem;
 }
 .component--image figcaption > a {
   display: inline-block;
@@ -2061,7 +2138,6 @@ main,
     #Video component
 \*------------------------------------*/
 .component--video figcaption {
-  font-size: 1.0625rem; /* 1 */
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
   margin-block-start: 1em;
@@ -2177,7 +2253,6 @@ main,
 }
 
 .card__heading {
-  font-size: 1.5625rem; /* 1 */
   font-size: clamp(1.25rem, 1.125rem + 0.625vw, 1.5625rem);
   line-height: 1.3;
   margin-block-start: 0;
@@ -2309,7 +2384,6 @@ main,
   }
 }
 .progress-step__inner > span {
-  font-size: 1.0625rem; /* 1 */
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
   padding: 0.625rem;
@@ -2400,7 +2474,6 @@ main,
 }
 
 .tag {
-  font-size: 1.0625rem; /* 1 */
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
   background-color: #6f6f6f;
@@ -2434,7 +2507,6 @@ main,
 }
 
 [data-heading=collapsibles] {
-  font-size: 1.375rem; /* 1 */
   font-size: clamp(1.125rem, 1.025rem + 0.5vw, 1.375rem);
   line-height: 1.5;
   margin: 0;
@@ -2471,12 +2543,6 @@ main,
 /*------------------------------------*\
     #Search
 \*------------------------------------*/
-input[type=search] {
-  max-inline-size: none;
-  position: relative;
-  z-index: 1;
-}
-
 .l-sidebar.search {
   overflow: visible;
 }
@@ -2497,22 +2563,6 @@ input[type=search] {
   min-inline-size: 70%;
 }
 
-.l-sidebar.search input[type=search] {
-  max-inline-size: none;
-}
-
-@supports (padding-inline-start: 1em) {
-  input[type=search] {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs/%3E%3Cpath d='M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z'/%3E%3C/svg%3E");
-    background-position: center left 0.5em;
-    background-repeat: no-repeat;
-    background-size: 1.25rem;
-    padding-inline-start: 2.5rem;
-  }
-  [dir=rtl] input[type=search] {
-    background-position: center right 0.5em;
-  }
-}
 /*------------------------------------*\
     #Pagination
 \*------------------------------------*/
@@ -2529,7 +2579,6 @@ input[type=search] {
 }
 
 .pagination__list a {
-  font-size: 1.0625rem; /* 1 */
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
   color: #000;
@@ -2588,7 +2637,6 @@ input[type=search] {
 }
 .global-footer a,
 .global-footer .copyright {
-  font-size: 1.0625rem; /* 1 */
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
 }
@@ -2619,7 +2667,6 @@ input[type=search] {
 }
 
 .amplify .global-header__link {
-  font-size: 1.5625rem; /* 1 */
   font-size: clamp(1.25rem, 1.125rem + 0.625vw, 1.5625rem);
   line-height: 1.3;
   color: #fcfcfc;

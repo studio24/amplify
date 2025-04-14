@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 .component--quote {
-	margin-inline-start: 0;
+	margin-inline: 0;
 	padding: rem(20);
 	padding-inline-start: rem(30);
 	position: relative;
@@ -19,7 +19,7 @@
 		position: absolute;
 	}
 
-	> *:not(footer) {
+	*:not(footer) {
 		color: $brand-60;
 		font-weight: bold;
 	}
