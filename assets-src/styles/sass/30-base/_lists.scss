@@ -2,16 +2,16 @@
     #Lists
 \*------------------------------------*/
 
-:is(ol, ul) li {
+:where(ol, ul) li {
     max-inline-size: 60ch;
     text-wrap: pretty;
 }
 
-:is(ol, ul) :is(li, ol, ul) {
+:where(ol, ul) :where(li, ol, ul) {
     margin-block-start: 0.75rem;
 }
 
-:is(ol, ul) :is(ol, ul) {
+:where(ol, ul) :where(ol, ul) {
     margin-block-end: 1rem;
 }
 
@@ -30,14 +30,15 @@ List without bullets, numbers or indentation. Bear in mind that this
 removes list semantics in some WebKit browsers. If it's important that
 the number of items in a list is announced, add role="list" to the list
  */
-nav :is(ul, ol),
+nav :where(ul, ol),
 .clean-list {
 	list-style: none;
     margin: 0;
 	padding: 0;
 
-	:is(ul, ol, li) {
-		padding: 0;
+	:where(ul, ol, li) {
+        margin: 0;
+        padding: 0;
 	}
 }
 
