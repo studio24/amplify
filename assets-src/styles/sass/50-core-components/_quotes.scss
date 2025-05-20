@@ -21,11 +21,6 @@
 
 	*:not(footer) {
 		color: $brand-60;
-		font-weight: bold;
-	}
-
-	footer {
-		font-size: 1rem;
-		font-style: normal;
+		font-weight: $emphasis;
 	}
 }

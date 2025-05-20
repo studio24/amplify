@@ -105,8 +105,13 @@
 					<blockquote>
 						<p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
 						<p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
-						<cite><a href="javascript:;">Said no one, ever.</a></cite>
+						<footer>Said no one, ever.</footer>
 					</blockquote>
+				</div>
+				<div class="component component--text">
+					<h2>Considerations</h2>
+					<p>The W3C specification says that a reference to a creative work, as included within a <code>cite</code> element, may include the name of the work&rsquo;s author. However, the <a href="https://html.spec.whatwg.org/dev/text-level-semantics.html#the-cite-element">WHATWG specification</a> for <code>cite</code> says the opposite: that a person&rsquo;s name must never be included, under any circumstances. So, for safety, we use a <code>footer</code> to hold the quote reference.</p>
+					<p>To include a reference to the source of quoted material which is contained within a <code>blockquote</code> or <code>q</code> element, use the <code>cite</code> attribute on the element to provide a URL.</p>
 				</div>
 			</div>
 		</div>
