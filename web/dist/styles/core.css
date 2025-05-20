@@ -355,7 +355,8 @@ body {
 /*------------------------------------*\
     #Typography
 
-    1: Makes elements like <code> a more in-proportion size based on our base font
+    1. Makes elements like <code> a more in-proportion size based on our base font
+    2. Starting text-wrap style is optional and fine to override/remove as required by a design
 \*------------------------------------*/
 body {
   font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
@@ -368,7 +369,7 @@ body {
 p {
   margin-block: clamp(0.5rem, 0.3rem + 1vw, 1rem);
   max-inline-size: 60ch;
-  text-wrap: pretty;
+  text-wrap: pretty; /* 2 */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -377,7 +378,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3, h4 {
-  text-wrap: balance;
+  text-wrap: balance; /* 2 */
 }
 
 h1, h2, h3 {
@@ -859,19 +860,23 @@ Use `margin-inline-end` for spacing irrespective of text direction
 
 /*------------------------------------*\
     #Figure
+
+    1. Starting text-wrap style is optional and fine to override/remove as required by a design
 \*------------------------------------*/
 figcaption {
   max-inline-size: 60ch;
   padding-block-start: 0.5em;
-  text-wrap: pretty;
+  text-wrap: pretty; /* 1 */
 }
 
 /*------------------------------------*\
     #Lists
+
+    1. Starting text-wrap style is optional and fine to override/remove as required by a design
 \*------------------------------------*/
 :where(ol, ul) li {
   max-inline-size: 60ch;
-  text-wrap: pretty;
+  text-wrap: pretty; /* 1 */
 }
 
 :where(ol, ul) :where(li, ol, ul) {
@@ -914,7 +919,7 @@ Description lists / Definition lists
 dl {
   margin-block: 1rem;
   max-inline-size: 60ch;
-  text-wrap: pretty;
+  text-wrap: pretty; /* 1 */
 }
 dl dt {
   font-weight: bold;
@@ -953,6 +958,8 @@ dl dd + dd {
 
 /*------------------------------------*\
     #Quotes
+
+    1. Starting text-wrap style is optional and fine to override/remove as required by a design
 \*------------------------------------*/
 blockquote {
   font-size: clamp(1.25rem, 1.125rem + 0.625vw, 1.5625rem);
@@ -961,7 +968,7 @@ blockquote {
   max-inline-size: 60ch;
   padding: 0.625rem;
   position: relative;
-  text-wrap: pretty;
+  text-wrap: pretty; /* 1 */
 }
 blockquote::before {
   background-color: #8d8d8d;

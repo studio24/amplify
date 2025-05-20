@@ -1,7 +1,8 @@
 /*------------------------------------*\
     #Typography
 
-    1: Makes elements like <code> a more in-proportion size based on our base font
+    1. Makes elements like <code> a more in-proportion size based on our base font
+    2. Starting text-wrap style is optional and fine to override/remove as required by a design
 \*------------------------------------*/
 
 body {
@@ -17,7 +18,7 @@ body {
 p {
     margin-block: clamp(0.5rem, calc(0.3rem + 1vw), 1rem);
     max-inline-size: 60ch;
-    text-wrap: pretty;
+    text-wrap: pretty; /* 2 */
 }
 
 
@@ -27,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3, h4 {
-    text-wrap: balance;
+    text-wrap: balance; /* 2 */
 }
 
 h1, h2, h3 {

@@ -1,10 +1,12 @@
 /*------------------------------------*\
     #Lists
+
+    1. Starting text-wrap style is optional and fine to override/remove as required by a design
 \*------------------------------------*/
 
 :where(ol, ul) li {
     max-inline-size: 60ch;
-    text-wrap: pretty;
+    text-wrap: pretty; /* 1 */
 }
 
 :where(ol, ul) :where(li, ol, ul) {
@@ -49,7 +51,7 @@ Description lists / Definition lists
 dl {
 	margin-block: 1rem;
     max-inline-size: 60ch;
-    text-wrap: pretty;
+    text-wrap: pretty; /* 1 */
 
 	dt {
 		font-weight: bold;

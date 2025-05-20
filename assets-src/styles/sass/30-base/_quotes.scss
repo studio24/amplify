@@ -1,5 +1,7 @@
 /*------------------------------------*\
     #Quotes
+
+    1. Starting text-wrap style is optional and fine to override/remove as required by a design
 \*------------------------------------*/
 
 blockquote {
@@ -9,7 +11,7 @@ blockquote {
     max-inline-size: 60ch;
 	padding: rem(10);
 	position: relative;
-    text-wrap: pretty;
+    text-wrap: pretty; /* 1 */
 
 	&::before {
 		background-color: $neutral-50;
