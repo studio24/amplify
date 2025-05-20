@@ -1,33 +1,36 @@
 /*------------------------------------*\
     #Select
+
+    Make sure to apply the `.amplify-form` class directly to the <form> to
+    pick up these styles and try to avoid conflicts with third party form styles
 \*------------------------------------*/
 
-select {
-    background-color: inherit;
-    border: 2px solid $input-border-color;
-    border-radius: 0;
-	inline-size: 100%;
-    padding: rem(5);
-}
-
-/* Make select height match button height */
-select:not([multiple]) {
-    min-block-size: rem(44);
-}
-
-/**
-Optional select with custom arrow icon matching the SVG used for accessible autocomplete
- */
-@supports (appearance: none) {
-    select:not([multiple]) {
-        appearance: none;
-        background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="none" d="M0 0h24v24H0z"/%3E%3Cpath d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"/%3E%3C/svg%3E');
-        background-position: center right rem(5);
-        background-repeat: no-repeat;
-        padding-inline-end: rem(34);
+.amplify-form {
+    select {
+        background-color: inherit;
+        border: 2px solid $input-border-color;
+        border-radius: 0;
+        inline-size: 100%;
+        padding: rem(5);
     }
 
-    [dir="rtl"] select:not([multiple]) {
-        background-position: center left rem(5);
+    /* Make <select> height match Amplify button height (defaults to equivalent of 44px for WCAG AAA) */
+    select:not([multiple]) {
+        min-block-size: rem(44);
+    }
+
+    /* Optional: select with custom icon matching the SVG used for accessible autocomplete */
+    @supports (appearance: none) {
+        select:not([multiple]) {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z' fill='currentColor'/%3E%3C/svg%3E");
+            background-position: center right rem(5);
+            background-repeat: no-repeat;
+            padding-inline-end: rem(34);
+        }
+
+        [dir="rtl"] select:not([multiple]) {
+            background-position: center left rem(5);
+        }
     }
 }
