@@ -999,6 +999,9 @@ caption {
   border: 1px solid #c6c6c6;
   border-block-end: 0;
 }
+caption :where(h1, h2, h3, h4, h5, h6) {
+  margin-block: 0;
+}
 
 caption,
 th,
@@ -2792,6 +2795,7 @@ main,
 
 .u-text-center {
   text-align: center;
+  text-wrap: balance;
 }
 
 .u-text-left {
