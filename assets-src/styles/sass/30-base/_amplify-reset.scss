@@ -191,11 +191,6 @@ svg {
     flex-shrink: 0;
 }
 
-/* Make SVGs, especially icons, inherit the text colour of their parent element, to make sure they remain visible in high contrast themes/dark mode */
-svg:not([role='img']) {
-    fill: currentcolor;
-}
-
 
 video {
     aspect-ratio: 16/9;
