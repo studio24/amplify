@@ -5,8 +5,6 @@
 /**
 Basic link styles
 1: WCAG says don't rely on colour alone for styling links
-2: Supported by Safari
-3: Not supported by Safari
  */
 a:not([class]),
 a.with-icon--before,
@@ -15,8 +13,6 @@ a.with-icon--after {
 	color: $link-color;
 	cursor: pointer;
 	text-decoration: underline; /* 1 */
-	text-decoration-skip: auto; /* 2 */
-	text-decoration-skip-ink: auto; /* 3 */
 
 	&:visited {
 		color: $link-color--visited;

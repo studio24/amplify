@@ -209,6 +209,8 @@ html {
 Set core body defaults.
 1: Improve text rendering
 2: A minimum line-height of 1.5 is needed for accessibility. A generous line-height of 1.7 allows space for borders on the bottom of links, but will need to be set explicitly on many elements.
+3: Supported by Safari - anything using `text-decoration: underline` will inherit this
+4: Not supported by Safari - anything using `text-decoration: underline` will inherit this
  */
 body {
   -moz-osx-font-smoothing: grayscale; /* 1 */
@@ -216,6 +218,10 @@ body {
   line-height: 1.7; /* 2 */
   margin: 0;
   min-block-size: 100vh;
+  -webkit-text-decoration-skip: auto;
+          text-decoration-skip: auto; /* 3 */
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto; /* 4 */
 }
 
 /* Inherit our preferred font settings */
@@ -518,13 +524,6 @@ br {
 /*------------------------------------*\
     #Flow elements
 \*------------------------------------*/
-abbr {
-  -webkit-text-decoration-skip: auto;
-          text-decoration-skip: auto;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
-}
-
 /* Remove default italics */
 address,
 dfn {
@@ -626,8 +625,6 @@ pre code {
 /**
 Basic link styles
 1: WCAG says don't rely on colour alone for styling links
-2: Supported by Safari
-3: Not supported by Safari
  */
 a:not([class]),
 a.with-icon--before,
@@ -636,10 +633,6 @@ a.with-icon--after {
   color: #1371c2;
   cursor: pointer;
   text-decoration: underline; /* 1 */
-  -webkit-text-decoration-skip: auto;
-          text-decoration-skip: auto; /* 2 */
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto; /* 3 */
 }
 a:not([class]):visited,
 a.with-icon--before:visited,
@@ -2258,11 +2251,7 @@ main,
   text-decoration: none;
 }
 .card__link:hover {
-  text-decoration: underline; /* 1 */
-  -webkit-text-decoration-skip: auto;
-          text-decoration-skip: auto;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
+  text-decoration: underline;
 }
 
 /*------------------------------------*\
@@ -2435,10 +2424,6 @@ main,
 
 .progress-list a {
   color: #525252;
-  -webkit-text-decoration-skip: auto;
-          text-decoration-skip: auto;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
 }
 .progress-list a:visited {
   color: #063a69;
@@ -2480,10 +2465,6 @@ main,
 }
 .tag:hover {
   text-decoration: underline;
-  -webkit-text-decoration-skip: auto;
-          text-decoration-skip: auto;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
 }
 
 /*------------------------------------*\
@@ -2592,10 +2573,6 @@ main,
 }
 .pagination__list a[href]:hover {
   text-decoration: underline;
-  -webkit-text-decoration-skip: auto;
-          text-decoration-skip: auto;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
 }
 .pagination__list a[href][aria-current] {
   background-color: #1371c2;
@@ -2678,10 +2655,6 @@ main,
 }
 .amplify .global-header__link:hover {
   text-decoration: underline;
-  -webkit-text-decoration-skip: auto;
-          text-decoration-skip: auto;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
 }
 
 .amplify .global-header + .global-nav {
@@ -2703,10 +2676,6 @@ main,
 }
 .amplify .global-nav__link:hover {
   text-decoration: underline;
-  -webkit-text-decoration-skip: auto;
-          text-decoration-skip: auto;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
 }
 
 .amplify .current .global-nav__link {
@@ -2726,10 +2695,6 @@ main,
 }
 .amplify .nav-secondary__link:hover {
   text-decoration: underline;
-  -webkit-text-decoration-skip: auto;
-          text-decoration-skip: auto;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
 }
 
 .amplify .nav-secondary__link[aria-current] {

@@ -6,8 +6,6 @@
 	cursor: pointer;
 
 	&:hover .card__link {
-		text-decoration: underline; /* 1 */
-		text-decoration-skip: auto; // Supported by Safari
-		text-decoration-skip-ink: auto; // Not supported by Safari
+		text-decoration: underline;
 	}
 }

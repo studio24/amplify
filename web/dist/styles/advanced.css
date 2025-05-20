@@ -208,11 +208,7 @@ br {
   cursor: pointer;
 }
 .js [data-component=card]:hover .card__link {
-  text-decoration: underline; /* 1 */
-  -webkit-text-decoration-skip: auto;
-          text-decoration-skip: auto;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
+  text-decoration: underline;
 }
 
 /*------------------------------------*\
@@ -246,10 +242,6 @@ br {
 }
 .js [data-heading=collapsibles] button:hover .js-collapsible-label {
   text-decoration: underline;
-  -webkit-text-decoration-skip: auto;
-          text-decoration-skip: auto;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
 }
 .js [data-heading=collapsibles] button[aria-expanded=false] .circle-up {
   display: none;

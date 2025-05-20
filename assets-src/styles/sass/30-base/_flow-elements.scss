@@ -2,15 +2,6 @@
     #Flow elements
 \*------------------------------------*/
 
-abbr {
-	text-decoration-skip: auto; // Supported by Safari
-	text-decoration-skip-ink: auto; // Not supported by Safari
-}
-
-
-
-
-
 /* Remove default italics */
 address,
 dfn {
@@ -75,6 +66,7 @@ sub {
 sup {
     inset-block-start: -0.5em;
 }
+
 
 
 

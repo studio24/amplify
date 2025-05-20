@@ -50,6 +50,8 @@ html {
 Set core body defaults.
 1: Improve text rendering
 2: A minimum line-height of 1.5 is needed for accessibility. A generous line-height of 1.7 allows space for borders on the bottom of links, but will need to be set explicitly on many elements.
+3: Supported by Safari - anything using `text-decoration: underline` will inherit this
+4: Not supported by Safari - anything using `text-decoration: underline` will inherit this
  */
 body {
     -moz-osx-font-smoothing: grayscale; /* 1 */
@@ -57,6 +59,8 @@ body {
     line-height: 1.7; /* 2 */
     margin: 0;
     min-block-size: 100vh;
+    text-decoration-skip: auto; /* 3 */
+    text-decoration-skip-ink: auto; /* 4 */
 }
 
 

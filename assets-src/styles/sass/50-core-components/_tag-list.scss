@@ -31,7 +31,5 @@
 
 	&:hover {
 		text-decoration: underline;
-		text-decoration-skip: auto; // Supported by Safari
-		text-decoration-skip-ink: auto; // Not supported by Safari
 	}
 }
