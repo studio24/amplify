@@ -70,11 +70,11 @@ Responsive tables:
             border-block-start: 0;
         }
 
-        tr :is(th:first-child, td:first-child) {
+        tr :where(th:first-child, td:first-child) {
             border-inline-start: 0;
         }
 
-        tr :is(th:last-child, td:last-child) {
+        tr :where(th:last-child, td:last-child) {
             border-inline-end: 0;
         }
 

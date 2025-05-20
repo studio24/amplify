@@ -573,7 +573,7 @@ sup {
   inset-block-start: -0.5em;
 }
 
-:is(code, kbd, samp) {
+:where(code, kbd, samp) {
   -webkit-box-decoration-break: clone;
           box-decoration-break: clone;
   font-family: monaco, "Lucida Console", "Courier New", monospace;
@@ -589,7 +589,7 @@ sup {
 
 /* This is quite a new property, so we want to make sure code styles are not huge or tiny */
 @supports not (font-size-adjust: from-font) {
-  :is(code, kbd, samp) {
+  :where(code, kbd, samp) {
     font-size: 0.8em;
   }
 }
@@ -1048,10 +1048,10 @@ Responsive tables:
   [data-component=table-wrap] th[scope=row] ~ td {
     border-block-start: 0;
   }
-  [data-component=table-wrap] tr :is(th:first-child, td:first-child) {
+  [data-component=table-wrap] tr :where(th:first-child, td:first-child) {
     border-inline-start: 0;
   }
-  [data-component=table-wrap] tr :is(th:last-child, td:last-child) {
+  [data-component=table-wrap] tr :where(th:last-child, td:last-child) {
     border-inline-end: 0;
   }
   [data-component=table-wrap] tr:last-of-type th[scope=row],

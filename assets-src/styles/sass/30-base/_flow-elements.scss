@@ -71,7 +71,7 @@ sup {
 
 
 
-:is(code, kbd, samp) {
+:where(code, kbd, samp) {
     box-decoration-break: clone;
     font-family: $mono-family;
     hyphens: none;
@@ -84,7 +84,7 @@ sup {
 
 /* This is quite a new property, so we want to make sure code styles are not huge or tiny */
 @supports not (font-size-adjust: from-font) {
-    :is(code, kbd, samp) {
+    :where(code, kbd, samp) {
         font-size: 0.8em;
     }
 }
