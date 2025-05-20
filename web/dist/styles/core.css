@@ -2556,9 +2556,15 @@ main,
 
 /*------------------------------------*\
     #Pagination
+
+    1. Centre the content until it wraps onto more than one line, at which point it’s no longer centred.
+    See https://meyerweb.com/eric/thoughts/2022/04/26/flexibly-centering-an-element-with-side-aligned-content/
 \*------------------------------------*/
 .pagination {
   margin-block-start: 2.5rem;
+  margin-inline: auto; /* 1 */
+  max-inline-size: -webkit-max-content;
+  max-inline-size: max-content; /* 1 */
 }
 
 .l-cluster.pagination > * {
