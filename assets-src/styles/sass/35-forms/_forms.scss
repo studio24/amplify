@@ -1,231 +1,221 @@
 /*------------------------------------*\
     #Forms
+
+    Make sure to apply the `.amplify-form` class directly to the <form> to
+    pick up these styles and try to avoid conflicts with third party form styles
 \*------------------------------------*/
 
-/**
-Start of resets for the fieldset element
-https://thatemil.com/blog/2015/01/03/reset-your-fieldset/
- */
-fieldset {
-	// If you want a border etc., apply this to a wrapping container for the fieldset
-	border: 0;
-	margin: 0;
-	min-inline-size: 0;
-	padding: 0;
-	padding-block-start: 0.01em;
-}
+.amplify-form {
+    /**
+    The default styles for fieldset and legend are weird, so we effectively hide the fieldset
+    If you want a border etc. wrap the fieldset in a div with the class `.fieldset-wrap`
+    */
+    fieldset {
+        border: 0;
+        margin: 0;
+        min-inline-size: 0;
+        padding: 0;
+    }
+
+    .fieldset-wrap {
+        border: solid 1px;
+        padding: 0.5rem;
+    }
 
 
-body:not(:-moz-handler-blocked) fieldset {
-	display: table-cell; // Deal with fieldset width in Firefox
-}
-
-/**
-End of resets for the fieldset element
- */
+    /* Set vertical spacing between direct children of a form or fieldset */
+    > * + *,
+    fieldset > * + * {
+        margin-block-start: 1.75rem;
+    }
 
 
-form > * + *,
-fieldset > * + *,
-.field-group > * + * {
-	margin-block-start: 1.75rem;
-}
+    /* Double the vertical spacing around fieldset/.fieldset-wrap */
+    fieldset:not(:first-child),
+    fieldset + *,
+    .fieldset-wrap:not(:first-child),
+    .fieldset-wrap + * {
+        margin-block-start: 3rem;
+    }
 
 
-.field-group + .field-group {
-	margin-block-start: 2.5rem;
-}
+    legend {
+        @include text-22;
+
+        font-weight: $emphasis;
+    }
 
 
-legend,
-.field-group__heading {
-	@include text-22;
-
-	font-weight: $emphasis;
-}
 
 
-/**
-Group inputs to line up side-by-side
- */
-.input-group {
-	align-items: center;
-	display: flex;
-}
+
+    /* A wrapper for an input and its label (but not checkboxes/radios, which have their own classes) */
+    .field {
+        max-inline-size: rem($text-measure);
+    }
 
 
-.input-group > * + * {
-	margin-inline-start: rem(30);
-}
+    label,
+    .field-label,
+    .field-hint,
+    .field-error-msg,
+    .faux-label {
+        display: block;
+    }
+
+    label,
+    .field-label,
+    .faux-label {
+        margin-block-end: 0.25rem;
+    }
+
+    label,
+    .field-label,
+    .group-legend {
+        font-weight: $emphasis;
+    }
 
 
-.field {
-	max-inline-size: rem($text-measure);
-}
+    .field-hint {
+        @include text-17;
+
+        color: $neutral-70;
+        margin-block: 0.25rem;
+        max-inline-size: rem($text-measure);
+    }
+
+    .field-label + .field-hint,
+    .group-legend + .field-hint {
+        margin-block-start: 0.25rem;
+    }
 
 
-label,
-.field-label,
-.field-hint,
-.field-error-msg,
-.faux-label {
-	display: block;
-}
+    :where(input:not([type="color"], [type="file"], [type="checkbox"], [type="radio"]), textarea) {
+        appearance: none;
+        background-color: inherit;
+        border: 2px solid $input-border-color;
+        border-radius: 0;
+        inline-size: 100%;
+        padding: rem(5);
+    }
 
 
-.field-label,
-.faux-label {
-	margin-block-end: 0.25rem;
-}
+    /* Make input height match Amplify button height (defaults to equivalent of 44px for WCAG AAA */
+    :where(input:not([type='checkbox'], [type='radio'])) {
+        min-block-size: rem(44);
+    }
 
 
-.field-hint {
-    @include text-17;
-
-    color: $neutral-70;
-    margin-block-end: 0.25rem;
-    max-inline-size: rem($text-measure);
-}
+    /* Limit max width of file input to prevent unwanted horizontal scrolling */
+    [type="file"] {
+        border-color: transparent;
+        max-inline-size: 100%;
+    }
 
 
-.field-label,
-.group-legend {
-	font-weight: bold;
+    textarea {
+        resize: vertical;
+    }
 
-	+ .field-hint {
-		margin-block-start: 0.25rem;
-	}
-
-}
+    textarea:not([rows]) {
+        min-height: 10em;
+    }
 
 
-input, optgroup, {
-    line-height: 1.15;
-}
 
 
-textarea,
-[type="date"],
-[type="email"],
-[type="file"],
-[type="number"],
-[type="password"],
-[type="search"],
-[type="tel"],
-[type="text"],
-[type="time"],
-[type="url"] {
-	appearance: none;
-	background-color: $off-white;
-	border: 2px solid $input-border-color;
-	border-radius: 0;
-	inline-size: 100%;
-	line-height: 1.25;
-	padding: rem(5);
-}
+
+    /* Disabled inputs - try to avoid using these to avoid accessibility issues */
+    input[disabled] {
+        background-color: $neutral-20;
+    }
+
+    input[disabled],
+    label input[disabled] + * {
+        cursor: not-allowed;
+    }
 
 
-[type="date"],
-[type="email"],
-[type="number"],
-[type="password"],
-[type="search"],
-[type="tel"],
-[type="text"],
-[type="time"],
-[type="url"] {
-	block-size: rem(44); // To match button height
-}
 
 
-[type="file"] {
-	border-color: transparent;
-}
+
+    /* A wrapper to allow fields to sit side-by-side horizontally, if desired */
+    .input-group {
+        align-items: center;
+        display: flex;
+        gap: rem(30);
+        margin-block-start: 0;
+    }
 
 
-/**
-Search
- */
-[type="search"]::-webkit-search-decoration,
-[type="search"]::-webkit-search-cancel-button {
-	appearance: none;
-}
 
 
-/**
-Textarea
- */
-textarea {
-	block-size: 10em;
-	resize: vertical;
-}
+
+    /* Fixed input widths */
+    .input-width-30 {
+        max-inline-size: 59ex;
+    }
+
+    .input-width-20 {
+        max-inline-size: 41ex;
+    }
+
+    .input-width-10 {
+        max-inline-size: 23ex;
+    }
+
+    .input-width-5 {
+        max-inline-size: 10.8ex;
+    }
+
+    .input-width-4 {
+        max-inline-size: 9ex;
+    }
+
+    .input-width-3 {
+        max-inline-size: 7.2ex;
+    }
+
+    .input-width-2 {
+        max-inline-size: 5.4ex;
+    }
 
 
-/**
-Fixed input widths
- */
-.input-width-30 {
-	max-inline-size: 59ex;
-}
-
-.input-width-20 {
-	max-inline-size: 41ex;
-}
-
-.input-width-10 {
-	max-inline-size: 23ex;
-}
-
-.input-width-5 {
-	max-inline-size: 10.8ex;
-}
-
-.input-width-4 {
-	max-inline-size: 9ex;
-}
-
-.input-width-3 {
-	max-inline-size: 7.2ex;
-}
-
-.input-width-2 {
-	max-inline-size: 5.4ex;
-}
 
 
-/**
-Error styles
- */
-[data-component="error-summary"] li a {
-	color: $error-color;
-	display: inline-block;
-	font-weight: bold;
-	padding-block: rem(10);
 
-	&:hover,
-	&:visited {
-		color: $error-color;
-	}
+    /* Error styles */
+    [data-component="error-summary"] li a {
+        color: $error-color;
+        display: inline-block;
+        font-weight: bold;
+        padding-block: rem(10);
 
-}
+        &:hover,
+        &:visited {
+            color: $error-color;
+        }
 
-.field--error {
-	border-inline-start: solid rem(5) $error-color;
-	padding-inline-start: rem(15);
+    }
 
-	input:not([type="file"]),
-	textarea:not(:focus) {
-		border-color: $error-color;
-	}
+    .field--error {
+        border-inline-start: solid rem(5) $error-color;
+        padding-inline-start: rem(15);
 
-	input:focus,
-	textarea:focus {
-		border-color: $input-border-color;
-	}
-}
+        input:not([type="file"]),
+        textarea:not(:focus) {
+            border-color: $error-color;
+        }
 
-.field-error-msg {
-	color: $error-color;
-	font-weight: bold;
-	margin-block-start: rem(15);
+        input:focus,
+        textarea:focus {
+            border-color: $input-border-color;
+        }
+    }
+
+    .field-error-msg {
+        color: $error-color;
+        font-weight: $emphasis;
+        margin-block: rem(15) 0;
+    }
 }

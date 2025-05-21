@@ -1,166 +1,148 @@
 /*------------------------------------*\
     #Forms - checkbox and radio inputs
 
+    Make sure to apply the `.amplify-form` class directly to the <form> to
+    pick up these styles and try to avoid conflicts with third party form styles
+
+    Wrap each checkbox/radio input and its label (plus any hint/error text) inside a <div>.
+
     1. Windows High Contrast/forced-color modes tend to eliminate background-color and box-shadow.
     We retain an outline - even if it's transparent - to ensure an accessible focus indicator.
 \*------------------------------------*/
 
-.radio-item,
-.checkbox-item {
-    clear: left;
-    float: left;
-    margin-block-start: 0.25rem;
-    padding-inline-start: rem(34);
-    position: relative;
-
-    &::after {
-        clear: both;
-        content: '';
-        display: block;
-    }
-}
-
-
-[dir="rtl"] {
-    .radio-item,
-    .checkbox-item {
-        clear: right;
-        float: right;
-    }
-}
-
-.radio-item input,
-.checkbox-item input {
-    block-size: rem(44);
-    cursor: pointer;
-    inline-size: rem(44);
-    inset-block-start: rem(-2);
-    inset-inline-start: rem(-10);
-    margin: 0;
-    opacity: 0;
-    position: absolute;
-    z-index: 1;
-}
-
-
-.radio-item label,
-.checkbox-item label {
-    cursor: pointer;
-    display: inline-block;
-    margin-block-start: rem(-2);
-    margin-bottom: 0;
-	padding-block: rem(6);
-    padding-inline: rem(1) rem(15);
-    touch-action: manipulation;
-
-    &::before,
-    &::after {
-        content: '';
-        position: absolute;
-    }
-
-    &::before {
-        background: transparent;
-        block-size: rem(24);
-        border: 2px solid $input-border-color;
-		inline-size: rem(24);
-		inset-block-start: rem(8);
-        inset-inline-start: 0;
-    }
-}
-
-
-.radio-item label {
-    &::before,
-    &::after {
-        border-radius: 50%;
-    }
-
-    &::after {
-        background: currentcolor;
-        block-size: 0;
-        border: 5px solid;
-		inline-size: 0;
-		inset-block-start: rem(15);
-        inset-inline-start: rem(7);
-        opacity: 0;
-    }
-}
-
-
-.checkbox-item label {
-    &::after {
-        background: transparent;
-		block-size: rem(6.5);
-        border: solid;
-        border-block-start-color: transparent;
-        border-width: 0 0 3px 3px;
-		inline-size: rem(12);
-		inset-block-start: rem(15);
-        inset-inline-start: rem(6);
-        opacity: 0;
-        transform: rotate(-45deg);
-    }
-}
-
-
-.checkbox-group--cluster .checkbox-item {
-    clear: none;
-    margin-inline-end: rem(12);
-}
-
-// Radio/checkbox input with hover
-.radio-item:hover input:not(:disabled) + label,
-.checkbox-item:hover input:not(:disabled) + label {
-    &::before {
-        box-shadow: 0 0 0 4px $info-color;
-    }
-}
-
-
 /* stylelint-disable no-descending-specificity */
-// Radio/checkbox input with focus
-.radio-item input:focus + label,
-.checkbox-item input:focus + label {
-    &::before {
+.amplify-form {
+    /* Select any <div> which contains a checkbox or radio input */
+    div:has(> :where([type="checkbox"], [type="radio"])) {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+
+        /* Reduce vertical space between adjacent checkbox/radio fields */
+        + div:has(> :where([type="checkbox"], [type="radio"])) {
+            margin-block-start: 0.5rem;
+        }
+
+        /* Use pointer cursor to increase visual affordance */
+        input:not([disabled]),
+        input:not([disabled]) + label {
+            cursor: pointer;
+        }
+
+        input {
+            block-size: 44px;
+            inline-size: 44px;
+            margin: 0;
+            margin-inline-start: -10px;
+            opacity: 0;
+        }
+
+        /* Disabled inputs - try to avoid using these to avoid accessibility issues */
+        input[disabled] + label {
+            cursor: not-allowed;
+
+            &::before {
+                background-color: $neutral-20;
+            }
+        }
+
+        label {
+            align-self: center;
+            margin-block-end: 0;
+            max-inline-size: calc(100% - 74px);
+            padding-block: 7px;
+            padding-inline: 15px;
+            padding-inline-start: 1px;
+            touch-action: manipulation;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+            }
+
+            /* Shared styles for the checkbox square/radio circle */
+            &::before {
+                block-size: 24px;
+                border: 2px solid $input-border-color;
+                inline-size: 24px;
+                inset-block-start: 10px;
+                inset-inline-start: 0;
+            }
+        }
+
+        [type="checkbox"] + label::before,
+        [type="checkbox"] + label::after {
+            background: transparent;
+        }
+
+        /* The checkbox "tick" */
+        [type="checkbox"] + label::after {
+            block-size: 6.5px;
+            border: solid;
+            border-block-start-color: transparent;
+            border-width: 0 0 3px 3px;
+            inline-size: 12px;
+            inset-block-start: 17px;
+            inset-inline-start: 6px;
+            transform: rotate(-45deg);
+        }
+
+        [type="radio"] + label::before,
+        [type="radio"] + label::after {
+            border-radius: 50%;
+        }
+
+        /* The radio "dot" */
+        [type="radio"] + label::after {
+            background-color: currentcolor;
+            block-size: 0;
+            border: 5px solid;
+            inline-size: 0;
+            inset-block-start: 17px;
+            inset-inline-start: 7px;
+        }
+
+        /* Checkbox/radio input when not checked */
+        [type="checkbox"] + label::after,
+        [type="radio"] + label::after {
+            opacity: 0;
+        }
+
+        /* Checkbox/radio input when checked */
+        [type="checkbox"]:checked + label::after,
+        [type="radio"]:checked + label::after {
+            opacity: 1;
+        }
+
+        /* The hint text, if used */
+        .field-hint {
+            inline-size: 100%;
+            margin-block: 0;
+            max-inline-size: none;
+            padding-inline: 36px 15px;
+        }
+
+        /* Checkbox/radio input with focus */
+        input:focus + label::before {
+            box-shadow: 0 0 0 4px $black;
+            outline: 2px solid $focus-color; /* 1 */
+            outline-offset: 0; /* 1 */
+        }
+    }
+
+
+    /* Checkbox/radio input with hover - add `.checkbox-item`/`.radio-item` class to parent <div> */
+    :where(.checkbox-item, .radio-item):hover input:not([disabled]) + label::before {
+        box-shadow: 0 0 0 4px $neutral-50;
+    }
+
+
+    /* Checkbox/radio input with focus and hover - add `.checkbox-item`/`.radio-item` class to parent <div> */
+    :where(.radio-item, .checkbox-item):hover input:focus + label::before {
         box-shadow: 0 0 0 4px $black;
-        outline: 2px solid $focus-color; /* 1 */
+        outline: 2px solid $neutral-50; /* 1 */
         outline-offset: 0; /* 1 */
     }
 }
 /* stylelint-enable no-descending-specificity */
-
-
-// Radio/checkbox input with focus and hover
-.radio-item:hover input:focus + label,
-.checkbox-item:hover input:focus + label {
-    &::before {
-        box-shadow: 0 0 0 4px $black;
-        outline: 2px solid $focus-color; /* 1 */
-        outline-offset: 0; /* 1 */
-    }
-}
-
-
-// Radio/checkbox input checked
-.radio-item input:checked + label,
-.checkbox-item input:checked + label {
-    &::after {
-        opacity: 1;
-    }
-}
-
-
-// Radio/checkbox input disabled
-[type="radio"]:disabled,
-[type="radio"]:disabled + label,
-[type="checkbox"]:disabled,
-[type="checkbox"]:disabled + label {
-    cursor: default
-}
-
-
-[type="radio"]:disabled + label,
-[type="checkbox"]:disabled + label {
-    opacity: .5;
-}

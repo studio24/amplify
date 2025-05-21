@@ -1,37 +1,38 @@
 /*------------------------------------*\
     #Typography
 
-    1. Fallback for browsers not supporting clamp().
-    2. A minimum line-height of 1.5 is needed for accessibility.
-    A generous line-height of 1.7 allows space for borders on the bottom of
-    links, but will need to be set explicitly on many elements.
+    1. Makes elements like <code> a more in-proportion size based on our base font
+    2. Starting text-wrap style is optional and fine to override/remove as required by a design
 \*------------------------------------*/
 
 body {
     @include text-body;
 
 	font-family: $font-family;
+    font-size-adjust: from-font; /* 1 */
 	font-style: $font-style;
 	font-weight: $font-weight;
-	line-height: 1.7; /* 2 */
 }
 
 
 p {
-    margin: rem(16) 0; /* 1 */
-    margin: clamp(0.5rem, calc(0.3rem + 1vw), 1rem) 0;
+    margin-block: clamp(0.5rem, calc(0.3rem + 1vw), 1rem);
+    max-inline-size: 60ch;
+    text-wrap: pretty; /* 2 */
 }
 
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: $emphasis;
-	margin: 0;
-    margin-block-end: rem(16); /* 1 */
     margin-block-end: clamp(0.5rem, calc(0.3rem + 1vw), 1rem);
 }
 
 h1, h2, h3, h4 {
-    text-wrap: balance;
+    text-wrap: balance; /* 2 */
+}
+
+h1, h2, h3 {
+    hyphens: auto;
 }
 
 h2, h3, h4, h5, h6 {
@@ -41,16 +42,22 @@ h2, h3, h4, h5, h6 {
 h1,
 .text-40 {
 	@include text-40;
+
+    max-inline-size: 20ch;
 }
 
 h2,
 .text-36 {
     @include text-36;
+
+    max-inline-size: 35ch;
 }
 
 h3,
 .text-32 {
     @include text-32;
+
+    max-inline-size: 35ch;
 }
 
 h4,
@@ -70,16 +77,14 @@ h6,
 
 .text-17 {
     @include text-17;
-
-    margin-top: 1rem;
 }
 
 
 .lead {
     @include text-28;
 
-    margin-block-end: rem(48); /* 1 */
     margin-block-end: clamp(2.5rem, calc(2.3rem + 1vw), 3rem);
+    text-wrap: balance;
 }
 
 

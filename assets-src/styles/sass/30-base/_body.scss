@@ -1,28 +1,18 @@
 /*------------------------------------*\
     #Body
 
-    1. Prevent font size inflation with change of orientation
-    2. Needed for sticky footer
-    3. Equivalent `overflow-inline` logical property not currently well supported
+    1. Needed for sticky footer
+    2. Equivalent `overflow-inline` logical property not currently well supported
 \*------------------------------------*/
 
-html {
-	block-size: 100%;
-    text-size-adjust: none; /* 1 */
-}
-
-
 /**
- Typographical styles for fonts are in 30-base/_typography.scss
+Typographical styles for fonts are in 30-base/_typography.scss
  */
 body {
 	background-color: $off-white;
 	color: $off-black;
-	display: grid; /* 2 */
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
+	display: grid; /* 1 */
 	grid-template-columns: 100%;
-	grid-template-rows: 1fr auto; /* 2 */
-	min-block-size: 100%;
-	overflow-x: hidden; /* 3 */
+	grid-template-rows: 1fr auto; /* 1 */
+	overflow-x: hidden; /* 2 */
 }

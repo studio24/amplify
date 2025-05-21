@@ -139,8 +139,6 @@
 
 .progress-list a {
 	color: $neutral-70;
-	text-decoration-skip: auto; // Supported by Safari
-	text-decoration-skip-ink: auto; // Not supported by Safari
 
 	&:visited {
 		color: $link-color--visited;

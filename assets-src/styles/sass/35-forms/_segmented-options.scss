@@ -1,103 +1,115 @@
 /*------------------------------------*\
     #Forms - segmented options
 
-    Can use either radio or checkbox inputs.
-    The purpose is to show all available options outright,
-    rather than hide them behind a <select>
+    Can be built using either radio or checkbox inputs.
+
+    Make sure to apply the `.amplify-form` class directly to the <form> to
+    pick up these styles and try to avoid conflicts with third party form styles
+
+    1. Modify this percentage according to the number of choices and what looks best
 \*------------------------------------*/
 
-.segmented-group-wrapper {
-    max-inline-size: none;
-}
-
-.segmented-group.l-switcher {
-    margin-block-start: 0;
-
-    > * > * {
-        max-inline-size: 100%;
-        min-inline-size: 33.333%; // Modify the percentage according to the number of choices and what looks best
-        position: relative; // Required for the absolutely positioned input indicator
+.amplify-form {
+    .segmented-group-wrapper {
+        max-inline-size: none;
     }
 
-    label {
-        border: 2px solid $input-border-color;
-        cursor: pointer;
-        display: block;
-        margin: rem(2);
+    .segmented-group.l-switcher {
+        margin-block-start: 0;
 
-        &::before,
-        &::after {
-            content: '';
-            position: absolute;
-        }
-
-        &::before {
-            background: transparent;
-            block-size: rem(24);
-			inline-size: rem(24);
-			inset-block-start: rem(10);
-            inset-inline-end: rem(10);
-        }
-
-        &::after {
-            background: transparent;
-			block-size: rem(6.5);
-            border: solid;
-            border-block-start-color: transparent;
-            border-width: 0 0 3px 3px;
-			inline-size: rem(12);
-			inset-block-start: rem(17);
-            inset-inline-end: rem(16);
-            opacity: 0;
-            transform: rotate(-45deg);
-        }
-    }
-
-    input {
-        block-size: rem(44);
-        cursor: pointer;
-        inline-size: rem(44);
-        inset-block-start: 0;
-        inset-inline-end: 0;
-        margin: 0;
-        opacity: 0;
-        position: absolute;
-        z-index: 1;
-    }
-
-    .segmented-label {
-        @include stack(.5em);
-
-        display: block;
-        padding: rem(10);
-        padding-inline-end: rem(44);
-
-        span {
+        > * > * {
             display: block;
+            margin-block-start: 0;
+            max-inline-size: 100%;
+            min-inline-size: 33.333%; /* 1 */
+            position: relative;
         }
 
-        span:first-of-type {
-            font-weight: bold;
+        label {
+            border: 2px solid $input-border-color;
+            display: block;
+            margin: rem(2);
+            max-inline-size: none;
+            padding: 0;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+            }
+
+            &::before {
+                background: transparent;
+                border: none;
+                border-radius: 0;
+                inset-block-start: rem(10);
+                inset-inline: auto rem(10);
+            }
+
+            /* The "tick" - even if it's a radio */
+            &::after {
+                background: transparent;
+                block-size: 6.5px;
+                border: solid;
+                border-block-start-color: transparent;
+                border-radius: 0;
+                border-width: 0 0 3px 3px;
+                inline-size: 12px;
+                inset-block-start: rem(17);
+                inset-inline: auto rem(16);
+                transform: rotate(-45deg);
+            }
         }
-    }
 
-    // Input with hover
-    > * > *:hover label {
-        background-color: $neutral-30;
-    }
+        input {
+            block-size: rem(44);
+            cursor: pointer;
+            inline-size: rem(44);
+            inset-block-start: 0;
+            inset-inline-end: 0;
+            margin: 0;
+            opacity: 0;
+            position: absolute;
+            z-index: 1;
+        }
 
-    // Input with focus
-    input:focus + label {
-        border-color: $black;
-        box-shadow: inset 0 0 0 4px $input-border-color;
-        outline: 2px solid $focus-color; /* 1 */
-        outline-offset: -4px; /* 1 */
-    }
+        .segmented-label {
+            @include stack(.5em);
 
-    // Input checked
-    input:checked + label {
-        &::after {
-            opacity: 1;
+            display: block;
+            padding: rem(10);
+            padding-inline-end: rem(44);
+
+            span {
+                display: block;
+            }
+
+            span:first-of-type {
+                font-weight: bold;
+            }
+        }
+
+        .segmented-label__copy {
+            font-weight: normal;
+        }
+
+        /* Input with hover */
+        > * > *:hover label {
+            background-color: $neutral-30;
+        }
+
+        /* Input with focus - label carries focus styles */
+        input:focus + label {
+            border-color: $black;
+            box-shadow: inset 0 0 0 4px $input-border-color;
+            outline: 2px solid $focus-color; /* 1 */
+            outline-offset: -4px; /* 1 */
+
+            &::before {
+                box-shadow: none;
+                outline: none;
+            }
         }
     }
 }
+

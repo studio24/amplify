@@ -93,8 +93,6 @@ can safely use the web fonts instead of the system fonts.
 
     Base uses a Major Second scale
     Fluid type calculations generated using https://utopia.fyi/type/calculator at 320px and 1120px widths
-
-    1. Fallback for browsers not supporting clamp().
 \*------------------------------------*/
 /* 32px → 40px */
 /* 28px → 36px */
@@ -136,7 +134,9 @@ article {
 /*------------------------------------*\
     #Hide and show items inclusively
 
-    See https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+    References:
+    - https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+    - https://www.tpgi.com/the-anatomy-of-visually-hidden/
 \*------------------------------------*/
 /*
  * Hide from everybody and remove from the document flow, using the hidden
@@ -174,9 +174,8 @@ article {
 .visuallyhidden:not(:focus, :active) {
   block-size: 1px;
   border: 0;
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
   inline-size: 1px;
   overflow: hidden;
   padding: 0;
@@ -209,11 +208,7 @@ br {
   cursor: pointer;
 }
 .js [data-component=card]:hover .card__link {
-  text-decoration: underline; /* 1 */
-  -webkit-text-decoration-skip: auto;
-          text-decoration-skip: auto;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
+  text-decoration: underline;
 }
 
 /*------------------------------------*\
@@ -230,7 +225,6 @@ br {
   padding: 1.5625rem;
 }
 .js [data-heading=collapsibles] button .js-collapsible-heading {
-  font-size: 1.375rem; /* 1 */
   font-size: clamp(1.125rem, 1.025rem + 0.5vw, 1.375rem);
   line-height: 1.5;
   font-weight: 600;
@@ -240,7 +234,6 @@ br {
   color: #1371c2;
 }
 .js [data-heading=collapsibles] button .js-collapsible-label {
-  font-size: 1.0625rem; /* 1 */
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
 }
@@ -249,10 +242,6 @@ br {
 }
 .js [data-heading=collapsibles] button:hover .js-collapsible-label {
   text-decoration: underline;
-  -webkit-text-decoration-skip: auto;
-          text-decoration-skip: auto;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
 }
 .js [data-heading=collapsibles] button[aria-expanded=false] .circle-up {
   display: none;
@@ -859,7 +848,6 @@ amplify-table-sort col.js-sorted {
 .autocomplete__hint,
 .autocomplete__input,
 .autocomplete__option {
-  font-size: 1.0625rem; /* 1 */
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
   line-height: 1.25;
@@ -875,7 +863,6 @@ amplify-table-sort col.js-sorted {
   .autocomplete__hint,
   .autocomplete__input,
   .autocomplete__option {
-    font-size: 1.0625rem; /* 1 */
     font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
     line-height: 1.5;
     line-height: 1.25;
