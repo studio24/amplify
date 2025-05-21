@@ -1,5 +1,16 @@
 # Changelog
 
+## [8.0.0](https://github.com/studio24/amplify/compare/v7.0.1...v8.0.0) (2025-05-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* Finalise work on revised Amplify reset styles
+
+### Features
+
+* Finalise work on revised Amplify reset styles ([c16762e](https://github.com/studio24/amplify/commit/c16762e0b951fb2ea4b20e9d06029003962818da))
+
 ## [7.0.1](https://github.com/studio24/amplify/compare/v7.0.0...v7.0.1) (2025-03-12)
 
 
