@@ -2,6 +2,8 @@
     #Shelves
     (Used for organising groups of cards, etc.)
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .component--shelves {
 	overflow: hidden;

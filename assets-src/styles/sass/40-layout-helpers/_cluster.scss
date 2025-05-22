@@ -8,6 +8,8 @@
     laid out elements to the left or right, or in the center, with even
     spacing between elements.
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 /**
 Suppress horizontal scrolling caused by the negative margin

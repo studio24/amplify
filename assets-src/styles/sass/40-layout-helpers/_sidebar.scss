@@ -16,6 +16,8 @@
     the source order of the HTML) to determine whether the sidebar
     sits on the left or right side.
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 /**
 Suppress horizontal scrolling caused by the negative margin

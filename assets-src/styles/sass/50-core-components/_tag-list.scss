@@ -8,6 +8,8 @@
     2. Meet WCAG AAA target size requirements for this font size - see
     https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .tag-list.tag-list {
 	margin: rem(-10);

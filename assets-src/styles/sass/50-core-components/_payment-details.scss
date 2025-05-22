@@ -1,6 +1,8 @@
 /*------------------------------------*\
     #Payment details
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 /* @TODO Review this legacy code against http://apollo.s24.net/donate.php
 .payment-fields {

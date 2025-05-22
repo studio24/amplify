@@ -10,6 +10,8 @@
     <figure> element, as it will interfere with the <figcaption>.
     Instead, place it on <picture> or a <div> inside of <figure>.
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .l-frame {
 	display: block;

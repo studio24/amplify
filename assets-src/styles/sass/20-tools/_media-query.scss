@@ -1,14 +1,14 @@
 /*------------------------------------*\
     #Media query
 \*------------------------------------*/
-
 @use "sass:math";
+@use 'units';
 
 @mixin mq(
 	$point,
 	$query1: min,
 	$query2: width,
-	$context: $browser-context
+	$context: units.$browser-context
 ) {
 	@media screen and (#{$query1}-#{$query2}: math.div($point, $context) + em) {
 		@content;

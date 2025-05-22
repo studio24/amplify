@@ -3,6 +3,8 @@
 
     'scroll-shadow-inset' improves visual affordance of horizontally scrolling tables
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 /**
 Respect the choices of users who do not want animations. The styles here:

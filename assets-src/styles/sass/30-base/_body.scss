@@ -4,6 +4,8 @@
     1. Needed for sticky footer
     2. Equivalent `overflow-inline` logical property not currently well supported
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 /**
 Typographical styles for fonts are in 30-base/_typography.scss

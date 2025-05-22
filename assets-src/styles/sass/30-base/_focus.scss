@@ -6,6 +6,8 @@
     2. Windows High Contrast/forced-color modes tend to eliminate background-color and box-shadow.
     We retain an outline - even if it's transparent - to ensure an accessible focus indicator.
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 :focus {
     box-decoration-break: clone; /* 1 */

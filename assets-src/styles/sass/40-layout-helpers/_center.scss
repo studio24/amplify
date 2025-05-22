@@ -10,6 +10,8 @@
     To avoid making the content narrower than intended, we add an exception
     to our global box-sizing rule (defined in 30-base/_amplify-reset.scss).
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .l-center {
 	box-sizing: content-box /* 1 */;

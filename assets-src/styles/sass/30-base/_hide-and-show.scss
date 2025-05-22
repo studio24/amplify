@@ -5,6 +5,8 @@
     - https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
     - https://www.tpgi.com/the-anatomy-of-visually-hidden/
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 /*
  * Hide from everybody and remove from the document flow, using the hidden

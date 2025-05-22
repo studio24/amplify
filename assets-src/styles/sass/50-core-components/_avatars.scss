@@ -1,6 +1,8 @@
 /*------------------------------------*\
     #Avatars
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .avatar {
 	background-color: $off-white;

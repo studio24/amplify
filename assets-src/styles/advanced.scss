@@ -1,47 +1,16 @@
 /*------------------------------------*\
-    #Amplify: advanced styles for browsers selected by mustard cut
+    #Amplify: advanced styles (browsers selected by mustard cut)
 \*------------------------------------*/
-
-/*------------------------------------*\
-    #Settings
-\*------------------------------------*/
-@import 'sass/00-settings/breakpoints';
-@import 'sass/00-settings/colors';
-//@import "sass/00-settings/debug";
-@import 'sass/00-settings/typesetting';
-
-
-/*------------------------------------*\
-    #Functions
-\*------------------------------------*/
-@import 'sass/10-functions/units';
-
-
-/*------------------------------------*\
-    #Mixins
-\*------------------------------------*/
-@import 'sass/20-mixins/font-sizes';
-@import 'sass/20-mixins/media-query';
-@import 'sass/20-mixins/stack';
-
-
-/*------------------------------------*\
-    #Base
-
-    Repeated to allow for extending placeholders
-\*------------------------------------*/
-@import 'sass/30-base/hide-and-show';
-
 
 /*------------------------------------*\
     #Advanced components
 
     For JS enhancements
 \*------------------------------------*/
-@import 'sass/60-advanced-components/cards';
-@import 'sass/60-advanced-components/collapsibles';
-@import 'sass/60-advanced-components/disclosure-widget';
-@import 'sass/60-advanced-components/sortable-tables';
+@use 'sass/60-advanced-components/cards';
+@use 'sass/60-advanced-components/collapsibles';
+@use 'sass/60-advanced-components/disclosure-widget';
+@use 'sass/60-advanced-components/sortable-tables';
 
 
 /*------------------------------------*\
@@ -49,21 +18,23 @@
 
     Where JS is involved
 \*------------------------------------*/
-@import 'sass/65-advanced-navigation/nav';
-@import 'sass/65-advanced-navigation/nav-double';
-@import 'sass/65-advanced-navigation/nav-double-both';
-@import 'sass/65-advanced-navigation/nav-double-with-intro';
+@use 'sass/65-advanced-navigation/nav';
+@use 'sass/65-advanced-navigation/nav-double';
+@use 'sass/65-advanced-navigation/nav-double-both';
+@use 'sass/65-advanced-navigation/nav-double-with-intro';
 
 
 /*------------------------------------*\
-    #Plugins
-
-    Add third-party plugins here.
-    Add custom styles directly after the original in a separate file
+    #Vendors (src styles)
 \*------------------------------------*/
-@import '../../node_modules/accessible-autocomplete/src/autocomplete';
-@import 'sass/70-third-party-plugins/s24-accessible-autocomplete';
-@import '../../node_modules/@splidejs/splide/src/css/core/index';
-@import 'sass/70-third-party-plugins/s24-splide-carousel';
-@import '../../node_modules/tabbyjs/src/sass/tabby-ui';
-@import 'sass/70-third-party-plugins/s24-tabby-ui';
+@use 'sass/70-vendor-src/accessible-autocomplete-src';
+@use 'sass/70-vendor-src/splide-src';
+@use 'sass/70-vendor-src/tabby-src';
+
+
+/*------------------------------------*\
+    #Vendor overrides for Amplify
+\*------------------------------------*/
+@use 'sass/75-vendor-overrides/s24-accessible-autocomplete';
+@use 'sass/75-vendor-overrides/s24-splide-carousel';
+@use 'sass/75-vendor-overrides/s24-tabby-ui';

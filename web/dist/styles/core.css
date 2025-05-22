@@ -1,6 +1,52 @@
 @charset "UTF-8";
 /*------------------------------------*\
-    #Amplify: core styles for all browsers
+    #Amplify: core styles (all browsers)
+\*------------------------------------*/
+/*------------------------------------*\
+    #Fonts
+\*------------------------------------*/
+/* nunito-regular - latin */
+@font-face {
+  font-display: fallback;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/nunito-v20-latin-regular.woff2") format("woff2"), url("../fonts/nunito-v20-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* nunito-700 - latin */
+@font-face {
+  font-display: fallback;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/nunito-v20-latin-700.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* nunito-italic - latin */
+@font-face {
+  font-display: fallback;
+  font-family: Nunito;
+  font-style: italic;
+  font-weight: 400;
+  src: local(""), url("../fonts/nunito-v20-latin-italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* nunito-700italic - latin */
+@font-face {
+  font-display: fallback;
+  font-family: Nunito;
+  font-style: italic;
+  font-weight: 700;
+  src: local(""), url("../fonts/nunito-v20-latin-700italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/*------------------------------------*\
+    #Base
+\*------------------------------------*/
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
 \*------------------------------------*/
 /*------------------------------------*\
     #Settings
@@ -49,41 +95,6 @@ Borders
 Semantics - used sparingly and purposefully
  */
 /*------------------------------------*\
-    #Fonts
-\*------------------------------------*/
-/* nunito-regular - latin */
-@font-face {
-  font-display: fallback;
-  font-family: Nunito;
-  font-style: normal;
-  font-weight: 400;
-  src: local(""), url("../fonts/nunito-v20-latin-regular.woff2") format("woff2"), url("../fonts/nunito-v20-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* nunito-700 - latin */
-@font-face {
-  font-display: fallback;
-  font-family: Nunito;
-  font-style: normal;
-  font-weight: 700;
-  src: local(""), url("../fonts/nunito-v20-latin-700.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* nunito-italic - latin */
-@font-face {
-  font-display: fallback;
-  font-family: Nunito;
-  font-style: italic;
-  font-weight: 400;
-  src: local(""), url("../fonts/nunito-v20-latin-italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* nunito-700italic - latin */
-@font-face {
-  font-display: fallback;
-  font-family: Nunito;
-  font-style: italic;
-  font-weight: 700;
-  src: local(""), url("../fonts/nunito-v20-latin-700italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/*------------------------------------*\
     #Typesetting
 \*------------------------------------*/
 /**
@@ -99,9 +110,6 @@ fonts with white space in their name.
 When Font Face Observer has detected that the @font-face files are loaded, then we
 can safely use the web fonts instead of the system fonts.
  */
-/*------------------------------------*\
-    #Functions
-\*------------------------------------*/
 /*------------------------------------*\
     #CSS unit functions
 \*------------------------------------*/
@@ -120,9 +128,6 @@ can safely use the web fonts instead of the system fonts.
 /**
  #Remove any unit present to return a unitless number
  */
-/*------------------------------------*\
-    #Mixins
-\*------------------------------------*/
 /*------------------------------------*\
     #Font sizes
 
@@ -161,17 +166,6 @@ article {
 	@include stack;
 }
  */
-/*------------------------------------*\
-    #Base
-\*------------------------------------*/
-/*------------------------------------*\
-    #Amplify CSS reset
-
-    Inspiration:
-    - https://piccalil.li/blog/a-more-modern-css-reset/
-    - https://www.joshwcomeau.com/css/custom-css-reset/
-    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
-\*------------------------------------*/
 /**
 Wildcard selector means these styles apply everywhere.
 1: Use a more intuitive box-sizing model
@@ -341,6 +335,14 @@ video {
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Body
 
     1. Needed for sticky footer
@@ -358,6 +360,14 @@ body {
   overflow-x: hidden; /* 2 */
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Typography
 
@@ -457,6 +467,14 @@ can safely use the web fonts instead of the system fonts.
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Hide and show items inclusively
 
     References:
@@ -521,6 +539,14 @@ br {
  * placeholder (extend the placeholder with Sass to avoid it appearing
  * repeatedly in your markup).
  */
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Flow elements
 \*------------------------------------*/
@@ -619,6 +645,14 @@ pre code {
   padding: 0;
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Buttons and links
 \*------------------------------------*/
@@ -740,6 +774,14 @@ button[disabled],
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Skip link
 \*------------------------------------*/
 .skip-link.skip-link {
@@ -757,6 +799,14 @@ button[disabled],
   inset-inline-start: 2px;
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Details and summary elements
 \*------------------------------------*/
@@ -800,6 +850,14 @@ details[open] > summary::before {
   transform: rotate(-90deg);
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Icons (assumed to be SVGs)
 
@@ -852,6 +910,14 @@ Use `margin-inline-end` for spacing irrespective of text direction
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Figure
 
     1. Starting text-wrap style is optional and fine to override/remove as required by a design
@@ -862,6 +928,14 @@ figcaption {
   text-wrap: pretty; /* 1 */
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Lists
 
@@ -950,6 +1024,14 @@ dl dd + dd {
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Quotes
 
     1. Starting text-wrap style is optional and fine to override/remove as required by a design
@@ -986,6 +1068,14 @@ blockquote footer {
   margin-block-start: 1rem;
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Tables
 \*------------------------------------*/
@@ -1063,6 +1153,14 @@ Responsive tables:
   }
 }
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Animation
 
     'scroll-shadow-inset' improves visual affordance of horizontally scrolling tables
@@ -1096,6 +1194,14 @@ See https://github.com/mozdevs/cssremedy/issues/11
     box-shadow: inset 10px -10px 15px 0 rgba(0, 0, 0, 0.3);
   }
 }
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Global focus styles incorporating a reset for :focus-visible
 
@@ -1134,6 +1240,14 @@ main:focus,
 
 /*------------------------------------*\
     #Forms
+\*------------------------------------*/
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
 \*------------------------------------*/
 /*------------------------------------*\
     #Forms
@@ -1296,6 +1410,14 @@ main:focus,
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Search
 
     Make sure to apply the `.amplify-form` class directly to the <form> to
@@ -1328,6 +1450,14 @@ main:focus,
   }
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Forms - checkbox and radio inputs
 
@@ -1456,6 +1586,48 @@ main:focus,
 
 /* stylelint-enable no-descending-specificity */
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
+    #Select
+
+    Make sure to apply the `.amplify-form` class directly to the <form> to
+    pick up these styles and try to avoid conflicts with third party form styles
+\*------------------------------------*/
+.amplify-form {
+  /* Make <select> height match Amplify button height (defaults to equivalent of 44px for WCAG AAA) */
+  /* Optional: select with custom icon matching the SVG used for accessible autocomplete */
+}
+.amplify-form select {
+  background-color: inherit;
+  border: 2px solid #8d8d8d;
+  border-radius: 0;
+  inline-size: 100%;
+  padding: 0.3125rem;
+}
+.amplify-form select:not([multiple]) {
+  min-block-size: 2.75rem;
+}
+@supports ((-webkit-appearance: none) or (appearance: none)) {
+  .amplify-form select:not([multiple]) {
+    -webkit-appearance: none;
+            appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z' fill='currentColor'/%3E%3C/svg%3E");
+    background-position: center right 0.3125rem;
+    background-repeat: no-repeat;
+    padding-inline-end: 2.125rem;
+  }
+  .amplify-form [dir=rtl] select:not([multiple]) {
+    background-position: center left 0.3125rem;
+  }
+}
+
+/*------------------------------------*\
     #Memorable dates (e.g. date of birth)
 
     Make sure to apply the `.amplify-form` class directly to the <form> to
@@ -1469,6 +1641,14 @@ main:focus,
   margin-inline-start: 1rem;
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Forms - segmented options
 
@@ -1571,41 +1751,15 @@ main:focus,
 }
 
 /*------------------------------------*\
-    #Select
-
-    Make sure to apply the `.amplify-form` class directly to the <form> to
-    pick up these styles and try to avoid conflicts with third party form styles
-\*------------------------------------*/
-.amplify-form {
-  /* Make <select> height match Amplify button height (defaults to equivalent of 44px for WCAG AAA) */
-  /* Optional: select with custom icon matching the SVG used for accessible autocomplete */
-}
-.amplify-form select {
-  background-color: inherit;
-  border: 2px solid #8d8d8d;
-  border-radius: 0;
-  inline-size: 100%;
-  padding: 0.3125rem;
-}
-.amplify-form select:not([multiple]) {
-  min-block-size: 2.75rem;
-}
-@supports ((-webkit-appearance: none) or (appearance: none)) {
-  .amplify-form select:not([multiple]) {
-    -webkit-appearance: none;
-            appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z' fill='currentColor'/%3E%3C/svg%3E");
-    background-position: center right 0.3125rem;
-    background-repeat: no-repeat;
-    padding-inline-end: 2.125rem;
-  }
-  .amplify-form [dir=rtl] select:not([multiple]) {
-    background-position: center left 0.3125rem;
-  }
-}
-
-/*------------------------------------*\
     #Layout helpers
+\*------------------------------------*/
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
 \*------------------------------------*/
 /*------------------------------------*\
     #Box layout helper
@@ -1638,6 +1792,14 @@ main:focus,
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Center layout helper
 
     From https://absolutely.every-layout.dev/layouts/center/
@@ -1656,6 +1818,14 @@ main:focus,
   padding-inline: 5vw;
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Cover layout helper
 
@@ -1697,6 +1867,14 @@ disturbing the vertically centered element.
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Cluster layout helper
 
     From https://absolutely.every-layout.dev/layouts/cluster/
@@ -1733,6 +1911,14 @@ out, but halve it to to account for 'doubling up' at the edges.
   margin: 0.625rem;
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Frame layout helper
 
@@ -1793,6 +1979,14 @@ out, but halve it to to account for 'doubling up' at the edges.
   padding-block-end: 100%;
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Sidebar layout helper
 
@@ -1880,6 +2074,14 @@ media query.
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Switcher layout helper
 
     Uses this to switch between vertical and horizontal layouts:
@@ -1925,10 +2127,34 @@ min-inline-size, so that either of these properties is applied instead.
     #Core components
 \*------------------------------------*/
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Global header
 \*------------------------------------*/
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Logo
+\*------------------------------------*/
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
 \*------------------------------------*/
 /*------------------------------------*\
     #Navigation core
@@ -1957,6 +2183,14 @@ nav ul * + * {
   outline-width: 0; /* 2 */
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Breadcrumbs
     See: https://scottaohara.github.io/a11y_breadcrumbs/
@@ -2019,6 +2253,14 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Main
 \*------------------------------------*/
 /**
@@ -2046,12 +2288,28 @@ main,
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Text component
 \*------------------------------------*/
 .component--text > * {
   max-inline-size: 41.25rem;
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Quotes
 \*------------------------------------*/
@@ -2077,6 +2335,14 @@ main,
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Image component
 \*------------------------------------*/
 .component--image {
@@ -2097,6 +2363,14 @@ main,
   padding-block: 0.625rem;
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Avatars
 \*------------------------------------*/
@@ -2125,6 +2399,14 @@ main,
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Video component
 \*------------------------------------*/
 .component--video figcaption {
@@ -2142,6 +2424,14 @@ main,
   padding-block: 0.625rem;
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Notes
 \*------------------------------------*/
@@ -2193,6 +2483,14 @@ main,
   color: #605111;
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Cards
 
@@ -2258,6 +2556,14 @@ main,
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Shelves
     (Used for organising groups of cards, etc.)
 \*------------------------------------*/
@@ -2301,6 +2607,14 @@ main,
   }
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Progress bar
 
@@ -2439,6 +2753,14 @@ main,
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Tag list
 
     1. High contrast themes tend to eliminate background-color, so we need a border
@@ -2471,6 +2793,14 @@ main,
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Collapsible sections
 
     1. Restrict line-length for readability
@@ -2502,6 +2832,14 @@ main,
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Carousel - no-js customisation of Splide
 \*------------------------------------*/
 /*
@@ -2518,6 +2856,14 @@ main,
   margin-top: 1rem;
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Search
 \*------------------------------------*/
@@ -2541,6 +2887,14 @@ main,
   min-inline-size: 70%;
 }
 
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
 /*------------------------------------*\
     #Pagination
 
@@ -2588,6 +2942,14 @@ main,
 }
 
 /*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
+\*------------------------------------*/
+/*------------------------------------*\
     #Global footer
 
     1. Needed for sticky footer
@@ -2634,6 +2996,14 @@ main,
     #Amplify
 
     1. Used purely for the static Amplify site
+\*------------------------------------*/
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
 \*------------------------------------*/
 /*------------------------------------*\
     #Amplify guide
@@ -2777,6 +3147,14 @@ main,
 /* 1 */
 /*------------------------------------*\
     #Utilities
+\*------------------------------------*/
+/*------------------------------------*\
+    #Amplify CSS reset
+
+    Inspiration:
+    - https://piccalil.li/blog/a-more-modern-css-reset/
+    - https://www.joshwcomeau.com/css/custom-css-reset/
+    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
 \*------------------------------------*/
 /*------------------------------------*\
     #Alignment utilities

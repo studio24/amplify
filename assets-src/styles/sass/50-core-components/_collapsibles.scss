@@ -3,6 +3,8 @@
 
     1. Restrict line-length for readability
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .component--collapsibles {
 	@include stack;

@@ -1,6 +1,8 @@
 /*------------------------------------*\
     #Main
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 /**
 1. We use left and right padding to add some minimum space between the

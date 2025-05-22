@@ -2,6 +2,8 @@
     #Breadcrumbs
     See: https://scottaohara.github.io/a11y_breadcrumbs/
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .breadcrumbs {
 	padding-block: rem(10) rem(15);

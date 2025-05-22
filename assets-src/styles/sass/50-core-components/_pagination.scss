@@ -4,6 +4,8 @@
     1. Centre the content until it wraps onto more than one line, at which point it’s no longer centred.
     See https://meyerweb.com/eric/thoughts/2022/04/26/flexibly-centering-an-element-with-side-aligned-content/
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .pagination {
 	margin-block-start: rem(40);

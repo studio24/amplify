@@ -1,6 +1,8 @@
 /*------------------------------------*\
     #Tables
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 table {
     border: 1px solid $border-color;
