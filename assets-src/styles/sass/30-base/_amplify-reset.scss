@@ -6,6 +6,8 @@
     - https://www.joshwcomeau.com/css/custom-css-reset/
     - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 /**
 Wildcard selector means these styles apply everywhere.

@@ -1,6 +1,8 @@
 /*------------------------------------*\
     #S24 tabby overrides
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .component--tabs [role="tablist"] {
 	border-bottom: solid 1px $neutral-30;

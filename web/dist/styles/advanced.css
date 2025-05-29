@@ -1,6 +1,14 @@
 @charset "UTF-8";
 /*------------------------------------*\
-    #Amplify: advanced styles for browsers selected by mustard cut
+    #Amplify: advanced styles (browsers selected by mustard cut)
+\*------------------------------------*/
+/*------------------------------------*\
+    #Advanced components
+
+    For JS enhancements
+\*------------------------------------*/
+/*------------------------------------*\
+    #Cards advanced
 \*------------------------------------*/
 /*------------------------------------*\
     #Settings
@@ -65,9 +73,6 @@ When Font Face Observer has detected that the @font-face files are loaded, then 
 can safely use the web fonts instead of the system fonts.
  */
 /*------------------------------------*\
-    #Functions
-\*------------------------------------*/
-/*------------------------------------*\
     #CSS unit functions
 \*------------------------------------*/
 /**
@@ -85,9 +90,6 @@ can safely use the web fonts instead of the system fonts.
 /**
  #Remove any unit present to return a unitless number
  */
-/*------------------------------------*\
-    #Mixins
-\*------------------------------------*/
 /*------------------------------------*\
     #Font sizes
 
@@ -126,84 +128,6 @@ article {
 	@include stack;
 }
  */
-/*------------------------------------*\
-    #Base
-
-    Repeated to allow for extending placeholders
-\*------------------------------------*/
-/*------------------------------------*\
-    #Hide and show items inclusively
-
-    References:
-    - https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
-    - https://www.tpgi.com/the-anatomy-of-visually-hidden/
-\*------------------------------------*/
-/*
- * Hide from everybody and remove from the document flow, using the hidden
- * attribute.
- *
- * Use if a component should remain hidden regardless of CSS being
- * available or not (the style below provides support for legacy browsers).
- */
-[hidden] {
-  display: none !important;
-}
-
-/*
- * Hide from everybody and remove from the document flow, using the %hidden
- * placeholder (extend the placeholder with Sass to avoid it appearing
- * repeatedly in your markup).
- *
- * Use if a component requires a basic show and hide interaction, and the
- * content should become available were CSS to fail.
- */
-/*
- * Hide from everybody while maintaining layout, using the %invisible
- * placeholder (extend the placeholder with Sass to avoid it appearing
- * repeatedly in your markup).
- *
- * Use if a more complex transition is required, like when transitioning an
- * off-screen navigation into the viewport. Best paired with other CSS
- * properties that negate its position in the DOM e.g. `position: absolute;`
- */
-/*
- * Hide visually only - remains available to Assistive Technology -
- * using the %visually-hidden placeholder (extend the placeholder with
- * Sass to avoid it appearing repeatedly in your markup).
- */
-.visuallyhidden:not(:focus, :active) {
-  block-size: 1px;
-  border: 0;
-  -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
-  inline-size: 1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-}
-
-/*
- *The :not portions of the following selector allow a means for any
- * focusable element to become visible when focused/active by a user.
- */
-br {
-  margin-block-start: 0;
-}
-
-/*
- * Restore an element that has been visually hidden, using the %visually-hidden
- * placeholder (extend the placeholder with Sass to avoid it appearing
- * repeatedly in your markup).
- */
-/*------------------------------------*\
-    #Advanced components
-
-    For JS enhancements
-\*------------------------------------*/
-/*------------------------------------*\
-    #Cards advanced
-\*------------------------------------*/
 .js [data-component=card] {
   cursor: pointer;
 }
@@ -619,10 +543,10 @@ amplify-table-sort col.js-sorted {
 
 /* stylelint-enable no-descending-specificity */
 /*------------------------------------*\
-    #Plugins
-
-    Add third-party plugins here.
-    Add custom styles directly after the original in a separate file
+    #Vendors (src styles)
+\*------------------------------------*/
+/*------------------------------------*\
+    #Accessible autocomplete
 \*------------------------------------*/
 .autocomplete__wrapper {
   position: relative;
@@ -789,6 +713,226 @@ amplify-table-sort col.js-sorted {
   }
 }
 /*------------------------------------*\
+    #Splide carousel
+\*------------------------------------*/
+@keyframes splide-loading {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.splide__track--draggable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.splide__track--fade > .splide__list > .splide__slide {
+  margin: 0 !important;
+  opacity: 0;
+  z-index: 0;
+}
+.splide__track--fade > .splide__list > .splide__slide.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.splide--rtl {
+  direction: rtl;
+}
+
+.splide__track--ttb > .splide__list {
+  display: block;
+}
+
+.splide__container {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.splide__list {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  display: flex;
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.splide.is-initialized:not(.is-active) .splide__list {
+  display: block;
+}
+
+.splide__pagination {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  pointer-events: none;
+}
+.splide__pagination li {
+  display: inline-block;
+  line-height: 1;
+  list-style-type: none;
+  margin: 0;
+  pointer-events: auto;
+}
+.splide:not(.is-overflow) .splide__pagination {
+  display: none;
+}
+
+.splide__progress__bar {
+  width: 0;
+}
+
+.splide {
+  position: relative;
+  visibility: hidden;
+}
+.splide.is-initialized, .splide.is-rendered {
+  visibility: visible;
+}
+
+.splide__slide {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  list-style-type: none !important;
+  margin: 0;
+  position: relative;
+}
+.splide__slide img {
+  vertical-align: bottom;
+}
+
+.splide__spinner {
+  animation: splide-loading 1s infinite linear;
+  border: 2px solid #999;
+  border-left-color: transparent;
+  border-radius: 50%;
+  bottom: 0;
+  contain: strict;
+  display: inline-block;
+  height: 20px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20px;
+}
+
+.splide__sr {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.splide__toggle__pause {
+  display: none;
+}
+.splide__toggle.is-active .splide__toggle__play {
+  display: none;
+}
+.splide__toggle.is-active .splide__toggle__pause {
+  display: inline;
+}
+
+.splide__track {
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+/*------------------------------------*\
+    #Tabby - tabbed UI
+\*------------------------------------*/
+/**
+ * The tablist
+ */
+[role=tablist] {
+  border-bottom: 1px solid rgb(211.15, 211.15, 211.15);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+[role=tablist] * {
+  box-sizing: border-box;
+}
+
+/**
+ * The tablist item
+ */
+@media (min-width: 30em) {
+  [role=tablist] li {
+    display: inline-block;
+  }
+}
+
+/**
+ * The tabs
+ */
+[role=tab] {
+  border: 1px solid transparent;
+  border-top-color: rgb(211.15, 211.15, 211.15);
+  display: block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  /**
+   * Active tab styling
+   */
+  /**
+   * Tabs on hover
+   */
+}
+@media (min-width: 30em) {
+  [role=tab] {
+    border-top-color: transparent;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    display: inline-block;
+    margin-bottom: -1px;
+  }
+}
+[role=tab][aria-selected=true] {
+  background-color: rgb(211.15, 211.15, 211.15);
+}
+@media (min-width: 30em) {
+  [role=tab][aria-selected=true] {
+    background-color: transparent;
+    border: 1px solid rgb(211.15, 211.15, 211.15);
+    border-bottom-color: #ffffff;
+  }
+}
+[role=tab]:hover:not([aria-selected=true]) {
+  background-color: #f7f7f7;
+}
+@media (min-width: 30em) {
+  [role=tab]:hover:not([aria-selected=true]) {
+    border: 1px solid rgb(211.15, 211.15, 211.15);
+  }
+}
+
+/**
+ * [hidden] fallback for IE10 and lower
+ */
+[hidden] {
+  display: none;
+}
+
+/*------------------------------------*\
+    #Vendor overrides for Amplify
+\*------------------------------------*/
+/*------------------------------------*\
     #S24 accessible autocomplete overrides
 \*------------------------------------*/
 .autocomplete__hint,
@@ -868,152 +1012,6 @@ amplify-table-sort col.js-sorted {
     line-height: 1.25;
   }
 }
-@keyframes splide-loading {
-  0% {
-    transform: rotateZ(0);
-  }
-  100% {
-    transform: rotateZ(360deg);
-  }
-}
-.splide__track--draggable {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.splide__track--fade > .splide__list > .splide__slide {
-  margin: 0 !important;
-  opacity: 0;
-  z-index: 0;
-}
-
-.splide__track--fade > .splide__list > .splide__slide.is-active {
-  opacity: 1;
-  z-index: 1;
-}
-
-.splide--rtl {
-  direction: rtl;
-}
-
-.splide__track--ttb > .splide__list {
-  display: block;
-}
-
-.splide__container {
-  box-sizing: border-box;
-  position: relative;
-}
-
-.splide__list {
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  display: flex;
-  height: 100%;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.splide.is-initialized:not(.is-active) .splide__list {
-  display: block;
-}
-
-.splide__pagination {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0;
-  pointer-events: none;
-}
-
-.splide__pagination li {
-  display: inline-block;
-  line-height: 1;
-  list-style-type: none;
-  margin: 0;
-  pointer-events: auto;
-}
-
-.splide:not(.is-overflow) .splide__pagination {
-  display: none;
-}
-
-.splide__progress__bar {
-  width: 0;
-}
-
-.splide {
-  position: relative;
-  visibility: hidden;
-}
-
-.splide.is-initialized, .splide.is-rendered {
-  visibility: visible;
-}
-
-.splide__slide {
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  box-sizing: border-box;
-  flex-shrink: 0;
-  list-style-type: none !important;
-  margin: 0;
-  position: relative;
-}
-
-.splide__slide img {
-  vertical-align: bottom;
-}
-
-.splide__spinner {
-  animation: splide-loading 1s infinite linear;
-  border: 2px solid #999;
-  border-left-color: transparent;
-  border-radius: 50%;
-  bottom: 0;
-  contain: strict;
-  display: inline-block;
-  height: 20px;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 20px;
-}
-
-.splide__sr {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.splide__toggle__pause {
-  display: none;
-}
-
-.splide__toggle.is-active .splide__toggle__play {
-  display: none;
-}
-
-.splide__toggle.is-active .splide__toggle__pause {
-  display: inline;
-}
-
-.splide__track {
-  overflow: hidden;
-  position: relative;
-  z-index: 0;
-}
-
 /*------------------------------------*\
     #S24 customisation of Splide carousel
 \*------------------------------------*/
@@ -1083,79 +1081,6 @@ amplify-table-sort col.js-sorted {
 .splide__pagination__page[aria-selected=true]::after {
   background-color: transparent;
   border: solid 2px #1371c2;
-}
-
-/**
- * The tablist
- */
-[role=tablist] {
-  border-bottom: 1px solid rgb(211.15, 211.15, 211.15);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-[role=tablist] * {
-  box-sizing: border-box;
-}
-
-/**
- * The tablist item
- */
-@media (min-width: 30em) {
-  [role=tablist] li {
-    display: inline-block;
-  }
-}
-
-/**
- * The tabs
- */
-[role=tab] {
-  border: 1px solid transparent;
-  border-top-color: rgb(211.15, 211.15, 211.15);
-  display: block;
-  padding: 0.5em 1em;
-  text-decoration: none;
-  /**
-   * Active tab styling
-   */
-  /**
-   * Tabs on hover
-   */
-}
-@media (min-width: 30em) {
-  [role=tab] {
-    border-top-color: transparent;
-    border-top-left-radius: 0.5em;
-    border-top-right-radius: 0.5em;
-    display: inline-block;
-    margin-bottom: -1px;
-  }
-}
-[role=tab][aria-selected=true] {
-  background-color: rgb(211.15, 211.15, 211.15);
-}
-@media (min-width: 30em) {
-  [role=tab][aria-selected=true] {
-    background-color: transparent;
-    border: 1px solid rgb(211.15, 211.15, 211.15);
-    border-bottom-color: #ffffff;
-  }
-}
-[role=tab]:hover:not([aria-selected=true]) {
-  background-color: #f7f7f7;
-}
-@media (min-width: 30em) {
-  [role=tab]:hover:not([aria-selected=true]) {
-    border: 1px solid rgb(211.15, 211.15, 211.15);
-  }
-}
-
-/**
- * [hidden] fallback for IE10 and lower
- */
-[hidden] {
-  display: none;
 }
 
 /*------------------------------------*\

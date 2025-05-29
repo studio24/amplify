@@ -1,6 +1,9 @@
 /*------------------------------------*\
     #Skip link
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
+@use 'hide-and-show' as *;
 
 .skip-link.skip-link {
 	@extend .visuallyhidden;

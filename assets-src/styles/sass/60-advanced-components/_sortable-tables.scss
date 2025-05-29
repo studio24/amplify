@@ -1,6 +1,8 @@
 /*------------------------------------*\
     #Sortable table
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 amplify-table-sort .arrow-wrapper {
 	display: flex;

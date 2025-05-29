@@ -1,6 +1,8 @@
 /*------------------------------------*\
     #S24 accessible autocomplete overrides
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .autocomplete__hint,
 .autocomplete__input {

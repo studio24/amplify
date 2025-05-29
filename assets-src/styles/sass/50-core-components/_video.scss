@@ -1,6 +1,8 @@
 /*------------------------------------*\
     #Video component
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .component--video {
 	figcaption {

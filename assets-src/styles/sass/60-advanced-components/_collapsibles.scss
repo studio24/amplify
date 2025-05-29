@@ -1,6 +1,8 @@
 /*------------------------------------*\
     #Collapsible sections advanced
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .js .component--collapsibles__panel {
 	padding: 0;

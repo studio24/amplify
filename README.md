@@ -206,4 +206,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 ## Acknowledgements
 
-Inspired by [Springer Nature Front End Playbook](https://github.com/springernature/frontend-playbook), [Every Layout](https://every-layout.dev/) and [CUBE CSS](https://cube.fyi/)
+Inspired by [Springer Nature Front End Playbook](https://github.com/springernature/frontend-playbook), [Every Layout](https://every-layout.dev/), [CUBE CSS](https://cube.fyi/) and the work of [Chris Ferdinandi](https://gomakethings.com/)

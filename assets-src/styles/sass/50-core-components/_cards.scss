@@ -5,6 +5,8 @@
     so we need to prevent things like buttons and links
     from stretching horizontally
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .card {
 	background-color: $off-white;

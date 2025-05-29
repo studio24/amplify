@@ -8,6 +8,8 @@
 
     N.B. aria-expanded attribute is managed by JS
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .js .global-nav {
     // Make the <button> the target for click events, not any child elements - e.g. <svg>, <span>

@@ -5,6 +5,8 @@
     2. Make SVG using currentColor pick up correct Windows High Contrast Mode color
     See: https://www.smashingmagazine.com/2022/06/guide-windows-high-contrast-mode/
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 /**
 Icons are sized relative to font size, thanks to the em unit.

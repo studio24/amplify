@@ -11,6 +11,8 @@
     layout within `.l-cover`, or with the `.u-center` utility found in
     /90-utilities/layout
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .l-cover {
 	display: flex;

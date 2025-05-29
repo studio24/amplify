@@ -3,6 +3,8 @@
 
     Typically used on multi-step forms
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .progress-list {
 	margin-block-end: rem(30);

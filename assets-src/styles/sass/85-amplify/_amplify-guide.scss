@@ -3,6 +3,8 @@
 
     Used purely for the static Amplify site
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .amplify .global-header {
 	background-color: $off-black;

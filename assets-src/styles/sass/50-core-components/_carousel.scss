@@ -1,6 +1,8 @@
 /*------------------------------------*\
     #Carousel - no-js customisation of Splide
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 /*
  Splide hides the entire carousel if there is no JS.

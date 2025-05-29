@@ -1,86 +1,5 @@
 /*------------------------------------*\
-    #Apollo: print styles
-\*------------------------------------*/
-/*------------------------------------*\
-    #Settings
-\*------------------------------------*/
-/*------------------------------------*\
-    #Fonts
-\*------------------------------------*/
-/* nunito-regular - latin */
-@font-face {
-  font-display: fallback;
-  font-family: Nunito;
-  font-style: normal;
-  font-weight: 400;
-  src: local(""), url("../fonts/nunito-v20-latin-regular.woff2") format("woff2"), url("../fonts/nunito-v20-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* nunito-700 - latin */
-@font-face {
-  font-display: fallback;
-  font-family: Nunito;
-  font-style: normal;
-  font-weight: 700;
-  src: local(""), url("../fonts/nunito-v20-latin-700.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* nunito-italic - latin */
-@font-face {
-  font-display: fallback;
-  font-family: Nunito;
-  font-style: italic;
-  font-weight: 400;
-  src: local(""), url("../fonts/nunito-v20-latin-italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* nunito-700italic - latin */
-@font-face {
-  font-display: fallback;
-  font-family: Nunito;
-  font-style: italic;
-  font-weight: 700;
-  src: local(""), url("../fonts/nunito-v20-latin-700italic.woff2") format("woff2"), url("../fonts/nunito-v20-latin-700italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/*------------------------------------*\
-    #Typesetting
-\*------------------------------------*/
-/**
-Use https://www.cssfontstack.com/ and https://meowni.ca/font-style-matcher/ to pick
-system fonts that are reasonably close to any web fonts needed for the project.
-
-This improves performance, avoids Flash Of Invisible Text (FOIT) and minimises
-Flash of Unstyled Text (FOUT) - see https://www.filamentgroup.com/lab/font-events.html
-
-Be sure to include fonts for both Mac OS and Windows. Use quote marks around
-fonts with white space in their name.
-
-When Font Face Observer has detected that the @font-face files are loaded, then we
-can safely use the web fonts instead of the system fonts.
- */
-/*------------------------------------*\
-    #Mixins
-\*------------------------------------*/
-/*------------------------------------*\
-    #Stack
-\*------------------------------------*/
-/**
-This mixin allows us to add vertical spacing between a container's direct children,
-much like the 'axiomatic owl' technique but limited to specific use cases.
-
-By applying Flexbox to the parent container, we can use auto margin on a specific
-child element. This way, we can choose to group elements inside the stack to the
-top/bottom of the vertical space, which is useful for card-like components.
-
-Use with a specific measure, or without for the default measure, e.g.
-
-main {
-	@include stack(4rem);
-}
-
-article {
-	@include stack;
-}
- */
-/*------------------------------------*\
-    #Base
+    #Amplify: print styles
 \*------------------------------------*/
 /**
 * Print stylesheet
@@ -101,6 +20,68 @@ be checked using the print preview in Chrome/Firefox:
 
 https://css-tricks.com/can-you-view-print-stylesheets-applied-directly-in-the-browser/
 */
+/*------------------------------------*\
+    #Settings
+\*------------------------------------*/
+/*------------------------------------*\
+    #Breakpoints
+
+    The measurements presented here are for guidance only
+    and should be updated to reflect the design/content needs.
+
+    1. Sets a max-inline-size for improved readability
+\*------------------------------------*/
+/* 1 */
+/*------------------------------------*\
+    #Colors
+
+    Review and edit these default colours, then add further colors
+    as required for your project.
+
+    The ideal color contrast range for meeting WCAG AAA is 7:1 - 15:1
+
+    1. A contrast higher than 15:1 can be triggering, which is why we
+    avoid using pure white with pure black.
+\*------------------------------------*/
+/**
+Brand
+ */
+/**
+Accent
+ */
+/**
+Neutrals
+ */
+/* 1 */
+/* 1 */
+/**
+Links
+ */
+/**
+Focus
+ */
+/**
+Borders
+ */
+/**
+Semantics - used sparingly and purposefully
+ */
+/*------------------------------------*\
+    #Typesetting
+\*------------------------------------*/
+/**
+Use https://www.cssfontstack.com/ and https://meowni.ca/font-style-matcher/ to pick
+system fonts that are reasonably close to any web fonts needed for the project.
+
+This improves performance, avoids Flash Of Invisible Text (FOIT) and minimises
+Flash of Unstyled Text (FOUT) - see https://www.filamentgroup.com/lab/font-events.html
+
+Be sure to include fonts for both Mac OS and Windows. Use quote marks around
+fonts with white space in their name.
+
+When Font Face Observer has detected that the @font-face files are loaded, then we
+can safely use the web fonts instead of the system fonts.
+ */
 @page {
   /*
   Use PA4 (L4) transitional paper size, with a 2cm margin:

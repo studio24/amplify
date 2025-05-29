@@ -17,6 +17,7 @@ be checked using the print preview in Chrome/Firefox:
 
 https://css-tricks.com/can-you-view-print-stylesheets-applied-directly-in-the-browser/
 */
+@use '../10-settings' as *;
 
 @page {
 	/*

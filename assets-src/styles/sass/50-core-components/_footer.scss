@@ -12,6 +12,8 @@
    not set to visible (e.g. carousels) if used within the sidebar layout.
 
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .global-footer {
 	grid-row: 2 / 3; /* 1 */

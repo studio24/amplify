@@ -1,6 +1,8 @@
 /*------------------------------------*\
     #Text component
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .component--text > * {
 	// Restrict line-length for readability

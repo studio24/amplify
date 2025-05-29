@@ -1,6 +1,8 @@
 /*------------------------------------*\
     #Search
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .l-sidebar.search {
 	overflow: visible;

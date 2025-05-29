@@ -1,6 +1,8 @@
 /*------------------------------------*\
     #Details and summary elements
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 summary {
 	color: $link-color;

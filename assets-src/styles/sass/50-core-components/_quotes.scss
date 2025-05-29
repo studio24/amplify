@@ -1,6 +1,8 @@
 /*------------------------------------*\
     #Quotes
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .component--quote {
 	margin-inline: 0;

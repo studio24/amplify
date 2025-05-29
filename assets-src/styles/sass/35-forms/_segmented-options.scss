@@ -8,6 +8,8 @@
 
     1. Modify this percentage according to the number of choices and what looks best
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 .amplify-form {
     .segmented-group-wrapper {

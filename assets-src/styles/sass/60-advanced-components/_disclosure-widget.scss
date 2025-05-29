@@ -1,6 +1,8 @@
 /*------------------------------------*\
     #Disclosure widget
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 [data-toggle="true"] {
 	svg {

@@ -1,6 +1,8 @@
 /*------------------------------------*\
     #S24 customisation of Splide carousel
 \*------------------------------------*/
+@use '../10-settings' as *;
+@use '../20-tools' as *;
 
 // Space for pagination - using margin so next/previous buttons are vertically centred
 // Use double the top margin of .component + .component to account for collapsing margins
