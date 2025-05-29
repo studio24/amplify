@@ -1,5 +1,16 @@
 # Changelog
 
+## [9.0.0](https://github.com/studio24/amplify/compare/v8.0.0...v9.0.0) (2025-05-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* Modify Amplify to use Sass module system
+
+### Bug Fixes
+
+* Modify Amplify to use Sass module system ([1c3239e](https://github.com/studio24/amplify/commit/1c3239eaf0a47c70a4f37d0ed0089e30842b1251))
+
 ## [8.0.0](https://github.com/studio24/amplify/compare/v7.0.1...v8.0.0) (2025-05-21)
 
 
