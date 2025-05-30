@@ -1884,14 +1884,6 @@ we align items within the cluster by using 'align-items` and `justify-content`.
 }
 
 /*------------------------------------*\
-    #Amplify CSS reset
-
-    Inspiration:
-    - https://piccalil.li/blog/a-more-modern-css-reset/
-    - https://www.joshwcomeau.com/css/custom-css-reset/
-    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
-\*------------------------------------*/
-/*------------------------------------*\
     #Frame layout helper
 
     From https://absolutely.every-layout.dev/layouts/frame/
@@ -1904,51 +1896,25 @@ we align items within the cluster by using 'align-items` and `justify-content`.
     Instead, place it on <picture> or a <div> inside of <figure>.
 \*------------------------------------*/
 .l-frame {
-  display: block;
-  overflow: hidden;
-  position: relative;
-}
-
-.l-frame > * {
+  --_frame-x: var(--frame-x, 16);
+  --_frame-y: var(--frame-y, 9);
   align-items: center;
+  aspect-ratio: var(--_frame-x)/var(--_frame-y);
   display: flex;
-  inset-block: 0;
-  inset-inline: 0;
   justify-content: center;
-  position: absolute;
+  overflow: hidden;
 }
 
-.l-frame > iframe,
-.l-frame > img,
-.l-frame > video {
+.l-frame :is(iframe, img, video) {
   block-size: 100%;
   inline-size: 100%;
-}
-
-.l-frame > iframe {
-  border: 0;
-}
-
-.l-frame > img,
-.l-frame > video {
   object-fit: cover;
 }
 
-/* Common aspect ratios */
-.l-frame--16-9 {
-  padding-block-end: 56.25%;
-}
-
-.l-frame--3-2 {
-  padding-block-end: 66.67%;
-}
-
-.l-frame--4-3 {
-  padding-block-end: 75%;
-}
-
-.l-frame--square {
-  padding-block-end: 100%;
+.l-frame[data-shape=circle] {
+  --frame-x: 1;
+  --frame-y: 1;
+  border-radius: 50%;
 }
 
 /*------------------------------------*\
