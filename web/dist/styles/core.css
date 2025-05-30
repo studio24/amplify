@@ -1860,14 +1860,6 @@ disturbing the vertically centered element.
 }
 
 /*------------------------------------*\
-    #Amplify CSS reset
-
-    Inspiration:
-    - https://piccalil.li/blog/a-more-modern-css-reset/
-    - https://www.joshwcomeau.com/css/custom-css-reset/
-    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
-\*------------------------------------*/
-/*------------------------------------*\
     #Cluster layout helper
 
     From https://absolutely.every-layout.dev/layouts/cluster/
@@ -1878,30 +1870,15 @@ disturbing the vertically centered element.
     spacing between elements.
 \*------------------------------------*/
 /**
-Suppress horizontal scrolling caused by the negative margin
-in some circumstances.
+We use flexbox to configure the elements into clusters without creating
+white space. The gap property specifies the spacing. We can control how
+we align items within the cluster by using 'align-items` and `justify-content`.
  */
 .l-cluster {
-  overflow: hidden;
-}
-
-/**
-We use flexbox to configure the elements into clusters without creating
-white space. We can control how we align items within the cluster,
-by using 'align-items` and `justify-content`.
- */
-.l-cluster > * {
+  --_cluster-gap: var(--cluster-gap, 1.25rem);
   display: flex;
   flex-flow: row wrap;
-  margin: -0.625rem;
-}
-
-/**
-We apply an even, symmetrical margin to the elements that we wish to space
-out, but halve it to to account for 'doubling up' at the edges.
- */
-.l-cluster.l-cluster > * > * {
-  margin: 0.625rem;
+  gap: var(--_cluster-gap);
 }
 
 /*------------------------------------*\
@@ -2189,37 +2166,18 @@ nav ul * + * {
     See: https://scottaohara.github.io/a11y_breadcrumbs/
 \*------------------------------------*/
 .breadcrumbs {
+  --cluster-gap: 0;
   padding-block: 0.625rem 0.9375rem;
-}
-.breadcrumbs .l-cluster > * {
-  margin: 0;
-}
-.breadcrumbs .l-cluster > * > * {
-  margin-block: 0;
-  margin-inline: 0;
-  padding-inline: 0 2em;
-  position: relative;
 }
 
 .breadcrumbs ol ::marker {
   content: "" !important;
 }
 
-.breadcrumbs a {
-  color: #252525;
-  display: block;
-  padding-block: 0.3125rem;
-}
-.breadcrumbs a:visited, .breadcrumbs a:hover, .breadcrumbs a:active {
-  color: #252525;
-}
-
-.breadcrumbs [aria-current] {
-  font-weight: 600;
-  text-decoration: none;
-}
-.breadcrumbs [aria-current]:focus {
-  outline-color: #252525;
+.breadcrumbs li {
+  margin: 0;
+  padding-inline: 0 2em;
+  position: relative;
 }
 
 /**
@@ -2243,6 +2201,23 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 
 [dir=rtl] .breadcrumbs li:not(:last-child)::after {
   transform: rotate(-45deg) translateY(-50%);
+}
+
+.breadcrumbs a {
+  color: #252525;
+  display: block;
+  padding-block: 0.3125rem;
+}
+.breadcrumbs a:visited, .breadcrumbs a:hover, .breadcrumbs a:active {
+  color: #252525;
+}
+
+.breadcrumbs [aria-current] {
+  font-weight: 600;
+  text-decoration: none;
+}
+.breadcrumbs [aria-current]:focus {
+  outline-color: #252525;
 }
 
 /*------------------------------------*\
@@ -2773,13 +2748,6 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
     2. Meet WCAG AAA target size requirements for this font size - see
     https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
 \*------------------------------------*/
-.tag-list.tag-list {
-  margin: -0.625rem;
-}
-.tag-list.tag-list li {
-  margin: 0.625rem;
-}
-
 .tag {
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
@@ -2909,14 +2877,6 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   margin-inline: auto; /* 1 */
   max-inline-size: -webkit-max-content;
   max-inline-size: max-content; /* 1 */
-}
-
-.l-cluster.pagination > * {
-  margin-block: 0;
-}
-
-.l-cluster.pagination > * > * {
-  margin-block: 0;
 }
 
 .pagination__list a {

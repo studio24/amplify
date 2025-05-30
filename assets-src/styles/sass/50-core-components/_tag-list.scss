@@ -11,15 +11,6 @@
 @use '../10-settings' as *;
 @use '../20-tools' as *;
 
-.tag-list.tag-list {
-	margin: rem(-10);
-
-	li {
-		margin: rem(10);
-	}
-
-}
-
 .tag {
 	@include text-17;
 
