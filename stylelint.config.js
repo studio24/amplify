@@ -12,6 +12,9 @@
  * A custom regex-based rule has been added to allow classes using BEM syntax.
  * Modified from https://github.com/humanmade/coding-standards/issues/193#issuecomment-1405099508
  * to support our BEM implementation (which is a bit less strict than some)
+ *
+ * A custom regex-based rule has been added to allow using _ to create pseudo private CSS custom properties
+ * Based on https://stackoverflow.com/questions/76501969/need-a-custom-stylelint-rule-or-plugin-that-keeps-kebab-case-but-allows-wp
  * */
 export default {
 	extends: ["stylelint-config-standard-scss"],
@@ -20,6 +23,7 @@ export default {
 		/** Disabled rules */
 		"color-hex-length": null,
 		"comment-whitespace-inside": null,
+		"no-duplicate-selectors": null,
 		"scss/at-extend-no-missing-placeholder": null,
 		"scss/dollar-variable-colon-space-after": null,
 		"scss/dollar-variable-empty-line-before": null,
@@ -49,6 +53,11 @@ export default {
 				message: function expected(selectorValue) {
 					return `Expected class selector "${selectorValue}" to match BEM CSS pattern https://en.bem.info/methodology/css. Selector validation tool: https://regexr.com/3apms`;
 				},
+			},
+		],
+		"custom-property-pattern": [
+			"^(_)?([a-z][a-z0-9]*)(-[a-z0-9]+)*$", {
+				message: (name) => `Expected custom property name "${name}" to be kebab-case with an optional "_" for pseudo private custom properties`,
 			},
 		],
 	}
