@@ -1918,14 +1918,6 @@ we align items within the cluster by using 'align-items` and `justify-content`.
 }
 
 /*------------------------------------*\
-    #Amplify CSS reset
-
-    Inspiration:
-    - https://piccalil.li/blog/a-more-modern-css-reset/
-    - https://www.joshwcomeau.com/css/custom-css-reset/
-    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
-\*------------------------------------*/
-/*------------------------------------*\
     #Sidebar layout helper
 
     From https://absolutely.every-layout.dev/layouts/sidebar/
@@ -1943,47 +1935,28 @@ we align items within the cluster by using 'align-items` and `justify-content`.
     the source order of the HTML) to determine whether the sidebar
     sits on the left or right side.
 \*------------------------------------*/
-/**
-Suppress horizontal scrolling caused by the negative margin
-in some circumstances.
- */
 .l-sidebar {
-  overflow: hidden;
-}
-
-/**
-We target the intermediary wrapper and give it a negative margin
-to create a gutter between the `.sidebar` and `.not-sidebar`.
- */
-.l-sidebar > * {
+  --_sidebar-main-width: var(--sidebar-main-width, 60%);
+  --_sidebar-side-width: var(--sidebar-side-width, 15.625rem);
+  --_sidebar-gap: var(--sidebar-gap, 1.25rem);
   display: flex;
-  flex-flow: row wrap;
   flex-wrap: wrap;
-  margin: -0.75rem;
+  gap: var(--_sidebar-gap);
 }
 
 /**
-We apply an even, symmetrical margin to `.sidebar` and `.not-sidebar`,
-but halve it to to account for 'doubling up' at the edges.
- */
-.l-sidebar > * > * {
-  margin: 0.75rem;
-}
-
-/**
-Flex-basis determines the ideal width of the `.sidebar`. This can be
-omitted to let the contents of `.sidebar` determine the width of
-`.sidebar` (e.g. an image with a specified max-inline-size).
- */
+Flex-basis determines the ideal width of the `.sidebar`. */
 .l-sidebar .sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  flex-basis: 20rem;
+  flex-basis: var(--_sidebar-side-width);
   flex-grow: 1;
 }
-.l-sidebar .sidebar > * + * {
-  margin-block-start: 1em;
+
+/**
+Unset the flex-basis to let the contents of `.sidebar` determine the width of
+`.sidebar` (e.g. a button, or an image with a set width).
+ */
+.l-sidebar .sidebar--intrinsic {
+  flex-basis: auto;
 }
 
 /**
@@ -1992,23 +1965,9 @@ will sit side-by-side rather than vertically. This negates the use of a viewport
 media query.
  */
 .l-sidebar .not-sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   flex-basis: 0;
   flex-grow: 999;
-  min-inline-size: calc(55% - 1.5rem);
-}
-.l-sidebar .not-sidebar > * + * {
-  margin-block-start: 1em;
-}
-
-.l-sidebar--expanded {
-  inline-size: 100%;
-}
-
-.l-sidebar .sidebar.sidebar--compact {
-  flex-basis: 11.25rem;
+  min-inline-size: var(--_sidebar-main-width);
 }
 
 /*------------------------------------*\
@@ -2807,24 +2766,8 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 /*------------------------------------*\
     #Search
 \*------------------------------------*/
-.l-sidebar.search {
-  overflow: visible;
-}
-
-.l-sidebar.search > * {
-  margin: -0.75rem;
-}
-
-.l-sidebar.search > * > * {
-  margin: 0.75rem;
-}
-
-.l-sidebar.search form .sidebar {
-  flex-basis: auto;
-}
-
-.l-sidebar.search form .not-sidebar {
-  min-inline-size: 70%;
+.search-form {
+  --sidebar-main-width: 70%;
 }
 
 /*------------------------------------*\

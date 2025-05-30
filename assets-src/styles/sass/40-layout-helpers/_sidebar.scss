@@ -16,49 +16,32 @@
     the source order of the HTML) to determine whether the sidebar
     sits on the left or right side.
 \*------------------------------------*/
-@use '../10-settings' as *;
 @use '../20-tools' as *;
 
-/**
-Suppress horizontal scrolling caused by the negative margin
-in some circumstances.
- */
 .l-sidebar {
-	overflow: hidden;
+    --_sidebar-main-width: var(--sidebar-main-width, 60%);
+    --_sidebar-side-width: var(--sidebar-side-width, #{rem(250)});
+    --_sidebar-gap: var(--sidebar-gap, #{rem(20)});
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--_sidebar-gap);
 }
 
 
 /**
-We target the intermediary wrapper and give it a negative margin
-to create a gutter between the `.sidebar` and `.not-sidebar`.
- */
-.l-sidebar > * {
-	display: flex;
-	flex-flow: row wrap;
-	flex-wrap: wrap;
-	margin: -0.75rem;
-}
-
-
-/**
-We apply an even, symmetrical margin to `.sidebar` and `.not-sidebar`,
-but halve it to to account for 'doubling up' at the edges.
- */
-.l-sidebar > * > * {
-	margin: 0.75rem;
-}
-
-
-/**
-Flex-basis determines the ideal width of the `.sidebar`. This can be
-omitted to let the contents of `.sidebar` determine the width of
-`.sidebar` (e.g. an image with a specified max-inline-size).
- */
+Flex-basis determines the ideal width of the `.sidebar`. */
 .l-sidebar .sidebar {
-	@include stack;
+    flex-basis: var(--_sidebar-side-width);
+    flex-grow: 1;
+}
 
-	flex-basis: rem(320);
-	flex-grow: 1;
+/**
+Unset the flex-basis to let the contents of `.sidebar` determine the width of
+`.sidebar` (e.g. a button, or an image with a set width).
+ */
+.l-sidebar .sidebar--intrinsic {
+    flex-basis: auto;
 }
 
 
@@ -68,19 +51,7 @@ will sit side-by-side rather than vertically. This negates the use of a viewport
 media query.
  */
 .l-sidebar .not-sidebar {
-	@include stack;
-
-	flex-basis: 0;
-	flex-grow: 999;
-	min-inline-size: calc(55% - 1.5rem);
-}
-
-
-.l-sidebar--expanded {
-	inline-size: 100%;
-}
-
-
-.l-sidebar .sidebar.sidebar--compact {
-	flex-basis: rem(180);
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: var(--_sidebar-main-width);
 }
