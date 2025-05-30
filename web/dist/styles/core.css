@@ -2477,6 +2477,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
     from stretching horizontally
 \*------------------------------------*/
 .card {
+  --box-border-clr: transparent;
   background-color: #fcfcfc;
   border-radius: 0.25rem;
   box-shadow: -1px 1px 4px 0 rgba(55, 70, 95, 0.12);
