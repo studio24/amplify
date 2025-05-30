@@ -51,7 +51,7 @@
 
 <body class="amplify">
 	<div class="not-footer">
-		<a href="#main" class="skip-link">Skip to content</a>
+		<a href="#amplify-main" class="skip-link">Skip to content</a>
 		<header class="global-header">
 			<div class="l-center">
 				<a class="global-header__link" href="../index.html">Amplify from Studio 24</a>
@@ -71,7 +71,7 @@
 				</div>
 			</div>
 		</nav>
-		<main id="main">
+		<main id="amplify-main">
 			<div class="content-wrap">
 				<nav class="sidebar nav-secondary" aria-label="Secondary">
 					<ul class="clean-list" role="list">
@@ -99,9 +99,15 @@
 						<p>A few notes on <code>main</code>, which contains the main contents of a web page.</p>
 						<ul>
 							<li>There should only be a single instance of <code>main</code> that does not have the <code>hidden</code> attribute applied to it.</li>
-							<li>In Amplify, <code>main</code> uses the same principles as the <a href="../layout-helpers/center.html">center layout helper</a> to add some minimum space between its contents and the edges of the parent element or viewport. Inspect this page in your web browser to see it in action.</li>
+							<li>It is recommended to namespace the ID used on <code>main</code> for your project and remember to use it in the <code>href</code> for the <a href="../fundamentals/skip-link.html">skip to main content link</a>. This helps to distinguish it from the main document inside any iframe. This site uses the ID <code>#amplify-main</code>.</li>
+							<li>In Amplify, <code>main</code> uses the same principles as the <a href="../layout-helpers/center.html">center layout helper</a> to add some minimum space between its content and the edges of the parent element or viewport. Inspect this page in your web browser to see it in action.</li>
 							<li>Although it has a set maximum width, the utility class <code>u-full-width</code> can be applied to a child item of <code>main</code> to make it extend full width beyond the borders of <code>main</code>.</li>
 						</ul>
+						<h2>CSS custom properties</h2>
+						<dl>
+							<dt><code>--main-block-space</code></dt>
+							<dd>Modify the vertical padding.</dd>
+						</dl>
 					</div>
 				</div>
 			</div>

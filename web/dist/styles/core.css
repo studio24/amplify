@@ -2255,20 +2255,30 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 \*------------------------------------*/
 /*------------------------------------*\
     #Main
+
+    It is recommended to namespace the id used on `<main>` for your project and
+    remember to use it in the `href` for the "Skip to main content" link. This
+    helps distinguish from any use of `<main>` inside iframe embeds.
+
+    1. We use left and right padding to add some minimum space between the
+    contents of `<main>` and the edges of the parent element or viewport.
+    To avoid making the content narrower than intended, we add an exception
+    to our global box-sizing rule (defined in 30-base/_amplify-reset.scss).
 \*------------------------------------*/
-/**
-1. We use left and right padding to add some minimum space between the
-contents of <main> and the edges of the parent element or viewport.
-To avoid making the content narrower than intended, we add an exception
-to our global box-sizing rule.
- */
-main,
-#main {
+#amplify-main {
+  --_main-block-space: var(--main-block-space, 2.5rem);
+}
+@media screen and (min-width: 80em) {
+  #amplify-main {
+    --main-block-space: 3.75rem 5rem;
+  }
+}
+#amplify-main {
   box-sizing: content-box;
   margin-inline: auto;
   max-inline-size: 70rem;
-  padding-block: 1.5rem 6.25rem;
-  padding-inline: 5vw;
+  padding-block: var(--_main-block-space);
+  padding-inline: 1.25rem;
 }
 
 .component + .component {
