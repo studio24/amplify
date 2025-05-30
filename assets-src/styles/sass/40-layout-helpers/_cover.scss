@@ -4,26 +4,36 @@
     From https://absolutely.every-layout.dev/layouts/cover/
 
     `.l-cover` uses Flexbox to vertically center a principal item
-    of content. It is given a min-block-size value to achieve this
-    which could be 100vh, or less.
+    of content. It is given a min-block-size value to achieve this,
+    which could be set to anything you like.
+
+    `.l-cover` will also accommodate an optional header and/or footer
+    (it is not required to use the `<header>` or `<footer>` elements,
+    we are simply referring to the general placement of items).
 
     Horizontal centering of content can be achieved using the `.l-center`
     layout within `.l-cover`, or with the `.u-center` utility found in
     /90-utilities/layout
 \*------------------------------------*/
-@use '../10-settings' as *;
 @use '../20-tools' as *;
 
 .l-cover {
+    --_cover-min-height: var(--cover-min-height, 30vh);
+    --_cover-padding: var(--cover-padding, #{rem(20)});
+    --_cover-min-space: var(--cover-min-space, #{rem(20)});
+
 	display: flex;
 	flex-direction: column;
-	min-block-size: 30vh;
-	padding: 1rem;
+	min-block-size: var(--_cover-min-height);
+	padding: var(--_cover-padding);
 }
 
 
+/**
+Minimum spacing between the (up to) three child elements of `.l-cover`
+ */
 .l-cover > * {
-	margin-block: 1rem;
+	margin-block: var(--_cover-min-space);
 }
 
 
@@ -39,7 +49,6 @@ disturbing the vertically centered element.
 .l-cover > :first-child:not(.principal) {
 	margin-block-start: 0;
 }
-
 
 .l-cover > :last-child:not(.principal) {
 	margin-block-end: 0;

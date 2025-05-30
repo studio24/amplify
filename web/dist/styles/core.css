@@ -1812,35 +1812,37 @@ main:focus,
 }
 
 /*------------------------------------*\
-    #Amplify CSS reset
-
-    Inspiration:
-    - https://piccalil.li/blog/a-more-modern-css-reset/
-    - https://www.joshwcomeau.com/css/custom-css-reset/
-    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
-\*------------------------------------*/
-/*------------------------------------*\
     #Cover layout helper
 
     From https://absolutely.every-layout.dev/layouts/cover/
 
     `.l-cover` uses Flexbox to vertically center a principal item
-    of content. It is given a min-block-size value to achieve this
-    which could be 100vh, or less.
+    of content. It is given a min-block-size value to achieve this,
+    which could be set to anything you like.
+
+    `.l-cover` will also accommodate an optional header and/or footer
+    (it is not required to use the `<header>` or `<footer>` elements,
+    we are simply referring to the general placement of items).
 
     Horizontal centering of content can be achieved using the `.l-center`
     layout within `.l-cover`, or with the `.u-center` utility found in
     /90-utilities/layout
 \*------------------------------------*/
 .l-cover {
+  --_cover-min-height: var(--cover-min-height, 30vh);
+  --_cover-padding: var(--cover-padding, 1.25rem);
+  --_cover-min-space: var(--cover-min-space, 1.25rem);
   display: flex;
   flex-direction: column;
-  min-block-size: 30vh;
-  padding: 1rem;
+  min-block-size: var(--_cover-min-height);
+  padding: var(--_cover-padding);
 }
 
+/**
+Minimum spacing between the (up to) three child elements of `.l-cover`
+ */
 .l-cover > * {
-  margin-block: 1rem;
+  margin-block: var(--_cover-min-space);
 }
 
 .l-cover > .principal {
