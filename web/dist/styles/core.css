@@ -1754,14 +1754,6 @@ main:focus,
     #Layout helpers
 \*------------------------------------*/
 /*------------------------------------*\
-    #Amplify CSS reset
-
-    Inspiration:
-    - https://piccalil.li/blog/a-more-modern-css-reset/
-    - https://www.joshwcomeau.com/css/custom-css-reset/
-    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
-\*------------------------------------*/
-/*------------------------------------*\
     #Box layout helper
 
     From https://absolutely.every-layout.dev/layouts/box/
@@ -1769,26 +1761,25 @@ main:focus,
     `.l-box` should have borders and/or padding on all sides, or
     none at all. Otherwise it's not a box, but something more specific.
 
-    1. High contrast themes tend to eliminate background-color. If no
-    border is set on the box, we need to apply a transparent outline to
-    maintain the box shape. The negative outline-offset moves the outline
-    inside the perimeter so it behaves like a border and doesn't add to
-    the overall size.
+    Forced colors mode (previously Windows High Contrast Mode)
+    tends to eliminate background-color. If no border is set on the box,
+    people using this mode won't see that there is a box. There are
+    two options for managing this: either keep the border and make it the
+    same colour as the box background, or remove the border and add a
+    transparent outline with a negative outline-offset matching the
+    outline width so that it behaves like a border and doesn't add to
+    the overall size of the box.
 \*------------------------------------*/
 .l-box {
-  border: 1px solid;
+  --_box-bg-clr: var(--box-bg-clr, transparent);
+  --_box-border-clr: var(--box-border-clr, currentcolor);
+  --_box-border-style: var(--box-border-style, solid);
+  --_box-border-width: var(--box-border-width, 2px);
+  --_box-padding: var(--box-padding, 1.25rem);
+  background-color: var(--_box-bg-clr);
+  border: var(--_box-border-width) var(--_box-border-style) var(--_box-border-clr);
   display: block;
-  padding: 1.5rem;
-}
-
-.l-box--no-padding {
-  padding: 0;
-}
-
-.l-box--no-border {
-  border: none;
-  outline: 1px solid transparent; /* 1 */
-  outline-offset: -1px; /* 1 */
+  padding: var(--_box-padding);
 }
 
 /*------------------------------------*\
@@ -3117,6 +3108,12 @@ main,
 
 .amplify .example + .example {
   margin-block-start: 1rem;
+}
+
+.amplify .custom-box .l-box {
+  border: none;
+  outline: solid 2px transparent;
+  outline-offset: -2px;
 }
 
 .amplify .l-switcher.teasers {
