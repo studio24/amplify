@@ -14,8 +14,11 @@
 @use '../20-tools' as *;
 
 .l-center {
-	box-sizing: content-box /* 1 */;
-	margin-inline: auto;
-	max-inline-size: rem($max-inline-size);
-	padding-inline: 5vw;
+    --_center-max-width: var(--center-max-width, #{rem($max-inline-size)});
+    --_center-inline-space: var(--center-inline-space, #{rem(20)});
+
+    box-sizing: content-box /* 1 */;
+    margin-inline: auto;
+    max-inline-size: var(--_center-max-width);
+    padding-inline: var(--_center-inline-space);
 }

@@ -1803,10 +1803,12 @@ main:focus,
     to our global box-sizing rule (defined in 30-base/_amplify-reset.scss).
 \*------------------------------------*/
 .l-center {
+  --_center-max-width: var(--center-max-width, 70rem);
+  --_center-inline-space: var(--center-inline-space, 1.25rem);
   box-sizing: content-box;
   margin-inline: auto;
-  max-inline-size: 70rem;
-  padding-inline: 5vw;
+  max-inline-size: var(--_center-max-width);
+  padding-inline: var(--_center-inline-space);
 }
 
 /*------------------------------------*\
