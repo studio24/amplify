@@ -94,35 +94,35 @@
 				<div class="not-sidebar">
 					<div class="component component--text">
 						<h1>Notes</h1>
-						<p>Notes can be used for simple informational messages, and for success, warning and error alerts. They are an enhancement of the <a href="../layout-helpers/box.html">default box layout</a>.</p>
+						<p>Notes can be used for simple informational messages, and for success, warning and error alerts.</p>
 					</div>
 					<div class="component">
-						<div class="l-box note note--info" role="status">
+						<div class="note note--info" role="status">
 							<h2 class="note__heading">Informative note heading</h2>
 							<p>Group calendering is currently in beta-test. We encourage everyone to use it and report feedback and issues to its <a href="#1">dedicated GitHub repository</a>.</p>
 						</div>
 					</div>
 					<div class="component">
-						<div class="l-box note note--success" role="status">
+						<div class="note note--success" role="status">
 							<h2 class="note__heading">Success note heading</h2>
 							<p>Main profile successfully updated.</p>
 						</div>
 					</div>
 					<div class="component">
-						<div class="l-box note note--warning" role="status">
+						<div class="note note--warning" role="status">
 							<h2 class="note__heading">Warning note heading</h2>
 							<p>We could not detect your affiliation based on your email address. Please select your affiliation below or <a href="#2">go back to use your corporate email address.</a></p>
 						</div>
 					</div>
 					<div class="component">
-						<div class="l-box note note--error" role="alert">
+						<div class="note note--error" role="alert">
 							<h2 class="note__heading">Error note heading</h2>
 							<p>There has been an error.</p>
 						</div>
 					</div>
 					<div class="component component--text">
 						<h2>Considerations</h2>
-						<p>Because the icons are background images, they may not display well in Windows High Contrast Mode. So make sure that the heading text clearly indicates the nature of the note: is it giving a warning? Has there been an error? Or is it confirming something?</p>
+						<p>Because the icons are background images, they may not display well in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors">forced colors mode</a> (formerly Windows High Contrast mode). So make sure that the heading text clearly indicates the nature of the note: is it giving a warning? Has there been an error? Or is it confirming something?</p>
 						<h3>ARIA live regions</h3>
 						<p>Note the use of <code>role="status"</code> and <code>role="alert"</code>. Both create an ARIA live region.</p>
 						<p>If the content of the note is advisory information not important enough to justify an alert, use <code>role="status"</code>. When added to an element, the browser will send out an accessible status event to assistive technologies, which can then notify the user about it.</p>
