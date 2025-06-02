@@ -86,35 +86,26 @@
 				<div class="content">
 					<div class="component component--text">
 						<h1>Switcher</h1>
-						<p>The switcher layout helper switches the alignment of items from horizontal to vertical at a given, container-based breakpoint. It's a good choice for situations where each child item should be considered of equal importance and has an equal width. You will find an example of the switcher on the <a href="../index.html">Amplify home page</a>.</p>
-						<p>As with the <a href="cluster.html">cluster</a> and <a href="sidebar.html">sidebar</a> layouts, an inner flexbox container holds the switcher items, and the negative margin technique to create gutter spacing between items.</p>
-						<p>As there are <strong>no viewport media queries</strong>, the switcher will nest nicely inside other containers.</p>
+						<p>The switcher layout helper uses Flexbox to switch the display of a group of items, from vertically stacked (at the minimum-viewport width) to horizontal. It uses the <code>l-switcher</code> class. The threshold at which the switch occurs is determined by the width of the container inside which the switcher layout is used.</p>
+						<p>The switcher is a good choice for situations where all items are of equal importance and, therefore, equal width. As there are <strong>no viewport media queries</strong> involved, the switcher will nest nicely inside other containers.</p>
+						<h2>CSS custom properties</h2>
+						<dl>
+							<dt><code>--switcher-gap</code></dt>
+							<dd>Override the threshold width at which the layout is switched, which is set to 43.125rem (690px).</dd>
+							<dt><code>--switcher-threshold</code></dt>
+							<dd>Override the default spacing between items, which is set to 1.25rem (20px).</dd>
+						</dl>
 					</div>
 					<div class="component">
 						<div class="l-switcher">
-							<div>
-								<div>
-									<div class="l-box l-box">Item 1</div>
-								</div>
-								<div>
-									<div class="l-box">Item 2</div>
-								</div>
-								<div>
-									<div class="l-box">Item 3</div>
-								</div>
-							</div>
+							<div class="l-box">Item 1</div>
+							<div class="l-box">Item 2</div>
+							<div class="l-box">Item 3</div>
 						</div>
 					</div>
 					<div class="component component--text">
 						<h2>Considerations</h2>
-						<p>The default switcher layout behaves as follows:</p>
-						<ul>
-							<li>When the inner flexbox container is less than 690px wide, the child items sit vertically.</li>
-							<li>Otherwise, the child items sit horizontally.</li>
-							<li>The number of columns in a row is two (determined by the <code>min-width</code> percentage used on the child items).</li>
-						</ul>
-						<p>For gutter spacing, apply padding to the flex items and an equal negative margin to the flex container. This will double up, so use half the intended value.</p>
-						<p>Use an additional class to override the default behaviour.</p>
+						<p><strong>Note:</strong> when the switch to the horizontal display occurs, all items in the group will be affected. This could mean that the items become too narrow if there are a lot of them. You will need to consider this when deciding whether and how to use the switcher layout helper. Amplify provides an optional <a href="https://quantityqueries.com/">CSS quantity query</a> that will force the items into the vertical display if there are more than three.</p>
 					</div>
 				</div>
 			</div>

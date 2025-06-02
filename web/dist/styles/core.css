@@ -1656,8 +1656,6 @@ main:focus,
 
     Make sure to apply the `.amplify-form` class directly to the <form> to
     pick up these styles and try to avoid conflicts with third party form styles
-
-    1. Modify this percentage according to the number of choices and what looks best
 \*------------------------------------*/
 .amplify-form .segmented-group-wrapper {
   max-inline-size: none;
@@ -1667,11 +1665,9 @@ main:focus,
   /* Input with hover */
   /* Input with focus - label carries focus styles */
 }
-.amplify-form .segmented-group.l-switcher > * > * {
+.amplify-form .segmented-group.l-switcher > * {
   display: block;
   margin-block-start: 0;
-  max-inline-size: 100%;
-  min-inline-size: 33.333%; /* 1 */
   position: relative;
 }
 .amplify-form .segmented-group.l-switcher label {
@@ -1971,53 +1967,31 @@ media query.
 }
 
 /*------------------------------------*\
-    #Amplify CSS reset
-
-    Inspiration:
-    - https://piccalil.li/blog/a-more-modern-css-reset/
-    - https://www.joshwcomeau.com/css/custom-css-reset/
-    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
-\*------------------------------------*/
-/*------------------------------------*\
     #Switcher layout helper
 
-    Uses this to switch between vertical and horizontal layouts:
-    https://www.freecodecamp.org/news/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848/
+    From https://every-layout.dev/layouts/switcher/
 
-    `.l-switcher` switches a Flexbox context between a horizontal and a
-    vertical layout at a given, CONTAINER-BASED breakpoint, rather than
-    using viewport media queries.
+    `.l-switcher` switches a Flexbox context between a vertical and a
+    horizontal layout at a given, CONTAINER-BASED breakpoint, rather than
+    using viewport media queries. N.B. it does NOT use CSS container queries.
 
-    The child elements in the horizontal configuration will be of equal
-	width.
-
-	For gutter spacing, apply padding to the flex items and an equal
-    negative margin to the flex container. This will double up,
-    so use half the intended value.
+    The child items in the horizontal configuration will be of equal
+	width. If there are many items, this could mean they are too narrow.
+	You will need to consider this when deciding whether and how to use
+	`.l-switcher`. Amplify provides an optional CSS quantity query that will
+	force the items into the vertical display if there is more than three.
 \*------------------------------------*/
 .l-switcher {
-  overflow: hidden;
+  --_switcher-gap: var(--switcher-gap, 1.25rem);
+  --_switcher-threshold: var(--switcher-threshold, 43.125rem) ;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--_switcher-gap);
 }
 
 .l-switcher > * {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-/**
-1. Determines the item width in the single column, vertical configuration
-
-2. Determines how many items will be in a row in the horizontal configuration
-
-3. The 690 value matches the desired breakpoint value. The 100% corresponds to
-the width of the columns' parent container. This calculation will create a
-value that's either bigger than the max-inline-size or smaller than the
-min-inline-size, so that either of these properties is applied instead.
- */
-.l-switcher > * > * {
-  inline-size: calc(476100px - 69000%); /* 3 */
-  max-inline-size: 100%; /* 1 */
-  min-inline-size: 50%; /* 2 */
+  flex-basis: calc((var(--_switcher-threshold) - 100%) * 999);
+  flex-grow: 1;
 }
 
 /*------------------------------------*\
@@ -2344,7 +2318,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   background-position: 1.5rem 1.5rem;
   background-repeat: no-repeat;
   background-size: 2rem;
-  border: solid 1px;
+  border: solid 2px;
   border-inline-start-width: 4px;
   padding: 1.5rem;
   padding-inline-start: 4.5rem;
