@@ -3003,10 +3003,6 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   min-inline-size: 70%;
 }
 
-.amplify .search-bar button {
-  flex-grow: 1;
-}
-
 /* 1 */
 /*------------------------------------*\
     #Utilities
