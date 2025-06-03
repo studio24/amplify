@@ -1,0 +1,23 @@
+/*------------------------------------*\
+    #Grid layout helper
+
+    From https://every-layout.dev/layouts/grid/
+
+    Creates a responsive grid of content, using CSS Grid.
+
+    If grid items should be able to grow if there's leftover space available on a row,
+    change `--grid-placement` to use `auto-fit` rather than `auto-fill`. Here's a useful
+    reference about `auto-fill` versus `auto-fit` behaviour:
+    https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
+\*------------------------------------*/
+@use '../20-tools' as *;
+
+.l-grid {
+    --_grid-placement: var(--grid-placement, auto-fill);
+    --_grid-min-item-size: var(--grid-min-item-size, min(100%, #{rem(250)}));
+    --_grid-gap: var(--grid-gap, #{rem(20)});
+
+    display: grid;
+    gap: var(--_grid-gap);
+    grid-template-columns: repeat(var(--_grid-placement), minmax(var(--_grid-min-item-size), 1fr));
+}

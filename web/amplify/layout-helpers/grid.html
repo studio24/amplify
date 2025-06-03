@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Grid layout helper - Amplify</title>
+
+	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen">
+
+	<!--
+	Print (Edge doesn't apply to print otherwise)
+	Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
+	FF 47+
+	-->
+	<link rel="stylesheet" id="advanced-stylesheet" href="../../dist/styles/advanced.min.css" media="
+	only print,
+	only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+	only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
+	">
+
+	<link rel="stylesheet" href="../../dist/styles/print.css" media="print">
+
+	<script src="../../dist/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Nunito');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = '../../dist/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+
+</head>
+
+<body class="amplify">
+<div class="not-footer">
+	<a href="#amplify-main" class="skip-link">Skip to content</a>
+	<header class="global-header">
+		<div class="l-center">
+			<a class="global-header__link" href="../index.html">Amplify from Studio 24</a>
+		</div>
+	</header>
+	<nav class="global-nav" aria-label="Main">
+		<div class="l-center">
+			<ul class="l-cluster clean-list">
+				<li><a class="global-nav__link" href="../get-started">Get started</a></li>
+				<li><a class="global-nav__link" href="../fundamentals">Fundamentals</a></li>
+				<li class="current"><a class="global-nav__link" href="../layout-helpers">Layout helpers</a></li>
+				<li><a class="global-nav__link" href="../core-components">Core components</a></li>
+				<li><a class="global-nav__link" href="../advanced-components">Advanced components</a></li>
+				<li><a class="global-nav__link" href="../design">Design handover &amp; standards</a></li>
+			</ul>
+		</div>
+	</nav>
+	<main id="amplify-main">
+		<div class="content-wrap">
+			<nav class="sidebar nav-secondary" aria-label="Secondary">
+				<ul class="clean-list" role="list">
+					<li><a class="nav-secondary__link" href="box.html">Box</a></li>
+					<li><a class="nav-secondary__link" href="center.html">Center</a></li>
+					<li><a class="nav-secondary__link" href="cluster.html">Cluster</a></li>
+					<li><a class="nav-secondary__link" href="cover.html">Cover</a></li>
+					<li><a class="nav-secondary__link" href="frame.html">Frame</a></li>
+					<li><a class="nav-secondary__link" href="grid.html" aria-current="page">Grid</a></li>
+					<li><a class="nav-secondary__link" href="sidebar.html">Sidebar</a></li>
+					<li><a class="nav-secondary__link" href="switcher.html">Switcher</a></li>
+				</ul>
+			</nav>
+			<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
+			<div class="content">
+				<div class="component component--text">
+					<h1>Grid</h1>
+					<p>The grid layout helper provides a way of creating responsive grids of content. It uses the <code>l-grid</code> class. It hints at the browser to help it calculate the number of items on a row and the width of those items. You can see an example in the <a href="../index.html">Amplify home page</a>.</p>
+					<h2>CSS custom properties</h2>
+					<dl>
+						<dt><code>--grid-placement</code></dt>
+						<dd>Override the default <code>auto-fill</code> behaviour of the grid, if desired. Refer to this article about <a href="https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/">auto-fill versus auto-fit</a> for advice and examples.</dd>
+						<dt><code>--grid-min-item-size</code></dt>
+						<dd>Override the settings controlling the minimum width of grid items.</dd>
+						<dt><code>--grid-gap</code></dt>
+						<dd>Override the default spacing between grid items, which is set to 1.25rem (20px).</dd>
+					</dl>
+				</div>
+				<div class="component">
+					<div class="l-grid">
+						<div class="l-box">Item 1</div>
+						<div class="l-box">Item 2</div>
+						<div class="l-box">Item 3</div>
+						<div class="l-box">Item 4</div>
+						<div class="l-box">Item 5</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</div>
+<footer class="global-footer">
+	<div class="l-center">
+		&copy; Studio 24
+	</div>
+</footer>
+</body>
+
+</html>

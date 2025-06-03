@@ -136,20 +136,7 @@
 }
 
 
-.amplify .l-switcher.teasers {
-	overflow: visible;
-}
-
-.amplify .l-switcher.teasers > * {
-	margin: rem(-12);
-}
-
-.amplify .l-switcher.teasers > * > * {
-	min-inline-size: 33%;
-	padding: rem(12);
-}
-
-.amplify .l-switcher.teasers .card {
+.amplify .teasers .card {
 	padding: rem(24);
 }
 
