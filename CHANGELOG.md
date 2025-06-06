@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.1.0](https://github.com/studio24/amplify/compare/v9.0.0...v9.1.0) (2025-06-06)
+
+
+### Features
+
+* remove design handover and standards from docs site ([bb5030c](https://github.com/studio24/amplify/commit/bb5030ce9bf6689c47032152e6298640325cde35))
+
 ## [9.0.0](https://github.com/studio24/amplify/compare/v8.0.0...v9.0.0) (2025-05-29)
 
 
