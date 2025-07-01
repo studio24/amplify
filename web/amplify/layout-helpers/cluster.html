@@ -51,7 +51,7 @@
 
 <body class="amplify">
 	<div class="not-footer">
-		<a href="#main" class="skip-link">Skip to content</a>
+		<a href="#amplify-main" class="skip-link">Skip to content</a>
 		<header class="global-header">
 			<div class="l-center">
 				<a class="global-header__link" href="../index.html">Amplify from Studio 24</a>
@@ -59,19 +59,17 @@
 		</header>
 		<nav class="global-nav" aria-label="Main">
 			<div class="l-center">
-				<div class="l-cluster">
-					<ul class="clean-list">
-						<li><a class="global-nav__link" href="../get-started">Get started</a></li>
-						<li><a class="global-nav__link" href="../fundamentals">Fundamentals</a></li>
-						<li class="current"><a class="global-nav__link" href="../layout-helpers">Layout helpers</a></li>
-						<li><a class="global-nav__link" href="../core-components">Core components</a></li>
-						<li><a class="global-nav__link" href="../advanced-components">Advanced components</a></li>
-						<li><a class="global-nav__link" href="../typography-test">Typography test</a></li>
-					</ul>
-				</div>
+				<ul class="l-cluster clean-list">
+					<li><a class="global-nav__link" href="../get-started">Get started</a></li>
+					<li><a class="global-nav__link" href="../fundamentals">Fundamentals</a></li>
+					<li class="current"><a class="global-nav__link" href="../layout-helpers">Layout helpers</a></li>
+					<li><a class="global-nav__link" href="../core-components">Core components</a></li>
+					<li><a class="global-nav__link" href="../advanced-components">Advanced components</a></li>
+					<li><a class="global-nav__link" href="../typography-test">Typography test</a></li>
+				</ul>
 			</div>
 		</nav>
-		<main id="main">
+		<main id="amplify-main">
 			<div class="content-wrap">
 				<nav class="sidebar nav-secondary" aria-label="Secondary">
 					<ul class="clean-list" role="list">
@@ -82,6 +80,7 @@
 						<li><a class="nav-secondary__link" href="frame.html">Frame</a></li>
 						<li><a class="nav-secondary__link" href="sidebar.html">Sidebar</a></li>
 						<li><a class="nav-secondary__link" href="switcher.html">Switcher</a></li>
+						<li><a class="nav-secondary__link" href="autogrid.html">Autogrid</a></li>
 					</ul>
 				</nav>
 				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
@@ -89,25 +88,26 @@
 					<div class="component component--text">
 						<h1>Cluster</h1>
 						<p>The cluster layout helper suits any group of elements that differ in length, are liable to wrap and need even spacing between them, e.g. lists of tags or groups of buttons. It uses the class <code>l-cluster</code>.</p>
-						<p>Cluster needs an inner flexbox container - in the following example it's provided by the <code>ul</code>. Flexbox gives us control of the alignment of items inside.</p>
-						<p>The cluster items - <code>li</code> in this example - sit within this container. Each item has a margin on all sides.</p>
-						<p>The flexbox container has a negative margin of the same size as the cluster items, creating even spacing between them. <code>overflow: hidden;</code> is used to tidy up the edges.</p>
+						<p>The outer container uses Flexbox, which gives us control of the alignment of the items inside. The <code>gap</code> property allows us to control the spacing between items.</p>
+						<h2>CSS custom properties</h2>
+						<dl>
+							<dt><code>--cluster-gap</code></dt>
+							<dd>Override the default spacing between cluster items, which is set to 1.25rem.</dd>
+						</dl>
 					</div>
 					<div class="component">
-						<div class="l-cluster">
-							<ul class="clean-list">
-								<li><a href="javascript:;">Item One</a></li>
-								<li><a href="javascript:;">Item Two</a></li>
-								<li><a href="javascript:;">Item Three</a></li>
-								<li><a href="javascript:;">Item Four</a></li>
-								<li><a href="javascript:;">Item Five</a></li>
-								<li><a href="javascript:;">Item Six</a></li>
-								<li><a href="javascript:;">Item Seven</a></li>
-								<li><a href="javascript:;">Item Eight</a></li>
-								<li><a href="javascript:;">Item Nine</a></li>
-								<li><a href="javascript:;">Item Ten</a></li>
-							</ul>
-						</div>
+						<ul class="l-cluster clean-list">
+							<li><a href="javascript:;">Item One</a></li>
+							<li><a href="javascript:;">Item Two</a></li>
+							<li><a href="javascript:;">Item Three</a></li>
+							<li><a href="javascript:;">Item Four</a></li>
+							<li><a href="javascript:;">Item Five</a></li>
+							<li><a href="javascript:;">Item Six</a></li>
+							<li><a href="javascript:;">Item Seven</a></li>
+							<li><a href="javascript:;">Item Eight</a></li>
+							<li><a href="javascript:;">Item Nine</a></li>
+							<li><a href="javascript:;">Item Ten</a></li>
+						</ul>
 					</div>
 				</div>
 			</div>

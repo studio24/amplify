@@ -4,22 +4,6 @@
 @use '../10-settings' as *;
 @use '../20-tools' as *;
 
-.l-sidebar.search {
-	overflow: visible;
-}
-
-.l-sidebar.search > * {
-	margin: -0.75rem;
-}
-
-.l-sidebar.search > * > * {
-	margin: 0.75rem;
-}
-
-.l-sidebar.search form .sidebar {
-	flex-basis: auto;
-}
-
-.l-sidebar.search form .not-sidebar {
-	min-inline-size: 70%;
+.search-form {
+    --sidebar-main-width: 70%;
 }

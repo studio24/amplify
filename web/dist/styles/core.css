@@ -1656,8 +1656,6 @@ main:focus,
 
     Make sure to apply the `.amplify-form` class directly to the <form> to
     pick up these styles and try to avoid conflicts with third party form styles
-
-    1. Modify this percentage according to the number of choices and what looks best
 \*------------------------------------*/
 .amplify-form .segmented-group-wrapper {
   max-inline-size: none;
@@ -1667,11 +1665,9 @@ main:focus,
   /* Input with hover */
   /* Input with focus - label carries focus styles */
 }
-.amplify-form .segmented-group.l-switcher > * > * {
+.amplify-form .segmented-group.l-switcher > * {
   display: block;
   margin-block-start: 0;
-  max-inline-size: 100%;
-  min-inline-size: 33.333%; /* 1 */
   position: relative;
 }
 .amplify-form .segmented-group.l-switcher label {
@@ -1754,14 +1750,6 @@ main:focus,
     #Layout helpers
 \*------------------------------------*/
 /*------------------------------------*\
-    #Amplify CSS reset
-
-    Inspiration:
-    - https://piccalil.li/blog/a-more-modern-css-reset/
-    - https://www.joshwcomeau.com/css/custom-css-reset/
-    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
-\*------------------------------------*/
-/*------------------------------------*\
     #Box layout helper
 
     From https://absolutely.every-layout.dev/layouts/box/
@@ -1769,26 +1757,25 @@ main:focus,
     `.l-box` should have borders and/or padding on all sides, or
     none at all. Otherwise it's not a box, but something more specific.
 
-    1. High contrast themes tend to eliminate background-color. If no
-    border is set on the box, we need to apply a transparent outline to
-    maintain the box shape. The negative outline-offset moves the outline
-    inside the perimeter so it behaves like a border and doesn't add to
-    the overall size.
+    Forced colors mode (previously Windows High Contrast Mode)
+    tends to eliminate background-color. If no border is set on the box,
+    people using this mode won't see that there is a box. There are
+    two options for managing this: either keep the border and make it the
+    same colour as the box background, or remove the border and add a
+    transparent outline with a negative outline-offset matching the
+    outline width so that it behaves like a border and doesn't add to
+    the overall size of the box.
 \*------------------------------------*/
 .l-box {
-  border: 1px solid;
+  --_box-bg-clr: var(--box-bg-clr, transparent);
+  --_box-border-clr: var(--box-border-clr, currentcolor);
+  --_box-border-style: var(--box-border-style, solid);
+  --_box-border-width: var(--box-border-width, 2px);
+  --_box-padding: var(--box-padding, 1.25rem);
+  background-color: var(--_box-bg-clr);
+  border: var(--_box-border-width) var(--_box-border-style) var(--_box-border-clr);
   display: block;
-  padding: 1.5rem;
-}
-
-.l-box--no-padding {
-  padding: 0;
-}
-
-.l-box--no-border {
-  border: none;
-  outline: 1px solid transparent; /* 1 */
-  outline-offset: -1px; /* 1 */
+  padding: var(--_box-padding);
 }
 
 /*------------------------------------*\
@@ -1812,42 +1799,46 @@ main:focus,
     to our global box-sizing rule (defined in 30-base/_amplify-reset.scss).
 \*------------------------------------*/
 .l-center {
+  --_center-max-width: var(--center-max-width, 70rem);
+  --_center-inline-space: var(--center-inline-space, 1.25rem);
   box-sizing: content-box;
   margin-inline: auto;
-  max-inline-size: 70rem;
-  padding-inline: 5vw;
+  max-inline-size: var(--_center-max-width);
+  padding-inline: var(--_center-inline-space);
 }
 
-/*------------------------------------*\
-    #Amplify CSS reset
-
-    Inspiration:
-    - https://piccalil.li/blog/a-more-modern-css-reset/
-    - https://www.joshwcomeau.com/css/custom-css-reset/
-    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
-\*------------------------------------*/
 /*------------------------------------*\
     #Cover layout helper
 
     From https://absolutely.every-layout.dev/layouts/cover/
 
     `.l-cover` uses Flexbox to vertically center a principal item
-    of content. It is given a min-block-size value to achieve this
-    which could be 100vh, or less.
+    of content. It is given a min-block-size value to achieve this,
+    which could be set to anything you like.
+
+    `.l-cover` will also accommodate an optional header and/or footer
+    (it is not required to use the `<header>` or `<footer>` elements,
+    we are simply referring to the general placement of items).
 
     Horizontal centering of content can be achieved using the `.l-center`
     layout within `.l-cover`, or with the `.u-center` utility found in
     /90-utilities/layout
 \*------------------------------------*/
 .l-cover {
+  --_cover-min-height: var(--cover-min-height, 30vh);
+  --_cover-padding: var(--cover-padding, 1.25rem);
+  --_cover-min-space: var(--cover-min-space, 1.25rem);
   display: flex;
   flex-direction: column;
-  min-block-size: 30vh;
-  padding: 1rem;
+  min-block-size: var(--_cover-min-height);
+  padding: var(--_cover-padding);
 }
 
+/**
+Minimum spacing between the (up to) three child elements of `.l-cover`
+ */
 .l-cover > * {
-  margin-block: 1rem;
+  margin-block: var(--_cover-min-space);
 }
 
 .l-cover > .principal {
@@ -1867,14 +1858,6 @@ disturbing the vertically centered element.
 }
 
 /*------------------------------------*\
-    #Amplify CSS reset
-
-    Inspiration:
-    - https://piccalil.li/blog/a-more-modern-css-reset/
-    - https://www.joshwcomeau.com/css/custom-css-reset/
-    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
-\*------------------------------------*/
-/*------------------------------------*\
     #Cluster layout helper
 
     From https://absolutely.every-layout.dev/layouts/cluster/
@@ -1885,40 +1868,17 @@ disturbing the vertically centered element.
     spacing between elements.
 \*------------------------------------*/
 /**
-Suppress horizontal scrolling caused by the negative margin
-in some circumstances.
+We use flexbox to configure the elements into clusters without creating
+white space. The gap property specifies the spacing. We can control how
+we align items within the cluster by using 'align-items` and `justify-content`.
  */
 .l-cluster {
-  overflow: hidden;
-}
-
-/**
-We use flexbox to configure the elements into clusters without creating
-white space. We can control how we align items within the cluster,
-by using 'align-items` and `justify-content`.
- */
-.l-cluster > * {
+  --_cluster-gap: var(--cluster-gap, 1.25rem);
   display: flex;
   flex-flow: row wrap;
-  margin: -0.625rem;
+  gap: var(--_cluster-gap);
 }
 
-/**
-We apply an even, symmetrical margin to the elements that we wish to space
-out, but halve it to to account for 'doubling up' at the edges.
- */
-.l-cluster.l-cluster > * > * {
-  margin: 0.625rem;
-}
-
-/*------------------------------------*\
-    #Amplify CSS reset
-
-    Inspiration:
-    - https://piccalil.li/blog/a-more-modern-css-reset/
-    - https://www.joshwcomeau.com/css/custom-css-reset/
-    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
-\*------------------------------------*/
 /*------------------------------------*\
     #Frame layout helper
 
@@ -1932,61 +1892,27 @@ out, but halve it to to account for 'doubling up' at the edges.
     Instead, place it on <picture> or a <div> inside of <figure>.
 \*------------------------------------*/
 .l-frame {
-  display: block;
-  overflow: hidden;
-  position: relative;
-}
-
-.l-frame > * {
+  --_frame-x: var(--frame-x, 16);
+  --_frame-y: var(--frame-y, 9);
   align-items: center;
+  aspect-ratio: var(--_frame-x)/var(--_frame-y);
   display: flex;
-  inset-block: 0;
-  inset-inline: 0;
   justify-content: center;
-  position: absolute;
+  overflow: hidden;
 }
 
-.l-frame > iframe,
-.l-frame > img,
-.l-frame > video {
+.l-frame :is(iframe, img, video) {
   block-size: 100%;
   inline-size: 100%;
-}
-
-.l-frame > iframe {
-  border: 0;
-}
-
-.l-frame > img,
-.l-frame > video {
   object-fit: cover;
 }
 
-/* Common aspect ratios */
-.l-frame--16-9 {
-  padding-block-end: 56.25%;
+.l-frame[data-shape=circle] {
+  --frame-x: 1;
+  --frame-y: 1;
+  border-radius: 50%;
 }
 
-.l-frame--3-2 {
-  padding-block-end: 66.67%;
-}
-
-.l-frame--4-3 {
-  padding-block-end: 75%;
-}
-
-.l-frame--square {
-  padding-block-end: 100%;
-}
-
-/*------------------------------------*\
-    #Amplify CSS reset
-
-    Inspiration:
-    - https://piccalil.li/blog/a-more-modern-css-reset/
-    - https://www.joshwcomeau.com/css/custom-css-reset/
-    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
-\*------------------------------------*/
 /*------------------------------------*\
     #Sidebar layout helper
 
@@ -2005,47 +1931,28 @@ out, but halve it to to account for 'doubling up' at the edges.
     the source order of the HTML) to determine whether the sidebar
     sits on the left or right side.
 \*------------------------------------*/
-/**
-Suppress horizontal scrolling caused by the negative margin
-in some circumstances.
- */
 .l-sidebar {
-  overflow: hidden;
-}
-
-/**
-We target the intermediary wrapper and give it a negative margin
-to create a gutter between the `.sidebar` and `.not-sidebar`.
- */
-.l-sidebar > * {
+  --_sidebar-main-width: var(--sidebar-main-width, 60%);
+  --_sidebar-side-width: var(--sidebar-side-width, 15.625rem);
+  --_sidebar-gap: var(--sidebar-gap, 1.25rem);
   display: flex;
-  flex-flow: row wrap;
   flex-wrap: wrap;
-  margin: -0.75rem;
+  gap: var(--_sidebar-gap);
 }
 
 /**
-We apply an even, symmetrical margin to `.sidebar` and `.not-sidebar`,
-but halve it to to account for 'doubling up' at the edges.
- */
-.l-sidebar > * > * {
-  margin: 0.75rem;
-}
-
-/**
-Flex-basis determines the ideal width of the `.sidebar`. This can be
-omitted to let the contents of `.sidebar` determine the width of
-`.sidebar` (e.g. an image with a specified max-inline-size).
- */
+Flex-basis determines the ideal width of the `.sidebar`. */
 .l-sidebar .sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  flex-basis: 20rem;
+  flex-basis: var(--_sidebar-side-width);
   flex-grow: 1;
 }
-.l-sidebar .sidebar > * + * {
-  margin-block-start: 1em;
+
+/**
+Unset the flex-basis to let the contents of `.sidebar` determine the width of
+`.sidebar` (e.g. a button, or an image with a set width).
+ */
+.l-sidebar .sidebar--intrinsic {
+  flex-basis: auto;
 }
 
 /**
@@ -2054,73 +1961,58 @@ will sit side-by-side rather than vertically. This negates the use of a viewport
 media query.
  */
 .l-sidebar .not-sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   flex-basis: 0;
   flex-grow: 999;
-  min-inline-size: calc(55% - 1.5rem);
-}
-.l-sidebar .not-sidebar > * + * {
-  margin-block-start: 1em;
+  min-inline-size: var(--_sidebar-main-width);
 }
 
-.l-sidebar--expanded {
-  inline-size: 100%;
-}
-
-.l-sidebar .sidebar.sidebar--compact {
-  flex-basis: 11.25rem;
-}
-
-/*------------------------------------*\
-    #Amplify CSS reset
-
-    Inspiration:
-    - https://piccalil.li/blog/a-more-modern-css-reset/
-    - https://www.joshwcomeau.com/css/custom-css-reset/
-    - https://github.com/jensimmons/cssremedy/blob/master/css/remedy.css
-\*------------------------------------*/
 /*------------------------------------*\
     #Switcher layout helper
 
-    Uses this to switch between vertical and horizontal layouts:
-    https://www.freecodecamp.org/news/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848/
+    From https://every-layout.dev/layouts/switcher/
 
-    `.l-switcher` switches a Flexbox context between a horizontal and a
-    vertical layout at a given, CONTAINER-BASED breakpoint, rather than
-    using viewport media queries.
+    `.l-switcher` switches a Flexbox context between a vertical and a
+    horizontal layout at a given, CONTAINER-BASED breakpoint, rather than
+    using viewport media queries. N.B. it does NOT use CSS container queries.
 
-    The child elements in the horizontal configuration will be of equal
-	width.
-
-	For gutter spacing, apply padding to the flex items and an equal
-    negative margin to the flex container. This will double up,
-    so use half the intended value.
+    The child items in the horizontal configuration will be of equal
+	width. If there are many items, this could mean they are too narrow.
+	You will need to consider this when deciding whether and how to use
+	`.l-switcher`. Amplify provides an optional CSS quantity query that will
+	force the items into the vertical display if there is more than three.
 \*------------------------------------*/
 .l-switcher {
-  overflow: hidden;
+  --_switcher-gap: var(--switcher-gap, 1.25rem);
+  --_switcher-threshold: var(--switcher-threshold, 43.125rem) ;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--_switcher-gap);
 }
 
 .l-switcher > * {
-  display: flex;
-  flex-flow: row wrap;
+  flex-basis: calc((var(--_switcher-threshold) - 100%) * 999);
+  flex-grow: 1;
 }
 
-/**
-1. Determines the item width in the single column, vertical configuration
+/*------------------------------------*\
+    #Auto grid layout helper
 
-2. Determines how many items will be in a row in the horizontal configuration
+    From https://every-layout.dev/layouts/grid/
 
-3. The 690 value matches the desired breakpoint value. The 100% corresponds to
-the width of the columns' parent container. This calculation will create a
-value that's either bigger than the max-inline-size or smaller than the
-min-inline-size, so that either of these properties is applied instead.
- */
-.l-switcher > * > * {
-  inline-size: calc(476100px - 69000%); /* 3 */
-  max-inline-size: 100%; /* 1 */
-  min-inline-size: 50%; /* 2 */
+    Creates a responsive grid of content, using CSS Grid.
+
+    If grid items should be able to grow if there's leftover space available on a row,
+    change `--grid-placement` to use `auto-fit` rather than `auto-fill`. Here's a useful
+    reference about `auto-fill` versus `auto-fit` behaviour:
+    https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
+\*------------------------------------*/
+.l-autogrid {
+  --_grid-placement: var(--grid-placement, auto-fill);
+  --_grid-min-item-size: var(--grid-min-item-size, min(100%, 15.625rem));
+  --_grid-gap: var(--grid-gap, 1.25rem);
+  display: grid;
+  gap: var(--_grid-gap);
+  grid-template-columns: repeat(var(--_grid-placement), minmax(var(--_grid-min-item-size), 1fr));
 }
 
 /*------------------------------------*\
@@ -2196,37 +2088,18 @@ nav ul * + * {
     See: https://scottaohara.github.io/a11y_breadcrumbs/
 \*------------------------------------*/
 .breadcrumbs {
+  --cluster-gap: 0;
   padding-block: 0.625rem 0.9375rem;
-}
-.breadcrumbs .l-cluster > * {
-  margin: 0;
-}
-.breadcrumbs .l-cluster > * > * {
-  margin-block: 0;
-  margin-inline: 0;
-  padding-inline: 0 2em;
-  position: relative;
 }
 
 .breadcrumbs ol ::marker {
   content: "" !important;
 }
 
-.breadcrumbs a {
-  color: #252525;
-  display: block;
-  padding-block: 0.3125rem;
-}
-.breadcrumbs a:visited, .breadcrumbs a:hover, .breadcrumbs a:active {
-  color: #252525;
-}
-
-.breadcrumbs [aria-current] {
-  font-weight: 600;
-  text-decoration: none;
-}
-.breadcrumbs [aria-current]:focus {
-  outline-color: #252525;
+.breadcrumbs li {
+  margin: 0;
+  padding-inline: 0 2em;
+  position: relative;
 }
 
 /**
@@ -2252,6 +2125,23 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   transform: rotate(-45deg) translateY(-50%);
 }
 
+.breadcrumbs a {
+  color: #252525;
+  display: block;
+  padding-block: 0.3125rem;
+}
+.breadcrumbs a:visited, .breadcrumbs a:hover, .breadcrumbs a:active {
+  color: #252525;
+}
+
+.breadcrumbs [aria-current] {
+  font-weight: 600;
+  text-decoration: none;
+}
+.breadcrumbs [aria-current]:focus {
+  outline-color: #252525;
+}
+
 /*------------------------------------*\
     #Amplify CSS reset
 
@@ -2262,20 +2152,30 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 \*------------------------------------*/
 /*------------------------------------*\
     #Main
+
+    It is recommended to namespace the id used on `<main>` for your project and
+    remember to use it in the `href` for the "Skip to main content" link. This
+    helps distinguish from any use of `<main>` inside iframe embeds.
+
+    1. We use left and right padding to add some minimum space between the
+    contents of `<main>` and the edges of the parent element or viewport.
+    To avoid making the content narrower than intended, we add an exception
+    to our global box-sizing rule (defined in 30-base/_amplify-reset.scss).
 \*------------------------------------*/
-/**
-1. We use left and right padding to add some minimum space between the
-contents of <main> and the edges of the parent element or viewport.
-To avoid making the content narrower than intended, we add an exception
-to our global box-sizing rule.
- */
-main,
-#main {
+#amplify-main {
+  --_main-block-space: var(--main-block-space, 2.5rem);
+}
+@media screen and (min-width: 80em) {
+  #amplify-main {
+    --main-block-space: 3.75rem 5rem;
+  }
+}
+#amplify-main {
   box-sizing: content-box;
   margin-inline: auto;
   max-inline-size: 70rem;
-  padding-block: 1.5rem 6.25rem;
-  padding-inline: 5vw;
+  padding-block: var(--_main-block-space);
+  padding-inline: 1.25rem;
 }
 
 .component + .component {
@@ -2439,7 +2339,7 @@ main,
   background-position: 1.5rem 1.5rem;
   background-repeat: no-repeat;
   background-size: 2rem;
-  border: solid 1px;
+  border: solid 2px;
   border-inline-start-width: 4px;
   padding: 1.5rem;
   padding-inline-start: 4.5rem;
@@ -2499,6 +2399,7 @@ main,
     from stretching horizontally
 \*------------------------------------*/
 .card {
+  --box-border-clr: transparent;
   background-color: #fcfcfc;
   border-radius: 0.25rem;
   box-shadow: -1px 1px 4px 0 rgba(55, 70, 95, 0.12);
@@ -2770,13 +2671,6 @@ main,
     2. Meet WCAG AAA target size requirements for this font size - see
     https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
 \*------------------------------------*/
-.tag-list.tag-list {
-  margin: -0.625rem;
-}
-.tag-list.tag-list li {
-  margin: 0.625rem;
-}
-
 .tag {
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
@@ -2867,24 +2761,8 @@ main,
 /*------------------------------------*\
     #Search
 \*------------------------------------*/
-.l-sidebar.search {
-  overflow: visible;
-}
-
-.l-sidebar.search > * {
-  margin: -0.75rem;
-}
-
-.l-sidebar.search > * > * {
-  margin: 0.75rem;
-}
-
-.l-sidebar.search form .sidebar {
-  flex-basis: auto;
-}
-
-.l-sidebar.search form .not-sidebar {
-  min-inline-size: 70%;
+.search-form {
+  --sidebar-main-width: 70%;
 }
 
 /*------------------------------------*\
@@ -2906,14 +2784,6 @@ main,
   margin-inline: auto; /* 1 */
   max-inline-size: -webkit-max-content;
   max-inline-size: max-content; /* 1 */
-}
-
-.l-cluster.pagination > * {
-  margin-block: 0;
-}
-
-.l-cluster.pagination > * > * {
-  margin-block: 0;
 }
 
 .pagination__list a {
@@ -3119,29 +2989,18 @@ main,
   margin-block-start: 1rem;
 }
 
-.amplify .l-switcher.teasers {
-  overflow: visible;
+.amplify .custom-box .l-box {
+  border: none;
+  outline: solid 2px transparent;
+  outline-offset: -2px;
 }
 
-.amplify .l-switcher.teasers > * {
-  margin: -0.75rem;
-}
-
-.amplify .l-switcher.teasers > * > * {
-  min-inline-size: 33%;
-  padding: 0.75rem;
-}
-
-.amplify .l-switcher.teasers .card {
+.amplify .teasers .card {
   padding: 1.5rem;
 }
 
 .amplify .search-bar .not-sidebar {
   min-inline-size: 70%;
-}
-
-.amplify .search-bar button {
-  flex-grow: 1;
 }
 
 /* 1 */

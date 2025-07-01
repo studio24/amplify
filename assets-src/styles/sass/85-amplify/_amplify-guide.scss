@@ -129,30 +129,18 @@
 }
 
 
-.amplify .l-switcher.teasers {
-	overflow: visible;
+.amplify .custom-box .l-box {
+    border: none;
+    outline: solid 2px transparent;
+    outline-offset: -2px;
 }
 
-.amplify .l-switcher.teasers > * {
-	margin: rem(-12);
-}
 
-.amplify .l-switcher.teasers > * > * {
-	min-inline-size: 33%;
-	padding: rem(12);
-}
-
-.amplify .l-switcher.teasers .card {
+.amplify .teasers .card {
 	padding: rem(24);
 }
 
 
 .amplify .search-bar .not-sidebar {
 	min-inline-size: 70%;
-}
-
-// To omit the `flex-basis` in this example we haven't used the `.sidebar` class
-// on this element. So we must manually re-apply the required `flex-grow` property.
-.amplify .search-bar button {
-	flex-grow: 1;
 }

@@ -51,7 +51,7 @@
 
 <body class="amplify">
 	<div class="not-footer">
-		<a href="#main" class="skip-link">Skip to content</a>
+		<a href="#amplify-main" class="skip-link">Skip to content</a>
 		<header class="global-header">
 			<div class="l-center">
 				<a class="global-header__link" href="../index.html">Amplify from Studio 24</a>
@@ -59,19 +59,17 @@
 		</header>
 		<nav class="global-nav" aria-label="Main">
 			<div class="l-center">
-				<div class="l-cluster">
-					<ul class="clean-list">
-						<li><a class="global-nav__link" href="../get-started">Get started</a></li>
-						<li><a class="global-nav__link" href="../fundamentals">Fundamentals</a></li>
-						<li class="current"><a class="global-nav__link" href="../layout-helpers">Layout helpers</a></li>
-						<li><a class="global-nav__link" href="../core-components">Core components</a></li>
-						<li><a class="global-nav__link" href="../advanced-components">Advanced components</a></li>
-						<li><a class="global-nav__link" href="../typography-test">Typography test</a></li>
-					</ul>
-				</div>
+				<ul class="l-cluster clean-list">
+					<li><a class="global-nav__link" href="../get-started">Get started</a></li>
+					<li><a class="global-nav__link" href="../fundamentals">Fundamentals</a></li>
+					<li class="current"><a class="global-nav__link" href="../layout-helpers">Layout helpers</a></li>
+					<li><a class="global-nav__link" href="../core-components">Core components</a></li>
+					<li><a class="global-nav__link" href="../advanced-components">Advanced components</a></li>
+					<li><a class="global-nav__link" href="../typography-test">Typography test</a></li>
+				</ul>
 			</div>
 		</nav>
-		<main id="main">
+		<main id="amplify-main">
 			<div class="content-wrap">
 				<nav class="sidebar nav-secondary" aria-label="Secondary">
 					<ul class="clean-list" role="list">
@@ -82,6 +80,7 @@
 						<li><a class="nav-secondary__link" href="frame.html">Frame</a></li>
 						<li><a class="nav-secondary__link" href="sidebar.html">Sidebar</a></li>
 						<li><a class="nav-secondary__link" href="switcher.html">Switcher</a></li>
+						<li><a class="nav-secondary__link" href="autogrid.html">Autogrid</a></li>
 					</ul>
 				</nav>
 				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
@@ -90,27 +89,34 @@
 						<h1>Box</h1>
 						<p>The box layout helper is a simple container for grouping content within a defined region. It uses the class <code>l-box</code>.</p>
 						<p>Box deliberately treats padding and borders <em>equally on all sides</em>.</p>
-						<p>If your container needs asymmetrical styling, then it's a container with a more specific purpose and <em>not</em> a box.</p>
+						<p>If your container needs asymmetrical styling, then it's a container with a more specific purpose and <em>not a box</em>.</p>
+						<h2>CSS custom properties</h2>
+						<dl>
+							<dt><code>--box-bg-clr</code></dt>
+							<dd>Override the default background colour, which is set to transparent.</dd>
+							<dt><code>--box-border-clr</code></dt>
+							<dd>Override the default border colour, which is set to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentcolor_keyword">currentcolor</a>.</dd>
+							<dt><code>--box-border-style</code></dt>
+							<dd>Override the default solid border style.</dd>
+							<dt><code>--box-border-width</code></dt>
+							<dd>Override the default border width, which is set to 2px.</dd>
+							<dt><code>--box-padding</code></dt>
+							<dd>Override the default padding, which is set to 1.25rem.</dd>
+						</dl>
 					</div>
 					<div class="component">
 						<h2>Default box</h2>
 						<div class="l-box">Default box, with padding and border</div>
 					</div>
-					<div class="component">
-						<h2>Box without padding</h2>
-						<div class="l-box l-box--no-padding">Box with no padding</div>
-					</div>
-					<div class="component">
-						<h2>Box without border</h2>
-						<div class="l-box l-box--no-border">Box with no border</div>
-					</div>
-					<div class="component">
-						<h2>Box without padding or border</h2>
-						<div class="l-box l-box--no-padding l-box--no-border">Box with no padding and no border</div>
+					<div class="component custom-box">
+						<h2>Box without a border</h2>
+						<div class="l-box">The edges of this box should still be visible in forced colors mode.</div>
 					</div>
 					<div class="component component--text">
 						<h2>Considerations</h2>
-						<p>Because high contrast themes can eliminate <code>background-color</code>, the <code>l-box--no-border</code> modifier class adds a transparent outline so that the shape of the box remains apparent. Negative <code>outline-offset</code> moves the outline inside the box perimeter so that it doesn't impact its overall size.</p>
+						<p>The recommended minimum width for a border is 2px, to help make it noticeable to people with low vision.</p>
+						<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors">Forced colors mode</a> (previously Windows High Contrast Mode) tends to eliminate background colours. If <code>border: none;</code> is set on the box, or a zero value is used for border width, this can cause <a href="https://accessabilly.com/accessibility-issues-concerning-windows-high-contrast-mode/">accessibility issues for people using forced colors mode</a> as they won't be able to see that the content of the box is distinct from other areas. This can make it difficult to distinguish things like modal windows, flyout or dropdown navigation, and auto-suggestions for search inputs.</p>
+						<p>There are two options for managing this: either keep the border and make it the same colour as the background of the box, or remove the border and add a transparent <code>outline</code> with a negative <code>outline-offset</code> matching the width of the outline to move it inside the box perimeter so that it doesn't impact the overall size of the box.</p>
 					</div>
 				</div>
 			</div>

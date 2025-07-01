@@ -51,7 +51,7 @@
 
 <body class="amplify">
 	<div class="not-footer">
-		<a href="#main" class="skip-link">Skip to content</a>
+		<a href="#amplify-main" class="skip-link">Skip to content</a>
 		<header class="global-header">
 			<div class="l-center">
 				<a class="global-header__link" href="../index.html">Amplify from Studio 24</a>
@@ -59,19 +59,17 @@
 		</header>
 		<nav class="global-nav" aria-label="Main">
 			<div class="l-center">
-				<div class="l-cluster">
-					<ul class="clean-list">
-						<li><a class="global-nav__link" href="../get-started">Get started</a></li>
-						<li class="current"><a class="global-nav__link" href="../fundamentals">Fundamentals</a></li>
-						<li><a class="global-nav__link" href="../layout-helpers">Layout helpers</a></li>
-						<li><a class="global-nav__link" href="../core-components">Core components</a></li>
-						<li><a class="global-nav__link" href="../advanced-components">Advanced components</a></li>
-						<li><a class="global-nav__link" href="../typography-test">Typography test</a></li>
-					</ul>
-				</div>
+				<ul class="l-cluster clean-list">
+					<li><a class="global-nav__link" href="../get-started">Get started</a></li>
+					<li class="current"><a class="global-nav__link" href="../fundamentals">Fundamentals</a></li>
+					<li><a class="global-nav__link" href="../layout-helpers">Layout helpers</a></li>
+					<li><a class="global-nav__link" href="../core-components">Core components</a></li>
+					<li><a class="global-nav__link" href="../advanced-components">Advanced components</a></li>
+					<li><a class="global-nav__link" href="../typography-test">Typography test</a></li>
+				</ul>
 			</div>
 		</nav>
-		<main id="main">
+		<main id="amplify-main">
 			<div class="content-wrap">
 				<nav class="sidebar nav-secondary" aria-label="Secondary">
 					<ul class="clean-list" role="list">
@@ -373,33 +371,31 @@
 									<div class="field-hint" id="hint-segmented-options">We understand that different people enjoy books in different ways, which is why we’re giving you lots of options.</div>
 									<div class="l-switcher segmented-group">
 										<div>
-											<div>
-												<input type="radio" class="input--radio" id="segmented-option-1" name="segmented-options">
-												<label for="segmented-option-1">
-														<span class="segmented-label">
-															<span>Budget option</span>
-															<span class="segmented-label__copy">Copy to explain this option in more detail.</span>
-														</span>
-												</label>
-											</div>
-											<div>
-												<input type="radio" class="input--radio" id="segmented-option-2" name="segmented-options" checked>
-												<label for="segmented-option-2">
-														<span class="segmented-label">
-															<span>Value option</span>
-															<span class="segmented-label__copy">Copy to explain this option in more detail.</span>
-														</span>
-												</label>
-											</div>
-											<div>
-												<input type="radio" class="input--radio" id="segmented-option-3" name="segmented-options">
-												<label for="segmented-option-3">
-														<span class="segmented-label">
-															<span>Expensive option</span>
-															<span class="segmented-label__copy">Copy to explain this option in more detail.</span>
-														</span>
-												</label>
-											</div>
+											<input type="radio" class="input--radio" id="segmented-option-1" name="segmented-options">
+											<label for="segmented-option-1">
+												<span class="segmented-label">
+													<span>Budget option</span>
+													<span class="segmented-label__copy">Copy to explain this option in more detail.</span>
+												</span>
+											</label>
+										</div>
+										<div>
+											<input type="radio" class="input--radio" id="segmented-option-2" name="segmented-options" checked>
+											<label for="segmented-option-2">
+												<span class="segmented-label">
+													<span>Value option</span>
+													<span class="segmented-label__copy">Copy to explain this option in more detail.</span>
+												</span>
+											</label>
+										</div>
+										<div>
+											<input type="radio" class="input--radio" id="segmented-option-3" name="segmented-options">
+											<label for="segmented-option-3">
+												<span class="segmented-label">
+													<span>Expensive option</span>
+													<span class="segmented-label__copy">Copy to explain this option in more detail.</span>
+												</span>
+											</label>
 										</div>
 									</div>
 								</fieldset>
@@ -407,8 +403,8 @@
 						</form>
 					</div>
 					<div class="component component--text">
-						<p>The purpose of segmented options is to show all available options outright, rather than hiding them behind a <code>select</code>. It can be used with checkboxes, or with radio buttons as in the preceding example.</p>
-						<p>The basis of this pattern is the <a href="../layout-helpers/switcher.html">switcher layout</a>. The default styles assume that there are three choices and are optimised for this. In the event of fewer or more choices, you can override the default <code>min-width</code> percentage by applying an additional class.</p>
+						<p>The purpose of segmented options is to show all available options outright, rather than hiding them behind a <code>select</code>. It can be used with checkboxes, or with radio buttons as in the preceding example (even though it's using a tick).</p>
+						<p>The basis of this pattern is the <a href="../layout-helpers/switcher.html">switcher layout</a>.</p>
 					</div>
 					<div class="component">
 						<h2>Select</h2>

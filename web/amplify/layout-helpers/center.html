@@ -51,7 +51,7 @@
 
 <body class="amplify">
 	<div class="not-footer">
-		<a href="#main" class="skip-link">Skip to content</a>
+		<a href="#amplify-main" class="skip-link">Skip to content</a>
 		<header class="global-header">
 			<div class="l-center">
 				<a class="global-header__link" href="../index.html">Amplify from Studio 24</a>
@@ -59,19 +59,17 @@
 		</header>
 		<nav class="global-nav" aria-label="Main">
 			<div class="l-center">
-				<div class="l-cluster">
-					<ul class="clean-list">
-						<li><a class="global-nav__link" href="../get-started">Get started</a></li>
-						<li><a class="global-nav__link" href="../fundamentals">Fundamentals</a></li>
-						<li class="current"><a class="global-nav__link" href="../layout-helpers">Layout helpers</a></li>
-						<li><a class="global-nav__link" href="../core-components">Core components</a></li>
-						<li><a class="global-nav__link" href="../advanced-components">Advanced components</a></li>
-						<li><a class="global-nav__link" href="../typography-test">Typography test</a></li>
-					</ul>
-				</div>
+				<ul class="l-cluster clean-list">
+					<li><a class="global-nav__link" href="../get-started">Get started</a></li>
+					<li><a class="global-nav__link" href="../fundamentals">Fundamentals</a></li>
+					<li class="current"><a class="global-nav__link" href="../layout-helpers">Layout helpers</a></li>
+					<li><a class="global-nav__link" href="../core-components">Core components</a></li>
+					<li><a class="global-nav__link" href="../advanced-components">Advanced components</a></li>
+					<li><a class="global-nav__link" href="../typography-test">Typography test</a></li>
+				</ul>
 			</div>
 		</nav>
-		<main id="main">
+		<main id="amplify-main">
 			<div class="content-wrap">
 				<nav class="sidebar nav-secondary" aria-label="Secondary">
 					<ul class="clean-list" role="list">
@@ -82,15 +80,23 @@
 						<li><a class="nav-secondary__link" href="frame.html">Frame</a></li>
 						<li><a class="nav-secondary__link" href="sidebar.html">Sidebar</a></li>
 						<li><a class="nav-secondary__link" href="switcher.html">Switcher</a></li>
+						<li><a class="nav-secondary__link" href="autogrid.html">Autogrid</a></li>
 					</ul>
 				</nav>
 				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
 				<div class="content">
 					<div class="component component--text">
 						<h1>Center</h1>
-						<p>The center layout helper creates a vertical strip of content inside a given container element, with equal spacing on either side. It uses the class <code>l-center</code>. This technique is used on the <code>main</code> element (albeit without using the <code>l-center</code> class).</p>
-						<p>Padding on the sides of the center layout helper maintains a space between its contents and the edges of the parent container, even when the parent is narrower than the <code>max-width</code> of the center layout.</p>
+						<p>The center layout helper creates a vertical strip of content inside a given container element, with equal spacing on either side. It uses the class <code>l-center</code>. This technique is used on the <code>main</code> element (without using the <code>l-center</code> class, however).</p>
+						<p>Padding on the sides of the center layout helper maintains a space between its content and the edges of the parent container, even when the parent is narrower than the maximum width of the center layout.</p>
 						<p>The center layout helper uses an exception to the global <code>box-sizing: border-box;</code> declaration. It uses <code>box-sizing: content-box;</code> to prevent the padding from making the content narrower than intended.</p>
+						<h2>CSS custom properties</h2>
+						<dl>
+							<dt><code>--center-max-width</code></dt>
+							<dd>Override the default maximum width, which is set to 70rem.</dd>
+							<dt><code>--center-inline-space</code></dt>
+							<dd>Override the default horizontal padding, which is set to 1.25rem.</dd>
+						</dl>
 					</div>
 					<div class="component">
 						<div class="l-center">Center layout in action</div>

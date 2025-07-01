@@ -51,7 +51,7 @@
 
 <body class="amplify">
 	<div class="not-footer">
-		<a href="#main" class="skip-link">Skip to content</a>
+		<a href="#amplify-main" class="skip-link">Skip to content</a>
 		<header class="global-header">
 			<div class="l-center">
 				<a class="global-header__link" href="../index.html">Amplify from Studio 24</a>
@@ -59,19 +59,17 @@
 		</header>
 		<nav class="global-nav" aria-label="Main">
 			<div class="l-center">
-				<div class="l-cluster">
-					<ul class="clean-list">
-						<li><a class="global-nav__link" href="../get-started">Get started</a></li>
-						<li><a class="global-nav__link" href="../fundamentals">Fundamentals</a></li>
-						<li class="current"><a class="global-nav__link" href="../layout-helpers">Layout helpers</a></li>
-						<li><a class="global-nav__link" href="../core-components">Core components</a></li>
-						<li><a class="global-nav__link" href="../advanced-components">Advanced components</a></li>
-						<li><a class="global-nav__link" href="../typography-test">Typography test</a></li>
-					</ul>
-				</div>
+				<ul class="l-cluster clean-list">
+					<li><a class="global-nav__link" href="../get-started">Get started</a></li>
+					<li><a class="global-nav__link" href="../fundamentals">Fundamentals</a></li>
+					<li class="current"><a class="global-nav__link" href="../layout-helpers">Layout helpers</a></li>
+					<li><a class="global-nav__link" href="../core-components">Core components</a></li>
+					<li><a class="global-nav__link" href="../advanced-components">Advanced components</a></li>
+					<li><a class="global-nav__link" href="../typography-test">Typography test</a></li>
+				</ul>
 			</div>
 		</nav>
-		<main id="main">
+		<main id="amplify-main">
 			<div class="content-wrap">
 				<nav class="sidebar nav-secondary" aria-label="Secondary">
 					<ul class="clean-list" role="list">
@@ -82,6 +80,7 @@
 						<li><a class="nav-secondary__link" href="frame.html">Frame</a></li>
 						<li><a class="nav-secondary__link" href="sidebar.html" aria-current="page">Sidebar</a></li>
 						<li><a class="nav-secondary__link" href="switcher.html">Switcher</a></li>
+						<li><a class="nav-secondary__link" href="autogrid.html">Autogrid</a></li>
 					</ul>
 				</nav>
 				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
@@ -89,44 +88,48 @@
 					<div class="component component--text">
 						<h1>Sidebar</h1>
 						<p>The sidebar layout helper creates a pair of content panels inside a containing element. These two panels stack vertically, until there is enough horizontal space for them to sit alongside each other. One content panel is typically narrower than the other, acting as a "sidebar".</p>
-						<p>The sidebar layout helper needs an inner flexbox container to hold the two panels. The same negative margin technique used for the <a href="cluster.html">cluster layout</a> creates gutter spacing between the panels.</p>
-						<p>The point at which the panels sit side-by-side horizontally is determined by a <code>flex-basis</code> property on the narrower panel and a <code>min-width</code> on the wider panel. As there are <strong>no viewport media queries</strong>, the sidebar layout will nest nicely inside other containers.</p>
-						<h2>Considerations</h2>
-						<p>It is not recommended to use the sidebar layout helper to create an entire page layout, with a main content area and a sidebar. This is because the technique Amplify uses to manage <a href="../fundamentals/tables.html">responsive tables</a> has been found not to work if the table sits within the sidebar layout helper.</p>
+						<p>The outer container uses Flexbox. The <code>gap</code> property allows us to control the spacing between the panels. The point at which they sit side-by-side horizontally is determined by the <code>flex-basis</code> property on the narrower panel and <code>min-inline-size</code> on the wider panel. As there are <strong>no viewport media queries</strong>, the sidebar layout will nest nicely inside other containers.</p>
+						<h2>CSS custom properties</h2>
+						<dl>
+							<dt><code>--sidebar-main-width</code></dt>
+							<dd>Override the default width of the wide content panel, which is set to 60%</dd>
+							<dt><code>--sidebar-side-width</code></dt>
+							<dd>Override the default width of the sidebar panel, which is set to 15.625rem.</dd>
+							<dt><code>--sidebar-gap</code></dt>
+							<dd>Override the default spacing between the panels, which is set to 1.25rem.</dd>
+						</dl>
 					</div>
 					<div class="component">
 						<h2>Default sidebar</h2>
 						<div class="l-sidebar">
-							<div>
-								<div class="not-sidebar">Wide panel</div>
-								<div class="sidebar">Narrow "sidebar" panel</div>
-							</div>
+							<div class="not-sidebar">Wide panel</div>
+							<div class="sidebar">Narrow "sidebar"</div>
 						</div>
 					</div>
 					<div class="component">
 						<h2>Using nested containers for spacing content</h2>
 						<div class="l-sidebar">
-							<div>
-								<div class="not-sidebar">
-									<div class="l-box l-box--no-border">Wide panel</div>
-								</div>
-								<div class="sidebar">
-									<div class="l-box l-box--no-border">Narrow "sidebar" panel</div>
-								</div>
+							<div class="not-sidebar">
+								<div class="l-box l-box--no-border">Wide panel</div>
+							</div>
+							<div class="sidebar">
+								<div class="l-box l-box--no-border">Narrow "sidebar"</div>
 							</div>
 						</div>
 					</div>
 					<div class="component">
 						<h2>Using intrinsic content width for the sidebar</h2>
-						<div class="l-sidebar search-bar">
-							<form class="amplify-form" onsubmit="return false;">
+						<div class="search-bar">
+							<form class="l-sidebar amplify-form" onsubmit="return false;">
 								<input type="text" class="not-sidebar" aria-label="Search the site">
-								<button type="submit">Search</button>
+								<div class="sidebar sidebar--intrinsic u-no-margin-top">
+									<button type="submit">Search</button>
+								</div>
 							</form>
 						</div>
 					</div>
 					<div class="component component--text">
-						<p>We can choose to not specify a width on the narrow "sidebar" panel (by not declaring a <code>flex-basis</code> value) and let the content of the sidebar determine how wide it is. The preceding example shows how to override the default styles by using an additional class and omitting the <code>sidebar</code> class.</p>
+						<p>Adding the <code>sidebar--intrinsic</code> modifier class will set the <code>flex-basis</code> to auto, to let the content of the sidebar determine how wide it is.</p>
 					</div>
 				</div>
 			</div>

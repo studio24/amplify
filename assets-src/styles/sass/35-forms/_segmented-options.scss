@@ -5,8 +5,6 @@
 
     Make sure to apply the `.amplify-form` class directly to the <form> to
     pick up these styles and try to avoid conflicts with third party form styles
-
-    1. Modify this percentage according to the number of choices and what looks best
 \*------------------------------------*/
 @use '../10-settings' as *;
 @use '../20-tools' as *;
@@ -19,11 +17,9 @@
     .segmented-group.l-switcher {
         margin-block-start: 0;
 
-        > * > * {
+        > * {
             display: block;
             margin-block-start: 0;
-            max-inline-size: 100%;
-            min-inline-size: 33.333%; /* 1 */
             position: relative;
         }
 

@@ -10,61 +10,29 @@
     <figure> element, as it will interfere with the <figcaption>.
     Instead, place it on <picture> or a <div> inside of <figure>.
 \*------------------------------------*/
-@use '../10-settings' as *;
-@use '../20-tools' as *;
 
 .l-frame {
-	display: block;
-	overflow: hidden;
-	position: relative;
+    --_frame-x: var(--frame-x, 16);
+    --_frame-y: var(--frame-y, 9);
+
+    align-items: center;
+    aspect-ratio: var(--_frame-x) / var(--_frame-y);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
 }
 
 
-.l-frame > * {
-	align-items: center;
-	display: flex;
-	inset-block: 0;
-	inset-inline: 0;
-	justify-content: center;
-	position: absolute;
+.l-frame :is(iframe, img, video) {
+    block-size: 100%;
+    inline-size: 100%;
+    object-fit: cover;
 }
 
 
-.l-frame > iframe,
-.l-frame > img,
-.l-frame > video {
-	block-size: 100%;
-	inline-size: 100%;
-}
+.l-frame[data-shape="circle"] {
+    --frame-x: 1;
+    --frame-y: 1;
 
-
-.l-frame > iframe {
-	border: 0;
-}
-
-
-.l-frame > img,
-.l-frame > video {
-	object-fit: cover;
-}
-
-
-/* Common aspect ratios */
-.l-frame--16-9 {
-	padding-block-end: 56.25%;
-}
-
-
-.l-frame--3-2 {
-	padding-block-end: 66.67%;
-}
-
-
-.l-frame--4-3 {
-	padding-block-end: 75%;
-}
-
-
-.l-frame--square {
-	padding-block-end: 100%;
+    border-radius: 50%;
 }

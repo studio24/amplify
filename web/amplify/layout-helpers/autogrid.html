@@ -5,16 +5,16 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Details and summary - Amplify</title>
+	<title>Autogrid layout helper - Amplify</title>
 
 	<link rel="stylesheet" href="../../dist/styles/core.css" media="screen">
 
-    <!--
+	<!--
 	Print (Edge doesn't apply to print otherwise)
 	Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
 	FF 47+
 	-->
-    <link rel="stylesheet" id="advanced-stylesheet" href="../../dist/styles/advanced.min.css" media="
+	<link rel="stylesheet" id="advanced-stylesheet" href="../../dist/styles/advanced.min.css" media="
 	only print,
 	only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
 	only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
@@ -61,11 +61,11 @@
 		<div class="l-center">
 			<ul class="l-cluster clean-list">
 				<li><a class="global-nav__link" href="../get-started">Get started</a></li>
-				<li class="current"><a class="global-nav__link" href="../fundamentals">Fundamentals</a></li>
-				<li><a class="global-nav__link" href="../layout-helpers">Layout helpers</a></li>
+				<li><a class="global-nav__link" href="../fundamentals">Fundamentals</a></li>
+				<li class="current"><a class="global-nav__link" href="../layout-helpers">Layout helpers</a></li>
 				<li><a class="global-nav__link" href="../core-components">Core components</a></li>
 				<li><a class="global-nav__link" href="../advanced-components">Advanced components</a></li>
-				<li><a class="global-nav__link" href="../typography-test">Typography test</a></li>
+				<li><a class="global-nav__link" href="../design">Design handover &amp; standards</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -73,41 +73,39 @@
 		<div class="content-wrap">
 			<nav class="sidebar nav-secondary" aria-label="Secondary">
 				<ul class="clean-list" role="list">
-					<li><a class="nav-secondary__link" href="colours.html">Colours</a></li>
-					<li><a class="nav-secondary__link" href="typography.html">Typography</a></li>
-					<li><a class="nav-secondary__link" href="buttons-links.html">Buttons and links</a></li>
-					<li><a class="nav-secondary__link" href="lists.html">Lists</a></li>
-					<li><a class="nav-secondary__link" href="icons.html">Icons</a></li>
-					<li><a class="nav-secondary__link" href="breakpoints.html">Breakpoints</a></li>
-					<li><a class="nav-secondary__link" href="vertical-spacing.html">Vertical spacing</a></li>
-					<li><a class="nav-secondary__link" href="hide-and-show.html">Hide and show items inclusively</a></li>
-					<li><a class="nav-secondary__link" href="skip-link.html">Skip link</a></li>
-					<li><a class="nav-secondary__link" href="images.html">Images</a></li>
-					<li><a class="nav-secondary__link" href="forms.html">Forms</a></li>
-					<li><a class="nav-secondary__link" href="form-errors.html">Form error messages</a></li>
-					<li><a class="nav-secondary__link" href="tables.html">Tables</a></li>
-					<li><a class="nav-secondary__link" href="blockquotes.html">Blockquotes</a></li>
-					<li><a class="nav-secondary__link" href="details-summary.html" aria-current="page">Details and summary</a></li>
-					<li><a class="nav-secondary__link" href="utility-classes.html">Utility classes</a></li>
-					<li><a class="nav-secondary__link" href="flow-elements.html">Flow elements</a></li>
-					<li><a class="nav-secondary__link" href="print-styles.html">Print styles</a></li>
+					<li><a class="nav-secondary__link" href="box.html">Box</a></li>
+					<li><a class="nav-secondary__link" href="center.html">Center</a></li>
+					<li><a class="nav-secondary__link" href="cluster.html">Cluster</a></li>
+					<li><a class="nav-secondary__link" href="cover.html">Cover</a></li>
+					<li><a class="nav-secondary__link" href="frame.html">Frame</a></li>
+					<li><a class="nav-secondary__link" href="sidebar.html">Sidebar</a></li>
+					<li><a class="nav-secondary__link" href="switcher.html">Switcher</a></li>
+					<li><a class="nav-secondary__link" href="autogrid.html" aria-current="page">Autogrid</a></li>
 				</ul>
 			</nav>
 			<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
 			<div class="content">
 				<div class="component component--text">
-					<h1>Details and summary</h1>
-					<p>The <code>details</code> element generates a simple no-JavaScript widget to show/hide content, optionally by selecting its child <code>summary</code> element. In non-supporting browsers such as IE11 all content is expanded by default.</p>
+					<h1>Autogrid</h1>
+					<p>The autogrid layout helper provides a way of creating responsive grids of content. It uses the <code>l-autogrid</code> class. Autogrid hints at the browser to help it calculate the number of items on a row and the ideal width of those items. You can see an example on the <a href="../index.html">Amplify home page</a>.</p>
+					<h2>CSS custom properties</h2>
+					<dl>
+						<dt><code>--grid-placement</code></dt>
+						<dd>Override the default <code>auto-fill</code> behaviour of the grid, if desired. Refer to this article about <a href="https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/">auto-fill versus auto-fit</a> for advice and examples.</dd>
+						<dt><code>--grid-min-item-size</code></dt>
+						<dd>Override the settings controlling the minimum width of grid items.</dd>
+						<dt><code>--grid-gap</code></dt>
+						<dd>Override the default spacing between grid items, which is set to 1.25rem (20px).</dd>
+					</dl>
 				</div>
 				<div class="component">
-					<details>
-						<summary>This is the summary content</summary>
-						<p>This is the detailed content which is revealed if a user requests to see it.</p>
-					</details>
-				</div>
-				<div class="component component--text">
-					<h2>Considerations</h2>
-					<p>There is currently no way for <code>details</code> to be made to display all of its content by default when printed.</p>
+					<div class="l-autogrid">
+						<div class="l-box">Item 1</div>
+						<div class="l-box">Item 2</div>
+						<div class="l-box">Item 3</div>
+						<div class="l-box">Item 4</div>
+						<div class="l-box">Item 5</div>
+					</div>
 				</div>
 			</div>
 		</div>

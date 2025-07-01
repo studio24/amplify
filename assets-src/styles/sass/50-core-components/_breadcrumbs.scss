@@ -6,24 +6,51 @@
 @use '../20-tools' as *;
 
 .breadcrumbs {
+    --cluster-gap: 0;
+
 	padding-block: rem(10) rem(15);
-
-	.l-cluster > * {
-		margin: 0;
-	}
-
-	.l-cluster > * > * {
-		margin-block: 0;
-		margin-inline: 0;
-		padding-inline: 0 2em;
-		position: relative;
-	}
 }
 
 
 // Reset base <ol> styles
 .breadcrumbs ol ::marker {
 	content: ''!important;
+}
+
+
+.breadcrumbs li {
+    margin: 0;
+    padding-inline: 0 2em;
+    position: relative;
+}
+
+/**
+Separator chevron - see https://codepen.io/jonneal/pen/kptBs
+*/
+.breadcrumbs li:not(:last-child) {
+    &::after {
+        block-size: 0.5em;
+        border-block-end-width: 0;
+        border-block-start-width: 0.1em;
+        border-inline-end-width: 0.1em;
+        border-inline-start-width: 0;
+        border-style: solid;
+        content: '';
+        display: block;
+        inline-size: 0.5em;
+        inset-block-start: 50%;
+        inset-inline-end: 1.25em;
+        position: absolute;
+        transform: rotate(45deg) translateY(-50%);
+    }
+}
+
+[dir="rtl"] {
+    .breadcrumbs li:not(:last-child) {
+        &::after {
+            transform: rotate(-45deg) translateY(-50%);
+        }
+    }
 }
 
 
@@ -46,36 +73,5 @@
 
 	&:focus {
 		outline-color: $off-black;
-	}
-}
-
-
-/**
-Separator chevron - see https://codepen.io/jonneal/pen/kptBs
-*/
-.breadcrumbs li:not(:last-child) {
-	&::after {
-		block-size: 0.5em;
-		border-block-end-width: 0;
-		border-block-start-width: 0.1em;
-		border-inline-end-width: 0.1em;
-		border-inline-start-width: 0;
-		border-style: solid;
-		content: '';
-		display: block;
-		inline-size: 0.5em;
-		inset-block-start: 50%;
-		inset-inline-end: 1.25em;
-		position: absolute;
-		transform: rotate(45deg) translateY(-50%);
-	}
-}
-
-
-[dir="rtl"] {
-	.breadcrumbs li:not(:last-child) {
-		&::after {
-			transform: rotate(-45deg) translateY(-50%);
-		}
 	}
 }
