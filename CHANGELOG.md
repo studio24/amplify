@@ -1,5 +1,16 @@
 # Changelog
 
+## [10.0.0](https://github.com/studio24/amplify/compare/v9.1.0...v10.0.0) (2025-07-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* update Amplify layout helpers
+
+### Features
+
+* update Amplify layout helpers ([059710d](https://github.com/studio24/amplify/commit/059710d051380e3bcc719ba68b99d94d26ab2ff3))
+
 ## [9.1.0](https://github.com/studio24/amplify/compare/v9.0.0...v9.1.0) (2025-06-06)
 
 
