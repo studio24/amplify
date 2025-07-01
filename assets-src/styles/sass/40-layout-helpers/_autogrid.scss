@@ -1,5 +1,5 @@
 /*------------------------------------*\
-    #Grid layout helper
+    #Auto grid layout helper
 
     From https://every-layout.dev/layouts/grid/
 
@@ -12,7 +12,7 @@
 \*------------------------------------*/
 @use '../20-tools' as *;
 
-.l-grid {
+.l-autogrid {
     --_grid-placement: var(--grid-placement, auto-fill);
     --_grid-min-item-size: var(--grid-min-item-size, min(100%, #{rem(250)}));
     --_grid-gap: var(--grid-gap, #{rem(20)});

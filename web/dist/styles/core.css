@@ -1914,27 +1914,6 @@ we align items within the cluster by using 'align-items` and `justify-content`.
 }
 
 /*------------------------------------*\
-    #Grid layout helper
-
-    From https://every-layout.dev/layouts/grid/
-
-    Creates a responsive grid of content, using CSS Grid.
-
-    If grid items should be able to grow if there's leftover space available on a row,
-    change `--grid-placement` to use `auto-fit` rather than `auto-fill`. Here's a useful
-    reference about `auto-fill` versus `auto-fit` behaviour:
-    https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
-\*------------------------------------*/
-.l-grid {
-  --_grid-placement: var(--grid-placement, auto-fill);
-  --_grid-min-item-size: var(--grid-min-item-size, min(100%, 15.625rem));
-  --_grid-gap: var(--grid-gap, 1.25rem);
-  display: grid;
-  gap: var(--_grid-gap);
-  grid-template-columns: repeat(var(--_grid-placement), minmax(var(--_grid-min-item-size), 1fr));
-}
-
-/*------------------------------------*\
     #Sidebar layout helper
 
     From https://absolutely.every-layout.dev/layouts/sidebar/
@@ -2013,6 +1992,27 @@ media query.
 .l-switcher > * {
   flex-basis: calc((var(--_switcher-threshold) - 100%) * 999);
   flex-grow: 1;
+}
+
+/*------------------------------------*\
+    #Auto grid layout helper
+
+    From https://every-layout.dev/layouts/grid/
+
+    Creates a responsive grid of content, using CSS Grid.
+
+    If grid items should be able to grow if there's leftover space available on a row,
+    change `--grid-placement` to use `auto-fit` rather than `auto-fill`. Here's a useful
+    reference about `auto-fill` versus `auto-fit` behaviour:
+    https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
+\*------------------------------------*/
+.l-autogrid {
+  --_grid-placement: var(--grid-placement, auto-fill);
+  --_grid-min-item-size: var(--grid-min-item-size, min(100%, 15.625rem));
+  --_grid-gap: var(--grid-gap, 1.25rem);
+  display: grid;
+  gap: var(--_grid-gap);
+  grid-template-columns: repeat(var(--_grid-placement), minmax(var(--_grid-min-item-size), 1fr));
 }
 
 /*------------------------------------*\
