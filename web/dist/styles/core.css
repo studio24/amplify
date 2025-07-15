@@ -1771,9 +1771,11 @@ main:focus,
   --_box-border-clr: var(--box-border-clr, currentcolor);
   --_box-border-style: var(--box-border-style, solid);
   --_box-border-width: var(--box-border-width, 2px);
+  --_box-radius: var(--box-radius, 0);
   --_box-padding: var(--box-padding, 1.25rem);
   background-color: var(--_box-bg-clr);
   border: var(--_box-border-width) var(--_box-border-style) var(--_box-border-clr);
+  border-radius: var(--_box-radius);
   display: block;
   padding: var(--_box-padding);
 }
@@ -2400,8 +2402,8 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 \*------------------------------------*/
 .card {
   --box-border-clr: transparent;
+  --box-radius: 0.3125rem;
   background-color: #fcfcfc;
-  border-radius: 0.25rem;
   box-shadow: -1px 1px 4px 0 rgba(55, 70, 95, 0.12);
   display: flex;
   flex-direction: column;
@@ -2411,13 +2413,9 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 .card__text {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   flex-grow: 1;
+  justify-content: flex-start;
   order: 1;
-  padding-block-start: 1rem;
-}
-.card__text > * + * {
-  margin-block-start: 1em;
 }
 
 /**
@@ -2993,10 +2991,6 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   border: none;
   outline: solid 2px transparent;
   outline-offset: -2px;
-}
-
-.amplify .teasers .card {
-  padding: 1.5rem;
 }
 
 .amplify .search-bar .not-sidebar {

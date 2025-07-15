@@ -22,10 +22,12 @@
     --_box-border-clr: var(--box-border-clr, currentcolor);
     --_box-border-style: var(--box-border-style, solid);
     --_box-border-width: var(--box-border-width, 2px);
+    --_box-radius: var(--box-radius, 0);
     --_box-padding: var(--box-padding, #{rem(20)});
 
 	background-color: var(--_box-bg-clr);
     border: var(--_box-border-width) var(--_box-border-style) var(--_box-border-clr);
+    border-radius: var(--_box-radius);
 	display: block;
 	padding: var(--_box-padding);
 }
