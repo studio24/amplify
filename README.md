@@ -1,6 +1,6 @@
 # Amplify
 
-Front-End starter kit by Studio 24.
+Front-end starter kit by Studio 24, for anybody.
 
 ## Getting started
 
@@ -14,7 +14,6 @@ Also see more [detailed project documentation](docs/README.md).
 * [Installing](#installing)
 * [Making changes](#making-changes)
 * [Deployment](#deployment)
-* [Built with](#built-with)
 * [Credits](#credits)
 
 ## Site URLs
@@ -28,12 +27,14 @@ Also see more [detailed project documentation](docs/README.md).
 * https://amplify-staging.studio24.net/_build_summary.json
 
 ### Development
-* http://local.amplify.studio24.net/
+* https://amplify.ddev.site/
 
 ## Installing
 
 ### Requirements
 
+- PHP 8.3
+- [DDEV](https://ddev.com) v1.24+
 - Node (check the `.nvmrc` file in the project root for latest version)
 - [NPM](https://www.npmjs.com/)
 - [NVM](https://github.com/creationix/nvm)
@@ -50,52 +51,62 @@ Clone repo:
 git clone git@github.com:studio24/amplify.git
 ````
 
+Setup DDEV:
+
+```bash
+# may take a while to run for the first time
+ddev start
+
+# launch the site in the browser
+ddev launch
+```
+
 Install PHP dependencies:
 
-```php
-composer install
+```bash
+ddev composer install
 ```
 
 Install project dependencies:
 
 ````bash
 # Switch your version of Node to the correct version for this project (see `.nvmrc`)
-nvm use
+ddev nvm use
 
-npm install
+ddev npm install
 ````
 
 Build front-end assets:
 
 ````bash
-npm run build
+ddev npm run build
 ````
 
 There are also specific commands if you only want to build certain front-end assets:
 
 ````bash
-nvm use 
+ddev nvm use 
 
 # Copy font assets to the `dist` directory
-npm run fonts
+ddev npm run fonts
 
 # Copy image assets to the `dist` directory (note they are **not optimised** as part of this step)
-npm run images
+ddev npm run images
 
 # Optimise and then copy SVG assets to the `dist` directory
-npm run svgs
+ddev npm run svgs
 
 # Compile the Sass partials into CSS files in the `dist` directory
-npm run styles
+ddev npm run styles
 
 # Compile, transpile and minify the JS files, place them in the `dist` directory
-npm run js
+ddev npm run js
 ````
 
 Watch for changes:
 
 ````bash
-npm run watch
+ddev npm run watch
 ````
 
 * [More about CSS](docs/CSS.md)
@@ -185,19 +196,19 @@ The site uses Deployer for deployment (installed via Composer). Please note if n
 You should always deploy the `main` branch to production.
 
 ````
-./vendor/bin/dep deploy production --branch=main
+ddev exec ./vendor/bin/dep deploy production --branch=main
 ````
 
 ### Deploy to Staging
 
-The deploy process outputs a summary of what branch is currently deployed to staging, please check this to ensure you're not overwriting someone's work.
+The deployment process outputs a summary of what branch is currently deployed to staging, please check this to ensure you're not overwriting someone's work.
 
 ````
-./vendor/bin/dep deploy staging --branch=branch-name-to-deploy
+ddev exec ./vendor/bin/dep deploy staging --branch=branch-name-to-deploy
 ````
 
 ## Credits
-- **Nicola Saunders** - *Front-End Lead Developer* - Studio 24
+- **Nicola Saunders** - *Front-end Lead Developer* - Studio 24
 - **Marie Manandise** - *Senior Web Developer* - Studio 24
 
 ## License
