@@ -88,7 +88,7 @@
 					<div class="component component--text">
 						<h1>Box</h1>
 						<p>The box layout helper is a simple container for grouping content within a defined region. It uses the class <code>l-box</code>.</p>
-						<p>Box deliberately treats padding and borders <em>equally on all sides</em>.</p>
+						<p><strong>Box deliberately treats padding and borders equally on all sides</strong>.</p>
 						<p>If your container needs asymmetrical styling, then it's a container with a more specific purpose and <em>not a box</em>.</p>
 						<h2>CSS custom properties</h2>
 						<dl>
@@ -100,6 +100,8 @@
 							<dd>Override the default solid border style.</dd>
 							<dt><code>--box-border-width</code></dt>
 							<dd>Override the default border width, which is set to 2px.</dd>
+							<dt><code>--box-radius</code></dt>
+							<dd>Override the default border radius, which is set to 0.</dd>
 							<dt><code>--box-padding</code></dt>
 							<dd>Override the default padding, which is set to 1.25rem.</dd>
 						</dl>
@@ -115,8 +117,13 @@
 					<div class="component component--text">
 						<h2>Considerations</h2>
 						<p>The recommended minimum width for a border is 2px, to help make it noticeable to people with low vision.</p>
-						<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors">Forced colors mode</a> (previously Windows High Contrast Mode) tends to eliminate background colours. If <code>border: none;</code> is set on the box, or a zero value is used for border width, this can cause <a href="https://accessabilly.com/accessibility-issues-concerning-windows-high-contrast-mode/">accessibility issues for people using forced colors mode</a> as they won't be able to see that the content of the box is distinct from other areas. This can make it difficult to distinguish things like modal windows, flyout or dropdown navigation, and auto-suggestions for search inputs.</p>
-						<p>There are two options for managing this: either keep the border and make it the same colour as the background of the box, or remove the border and add a transparent <code>outline</code> with a negative <code>outline-offset</code> matching the width of the outline to move it inside the box perimeter so that it doesn't impact the overall size of the box.</p>
+						<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors">Forced colors mode</a> (previously Windows High Contrast Mode) tends to eliminate background colours. If <code>border: none;</code> is set on the box, or a zero value is used for <code>--box-border-width</code>, this can cause <a href="https://accessabilly.com/accessibility-issues-concerning-windows-high-contrast-mode/">accessibility issues for people using forced colors mode</a>. They won't be able to see that the content of the box is distinct from other areas, which can make it difficult to distinguish things like modal windows, flyout or dropdown navigation, and auto-suggestions for search inputs.</p>
+						<p>There are two options for managing this:</p>
+						<ul>
+							<li>keep the border and make it transparent or give it the same colour as any <code>background-color</code> used for the box, or</li>
+							<li>use <code>border: none;</code> and add a transparent <code>outline</code> with a negative <code>outline-offset</code> matching the width of the outline to move it inside the box perimeter so that it doesn't impact the overall size of the box</li>
+						</ul>
+						<p>The latter approach is demonstrated in the box without a border example.</p>
 					</div>
 				</div>
 			</div>

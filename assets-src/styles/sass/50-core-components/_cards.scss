@@ -10,9 +10,9 @@
 
 .card {
     --box-border-clr: transparent;
+    --box-radius: #{rem(5)};
 
 	background-color: $off-white;
-	border-radius: rem(4);
 	box-shadow: -1px 1px 4px 0 rgba(55 70 95 / 12%);
 	display: flex;
 	flex-direction: column;
@@ -21,11 +21,11 @@
 
 
 .card__text {
-	@include stack;
-
+    display: flex;
+    flex-direction: column;
 	flex-grow: 1;
+    justify-content: flex-start;
 	order: 1;
-	padding-block-start: 1rem;
 }
 
 
