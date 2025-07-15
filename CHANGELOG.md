@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.1.0](https://github.com/studio24/amplify/compare/v10.0.0...v10.1.0) (2025-07-15)
+
+
+### Features
+
+* add DDEV ([72fff63](https://github.com/studio24/amplify/commit/72fff63ab16bce6cf9720eb179e3c607ad5ebb34))
+
 ## [10.0.0](https://github.com/studio24/amplify/compare/v9.1.0...v10.0.0) (2025-07-01)
 
 
