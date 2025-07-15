@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.1.1](https://github.com/studio24/amplify/compare/v10.1.0...v10.1.1) (2025-07-15)
+
+
+### Bug Fixes
+
+* minor housekeeping adjustments to Amplify, docs site ([15d2cee](https://github.com/studio24/amplify/commit/15d2cee50d49755267022c968a5e19d453447fca))
+
 ## [10.1.0](https://github.com/studio24/amplify/compare/v10.0.0...v10.1.0) (2025-07-15)
 
 
