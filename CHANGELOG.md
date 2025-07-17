@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.1.2](https://github.com/studio24/amplify/compare/v10.1.1...v10.1.2) (2025-07-17)
+
+
+### Bug Fixes
+
+* add width/height attributes to images ([7761322](https://github.com/studio24/amplify/commit/7761322ae5f046a89dfe341bc54064f5b9494098))
+
 ## [10.1.1](https://github.com/studio24/amplify/compare/v10.1.0...v10.1.1) (2025-07-15)
 
 
