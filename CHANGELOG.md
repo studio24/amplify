@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.1.3](https://github.com/studio24/amplify/compare/v10.1.2...v10.1.3) (2025-08-19)
+
+
+### Bug Fixes
+
+* Fix vulnerabilities in NPM packages ([3ea323a](https://github.com/studio24/amplify/commit/3ea323a91e9ec087ecd751c71cd850c5b516f5b6))
+
 ## [10.1.2](https://github.com/studio24/amplify/compare/v10.1.1...v10.1.2) (2025-07-17)
 
 
