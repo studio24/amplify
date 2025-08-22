@@ -114,6 +114,51 @@
 						<p>Transcripts for prerecorded video are required to meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/media-alternative-prerecorded.html">WCAG Success Criterion 1.2.8: Media Alternative (Prerecorded) (AAA)</a>.</p>
 						<p><a href="https://www.w3.org/WAI/media/av/transcripts/">More advice about audiovisual media transcripts.</a></p>
 					</div>
+					<div class="component component--text">
+						<h2>Video component - when cookies disabled</h2>
+					</div>
+					<figure class="component component--video component--video--embed">
+						<div class="l-frame">
+							<div class="component--video__blocker">
+								<div>
+									<p>You must accept marketing cookies before seeing this video.</p>
+									<p><a href="javascript:void">Change your cookie preferences</a></p>
+								</div>
+							</div>
+							<!-- Not sure if this is needed here -->
+							<div class="component--video__iframe">
+								<iframe title="Why do cats act so weird?" loading="lazy" width="560" height="315" src="" data-src="https://embed.ted.com/talks/lang/en/tony_buffington_why_do_cats_act_so_weird" allowfullscreen></iframe>
+							</div>
+						</div>
+						<figcaption>
+							<p>They're cute, they're lovable, and judging by the 26 billion views on over 2 million YouTube videos of them, one thing is certain: cats are very entertaining. But their strange feline behaviours, both amusing and baffling, leave many of us asking: Why do cats do that? Tony Buffington explains the science behind some of your cat's strangest behaviours.</p>
+							<a href="https://www.ted.com/talks/tony_buffington_why_do_cats_act_so_weird/transcript">Video transcript</a>
+						</figcaption>
+					</figure>
+					<div class="component component--text">
+						<h2>Considerations</h2>
+						<p>Providers like YouTube, Vimeo, Ted.com, DailyMotion (old school) and others that allow content to be embedded, tend to use cookies for analytics and/or marketing purposes. The video should not be displayed when these cookies are disabled and a fallback should be displayed.</p>
+						<p>For this to function, the <code>iframe</code> needs to have a <code>data-src</code> attribute and a blank <code>src</code> to prevent the video from being loaded before cookies have been accepted.</p>
+						<p>An example of this is on Cambridge Trust, where additional JS has been written to toggle the videos based on the value of a cookie.</p>
+
+						<pre><code>
+	const videos = document.getElementsByClassName('component--video');
+	function showEmbed() {
+		for (let i = 0; i < videos.length; i++) {
+			videos[i].classList.add('--loaded');
+			videos[i].querySelector('iframe').setAttribute('src', iframe.getAttribute('data-src'));;
+
+		}
+	};
+	function hideEmbed() {
+		for (let i = 0; i < videos.length; i++) {
+			videos[i].classList.remove('--loaded');
+			videos[i].querySelector('iframe').setAttribute('src', '');;
+		}
+	}
+						</code></pre>
+						<p>These functions are specifically written to work with CivicCookie and should be fired within the <code>onAccept</code> and <code>onRevoke</code> options for marketing cookies as that is what most of the cookies in YouTube are used for, they are "analytics" in Vimeo.</code></p>
+					</div>
 				</div>
 			</div>
 		</main>

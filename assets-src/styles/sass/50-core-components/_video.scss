@@ -22,3 +22,33 @@
 		}
 	}
 }
+
+
+// Modifier class for when embeds are used.
+.component--video--embed {
+
+	// Simple overlay styling, uses bg to highlight area
+	.component--video__blocker {
+		align-items: center;
+		background-color: $neutral-20;
+		display: flex;
+		height: 100%;
+		justify-content: center;
+		text-align: center;
+		width: 100%;
+	}
+
+	.component--video__iframe {
+		display: none;
+	}
+
+	&.loaded {
+		.component--video__blocker {
+			display: none;
+		}
+
+		.component--video__iframe {
+			display: block;
+		}
+	}
+}
