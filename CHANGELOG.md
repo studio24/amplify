@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.2.0](https://github.com/studio24/amplify/compare/v10.1.3...v10.2.0) (2026-03-16)
+
+
+### Features
+
+* update npm packages ([443a1a1](https://github.com/studio24/amplify/commit/443a1a1632a7b096e624af83387032d0be848efa))
+
 ## [10.1.3](https://github.com/studio24/amplify/compare/v10.1.2...v10.1.3) (2025-08-19)
 
 
