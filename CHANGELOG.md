@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.3.1](https://github.com/studio24/amplify/compare/v10.3.0...v10.3.1) (2026-05-13)
+
+
+### Bug Fixes
+
+* merge pull request [#114](https://github.com/studio24/amplify/issues/114) from studio24/feature/add-npmrc-file ([4c44707](https://github.com/studio24/amplify/commit/4c44707a74aba1b42b8fbbafe34e52e940edf37a))
+
 ## [10.3.0](https://github.com/studio24/amplify/compare/v10.2.0...v10.3.0) (2026-05-12)
 
 
