@@ -3,5 +3,5 @@
 # these owners will be requested for
 # review when someone opens a pull request.
 # See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
-*       @maries24 @sean-dunwoody @NicolaSaunders
+*       @isaaclowe @sean-dunwoody @NicolaSaunders
 
