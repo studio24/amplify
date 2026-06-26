@@ -107,6 +107,23 @@
 						<div class="l-box">Box layout 5</div>
 					</div>
 				</div>
+				<div class="component component--text">
+					<h2>Considerations</h2>
+					<p>If you are aiming for a certain number of columns to appear at a certain viewport width, here&rsquo;s how you can get that working:</p>
+					<ol>
+						<li>Work out how many gutters (gaps) there will be between the desired number of items in a row. A 3-column grid will have two gutters, for example.</li>
+						<li>Multiply the gutter width (<code>--grid-gap</code>) by the number of gutters.</li>
+						<li>Subtract that figure from the desired viewport width.</li>
+						<li>Divide the result by the number of items in a row.</li>
+						<li>Use that to determine the maximum item width in a CSS <code>clamp()</code> function, which allows you to specify a minimum, preferred and maximum width for items.</li>
+						<li>Use the <code>clamp()</code> function as the value for <code>--grid-min-item-size</code>.</li>
+					</ol>
+					<p>For example:</p>
+<pre><code>.l-autogrid[data-layout='thirds'] {
+    --grid-placement: auto-fit;
+    --grid-min-item-size: clamp(min(100%, #{rem(256)}), 33%, #{rem(350)});
+}</code></pre>
+				</div>
 			</div>
 		</div>
 	</main>
