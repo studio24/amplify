@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.3.2](https://github.com/studio24/amplify/compare/v10.3.1...v10.3.2) (2026-06-26)
+
+
+### Bug Fixes
+
+* add helpful notes about using autogrid layout ([6ab0040](https://github.com/studio24/amplify/commit/6ab0040e09001dd289c50b9fbbe499a4ce1f2990))
+
 ## [10.3.1](https://github.com/studio24/amplify/compare/v10.3.0...v10.3.1) (2026-05-13)
 
 
