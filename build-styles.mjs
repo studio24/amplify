@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import * as sass from 'sass';
 import postcss from 'postcss';
 import autoprefixer from 'autoprefixer';
+import postcssPrefixSelector from 'postcss-prefix-selector';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -32,3 +33,35 @@ for (const name of entries) {
 	const fileName = minify ? `${name}.min.css` : `${name}.css`;
 	fs.writeFileSync(path.resolve(outDir, fileName), result.css);
 }
+
+
+// WordPress editor specific CSS file
+// Not listed as an entry point, but still needs to be built and uses an additional
+// plugin to target the editor only
+
+
+// Custom plugin to replace the prefix of the editor-specific CSS with a custom selector
+const editorCssPrefix = postcssPrefixSelector({
+	prefix: '.editor-styles-wrapper',
+	transform(prefix, selector) {
+		// :root, html, body all become .editor-styles-wrapper so that
+		// CSS variables and base styles are scoped to the editor canvas,
+		// matching what WordPress Gutenberg does with add_editor_style()
+		if ([':root', 'html', 'body'].includes(selector)) return prefix
+		return `${prefix} ${selector}`
+	},
+});
+
+// Build process
+const { css } = sass.compile(path.resolve(root, `editor.scss`), {
+	style: minify ? 'compressed' : 'expanded',
+	sourceMap: false,
+});
+
+const result = await postcss([autoprefixer, editorCssPrefix]).process(css, {
+	from: undefined,
+	map: false,
+});
+
+const fileName = minify ? `editor.min.css` : `editor.css`;
+fs.writeFileSync(path.resolve(outDir, fileName), result.css);
