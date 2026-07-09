@@ -176,7 +176,8 @@ article {
 
 .js .component--collapsibles__panel__content {
   padding: 1.5625rem;
-  padding-block-start: 0;
+  -webkit-padding-before: 0;
+          padding-block-start: 0;
 }
 .js .component--collapsibles__panel__content[aria-hidden=true] {
   display: none;
@@ -189,7 +190,8 @@ article {
   pointer-events: none;
 }
 [data-toggle=true] + * {
-  margin-block-start: 1rem;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
 }
 [data-toggle=true][aria-expanded=false] .expand-less {
   display: none;
@@ -218,7 +220,8 @@ amplify-table-sort .arrow-wrapper {
   display: flex;
   flex-direction: column;
   inline-size: 0.9375rem;
-  margin-inline-start: 0.75rem;
+  -webkit-margin-start: 0.75rem;
+          margin-inline-start: 0.75rem;
   pointer-events: none;
 }
 
@@ -268,9 +271,6 @@ amplify-table-sort col.js-sorted {
 
     N.B. aria-expanded attribute is managed by JS
 \*------------------------------------*/
-.js .global-nav {
-  /* Prevent offscreen-submenus */
-}
 .js .global-nav [data-trigger] > * {
   pointer-events: none;
 }
@@ -313,18 +313,23 @@ amplify-table-sort col.js-sorted {
 }
 @media screen and (min-width: 48em) {
   .js .global-nav > ul > li + li {
-    margin-inline-start: 0.3125rem;
+    -webkit-margin-start: 0.3125rem;
+            margin-inline-start: 0.3125rem;
   }
 }
 .js .global-nav [data-nav=submenu] {
   background-color: #fcfcfc;
-  padding-inline-start: 0;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
 }
 @media screen and (min-width: 48em) {
   .js .global-nav [data-nav=submenu] {
     inset-inline-start: 0;
     position: absolute;
   }
+}
+.js .global-nav {
+  /* Prevent offscreen-submenus */
 }
 .js .global-nav [data-nav=submenu].js-sub-menu-right {
   inset-inline: auto 0;
@@ -481,7 +486,8 @@ amplify-table-sort col.js-sorted {
   }
 }
 #js-click-nav-intro [data-nav=submenu] {
-  border-block-end: solid 3px;
+  -webkit-border-after: solid 3px;
+          border-block-end: solid 3px;
   inline-size: 100%;
   inset-block-start: 0;
   min-block-size: 100%;
@@ -523,7 +529,8 @@ amplify-table-sort col.js-sorted {
   }
 }
 #js-click-nav-intro [data-nav=submenu] .nav__intro + * {
-  margin-block-start: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
 #js-click-nav-intro .nav__intro p {
   display: none;
@@ -726,7 +733,6 @@ amplify-table-sort col.js-sorted {
 .splide__track--draggable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 
@@ -887,12 +893,6 @@ amplify-table-sort col.js-sorted {
   display: block;
   padding: 0.5em 1em;
   text-decoration: none;
-  /**
-   * Active tab styling
-   */
-  /**
-   * Tabs on hover
-   */
 }
 @media (min-width: 30em) {
   [role=tab] {
@@ -903,6 +903,11 @@ amplify-table-sort col.js-sorted {
     margin-bottom: -1px;
   }
 }
+[role=tab] {
+  /**
+   * Active tab styling
+   */
+}
 [role=tab][aria-selected=true] {
   background-color: rgb(211.15, 211.15, 211.15);
 }
@@ -912,6 +917,11 @@ amplify-table-sort col.js-sorted {
     border: 1px solid rgb(211.15, 211.15, 211.15);
     border-bottom-color: #ffffff;
   }
+}
+[role=tab] {
+  /**
+   * Tabs on hover
+   */
 }
 [role=tab]:hover:not([aria-selected=true]) {
   background-color: #f7f7f7;
@@ -977,7 +987,8 @@ amplify-table-sort col.js-sorted {
 }
 
 .autocomplete__option {
-  margin-block-start: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
 
 .autocomplete__option--odd {
@@ -1118,9 +1129,6 @@ amplify-table-sort col.js-sorted {
   display: block;
   margin-bottom: 0;
   padding: 0.625em 0.9375em;
-  /**
-  Unset focus styles (apart from transparent outline) where the browser wouldn't set a visible focus
-   */
 }
 .component--tabs a[role=tab]:hover {
   background-color: #c6c6c6;
@@ -1137,6 +1145,11 @@ amplify-table-sort col.js-sorted {
   box-shadow: inset 0 0 0 4px #000;
   outline-offset: -4px;
 }
+.component--tabs a[role=tab] {
+  /**
+  Unset focus styles (apart from transparent outline) where the browser wouldn't set a visible focus
+   */
+}
 .component--tabs a[role=tab]:focus:not(:focus-visible) {
   box-shadow: none;
 }
@@ -1145,5 +1158,6 @@ amplify-table-sort col.js-sorted {
   padding: 1.5rem;
 }
 .component--tabs [role=tabpanel] > *:first-child {
-  margin-block-start: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }

@@ -84,7 +84,7 @@ Amplify uses the Node implementation of [Dart Sass](https://sass-lang.com/dart-s
 * `print.css`
 * `advanced.css`
 
-[PostCSS](https://github.com/postcss/postcss), [PostCSS CLI](https://github.com/postcss/postcss-cli) and [Autoprefixer](https://github.com/postcss/autoprefixer) NPM packages add any vendor prefixes which may be required for our [supported list of browsers](browser-support.md) and produce minified versions of these stylesheets.
+[PostCSS](https://github.com/postcss/postcss) and [Autoprefixer](https://github.com/postcss/autoprefixer) NPM packages add any vendor prefixes which may be required for our [supported list of browsers](browser-support.md), and Dart Sass produces minified versions of these stylesheets.
 
 Both `core.css` and `print.css` are served to all browsers. `advanced.css` is only served to supported browsers.
 

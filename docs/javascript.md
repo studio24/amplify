@@ -21,6 +21,8 @@ Contains Amplify's implementations for any third party scripts that are imported
 
 ## JavaScript build tools
 
-[Webpack](https://webpack.js.org/) is used to compile, transpile and minify JavaScript files. There is a `webpack.config.js` file in the project root which controls this process.
+[Vite](https://vite.dev/) is used to compile, transpile and minify JavaScript files. There is a `build-js.mjs` file in the project root which controls this process, bundling each entry point in `assets-src/js` independently. The transpilation target is derived from the `browserslist` field in `package.json`.
 
-@TODO: add notes about Babel setup and transpiling from the browserslist in `package.json`.
+Entry files are managed within `package.json` under the `config.entries` field; this means that any new JavaScript file added to the project should be added to this list.
+
+External libraries are also managed within `package.json` under the `config.externals` field. This means that any third party library that need to be referenced should be added to this list. Amplify already had `fontfaceobserver` in this list.

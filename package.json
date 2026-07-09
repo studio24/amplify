@@ -30,28 +30,26 @@
 	],
 	"config": {
 		"from": "assets-src",
-		"to": "web/dist"
+		"to": "web/dist",
+		"entries": {
+			"main": "main.js",
+			"country-autocomplete": "country-autocomplete.js",
+			"tabs": "package-extensions/s24-tabby-polyfills.js",
+			"splide": "package-extensions/s24-splide.js",
+			"sortable-tables": "sortable-tables.js"
+		},
+		"libraries": {
+			"fontfaceobserver/fontfaceobserver.js": "fontfaceobserver.js"
+		}
 	},
 	"scripts": {
 		"fonts": "shx cp -r ${npm_package_config_from}/fonts/* ${npm_package_config_to}/fonts",
 		"images": "shx cp -r ${npm_package_config_from}/images/* ${npm_package_config_to}/images",
 		"svgs": "svgo --folder=${npm_package_config_from}/svg --output=${npm_package_config_to}/svg",
 		"lint-scss": "stylelint --fix \"${npm_package_config_from}/styles/sass/**/*.scss\"",
-		"sass-core-expanded": "sass --no-source-map --error-css --style=expanded ${npm_package_config_from}/styles/core.scss ${npm_package_config_to}/styles/core.css",
-		"postsass-core-expanded": "postcss --no-map ${npm_package_config_to}/styles/core.css --use=autoprefixer --output=${npm_package_config_to}/styles/core.css",
-		"sass-advanced-expanded": "sass --no-source-map --error-css --style=expanded ${npm_package_config_from}/styles/advanced.scss ${npm_package_config_to}/styles/advanced.css",
-		"postsass-advanced-expanded": "postcss --no-map ${npm_package_config_to}/styles/advanced.css --use=autoprefixer --output=${npm_package_config_to}/styles/advanced.css",
-		"sass-print-expanded": "sass --no-source-map --error-css --style=expanded ${npm_package_config_from}/styles/print.scss ${npm_package_config_to}/styles/print.css",
-		"postsass-print-expanded": "postcss --no-map ${npm_package_config_to}/styles/print.css --use=autoprefixer --output=${npm_package_config_to}/styles/print.css",
-		"sass-core-compressed": "sass --no-source-map --style=compressed ${npm_package_config_from}/styles/core.scss ${npm_package_config_to}/styles/core.min.css",
-		"postsass-core-compressed": "postcss --no-map ${npm_package_config_to}/styles/core.min.css --use=autoprefixer --output=${npm_package_config_to}/styles/core.min.css",
-		"sass-advanced-compressed": "sass --no-source-map --style=compressed ${npm_package_config_from}/styles/advanced.scss ${npm_package_config_to}/styles/advanced.min.css",
-		"postsass-advanced-compressed": "postcss --no-map ${npm_package_config_to}/styles/advanced.min.css --use=autoprefixer --output=${npm_package_config_to}/styles/advanced.min.css",
-		"sass-print-compressed": "sass --no-source-map --style=compressed ${npm_package_config_from}/styles/print.scss ${npm_package_config_to}/styles/print.min.css",
-		"postsass-print-compressed": "postcss --no-map ${npm_package_config_to}/styles/print.min.css --use=autoprefixer --output=${npm_package_config_to}/styles/print.min.css",
 		"prestyles": "npm run-script lint-scss",
-		"styles": "npm-run-all --parallel sass-core-expanded sass-core-compressed sass-advanced-expanded sass-advanced-compressed sass-print-expanded sass-print-compressed",
-		"js": "webpack --config webpack.config.js",
+		"styles": "node build-styles.mjs && cross-env MINIFY=true node build-styles.mjs",
+		"js": "node build-js.mjs && cross-env MINIFY=true node build-js.mjs",
 		"prebuild": "shx rm -rf ${npm_package_config_to} && shx mkdir -p ${npm_package_config_to}/fonts && shx mkdir ${npm_package_config_to}/images && shx mkdir ${npm_package_config_to}/js && shx mkdir ${npm_package_config_to}/js/libraries && shx mkdir ${npm_package_config_to}/styles && shx mkdir ${npm_package_config_to}/svg",
 		"build": "npm-run-all --parallel fonts images svgs js styles",
 		"watch:fonts": "chokidar ${npm_package_config_from}/fonts -c \"npm run fonts\"",
@@ -63,16 +61,13 @@
 		"watch": "npm-run-all --parallel watch:*"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.29.0",
-		"@babel/preset-env": "^7.29.5",
 		"autoprefixer": "^10.5.0",
-		"babel-loader": "^10.1.1",
 		"browserslist": "^4.28.2",
+		"browserslist-to-esbuild": "^2.1.1",
 		"chokidar-cli": "^3.0.0",
-		"copy-webpack-plugin": "^14.0.0",
+		"cross-env": "^10.1.0",
 		"npm-run-all": "^4.1.5",
 		"postcss": "^8.5.14",
-		"postcss-cli": "^11.0.1",
 		"sass": "^1.99.0",
 		"shx": "^0.4.0",
 		"stylelint": "^17.11.0",
@@ -80,8 +75,7 @@
 		"stylelint-config-standard-scss": "^17.0.0",
 		"stylelint-order": "^8.1.1",
 		"svgo": "^4.0.1",
-		"webpack": "^5.106.2",
-		"webpack-cli": "^7.0.2"
+		"vite": "^6.4.3"
 	},
 	"dependencies": {
 		"@splidejs/splide": "^4.1.4",

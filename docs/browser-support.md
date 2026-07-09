@@ -48,7 +48,7 @@ The loading of JavaScript is tied to the loading of the advanced CSS. Using `win
 
 ### Browserslist in `package.json`
 
-The `package.json` file in the project root includes a browserslist entry. This is the single source of truth for browser support within Amplify and is referenced by the Autoprefixer NPM package (which adds the necessary vendor prefixes to the CSS files) and by the Babel/Webpack NPM packages (which transpile the JavaScript to support the specified browsers).
+The `package.json` file in the project root includes a browserslist entry. This is the single source of truth for browser support within Amplify and is referenced by the Autoprefixer NPM package (which adds the necessary vendor prefixes to the CSS files) and by the Vite/esbuild NPM packages (which transpile the JavaScript to support the specified browsers).
 
 ### CSS media query in `head` of your web page templates
 
