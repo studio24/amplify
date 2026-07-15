@@ -53,7 +53,7 @@ customElements.define('amplify-table-sort', class extends HTMLElement {
      */
     function addBtnToTh(heading) {
       const btn = document.createElement('button');
-      const appendArrows = function appendArrows(btn) {
+      const appendArrows = function (btn) {
         const wrapper = document.createElement('div');
         const arrowsWrapper = "<svg fill=\"currentColor\" focusable=\"false\" aria-hidden=\"true\" class=\"asc icon\" viewBox=\"0 0 407.436 407.436\" width=\"15\" height=\"15\">\n\t<polygon points=\"203.718,91.567 0,294.621 21.179,315.869 203.718,133.924 386.258,315.869 407.436,294.621 \"/></svg>\n\t<svg fill=\"currentColor\" focusable=\"false\" aria-hidden=\"true\" class=\"desc icon\" viewBox=\"0 0 407.437 407.437\" width=\"15\" height=\"15\">\n\t<polygon points=\"386.258,91.567 203.718,273.512 21.179,91.567 0,112.815 203.718,315.87 407.437,112.815 \"/></svg>";
         wrapper.classList.add('arrow-wrapper');
@@ -103,6 +103,15 @@ customElements.define('amplify-table-sort', class extends HTMLElement {
         if (header.matches('[data-type="date"]')) {
           cellA = rowA.querySelectorAll('td')[index].getAttribute('data-date');
           cellB = rowB.querySelectorAll('td')[index].getAttribute('data-date');
+        } else if (header.matches('[data-type="number"]')) {
+          // checks for data-number
+          cellA = rowA.querySelectorAll('td')[index].getAttribute('data-number');
+          cellB = rowB.querySelectorAll('td')[index].getAttribute('data-number');
+          if (cellA === null || cellB === null) {
+            // fallback if data-number doesn't exist
+            cellA = rowA.querySelectorAll('td')[index].innerHTML;
+            cellB = rowB.querySelectorAll('td')[index].innerHTML;
+          }
         } else {
           cellA = rowA.querySelectorAll('td')[index].innerHTML;
           cellB = rowB.querySelectorAll('td')[index].innerHTML;

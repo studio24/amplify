@@ -77,11 +77,11 @@ sup {
     box-decoration-break: clone;
     font-family: $mono-family;
     hyphens: none;
+    overflow-wrap: normal;
     padding: 0.125em 0.25em;
     tab-size: 4;
     word-break: normal;
     word-spacing: normal;
-    word-wrap: normal;
 }
 
 /* This is quite a new property, so we want to make sure code styles are not huge or tiny */
