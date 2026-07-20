@@ -14,7 +14,7 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://css-tricks.com/block-links-the-search-for-a-perfect-solution/
  */
 
-var cardEnhancement = function cardEnhancement() {
+var cardEnhancement = function () {
   var cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
   if (cardsArray) {
     // Loop through cards adding a click event and identifying the main link
@@ -60,7 +60,7 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://insidegovuk.blog.gov.uk/2021/10/29/how-we-made-the-gov-uk-accordion-component-more-accessible/
  */
 
-var collapsibles = function collapsibles() {
+var collapsibles = function () {
   // Get all the collapsible containers
   var collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsibles"]'));
   if (collapseArray) {
@@ -121,9 +121,9 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://adrianroselli.com/2020/05/disclosure-widgets.html
  */
 
-var disclosureWidget = function disclosureWidget() {
+var disclosureWidget = function () {
   var toggleButtonArray = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="true"]'));
-  var closeDisclosures = function closeDisclosures() {
+  var closeDisclosures = function () {
     toggleButtonArray.forEach(function (btn) {
       if (btn.getAttribute('aria-expanded') === 'true') {
         btn.setAttribute('aria-expanded', 'false');
@@ -204,7 +204,7 @@ __webpack_require__.r(__webpack_exports__);
  * Shift focus to form error summary, if present
  * @see https://design-system.service.gov.uk/components/error-summary/#how-it-works
  */
-var formErrorSummary = function formErrorSummary() {
+var formErrorSummary = function () {
   var errorSummary = document.querySelector('[data-component="error-summary"]');
   if (errorSummary) {
     errorSummary.focus();
@@ -234,7 +234,7 @@ __webpack_require__.r(__webpack_exports__);
  * @param {string} [options.mobileIcon] - SVG icon used for the button to show/hide the navigation on mobile.
  */
 
-const navSingleLevel = function navSingleLevel(menu, options) {
+const navSingleLevel = function (menu, options) {
   let container = menu.parentElement;
   let mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
 
@@ -365,7 +365,7 @@ __webpack_require__.r(__webpack_exports__);
  * @param {boolean} [options.submenuIntro=false] - whether the sub menu includes introductory text.
  */
 
-const navDoubleLevel = function navDoubleLevel(menu, options) {
+const navDoubleLevel = function (menu, options) {
   let mobileToggle = document.querySelector('[data-trigger="mobile-nav"]');
 
   // Default settings

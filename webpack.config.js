@@ -13,7 +13,7 @@ export default [{
 		'country-autocomplete': './country-autocomplete.js',
 		'tabs': './package-extensions/s24-tabby-polyfills.js',
 		'splide': './package-extensions/s24-splide.js',
-		'sortable-tables': './sortable-tables.js',
+		'sortable-table': './sortable-table.js',
 	},
 	mode: 'none',
 	module: {
@@ -53,7 +53,7 @@ export default [{
 			'country-autocomplete': './country-autocomplete.js',
 			'tabs': './package-extensions/s24-tabby-polyfills.js',
 			'splide': './package-extensions/s24-splide.js',
-			'sortable-tables': './sortable-tables.js',
+			'sortable-table': './sortable-table.js',
 		},
 		mode: 'none',
 		module: {
