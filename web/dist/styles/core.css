@@ -190,7 +190,6 @@ html {
   scrollbar-gutter: stable; /* 1 */
   -webkit-text-size-adjust: none;
      -moz-text-size-adjust: none;
-      -ms-text-size-adjust: none;
           text-size-adjust: none; /* 2 */
 }
 
@@ -263,7 +262,8 @@ figure {
 hr {
   block-size: 0;
   border: 0;
-  border-block-start: 1px solid #c6c6c6;
+  -webkit-border-before: 1px solid #c6c6c6;
+          border-block-start: 1px solid #c6c6c6;
   margin: 2rem 0;
   overflow: visible;
 }
@@ -390,7 +390,8 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  margin-block-end: clamp(0.5rem, 0.3rem + 1vw, 1rem);
+  -webkit-margin-after: clamp(0.5rem, 0.3rem + 1vw, 1rem);
+          margin-block-end: clamp(0.5rem, 0.3rem + 1vw, 1rem);
 }
 
 h1, h2, h3, h4 {
@@ -399,12 +400,12 @@ h1, h2, h3, h4 {
 
 h1, h2, h3 {
   -webkit-hyphens: auto;
-      -ms-hyphens: auto;
           hyphens: auto;
 }
 
 h2, h3, h4, h5, h6 {
-  margin-block-start: 2rem;
+  -webkit-margin-before: 2rem;
+          margin-block-start: 2rem;
 }
 
 h1,
@@ -454,7 +455,8 @@ h6,
 .lead {
   font-size: clamp(1.375rem, 1.225rem + 0.75vw, 1.75rem);
   line-height: 1.3;
-  margin-block-end: clamp(2.5rem, 2.3rem + 1vw, 3rem);
+  -webkit-margin-after: clamp(2.5rem, 2.3rem + 1vw, 3rem);
+          margin-block-end: clamp(2.5rem, 2.3rem + 1vw, 3rem);
   text-wrap: balance;
 }
 
@@ -531,7 +533,8 @@ can safely use the web fonts instead of the system fonts.
  * focusable element to become visible when focused/active by a user.
  */
 br {
-  margin-block-start: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
 
 /*
@@ -604,13 +607,12 @@ sup {
           box-decoration-break: clone;
   font-family: monaco, "Lucida Console", "Courier New", monospace;
   -webkit-hyphens: none;
-      -ms-hyphens: none;
           hyphens: none;
+  overflow-wrap: normal;
   padding: 0.125em 0.25em;
   tab-size: 4;
   word-break: normal;
   word-spacing: normal;
-  word-wrap: normal;
 }
 
 /* This is quite a new property, so we want to make sure code styles are not huge or tiny */
@@ -814,7 +816,8 @@ summary {
   color: #1371c2;
   cursor: pointer;
   display: inline-block;
-  padding-inline-start: 1.5625rem;
+  -webkit-padding-start: 1.5625rem;
+          padding-inline-start: 1.5625rem;
   position: relative;
 }
 summary::before {
@@ -902,11 +905,13 @@ Use `margin-inline-end` for spacing irrespective of text direction
 }
 
 .with-icon--before .icon {
-  margin-inline-end: 0.625rem;
+  -webkit-margin-end: 0.625rem;
+          margin-inline-end: 0.625rem;
 }
 
 .with-icon--after .icon {
-  margin-inline-start: 0.625rem;
+  -webkit-margin-start: 0.625rem;
+          margin-inline-start: 0.625rem;
 }
 
 /*------------------------------------*\
@@ -924,7 +929,8 @@ Use `margin-inline-end` for spacing irrespective of text direction
 \*------------------------------------*/
 figcaption {
   max-inline-size: 60ch;
-  padding-block-start: 0.5em;
+  -webkit-padding-before: 0.5em;
+          padding-block-start: 0.5em;
   text-wrap: pretty; /* 1 */
 }
 
@@ -947,11 +953,13 @@ figcaption {
 }
 
 :where(ol, ul) :where(li, ol, ul) {
-  margin-block-start: 0.75rem;
+  -webkit-margin-before: 0.75rem;
+          margin-block-start: 0.75rem;
 }
 
 :where(ol, ul) :where(ol, ul) {
-  margin-block-end: 1rem;
+  -webkit-margin-after: 1rem;
+          margin-block-end: 1rem;
 }
 
 /* To have markers in nested ordered lists follow this pattern:
@@ -992,11 +1000,13 @@ dl dt {
   font-weight: bold;
 }
 dl dd + dt {
-  margin-block-start: 0.5rem;
+  -webkit-margin-before: 0.5rem;
+          margin-block-start: 0.5rem;
 }
 dl dt + dd,
 dl dd + dd {
-  margin-block-start: 0.25rem;
+  -webkit-margin-before: 0.25rem;
+          margin-block-start: 0.25rem;
 }
 
 @supports (grid-row-start: auto) {
@@ -1014,12 +1024,14 @@ dl dd + dd {
   }
   dl.grid dd {
     grid-column: 2/3;
-    margin-inline-start: 0;
+    -webkit-margin-start: 0;
+            margin-inline-start: 0;
   }
   dl.grid dd + dt,
   dl.grid dt + dd,
   dl.grid dd + dd {
-    margin-block-start: 0;
+    -webkit-margin-before: 0;
+            margin-block-start: 0;
   }
 }
 
@@ -1055,17 +1067,20 @@ blockquote::before {
   position: absolute;
 }
 blockquote > *:first-child {
-  margin-block-start: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
 blockquote *:only-child {
-  margin-block-end: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
 }
 blockquote footer {
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
   font-style: normal;
   font-weight: normal;
-  margin-block-start: 1rem;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
 }
 
 /*------------------------------------*\
@@ -1087,7 +1102,8 @@ table {
 
 caption {
   border: 1px solid #c6c6c6;
-  border-block-end: 0;
+  -webkit-border-after: 0;
+          border-block-end: 0;
 }
 caption :where(h1, h2, h3, h4, h5, h6) {
   margin-block: 0;
@@ -1132,24 +1148,30 @@ Responsive tables:
     margin-block: 0;
   }
   [data-component=table-wrap] caption {
-    border-block-end: 1px solid #c6c6c6;
-    border-block-start: 0;
+    -webkit-border-after: 1px solid #c6c6c6;
+            border-block-end: 1px solid #c6c6c6;
+    -webkit-border-before: 0;
+            border-block-start: 0;
     border-inline: 0;
   }
   [data-component=table-wrap] th,
   [data-component=table-wrap] thead td,
   [data-component=table-wrap] th[scope=row] ~ td {
-    border-block-start: 0;
+    -webkit-border-before: 0;
+            border-block-start: 0;
   }
   [data-component=table-wrap] tr :where(th:first-child, td:first-child) {
-    border-inline-start: 0;
+    -webkit-border-start: 0;
+            border-inline-start: 0;
   }
   [data-component=table-wrap] tr :where(th:last-child, td:last-child) {
-    border-inline-end: 0;
+    -webkit-border-end: 0;
+            border-inline-end: 0;
   }
   [data-component=table-wrap] tr:last-of-type th[scope=row],
   [data-component=table-wrap] tbody tr:last-of-type td {
-    border-block-end: 0;
+    -webkit-border-after: 0;
+            border-block-end: 0;
   }
 }
 /*------------------------------------*\
@@ -1260,15 +1282,6 @@ main:focus,
   The default styles for fieldset and legend are weird, so we effectively hide the fieldset
   If you want a border etc. wrap the fieldset in a div with the class `.fieldset-wrap`
   */
-  /* Set vertical spacing between direct children of a form or fieldset */
-  /* Double the vertical spacing around fieldset/.fieldset-wrap */
-  /* A wrapper for an input and its label (but not checkboxes/radios, which have their own classes) */
-  /* Make input height match Amplify button height (defaults to equivalent of 44px for WCAG AAA */
-  /* Limit max width of file input to prevent unwanted horizontal scrolling */
-  /* Disabled inputs - try to avoid using these to avoid accessibility issues */
-  /* A wrapper to allow fields to sit side-by-side horizontally, if desired */
-  /* Fixed input widths */
-  /* Error styles */
 }
 .amplify-form fieldset {
   border: 0;
@@ -1280,20 +1293,31 @@ main:focus,
   border: solid 1px;
   padding: 0.5rem;
 }
+.amplify-form {
+  /* Set vertical spacing between direct children of a form or fieldset */
+}
 .amplify-form > * + *,
 .amplify-form fieldset > * + * {
-  margin-block-start: 1.75rem;
+  -webkit-margin-before: 1.75rem;
+          margin-block-start: 1.75rem;
+}
+.amplify-form {
+  /* Double the vertical spacing around fieldset/.fieldset-wrap */
 }
 .amplify-form fieldset:not(:first-child),
 .amplify-form fieldset + *,
 .amplify-form .fieldset-wrap:not(:first-child),
 .amplify-form .fieldset-wrap + * {
-  margin-block-start: 3rem;
+  -webkit-margin-before: 3rem;
+          margin-block-start: 3rem;
 }
 .amplify-form legend {
   font-size: clamp(1.125rem, 1.025rem + 0.5vw, 1.375rem);
   line-height: 1.5;
   font-weight: 600;
+}
+.amplify-form {
+  /* A wrapper for an input and its label (but not checkboxes/radios, which have their own classes) */
 }
 .amplify-form .field {
   max-inline-size: 41.25rem;
@@ -1308,7 +1332,8 @@ main:focus,
 .amplify-form label,
 .amplify-form .field-label,
 .amplify-form .faux-label {
-  margin-block-end: 0.25rem;
+  -webkit-margin-after: 0.25rem;
+          margin-block-end: 0.25rem;
 }
 .amplify-form label,
 .amplify-form .field-label,
@@ -1324,7 +1349,8 @@ main:focus,
 }
 .amplify-form .field-label + .field-hint,
 .amplify-form .group-legend + .field-hint {
-  margin-block-start: 0.25rem;
+  -webkit-margin-before: 0.25rem;
+          margin-block-start: 0.25rem;
 }
 .amplify-form :where(input:not([type=color], [type=file], [type=checkbox], [type=radio]), textarea) {
   -webkit-appearance: none;
@@ -1335,8 +1361,14 @@ main:focus,
   inline-size: 100%;
   padding: 0.3125rem;
 }
+.amplify-form {
+  /* Make input height match Amplify button height (defaults to equivalent of 44px for WCAG AAA */
+}
 .amplify-form :where(input:not([type=checkbox], [type=radio])) {
   min-block-size: 2.75rem;
+}
+.amplify-form {
+  /* Limit max width of file input to prevent unwanted horizontal scrolling */
 }
 .amplify-form [type=file] {
   border-color: transparent;
@@ -1348,6 +1380,9 @@ main:focus,
 .amplify-form textarea:not([rows]) {
   min-height: 10em;
 }
+.amplify-form {
+  /* Disabled inputs - try to avoid using these to avoid accessibility issues */
+}
 .amplify-form input[disabled] {
   background-color: #e0e0e0;
 }
@@ -1355,11 +1390,18 @@ main:focus,
 .amplify-form label input[disabled] + * {
   cursor: not-allowed;
 }
+.amplify-form {
+  /* A wrapper to allow fields to sit side-by-side horizontally, if desired */
+}
 .amplify-form .input-group {
   align-items: center;
   display: flex;
   gap: 1.875rem;
-  margin-block-start: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+}
+.amplify-form {
+  /* Fixed input widths */
 }
 .amplify-form .input-width-30 {
   max-inline-size: 59ex;
@@ -1382,6 +1424,9 @@ main:focus,
 .amplify-form .input-width-2 {
   max-inline-size: 5.4ex;
 }
+.amplify-form {
+  /* Error styles */
+}
 .amplify-form [data-component=error-summary] li a {
   color: #a4141b;
   display: inline-block;
@@ -1392,8 +1437,10 @@ main:focus,
   color: #a4141b;
 }
 .amplify-form .field--error {
-  border-inline-start: solid 0.3125rem #a4141b;
-  padding-inline-start: 0.9375rem;
+  -webkit-border-start: solid 0.3125rem #a4141b;
+          border-inline-start: solid 0.3125rem #a4141b;
+  -webkit-padding-start: 0.9375rem;
+          padding-inline-start: 0.9375rem;
 }
 .amplify-form .field--error input:not([type=file]),
 .amplify-form .field--error textarea:not(:focus) {
@@ -1423,27 +1470,30 @@ main:focus,
     Make sure to apply the `.amplify-form` class directly to the <form> to
     pick up these styles and try to avoid conflicts with third party form styles
 \*------------------------------------*/
-.amplify-form {
-  /* Hide these to make search input more uniform across browsers */
-  /* Optional: add a decorative icon at the start of the search input */
-}
 .amplify-form [type=search] {
   max-inline-size: none;
   position: relative;
   z-index: 1;
+}
+.amplify-form {
+  /* Hide these to make search input more uniform across browsers */
 }
 .amplify-form [type=search]::-webkit-search-cancel-button,
 .amplify-form [type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
           appearance: none;
 }
-@supports (padding-inline-start: 1em) {
+.amplify-form {
+  /* Optional: add a decorative icon at the start of the search input */
+}
+@supports ((-webkit-padding-start: 1em) or (padding-inline-start: 1em)) {
   .amplify-form input[type=search] {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z' fill='currentColor'/%3E%3C/svg%3E");
     background-position: center left 0.5em;
     background-repeat: no-repeat;
     background-size: 1.25rem;
-    padding-inline-start: 2.5rem;
+    -webkit-padding-start: 2.5rem;
+            padding-inline-start: 2.5rem;
   }
   .amplify-form [dir=rtl] input[type=search] {
     background-position: center right 0.5em;
@@ -1472,25 +1522,19 @@ main:focus,
 /* stylelint-disable no-descending-specificity */
 .amplify-form {
   /* Select any <div> which contains a checkbox or radio input */
-  /* Checkbox/radio input with hover - add `.checkbox-item`/`.radio-item` class to parent <div> */
-  /* Checkbox/radio input with focus and hover - add `.checkbox-item`/`.radio-item` class to parent <div> */
 }
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) {
   display: flex;
   flex-wrap: wrap;
   position: relative;
   /* Reduce vertical space between adjacent checkbox/radio fields */
-  /* Use pointer cursor to increase visual affordance */
-  /* Disabled inputs - try to avoid using these to avoid accessibility issues */
-  /* The checkbox "tick" */
-  /* The radio "dot" */
-  /* Checkbox/radio input when not checked */
-  /* Checkbox/radio input when checked */
-  /* The hint text, if used */
-  /* Checkbox/radio input with focus */
 }
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) + div:has(> :where([type=checkbox], [type=radio])) {
-  margin-block-start: 0.5rem;
+  -webkit-margin-before: 0.5rem;
+          margin-block-start: 0.5rem;
+}
+.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+  /* Use pointer cursor to increase visual affordance */
 }
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) input:not([disabled]),
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) input:not([disabled]) + label {
@@ -1500,8 +1544,12 @@ main:focus,
   block-size: 44px;
   inline-size: 44px;
   margin: 0;
-  margin-inline-start: -10px;
+  -webkit-margin-start: -10px;
+          margin-inline-start: -10px;
   opacity: 0;
+}
+.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+  /* Disabled inputs - try to avoid using these to avoid accessibility issues */
 }
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) input[disabled] + label {
   cursor: not-allowed;
@@ -1511,17 +1559,21 @@ main:focus,
 }
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) label {
   align-self: center;
-  margin-block-end: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
   max-inline-size: calc(100% - 74px);
   padding-block: 7px;
   padding-inline: 15px;
-  padding-inline-start: 1px;
+  -webkit-padding-start: 1px;
+          padding-inline-start: 1px;
   touch-action: manipulation;
-  /* Shared styles for the checkbox square/radio circle */
 }
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) label::before, .amplify-form div:has(> :where([type=checkbox], [type=radio])) label::after {
   content: "";
   position: absolute;
+}
+.amplify-form div:has(> :where([type=checkbox], [type=radio])) label {
+  /* Shared styles for the checkbox square/radio circle */
 }
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) label::before {
   block-size: 24px;
@@ -1533,6 +1585,9 @@ main:focus,
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::before,
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::after {
   background: transparent;
+}
+.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+  /* The checkbox "tick" */
 }
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::after {
   block-size: 6.5px;
@@ -1548,6 +1603,9 @@ main:focus,
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::after {
   border-radius: 50%;
 }
+.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+  /* The radio "dot" */
+}
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::after {
   background-color: currentcolor;
   block-size: 0;
@@ -1556,13 +1614,22 @@ main:focus,
   inset-block-start: 17px;
   inset-inline-start: 7px;
 }
+.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+  /* Checkbox/radio input when not checked */
+}
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::after,
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::after {
   opacity: 0;
 }
+.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+  /* Checkbox/radio input when checked */
+}
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox]:checked + label::after,
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio]:checked + label::after {
   opacity: 1;
+}
+.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+  /* The hint text, if used */
 }
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) .field-hint {
   inline-size: 100%;
@@ -1570,13 +1637,22 @@ main:focus,
   max-inline-size: none;
   padding-inline: 36px 15px;
 }
+.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+  /* Checkbox/radio input with focus */
+}
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) input:focus + label::before {
   box-shadow: 0 0 0 4px #000;
   outline: 2px solid #ffdc00; /* 1 */
   outline-offset: 0; /* 1 */
 }
+.amplify-form {
+  /* Checkbox/radio input with hover - add `.checkbox-item`/`.radio-item` class to parent <div> */
+}
 .amplify-form :where(.checkbox-item, .radio-item):hover input:not([disabled]) + label::before {
   box-shadow: 0 0 0 4px #8d8d8d;
+}
+.amplify-form {
+  /* Checkbox/radio input with focus and hover - add `.checkbox-item`/`.radio-item` class to parent <div> */
 }
 .amplify-form :where(.radio-item, .checkbox-item):hover input:focus + label::before {
   box-shadow: 0 0 0 4px #000;
@@ -1599,10 +1675,6 @@ main:focus,
     Make sure to apply the `.amplify-form` class directly to the <form> to
     pick up these styles and try to avoid conflicts with third party form styles
 \*------------------------------------*/
-.amplify-form {
-  /* Make <select> height match Amplify button height (defaults to equivalent of 44px for WCAG AAA) */
-  /* Optional: select with custom icon matching the SVG used for accessible autocomplete */
-}
 .amplify-form select {
   background-color: inherit;
   border: 2px solid #8d8d8d;
@@ -1610,8 +1682,14 @@ main:focus,
   inline-size: 100%;
   padding: 0.3125rem;
 }
+.amplify-form {
+  /* Make <select> height match Amplify button height (defaults to equivalent of 44px for WCAG AAA) */
+}
 .amplify-form select:not([multiple]) {
   min-block-size: 2.75rem;
+}
+.amplify-form {
+  /* Optional: select with custom icon matching the SVG used for accessible autocomplete */
 }
 @supports ((-webkit-appearance: none) or (appearance: none)) {
   .amplify-form select:not([multiple]) {
@@ -1620,7 +1698,8 @@ main:focus,
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z' fill='currentColor'/%3E%3C/svg%3E");
     background-position: center right 0.3125rem;
     background-repeat: no-repeat;
-    padding-inline-end: 2.125rem;
+    -webkit-padding-end: 2.125rem;
+            padding-inline-end: 2.125rem;
   }
   .amplify-form [dir=rtl] select:not([multiple]) {
     background-position: center left 0.3125rem;
@@ -1635,10 +1714,12 @@ main:focus,
 \*------------------------------------*/
 .amplify-form .memorable-date {
   display: inline-block;
-  margin-block-start: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
 .amplify-form .memorable-date + .memorable-date {
-  margin-inline-start: 1rem;
+  -webkit-margin-start: 1rem;
+          margin-inline-start: 1rem;
 }
 
 /*------------------------------------*\
@@ -1661,13 +1742,13 @@ main:focus,
   max-inline-size: none;
 }
 .amplify-form .segmented-group.l-switcher {
-  margin-block-start: 0;
-  /* Input with hover */
-  /* Input with focus - label carries focus styles */
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
 .amplify-form .segmented-group.l-switcher > * {
   display: block;
-  margin-block-start: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
   position: relative;
 }
 .amplify-form .segmented-group.l-switcher label {
@@ -1676,7 +1757,6 @@ main:focus,
   margin: 0.125rem;
   max-inline-size: none;
   padding: 0;
-  /* The "tick" - even if it's a radio */
 }
 .amplify-form .segmented-group.l-switcher label::before, .amplify-form .segmented-group.l-switcher label::after {
   content: "";
@@ -1688,6 +1768,9 @@ main:focus,
   border-radius: 0;
   inset-block-start: 0.625rem;
   inset-inline: auto 0.625rem;
+}
+.amplify-form .segmented-group.l-switcher label {
+  /* The "tick" - even if it's a radio */
 }
 .amplify-form .segmented-group.l-switcher label::after {
   background: transparent;
@@ -1716,12 +1799,16 @@ main:focus,
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  display: block;
-  padding: 0.625rem;
-  padding-inline-end: 2.75rem;
 }
 .amplify-form .segmented-group.l-switcher .segmented-label > * + * {
-  margin-block-start: 0.5em;
+  -webkit-margin-before: 0.5em;
+          margin-block-start: 0.5em;
+}
+.amplify-form .segmented-group.l-switcher .segmented-label {
+  display: block;
+  padding: 0.625rem;
+  -webkit-padding-end: 2.75rem;
+          padding-inline-end: 2.75rem;
 }
 .amplify-form .segmented-group.l-switcher .segmented-label span {
   display: block;
@@ -1732,8 +1819,14 @@ main:focus,
 .amplify-form .segmented-group.l-switcher .segmented-label__copy {
   font-weight: normal;
 }
+.amplify-form .segmented-group.l-switcher {
+  /* Input with hover */
+}
 .amplify-form .segmented-group.l-switcher > * > *:hover label {
   background-color: #c6c6c6;
+}
+.amplify-form .segmented-group.l-switcher {
+  /* Input with focus - label carries focus styles */
 }
 .amplify-form .segmented-group.l-switcher input:focus + label {
   border-color: #000;
@@ -1852,11 +1945,13 @@ These styles space out an optional header/footer area without
 disturbing the vertically centered element.
  */
 .l-cover > :first-child:not(.principal) {
-  margin-block-start: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
 
 .l-cover > :last-child:not(.principal) {
-  margin-block-end: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
 }
 
 /*------------------------------------*\
@@ -2059,7 +2154,8 @@ nav ul * + * {
 }
 
 [data-nav=submenu] {
-  padding-inline-start: 1.25rem;
+  -webkit-padding-start: 1.25rem;
+          padding-inline-start: 1.25rem;
 }
 
 .global-nav a {
@@ -2181,11 +2277,13 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 }
 
 .component + .component {
-  margin-block-start: 1.5rem;
+  -webkit-margin-before: 1.5rem;
+          margin-block-start: 1.5rem;
 }
 @media screen and (min-width: 48em) {
   .component + .component {
-    margin-block-start: 3rem;
+    -webkit-margin-before: 3rem;
+            margin-block-start: 3rem;
   }
 }
 
@@ -2218,7 +2316,8 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 .component--quote {
   margin-inline: 0;
   padding: 1.25rem;
-  padding-inline-start: 1.875rem;
+  -webkit-padding-start: 1.875rem;
+          padding-inline-start: 1.875rem;
   position: relative;
 }
 .component--quote::before {
@@ -2253,7 +2352,8 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   justify-content: flex-start;
 }
 .component--image > * + * {
-  margin-block-start: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
 .component--image figcaption {
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
@@ -2314,10 +2414,12 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 .component--video figcaption {
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
-  margin-block-start: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
 .component--video figcaption > * {
-  margin-block-start: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
   max-inline-size: 33.75rem;
 }
 .component--video figcaption > a {
@@ -2344,17 +2446,20 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   border: solid 2px;
   border-inline-start-width: 4px;
   padding: 1.5rem;
-  padding-inline-start: 4.5rem;
+  -webkit-padding-start: 4.5rem;
+          padding-inline-start: 4.5rem;
 }
 .note > * {
   max-inline-size: 41.25rem;
 }
 .note > *:first-child {
-  margin-block-start: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
 .note > *:last-child,
 .note > * li:last-child {
-  margin-block-end: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
 }
 
 .note--error {
@@ -2427,22 +2532,26 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 }
 
 .card--neat .card__text > :nth-last-child(2) {
-  margin-block-end: 1em;
+  -webkit-margin-after: 1em;
+          margin-block-end: 1em;
 }
 .card--neat .card__text > :last-child {
-  margin-block-start: auto;
+  -webkit-margin-before: auto;
+          margin-block-start: auto;
 }
 
 .card__text > a:not([class]) {
   align-self: flex-start; /* 1 */
-  margin-block-start: 0.375rem;
+  -webkit-margin-before: 0.375rem;
+          margin-block-start: 0.375rem;
   padding-block: 0.625rem;
 }
 
 .card__heading {
   font-size: clamp(1.25rem, 1.125rem + 0.625vw, 1.5625rem);
   line-height: 1.3;
-  margin-block-start: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
 
 .card__link {
@@ -2474,11 +2583,15 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-block-end: 1.875rem;
-  max-inline-size: 41.25rem;
 }
 .component--shelves__intro > * + * {
-  margin-block-start: 1rem;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
+}
+.component--shelves__intro {
+  -webkit-margin-after: 1.875rem;
+          margin-block-end: 1.875rem;
+  max-inline-size: 41.25rem;
 }
 
 @media screen and (min-width: 48em) {
@@ -2498,11 +2611,13 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 }
 
 .component--shelves__items > * + * {
-  margin-block-start: 1.25rem;
+  -webkit-margin-before: 1.25rem;
+          margin-block-start: 1.25rem;
 }
 @media screen and (min-width: 48em) {
   .component--shelves__items > * + * {
-    margin-block-start: 0;
+    -webkit-margin-before: 0;
+            margin-block-start: 0;
   }
 }
 
@@ -2520,7 +2635,8 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
     Typically used on multi-step forms
 \*------------------------------------*/
 .progress-list {
-  margin-block-end: 1.875rem;
+  -webkit-margin-after: 1.875rem;
+          margin-block-end: 1.875rem;
 }
 @media screen and (min-width: 48em) {
   .progress-list {
@@ -2555,11 +2671,13 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   }
 }
 .progress-list li + li {
-  margin-block-start: 1.25rem;
+  -webkit-margin-before: 1.25rem;
+          margin-block-start: 1.25rem;
 }
 @media screen and (min-width: 48em) {
   .progress-list li + li {
-    margin-block-start: 0;
+    -webkit-margin-before: 0;
+            margin-block-start: 0;
   }
 }
 
@@ -2578,7 +2696,8 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 @media screen and (min-width: 48em) {
   .progress-step__inner {
     flex-direction: column;
-    padding-block-start: 0.625rem;
+    -webkit-padding-before: 0.625rem;
+            padding-block-start: 0.625rem;
     text-align: center;
   }
 }
@@ -2703,7 +2822,8 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   justify-content: flex-start;
 }
 .component--collapsibles > * + * {
-  margin-block-start: 1em;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
 
 [data-heading=collapsibles] {
@@ -2778,7 +2898,8 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
     See https://meyerweb.com/eric/thoughts/2022/04/26/flexibly-centering-an-element-with-side-aligned-content/
 \*------------------------------------*/
 .pagination {
-  margin-block-start: 2.5rem;
+  -webkit-margin-before: 2.5rem;
+          margin-block-start: 2.5rem;
   margin-inline: auto; /* 1 */
   max-inline-size: -webkit-max-content;
   max-inline-size: max-content; /* 1 */
@@ -2843,7 +2964,8 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   justify-content: flex-start;
 }
 .global-footer .l-center > * + * {
-  margin-block-start: 1rem;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
 }
 .global-footer a,
 .global-footer .copyright {
@@ -2899,12 +3021,14 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 }
 
 .amplify .global-header + .global-nav {
-  border-block-end: solid 2px #c6c6c6;
+  -webkit-border-after: solid 2px #c6c6c6;
+          border-block-end: solid 2px #c6c6c6;
   padding-block: 0.625rem;
 }
 
 .amplify .global-nav__link {
-  border-block-end: solid 4px transparent;
+  -webkit-border-after: solid 4px transparent;
+          border-block-end: solid 4px transparent;
   color: #1371c2;
   display: block;
   font-size: 1.125rem;
@@ -2975,16 +3099,19 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   grid-column: 3/4;
   grid-column: 3;
   grid-row: 1;
-  margin-block-start: 1.875rem;
+  -webkit-margin-before: 1.875rem;
+          margin-block-start: 1.875rem;
 }
 @media screen and (min-width: 64em) {
   .amplify .content-wrap > *:last-child {
-    margin-block-start: 0;
+    -webkit-margin-before: 0;
+            margin-block-start: 0;
   }
 }
 
 .amplify .example + .example {
-  margin-block-start: 1rem;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
 }
 
 .amplify .custom-box .l-box {
@@ -3104,5 +3231,6 @@ To horizontally center a block-level item
 }
 
 .u-no-margin-top.u-no-margin-top {
-  margin-block-start: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
