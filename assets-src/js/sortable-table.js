@@ -139,9 +139,13 @@ customElements.define('amplify-table-sort', class extends HTMLElement {
 			if (header.matches('[data-type="date"]')) {
 				cellA = rowA.querySelectorAll('td')[index].getAttribute('data-date');
 				cellB = rowB.querySelectorAll('td')[index].getAttribute('data-date');
-			} else {
-				cellA = rowA.querySelectorAll('td')[index].innerHTML;
-				cellB = rowB.querySelectorAll('td')[index].innerHTML;
+			} else if (header.matches('[data-type="number"]')) { // checks for data-number
+				cellA = rowA.querySelectorAll('td')[index].getAttribute('data-number');
+				cellB = rowB.querySelectorAll('td')[index].getAttribute('data-number');
+				if (cellA === null || cellB === null) { // fallback if data-number doesn't exist
+					cellA = rowA.querySelectorAll('td')[index].innerHTML;
+					cellB = rowB.querySelectorAll('td')[index].innerHTML;
+				}
 			}
 
 			// Transform data if data-type="number"/"date" attribute is present on table header
