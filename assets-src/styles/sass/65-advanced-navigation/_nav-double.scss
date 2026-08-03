@@ -34,7 +34,7 @@
 
     [data-nav="submenu"] {
         @include mq($bp-tab-portrait) {
-            box-shadow: 0 2px 4px 0 rgba(0 0 0 / 25%);
+            box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%);
         }
     }
 }
@@ -68,7 +68,7 @@
         z-index: 5;
 
         @include mq($bp-tab-portrait) {
-            box-shadow: 0 2px 4px 0 rgba(0 0 0 / 25%);
+            box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%);
             inline-size: auto;
             inset-block-start: auto;
             min-block-size: auto;

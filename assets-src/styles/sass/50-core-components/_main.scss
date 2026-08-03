@@ -20,13 +20,11 @@
         --main-block-space: #{rem(60)} #{rem(80)};
     }
 
-    & {
-        box-sizing: content-box /* 1 */;
-        margin-inline: auto;
-        max-inline-size: rem($max-inline-size);
-        padding-block: var(--_main-block-space);
-        padding-inline: rem(20);
-    }
+    box-sizing: content-box /* 1 */;
+    margin-inline: auto;
+    max-inline-size: rem($max-inline-size);
+    padding-block: var(--_main-block-space);
+    padding-inline: rem(20);
 }
 
 

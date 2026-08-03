@@ -2,8 +2,8 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 15:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ 15
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -3762,7 +3762,7 @@ var SplideRenderer = /*#__PURE__*/function () {
 
 
 
-/***/ })
+/***/ }
 
 /******/ 	});
 /************************************************************************/
