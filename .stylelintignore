@@ -7,6 +7,7 @@
 assets-src/styles/sass/30-base/_print.scss
 
 # Ignore styles relating to third-party packages, where we might have less control
+assets-src/styles/sass/50-core-components/*.scss
 assets-src/styles/sass/70-vendor-src/*.scss
 
 # Styles for the Amplify website
