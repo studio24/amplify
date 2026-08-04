@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.5.0](https://github.com/studio24/amplify/compare/v10.4.0...v10.5.0) (2026-08-04)
+
+
+### Features
+
+* update form examples and guidance ([324fd1f](https://github.com/studio24/amplify/commit/324fd1fd810e780309a910fa309e030212d5c96d))
+
 ## [10.4.0](https://github.com/studio24/amplify/compare/v10.3.2...v10.4.0) (2026-08-03)
 
 
