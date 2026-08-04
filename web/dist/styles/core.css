@@ -1436,18 +1436,18 @@ main:focus,
 .amplify-form [data-component=error-summary] li a:hover, .amplify-form [data-component=error-summary] li a:visited {
   color: #a4141b;
 }
-.amplify-form .field--error {
+.amplify-form .field-error {
   -webkit-border-start: solid 0.3125rem #a4141b;
           border-inline-start: solid 0.3125rem #a4141b;
   -webkit-padding-start: 0.9375rem;
           padding-inline-start: 0.9375rem;
 }
-.amplify-form .field--error input:not([type=file]),
-.amplify-form .field--error textarea:not(:focus) {
+.amplify-form .field-error input:not([type=file]),
+.amplify-form .field-error textarea:not(:focus) {
   border-color: #a4141b;
 }
-.amplify-form .field--error input:focus,
-.amplify-form .field--error textarea:focus {
+.amplify-form .field-error input:focus,
+.amplify-form .field-error textarea:focus {
   border-color: #8d8d8d;
 }
 .amplify-form .field-error-msg {
@@ -1524,109 +1524,22 @@ main:focus,
   /* Select any <div> which contains a checkbox or radio input */
 }
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+  align-items: center;
+  column-gap: 0.625rem;
   display: flex;
   flex-wrap: wrap;
-  position: relative;
   /* Reduce vertical space between adjacent checkbox/radio fields */
 }
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) + div:has(> :where([type=checkbox], [type=radio])) {
   -webkit-margin-before: 0.5rem;
           margin-block-start: 0.5rem;
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
-  /* Use pointer cursor to increase visual affordance */
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) input:not([disabled]),
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) input:not([disabled]) + label {
-  cursor: pointer;
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) input {
-  block-size: 44px;
-  inline-size: 44px;
-  margin: 0;
-  -webkit-margin-start: -10px;
-          margin-inline-start: -10px;
-  opacity: 0;
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
-  /* Disabled inputs - try to avoid using these to avoid accessibility issues */
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) input[disabled] + label {
-  cursor: not-allowed;
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) input[disabled] + label::before {
-  background-color: #e0e0e0;
-}
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) label {
-  align-self: center;
   -webkit-margin-after: 0;
           margin-block-end: 0;
   max-inline-size: calc(100% - 74px);
   padding-block: 7px;
-  padding-inline: 15px;
-  -webkit-padding-start: 1px;
-          padding-inline-start: 1px;
   touch-action: manipulation;
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) label::before, .amplify-form div:has(> :where([type=checkbox], [type=radio])) label::after {
-  content: "";
-  position: absolute;
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) label {
-  /* Shared styles for the checkbox square/radio circle */
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) label::before {
-  block-size: 24px;
-  border: 2px solid #8d8d8d;
-  inline-size: 24px;
-  inset-block-start: 10px;
-  inset-inline-start: 0;
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::before,
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::after {
-  background: transparent;
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
-  /* The checkbox "tick" */
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::after {
-  block-size: 6.5px;
-  border: solid;
-  border-block-start-color: transparent;
-  border-width: 0 0 3px 3px;
-  inline-size: 12px;
-  inset-block-start: 17px;
-  inset-inline-start: 6px;
-  transform: rotate(-45deg);
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::before,
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::after {
-  border-radius: 50%;
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
-  /* The radio "dot" */
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::after {
-  background-color: currentcolor;
-  block-size: 0;
-  border: 5px solid;
-  inline-size: 0;
-  inset-block-start: 17px;
-  inset-inline-start: 7px;
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
-  /* Checkbox/radio input when not checked */
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::after,
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::after {
-  opacity: 0;
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
-  /* Checkbox/radio input when checked */
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox]:checked + label::after,
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio]:checked + label::after {
-  opacity: 1;
 }
 .amplify-form div:has(> :where([type=checkbox], [type=radio])) {
   /* The hint text, if used */
@@ -1637,27 +1550,72 @@ main:focus,
   max-inline-size: none;
   padding-inline: 36px 15px;
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
-  /* Checkbox/radio input with focus */
-}
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) input:focus + label::before {
-  box-shadow: 0 0 0 4px #000;
-  outline: 2px solid #ffdc00; /* 1 */
-  outline-offset: 0; /* 1 */
-}
 .amplify-form {
-  /* Checkbox/radio input with hover - add `.checkbox-item`/`.radio-item` class to parent <div> */
+  /* Custom input styling */
 }
-.amplify-form :where(.checkbox-item, .radio-item):hover input:not([disabled]) + label::before {
-  box-shadow: 0 0 0 4px #8d8d8d;
-}
-.amplify-form {
-  /* Checkbox/radio input with focus and hover - add `.checkbox-item`/`.radio-item` class to parent <div> */
-}
-.amplify-form :where(.radio-item, .checkbox-item):hover input:focus + label::before {
-  box-shadow: 0 0 0 4px #000;
-  outline: 2px solid #8d8d8d; /* 1 */
-  outline-offset: 0; /* 1 */
+@supports ((-webkit-appearance: none) or (appearance: none)) {
+  .amplify-form :where([type=checkbox], [type=radio]) {
+    -webkit-appearance: none;
+            appearance: none;
+    background-color: #fff;
+    block-size: 24px;
+    border: 2px solid #8d8d8d;
+    display: grid;
+    inline-size: 24px;
+    margin: 0;
+    place-content: center;
+  }
+  .amplify-form :where([type=checkbox], [type=radio])::after {
+    content: "";
+    opacity: 0;
+  }
+  .amplify-form :where([type=checkbox], [type=radio]):checked::after {
+    opacity: 1;
+  }
+  .amplify-form :where([type=checkbox], [type=radio]) {
+    /* Increases visual affordance, as it works when the associated label is hovered */
+  }
+  .amplify-form :where([type=checkbox], [type=radio]):not([disabled], :focus-visible):hover {
+    box-shadow: inset 0 0 0 2px #8d8d8d;
+  }
+  .amplify-form :where([type=checkbox], [type=radio]) {
+    /* Disabled inputs - try to avoid using these to avoid accessibility issues */
+  }
+  .amplify-form :where([type=checkbox], [type=radio])[disabled] {
+    background-color: #e0e0e0;
+  }
+  .amplify-form :where([type=checkbox], [type=radio])[disabled], .amplify-form :where([type=checkbox], [type=radio])[disabled] + label {
+    cursor: not-allowed;
+  }
+  .amplify-form {
+    /* The checkbox "tick" */
+  }
+  .amplify-form [type=checkbox]::after {
+    background: transparent;
+    block-size: 6.5px;
+    border: solid;
+    border-block-start-color: transparent;
+    border-width: 0 0 3px 3px;
+    inline-size: 12px;
+    inset-block-start: 17px;
+    inset-inline-start: 6px;
+    transform: rotate(-45deg);
+  }
+  .amplify-form {
+    /* Radio buttons */
+  }
+  .amplify-form [type=radio] {
+    border-radius: 50%;
+  }
+  .amplify-form [type=radio]::after {
+    background-color: currentcolor;
+    block-size: 0;
+    border: 5px solid;
+    border-radius: 50%;
+    inline-size: 0;
+    inset-block-start: 17px;
+    inset-inline-start: 7px;
+  }
 }
 
 /* stylelint-enable no-descending-specificity */
@@ -1758,42 +1716,8 @@ main:focus,
   max-inline-size: none;
   padding: 0;
 }
-.amplify-form .segmented-group.l-switcher label::before, .amplify-form .segmented-group.l-switcher label::after {
-  content: "";
-  position: absolute;
-}
-.amplify-form .segmented-group.l-switcher label::before {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  inset-block-start: 0.625rem;
-  inset-inline: auto 0.625rem;
-}
-.amplify-form .segmented-group.l-switcher label {
-  /* The "tick" - even if it's a radio */
-}
-.amplify-form .segmented-group.l-switcher label::after {
-  background: transparent;
-  block-size: 6.5px;
-  border: solid;
-  border-block-start-color: transparent;
-  border-radius: 0;
-  border-width: 0 0 3px 3px;
-  inline-size: 12px;
-  inset-block-start: 1.0625rem;
-  inset-inline: auto 1rem;
-  transform: rotate(-45deg);
-}
-.amplify-form .segmented-group.l-switcher input {
-  block-size: 2.75rem;
-  cursor: pointer;
-  inline-size: 2.75rem;
-  inset-block-start: 0;
-  inset-inline-end: 0;
-  margin: 0;
-  opacity: 0;
-  position: absolute;
-  z-index: 1;
+.amplify-form .segmented-group.l-switcher label:hover {
+  box-shadow: inset 0 0 0 2px #8d8d8d;
 }
 .amplify-form .segmented-group.l-switcher .segmented-label {
   display: flex;
@@ -1820,10 +1744,29 @@ main:focus,
   font-weight: normal;
 }
 .amplify-form .segmented-group.l-switcher {
-  /* Input with hover */
+  /* Custom input styling - always looks like a tick */
 }
-.amplify-form .segmented-group.l-switcher > * > *:hover label {
-  background-color: #c6c6c6;
+.amplify-form .segmented-group.l-switcher input {
+  border: 0;
+  border-radius: 0;
+  inset-block-start: 8px;
+  inset-inline-end: 8px;
+  position: absolute;
+}
+.amplify-form .segmented-group.l-switcher input::after {
+  background: transparent;
+  block-size: 6.5px;
+  border: solid;
+  border-block-start-color: transparent;
+  border-radius: 0;
+  border-width: 0 0 3px 3px;
+  inline-size: 12px;
+  inset-block-start: 17px;
+  inset-inline-start: 6px;
+  transform: rotate(-45deg);
+}
+.amplify-form .segmented-group.l-switcher input:hover {
+  box-shadow: none;
 }
 .amplify-form .segmented-group.l-switcher {
   /* Input with focus - label carries focus styles */
@@ -2452,7 +2395,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 .note > * {
   max-inline-size: 41.25rem;
 }
-.note > *:first-child {
+.note > *:first-child, .note > *[role=alert] h2 {
   -webkit-margin-before: 0;
           margin-block-start: 0;
 }

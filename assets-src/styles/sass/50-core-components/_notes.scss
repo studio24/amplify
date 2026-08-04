@@ -16,7 +16,8 @@
 	> * {
 		max-inline-size: rem($text-measure);
 
-        &:first-child {
+        &:first-child,
+        &[role="alert"] h2 {
             margin-block-start: 0;
         }
 
