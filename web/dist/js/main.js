@@ -205,9 +205,9 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://design-system.service.gov.uk/components/error-summary/#how-it-works
  */
 var formErrorSummary = function () {
-  var errorSummary = document.querySelector('[data-component="error-summary"]');
-  if (errorSummary) {
-    errorSummary.focus();
+  var firstError = document.querySelector('[data-component="error-summary"] li:first-of-type a');
+  if (firstError) {
+    firstError.focus();
   }
 };
 

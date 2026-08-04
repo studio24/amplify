@@ -1436,18 +1436,18 @@ main:focus,
 .amplify-form [data-component=error-summary] li a:hover, .amplify-form [data-component=error-summary] li a:visited {
   color: #a4141b;
 }
-.amplify-form .field--error {
+.amplify-form .field-error {
   -webkit-border-start: solid 0.3125rem #a4141b;
           border-inline-start: solid 0.3125rem #a4141b;
   -webkit-padding-start: 0.9375rem;
           padding-inline-start: 0.9375rem;
 }
-.amplify-form .field--error input:not([type=file]),
-.amplify-form .field--error textarea:not(:focus) {
+.amplify-form .field-error input:not([type=file]),
+.amplify-form .field-error textarea:not(:focus) {
   border-color: #a4141b;
 }
-.amplify-form .field--error input:focus,
-.amplify-form .field--error textarea:focus {
+.amplify-form .field-error input:focus,
+.amplify-form .field-error textarea:focus {
   border-color: #8d8d8d;
 }
 .amplify-form .field-error-msg {
@@ -2395,7 +2395,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 .note > * {
   max-inline-size: 41.25rem;
 }
-.note > *:first-child {
+.note > *:first-child, .note > *[role=alert] h2 {
   -webkit-margin-before: 0;
           margin-block-start: 0;
 }
