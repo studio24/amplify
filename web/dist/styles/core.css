@@ -1716,42 +1716,8 @@ main:focus,
   max-inline-size: none;
   padding: 0;
 }
-.amplify-form .segmented-group.l-switcher label::before, .amplify-form .segmented-group.l-switcher label::after {
-  content: "";
-  position: absolute;
-}
-.amplify-form .segmented-group.l-switcher label::before {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  inset-block-start: 0.625rem;
-  inset-inline: auto 0.625rem;
-}
-.amplify-form .segmented-group.l-switcher label {
-  /* The "tick" - even if it's a radio */
-}
-.amplify-form .segmented-group.l-switcher label::after {
-  background: transparent;
-  block-size: 6.5px;
-  border: solid;
-  border-block-start-color: transparent;
-  border-radius: 0;
-  border-width: 0 0 3px 3px;
-  inline-size: 12px;
-  inset-block-start: 1.0625rem;
-  inset-inline: auto 1rem;
-  transform: rotate(-45deg);
-}
-.amplify-form .segmented-group.l-switcher input {
-  block-size: 2.75rem;
-  cursor: pointer;
-  inline-size: 2.75rem;
-  inset-block-start: 0;
-  inset-inline-end: 0;
-  margin: 0;
-  opacity: 0;
-  position: absolute;
-  z-index: 1;
+.amplify-form .segmented-group.l-switcher label:hover {
+  box-shadow: inset 0 0 0 2px #8d8d8d;
 }
 .amplify-form .segmented-group.l-switcher .segmented-label {
   display: flex;
@@ -1778,10 +1744,29 @@ main:focus,
   font-weight: normal;
 }
 .amplify-form .segmented-group.l-switcher {
-  /* Input with hover */
+  /* Custom input styling - always looks like a tick */
 }
-.amplify-form .segmented-group.l-switcher > * > *:hover label {
-  background-color: #c6c6c6;
+.amplify-form .segmented-group.l-switcher input {
+  border: 0;
+  border-radius: 0;
+  inset-block-start: 8px;
+  inset-inline-end: 8px;
+  position: absolute;
+}
+.amplify-form .segmented-group.l-switcher input::after {
+  background: transparent;
+  block-size: 6.5px;
+  border: solid;
+  border-block-start-color: transparent;
+  border-radius: 0;
+  border-width: 0 0 3px 3px;
+  inline-size: 12px;
+  inset-block-start: 17px;
+  inset-inline-start: 6px;
+  transform: rotate(-45deg);
+}
+.amplify-form .segmented-group.l-switcher input:hover {
+  box-shadow: none;
 }
 .amplify-form .segmented-group.l-switcher {
   /* Input with focus - label carries focus styles */
