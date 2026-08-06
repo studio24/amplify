@@ -1,5 +1,12 @@
 # Changelog
 
+## [11.0.1](https://github.com/studio24/amplify/compare/v11.0.0...v11.0.1) (2026-08-06)
+
+
+### Bug Fixes
+
+* correct/update config ([b1bb888](https://github.com/studio24/amplify/commit/b1bb8881481f4e4a0094f827713dae877cbaac46))
+
 ## [11.0.0](https://github.com/studio24/amplify/compare/v10.5.0...v11.0.0) (2026-08-06)
 
 
