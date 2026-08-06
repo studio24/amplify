@@ -126,28 +126,21 @@ If needed, update the `package.json` file in the project root to specify [which 
 
 [Stylelint](https://stylelint.io/) is used to help avoid errors and enforce conventions in our CSS. There is a `stylelint.config.js` file in the project root which controls this process. [Linting Sass in Amplify](docs/css.md#linting-sass).
 
-#### Webpack
+#### Vite
 
-[Webpack](https://webpack.js.org/) is used to compile, transpile and minify JavaScript files. There is a `webpack.config.js` file in the project root which controls this process.
+[Vite](https://vite.dev/) is used to compile, transpile and minify JavaScript files. There is a `build-js.mjs` file in the project root which controls this process, bundling each entry point in `assets-src/js` independently into `web/dist/js`.
 
 #### Copying over JS libraries
-If there are libraries that you would like to use as is in your project, set up Webpack to copy them across from the src folder to the dist folder.
+If there are libraries that you would like to use as is in your project (rather than have Vite bundle them), copy them across from the `node_modules` (or another source) folder to the `dist` folder in `build-js.mjs`, using the syntax:
 
-##### If the script file is in a node_module
-In the `webpack.config.js` file, add a 'from-to' pattern to the CopyPlugin configuration parameters, using the syntax:
-
-```
-{ from: "./../../node_modules/[node_package_name]/[path to the js file]]", to: "./libraries" }
-```
-
-##### If the script file is NOT in a node_module
-In the `webpack.config.js` file, uncomment the following line from the CopyPlugin configuration parameters:
-
-```
-// { from: "./libraries/", to:  "./libraries" },
+```js
+fs.copyFileSync(
+	path.resolve(__dirname, 'node_modules/[node_package_name]/[path to the js file]'),
+	path.resolve(outDir, 'libraries/[file name]'),
+);
 ```
 
-You can now add the script to the `assets-src/js/libraries` folder and run the full build script or the 'webpack-expanded' script.
+You can now run the full build script (or just `npm run js`) to have the library copied into `web/dist/js/libraries`.
 
 ## Making changes
 

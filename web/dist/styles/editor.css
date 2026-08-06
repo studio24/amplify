@@ -172,9 +172,9 @@ Wildcard selector means these styles apply everywhere.
 2: Control hyphenation when used - see https://clagnut.com/blog/2395/
 3: Avoid text overflow
  */
-*,
-*::before,
-*::after {
+.editor-styles-wrapper *,
+.editor-styles-wrapper *::before,
+.editor-styles-wrapper *::after {
   box-sizing: border-box; /* 1 */
   hyphenate-limit-chars: 6 3 2; /* 2 */
   overflow-wrap: break-word; /* 3 */
@@ -186,7 +186,7 @@ HTML or :root element.
 2: Prevent font size inflation with change of orientation
 3: Enable keyword animations
  */
-html {
+.editor-styles-wrapper {
   scrollbar-gutter: stable; /* 1 */
   -webkit-text-size-adjust: none;
      -moz-text-size-adjust: none;
@@ -194,7 +194,7 @@ html {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  html {
+  .editor-styles-wrapper {
     interpolate-size: allow-keywords; /* 3 */
   }
 }
@@ -205,7 +205,7 @@ Set core body defaults.
 3: Supported by Safari - anything using `text-decoration: underline` will inherit this
 4: Not supported by Safari - anything using `text-decoration: underline` will inherit this
  */
-body {
+.editor-styles-wrapper {
   -moz-osx-font-smoothing: grayscale; /* 1 */
   -webkit-font-smoothing: antialiased; /* 1 */
   line-height: 1.7; /* 2 */
@@ -218,48 +218,48 @@ body {
 }
 
 /* Inherit our preferred font settings */
-button,
-input,
-select,
-textarea {
+.editor-styles-wrapper button,
+.editor-styles-wrapper input,
+.editor-styles-wrapper select,
+.editor-styles-wrapper textarea {
   font: inherit;
   letter-spacing: inherit;
   word-spacing: inherit;
 }
 
 /* Reduce the line-height for specific elements (headings are managed in 30-base/_typography.scss) */
-input,
-label,
-optgroup,
-select,
-textarea {
+.editor-styles-wrapper input,
+.editor-styles-wrapper label,
+.editor-styles-wrapper optgroup,
+.editor-styles-wrapper select,
+.editor-styles-wrapper textarea {
   line-height: 1.25;
 }
 
-button {
+.editor-styles-wrapper button {
   line-height: 1.1;
 }
 
 /* Remove margins in favour of better control by our authored CSS */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-dl,
-dd {
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6,
+.editor-styles-wrapper p,
+.editor-styles-wrapper blockquote,
+.editor-styles-wrapper dl,
+.editor-styles-wrapper dd {
   margin-block: 0;
 }
 
-figure {
+.editor-styles-wrapper figure {
   margin: 0;
 }
 
 /* Improve default styles for horizontal rule */
-hr {
+.editor-styles-wrapper hr {
   block-size: 0;
   border: 0;
   -webkit-border-before: 1px solid #c6c6c6;
@@ -274,63 +274,63 @@ hr {
  2: Responsive by default
  3: Removes strange space-below in case authors overwrite the display value
  */
-audio,
-canvas,
-embed,
-iframe,
-img,
-object,
-svg,
-video {
+.editor-styles-wrapper audio,
+.editor-styles-wrapper canvas,
+.editor-styles-wrapper embed,
+.editor-styles-wrapper iframe,
+.editor-styles-wrapper img,
+.editor-styles-wrapper object,
+.editor-styles-wrapper svg,
+.editor-styles-wrapper video {
   display: block; /* 1 */
   max-inline-size: 100%; /* 2 */
   vertical-align: middle; /* 3 */
 }
 
 /* There's no good reason the audio element defaults to 300px */
-audio {
+.editor-styles-wrapper audio {
   inline-size: 100%;
 }
 
 /* Audio without `[controls]` remains hidden by default */
-audio:not([controls]) {
+.editor-styles-wrapper audio:not([controls]) {
   display: none;
 }
 
 /* Remove iframe border */
-iframe {
+.editor-styles-wrapper iframe {
   border: 0;
 }
 
 /* Maintain intrinsic aspect ratios when `max-inline-size` is applied */
-canvas,
-img,
-svg,
-video {
+.editor-styles-wrapper canvas,
+.editor-styles-wrapper img,
+.editor-styles-wrapper svg,
+.editor-styles-wrapper video {
   block-size: auto;
 }
 
 /* Remove the unnecessary wrapping `picture`, while maintaining contents */
-picture {
+.editor-styles-wrapper picture {
   display: contents;
 }
 
 /* Source elements have nothing to display, so hide them entirely */
-source {
+.editor-styles-wrapper source {
   display: none;
 }
 
 /* Don't allow SVGs in flex contexts to shrink */
-svg {
+.editor-styles-wrapper svg {
   flex-shrink: 0;
 }
 
-video {
+.editor-styles-wrapper video {
   aspect-ratio: 16/9;
 }
 
 /* Anything that has been anchored to should have extra scroll margin */
-:target {
+.editor-styles-wrapper :target {
   scroll-margin-block: 5ex;
 }
 
@@ -351,7 +351,7 @@ video {
 /**
 Typographical styles for fonts are in 30-base/_typography.scss
  */
-body {
+.editor-styles-wrapper {
   background-color: #fcfcfc;
   color: #252525;
   display: grid; /* 1 */
@@ -374,7 +374,7 @@ body {
     1. Makes elements like <code> a more in-proportion size based on our base font
     2. Starting text-wrap style is optional and fine to override/remove as required by a design
 \*------------------------------------*/
-body {
+.editor-styles-wrapper {
   font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
   font-family: "Arial MT Rounded Bold", arial, sans-serif;
   font-size-adjust: from-font; /* 1 */
@@ -382,77 +382,77 @@ body {
   font-weight: 400;
 }
 
-p {
+.editor-styles-wrapper p {
   margin-block: clamp(0.5rem, 0.3rem + 1vw, 1rem);
   max-inline-size: 60ch;
   text-wrap: pretty; /* 2 */
 }
 
-h1, h2, h3, h4, h5, h6 {
+.editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6 {
   font-weight: 600;
   -webkit-margin-after: clamp(0.5rem, 0.3rem + 1vw, 1rem);
           margin-block-end: clamp(0.5rem, 0.3rem + 1vw, 1rem);
 }
 
-h1, h2, h3, h4 {
+.editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4 {
   text-wrap: balance; /* 2 */
 }
 
-h1, h2, h3 {
+.editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3 {
   -webkit-hyphens: auto;
           hyphens: auto;
 }
 
-h2, h3, h4, h5, h6 {
+.editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6 {
   -webkit-margin-before: 2rem;
           margin-block-start: 2rem;
 }
 
-h1,
-.text-40 {
+.editor-styles-wrapper h1,
+.editor-styles-wrapper .text-40 {
   font-size: clamp(2rem, 1.8rem + 1vw, 2.5rem);
   line-height: 1.3;
   max-inline-size: 20ch;
 }
 
-h2,
-.text-36 {
+.editor-styles-wrapper h2,
+.editor-styles-wrapper .text-36 {
   font-size: clamp(1.75rem, 1.55rem + 1vw, 2.25rem);
   line-height: 1.3;
   max-inline-size: 35ch;
 }
 
-h3,
-.text-32 {
+.editor-styles-wrapper h3,
+.editor-styles-wrapper .text-32 {
   font-size: clamp(1.5625rem, 1.3875rem + 0.875vw, 2rem);
   line-height: 1.3;
   max-inline-size: 35ch;
 }
 
-h4,
-.text-28 {
+.editor-styles-wrapper h4,
+.editor-styles-wrapper .text-28 {
   font-size: clamp(1.375rem, 1.225rem + 0.75vw, 1.75rem);
   line-height: 1.3;
 }
 
-h5,
-.text-25 {
+.editor-styles-wrapper h5,
+.editor-styles-wrapper .text-25 {
   font-size: clamp(1.25rem, 1.125rem + 0.625vw, 1.5625rem);
   line-height: 1.3;
 }
 
-h6,
-.text-22 {
+.editor-styles-wrapper h6,
+.editor-styles-wrapper .text-22 {
   font-size: clamp(1.125rem, 1.025rem + 0.5vw, 1.375rem);
   line-height: 1.5;
 }
 
-.text-17 {
+.editor-styles-wrapper .text-17 {
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
 }
 
-.lead {
+.editor-styles-wrapper .lead {
   font-size: clamp(1.375rem, 1.225rem + 0.75vw, 1.75rem);
   line-height: 1.3;
   -webkit-margin-after: clamp(2.5rem, 2.3rem + 1vw, 3rem);
@@ -464,7 +464,7 @@ h6,
 When Font Face Observer has detected that the @font-face files are loaded, then we
 can safely use the web fonts instead of the system fonts.
  */
-.fonts-loaded body {
+.editor-styles-wrapper .fonts-loaded body {
   font-family: "Nunito", "Arial MT Rounded Bold", arial, sans-serif;
 }
 
@@ -490,7 +490,7 @@ can safely use the web fonts instead of the system fonts.
  * Use if a component should remain hidden regardless of CSS being
  * available or not (the style below provides support for legacy browsers).
  */
-[hidden] {
+.editor-styles-wrapper [hidden] {
   display: none !important;
 }
 
@@ -516,7 +516,7 @@ can safely use the web fonts instead of the system fonts.
  * using the %visually-hidden placeholder (extend the placeholder with
  * Sass to avoid it appearing repeatedly in your markup).
  */
-.visuallyhidden:not(:focus, :active), .skip-link:not(:focus, :active) {
+.editor-styles-wrapper .visuallyhidden:not(:focus, :active), .editor-styles-wrapper .skip-link:not(:focus, :active) {
   block-size: 1px;
   border: 0;
   -webkit-clip-path: inset(50%);
@@ -532,7 +532,7 @@ can safely use the web fonts instead of the system fonts.
  *The :not portions of the following selector allow a means for any
  * focusable element to become visible when focused/active by a user.
  */
-br {
+.editor-styles-wrapper br {
   -webkit-margin-before: 0;
           margin-block-start: 0;
 }
@@ -554,31 +554,31 @@ br {
     #Flow elements
 \*------------------------------------*/
 /* Remove default italics */
-address,
-dfn {
+.editor-styles-wrapper address,
+.editor-styles-wrapper dfn {
   font-style: normal;
 }
 
-dfn,
-b,
-strong,
-.bold {
+.editor-styles-wrapper dfn,
+.editor-styles-wrapper b,
+.editor-styles-wrapper strong,
+.editor-styles-wrapper .bold {
   font-weight: 600;
 }
 
-em,
-i {
+.editor-styles-wrapper em,
+.editor-styles-wrapper i {
   font-style: italic;
 }
 
-small,
-.small,
-.small-caps {
+.editor-styles-wrapper small,
+.editor-styles-wrapper .small,
+.editor-styles-wrapper .small-caps {
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
 }
 
-.small-caps {
+.editor-styles-wrapper .small-caps {
   text-shadow: 0 0 0 #252525;
   text-transform: uppercase;
 }
@@ -586,23 +586,23 @@ small,
 /**
  * Prevent `sub` and `sup` elements from affecting the line height
  */
-sub,
-sup {
+.editor-styles-wrapper sub,
+.editor-styles-wrapper sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
 
-sub {
+.editor-styles-wrapper sub {
   inset-block-end: -0.25em;
 }
 
-sup {
+.editor-styles-wrapper sup {
   inset-block-start: -0.5em;
 }
 
-:where(code, kbd, samp) {
+.editor-styles-wrapper :where(code, kbd, samp) {
   -webkit-box-decoration-break: clone;
           box-decoration-break: clone;
   font-family: monaco, "Lucida Console", "Courier New", monospace;
@@ -617,22 +617,22 @@ sup {
 
 /* This is quite a new property, so we want to make sure code styles are not huge or tiny */
 @supports not (font-size-adjust: from-font) {
-  :where(code, kbd, samp) {
+  .editor-styles-wrapper :where(code, kbd, samp) {
     font-size: 0.8em;
   }
 }
-code {
+.editor-styles-wrapper code {
   background-color: #262626;
   border-radius: 0.125rem;
   color: #f4f4f4;
 }
 
-kbd {
+.editor-styles-wrapper kbd {
   border: solid 0.0625rem;
   border-radius: 0.25rem;
 }
 
-pre:has(code) {
+.editor-styles-wrapper pre:has(code) {
   background-color: #262626;
   inline-size: -webkit-max-content;
   inline-size: max-content;
@@ -641,7 +641,7 @@ pre:has(code) {
   padding: 0.5em;
 }
 
-pre code {
+.editor-styles-wrapper pre code {
   background: none;
   border: none;
   padding: 0;
@@ -662,36 +662,36 @@ pre code {
 Basic link styles
 1: WCAG says don't rely on colour alone for styling links
  */
-a:not([class]),
-a.with-icon--before,
-a.with-icon--after {
+.editor-styles-wrapper a:not([class]),
+.editor-styles-wrapper a.with-icon--before,
+.editor-styles-wrapper a.with-icon--after {
   border: none;
   color: #1371c2;
   cursor: pointer;
   text-decoration: underline; /* 1 */
 }
-a:not([class]):visited,
-a.with-icon--before:visited,
-a.with-icon--after:visited {
+.editor-styles-wrapper a:not([class]):visited,
+.editor-styles-wrapper a.with-icon--before:visited,
+.editor-styles-wrapper a.with-icon--after:visited {
   color: #063a69;
 }
-a:not([class]):hover,
-a.with-icon--before:hover,
-a.with-icon--after:hover {
+.editor-styles-wrapper a:not([class]):hover,
+.editor-styles-wrapper a.with-icon--before:hover,
+.editor-styles-wrapper a.with-icon--after:hover {
   color: #0b80e5;
 }
-a:not([class]):active,
-a.with-icon--before:active,
-a.with-icon--after:active {
+.editor-styles-wrapper a:not([class]):active,
+.editor-styles-wrapper a.with-icon--before:active,
+.editor-styles-wrapper a.with-icon--after:active {
   color: #0c5492;
 }
 
-button {
+.editor-styles-wrapper button {
   line-height: 1.15;
 }
 
 /* Remove text underline from links styled as buttons */
-.button {
+.editor-styles-wrapper .button {
   text-decoration: none;
 }
 
@@ -700,9 +700,9 @@ Buttons
 1: Prevent `.button` going full-width if a child of a flex column.
 2: Meet WCAG AAA target size requirements.
  */
-button,
-.button,
-input[type=submit].button {
+.editor-styles-wrapper button,
+.editor-styles-wrapper .button,
+.editor-styles-wrapper input[type=submit].button {
   align-items: center;
   align-self: start; /* 1 */
   background-color: #da0067;
@@ -715,35 +715,35 @@ input[type=submit].button {
   padding-block: 0.25em;
   padding-inline: 0.75em;
 }
-button:hover,
-.button:hover,
-input[type=submit].button:hover {
+.editor-styles-wrapper button:hover,
+.editor-styles-wrapper .button:hover,
+.editor-styles-wrapper input[type=submit].button:hover {
   background-color: #bf0059;
   border-color: #bf0059;
 }
-button:active,
-.button:active,
-input[type=submit].button:active {
+.editor-styles-wrapper button:active,
+.editor-styles-wrapper .button:active,
+.editor-styles-wrapper input[type=submit].button:active {
   background-color: #760035;
   border-color: #760035;
   color: #fcfcfc;
 }
 
 /* Full-width buttons */
-.button--wide.button--wide {
+.editor-styles-wrapper .button--wide.button--wide {
   inline-size: 100%;
 }
 
 /* Alternative button style with a distinct border */
-.button--alt.button--alt {
+.editor-styles-wrapper .button--alt.button--alt {
   background-color: #fcfcfc;
   color: #da0067;
 }
-.button--alt.button--alt:hover {
+.editor-styles-wrapper .button--alt.button--alt:hover {
   background-color: #bf0059;
   color: #fcfcfc;
 }
-.button--alt.button--alt:active {
+.editor-styles-wrapper .button--alt.button--alt:active {
   background-color: #760035;
   border-color: #760035;
   color: #fcfcfc;
@@ -753,22 +753,22 @@ input[type=submit].button:active {
  For buttons with no visible background or border
  1: Ghost button has no padding but we still want to meet WCAG AAA target size
  */
-.button--ghost.button--ghost {
+.editor-styles-wrapper .button--ghost.button--ghost {
   background-color: transparent;
   border-color: transparent;
   color: #000;
   min-inline-size: 2.75rem; /* 1 */
   padding: 0;
 }
-.button--ghost.button--ghost:hover {
+.editor-styles-wrapper .button--ghost.button--ghost:hover {
   background-color: transparent;
   border-color: transparent;
 }
 
 /* Disabled buttons */
-button[disabled],
-.button[disabled],
-.button.js-disabled {
+.editor-styles-wrapper button[disabled],
+.editor-styles-wrapper .button[disabled],
+.editor-styles-wrapper .button.js-disabled {
   background-color: #8d8d8d;
   border-color: #8d8d8d;
   color: #252525;
@@ -786,7 +786,7 @@ button[disabled],
 /*------------------------------------*\
     #Skip link
 \*------------------------------------*/
-.skip-link.skip-link {
+.editor-styles-wrapper .skip-link.skip-link {
   background-color: #ffdc00;
   box-shadow: inset 0 0 0 2px #000;
   color: #000;
@@ -796,7 +796,7 @@ button[disabled],
   text-decoration: none;
   z-index: 999;
 }
-.skip-link.skip-link:focus {
+.editor-styles-wrapper .skip-link.skip-link:focus {
   inset-block-start: 2px;
   inset-inline-start: 2px;
 }
@@ -812,7 +812,7 @@ button[disabled],
 /*------------------------------------*\
     #Details and summary elements
 \*------------------------------------*/
-summary {
+.editor-styles-wrapper summary {
   color: #1371c2;
   cursor: pointer;
   display: inline-block;
@@ -820,7 +820,7 @@ summary {
           padding-inline-start: 1.5625rem;
   position: relative;
 }
-summary::before {
+.editor-styles-wrapper summary::before {
   block-size: 0;
   border-color: transparent;
   border-inline-start-color: inherit;
@@ -834,22 +834,22 @@ summary::before {
   margin: auto;
   position: absolute;
 }
-summary::-webkit-details-marker {
+.editor-styles-wrapper summary::-webkit-details-marker {
   display: none;
 }
-summary:hover {
+.editor-styles-wrapper summary:hover {
   color: #0b80e5;
 }
 
-[dir=rtl] summary::before {
+.editor-styles-wrapper [dir=rtl] summary::before {
   border-width: 7px 12.124px 7px 0;
 }
 
-details[open] > summary::before {
+.editor-styles-wrapper details[open] > summary::before {
   transform: rotate(90deg);
 }
 
-[dir=rtl] details[open] > summary::before {
+.editor-styles-wrapper [dir=rtl] details[open] > summary::before {
   transform: rotate(-90deg);
 }
 
@@ -871,17 +871,17 @@ details[open] > summary::before {
 /**
 Icons are sized relative to font size, thanks to the em unit.
  */
-.icon {
+.editor-styles-wrapper .icon {
   block-size: 0.75em;
   display: inline;
   fill: currentcolor; /* 1 */
   inline-size: 0.75em;
 }
-.icon svg {
+.editor-styles-wrapper .icon svg {
   forced-color-adjust: auto; /* 2 */
 }
 
-.icon--24 {
+.editor-styles-wrapper .icon--24 {
   block-size: 1.5rem;
   inline-size: 1.5rem;
 }
@@ -894,22 +894,22 @@ before the text or after.
 
 Use `margin-inline-end` for spacing irrespective of text direction
  */
-.with-icon--before,
-.with-icon--after {
+.editor-styles-wrapper .with-icon--before,
+.editor-styles-wrapper .with-icon--after {
   align-items: center;
   display: inline-flex;
 }
-.with-icon--before .icon,
-.with-icon--after .icon {
+.editor-styles-wrapper .with-icon--before .icon,
+.editor-styles-wrapper .with-icon--after .icon {
   flex: 0 0 auto;
 }
 
-.with-icon--before .icon {
+.editor-styles-wrapper .with-icon--before .icon {
   -webkit-margin-end: 0.625rem;
           margin-inline-end: 0.625rem;
 }
 
-.with-icon--after .icon {
+.editor-styles-wrapper .with-icon--after .icon {
   -webkit-margin-start: 0.625rem;
           margin-inline-start: 0.625rem;
 }
@@ -927,7 +927,7 @@ Use `margin-inline-end` for spacing irrespective of text direction
 
     1. Starting text-wrap style is optional and fine to override/remove as required by a design
 \*------------------------------------*/
-figcaption {
+.editor-styles-wrapper figcaption {
   max-inline-size: 60ch;
   -webkit-padding-before: 0.5em;
           padding-block-start: 0.5em;
@@ -947,17 +947,17 @@ figcaption {
 
     1. Starting text-wrap style is optional and fine to override/remove as required by a design
 \*------------------------------------*/
-:where(ol, ul) li {
+.editor-styles-wrapper :where(ol, ul) li {
   max-inline-size: 60ch;
   text-wrap: pretty; /* 1 */
 }
 
-:where(ol, ul) :where(li, ol, ul) {
+.editor-styles-wrapper :where(ol, ul) :where(li, ol, ul) {
   -webkit-margin-before: 0.75rem;
           margin-block-start: 0.75rem;
 }
 
-:where(ol, ul) :where(ol, ul) {
+.editor-styles-wrapper :where(ol, ul) :where(ol, ul) {
   -webkit-margin-after: 1rem;
           margin-block-end: 1rem;
 }
@@ -967,7 +967,7 @@ figcaption {
  1.1.
  1.1.1.
  */
-ol ol ::marker {
+.editor-styles-wrapper ol ol ::marker {
   content: counters(list-item, ".") ". ";
 }
 
@@ -976,14 +976,12 @@ List without bullets, numbers or indentation. Bear in mind that this
 removes list semantics in some WebKit browsers. If it's important that
 the number of items in a list is announced, add role="list" to the list
  */
-nav :where(ul, ol),
-.clean-list {
+.editor-styles-wrapper nav :where(ul, ol), .editor-styles-wrapper .clean-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-nav :where(ul, ol) :where(ul, ol, li),
-.clean-list :where(ul, ol, li) {
+.editor-styles-wrapper nav :where(ul, ol) :where(ul, ol, li), .editor-styles-wrapper .clean-list :where(ul, ol, li) {
   margin: 0;
   padding: 0;
 }
@@ -991,26 +989,26 @@ nav :where(ul, ol) :where(ul, ol, li),
 /**
 Description lists / Definition lists
  */
-dl {
+.editor-styles-wrapper dl {
   margin-block: 1rem;
   max-inline-size: 60ch;
   text-wrap: pretty; /* 1 */
 }
-dl dt {
+.editor-styles-wrapper dl dt {
   font-weight: bold;
 }
-dl dd + dt {
+.editor-styles-wrapper dl dd + dt {
   -webkit-margin-before: 0.5rem;
           margin-block-start: 0.5rem;
 }
-dl dt + dd,
-dl dd + dd {
+.editor-styles-wrapper dl dt + dd,
+.editor-styles-wrapper dl dd + dd {
   -webkit-margin-before: 0.25rem;
           margin-block-start: 0.25rem;
 }
 
 @supports (grid-row-start: auto) {
-  dl.grid {
+  .editor-styles-wrapper dl.grid {
     display: grid;
     gap: 1rem;
     -ms-grid-columns: min-content;
@@ -1019,17 +1017,17 @@ dl dd + dd {
     grid-template-columns: min-content;
     grid-template-rows: 1fr;
   }
-  dl.grid dt {
+  .editor-styles-wrapper dl.grid dt {
     grid-column: 1/2;
   }
-  dl.grid dd {
+  .editor-styles-wrapper dl.grid dd {
     grid-column: 2/3;
     -webkit-margin-start: 0;
             margin-inline-start: 0;
   }
-  dl.grid dd + dt,
-  dl.grid dt + dd,
-  dl.grid dd + dd {
+  .editor-styles-wrapper dl.grid dd + dt,
+  .editor-styles-wrapper dl.grid dt + dd,
+  .editor-styles-wrapper dl.grid dd + dd {
     -webkit-margin-before: 0;
             margin-block-start: 0;
   }
@@ -1048,7 +1046,7 @@ dl dd + dd {
 
     1. Starting text-wrap style is optional and fine to override/remove as required by a design
 \*------------------------------------*/
-blockquote {
+.editor-styles-wrapper blockquote {
   font-size: clamp(1.25rem, 1.125rem + 0.625vw, 1.5625rem);
   line-height: 1.3;
   margin-block: 2rem;
@@ -1057,7 +1055,7 @@ blockquote {
   position: relative;
   text-wrap: pretty; /* 1 */
 }
-blockquote::before {
+.editor-styles-wrapper blockquote::before {
   background-color: #8d8d8d;
   block-size: 100%;
   content: "";
@@ -1066,15 +1064,15 @@ blockquote::before {
   inset-inline-start: -0.1875rem;
   position: absolute;
 }
-blockquote > *:first-child {
+.editor-styles-wrapper blockquote > *:first-child {
   -webkit-margin-before: 0;
           margin-block-start: 0;
 }
-blockquote *:only-child {
+.editor-styles-wrapper blockquote *:only-child {
   -webkit-margin-after: 0;
           margin-block-end: 0;
 }
-blockquote footer {
+.editor-styles-wrapper blockquote footer {
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
   font-style: normal;
@@ -1094,35 +1092,35 @@ blockquote footer {
 /*------------------------------------*\
     #Tables
 \*------------------------------------*/
-table {
+.editor-styles-wrapper table {
   border: 1px solid #c6c6c6;
   border-collapse: collapse;
   inline-size: 100%;
 }
 
-caption {
+.editor-styles-wrapper caption {
   border: 1px solid #c6c6c6;
   -webkit-border-after: 0;
           border-block-end: 0;
 }
-caption :where(h1, h2, h3, h4, h5, h6) {
+.editor-styles-wrapper caption :where(h1, h2, h3, h4, h5, h6) {
   margin-block: 0;
 }
 
-caption,
-th,
-td {
+.editor-styles-wrapper caption,
+.editor-styles-wrapper th,
+.editor-styles-wrapper td {
   padding: 0.75rem;
   text-align: start;
 }
 
-th,
-td {
+.editor-styles-wrapper th,
+.editor-styles-wrapper td {
   border: 1px solid #c6c6c6;
   vertical-align: text-top;
 }
 
-th {
+.editor-styles-wrapper th {
   font-weight: 600;
 }
 
@@ -1133,43 +1131,43 @@ Responsive tables:
 
  */
 @media screen {
-  [data-component=table-wrap] {
+  .editor-styles-wrapper [data-component=table-wrap] {
     border: 1px solid #c6c6c6;
     margin-block: 1rem;
     max-inline-size: 100% !important;
   }
-  [data-component=table-wrap][role][tabindex] {
+  .editor-styles-wrapper [data-component=table-wrap][role][tabindex] {
     animation: scroll-shadow-inset linear; /* 1 */
     animation-timeline: scroll(self inline); /* 1 */
     overflow: auto;
   }
-  [data-component=table-wrap] table {
+  .editor-styles-wrapper [data-component=table-wrap] table {
     border: 0;
     margin-block: 0;
   }
-  [data-component=table-wrap] caption {
+  .editor-styles-wrapper [data-component=table-wrap] caption {
     -webkit-border-after: 1px solid #c6c6c6;
             border-block-end: 1px solid #c6c6c6;
     -webkit-border-before: 0;
             border-block-start: 0;
     border-inline: 0;
   }
-  [data-component=table-wrap] th,
-  [data-component=table-wrap] thead td,
-  [data-component=table-wrap] th[scope=row] ~ td {
+  .editor-styles-wrapper [data-component=table-wrap] th,
+  .editor-styles-wrapper [data-component=table-wrap] thead td,
+  .editor-styles-wrapper [data-component=table-wrap] th[scope=row] ~ td {
     -webkit-border-before: 0;
             border-block-start: 0;
   }
-  [data-component=table-wrap] tr :where(th:first-child, td:first-child) {
+  .editor-styles-wrapper [data-component=table-wrap] tr :where(th:first-child, td:first-child) {
     -webkit-border-start: 0;
             border-inline-start: 0;
   }
-  [data-component=table-wrap] tr :where(th:last-child, td:last-child) {
+  .editor-styles-wrapper [data-component=table-wrap] tr :where(th:last-child, td:last-child) {
     -webkit-border-end: 0;
             border-inline-end: 0;
   }
-  [data-component=table-wrap] tr:last-of-type th[scope=row],
-  [data-component=table-wrap] tbody tr:last-of-type td {
+  .editor-styles-wrapper [data-component=table-wrap] tr:last-of-type th[scope=row],
+  .editor-styles-wrapper [data-component=table-wrap] tbody tr:last-of-type td {
     -webkit-border-after: 0;
             border-block-end: 0;
   }
@@ -1194,9 +1192,9 @@ Respect the choices of users who do not want animations. The styles here:
 See https://github.com/mozdevs/cssremedy/issues/11
  */
 @media screen and (prefers-reduced-motion: reduce), (update: slow) {
-  *,
-  ::before,
-  ::after {
+  .editor-styles-wrapper *,
+  .editor-styles-wrapper ::before,
+  .editor-styles-wrapper ::after {
     animation-delay: -1ms !important;
     animation-duration: 1ms !important;
     animation-iteration-count: 1 !important;
@@ -1232,7 +1230,7 @@ See https://github.com/mozdevs/cssremedy/issues/11
     2. Windows High Contrast/forced-color modes tend to eliminate background-color and box-shadow.
     We retain an outline - even if it's transparent - to ensure an accessible focus indicator.
 \*------------------------------------*/
-:focus {
+.editor-styles-wrapper :focus {
   -webkit-box-decoration-break: clone;
           box-decoration-break: clone; /* 1 */
   box-shadow: 0 0 0 4px #000;
@@ -1244,7 +1242,7 @@ See https://github.com/mozdevs/cssremedy/issues/11
 /**
 Unset focus styles (apart from transparent outline) where the browser wouldn't set a visible focus
  */
-:focus:not(:focus-visible) {
+.editor-styles-wrapper :focus:not(:focus-visible) {
   box-shadow: none;
   outline-color: transparent;
 }
@@ -1253,9 +1251,9 @@ Unset focus styles (apart from transparent outline) where the browser wouldn't s
 Where focus is programmatically moved to a target element that is not interactive, we
 suppress the focus styles. See https://github.com/twbs/bootstrap/issues/29875#issuecomment-582648069
  */
-main:focus,
-#main:focus,
-[tabindex="-1"]:focus {
+.editor-styles-wrapper main:focus,
+.editor-styles-wrapper #main:focus,
+.editor-styles-wrapper [tabindex="-1"]:focus {
   box-shadow: none;
   outline: none;
 }
@@ -1277,82 +1275,82 @@ main:focus,
     Make sure to apply the `.amplify-form` class directly to the <form> to
     pick up these styles and try to avoid conflicts with third party form styles
 \*------------------------------------*/
-.amplify-form {
+.editor-styles-wrapper .amplify-form {
   /**
   The default styles for fieldset and legend are weird, so we effectively hide the fieldset
   If you want a border etc. wrap the fieldset in a div with the class `.fieldset-wrap`
   */
 }
-.amplify-form fieldset {
+.editor-styles-wrapper .amplify-form fieldset {
   border: 0;
   margin: 0;
   min-inline-size: 0;
   padding: 0;
 }
-.amplify-form .fieldset-wrap {
+.editor-styles-wrapper .amplify-form .fieldset-wrap {
   border: solid 1px;
   padding: 0.5rem;
 }
-.amplify-form {
+.editor-styles-wrapper .amplify-form {
   /* Set vertical spacing between direct children of a form or fieldset */
 }
-.amplify-form > * + *,
-.amplify-form fieldset > * + * {
+.editor-styles-wrapper .amplify-form > * + *,
+.editor-styles-wrapper .amplify-form fieldset > * + * {
   -webkit-margin-before: 1.75rem;
           margin-block-start: 1.75rem;
 }
-.amplify-form {
+.editor-styles-wrapper .amplify-form {
   /* Double the vertical spacing around fieldset/.fieldset-wrap */
 }
-.amplify-form fieldset:not(:first-child),
-.amplify-form fieldset + *,
-.amplify-form .fieldset-wrap:not(:first-child),
-.amplify-form .fieldset-wrap + * {
+.editor-styles-wrapper .amplify-form fieldset:not(:first-child),
+.editor-styles-wrapper .amplify-form fieldset + *,
+.editor-styles-wrapper .amplify-form .fieldset-wrap:not(:first-child),
+.editor-styles-wrapper .amplify-form .fieldset-wrap + * {
   -webkit-margin-before: 3rem;
           margin-block-start: 3rem;
 }
-.amplify-form legend {
+.editor-styles-wrapper .amplify-form legend {
   font-size: clamp(1.125rem, 1.025rem + 0.5vw, 1.375rem);
   line-height: 1.5;
   font-weight: 600;
 }
-.amplify-form {
+.editor-styles-wrapper .amplify-form {
   /* A wrapper for an input and its label (but not checkboxes/radios, which have their own classes) */
 }
-.amplify-form .field {
+.editor-styles-wrapper .amplify-form .field {
   max-inline-size: 41.25rem;
 }
-.amplify-form label,
-.amplify-form .field-label,
-.amplify-form .field-hint,
-.amplify-form .field-error-msg,
-.amplify-form .faux-label {
+.editor-styles-wrapper .amplify-form label,
+.editor-styles-wrapper .amplify-form .field-label,
+.editor-styles-wrapper .amplify-form .field-hint,
+.editor-styles-wrapper .amplify-form .field-error-msg,
+.editor-styles-wrapper .amplify-form .faux-label {
   display: block;
 }
-.amplify-form label,
-.amplify-form .field-label,
-.amplify-form .faux-label {
+.editor-styles-wrapper .amplify-form label,
+.editor-styles-wrapper .amplify-form .field-label,
+.editor-styles-wrapper .amplify-form .faux-label {
   -webkit-margin-after: 0.25rem;
           margin-block-end: 0.25rem;
 }
-.amplify-form label,
-.amplify-form .field-label,
-.amplify-form .group-legend {
+.editor-styles-wrapper .amplify-form label,
+.editor-styles-wrapper .amplify-form .field-label,
+.editor-styles-wrapper .amplify-form .group-legend {
   font-weight: 600;
 }
-.amplify-form .field-hint {
+.editor-styles-wrapper .amplify-form .field-hint {
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
   color: #525252;
   margin-block: 0.25rem;
   max-inline-size: 41.25rem;
 }
-.amplify-form .field-label + .field-hint,
-.amplify-form .group-legend + .field-hint {
+.editor-styles-wrapper .amplify-form .field-label + .field-hint,
+.editor-styles-wrapper .amplify-form .group-legend + .field-hint {
   -webkit-margin-before: 0.25rem;
           margin-block-start: 0.25rem;
 }
-.amplify-form :where(input:not([type=color], [type=file], [type=checkbox], [type=radio]), textarea) {
+.editor-styles-wrapper .amplify-form :where(input:not([type=color], [type=file], [type=checkbox], [type=radio]), textarea) {
   -webkit-appearance: none;
           appearance: none;
   background-color: inherit;
@@ -1361,96 +1359,96 @@ main:focus,
   inline-size: 100%;
   padding: 0.3125rem;
 }
-.amplify-form {
+.editor-styles-wrapper .amplify-form {
   /* Make input height match Amplify button height (defaults to equivalent of 44px for WCAG AAA */
 }
-.amplify-form :where(input:not([type=checkbox], [type=radio])) {
+.editor-styles-wrapper .amplify-form :where(input:not([type=checkbox], [type=radio])) {
   min-block-size: 2.75rem;
 }
-.amplify-form {
+.editor-styles-wrapper .amplify-form {
   /* Limit max width of file input to prevent unwanted horizontal scrolling */
 }
-.amplify-form [type=file] {
+.editor-styles-wrapper .amplify-form [type=file] {
   border-color: transparent;
   max-inline-size: 100%;
 }
-.amplify-form textarea {
+.editor-styles-wrapper .amplify-form textarea {
   resize: vertical;
 }
-.amplify-form textarea:not([rows]) {
+.editor-styles-wrapper .amplify-form textarea:not([rows]) {
   min-height: 10em;
 }
-.amplify-form {
+.editor-styles-wrapper .amplify-form {
   /* Disabled inputs - try to avoid using these to avoid accessibility issues */
 }
-.amplify-form input[disabled] {
+.editor-styles-wrapper .amplify-form input[disabled] {
   background-color: #e0e0e0;
 }
-.amplify-form input[disabled],
-.amplify-form label input[disabled] + * {
+.editor-styles-wrapper .amplify-form input[disabled],
+.editor-styles-wrapper .amplify-form label input[disabled] + * {
   cursor: not-allowed;
 }
-.amplify-form {
+.editor-styles-wrapper .amplify-form {
   /* A wrapper to allow fields to sit side-by-side horizontally, if desired */
 }
-.amplify-form .input-group {
+.editor-styles-wrapper .amplify-form .input-group {
   align-items: center;
   display: flex;
   gap: 1.875rem;
   -webkit-margin-before: 0;
           margin-block-start: 0;
 }
-.amplify-form {
+.editor-styles-wrapper .amplify-form {
   /* Fixed input widths */
 }
-.amplify-form .input-width-30 {
+.editor-styles-wrapper .amplify-form .input-width-30 {
   max-inline-size: 59ex;
 }
-.amplify-form .input-width-20 {
+.editor-styles-wrapper .amplify-form .input-width-20 {
   max-inline-size: 41ex;
 }
-.amplify-form .input-width-10 {
+.editor-styles-wrapper .amplify-form .input-width-10 {
   max-inline-size: 23ex;
 }
-.amplify-form .input-width-5 {
+.editor-styles-wrapper .amplify-form .input-width-5 {
   max-inline-size: 10.8ex;
 }
-.amplify-form .input-width-4 {
+.editor-styles-wrapper .amplify-form .input-width-4 {
   max-inline-size: 9ex;
 }
-.amplify-form .input-width-3 {
+.editor-styles-wrapper .amplify-form .input-width-3 {
   max-inline-size: 7.2ex;
 }
-.amplify-form .input-width-2 {
+.editor-styles-wrapper .amplify-form .input-width-2 {
   max-inline-size: 5.4ex;
 }
-.amplify-form {
+.editor-styles-wrapper .amplify-form {
   /* Error styles */
 }
-.amplify-form [data-component=error-summary] li a {
+.editor-styles-wrapper .amplify-form [data-component=error-summary] li a {
   color: #a4141b;
   display: inline-block;
   font-weight: bold;
   padding-block: 0.625rem;
 }
-.amplify-form [data-component=error-summary] li a:hover, .amplify-form [data-component=error-summary] li a:visited {
+.editor-styles-wrapper .amplify-form [data-component=error-summary] li a:hover, .editor-styles-wrapper .amplify-form [data-component=error-summary] li a:visited {
   color: #a4141b;
 }
-.amplify-form .field--error {
+.editor-styles-wrapper .amplify-form .field--error {
   -webkit-border-start: solid 0.3125rem #a4141b;
           border-inline-start: solid 0.3125rem #a4141b;
   -webkit-padding-start: 0.9375rem;
           padding-inline-start: 0.9375rem;
 }
-.amplify-form .field--error input:not([type=file]),
-.amplify-form .field--error textarea:not(:focus) {
+.editor-styles-wrapper .amplify-form .field--error input:not([type=file]),
+.editor-styles-wrapper .amplify-form .field--error textarea:not(:focus) {
   border-color: #a4141b;
 }
-.amplify-form .field--error input:focus,
-.amplify-form .field--error textarea:focus {
+.editor-styles-wrapper .amplify-form .field--error input:focus,
+.editor-styles-wrapper .amplify-form .field--error textarea:focus {
   border-color: #8d8d8d;
 }
-.amplify-form .field-error-msg {
+.editor-styles-wrapper .amplify-form .field-error-msg {
   color: #a4141b;
   font-weight: 600;
   margin-block: 0.9375rem 0;
@@ -1470,24 +1468,24 @@ main:focus,
     Make sure to apply the `.amplify-form` class directly to the <form> to
     pick up these styles and try to avoid conflicts with third party form styles
 \*------------------------------------*/
-.amplify-form [type=search] {
+.editor-styles-wrapper .amplify-form [type=search] {
   max-inline-size: none;
   position: relative;
   z-index: 1;
 }
-.amplify-form {
+.editor-styles-wrapper .amplify-form {
   /* Hide these to make search input more uniform across browsers */
 }
-.amplify-form [type=search]::-webkit-search-cancel-button,
-.amplify-form [type=search]::-webkit-search-decoration {
+.editor-styles-wrapper .amplify-form [type=search]::-webkit-search-cancel-button,
+.editor-styles-wrapper .amplify-form [type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
           appearance: none;
 }
-.amplify-form {
+.editor-styles-wrapper .amplify-form {
   /* Optional: add a decorative icon at the start of the search input */
 }
 @supports ((-webkit-padding-start: 1em) or (padding-inline-start: 1em)) {
-  .amplify-form input[type=search] {
+  .editor-styles-wrapper .amplify-form input[type=search] {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z' fill='currentColor'/%3E%3C/svg%3E");
     background-position: center left 0.5em;
     background-repeat: no-repeat;
@@ -1495,7 +1493,7 @@ main:focus,
     -webkit-padding-start: 2.5rem;
             padding-inline-start: 2.5rem;
   }
-  .amplify-form [dir=rtl] input[type=search] {
+  .editor-styles-wrapper .amplify-form [dir=rtl] input[type=search] {
     background-position: center right 0.5em;
   }
 }
@@ -1520,27 +1518,26 @@ main:focus,
     We retain an outline - even if it's transparent - to ensure an accessible focus indicator.
 \*------------------------------------*/
 /* stylelint-disable no-descending-specificity */
-.amplify-form {
+.editor-styles-wrapper .amplify-form {
   /* Select any <div> which contains a checkbox or radio input */
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) {
   display: flex;
   flex-wrap: wrap;
   position: relative;
   /* Reduce vertical space between adjacent checkbox/radio fields */
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) + div:has(> :where([type=checkbox], [type=radio])) {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) + div:has(> :where([type=checkbox], [type=radio])) {
   -webkit-margin-before: 0.5rem;
           margin-block-start: 0.5rem;
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) {
   /* Use pointer cursor to increase visual affordance */
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) input:not([disabled]),
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) input:not([disabled]) + label {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) input:not([disabled]), .editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) input:not([disabled]) + label {
   cursor: pointer;
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) input {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) input {
   block-size: 44px;
   inline-size: 44px;
   margin: 0;
@@ -1548,16 +1545,16 @@ main:focus,
           margin-inline-start: -10px;
   opacity: 0;
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) {
   /* Disabled inputs - try to avoid using these to avoid accessibility issues */
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) input[disabled] + label {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) input[disabled] + label {
   cursor: not-allowed;
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) input[disabled] + label::before {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) input[disabled] + label::before {
   background-color: #e0e0e0;
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) label {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) label {
   align-self: center;
   -webkit-margin-after: 0;
           margin-block-end: 0;
@@ -1568,28 +1565,27 @@ main:focus,
           padding-inline-start: 1px;
   touch-action: manipulation;
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) label::before, .amplify-form div:has(> :where([type=checkbox], [type=radio])) label::after {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) label::before, .editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) label::after {
   content: "";
   position: absolute;
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) label {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) label {
   /* Shared styles for the checkbox square/radio circle */
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) label::before {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) label::before {
   block-size: 24px;
   border: 2px solid #8d8d8d;
   inline-size: 24px;
   inset-block-start: 10px;
   inset-inline-start: 0;
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::before,
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::after {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::before, .editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::after {
   background: transparent;
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) {
   /* The checkbox "tick" */
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::after {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::after {
   block-size: 6.5px;
   border: solid;
   border-block-start-color: transparent;
@@ -1599,14 +1595,13 @@ main:focus,
   inset-inline-start: 6px;
   transform: rotate(-45deg);
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::before,
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::after {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::before, .editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::after {
   border-radius: 50%;
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) {
   /* The radio "dot" */
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::after {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::after {
   background-color: currentcolor;
   block-size: 0;
   border: 5px solid;
@@ -1614,47 +1609,45 @@ main:focus,
   inset-block-start: 17px;
   inset-inline-start: 7px;
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) {
   /* Checkbox/radio input when not checked */
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::after,
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::after {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox] + label::after, .editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio] + label::after {
   opacity: 0;
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) {
   /* Checkbox/radio input when checked */
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox]:checked + label::after,
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio]:checked + label::after {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=checkbox]:checked + label::after, .editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) [type=radio]:checked + label::after {
   opacity: 1;
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) {
   /* The hint text, if used */
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) .field-hint {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) .field-hint {
   inline-size: 100%;
   margin-block: 0;
   max-inline-size: none;
   padding-inline: 36px 15px;
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) {
   /* Checkbox/radio input with focus */
 }
-.amplify-form div:has(> :where([type=checkbox], [type=radio])) input:focus + label::before {
+.editor-styles-wrapper .amplify-form div:has(> :where([type=checkbox], [type=radio])) input:focus + label::before {
   box-shadow: 0 0 0 4px #000;
   outline: 2px solid #ffdc00; /* 1 */
   outline-offset: 0; /* 1 */
 }
-.amplify-form {
+.editor-styles-wrapper .amplify-form {
   /* Checkbox/radio input with hover - add `.checkbox-item`/`.radio-item` class to parent <div> */
 }
-.amplify-form :where(.checkbox-item, .radio-item):hover input:not([disabled]) + label::before {
+.editor-styles-wrapper .amplify-form :where(.checkbox-item, .radio-item):hover input:not([disabled]) + label::before {
   box-shadow: 0 0 0 4px #8d8d8d;
 }
-.amplify-form {
+.editor-styles-wrapper .amplify-form {
   /* Checkbox/radio input with focus and hover - add `.checkbox-item`/`.radio-item` class to parent <div> */
 }
-.amplify-form :where(.radio-item, .checkbox-item):hover input:focus + label::before {
+.editor-styles-wrapper .amplify-form :where(.radio-item, .checkbox-item):hover input:focus + label::before {
   box-shadow: 0 0 0 4px #000;
   outline: 2px solid #8d8d8d; /* 1 */
   outline-offset: 0; /* 1 */
@@ -1675,24 +1668,24 @@ main:focus,
     Make sure to apply the `.amplify-form` class directly to the <form> to
     pick up these styles and try to avoid conflicts with third party form styles
 \*------------------------------------*/
-.amplify-form select {
+.editor-styles-wrapper .amplify-form select {
   background-color: inherit;
   border: 2px solid #8d8d8d;
   border-radius: 0;
   inline-size: 100%;
   padding: 0.3125rem;
 }
-.amplify-form {
+.editor-styles-wrapper .amplify-form {
   /* Make <select> height match Amplify button height (defaults to equivalent of 44px for WCAG AAA) */
 }
-.amplify-form select:not([multiple]) {
+.editor-styles-wrapper .amplify-form select:not([multiple]) {
   min-block-size: 2.75rem;
 }
-.amplify-form {
+.editor-styles-wrapper .amplify-form {
   /* Optional: select with custom icon matching the SVG used for accessible autocomplete */
 }
 @supports ((-webkit-appearance: none) or (appearance: none)) {
-  .amplify-form select:not([multiple]) {
+  .editor-styles-wrapper .amplify-form select:not([multiple]) {
     -webkit-appearance: none;
             appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z' fill='currentColor'/%3E%3C/svg%3E");
@@ -1701,7 +1694,7 @@ main:focus,
     -webkit-padding-end: 2.125rem;
             padding-inline-end: 2.125rem;
   }
-  .amplify-form [dir=rtl] select:not([multiple]) {
+  .editor-styles-wrapper .amplify-form [dir=rtl] select:not([multiple]) {
     background-position: center left 0.3125rem;
   }
 }
@@ -1712,12 +1705,12 @@ main:focus,
     Make sure to apply the `.amplify-form` class directly to the <form> to
     pick up these styles and try to avoid conflicts with third party form styles
 \*------------------------------------*/
-.amplify-form .memorable-date {
+.editor-styles-wrapper .amplify-form .memorable-date {
   display: inline-block;
   -webkit-margin-before: 0;
           margin-block-start: 0;
 }
-.amplify-form .memorable-date + .memorable-date {
+.editor-styles-wrapper .amplify-form .memorable-date + .memorable-date {
   -webkit-margin-start: 1rem;
           margin-inline-start: 1rem;
 }
@@ -1738,41 +1731,41 @@ main:focus,
     Make sure to apply the `.amplify-form` class directly to the <form> to
     pick up these styles and try to avoid conflicts with third party form styles
 \*------------------------------------*/
-.amplify-form .segmented-group-wrapper {
+.editor-styles-wrapper .amplify-form .segmented-group-wrapper {
   max-inline-size: none;
 }
-.amplify-form .segmented-group.l-switcher {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher {
   -webkit-margin-before: 0;
           margin-block-start: 0;
 }
-.amplify-form .segmented-group.l-switcher > * {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher > * {
   display: block;
   -webkit-margin-before: 0;
           margin-block-start: 0;
   position: relative;
 }
-.amplify-form .segmented-group.l-switcher label {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher label {
   border: 2px solid #8d8d8d;
   display: block;
   margin: 0.125rem;
   max-inline-size: none;
   padding: 0;
 }
-.amplify-form .segmented-group.l-switcher label::before, .amplify-form .segmented-group.l-switcher label::after {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher label::before, .editor-styles-wrapper .amplify-form .segmented-group.l-switcher label::after {
   content: "";
   position: absolute;
 }
-.amplify-form .segmented-group.l-switcher label::before {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher label::before {
   background: transparent;
   border: none;
   border-radius: 0;
   inset-block-start: 0.625rem;
   inset-inline: auto 0.625rem;
 }
-.amplify-form .segmented-group.l-switcher label {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher label {
   /* The "tick" - even if it's a radio */
 }
-.amplify-form .segmented-group.l-switcher label::after {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher label::after {
   background: transparent;
   block-size: 6.5px;
   border: solid;
@@ -1784,7 +1777,7 @@ main:focus,
   inset-inline: auto 1rem;
   transform: rotate(-45deg);
 }
-.amplify-form .segmented-group.l-switcher input {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher input {
   block-size: 2.75rem;
   cursor: pointer;
   inline-size: 2.75rem;
@@ -1795,46 +1788,46 @@ main:focus,
   position: absolute;
   z-index: 1;
 }
-.amplify-form .segmented-group.l-switcher .segmented-label {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher .segmented-label {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-.amplify-form .segmented-group.l-switcher .segmented-label > * + * {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher .segmented-label > * + * {
   -webkit-margin-before: 0.5em;
           margin-block-start: 0.5em;
 }
-.amplify-form .segmented-group.l-switcher .segmented-label {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher .segmented-label {
   display: block;
   padding: 0.625rem;
   -webkit-padding-end: 2.75rem;
           padding-inline-end: 2.75rem;
 }
-.amplify-form .segmented-group.l-switcher .segmented-label span {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher .segmented-label span {
   display: block;
 }
-.amplify-form .segmented-group.l-switcher .segmented-label span:first-of-type {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher .segmented-label span:first-of-type {
   font-weight: bold;
 }
-.amplify-form .segmented-group.l-switcher .segmented-label__copy {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher .segmented-label__copy {
   font-weight: normal;
 }
-.amplify-form .segmented-group.l-switcher {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher {
   /* Input with hover */
 }
-.amplify-form .segmented-group.l-switcher > * > *:hover label {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher > * > *:hover label {
   background-color: #c6c6c6;
 }
-.amplify-form .segmented-group.l-switcher {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher {
   /* Input with focus - label carries focus styles */
 }
-.amplify-form .segmented-group.l-switcher input:focus + label {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher input:focus + label {
   border-color: #000;
   box-shadow: inset 0 0 0 4px #8d8d8d;
   outline: 2px solid #ffdc00; /* 1 */
   outline-offset: -4px; /* 1 */
 }
-.amplify-form .segmented-group.l-switcher input:focus + label::before {
+.editor-styles-wrapper .amplify-form .segmented-group.l-switcher input:focus + label::before {
   box-shadow: none;
   outline: none;
 }
@@ -1859,7 +1852,7 @@ main:focus,
     outline width so that it behaves like a border and doesn't add to
     the overall size of the box.
 \*------------------------------------*/
-.l-box {
+.editor-styles-wrapper .l-box {
   --_box-bg-clr: var(--box-bg-clr, transparent);
   --_box-border-clr: var(--box-border-clr, currentcolor);
   --_box-border-style: var(--box-border-style, solid);
@@ -1893,7 +1886,7 @@ main:focus,
     To avoid making the content narrower than intended, we add an exception
     to our global box-sizing rule (defined in 30-base/_amplify-reset.scss).
 \*------------------------------------*/
-.l-center {
+.editor-styles-wrapper .l-center {
   --_center-max-width: var(--center-max-width, 70rem);
   --_center-inline-space: var(--center-inline-space, 1.25rem);
   box-sizing: content-box;
@@ -1919,7 +1912,7 @@ main:focus,
     layout within `.l-cover`, or with the `.u-center` utility found in
     /90-utilities/layout
 \*------------------------------------*/
-.l-cover {
+.editor-styles-wrapper .l-cover {
   --_cover-min-height: var(--cover-min-height, 30vh);
   --_cover-padding: var(--cover-padding, 1.25rem);
   --_cover-min-space: var(--cover-min-space, 1.25rem);
@@ -1932,11 +1925,11 @@ main:focus,
 /**
 Minimum spacing between the (up to) three child elements of `.l-cover`
  */
-.l-cover > * {
+.editor-styles-wrapper .l-cover > * {
   margin-block: var(--_cover-min-space);
 }
 
-.l-cover > .principal {
+.editor-styles-wrapper .l-cover > .principal {
   margin-block: auto;
 }
 
@@ -1944,12 +1937,12 @@ Minimum spacing between the (up to) three child elements of `.l-cover`
 These styles space out an optional header/footer area without
 disturbing the vertically centered element.
  */
-.l-cover > :first-child:not(.principal) {
+.editor-styles-wrapper .l-cover > :first-child:not(.principal) {
   -webkit-margin-before: 0;
           margin-block-start: 0;
 }
 
-.l-cover > :last-child:not(.principal) {
+.editor-styles-wrapper .l-cover > :last-child:not(.principal) {
   -webkit-margin-after: 0;
           margin-block-end: 0;
 }
@@ -1969,7 +1962,7 @@ We use flexbox to configure the elements into clusters without creating
 white space. The gap property specifies the spacing. We can control how
 we align items within the cluster by using 'align-items` and `justify-content`.
  */
-.l-cluster {
+.editor-styles-wrapper .l-cluster {
   --_cluster-gap: var(--cluster-gap, 1.25rem);
   display: flex;
   flex-flow: row wrap;
@@ -1988,7 +1981,7 @@ we align items within the cluster by using 'align-items` and `justify-content`.
     <figure> element, as it will interfere with the <figcaption>.
     Instead, place it on <picture> or a <div> inside of <figure>.
 \*------------------------------------*/
-.l-frame {
+.editor-styles-wrapper .l-frame {
   --_frame-x: var(--frame-x, 16);
   --_frame-y: var(--frame-y, 9);
   align-items: center;
@@ -1998,13 +1991,13 @@ we align items within the cluster by using 'align-items` and `justify-content`.
   overflow: hidden;
 }
 
-.l-frame :is(iframe, img, video) {
+.editor-styles-wrapper .l-frame :is(iframe, img, video) {
   block-size: 100%;
   inline-size: 100%;
   object-fit: cover;
 }
 
-.l-frame[data-shape=circle] {
+.editor-styles-wrapper .l-frame[data-shape=circle] {
   --frame-x: 1;
   --frame-y: 1;
   border-radius: 50%;
@@ -2028,7 +2021,7 @@ we align items within the cluster by using 'align-items` and `justify-content`.
     the source order of the HTML) to determine whether the sidebar
     sits on the left or right side.
 \*------------------------------------*/
-.l-sidebar {
+.editor-styles-wrapper .l-sidebar {
   --_sidebar-main-width: var(--sidebar-main-width, 60%);
   --_sidebar-side-width: var(--sidebar-side-width, 15.625rem);
   --_sidebar-gap: var(--sidebar-gap, 1.25rem);
@@ -2039,7 +2032,7 @@ we align items within the cluster by using 'align-items` and `justify-content`.
 
 /**
 Flex-basis determines the ideal width of the `.sidebar`. */
-.l-sidebar .sidebar {
+.editor-styles-wrapper .l-sidebar .sidebar {
   flex-basis: var(--_sidebar-side-width);
   flex-grow: 1;
 }
@@ -2048,7 +2041,7 @@ Flex-basis determines the ideal width of the `.sidebar`. */
 Unset the flex-basis to let the contents of `.sidebar` determine the width of
 `.sidebar` (e.g. a button, or an image with a set width).
  */
-.l-sidebar .sidebar--intrinsic {
+.editor-styles-wrapper .l-sidebar .sidebar--intrinsic {
   flex-basis: auto;
 }
 
@@ -2057,7 +2050,7 @@ The min-inline-size determines the point at which `.sidebar` and `.not-sidebar`
 will sit side-by-side rather than vertically. This negates the use of a viewport
 media query.
  */
-.l-sidebar .not-sidebar {
+.editor-styles-wrapper .l-sidebar .not-sidebar {
   flex-basis: 0;
   flex-grow: 999;
   min-inline-size: var(--_sidebar-main-width);
@@ -2078,7 +2071,7 @@ media query.
 	`.l-switcher`. Amplify provides an optional CSS quantity query that will
 	force the items into the vertical display if there is more than three.
 \*------------------------------------*/
-.l-switcher {
+.editor-styles-wrapper .l-switcher {
   --_switcher-gap: var(--switcher-gap, 1.25rem);
   --_switcher-threshold: var(--switcher-threshold, 43.125rem) ;
   display: flex;
@@ -2086,7 +2079,7 @@ media query.
   gap: var(--_switcher-gap);
 }
 
-.l-switcher > * {
+.editor-styles-wrapper .l-switcher > * {
   flex-basis: calc((var(--_switcher-threshold) - 100%) * 999);
   flex-grow: 1;
 }
@@ -2103,7 +2096,7 @@ media query.
     reference about `auto-fill` versus `auto-fit` behaviour:
     https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
 \*------------------------------------*/
-.l-autogrid {
+.editor-styles-wrapper .l-autogrid {
   --_grid-placement: var(--grid-placement, auto-fill);
   --_grid-min-item-size: var(--grid-min-item-size, min(100%, 15.625rem));
   --_grid-gap: var(--grid-gap, 1.25rem);
@@ -2148,27 +2141,27 @@ media query.
 /*------------------------------------*\
     #Navigation core
 \*------------------------------------*/
-nav ul,
-nav ul * + * {
+.editor-styles-wrapper nav ul,
+.editor-styles-wrapper nav ul * + * {
   margin: 0;
 }
 
-[data-nav=submenu] {
+.editor-styles-wrapper [data-nav=submenu] {
   -webkit-padding-start: 1.25rem;
           padding-inline-start: 1.25rem;
 }
 
-.global-nav a {
+.editor-styles-wrapper .global-nav a {
   color: #1371c2;
   display: block;
   line-height: normal;
   padding: 0.5625rem 0.875rem;
 }
-.global-nav a:hover {
+.editor-styles-wrapper .global-nav a:hover {
   color: #0b80e5;
   outline-width: 0; /* 2 */
 }
-.global-nav a:active {
+.editor-styles-wrapper .global-nav a:active {
   color: #252525;
   outline-width: 0; /* 2 */
 }
@@ -2185,16 +2178,16 @@ nav ul * + * {
     #Breadcrumbs
     See: https://scottaohara.github.io/a11y_breadcrumbs/
 \*------------------------------------*/
-.breadcrumbs {
+.editor-styles-wrapper .breadcrumbs {
   --cluster-gap: 0;
   padding-block: 0.625rem 0.9375rem;
 }
 
-.breadcrumbs ol ::marker {
+.editor-styles-wrapper .breadcrumbs ol ::marker {
   content: "" !important;
 }
 
-.breadcrumbs li {
+.editor-styles-wrapper .breadcrumbs li {
   margin: 0;
   padding-inline: 0 2em;
   position: relative;
@@ -2203,7 +2196,7 @@ nav ul * + * {
 /**
 Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 */
-.breadcrumbs li:not(:last-child)::after {
+.editor-styles-wrapper .breadcrumbs li:not(:last-child)::after {
   block-size: 0.5em;
   border-block-end-width: 0;
   border-block-start-width: 0.1em;
@@ -2219,24 +2212,24 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   transform: rotate(45deg) translateY(-50%);
 }
 
-[dir=rtl] .breadcrumbs li:not(:last-child)::after {
+.editor-styles-wrapper [dir=rtl] .breadcrumbs li:not(:last-child)::after {
   transform: rotate(-45deg) translateY(-50%);
 }
 
-.breadcrumbs a {
+.editor-styles-wrapper .breadcrumbs a {
   color: #252525;
   display: block;
   padding-block: 0.3125rem;
 }
-.breadcrumbs a:visited, .breadcrumbs a:hover, .breadcrumbs a:active {
+.editor-styles-wrapper .breadcrumbs a:visited, .editor-styles-wrapper .breadcrumbs a:hover, .editor-styles-wrapper .breadcrumbs a:active {
   color: #252525;
 }
 
-.breadcrumbs [aria-current] {
+.editor-styles-wrapper .breadcrumbs [aria-current] {
   font-weight: 600;
   text-decoration: none;
 }
-.breadcrumbs [aria-current]:focus {
+.editor-styles-wrapper .breadcrumbs [aria-current]:focus {
   outline-color: #252525;
 }
 
@@ -2260,7 +2253,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
     To avoid making the content narrower than intended, we add an exception
     to our global box-sizing rule (defined in 30-base/_amplify-reset.scss).
 \*------------------------------------*/
-#amplify-main {
+.editor-styles-wrapper #amplify-main {
   --_main-block-space: var(--main-block-space, 2.5rem);
   box-sizing: content-box;
   margin-inline: auto;
@@ -2269,17 +2262,17 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   padding-inline: 1.25rem;
 }
 @media screen and (min-width: 80em) {
-  #amplify-main {
+  .editor-styles-wrapper #amplify-main {
     --_main-block-space: 3.75rem 5rem;
   }
 }
 
-.component + .component {
+.editor-styles-wrapper .component + .component {
   -webkit-margin-before: 1.5rem;
           margin-block-start: 1.5rem;
 }
 @media screen and (min-width: 48em) {
-  .component + .component {
+  .editor-styles-wrapper .component + .component {
     -webkit-margin-before: 3rem;
             margin-block-start: 3rem;
   }
@@ -2296,7 +2289,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 /*------------------------------------*\
     #Text component
 \*------------------------------------*/
-.component--text > * {
+.editor-styles-wrapper .component--text > * {
   max-inline-size: 41.25rem;
 }
 
@@ -2311,14 +2304,14 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 /*------------------------------------*\
     #Quotes
 \*------------------------------------*/
-.component--quote {
+.editor-styles-wrapper .component--quote {
   margin-inline: 0;
   padding: 1.25rem;
   -webkit-padding-start: 1.875rem;
           padding-inline-start: 1.875rem;
   position: relative;
 }
-.component--quote::before {
+.editor-styles-wrapper .component--quote::before {
   background-color: #1371c2;
   block-size: 100%;
   border-radius: 0.3125rem;
@@ -2328,7 +2321,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   inset-inline-start: 0;
   position: absolute;
 }
-.component--quote *:not(footer) {
+.editor-styles-wrapper .component--quote *:not(footer) {
   color: #1371c2;
   font-weight: 600;
 }
@@ -2344,20 +2337,20 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 /*------------------------------------*\
     #Image component
 \*------------------------------------*/
-.component--image {
+.editor-styles-wrapper .component--image {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-.component--image > * + * {
+.editor-styles-wrapper .component--image > * + * {
   -webkit-margin-before: 1em;
           margin-block-start: 1em;
 }
-.component--image figcaption {
+.editor-styles-wrapper .component--image figcaption {
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
 }
-.component--image figcaption > a {
+.editor-styles-wrapper .component--image figcaption > a {
   display: inline-block;
   margin: 0;
   padding-block: 0.625rem;
@@ -2374,7 +2367,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 /*------------------------------------*\
     #Avatars
 \*------------------------------------*/
-.avatar {
+.editor-styles-wrapper .avatar {
   background-color: #fcfcfc;
   block-size: 6.25rem;
   border: solid 1px #1371c2;
@@ -2382,18 +2375,18 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   inline-size: 6.25rem;
   overflow: hidden;
 }
-.avatar img {
+.editor-styles-wrapper .avatar img {
   block-size: 100%;
   inline-size: 100%;
   object-fit: cover;
 }
 
-.avatar--med {
+.editor-styles-wrapper .avatar--med {
   block-size: 3.125rem;
   inline-size: 3.125rem;
 }
 
-.avatar--small {
+.editor-styles-wrapper .avatar--small {
   block-size: 2rem;
   inline-size: 2rem;
 }
@@ -2409,18 +2402,18 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 /*------------------------------------*\
     #Video component
 \*------------------------------------*/
-.component--video figcaption {
+.editor-styles-wrapper .component--video figcaption {
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
   -webkit-margin-before: 1em;
           margin-block-start: 1em;
 }
-.component--video figcaption > * {
+.editor-styles-wrapper .component--video figcaption > * {
   -webkit-margin-before: 0;
           margin-block-start: 0;
   max-inline-size: 33.75rem;
 }
-.component--video figcaption > a {
+.editor-styles-wrapper .component--video figcaption > a {
   display: inline-block;
   margin: 0;
   padding-block: 0.625rem;
@@ -2437,7 +2430,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 /*------------------------------------*\
     #Notes
 \*------------------------------------*/
-.note {
+.editor-styles-wrapper .note {
   background-position: 1.5rem 1.5rem;
   background-repeat: no-repeat;
   background-size: 2rem;
@@ -2447,41 +2440,41 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   -webkit-padding-start: 4.5rem;
           padding-inline-start: 4.5rem;
 }
-.note > * {
+.editor-styles-wrapper .note > * {
   max-inline-size: 41.25rem;
 }
-.note > *:first-child {
+.editor-styles-wrapper .note > *:first-child {
   -webkit-margin-before: 0;
           margin-block-start: 0;
 }
-.note > *:last-child,
-.note > * li:last-child {
+.editor-styles-wrapper .note > *:last-child,
+.editor-styles-wrapper .note > * li:last-child {
   -webkit-margin-after: 0;
           margin-block-end: 0;
 }
 
-.note--error {
+.editor-styles-wrapper .note--error {
   background-color: #fef1f1;
   background-image: url("../svg/note-bg-error.svg");
   border-color: #f85156;
   color: #a4141b;
 }
 
-.note--info {
+.editor-styles-wrapper .note--info {
   background-color: #e9f6ff;
   background-image: url("../svg/note-bg-info.svg");
   border-color: #1b90f4;
   color: #063a69;
 }
 
-.note--success {
+.editor-styles-wrapper .note--success {
   background-color: #d6fedc;
   background-image: url("../svg/note-bg-success.svg");
   border-color: #2dc158;
   color: #115f28;
 }
 
-.note--warning {
+.editor-styles-wrapper .note--warning {
   background-color: #fef3da;
   background-image: url("../svg/note-bg-warning.svg");
   border-color: #c3a62c;
@@ -2503,7 +2496,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
     so we need to prevent things like buttons and links
     from stretching horizontally
 \*------------------------------------*/
-.card {
+.editor-styles-wrapper .card {
   --box-border-clr: transparent;
   --box-radius: 0.3125rem;
   background-color: #fcfcfc;
@@ -2513,7 +2506,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   overflow: hidden;
 }
 
-.card__text {
+.editor-styles-wrapper .card__text {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -2525,39 +2518,39 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 "Neat cards": for a row of cards of equal height and with the last item
 (e.g. CTA or tag list) always pushed to the bottom edge.
  */
-.card--neat {
+.editor-styles-wrapper .card--neat {
   block-size: 100%;
 }
 
-.card--neat .card__text > :nth-last-child(2) {
+.editor-styles-wrapper .card--neat .card__text > :nth-last-child(2) {
   -webkit-margin-after: 1em;
           margin-block-end: 1em;
 }
-.card--neat .card__text > :last-child {
+.editor-styles-wrapper .card--neat .card__text > :last-child {
   -webkit-margin-before: auto;
           margin-block-start: auto;
 }
 
-.card__text > a:not([class]) {
+.editor-styles-wrapper .card__text > a:not([class]) {
   align-self: flex-start; /* 1 */
   -webkit-margin-before: 0.375rem;
           margin-block-start: 0.375rem;
   padding-block: 0.625rem;
 }
 
-.card__heading {
+.editor-styles-wrapper .card__heading {
   font-size: clamp(1.25rem, 1.125rem + 0.625vw, 1.5625rem);
   line-height: 1.3;
   -webkit-margin-before: 0;
           margin-block-start: 0;
 }
 
-.card__link {
+.editor-styles-wrapper .card__link {
   border: 0;
   color: #252525;
   text-decoration: none;
 }
-.card__link:hover {
+.editor-styles-wrapper .card__link:hover {
   text-decoration: underline;
 }
 
@@ -2573,27 +2566,27 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
     #Shelves
     (Used for organising groups of cards, etc.)
 \*------------------------------------*/
-.component--shelves {
+.editor-styles-wrapper .component--shelves {
   overflow: hidden;
 }
 
-.component--shelves__intro {
+.editor-styles-wrapper .component--shelves__intro {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-.component--shelves__intro > * + * {
+.editor-styles-wrapper .component--shelves__intro > * + * {
   -webkit-margin-before: 1rem;
           margin-block-start: 1rem;
 }
-.component--shelves__intro {
+.editor-styles-wrapper .component--shelves__intro {
   -webkit-margin-after: 1.875rem;
           margin-block-end: 1.875rem;
   max-inline-size: 41.25rem;
 }
 
 @media screen and (min-width: 48em) {
-  .component--shelves__items {
+  .editor-styles-wrapper .component--shelves__items {
     display: flex;
     flex-wrap: wrap;
     margin: -1.5%;
@@ -2601,19 +2594,19 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 }
 
 @media screen and (min-width: 48em) {
-  .component--shelves__items > li {
+  .editor-styles-wrapper .component--shelves__items > li {
     flex: 1 0 33%;
     max-inline-size: 50%;
     padding: 1.5%;
   }
 }
 
-.component--shelves__items > * + * {
+.editor-styles-wrapper .component--shelves__items > * + * {
   -webkit-margin-before: 1.25rem;
           margin-block-start: 1.25rem;
 }
 @media screen and (min-width: 48em) {
-  .component--shelves__items > * + * {
+  .editor-styles-wrapper .component--shelves__items > * + * {
     -webkit-margin-before: 0;
             margin-block-start: 0;
   }
@@ -2632,25 +2625,25 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 
     Typically used on multi-step forms
 \*------------------------------------*/
-.progress-list {
+.editor-styles-wrapper .progress-list {
   -webkit-margin-after: 1.875rem;
           margin-block-end: 1.875rem;
 }
 @media screen and (min-width: 48em) {
-  .progress-list {
+  .editor-styles-wrapper .progress-list {
     display: flex;
     flex-wrap: wrap;
   }
 }
 
-.progress-list ::marker {
+.editor-styles-wrapper .progress-list ::marker {
   content: "" !important;
 }
 
-.progress-list li {
+.editor-styles-wrapper .progress-list li {
   position: relative;
 }
-.progress-list li::after {
+.editor-styles-wrapper .progress-list li::after {
   background-color: #525252;
   block-size: 0.8125rem;
   content: "";
@@ -2660,7 +2653,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   position: absolute;
 }
 @media screen and (min-width: 48em) {
-  .progress-list li::after {
+  .editor-styles-wrapper .progress-list li::after {
     block-size: 0.1875rem;
     inline-size: 100%;
     inset-block: 2rem auto;
@@ -2668,49 +2661,49 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
     z-index: -1;
   }
 }
-.progress-list li + li {
+.editor-styles-wrapper .progress-list li + li {
   -webkit-margin-before: 1.25rem;
           margin-block-start: 1.25rem;
 }
 @media screen and (min-width: 48em) {
-  .progress-list li + li {
+  .editor-styles-wrapper .progress-list li + li {
     -webkit-margin-before: 0;
             margin-block-start: 0;
   }
 }
 
-.progress-list li.complete::after {
+.editor-styles-wrapper .progress-list li.complete::after {
   background-color: #063a69;
 }
 
-.progress-list li:last-child::after {
+.editor-styles-wrapper .progress-list li:last-child::after {
   display: none;
 }
 
-.progress-step__inner {
+.editor-styles-wrapper .progress-step__inner {
   align-items: center;
   display: flex;
 }
 @media screen and (min-width: 48em) {
-  .progress-step__inner {
+  .editor-styles-wrapper .progress-step__inner {
     flex-direction: column;
     -webkit-padding-before: 0.625rem;
             padding-block-start: 0.625rem;
     text-align: center;
   }
 }
-.progress-step__inner > span {
+.editor-styles-wrapper .progress-step__inner > span {
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
   padding: 0.625rem;
 }
 @media screen and (min-width: 48em) {
-  .progress-step__inner > span {
+  .editor-styles-wrapper .progress-step__inner > span {
     inline-size: 9.375rem;
   }
 }
 
-.progress-step__marker {
+.editor-styles-wrapper .progress-step__marker {
   align-items: center;
   background-color: #fcfcfc;
   block-size: 2.75rem;
@@ -2721,30 +2714,30 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   justify-content: center;
 }
 @media screen and (min-width: 48em) {
-  .progress-step__marker {
+  .editor-styles-wrapper .progress-step__marker {
     box-shadow: 0 0 0 0.625rem #fcfcfc;
   }
 }
 
-.progress-step__marker.complete {
+.editor-styles-wrapper .progress-step__marker.complete {
   background-color: #063a69;
   border-color: #063a69;
   color: #fcfcfc;
   position: relative;
 }
-.progress-step__marker.complete::before, .progress-step__marker.complete::after {
+.editor-styles-wrapper .progress-step__marker.complete::before, .editor-styles-wrapper .progress-step__marker.complete::after {
   background-color: #063a69;
   content: "";
   position: absolute;
 }
-.progress-step__marker.complete::before {
+.editor-styles-wrapper .progress-step__marker.complete::before {
   block-size: 2.375rem;
   border-radius: 50%;
   inline-size: 2.375rem;
   inset-block-start: 0;
   inset-inline-start: 0;
 }
-.progress-step__marker.complete::after {
+.editor-styles-wrapper .progress-step__marker.complete::after {
   block-size: 0.5625rem;
   border: solid;
   border-block-start-color: transparent;
@@ -2755,16 +2748,16 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   transform: rotate(-45deg);
 }
 
-.progress-list a {
+.editor-styles-wrapper .progress-list a {
   color: #525252;
 }
-.progress-list a:visited {
+.editor-styles-wrapper .progress-list a:visited {
   color: #063a69;
 }
-.progress-list a:hover {
+.editor-styles-wrapper .progress-list a:hover {
   color: #0b80e5;
 }
-.progress-list a:active {
+.editor-styles-wrapper .progress-list a:active {
   color: #000;
 }
 
@@ -2786,7 +2779,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
     2. Meet WCAG AAA target size requirements for this font size - see
     https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
 \*------------------------------------*/
-.tag {
+.editor-styles-wrapper .tag {
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
   background-color: #6f6f6f;
@@ -2797,7 +2790,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   padding: 0.5625rem; /* 2 */
   text-decoration: none;
 }
-.tag:hover {
+.editor-styles-wrapper .tag:hover {
   text-decoration: underline;
 }
 
@@ -2814,30 +2807,30 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 
     1. Restrict line-length for readability
 \*------------------------------------*/
-.component--collapsibles {
+.editor-styles-wrapper .component--collapsibles {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-.component--collapsibles > * + * {
+.editor-styles-wrapper .component--collapsibles > * + * {
   -webkit-margin-before: 1em;
           margin-block-start: 1em;
 }
 
-[data-heading=collapsibles] {
+.editor-styles-wrapper [data-heading=collapsibles] {
   font-size: clamp(1.125rem, 1.025rem + 0.5vw, 1.375rem);
   line-height: 1.5;
   margin: 0;
 }
 
-.component--collapsibles__panel {
+.editor-styles-wrapper .component--collapsibles__panel {
   background-color: #fcfcfc;
   border-radius: 0.375rem;
   box-shadow: -0.0625rem 0.0625rem 0.25rem rgba(55, 70, 95, 0.12);
   padding: 1.5625rem;
 }
 
-.component--collapsibles__panel__content > * {
+.editor-styles-wrapper .component--collapsibles__panel__content > * {
   max-inline-size: 41.25rem; /* 1 */
 }
 
@@ -2856,13 +2849,13 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
  Splide hides the entire carousel if there is no JS.
  Amplify prefers to keep the slides visible and stacked vertically.
  */
-.no-js .splide {
+.editor-styles-wrapper .no-js .splide {
   visibility: visible;
 }
-.no-js .splide__list {
+.editor-styles-wrapper .no-js .splide__list {
   display: block;
 }
-.no-js .splide__list > * + * {
+.editor-styles-wrapper .no-js .splide__list > * + * {
   margin-top: 1rem;
 }
 
@@ -2877,7 +2870,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 /*------------------------------------*\
     #Search
 \*------------------------------------*/
-.search-form {
+.editor-styles-wrapper .search-form {
   --sidebar-main-width: 70%;
 }
 
@@ -2895,7 +2888,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
     1. Centre the content until it wraps onto more than one line, at which point it’s no longer centred.
     See https://meyerweb.com/eric/thoughts/2022/04/26/flexibly-centering-an-element-with-side-aligned-content/
 \*------------------------------------*/
-.pagination {
+.editor-styles-wrapper .pagination {
   -webkit-margin-before: 2.5rem;
           margin-block-start: 2.5rem;
   margin-inline: auto; /* 1 */
@@ -2903,7 +2896,7 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   max-inline-size: max-content; /* 1 */
 }
 
-.pagination__list a {
+.editor-styles-wrapper .pagination__list a {
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
   color: #000;
@@ -2912,18 +2905,18 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   padding-inline: 1.125rem;
   text-decoration: none;
 }
-.pagination__list a:visited {
+.editor-styles-wrapper .pagination__list a:visited {
   color: #000;
 }
-.pagination__list a[href]:hover {
+.editor-styles-wrapper .pagination__list a[href]:hover {
   text-decoration: underline;
 }
-.pagination__list a[href][aria-current] {
+.editor-styles-wrapper .pagination__list a[href][aria-current] {
   background-color: #1371c2;
   color: #fcfcfc;
   font-weight: bold;
 }
-.pagination__list a[href][aria-current]:hover {
+.editor-styles-wrapper .pagination__list a[href][aria-current]:hover {
   color: #fcfcfc;
   text-decoration: none;
 }
@@ -2950,30 +2943,30 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
    not set to visible (e.g. carousels) if used within the sidebar layout.
 
 \*------------------------------------*/
-.global-footer {
+.editor-styles-wrapper .global-footer {
   grid-row: 2/3; /* 1 */
   -ms-grid-row-span: 1; /* 2 */
   padding-block: 1.25rem 1.5625rem;
   padding-inline: 0;
 }
-.global-footer .l-center {
+.editor-styles-wrapper .global-footer .l-center {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-.global-footer .l-center > * + * {
+.editor-styles-wrapper .global-footer .l-center > * + * {
   -webkit-margin-before: 1rem;
           margin-block-start: 1rem;
 }
-.global-footer a,
-.global-footer .copyright {
+.editor-styles-wrapper .global-footer a,
+.editor-styles-wrapper .global-footer .copyright {
   font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
   line-height: 1.5;
 }
-.global-footer a {
+.editor-styles-wrapper .global-footer a {
   color: #252525;
 }
-.global-footer a:visited, .global-footer a:hover, .global-footer a:active {
+.editor-styles-wrapper .global-footer a:visited, .editor-styles-wrapper .global-footer a:hover, .editor-styles-wrapper .global-footer a:active {
   color: #252525;
 }
 
@@ -2998,33 +2991,33 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 
     Used purely for the static Amplify site
 \*------------------------------------*/
-.amplify .global-header {
+.editor-styles-wrapper .amplify .global-header {
   background-color: #252525;
   color: #fcfcfc;
   padding-block: 0.625rem;
 }
 
-.amplify .global-header__link {
+.editor-styles-wrapper .amplify .global-header__link {
   font-size: clamp(1.25rem, 1.125rem + 0.625vw, 1.5625rem);
   line-height: 1.3;
   color: #fcfcfc;
   padding-block: 0.3125rem;
   text-decoration: none;
 }
-.amplify .global-header__link:hover, .amplify .global-header__link:visited {
+.editor-styles-wrapper .amplify .global-header__link:hover, .editor-styles-wrapper .amplify .global-header__link:visited {
   color: #fcfcfc;
 }
-.amplify .global-header__link:hover {
+.editor-styles-wrapper .amplify .global-header__link:hover {
   text-decoration: underline;
 }
 
-.amplify .global-header + .global-nav {
+.editor-styles-wrapper .amplify .global-header + .global-nav {
   -webkit-border-after: solid 2px #c6c6c6;
           border-block-end: solid 2px #c6c6c6;
   padding-block: 0.625rem;
 }
 
-.amplify .global-nav__link {
+.editor-styles-wrapper .amplify .global-nav__link {
   -webkit-border-after: solid 4px transparent;
           border-block-end: solid 4px transparent;
   color: #1371c2;
@@ -3034,36 +3027,36 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   padding: 0.5rem 0.3125rem;
   text-decoration: none;
 }
-.amplify .global-nav__link:hover, .amplify .global-nav__link:visited {
+.editor-styles-wrapper .amplify .global-nav__link:hover, .editor-styles-wrapper .amplify .global-nav__link:visited {
   color: #1371c2;
 }
-.amplify .global-nav__link:hover {
+.editor-styles-wrapper .amplify .global-nav__link:hover {
   text-decoration: underline;
 }
 
-.amplify .current .global-nav__link {
+.editor-styles-wrapper .amplify .current .global-nav__link {
   border-block-end-color: #252525;
   color: #252525;
 }
-.amplify .current .global-nav__link:hover {
+.editor-styles-wrapper .amplify .current .global-nav__link:hover {
   text-decoration: none;
 }
 
-.amplify .nav-secondary__link {
+.editor-styles-wrapper .amplify .nav-secondary__link {
   color: #1371c2;
   display: block;
   padding-block: 0.5625rem;
   position: relative;
   text-decoration: none;
 }
-.amplify .nav-secondary__link:hover {
+.editor-styles-wrapper .amplify .nav-secondary__link:hover {
   text-decoration: underline;
 }
 
-.amplify .nav-secondary__link[aria-current] {
+.editor-styles-wrapper .amplify .nav-secondary__link[aria-current] {
   color: #252525;
 }
-.amplify .nav-secondary__link[aria-current]::before {
+.editor-styles-wrapper .amplify .nav-secondary__link[aria-current]::before {
   background-color: #252525;
   block-size: 1.5rem;
   content: "";
@@ -3073,12 +3066,12 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   position: absolute;
   transform: translateY(-50%);
 }
-.amplify .nav-secondary__link[aria-current]:hover {
+.editor-styles-wrapper .amplify .nav-secondary__link[aria-current]:hover {
   text-decoration: none;
 }
 
 @media screen and (min-width: 64em) {
-  .amplify .content-wrap {
+  .editor-styles-wrapper .amplify .content-wrap {
     display: grid;
     grid-template-columns: 25% 10% 65%;
     -ms-grid-columns: 25% 10% 65%;
@@ -3087,13 +3080,13 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
   }
 }
 
-.amplify .content-wrap > *:first-child {
+.editor-styles-wrapper .amplify .content-wrap > *:first-child {
   grid-column: 1/2;
   grid-column: 1;
   grid-row: 1;
 }
 
-.amplify .content-wrap > *:last-child {
+.editor-styles-wrapper .amplify .content-wrap > *:last-child {
   grid-column: 3/4;
   grid-column: 3;
   grid-row: 1;
@@ -3101,24 +3094,24 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
           margin-block-start: 1.875rem;
 }
 @media screen and (min-width: 64em) {
-  .amplify .content-wrap > *:last-child {
+  .editor-styles-wrapper .amplify .content-wrap > *:last-child {
     -webkit-margin-before: 0;
             margin-block-start: 0;
   }
 }
 
-.amplify .example + .example {
+.editor-styles-wrapper .amplify .example + .example {
   -webkit-margin-before: 1rem;
           margin-block-start: 1rem;
 }
 
-.amplify .custom-box .l-box {
+.editor-styles-wrapper .amplify .custom-box .l-box {
   border: none;
   outline: solid 2px transparent;
   outline-offset: -2px;
 }
 
-.amplify .search-bar .not-sidebar {
+.editor-styles-wrapper .amplify .search-bar .not-sidebar {
   min-inline-size: 70%;
 }
 
@@ -3139,27 +3132,27 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 
     1. Allows text-direction to change with writing direction
 \*------------------------------------*/
-.u-float-left {
+.editor-styles-wrapper .u-float-left {
   float: left;
   float: inline-start; /* 1 */
 }
 
-.u-float-right {
+.editor-styles-wrapper .u-float-right {
   float: right;
   float: inline-end; /* 1 */
 }
 
-.u-text-center {
+.editor-styles-wrapper .u-text-center {
   text-align: center;
   text-wrap: balance;
 }
 
-.u-text-left {
+.editor-styles-wrapper .u-text-left {
   text-align: left;
   text-align: start; /* 1 */
 }
 
-.u-text-right {
+.editor-styles-wrapper .u-text-right {
   text-align: right;
   text-align: end; /* 1 */
 }
@@ -3171,19 +3164,19 @@ as defined in /10-settings/breakpoints
 1. Logical property allows text-direction to change with `ltr`
  */
 @media screen and (min-width: 80em) {
-  .u-text-left-from-lap {
+  .editor-styles-wrapper .u-text-left-from-lap {
     text-align: start;
   }
 }
 
 @media screen and (min-width: 80em) {
-  .u-text-center-from-lap {
+  .editor-styles-wrapper .u-text-center-from-lap {
     text-align: center;
   }
 }
 
 @media screen and (min-width: 80em) {
-  .u-text-right-from-lap {
+  .editor-styles-wrapper .u-text-right-from-lap {
     text-align: end;
   }
 }
@@ -3204,7 +3197,7 @@ For a full-viewport-width element inside a limited width parent.
 The parent must be exactly centered in the browser in order for this
 to work - see https://css-tricks.com/full-width-containers-limited-width-parents/
  */
-.u-full-width {
+.editor-styles-wrapper .u-full-width {
   inline-size: 100vw;
   inset-inline: 50%;
   margin-inline: -50vw;
@@ -3214,7 +3207,7 @@ to work - see https://css-tricks.com/full-width-containers-limited-width-parents
 /**
 To horizontally center a block-level item
  */
-.u-center {
+.editor-styles-wrapper .u-center {
   margin-inline: auto;
   position: relative;
 }
@@ -3224,11 +3217,1056 @@ To horizontally center a block-level item
 
     Double specificity in classname avoids use of !important
 \*------------------------------------*/
-.u-no-margin.u-no-margin {
+.editor-styles-wrapper .u-no-margin.u-no-margin {
   margin: 0;
 }
 
-.u-no-margin-top.u-no-margin-top {
+.editor-styles-wrapper .u-no-margin-top.u-no-margin-top {
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+}
+
+/*------------------------------------*\
+    #Amplify: advanced styles (browsers selected by mustard cut)
+\*------------------------------------*/
+/*------------------------------------*\
+    #Advanced components
+
+    For JS enhancements
+\*------------------------------------*/
+/*------------------------------------*\
+    #Cards advanced
+\*------------------------------------*/
+.editor-styles-wrapper .js [data-component=card] {
+  cursor: pointer;
+}
+.editor-styles-wrapper .js [data-component=card]:hover .card__link {
+  text-decoration: underline;
+}
+
+/*------------------------------------*\
+    #Collapsible sections advanced
+\*------------------------------------*/
+.editor-styles-wrapper .js .component--collapsibles__panel {
+  padding: 0;
+}
+
+.editor-styles-wrapper .js [data-heading=collapsibles] button {
+  align-items: flex-start;
+  flex-direction: column;
+  inline-size: 100%;
+  padding: 1.5625rem;
+}
+.editor-styles-wrapper .js [data-heading=collapsibles] button .js-collapsible-heading {
+  font-size: clamp(1.125rem, 1.025rem + 0.5vw, 1.375rem);
+  line-height: 1.5;
+  font-weight: 600;
+  text-align: start;
+}
+.editor-styles-wrapper .js [data-heading=collapsibles] button .js-collapsible-toggle {
+  color: #1371c2;
+}
+.editor-styles-wrapper .js [data-heading=collapsibles] button .js-collapsible-label {
+  font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
+  line-height: 1.5;
+}
+.editor-styles-wrapper .js [data-heading=collapsibles] button:hover .js-collapsible-heading {
+  color: #1371c2;
+}
+.editor-styles-wrapper .js [data-heading=collapsibles] button:hover .js-collapsible-label {
+  text-decoration: underline;
+}
+.editor-styles-wrapper .js [data-heading=collapsibles] button[aria-expanded=false] .circle-up {
+  display: none;
+}
+.editor-styles-wrapper .js [data-heading=collapsibles] button[aria-expanded=true] .circle-down {
+  display: none;
+}
+
+.editor-styles-wrapper .js .component--collapsibles__panel__content {
+  padding: 1.5625rem;
+  -webkit-padding-before: 0;
+          padding-block-start: 0;
+}
+.editor-styles-wrapper .js .component--collapsibles__panel__content[aria-hidden=true] {
+  display: none;
+}
+
+/*------------------------------------*\
+    #Disclosure widget
+\*------------------------------------*/
+.editor-styles-wrapper [data-toggle=true] svg {
+  pointer-events: none;
+}
+.editor-styles-wrapper [data-toggle=true] + * {
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
+}
+.editor-styles-wrapper [data-toggle=true][aria-expanded=false] .expand-less {
+  display: none;
+}
+.editor-styles-wrapper [data-toggle=true][aria-expanded=false] + * {
+  display: none;
+}
+.editor-styles-wrapper [data-toggle=true][aria-expanded=true] .expand-more {
+  display: none;
+}
+.editor-styles-wrapper [data-toggle=true][aria-expanded=true] + * {
+  display: block;
+}
+
+.editor-styles-wrapper .no-js [data-toggle=true] {
+  display: none;
+}
+.editor-styles-wrapper .no-js [data-toggle=true] + * {
+  display: initial;
+}
+
+/*------------------------------------*\
+    #Sortable table
+\*------------------------------------*/
+.editor-styles-wrapper amplify-table-sort .arrow-wrapper {
+  display: flex;
+  flex-direction: column;
+  inline-size: 0.9375rem;
+  -webkit-margin-start: 0.75rem;
+          margin-inline-start: 0.75rem;
+  pointer-events: none;
+}
+
+.editor-styles-wrapper amplify-table-sort th {
+  white-space: nowrap;
+}
+
+.editor-styles-wrapper amplify-table-sort th[data-type=no-sort]:hover {
+  cursor: not-allowed;
+}
+
+.editor-styles-wrapper amplify-table-sort th button svg {
+  stroke: currentcolor;
+  stroke-width: 1.25rem;
+}
+
+.editor-styles-wrapper amplify-table-sort [aria-sort=ascending] button:focus > .arrow-wrapper .asc {
+  stroke-width: 3.125rem;
+}
+.editor-styles-wrapper amplify-table-sort [aria-sort=ascending] button:focus > .arrow-wrapper .desc {
+  opacity: 0.3;
+}
+
+.editor-styles-wrapper amplify-table-sort [aria-sort=descending] button:focus > .arrow-wrapper .asc {
+  opacity: 0.3;
+}
+.editor-styles-wrapper amplify-table-sort [aria-sort=descending] button:focus > .arrow-wrapper .desc {
+  stroke-width: 3.125rem;
+}
+
+.editor-styles-wrapper amplify-table-sort col.js-sorted {
+  background-color: rgba(255, 220, 0, 0.1490196078);
+}
+
+/*------------------------------------*\
+    #Advanced navigation
+
+    Where JS is involved
+\*------------------------------------*/
+/*------------------------------------*\
+    #Navigation advanced
+
+    Starting styles for all advanced navigation patterns.
+
+    Should be accompanied by either /65-advanced-navigation/_nav-double or
+    /65-advanced-navigation/_nav-double-with-intro depending on your requirements
+
+    N.B. aria-expanded attribute is managed by JS
+\*------------------------------------*/
+.editor-styles-wrapper .js .global-nav [data-trigger] > * {
+  pointer-events: none;
+}
+.editor-styles-wrapper .js .global-nav [data-trigger=mobile-nav] > * {
+  pointer-events: none;
+}
+.editor-styles-wrapper .js .global-nav [data-trigger=mobile-nav] .close {
+  display: none;
+}
+.editor-styles-wrapper .js .global-nav [data-trigger=mobile-nav] .open {
+  display: block;
+}
+.editor-styles-wrapper .js .global-nav [data-trigger=mobile-nav][aria-expanded=true] .close {
+  display: block;
+}
+.editor-styles-wrapper .js .global-nav [data-trigger=mobile-nav][aria-expanded=true] .open {
+  display: none;
+}
+.editor-styles-wrapper .js .global-nav [aria-expanded=false] + * {
+  display: none;
+}
+.editor-styles-wrapper .js .global-nav > ul {
+  background-color: #fcfcfc;
+  inline-size: 100%;
+  inset-inline-start: 0;
+  position: absolute;
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper .js .global-nav > ul {
+    align-items: center;
+    display: flex;
+    inline-size: auto;
+    position: static;
+  }
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper .js .global-nav > ul > li {
+    position: relative;
+  }
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper .js .global-nav > ul > li + li {
+    -webkit-margin-start: 0.3125rem;
+            margin-inline-start: 0.3125rem;
+  }
+}
+.editor-styles-wrapper .js .global-nav [data-nav=submenu] {
+  background-color: #fcfcfc;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper .js .global-nav [data-nav=submenu] {
+    inset-inline-start: 0;
+    position: absolute;
+  }
+}
+.editor-styles-wrapper .js .global-nav {
+  /* Prevent offscreen-submenus */
+}
+.editor-styles-wrapper .js .global-nav [data-nav=submenu].js-sub-menu-right {
+  inset-inline: auto 0;
+}
+
+/*------------------------------------*\
+    #Navigation advanced: double level
+
+    There are styles for two versions of navigation here:
+
+    - A "simple" version, where sub menus expand vertically when opened
+    on smaller screens.
+
+    - A version where sub menus have a visible "back" button to close them
+     on smaller screens because when open they are absolutely positioned
+     to cover their parent control.
+
+    Make sure to comment out whichever version is not needed in your project.
+
+    N.B. aria-expanded attribute is managed by JS
+\*------------------------------------*/
+/* stylelint-disable no-descending-specificity */
+/* (Because the order reflects the DOM order, which Stylelint doesn't understand) */
+/* Simple double level nav with vertical expansion */
+.editor-styles-wrapper #js-click-nav-vertical [data-trigger=sub-nav] {
+  inline-size: 100%;
+  justify-content: space-between;
+}
+.editor-styles-wrapper #js-click-nav-vertical [data-trigger=sub-nav][aria-expanded=true] svg {
+  transform: scaleY(-1);
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper #js-click-nav-vertical [data-nav=submenu] {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* Double level nav with a "back" button in each sub menu */
+.editor-styles-wrapper #js-click-nav-horizontal [data-trigger=sub-nav] {
+  inline-size: 100%;
+  justify-content: space-between;
+}
+.editor-styles-wrapper #js-click-nav-horizontal [data-trigger=sub-nav] svg {
+  transform: rotate(-90deg);
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper #js-click-nav-horizontal [data-trigger=sub-nav] svg {
+    transform: none;
+  }
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper #js-click-nav-horizontal [data-trigger=sub-nav][aria-expanded=true] svg {
+    transform: scaleY(-1);
+  }
+}
+.editor-styles-wrapper #js-click-nav-horizontal [data-nav=submenu] {
+  inline-size: 100%;
+  inset-block-start: 0;
+  min-block-size: 100%;
+  position: absolute;
+  z-index: 5;
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper #js-click-nav-horizontal [data-nav=submenu] {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    inline-size: auto;
+    inset-block-start: auto;
+    min-block-size: auto;
+  }
+}
+.editor-styles-wrapper #js-click-nav-horizontal [data-button=mobile-back] {
+  inline-size: 100%;
+  justify-content: flex-start;
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper #js-click-nav-horizontal [data-button=mobile-back] {
+    display: none;
+  }
+}
+.editor-styles-wrapper #js-click-nav-horizontal [data-button=mobile-back] svg {
+  transform: rotate(90deg);
+}
+
+/* stylelint-enable no-descending-specificity */
+/*------------------------------------*\
+    #Navigation advanced: double level with both links and buttons
+
+    A navigation where a button to toggle a sub menu is inserted directly after
+    each top level link.
+
+    N.B. aria-expanded attribute is managed by JS
+\*------------------------------------*/
+/* (Because the order reflects the DOM order, which Stylelint doesn't understand) */
+.editor-styles-wrapper #js-click-nav-both [data-trigger=sub-nav] {
+  padding-inline: 0.5rem;
+}
+.editor-styles-wrapper #js-click-nav-both [data-trigger=sub-nav][aria-expanded=true] svg {
+  transform: scaleY(-1);
+}
+.editor-styles-wrapper #js-click-nav-both ul > li:has([data-nav=submenu]) {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.editor-styles-wrapper #js-click-nav-both ul > li:has([data-nav=submenu]) a {
+  inline-size: calc(100% - 2.75rem);
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper #js-click-nav-both ul > li:has([data-nav=submenu]) a {
+    inline-size: auto;
+  }
+}
+.editor-styles-wrapper #js-click-nav-both [data-nav=submenu] {
+  flex-basis: 100%;
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper #js-click-nav-both [data-nav=submenu] {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    inset-block-start: 100%;
+  }
+}
+
+/*------------------------------------*\
+    #Navigation advanced: double level with intro text
+
+    The introductory text is hidden on smaller screens.
+    On larger screens, the sub menus span the full viewport width.
+
+    N.B. aria-expanded attribute is managed by JS
+\*------------------------------------*/
+/* stylelint-disable no-descending-specificity */
+/* (Because the order reflects the DOM order, which Stylelint doesn't understand) */
+.editor-styles-wrapper #js-click-nav-intro [data-trigger=sub-nav] {
+  inline-size: 100%;
+  justify-content: space-between;
+}
+.editor-styles-wrapper #js-click-nav-intro [data-trigger=sub-nav] svg {
+  transform: rotate(-90deg);
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper #js-click-nav-intro [data-trigger=sub-nav] svg {
+    transform: none;
+  }
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper #js-click-nav-intro [data-trigger=sub-nav][aria-expanded=true] svg {
+    transform: scaleY(-1);
+  }
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper #js-click-nav-intro > ul > li {
+    position: static;
+  }
+}
+.editor-styles-wrapper #js-click-nav-intro [data-nav=submenu] {
+  -webkit-border-after: solid 3px;
+          border-block-end: solid 3px;
+  inline-size: 100%;
+  inset-block-start: 0;
+  min-block-size: 100%;
+  padding: 1.25rem 0;
+  position: absolute;
+  z-index: 5;
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper #js-click-nav-intro [data-nav=submenu] {
+    inline-size: 100vw !important;
+    inset-block-start: auto;
+    inset-inline-start: 50%;
+    min-block-size: auto;
+    padding: 3.125rem 1.25rem;
+    transform: translateX(-50%);
+  }
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper #js-click-nav-intro [data-nav=submenu] .l-center {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.editor-styles-wrapper #js-click-nav-intro [data-button=mobile-back] {
+  inline-size: 100%;
+  justify-content: flex-start;
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper #js-click-nav-intro [data-button=mobile-back] {
+    display: none;
+  }
+}
+.editor-styles-wrapper #js-click-nav-intro [data-button=mobile-back] svg {
+  transform: rotate(90deg);
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper #js-click-nav-intro [data-nav=submenu] .nav__intro {
+    inline-size: 40%;
+  }
+}
+.editor-styles-wrapper #js-click-nav-intro [data-nav=submenu] .nav__intro + * {
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+}
+.editor-styles-wrapper #js-click-nav-intro .nav__intro p {
+  display: none;
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper #js-click-nav-intro .nav__intro p {
+    display: block;
+  }
+}
+@media screen and (min-width: 48em) {
+  .editor-styles-wrapper #js-click-nav-intro [data-nav=submenu] ul {
+    column-gap: 2.5rem;
+    columns: 2;
+    inline-size: 50%;
+  }
+}
+
+/* stylelint-enable no-descending-specificity */
+/*------------------------------------*\
+    #Vendors (src styles)
+\*------------------------------------*/
+/*------------------------------------*\
+    #Accessible autocomplete
+\*------------------------------------*/
+.editor-styles-wrapper .autocomplete__wrapper {
+  position: relative;
+}
+
+.editor-styles-wrapper .autocomplete__hint,
+.editor-styles-wrapper .autocomplete__input {
+  -webkit-appearance: none;
+          appearance: none;
+  border: 2px solid #0b0c0c;
+  border-radius: 0; /* Safari 10 on iOS adds implicit border rounding. */
+  box-sizing: border-box;
+  margin-bottom: 0; /* BUG: Safari 10 on macOS seems to add an implicit margin. */
+  line-height: 1.25;
+  height: 2.5rem;
+  width: 100%;
+}
+
+.editor-styles-wrapper .autocomplete__input {
+  background-color: transparent;
+  position: relative;
+}
+
+.editor-styles-wrapper .autocomplete__hint {
+  color: #505a5f;
+  position: absolute;
+}
+
+.editor-styles-wrapper .autocomplete__input--default {
+  padding: 5px;
+}
+
+.editor-styles-wrapper .autocomplete__input--focused {
+  outline: 3px solid #fd0;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 2px;
+}
+
+.editor-styles-wrapper .autocomplete__input--show-all-values {
+  padding: 5px 35px 5px 5px; /* Space for arrow. Other padding should match .autocomplete__input--default. */
+  cursor: pointer;
+}
+
+.editor-styles-wrapper .autocomplete__dropdown-arrow-down {
+  z-index: -1;
+  display: inline-block;
+  position: absolute;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  top: 10px;
+}
+
+.editor-styles-wrapper .autocomplete__menu {
+  background-color: #ffffff;
+  border: 2px solid #0b0c0c;
+  border-top: 0;
+  color: #0b0c0c;
+  margin: 0;
+  max-height: 342px;
+  overflow-x: hidden;
+  padding: 0;
+  width: 100%;
+  width: calc(100% - 4px);
+}
+
+.editor-styles-wrapper .autocomplete__menu--visible {
+  display: block;
+}
+
+.editor-styles-wrapper .autocomplete__menu--hidden {
+  display: none;
+}
+
+.editor-styles-wrapper .autocomplete__menu--overlay {
+  box-shadow: rgba(0, 0, 0, 0.256863) 0px 2px 6px;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  z-index: 100;
+}
+
+.editor-styles-wrapper .autocomplete__menu--inline {
+  position: relative;
+}
+
+.editor-styles-wrapper .autocomplete__option {
+  border-bottom: solid #b1b4b6;
+  border-width: 1px 0;
+  cursor: pointer;
+  display: block;
+  position: relative;
+}
+
+.editor-styles-wrapper .autocomplete__option > * {
+  pointer-events: none;
+}
+
+.editor-styles-wrapper .autocomplete__option:first-of-type {
+  border-top-width: 0;
+}
+
+.editor-styles-wrapper .autocomplete__option:last-of-type {
+  border-bottom-width: 0;
+}
+
+.editor-styles-wrapper .autocomplete__option--odd {
+  background-color: #f3f2f1;
+}
+
+.editor-styles-wrapper .autocomplete__option--focused,
+.editor-styles-wrapper .autocomplete__option:hover {
+  background-color: #1d70b8;
+  border-color: #1d70b8;
+  color: white;
+  outline: none;
+}
+
+@media (-ms-high-contrast: active), (forced-colors: active) {
+  .editor-styles-wrapper .autocomplete__menu {
+    border-color: FieldText;
+  }
+  .editor-styles-wrapper .autocomplete__option {
+    background-color: Field;
+    color: FieldText;
+  }
+  .editor-styles-wrapper .autocomplete__option--focused,
+  .editor-styles-wrapper .autocomplete__option:hover {
+    forced-color-adjust: none; /* prevent backplate from obscuring text */
+    background-color: Highlight;
+    border-color: Highlight;
+    color: HighlightText;
+    /* Prefer SelectedItem / SelectedItemText in browsers that support it */
+    background-color: SelectedItem;
+    border-color: SelectedItem;
+    color: SelectedItemText;
+    outline-color: SelectedItemText;
+  }
+}
+.editor-styles-wrapper .autocomplete__option--no-results {
+  background-color: #f3f2f1;
+  color: #505a5f;
+  cursor: not-allowed;
+}
+
+.editor-styles-wrapper .autocomplete__hint,
+.editor-styles-wrapper .autocomplete__input,
+.editor-styles-wrapper .autocomplete__option {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.editor-styles-wrapper .autocomplete__hint,
+.editor-styles-wrapper .autocomplete__option {
+  padding: 5px;
+}
+
+@media (min-width: 641px) {
+  .editor-styles-wrapper .autocomplete__hint,
+  .editor-styles-wrapper .autocomplete__input,
+  .editor-styles-wrapper .autocomplete__option {
+    font-size: 1.1875rem;
+    line-height: 1.3157894737;
+  }
+}
+/*------------------------------------*\
+    #Splide carousel
+\*------------------------------------*/
+@keyframes splide-loading {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.editor-styles-wrapper .splide__track--draggable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+          user-select: none;
+}
+
+.editor-styles-wrapper .splide__track--fade > .splide__list > .splide__slide {
+  margin: 0 !important;
+  opacity: 0;
+  z-index: 0;
+}
+.editor-styles-wrapper .splide__track--fade > .splide__list > .splide__slide.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.editor-styles-wrapper .splide--rtl {
+  direction: rtl;
+}
+
+.editor-styles-wrapper .splide__track--ttb > .splide__list {
+  display: block;
+}
+
+.editor-styles-wrapper .splide__container {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.editor-styles-wrapper .splide__list {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  display: flex;
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.editor-styles-wrapper .splide.is-initialized:not(.is-active) .splide__list {
+  display: block;
+}
+
+.editor-styles-wrapper .splide__pagination {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  pointer-events: none;
+}
+.editor-styles-wrapper .splide__pagination li {
+  display: inline-block;
+  line-height: 1;
+  list-style-type: none;
+  margin: 0;
+  pointer-events: auto;
+}
+.editor-styles-wrapper .splide:not(.is-overflow) .splide__pagination {
+  display: none;
+}
+
+.editor-styles-wrapper .splide__progress__bar {
+  width: 0;
+}
+
+.editor-styles-wrapper .splide {
+  position: relative;
+  visibility: hidden;
+}
+.editor-styles-wrapper .splide.is-initialized, .editor-styles-wrapper .splide.is-rendered {
+  visibility: visible;
+}
+
+.editor-styles-wrapper .splide__slide {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  list-style-type: none !important;
+  margin: 0;
+  position: relative;
+}
+.editor-styles-wrapper .splide__slide img {
+  vertical-align: bottom;
+}
+
+.editor-styles-wrapper .splide__spinner {
+  animation: splide-loading 1s infinite linear;
+  border: 2px solid #999;
+  border-left-color: transparent;
+  border-radius: 50%;
+  bottom: 0;
+  contain: strict;
+  display: inline-block;
+  height: 20px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20px;
+}
+
+.editor-styles-wrapper .splide__sr {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.editor-styles-wrapper .splide__toggle__pause {
+  display: none;
+}
+.editor-styles-wrapper .splide__toggle.is-active .splide__toggle__play {
+  display: none;
+}
+.editor-styles-wrapper .splide__toggle.is-active .splide__toggle__pause {
+  display: inline;
+}
+
+.editor-styles-wrapper .splide__track {
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+/*------------------------------------*\
+    #Tabby - tabbed UI
+\*------------------------------------*/
+/**
+ * The tablist
+ */
+.editor-styles-wrapper [role=tablist] {
+  border-bottom: 1px solid rgb(211.15, 211.15, 211.15);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.editor-styles-wrapper [role=tablist] * {
+  box-sizing: border-box;
+}
+
+/**
+ * The tablist item
+ */
+@media (min-width: 30em) {
+  .editor-styles-wrapper [role=tablist] li {
+    display: inline-block;
+  }
+}
+
+/**
+ * The tabs
+ */
+.editor-styles-wrapper [role=tab] {
+  border: 1px solid transparent;
+  border-top-color: rgb(211.15, 211.15, 211.15);
+  display: block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+}
+@media (min-width: 30em) {
+  .editor-styles-wrapper [role=tab] {
+    border-top-color: transparent;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    display: inline-block;
+    margin-bottom: -1px;
+  }
+}
+.editor-styles-wrapper [role=tab] {
+  /**
+   * Active tab styling
+   */
+}
+.editor-styles-wrapper [role=tab][aria-selected=true] {
+  background-color: rgb(211.15, 211.15, 211.15);
+}
+@media (min-width: 30em) {
+  .editor-styles-wrapper [role=tab][aria-selected=true] {
+    background-color: transparent;
+    border: 1px solid rgb(211.15, 211.15, 211.15);
+    border-bottom-color: #ffffff;
+  }
+}
+.editor-styles-wrapper [role=tab] {
+  /**
+   * Tabs on hover
+   */
+}
+.editor-styles-wrapper [role=tab]:hover:not([aria-selected=true]) {
+  background-color: #f7f7f7;
+}
+@media (min-width: 30em) {
+  .editor-styles-wrapper [role=tab]:hover:not([aria-selected=true]) {
+    border: 1px solid rgb(211.15, 211.15, 211.15);
+  }
+}
+
+/**
+ * [hidden] fallback for IE10 and lower
+ */
+.editor-styles-wrapper [hidden] {
+  display: none;
+}
+
+/*------------------------------------*\
+    #Vendor overrides for Amplify
+\*------------------------------------*/
+/*------------------------------------*\
+    #S24 accessible autocomplete overrides
+\*------------------------------------*/
+.editor-styles-wrapper .autocomplete__hint,
+.editor-styles-wrapper .autocomplete__input {
+  -webkit-appearance: none;
+          appearance: none;
+  border: 2px solid #8d8d8d;
+}
+
+.editor-styles-wrapper .autocomplete__hint {
+  color: #c6c6c6;
+}
+
+.editor-styles-wrapper .autocomplete__input--focused {
+  background-color: #fcfcfc;
+  box-shadow: 0 0 0 4px #000;
+  outline: 2px solid #ffdc00; /* 2 */
+  outline-offset: 0; /* 2 */
+}
+
+.editor-styles-wrapper [dir=rtl] .autocomplete__input--show-all-values {
+  padding-left: 34px;
+  padding-right: 5px;
+}
+
+.editor-styles-wrapper .autocomplete__dropdown-arrow-down {
+  pointer-events: none;
+  z-index: initial;
+}
+
+.editor-styles-wrapper [dir=rtl] .autocomplete__dropdown-arrow-down {
+  left: 8px;
+  right: auto;
+}
+
+.editor-styles-wrapper .autocomplete__menu {
+  border: 2px solid #8d8d8d;
+}
+
+.editor-styles-wrapper .autocomplete__menu--overlay {
+  top: calc(100% + 4px);
+}
+
+.editor-styles-wrapper .autocomplete__option {
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+}
+
+.editor-styles-wrapper .autocomplete__option--odd {
+  background-color: #e0e0e0;
+}
+
+.editor-styles-wrapper .autocomplete__option--no-results {
+  background-color: #c6c6c6;
+  color: #252525;
+}
+
+.editor-styles-wrapper .autocomplete__hint,
+.editor-styles-wrapper .autocomplete__input,
+.editor-styles-wrapper .autocomplete__option {
+  font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
+  line-height: 1.5;
+  line-height: 1.25;
+}
+
+.editor-styles-wrapper .autocomplete__option--focused,
+.editor-styles-wrapper .autocomplete__option:hover {
+  background-color: #063a69;
+  border-color: #063a69;
+}
+
+@media (width >= 641px) {
+  .editor-styles-wrapper .autocomplete__hint,
+  .editor-styles-wrapper .autocomplete__input,
+  .editor-styles-wrapper .autocomplete__option {
+    font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1.0625rem);
+    line-height: 1.5;
+    line-height: 1.25;
+  }
+}
+/*------------------------------------*\
+    #S24 customisation of Splide carousel
+\*------------------------------------*/
+.editor-styles-wrapper [data-component=carousel] {
+  margin-bottom: 6rem;
+}
+
+.editor-styles-wrapper .splide__arrow {
+  min-width: auto;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.editor-styles-wrapper .splide__arrow--prev {
+  left: 0;
+}
+.editor-styles-wrapper .splide__arrow--prev svg {
+  transform: scaleX(-1);
+}
+
+.editor-styles-wrapper .splide__arrow--next {
+  right: 0;
+}
+
+.editor-styles-wrapper .splide__arrow svg {
+  height: 2rem;
+  width: 2rem;
+}
+
+.editor-styles-wrapper .splide__pagination {
+  bottom: -3.125rem;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.editor-styles-wrapper .splide__pagination__page {
+  background-color: transparent;
+  border-color: transparent;
+  height: 2.75rem;
+  min-width: auto;
+  position: relative;
+  width: 2.75rem;
+}
+.editor-styles-wrapper .splide__pagination__page:hover, .editor-styles-wrapper .splide__pagination__page:focus {
+  background-color: transparent;
+  border-color: transparent;
+}
+.editor-styles-wrapper .splide__pagination__page:focus-visible {
+  background-color: #ffdc00;
+  background-image: none;
+  border-color: #000;
+}
+.editor-styles-wrapper .splide__pagination__page::after {
+  background-color: #1371c2;
+  border-radius: 50%;
+  content: "";
+  height: 0.875rem;
+  position: absolute;
+  width: 0.875rem;
+}
+.editor-styles-wrapper .splide__pagination__page[aria-selected=true]::after {
+  background-color: transparent;
+  border: solid 2px #1371c2;
+}
+
+/*------------------------------------*\
+    #S24 tabby overrides
+\*------------------------------------*/
+.editor-styles-wrapper .component--tabs [role=tablist] {
+  border-bottom: solid 1px #c6c6c6;
+  display: flex;
+  flex-flow: row nowrap;
+  max-inline-size: 100%;
+  overflow-x: auto;
+  padding: 0 1.5rem;
+}
+.editor-styles-wrapper .component--tabs [role=tablist] li {
+  flex-shrink: 0;
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+}
+.editor-styles-wrapper .component--tabs [role=tablist] li + li {
+  margin-left: 1.5rem;
+}
+
+.editor-styles-wrapper [dir=rtl] .component--tabs [role=tablist] li + li {
+  margin-left: 0;
+  margin-right: 1.5rem;
+}
+
+.editor-styles-wrapper .component--tabs a[role=tab] {
+  background-color: #c6c6c6;
+  border: 0;
+  border-bottom: solid 0.1875rem transparent;
+  border-radius: 0;
+  color: #252525;
+  display: block;
+  margin-bottom: 0;
+  padding: 0.625em 0.9375em;
+}
+.editor-styles-wrapper .component--tabs a[role=tab]:hover {
+  background-color: #c6c6c6;
+  border: 0;
+  border-bottom: solid 0.1875rem #c6c6c6;
+  color: #252525;
+}
+.editor-styles-wrapper .component--tabs a[role=tab][aria-selected=true] {
+  background-color: #c6c6c6;
+  border-bottom: solid 0.1875rem #063a69;
+  text-decoration: none;
+}
+.editor-styles-wrapper .component--tabs a[role=tab]:focus {
+  box-shadow: inset 0 0 0 4px #000;
+  outline-offset: -4px;
+}
+.editor-styles-wrapper .component--tabs a[role=tab] {
+  /**
+  Unset focus styles (apart from transparent outline) where the browser wouldn't set a visible focus
+   */
+}
+.editor-styles-wrapper .component--tabs a[role=tab]:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.editor-styles-wrapper .component--tabs [role=tabpanel] {
+  padding: 1.5rem;
+}
+.editor-styles-wrapper .component--tabs [role=tabpanel] > *:first-child {
   -webkit-margin-before: 0;
           margin-block-start: 0;
 }

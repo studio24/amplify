@@ -1,75 +1,109 @@
-/******/ (() => { // webpackBootstrap
-/******/ 	var __webpack_modules__ = ({
-
-/***/ 13
-(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! tabbyjs v12.0.3 | (c) 2019 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/tabby */
-Element.prototype.matches||(Element.prototype.matches=Element.prototype.msMatchesSelector||Element.prototype.webkitMatchesSelector),Element.prototype.closest||(Element.prototype.matches||(Element.prototype.matches=Element.prototype.msMatchesSelector||Element.prototype.webkitMatchesSelector),Element.prototype.closest=function(e){var t=this;if(!document.documentElement.contains(this))return null;do{if(t.matches(e))return t;t=t.parentElement}while(null!==t);return null}),(function(e,t){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function(){return t(e)}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):0})("undefined"!=typeof __webpack_require__.g?__webpack_require__.g:"undefined"!=typeof window?window:this,(function(e){"use strict";var t={idPrefix:"tabby-toggle_",default:"[data-tabby-default]"},r=function(t){if(t&&"true"!=t.getAttribute("aria-selected")){var r=document.querySelector(t.hash);if(r){var o=(function(e){var t=e.closest('[role="tablist"]');if(!t)return{};var r=t.querySelector('[role="tab"][aria-selected="true"]');if(!r)return{};var o=document.querySelector(r.hash);return r.setAttribute("aria-selected","false"),r.setAttribute("tabindex","-1"),o?(o.setAttribute("hidden","hidden"),{previousTab:r,previousContent:o}):{previousTab:r}})(t);!(function(e,t){e.setAttribute("aria-selected","true"),e.setAttribute("tabindex","0"),t.removeAttribute("hidden"),e.focus()})(t,r),o.tab=t,o.content=r,(function(t,r){var o;"function"==typeof e.CustomEvent?o=new CustomEvent("tabby",{bubbles:!0,cancelable:!0,detail:r}):(o=document.createEvent("CustomEvent")).initCustomEvent("tabby",!0,!0,r),t.dispatchEvent(o)})(t,o)}}},o=function(e,t){var o=(function(e){var t=e.closest('[role="tablist"]'),r=t?t.querySelectorAll('[role="tab"]'):null;if(r)return{tabs:r,index:Array.prototype.indexOf.call(r,e)}})(e);if(o){var n,i=o.tabs.length-1;["ArrowUp","ArrowLeft","Up","Left"].indexOf(t)>-1?n=o.index<1?i:o.index-1:["ArrowDown","ArrowRight","Down","Right"].indexOf(t)>-1?n=o.index===i?0:o.index+1:"Home"===t?n=0:"End"===t&&(n=i),r(o.tabs[n])}};return function(n,i){var a,l,u={};u.destroy=function(){var e=l.querySelectorAll("a");Array.prototype.forEach.call(e,(function(e){var t=document.querySelector(e.hash);t&&(function(e,t,r){e.id.slice(0,r.idPrefix.length)===r.idPrefix&&(e.id=""),e.removeAttribute("role"),e.removeAttribute("aria-controls"),e.removeAttribute("aria-selected"),e.removeAttribute("tabindex"),e.closest("li").removeAttribute("role"),t.removeAttribute("role"),t.removeAttribute("aria-labelledby"),t.removeAttribute("hidden")})(e,t,a)})),l.removeAttribute("role"),document.documentElement.removeEventListener("click",c,!0),l.removeEventListener("keydown",s,!0),a=null,l=null},u.setup=function(){if(l=document.querySelector(n)){var e=l.querySelectorAll("a");l.setAttribute("role","tablist"),Array.prototype.forEach.call(e,(function(e){var t=document.querySelector(e.hash);t&&(function(e,t,r){e.id||(e.id=r.idPrefix+t.id),e.setAttribute("role","tab"),e.setAttribute("aria-controls",t.id),e.closest("li").setAttribute("role","presentation"),t.setAttribute("role","tabpanel"),t.setAttribute("aria-labelledby",e.id),e.matches(r.default)?e.setAttribute("aria-selected","true"):(e.setAttribute("aria-selected","false"),e.setAttribute("tabindex","-1"),t.setAttribute("hidden","hidden"))})(e,t,a)}))}},u.toggle=function(e){var t=e;"string"==typeof e&&(t=document.querySelector(n+' [role="tab"][href*="'+e+'"]')),r(t)};var c=function(e){var t=e.target.closest(n+' [role="tab"]');t&&(e.preventDefault(),r(t))},s=function(e){var t=document.activeElement;t.matches(n+' [role="tab"]')&&(["ArrowUp","ArrowDown","ArrowLeft","ArrowRight","Up","Down","Left","Right","Home","End"].indexOf(e.key)<0||o(t,e.key))};return a=(function(){var e={};return Array.prototype.forEach.call(arguments,(function(t){for(var r in t){if(!t.hasOwnProperty(r))return;e[r]=t[r]}})),e})(t,i||{}),u.setup(),(function(t){if(!(e.location.hash.length<1)){var o=document.querySelector(t+' [role="tab"][href*="'+e.location.hash+'"]');r(o)}})(n),document.documentElement.addEventListener("click",c,!0),l.addEventListener("keydown",s,!0),u}}));
-
-/***/ }
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	const __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		const cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		const module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-let __webpack_exports__ = {};
-// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
-(() => {
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_tabbyjs_dist_js_tabby_polyfills_min_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
-
-var tabs = new _node_modules_tabbyjs_dist_js_tabby_polyfills_min_js__WEBPACK_IMPORTED_MODULE_0__('[data-tabs]');
+(function() {
+  "use strict";
+  var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
+  function getDefaultExportFromCjs(x) {
+    return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
+  }
+  var tabby_polyfills_min$1 = { exports: {} };
+  /*! tabbyjs v12.0.3 | (c) 2019 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/tabby */
+  var tabby_polyfills_min = tabby_polyfills_min$1.exports;
+  var hasRequiredTabby_polyfills_min;
+  function requireTabby_polyfills_min() {
+    if (hasRequiredTabby_polyfills_min) return tabby_polyfills_min$1.exports;
+    hasRequiredTabby_polyfills_min = 1;
+    (function(module, exports) {
+      Element.prototype.matches || (Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector), Element.prototype.closest || (Element.prototype.matches || (Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector), Element.prototype.closest = function(e) {
+        var t = this;
+        if (!document.documentElement.contains(this)) return null;
+        do {
+          if (t.matches(e)) return t;
+          t = t.parentElement;
+        } while (null !== t);
+        return null;
+      }), (function(e, t) {
+        module.exports = t(e);
+      })("undefined" != typeof commonjsGlobal ? commonjsGlobal : "undefined" != typeof window ? window : tabby_polyfills_min, (function(e) {
+        var t = { idPrefix: "tabby-toggle_", default: "[data-tabby-default]" }, r = function(t2) {
+          if (t2 && "true" != t2.getAttribute("aria-selected")) {
+            var r2 = document.querySelector(t2.hash);
+            if (r2) {
+              var o2 = (function(e2) {
+                var t3 = e2.closest('[role="tablist"]');
+                if (!t3) return {};
+                var r3 = t3.querySelector('[role="tab"][aria-selected="true"]');
+                if (!r3) return {};
+                var o3 = document.querySelector(r3.hash);
+                return r3.setAttribute("aria-selected", "false"), r3.setAttribute("tabindex", "-1"), o3 ? (o3.setAttribute("hidden", "hidden"), { previousTab: r3, previousContent: o3 }) : { previousTab: r3 };
+              })(t2);
+              !(function(e2, t3) {
+                e2.setAttribute("aria-selected", "true"), e2.setAttribute("tabindex", "0"), t3.removeAttribute("hidden"), e2.focus();
+              })(t2, r2), o2.tab = t2, o2.content = r2, (function(t3, r3) {
+                var o3;
+                "function" == typeof e.CustomEvent ? o3 = new CustomEvent("tabby", { bubbles: true, cancelable: true, detail: r3 }) : (o3 = document.createEvent("CustomEvent")).initCustomEvent("tabby", true, true, r3), t3.dispatchEvent(o3);
+              })(t2, o2);
+            }
+          }
+        }, o = function(e2, t2) {
+          var o2 = (function(e3) {
+            var t3 = e3.closest('[role="tablist"]'), r2 = t3 ? t3.querySelectorAll('[role="tab"]') : null;
+            if (r2) return { tabs: r2, index: Array.prototype.indexOf.call(r2, e3) };
+          })(e2);
+          if (o2) {
+            var n, i = o2.tabs.length - 1;
+            ["ArrowUp", "ArrowLeft", "Up", "Left"].indexOf(t2) > -1 ? n = o2.index < 1 ? i : o2.index - 1 : ["ArrowDown", "ArrowRight", "Down", "Right"].indexOf(t2) > -1 ? n = o2.index === i ? 0 : o2.index + 1 : "Home" === t2 ? n = 0 : "End" === t2 && (n = i), r(o2.tabs[n]);
+          }
+        };
+        return function(n, i) {
+          var a, l, u = {};
+          u.destroy = function() {
+            var e2 = l.querySelectorAll("a");
+            Array.prototype.forEach.call(e2, (function(e3) {
+              var t2 = document.querySelector(e3.hash);
+              t2 && (function(e4, t3, r2) {
+                e4.id.slice(0, r2.idPrefix.length) === r2.idPrefix && (e4.id = ""), e4.removeAttribute("role"), e4.removeAttribute("aria-controls"), e4.removeAttribute("aria-selected"), e4.removeAttribute("tabindex"), e4.closest("li").removeAttribute("role"), t3.removeAttribute("role"), t3.removeAttribute("aria-labelledby"), t3.removeAttribute("hidden");
+              })(e3, t2, a);
+            })), l.removeAttribute("role"), document.documentElement.removeEventListener("click", c, true), l.removeEventListener("keydown", s, true), a = null, l = null;
+          }, u.setup = function() {
+            if (l = document.querySelector(n)) {
+              var e2 = l.querySelectorAll("a");
+              l.setAttribute("role", "tablist"), Array.prototype.forEach.call(e2, (function(e3) {
+                var t2 = document.querySelector(e3.hash);
+                t2 && (function(e4, t3, r2) {
+                  e4.id || (e4.id = r2.idPrefix + t3.id), e4.setAttribute("role", "tab"), e4.setAttribute("aria-controls", t3.id), e4.closest("li").setAttribute("role", "presentation"), t3.setAttribute("role", "tabpanel"), t3.setAttribute("aria-labelledby", e4.id), e4.matches(r2.default) ? e4.setAttribute("aria-selected", "true") : (e4.setAttribute("aria-selected", "false"), e4.setAttribute("tabindex", "-1"), t3.setAttribute("hidden", "hidden"));
+                })(e3, t2, a);
+              }));
+            }
+          }, u.toggle = function(e2) {
+            var t2 = e2;
+            "string" == typeof e2 && (t2 = document.querySelector(n + ' [role="tab"][href*="' + e2 + '"]')), r(t2);
+          };
+          var c = function(e2) {
+            var t2 = e2.target.closest(n + ' [role="tab"]');
+            t2 && (e2.preventDefault(), r(t2));
+          }, s = function(e2) {
+            var t2 = document.activeElement;
+            t2.matches(n + ' [role="tab"]') && (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Up", "Down", "Left", "Right", "Home", "End"].indexOf(e2.key) < 0 || o(t2, e2.key));
+          };
+          return a = (function() {
+            var e2 = {};
+            return Array.prototype.forEach.call(arguments, (function(t2) {
+              for (var r2 in t2) {
+                if (!t2.hasOwnProperty(r2)) return;
+                e2[r2] = t2[r2];
+              }
+            })), e2;
+          })(t, i || {}), u.setup(), (function(t2) {
+            if (!(e.location.hash.length < 1)) {
+              var o2 = document.querySelector(t2 + ' [role="tab"][href*="' + e.location.hash + '"]');
+              r(o2);
+            }
+          })(n), document.documentElement.addEventListener("click", c, true), l.addEventListener("keydown", s, true), u;
+        };
+      }));
+    })(tabby_polyfills_min$1);
+    return tabby_polyfills_min$1.exports;
+  }
+  var tabby_polyfills_minExports = requireTabby_polyfills_min();
+  const Tabby = /* @__PURE__ */ getDefaultExportFromCjs(tabby_polyfills_minExports);
+  new Tabby("[data-tabs]");
 })();
-
-/******/ })()
-;
