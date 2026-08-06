@@ -1,5 +1,16 @@
 # Changelog
 
+## [11.0.0](https://github.com/studio24/amplify/compare/v10.5.0...v11.0.0) (2026-08-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* Moving build tools to Vite + esbuild
+
+### Features
+
+* Moving build tools to Vite + esbuild ([3b63e66](https://github.com/studio24/amplify/commit/3b63e664bd362ee2a11f2e093eaf44a637b77b90))
+
 ## [10.5.0](https://github.com/studio24/amplify/compare/v10.4.0...v10.5.0) (2026-08-04)
 
 
