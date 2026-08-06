@@ -1,5 +1,19 @@
 # Changelog
 
+## [10.5.0](https://github.com/studio24/amplify/compare/v10.4.0...v10.5.0) (2026-08-04)
+
+
+### Features
+
+* update form examples and guidance ([324fd1f](https://github.com/studio24/amplify/commit/324fd1fd810e780309a910fa309e030212d5c96d))
+
+## [10.4.0](https://github.com/studio24/amplify/compare/v10.3.2...v10.4.0) (2026-08-03)
+
+
+### Features
+
+* refactor sortable table web component ([2f93657](https://github.com/studio24/amplify/commit/2f936573eb889abd93586c8d6a3492543dec36cf))
+
 ## [10.3.2](https://github.com/studio24/amplify/compare/v10.3.1...v10.3.2) (2026-06-26)
 
 

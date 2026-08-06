@@ -16,70 +16,73 @@
 .amplify-form {
     /* Select any <div> which contains a checkbox or radio input */
     div:has(> :where([type="checkbox"], [type="radio"])) {
+        align-items: center;
+        column-gap: rem(10);
         display: flex;
         flex-wrap: wrap;
-        position: relative;
 
         /* Reduce vertical space between adjacent checkbox/radio fields */
         + div:has(> :where([type="checkbox"], [type="radio"])) {
             margin-block-start: 0.5rem;
         }
 
-        /* Use pointer cursor to increase visual affordance */
-        input:not([disabled]),
-        input:not([disabled]) + label {
-            cursor: pointer;
-        }
-
-        input {
-            block-size: 44px;
-            inline-size: 44px;
-            margin: 0;
-            margin-inline-start: -10px;
-            opacity: 0;
-        }
-
-        /* Disabled inputs - try to avoid using these to avoid accessibility issues */
-        input[disabled] + label {
-            cursor: not-allowed;
-
-            &::before {
-                background-color: $neutral-20;
-            }
-        }
-
         label {
-            align-self: center;
             margin-block-end: 0;
             max-inline-size: calc(100% - 74px);
             padding-block: 7px;
-            padding-inline: 15px;
-            padding-inline-start: 1px;
             touch-action: manipulation;
-
-            &::before,
-            &::after {
-                content: "";
-                position: absolute;
-            }
-
-            /* Shared styles for the checkbox square/radio circle */
-            &::before {
-                block-size: 24px;
-                border: 2px solid $input-border-color;
-                inline-size: 24px;
-                inset-block-start: 10px;
-                inset-inline-start: 0;
-            }
         }
 
-        [type="checkbox"] + label::before,
-        [type="checkbox"] + label::after {
-            background: transparent;
+        /* The hint text, if used */
+        .field-hint {
+            inline-size: 100%;
+            margin-block: 0;
+            max-inline-size: none;
+            padding-inline: 36px 15px;
+        }
+    }
+
+    /* Custom input styling */
+    @supports(appearance: none) {
+        :where([type="checkbox"], [type="radio"]) {
+            appearance: none;
+            // For iOS < 15 to remove gradient background
+            background-color: #fff;
+            block-size: 24px;
+            border: 2px solid $input-border-color;
+            display: grid;
+            inline-size: 24px;
+            margin: 0;
+            place-content: center;
+
+            &::after {
+                content: "";
+                opacity: 0;
+            }
+
+            &:checked::after {
+                opacity: 1;
+            }
+
+            /* Increases visual affordance, as it works when the associated label is hovered */
+            &:not([disabled], :focus-visible):hover {
+                box-shadow: inset 0 0 0 2px $neutral-50;
+            }
+
+            /* Disabled inputs - try to avoid using these to avoid accessibility issues */
+            &[disabled] {
+                background-color: $neutral-20;
+            }
+
+            &[disabled],
+            &[disabled] + label {
+                cursor: not-allowed;
+            }
         }
 
         /* The checkbox "tick" */
-        [type="checkbox"] + label::after {
+        [type="checkbox"]::after {
+            background: transparent;
             block-size: 6.5px;
             border: solid;
             border-block-start-color: transparent;
@@ -90,61 +93,20 @@
             transform: rotate(-45deg);
         }
 
-        [type="radio"] + label::before,
-        [type="radio"] + label::after {
+        /* Radio buttons */
+        [type="radio"] {
             border-radius: 50%;
         }
 
-        /* The radio "dot" */
-        [type="radio"] + label::after {
+        [type="radio"]::after {
             background-color: currentcolor;
             block-size: 0;
             border: 5px solid;
+            border-radius: 50%;
             inline-size: 0;
             inset-block-start: 17px;
             inset-inline-start: 7px;
         }
-
-        /* Checkbox/radio input when not checked */
-        [type="checkbox"] + label::after,
-        [type="radio"] + label::after {
-            opacity: 0;
-        }
-
-        /* Checkbox/radio input when checked */
-        [type="checkbox"]:checked + label::after,
-        [type="radio"]:checked + label::after {
-            opacity: 1;
-        }
-
-        /* The hint text, if used */
-        .field-hint {
-            inline-size: 100%;
-            margin-block: 0;
-            max-inline-size: none;
-            padding-inline: 36px 15px;
-        }
-
-        /* Checkbox/radio input with focus */
-        input:focus + label::before {
-            box-shadow: 0 0 0 4px $black;
-            outline: 2px solid $focus-color; /* 1 */
-            outline-offset: 0; /* 1 */
-        }
-    }
-
-
-    /* Checkbox/radio input with hover - add `.checkbox-item`/`.radio-item` class to parent <div> */
-    :where(.checkbox-item, .radio-item):hover input:not([disabled]) + label::before {
-        box-shadow: 0 0 0 4px $neutral-50;
-    }
-
-
-    /* Checkbox/radio input with focus and hover - add `.checkbox-item`/`.radio-item` class to parent <div> */
-    :where(.radio-item, .checkbox-item):hover input:focus + label::before {
-        box-shadow: 0 0 0 4px $black;
-        outline: 2px solid $neutral-50; /* 1 */
-        outline-offset: 0; /* 1 */
     }
 }
 /* stylelint-enable no-descending-specificity */

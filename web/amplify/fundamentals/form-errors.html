@@ -96,8 +96,10 @@
 				<div><!-- Empty div used to create gutter (IE doesn't support grid-gap) --></div>
 				<div class="content">
 					<div class="component">
-						<div class="l-box note note--error" role="alert" aria-labelledby="error-summary-title" tabindex="-1" data-component="error-summary">
-							<h2 id="error-summary-title" class="note__heading">There is a problem</h2>
+						<div class="l-box note note--error" aria-labelledby="error-summary-title" data-component="error-summary">
+							<div role="alert">
+								<h2 id="error-summary-title" class="note__heading">There are 11 problems with this request</h2>
+							</div>
 							<ul class="clean-list" role="list">
 								<li>
 									<a href="#name">Enter a name</a>
@@ -140,81 +142,97 @@
 						<h1>Form error messages</h1>
 						<p>To notify a user of an error with their form submission:</p>
 						<ol>
-							<li>Prefix the word &ldquo;Error:&rdquo; to the document&rsquo;s <code>title</code>. It&rsquo;s the first thing announced by screen readers when the page loads.</li>
+							<li>Prefix the word &ldquo;Error:&rdquo; to the document&rsquo;s <code>&lt;title&gt;</code>. It&rsquo;s the first thing announced by screen readers when the page loads.</li>
 							<li>Place an error summary at the top of the page</li>
-							<li>Add an error message to each problematic input</li>
+							<li>Add the <code>.field-error</code> class: check the examples that follow to see where to add it (this is slightly different for checkbox and radio inputs).</li>
+							<li>Provide an inline error message: check the examples that follow to see where to add it (this is slightly different for checkbox and radio inputs).</li>
+							<li>Add the <code>aria-invalid</code> attribute to each input where validation has failed (except for radio buttons). Remove it when validation is successful.</li>
 						</ol>
 					</div>
 					<div class="component component--text">
-						<h2>Error summary considerations</h2>
-						<p>The error summary should be at the top of the <code>main</code> element. If the page includes <a href="../core-components/breadcrumbs.html">breadcrumbs</a> or a back link, place it after these, but before the <code>h1</code>. The error summary must contain the heading ‘There is a problem’.</p>
-						<p>Keyboard focus needs to move to the error summary, hence the addition of <code>tabindex="-1"</code>. JavaScript is included to shift focus if an error summary is present.</p>
-						<p>Each item in the summary list should link to the field with the validation error. Use the same wording for the error in both the error summary and the problematic field.</p>
+						<h2>Top tips</h2>
+						<h3>Error summary considerations</h3>
+						<ul>
+							<li>The error summary should be at the top of the <code>main</code> element. If the page includes <a href="../core-components/breadcrumbs.html">breadcrumbs</a> or a back link, place it after these, but before the <code>h1</code>.</li>
+							<li>The error summary must start with the heading &ldquo;There are X problems with this request&rdquo;, where X is a number equal to the number of validation errors. Wrap the heading in <code>&lt;div role="alert"&gt;</code> to help make sure it&rsquo;s announced by screen readers.</li>
+							<li>Link each item in the summary list to the input with the validation error. Use the same wording for both the error summary link and the inline error message.</li>
+							<li>Move keyboard focus to the first link in the error summary (Amplify includes JavaScript that will shift keyboard focus if an error summary is present.</li>
+						</ul>
+						<h3>Inline error message</h3>
+						<ul>
+							<li>Use <code>&lt;p class="field-error-msg"&gt;</code> to provide the error message. Check the examples that follow to see where to add it (this is slightly different for checkbox and radio inputs).</li>
+							<li>Each instance of <code>&lt;p class="field-error-msg"&gt;</code> must have a unique ID. It is suggested to use the pattern <code>id="error-...</code>, replacing the <code>...</code> with some unique wording that relates to the input purpose.</li>
+							<li>Add the <code>aria-describedby</code> attribute to the <code>input</code> or <code>fieldset</code> which the error message applies to, populating it with the ID of the relevant error message.
+								<ul>
+									<li>If there is already an <code>aria-describedby</code> for hint text, just add the error message ID after the hint text ID, separated by a space. Do not use multiple <code>aria-describedby</code> attributes.</li>
+								</ul>
+							</li>
+						</ul>
 					</div>
 					<div class="component">
 						<h2>Example form showcasing error messages</h2>
 						<form class="amplify-form" novalidate>
 							<h3 class="field-legend">Dealing with text</h3>
-							<div class="field field--error">
+							<div class="field-error">
 								<label for="name">Name (Required)</label>
 								<div class="field-hint" id="hint-name">E.g. Robin Smith</div>
 								<p class="field-error-msg" id="error-name"><span class="visuallyhidden">Error:</span> Enter a name</p>
-								<input type="text" id="name" name="name" autocomplete="name" aria-describedby="hint-name error-name">
+								<input type="text" id="name" name="name" autocomplete="name" aria-describedby="hint-name error-name" aria-invalid="true">
 							</div>
 
-							<div class="field field--error">
+							<div class="field-error">
 								<label for="message">Your message (Required)</label>
 								<p class="field-error-msg" id="error-msg"><span class="visuallyhidden">Error:</span> Enter a message</p>
-								<textarea id="message" name="message" aria-describedby="error-msg"></textarea>
+								<textarea id="message" name="message" aria-describedby="error-msg" aria-invalid="true"></textarea>
 							</div>
 
 							<h3 class="field-legend">Dealing with numbers</h3>
-							<div class="field field--error">
+							<div class="field-error">
 								<label for="account-number">Account number (Required)</label>
 								<div class="field-hint" id="hint-account-number">Must be between 6 and 8 numbers long</div>
 								<p class="field-error-msg" id="error-account-number"><span class="visuallyhidden">Error:</span> Enter an account number</p>
-								<input type="text" class="input-width-10" id="account-number" name="account-number" pattern="[0-9]*" maxlength="8" inputmode="numeric" aria-describedby="hint-account-number error-account-number">
+								<input type="text" class="input-width-10" id="account-number" name="account-number" pattern="[0-9]*" maxlength="8" inputmode="numeric" aria-describedby="hint-account-number error-account-number" aria-invalid="true">
 							</div>
 
 							<h3 class="field-legend">Dealing with dates and times</h3>
-							<div class="field field--error">
+							<div class="field-error">
 								<label for="arrival-date">Date of arrival (Required)</label>
 								<div class="field-hint" id="hint-arrival-date">For example 30/05/2021</div>
 								<p class="field-error-msg" id="error-arrival-date"><span class="visuallyhidden">Error:</span> Enter an arrival date</p>
-								<input type="text" class="input-width-10" id="arrival-date" name="arrival-date" aria-describedby="hint-arrival-date error-arrival-date">
+								<input type="text" class="input-width-10" id="arrival-date" name="arrival-date" aria-describedby="hint-arrival-date error-arrival-date" aria-invalid="true">
 							</div>
-							<div class="field field--error">
-								<fieldset role="group" aria-describedby="hint-date-of-birth error-date-of-birth">
+							<div class="field-error">
+								<fieldset aria-describedby="hint-date-of-birth error-date-of-birth">
 									<legend>Date of birth (Required) (an example of a memorable date)</legend>
 									<div class="field-hint" id="hint-date-of-birth">For example 20 07 1972</div>
 									<p class="field-error-msg" id="error-date-of-birth"><span class="visuallyhidden">Error:</span> Enter a date of birth</p>
 									<div class="memorable-date">
 										<label for="bday-day">Day</label>
-										<input type="text" class="input-width-2" id="bday-day" name="bday-day" autocomplete="bday-day" pattern="[0-9]*" inputmode="numeric" min="0" max="31">
+										<input type="text" class="input-width-2" id="bday-day" name="bday-day" autocomplete="bday-day" pattern="[0-9]*" inputmode="numeric" min="0" max="31" aria-invalid="true">
 									</div>
 									<div class="memorable-date">
 										<label for="bday-month" >Month</label>
-										<input type="text" class="input-width-2" id="bday-month" name="bday-month" autocomplete="bday-month" pattern="[0-9]*" inputmode="numeric" min="1" max="12">
+										<input type="text" class="input-width-2" id="bday-month" name="bday-month" autocomplete="bday-month" pattern="[0-9]*" inputmode="numeric" min="1" max="12" aria-invalid="true">
 									</div>
 									<div class="memorable-date">
 										<label for="bday-year">Year</label>
-										<input type="text" class="input-width-4" id="bday-year" name="bday-year" autocomplete="bday-year" pattern="[0-9]*" inputmode="numeric" min="1900" max="2050">
+										<input type="text" class="input-width-4" id="bday-year" name="bday-year" autocomplete="bday-year" pattern="[0-9]*" inputmode="numeric" min="1900" max="2050" aria-invalid="true">
 									</div>
 								</fieldset>
 							</div>
 
-							<div class="field field--error">
-								<fieldset role="group" aria-describedby="hint-meeting-time error-meeting-time">
+							<div class="field-error">
+								<fieldset aria-describedby="hint-meeting-time error-meeting-time">
 									<legend>Specify a start time for your meeting</legend>
 									<div class="field-hint" id="hint-meeting-time">Use <dfn id="utc"><abbr title="Coordinated Universal Time">UTC</abbr></dfn> and your local time zone</div>
 									<p class="field-error-msg" id="error-meeting-time"><span class="visuallyhidden">Error:</span> Enter a start time</p>
 									<div class="input-group">
 										<div>
 											<label for="meeting-time" class="faux-label">Start time</label>
-											<input type="text" class="input-width-5" id="meeting-time" name="meeting-time">
+											<input type="text" class="input-width-5" id="meeting-time" name="meeting-time" aria-invalid="true">
 										</div>
 										<div>
-											<label for="meeting-time" class="faux-label">Time zone</label>
+											<label for="timezone" class="faux-label">Time zone</label>
 											<select id="timezone" name="timezone">
 												<option value="UTC−12:00">UTC−12:00</option>
 												<option value="UTC−11:00">UTC−11:00</option>
@@ -261,42 +279,36 @@
 							</div>
 
 							<h3 class="field-legend">Other input types</h3>
-							<div class="field field--error">
+							<div class="field-error">
 								<label for="file">Upload an image</label>
 								<div class="field-hint" id="hint-file">Maximum file size 2MB</div>
 								<p class="field-error-msg" id="error-file"><span class="visuallyhidden">Error:</span> The file must be 2MB or smaller</p>
-								<input type="file" id="file" name="file" aria-describedby="hint-file error-file">
+								<input type="file" id="file" name="file" aria-describedby="hint-file error-file" aria-invalid="true">
 							</div>
 
-							<div class="field field--error">
+							<div class="field-error">
 								<fieldset aria-describedby="error-pets">
 									<legend class="group-legend">Do you own any pets? (Required)</legend>
 									<p class="field-error-msg" id="error-pets"><span class="visuallyhidden">Error:</span> Select yes if you do own pets</p>
-									<div class="radio-item">
+									<div>
 										<input type="radio" id="pets_yes" name="pets" value="yes">
-										<label for="pets_yes">
-											<span>Yes</span>
-										</label>
+										<label for="pets_yes">Yes</label>
 									</div>
-									<div class="radio-item">
+									<div>
 										<input type="radio" id="pets_no" name="pets" value="no">
-										<label for="pets_no">
-											<span>No</span>
-										</label>
+										<label for="pets_no">No</label>
 									</div>
-									<div class="radio-item">
+									<div>
 										<input type="radio" id="pets_none" name="pets" value="none">
-										<label for="pets_none">
-											<span>Prefer not to say</span>
-										</label>
+										<label for="pets_none">Prefer not to say</label>
 									</div>
 								</fieldset>
 							</div>
 
-							<div class="field field--error segmented-group-wrapper">
-								<fieldset role="group" aria-describedby="hint-segmented-options error-segmented-options">
+							<div class="field--error segmented-group-wrapper">
+								<fieldset aria-describedby="hint-segmented-options error-segmented-options">
 									<legend class="group-legend">Segmented options (Radio)</legend>
-									<div class="field-hint" id="hint-segmented-options">We understand that different people enjoy books in different ways, which is why we&rsquo;re giving you lots of options.</div>
+									<div class="field-hint" id="hint-segmented-options">We understand that different people enjoy books in different ways, so we’re giving you range of options.</div>
 									<p class="field-error-msg" id="error-segmented-options"><span class="visuallyhidden">Error:</span> Choose an option</p>
 									<div class="l-switcher segmented-group">
 										<div>
@@ -330,43 +342,36 @@
 								</fieldset>
 							</div>
 
-							<div class="field field--error">
-								<fieldset aria-describedby="error-like">
+							<div class="field-error">
+								<fieldset aria-describedby="hint-things-you-like error-like">
 									<legend class="group-legend">Things you like</legend>
 									<div class="field-hint" id="hint-things-you-like">Select all that apply.</div>
-									<span class="field-error-msg" id="error-like"><span class="visuallyhidden">Error:</span> Choose at least one item</span>
-									<div class="checkbox-item">
-										<input type="checkbox" name="chocolate" id="chocolate">
-										<label for="chocolate">
-											<span>Chocolate</span>
-										</label>
+									<p class="field-error-msg" id="error-like"><span class="visuallyhidden">Error:</span> Choose at least one item</p>
+									<div>
+										<input type="checkbox" name="chocolate" id="chocolate" aria-invalid="true">
+										<label for="chocolate">Chocolate</label>
 									</div>
-									<div class="checkbox-item">
-										<input type="checkbox" name="coffee" id="coffee">
-										<label for="coffee">
-											<span>Coffee</span>
-										</label>
+									<div>
+										<input type="checkbox" name="coffee" id="coffee" aria-invalid="true">
+										<label for="coffee">Coffee</label>
 									</div>
-									<div class="checkbox-item">
-										<input type="checkbox" name="cake" id="cake">
-										<label for="cake">
-											<span>Cake</span>
-										</label>
+									<div>
+										<input type="checkbox" name="cake" id="cake" aria-invalid="true">
+										<label for="cake">Cake</label>
 									</div>
-									<div class="checkbox-item">
-										<input type="checkbox" name="chips" id="chips">
-										<label for="chips">
-											<span>Chips</span>
-										</label>
+									<div>
+										<input type="checkbox" name="chips" id="chips" aria-invalid="true">
+										<label for="chips">Chips</label>
 										<div class="field-hint" id="hint-chips">Fries or frites, not crisps.</div>
 									</div>
 								</fieldset>
 							</div>
 
-							<div class="field field--error">
+							<div class="field-error">
 								<label for="day">Preferred day of appointment</label>
 								<p class="field-error-msg"><span class="visuallyhidden">Error:</span> Choose your preferred day</p>
-								<select id="day" name="day">
+								<select id="day" name="day" aria-invalid="true">
+									<option value>Select</option>
 									<option value="Monday">Monday</option>
 									<option value="Tuesday">Tuesday</option>
 									<option value="Wednesday">Wednesday</option>

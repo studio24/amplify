@@ -3,10 +3,10 @@
  * @see https://design-system.service.gov.uk/components/error-summary/#how-it-works
  */
 var formErrorSummary = function () {
-	var errorSummary = document.querySelector('[data-component="error-summary"]');
+	var firstError = document.querySelector('[data-component="error-summary"] li:first-of-type a');
 
-	if (errorSummary) {
-		errorSummary.focus();
+	if (firstError) {
+		firstError.focus();
 	}
 };
 
