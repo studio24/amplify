@@ -17,7 +17,7 @@ const minify = process.env.MINIFY === 'true';
 // build) because Rollup's iife/umd output formats don't support the
 // code-splitting Vite otherwise introduces for multi-entry app builds.
 // Entries are added with the `entries` key in the package.json config.
-for (const [name, file] of Object.entries(pkg.config.entries)) {
+for (const [name, file] of Object.entries(pkg.config.js.entries)) {
 	await build({
 		root,
 		configFile: false,

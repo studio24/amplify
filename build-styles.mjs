@@ -1,3 +1,6 @@
+// This script builds the CSS files from the Sass source files
+// it is run twice, once for expanded and once for compressed
+// CSS using the MINIFY env variable
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
@@ -15,12 +18,11 @@ const outDir = path.resolve(__dirname, `./${pkg.config.to}`, './styles');
 
 const minify = process.env.MINIFY === 'true';
 
-const entries = ['core', 'advanced', 'print'];
-
 fs.mkdirSync(outDir, { recursive: true });
 
-for (const name of entries) {
-	const { css } = sass.compile(path.resolve(root, `${name}.scss`), {
+for (const [name, file] of Object.entries(pkg.config.css.entries)) {
+
+	const { css } = sass.compile(path.resolve(root, `${file}`), {
 		style: minify ? 'compressed' : 'expanded',
 		sourceMap: false,
 	});
@@ -39,29 +41,34 @@ for (const name of entries) {
 // Not listed as an entry point, but still needs to be built and uses an additional
 // plugin to target the editor only
 
+// Only build if is WordPress and editor file is present
+const editorFile = path.resolve(root, `editor.scss`);
+if (pkg.config.isWordPress && fs.existsSync(editorFile)) {
+	// Custom plugin to replace the prefix of the editor-specific CSS with a custom selector
+	const editorCssPrefix = postcssPrefixSelector({
+		prefix: '.editor-styles-wrapper',
+		transform(prefix, selector) {
+			// :root, html, body all become .editor-styles-wrapper so that
+			// CSS variables and base styles are scoped to the editor canvas,
+			// matching what WordPress Gutenberg does with add_editor_style()
+			if ([':root', 'html', 'body'].includes(selector)) return prefix
+			return `${prefix} ${selector}`
+		},
+	});
 
-// Custom plugin to replace the prefix of the editor-specific CSS with a custom selector
-const editorCssPrefix = postcssPrefixSelector({
-	prefix: '.editor-styles-wrapper',
-	transform(prefix, selector) {
-		// :root, html, body all become .editor-styles-wrapper so that
-		// CSS variables and base styles are scoped to the editor canvas,
-		// matching what WordPress Gutenberg does with add_editor_style()
-		if ([':root', 'html', 'body'].includes(selector)) return prefix
-		return `${prefix} ${selector}`
-	},
-});
+	// Build process
+	const { css } = sass.compile(editorFile, {
+		style: minify ? 'compressed' : 'expanded',
+		sourceMap: false,
+	});
 
-// Build process
-const { css } = sass.compile(path.resolve(root, `editor.scss`), {
-	style: minify ? 'compressed' : 'expanded',
-	sourceMap: false,
-});
+	const result = await postcss([autoprefixer, editorCssPrefix]).process(css, {
+		from: undefined,
+		map: false,
+	});
 
-const result = await postcss([autoprefixer, editorCssPrefix]).process(css, {
-	from: undefined,
-	map: false,
-});
-
-const fileName = minify ? `editor.min.css` : `editor.css`;
-fs.writeFileSync(path.resolve(outDir, fileName), result.css);
+	const fileName = minify ? `editor.min.css` : `editor.css`;
+	fs.writeFileSync(path.resolve(outDir, fileName), result.css);
+} else if (pkg.config.isWordPress && !fs.existsSync(editorFile)) {
+	console.warn('WordPress editor specific CSS file not found. Skipping build.');
+}

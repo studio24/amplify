@@ -31,16 +31,28 @@
 	"config": {
 		"from": "assets-src",
 		"to": "web/dist",
-		"entries": {
-			"main": "main.js",
-			"country-autocomplete": "country-autocomplete.js",
-			"tabs": "package-extensions/s24-tabby-polyfills.js",
-			"splide": "package-extensions/s24-splide.js",
-			"sortable-tables": "sortable-tables.js"
+		"js": {
+			"_comment": "This section identifies the entry points for the JS build process and libraries to be copied over to the dist folder.",
+			"entries": {
+				"main": "main.js",
+				"country-autocomplete": "country-autocomplete.js",
+				"tabs": "package-extensions/s24-tabby-polyfills.js",
+				"splide": "package-extensions/s24-splide.js",
+				"sortable-tables": "sortable-tables.js"
+			},
+			"libraries": {
+				"fontfaceobserver/fontfaceobserver.js": "fontfaceobserver.js"
+			}
 		},
-		"libraries": {
-			"fontfaceobserver/fontfaceobserver.js": "fontfaceobserver.js"
-		}
+		"css": {
+			"_comment": "This section identifies the entry points for the CSS build process allowing for greater customization and control over the number of CSS files generated.",
+			"entries": {
+				"core": "core.scss",
+				"advanced": "advanced.scss",
+				"print": "print.scss"
+			}
+		},
+		"isWordPress": true
 	},
 	"scripts": {
 		"fonts": "shx cp -r ${npm_package_config_from}/fonts/* ${npm_package_config_to}/fonts",
