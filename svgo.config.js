@@ -1,14 +1,12 @@
 export default {
 	plugins: [
 		{
-			name: 'removeScriptElement'
+			name: 'removeScripts'
 		},
 		{
 			name: 'preset-default',
 			params: {
 				overrides: {
-					// manage plugins
-					removeViewBox: false,
 					removeUnknownsAndDefaults: false
 				},
 			},
