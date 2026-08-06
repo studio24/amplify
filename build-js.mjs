@@ -46,7 +46,7 @@ for (const [name, file] of Object.entries(pkg.config.js.entries)) {
 // Libraries are added with the `libraries` key in the package.json config.
 fs.mkdirSync(path.resolve(outDir, 'libraries'), { recursive: true });
 
-for (const [input, output] of Object.entries(pkg.config.libraries)) {
+for (const [input, output] of Object.entries(pkg.config.js.libraries)) {
 	fs.copyFileSync(
 		path.resolve(__dirname, 'node_modules/', input),
 		path.resolve(outDir, 'libraries/', output),

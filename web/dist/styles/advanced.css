@@ -866,7 +866,7 @@ amplify-table-sort col.js-sorted {
  * The tablist
  */
 [role=tablist] {
-  border-bottom: 1px solid rgb(82.8039215686%, 82.8039215686%, 82.8039215686%);
+  border-bottom: 1px solid rgb(211.15, 211.15, 211.15);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -889,7 +889,7 @@ amplify-table-sort col.js-sorted {
  */
 [role=tab] {
   border: 1px solid transparent;
-  border-top-color: rgb(82.8039215686%, 82.8039215686%, 82.8039215686%);
+  border-top-color: rgb(211.15, 211.15, 211.15);
   display: block;
   padding: 0.5em 1em;
   text-decoration: none;
@@ -909,12 +909,12 @@ amplify-table-sort col.js-sorted {
    */
 }
 [role=tab][aria-selected=true] {
-  background-color: rgb(82.8039215686%, 82.8039215686%, 82.8039215686%);
+  background-color: rgb(211.15, 211.15, 211.15);
 }
 @media (min-width: 30em) {
   [role=tab][aria-selected=true] {
     background-color: transparent;
-    border: 1px solid rgb(82.8039215686%, 82.8039215686%, 82.8039215686%);
+    border: 1px solid rgb(211.15, 211.15, 211.15);
     border-bottom-color: #ffffff;
   }
 }
@@ -928,7 +928,7 @@ amplify-table-sort col.js-sorted {
 }
 @media (min-width: 30em) {
   [role=tab]:hover:not([aria-selected=true]) {
-    border: 1px solid rgb(82.8039215686%, 82.8039215686%, 82.8039215686%);
+    border: 1px solid rgb(211.15, 211.15, 211.15);
   }
 }
 
