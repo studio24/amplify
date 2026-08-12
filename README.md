@@ -120,15 +120,15 @@ If needed, update the `package.json` file in the project root to specify [which 
 
 #### SVG Optimizer
 
-[SVG Optimizer](https://github.com/svg/svgo) is used to optimise SVG files. There is a `svgo.config.js` file in the project root to determine optimisation settings.
+[SVG Optimizer](https://github.com/svg/svgo) is used to optimise SVG files. The `svgo.config.js` file in the project root determines optimisation settings.
 
 #### Stylelint
 
-[Stylelint](https://stylelint.io/) is used to help avoid errors and enforce conventions in our CSS. There is a `stylelint.config.js` file in the project root which controls this process. [Linting Sass in Amplify](docs/css.md#linting-sass).
+[Stylelint](https://stylelint.io/) is used to help avoid errors and enforce conventions in our CSS. The `stylelint.config.js` file in the project root controls this process. [Linting Sass in Amplify](docs/css.md#linting-sass).
 
 #### Vite
 
-[Vite](https://vite.dev/) is used to compile, transpile and minify JavaScript files. There is a `build-js.mjs` file in the project root which controls this process, bundling each entry point in `assets-src/js` independently into `web/dist/js`.
+[Vite](https://vite.dev/) is used for compilation, transpilation and minification of styles and scripts. Build files can be found in the project root: `build-styles.mjs` processes the SCSS files; `build-js.mjs` processes JavaScript files, bundling files in `assets-src/js` independently into `web/dist/js`. Entry points are controlled in the `package.json` file in the project root.
 
 #### Copying over JS libraries
 If there are libraries that you would like to use as is in your project (rather than have Vite bundle them), copy them across from the `node_modules` (or another source) folder to the `dist` folder in `build-js.mjs`, using the syntax:
