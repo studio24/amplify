@@ -1,5 +1,12 @@
 # Changelog
 
+## [11.0.2](https://github.com/studio24/amplify/compare/v11.0.1...v11.0.2) (2026-08-13)
+
+
+### Bug Fixes
+
+* update NPM packages ([803a8b0](https://github.com/studio24/amplify/commit/803a8b0db50864c0476f2cb5f6475050a5a58a38))
+
 ## [11.0.1](https://github.com/studio24/amplify/compare/v11.0.0...v11.0.1) (2026-08-06)
 
 
