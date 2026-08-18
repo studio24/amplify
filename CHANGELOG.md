@@ -1,5 +1,12 @@
 # Changelog
 
+## [11.0.3](https://github.com/studio24/amplify/compare/v11.0.2...v11.0.3) (2026-08-18)
+
+
+### Bug Fixes
+
+* sortable table bugs ([1510a12](https://github.com/studio24/amplify/commit/1510a12d7f6cc62e5feb7a5117e4c39c6da227c4))
+
 ## [11.0.2](https://github.com/studio24/amplify/compare/v11.0.1...v11.0.2) (2026-08-13)
 
 
