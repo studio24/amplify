@@ -5,7 +5,6 @@
     return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
   }
   var tabby_polyfills_min$1 = { exports: {} };
-  /*! tabbyjs v12.0.3 | (c) 2019 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/tabby */
   var tabby_polyfills_min = tabby_polyfills_min$1.exports;
   var hasRequiredTabby_polyfills_min;
   function requireTabby_polyfills_min() {

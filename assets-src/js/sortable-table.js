@@ -121,7 +121,7 @@ customElements.define('amplify-table-sort', class extends HTMLElement {
 	 * @param {Element} header - <th> element with the sort button
 	 * @param {number} index - index of the column to sort
 	 */
-	#sortCol(header, index) {
+	#sortCol(header, index, colIndex) {
 		const newRows = Array.from(this.#rows);
 		const direction = this.#directions[index] || 'descending';
 		const multiplier = direction === 'descending' ? 1 : -1;
@@ -137,15 +137,19 @@ customElements.define('amplify-table-sort', class extends HTMLElement {
 
 			// Get data from table cells
 			if (header.matches('[data-type="date"]')) {
-				cellA = rowA.querySelectorAll('td')[index].getAttribute('data-date');
-				cellB = rowB.querySelectorAll('td')[index].getAttribute('data-date');
-			} else if (header.matches('[data-type="number"]')) { // checks for data-number
-				cellA = rowA.querySelectorAll('td')[index].getAttribute('data-number');
-				cellB = rowB.querySelectorAll('td')[index].getAttribute('data-number');
-				if (cellA === null || cellB === null) { // fallback if data-number doesn't exist
-					cellA = rowA.querySelectorAll('td')[index].innerHTML;
-					cellB = rowB.querySelectorAll('td')[index].innerHTML;
+				cellA = rowA.querySelectorAll('td')[colIndex].getAttribute('data-date');
+				cellB = rowB.querySelectorAll('td')[colIndex].getAttribute('data-date');
+			} else if (header.matches('[data-type="number"]')) {
+				cellA = rowA.querySelectorAll('td')[colIndex].getAttribute('data-number');
+				cellB = rowB.querySelectorAll('td')[colIndex].getAttribute('data-number');
+				if (cellA === null || cellB === null) {
+					cellA = rowA.querySelectorAll('td')[colIndex].innerHTML;
+					cellB = rowB.querySelectorAll('td')[colIndex].innerHTML;
 				}
+			} else {
+				// string (and any other/default) columns
+				cellA = rowA.querySelectorAll('td')[colIndex].textContent.trim();
+				cellB = rowB.querySelectorAll('td')[colIndex].textContent.trim();
 			}
 
 			// Transform data if data-type="number"/"date" attribute is present on table header
@@ -180,14 +184,15 @@ customElements.define('amplify-table-sort', class extends HTMLElement {
 	#onHeaderClick(event) {
 		const btn = event.currentTarget;
 		const header = btn.closest('th');
-		const index = this.#headers.indexOf(header);
+		const index = this.#headers.indexOf(header); // Direction-tracking index (filtered space)
+		const colIndex = header.cellIndex; // Real column index (DOM space)
 
 		// Sort table when clicked on table header
-		this.#sortCol(header, index);
+		this.#sortCol(header, index, colIndex);
 
 		// Add .js-sorted class to appropriate <col> when button in table header is clicked
 		this.#cols.forEach((col) => col.classList.remove('js-sorted'));
-		this.#cols[index]?.classList.add('js-sorted');
+		this.#cols[colIndex]?.classList.add('js-sorted');
 
 		// Add aria-sort attribute to table headers when clicked on table header
 		if (document.activeElement === event.target) {
