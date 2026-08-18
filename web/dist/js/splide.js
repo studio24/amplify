@@ -14,12 +14,6 @@
     Object.defineProperty(Constructor, "prototype", { writable: false });
     return Constructor;
   }
-  /*!
-   * Splide.js
-   * Version  : 4.1.4
-   * License  : MIT
-   * Copyright: 2022 Naotoshi Fujita
-   */
   var MEDIA_PREFERS_REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
   var CREATED = 1;
   var MOUNTED = 2;

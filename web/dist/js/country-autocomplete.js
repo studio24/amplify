@@ -632,7 +632,7 @@
               if (r2 && 1 !== p({ b: 1 }, p(d({}, "a", { enumerable: true, get: function() {
                 d(this, "b", { value: 3, enumerable: false });
               } }), { b: 2 })).b) return true;
-              var t3 = {}, e3 = {}, n3 = Symbol("assign detection"), o2 = "abcdefghijklmnopqrst";
+              var t3 = {}, e3 = {}, n3 = /* @__PURE__ */ Symbol("assign detection"), o2 = "abcdefghijklmnopqrst";
               return t3[n3] = 7, o2.split("").forEach((function(t4) {
                 e3[t4] = t4;
               })), 7 !== p({}, t3)[n3] || a(p({}, e3)).join("") !== o2;
@@ -853,7 +853,7 @@
           }, 772: function(t2, e2, n2) {
             var r2 = n2(8504), o = n2(9957), i = n2(6420).String;
             t2.exports = !!Object.getOwnPropertySymbols && !o((function() {
-              var t3 = Symbol("symbol detection");
+              var t3 = /* @__PURE__ */ Symbol("symbol detection");
               return !i(t3) || !(Object(t3) instanceof Symbol) || !Symbol.sham && r2 && r2 < 41;
             }));
           }, 2495: function(t2, e2, n2) {

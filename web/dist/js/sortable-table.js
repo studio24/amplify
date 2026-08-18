@@ -114,7 +114,7 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
    * @param {Element} header - <th> element with the sort button
    * @param {number} index - index of the column to sort
    */
-  sortCol_fn = function(header, index) {
+  sortCol_fn = function(header, index, colIndex) {
     const newRows = Array.from(__privateGet(this, _rows));
     const direction = __privateGet(this, _directions)[index] || "descending";
     const multiplier = direction === "descending" ? 1 : -1;
@@ -126,15 +126,18 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
       let cellA;
       let cellB;
       if (header.matches('[data-type="date"]')) {
-        cellA = rowA.querySelectorAll("td")[index].getAttribute("data-date");
-        cellB = rowB.querySelectorAll("td")[index].getAttribute("data-date");
+        cellA = rowA.querySelectorAll("td")[colIndex].getAttribute("data-date");
+        cellB = rowB.querySelectorAll("td")[colIndex].getAttribute("data-date");
       } else if (header.matches('[data-type="number"]')) {
-        cellA = rowA.querySelectorAll("td")[index].getAttribute("data-number");
-        cellB = rowB.querySelectorAll("td")[index].getAttribute("data-number");
+        cellA = rowA.querySelectorAll("td")[colIndex].getAttribute("data-number");
+        cellB = rowB.querySelectorAll("td")[colIndex].getAttribute("data-number");
         if (cellA === null || cellB === null) {
-          cellA = rowA.querySelectorAll("td")[index].innerHTML;
-          cellB = rowB.querySelectorAll("td")[index].innerHTML;
+          cellA = rowA.querySelectorAll("td")[colIndex].innerHTML;
+          cellB = rowB.querySelectorAll("td")[colIndex].innerHTML;
         }
+      } else {
+        cellA = rowA.querySelectorAll("td")[colIndex].textContent.trim();
+        cellB = rowB.querySelectorAll("td")[colIndex].textContent.trim();
       }
       const a = __privateMethod(this, _instances, transform_fn).call(this, index, cellA);
       const b = __privateMethod(this, _instances, transform_fn).call(this, index, cellB);
@@ -159,9 +162,10 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
     const btn = event.currentTarget;
     const header = btn.closest("th");
     const index = __privateGet(this, _headers).indexOf(header);
-    __privateMethod(this, _instances, sortCol_fn).call(this, header, index);
+    const colIndex = header.cellIndex;
+    __privateMethod(this, _instances, sortCol_fn).call(this, header, index, colIndex);
     __privateGet(this, _cols).forEach((col) => col.classList.remove("js-sorted"));
-    (_a2 = __privateGet(this, _cols)[index]) == null ? void 0 : _a2.classList.add("js-sorted");
+    (_a2 = __privateGet(this, _cols)[colIndex]) == null ? void 0 : _a2.classList.add("js-sorted");
     if (document.activeElement === event.target) {
       __privateGet(this, _headers).forEach((header2) => {
         if (header2.firstChild !== event.target) {
