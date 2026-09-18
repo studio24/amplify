@@ -1,5 +1,12 @@
 # Changelog
 
+## [11.0.4](https://github.com/studio24/amplify/compare/v11.0.3...v11.0.4) (2026-09-18)
+
+
+### Bug Fixes
+
+* merge pull request [#132](https://github.com/studio24/amplify/issues/132) from studio24/hotfix/package-updates ([673e0a8](https://github.com/studio24/amplify/commit/673e0a8363092eb3a9eee5fd86fbc0752db83970))
+
 ## [11.0.3](https://github.com/studio24/amplify/compare/v11.0.2...v11.0.3) (2026-08-18)
 
 
